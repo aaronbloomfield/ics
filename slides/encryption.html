@@ -1,0 +1,1291 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ICS: Encryption</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/ics.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+<section data-markdown id="cover"><script type="text/template">
+# CS 3501
+&nbsp;
+### Introduction to Cybersecurity
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/ics](http://github.com/aaronbloomfield/ics) / [&uarr;](index.html) / <a href="?print-pdf"><img class="print" width="20" src="images/print-icon.png" alt="print icon"></a></small></center>
+&nbsp;
+## Encryption
+</script></section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section data-markdown><textarea data-template>
+# Contents
+&nbsp;  
+[Introduction](#/intro)  
+[Classical ciphers & rotor machines](#/classical)  
+[Private key "symetric" ciphers](#/private)  
+[RSA](#/rsa)  
+[Randomness](#/random)  
+[Hashing](#/hashing)  
+[Top 10 uncracked codes](#/uncracked)  
+</textarea></section>
+
+	<section>
+      
+	  <section data-markdown id="intro"><textarea data-template>
+# Introduction
+	  </textarea></section>
+	  
+	  <section data-markdown data-separator="^\n$"><textarea data-template>
+## Telnet and tcpdump
+- Telnet is the old version of ssh (aka SecureCRT), and sends all data as plaintext
+- tcpdump will dump all data sent over a TCP/IP interface
+- The next slide shows a tcpdump
+  - ... but without the data in the packets, which has been eliminated from this slide
+- It's easy to show that data, though
+
+
+![tcpdump](images/encryption/tcpdump.png)
+
+
+## Codes versus Ciphers
+- Codes change the meaning of words, ciphers encrypt them
+- Coded messages:
+  - "The light is on in the attic"
+- Cipher'ed messages:
+  - wkh txlfn eurzq ira mxpsv ryhu wkh odcb grj
+  - wecrl teerd soeef eaoca ivden
+- [Reference](http://en.wikipedia.org/wiki/Cipher#Ciphers_versus_codes)
+
+
+## Codes
+- One- and two-part codes: contains one or two books that correlate coded words with their plaintext meanings
+- One-time code: a pre-arranged word or phrase intended to be used only once, and to convey a message
+  - "Over all of Spain, the sky is clear" - over the radio, it started the Spanish revolt of 1936
+
+
+## Codes
+- Idiot code: any sentence with 'day' and 'night' means 'attack' the location in the sentence
+  - Plaintext: Attack Gotham.
+  - Codetext: We walked day and night through the streets but couldn't find it! Tomorrow we'll head into Gotham.
+- [Reference](http://en.wikipedia.org/wiki/Code_(cryptography%29)
+
+
+## Security through obscurity
+- The use of secrecy to hide the cryptographic system being used
+  - Contrast this with algorithms such as RSA, which are publically analyzed
+- The problems is that somebody will figure out how it works ("many eyes make all bugs shallow" - Linus Torvalds)
+  - And then, if there is a flaw (due to lack of peer review), the system is vulnerable
+- [Reference](http://en.wikipedia.org/wiki/Security_by_obscurity)
+
+
+## Block-ciphers vs. stream ciphers
+- Block ciphers require a block of text (perhaps 1 Kb, for example)
+  - [Reference](http://en.wikipedia.org/wiki/Block_cipher)
+- Stream ciphers encrypt data as it is provided, character-by-character
+  - I prefer the name 'character cipher' over 'stream cipher'
+  - [Reference](http://en.wikipedia.org/wiki/Stream_cipher)
+
+
+## Cipher Taxonomy
+![cipher taxonomy](images/encryption/cipher-taxonomy.png)
+- [Reference](http://en.wikipedia.org/wiki/Ciphers)
+	</textarea></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="classical"><textarea data-template>
+# Classical ciphers and rotor machines 
+	  </textarea></section>
+	  
+	  <section data-markdown data-separator="^\n$"><textarea data-template>
+## Caesar Cipher
+- Julius Caesar used it to send military messages
+  - Rome's enemies were unable to crack it!
+- A simple substitution cipher
+  - Encryption: replace any letter with the letter 3 spots beyond
+- Decryption: the same, but go 3 letters back
+
+
+## Caesar Cipher
+![caesar cipher](images/encryption/caesar-cipher.png)
+
+
+## Caesar Cipher analysis
+- Example:
+  - Plaintext:  the quick brown fox jumps over the lazy dog
+  - Ciphertext: WKH TXLFN EURZQ IRA MXPSV RYHU WKH ODCB GRJ
+- Pros:
+  - Easy to encrypt and decrypt by hand
+- Cons:
+  - Easy to crack by hand
+
+
+## Caesar Cipher analysis
+- Cracking
+  - There are only 26 possibilities!
+    - Well, 25 really -- nobody would encrypt with a key of 0 or 26...
+  - A program could do this in a matter of microseconds; a person in a matter of minutes
+  - Example: crack "s psxn iyeb vkmu yp pksdr nscdeblsxq" online at http://md5decrypt.net/en/Caesar/
+- Substitution ciphers can be more complex
+  - Having a mapping, rather than a rotation
+
+
+## Cracking a substitution cipher
+- Cracking a Caesar cipher is trivial
+  - There are only 26 possibilities
+- But what about a more general substitution cipher?
+- Letter frequency analysis
+  - 'e' is the most common letter (12.7%)
+  - 'z' is the least common letter (0.1%)
+  - [Reference](http://en.wikipedia.org/wiki/Letter_frequencies)
+- Still very easy to crack
+
+
+## Vigenere cipher
+- If a Caesar Cipher is a alphabetic substitution, then a Vigenere cipher is a poly-alphabetic substitution cipher
+- The table used is the shown on the next slide
+- Suppose the message to encrypt is "attackatdawn"
+- And the keyword is "lemon"
+
+
+## Vigenere cipher table
+![vigenere table](images/encryption/vigenere-cipher.png)
+
+
+## Vigenere cipher
+- Cipher algorithm:
+  - Repeat the keyword until it matches the length of the message
+    - "attackatdawn" is 12 letters; the new keyword is "lemonlemonle"
+  - Encrypt the first letter of the message using the first letter of the keyword, etc.
+    - 'a' is encrypted with 'l', 't' with 'e', etc.
+  - The encryption is done by finding the row of the message character, and the column of the keyword
+
+
+## Vigenere cipher
+![vigenere table](images/encryption/vigenere-cipher.png)
+Encrypt "attackatdawn" with "lemon"
+
+
+## Vigenere cipher result
+- Plaintext: 		ATTACKATDAWN
+- Key: 		LEMONLEMONLE
+- Ciphertext: 	LXFOPVEFRNHR
+
+
+## Vigenere cipher analysis
+- It's stronger than a Caesar Cipher
+  - 'e' can be encrypted multiple ways
+- The weakness is the repeating key
+  - If you guess the length of the key (or try all possible lengths), then you can crack it
+  - Let's say the key is length 5 (a guess, perhaps)
+  - Then you simply do 5 interwoven Caesar Cipher cracks
+- What if the key is as long as the message?
+- [Reference](http://en.wikipedia.org/wiki/Vigenere_cipher)
+
+
+## One-time pad (OTP)
+- A substitution cipher
+- Take a *random* string that is as long as the plain text you want encrypt
+  - Use modular arithmetic (or XOR, or Vigenere) to determine the encrypted version
+  - Plain text: 	 helloworld
+  - One-time pad: zdxwhtsvtv
+  - Encrypted:	  hijiwqhnfz
+- [Reference](http://en.wikipedia.org/wiki/One-time_pad)
+
+
+## One-time pad (OTP) analysis
+- Pros
+  - Proven to be perfectly secure if:
+    - the pad is truly random
+    - the pad is only used once
+    - the pad is kept secret
+  - This, it is the ONLY cryptosystem with perfect secrecy
+  - It can be performed by hand
+
+
+## One-time pad (OTP) analysis
+- Cons:
+  - Good for short messages; it's hard to transport large pads (i.e. network communication)
+  - Does not provide message authentication
+  - How do you get the pad to the recipient?
+
+
+## Route cipher
+- A transposition cipher
+  - The plain text is written in a grid
+  - The secret key is the direction to read the cipher text
+- Plain text: 'we are discovered flee at once'
+- Cipher progression:
+```
+R E D F L E E A W 
+E J X E C N O T E 
+V O C S I D E R A 
+```
+- Key: "spiral inwards, clockwise, starting from the top right"
+- Cipher text: REDFLEEAWEJXECNOTEVOCSIDERA
+- [Reference](http://en.wikipedia.org/wiki/Transposition_cipher)
+
+
+## Rail fence cipher
+- A transposition cipher
+  - The plain text is written up and down on successive 'rails' of a fence
+  - The encrypted text is then read off in rows
+- Plain text: 'we are discovered flee at once'
+- Cipher progression:
+```
+W . . . E . . . C . . . R . . . L . . . T . . . E
+. E . R . D . S . O . E . E . F . E . A . O . C .
+. . A . . . I . . . V . . . D . . . E . . . N . .
+```
+- Cipher text: WECRL TEERD SOEEF EAOCA IVDEN
+- [Reference](http://en.wikipedia.org/wiki/Transposition_cipher)
+
+
+## WW2 Navajo Code Talkers
+- Used during the American strategy of island-hoping in the Pacific during WW2
+- Native Navajo speakers (which were only in the US!) were used to send messages back and forth over radio frequencies that could be spied on
+- The 'encryption' or cipher was the language
+  - There were no written documents or dictionaries in existence
+  - Other than Navajo Native Americans (all in the US, obviously), there were only 30 or so people who were fluent
+
+
+## WW2 Navajo Code Talkers
+- But there was a code as well
+  - Navajo words were translated into their English equivalents
+  - The first letter of each English translated word was combined to form the message
+  - If you didn't know this, it would be a series of unconnected Navajo words
+- It has been stated that the US would not have won the Battle of Iwo Jima without the Navajo code talkers
+- References [1](http://en.wikipedia.org/wiki/Code_talker#Use_of_Navajo%29) and [2](http://www.bingaman.senate.gov/features/codetalkers/)
+
+
+## Rotor machines
+- It performs a simple substitution of letters
+- After encrypting each letter, the rotors advance positions
+- Thus, they implement a poly-alphabetic substitution cipher
+  - Similar to the Vigenere cipher
+- [Reference](http://en.wikipedia.org/wiki/Rotor_machine)
+
+
+## Rotor machines
+![rotor machine](images/encryption/rotor-machine.png)
+
+
+## Enigma machine
+- Most famous rotor machine
+- Used by many governments in WW2, especially Nazi Germany
+- The Allies were able to decrypt Nazi messages
+  - But not through crypto-graphically cracking the code!
+- This is estimated to have shortened the war in the European theater by 2 years
+- [Reference](http://en.wikipedia.org/wiki/Enigma_machine)
+
+
+## Enigma machine
+![enigma machine](images/encryption/enigma-machine.png)
+	</textarea></section>
+
+	</section>
+
+	<section>
+      
+	  <section data-markdown id="private"><textarea data-template>
+# Private key "symetric" ciphers
+	  </textarea></section>
+	  
+	  <section data-markdown data-separator="^\n$"><textarea data-template>
+## Data Encryption Standard ([DES](http://en.wikipedia.org/wiki/Data_Encryption_Standard))
+- Adopted in 1976, it's a private-key encryption/decryption block cipher
+- Briefly, it does a lot of (invertible) bit-shifting in rounds to encrypt/decrypt a message
+- How to crack?
+  - It is susceptible to brute force attacks ($2^{56} = 7 * 10^{16}$ keys)
+- Solution: use DES three times => "Triple DES"
+  - Use a 56*3 = 168 bit key, and encrypt the message three times, once with each key
+
+
+## Cracking Triple DES encryption
+- Brute-force attacks:
+  - $2^{168}$ keys, but due to various mathematical properties, this ends up being $2^{112}$ different keys
+- "The best attack known on 3-key TDES requires around $2^{32}$ known plaintexts, $2^{113}$ steps, $2^{90}$ single DES encryptions, and $2^{88}$ memory"
+- NIST (National Institute of Standards and Technology) considers it secure through 2030
+
+
+## DES conspiracy theories
+- NSA was involved with DES' creation
+  - They convinced IBM to lower the key length from 128 to 64, and then to 56
+  - And kept many of the details secret
+  - Many well-respected people criticized the NSA for "improper interference" with the algorithm
+- In 1977, Diffe and Hellman (major names in cryptography) proposed a $20 million machine that could crack a DES message in a single day
+- It's known that the NSA had the budget for such a machine.  But did they build it?
+
+
+## Advanced Encryption Standard (AES)
+- The successor to DES
+- Has thee possible key lengths: 128, 192, and 256
+- NSA approved this standard, and kept the process open
+- Like DES, it's a series of (invertible) bit-shifting in rounds to encrypt/decrypt a message
+- Many worry about the security of the standard
+  - ... that somebody may figure a way to crack it mathematically, in particular
+- [Reference](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
+	</textarea></section>
+
+	</section>
+
+	<section>
+      
+	  <section data-markdown id="rsa"><textarea data-template>
+# [RSA](http://en.wikipedia.org/wiki/RSA)
+	  </textarea></section>
+	  
+	  <section data-markdown data-separator="^\n$"><textarea data-template>
+## Private key cryptography
+- The function and/or key to encrypt/decrypt is a secret
+ - (Hopefully) only known to the sender and recipient
+- The same key encrypts and decrypts
+- How do you get the key to the recipient?
+
+
+## Public key cryptography
+- Everybody has a key that encrypts and a separate key that decrypts
+ - They are not interchangable!
+- The encryption key is made public
+- The decryption key is kept private
+
+
+## Public key cryptography goals
+- Key generation should be relatively easy
+- Encryption should be easy (polynomial time)
+- Decryption should be easy (polynomial time)
+  - With the right key!
+- Cracking should be very hard (exponential time)
+
+
+## Is that number prime?
+- Use the Fermat primality test
+- Given:
+ - $n$: the number to test for primality
+ - $k$: the number of times to test (the certainty)
+- The algorithm is:
+```
+repeat k times: 
+    pick a randomly in the range [1, n-1]
+    if a^{n-1} mod n != 1 then return composite
+return probably prime
+```
+
+
+## Is that number prime?
+- The algorithm is:
+```
+repeat k times: 
+    pick a randomly in the range [1, n-1]
+    if a^{n-1} mod n != 1 then return composite
+return probably prime
+```
+- Let $n = 105$
+  - Iteration 1: $a = 92: 92^{104} \text{ mod }105 = 1$
+  - Iteration 2: $a = 84: 84^{104} \text{ mod }105 = 21$
+  - Therefore, 105 is composite
+
+
+## Is that number prime?
+- The algorithm is:
+```
+repeat k times: 
+    pick a randomly in the range [1, n-1]
+    if a^{n-1} mod n != 1 then return composite
+return probably prime
+```
+- Let $n = 101$
+ - Iteration 1: $a = 55: 55^{100} \text{ mod } 101 = 1$
+  - Iteration 2: $a = 60: 60^{100} \text{ mod } 101 = 1$
+  - Iteration 3: $a = 14: 14^{100} \text{ mod } 101 = 1$
+  - Iteration 4: $a = 73: 73^{100} \text{ mod } 101 = 1$
+  - At this point, 101 has a $(1/2)^4 = 1/16$ chance of still being composite
+
+
+## More on the Fermat primality test
+- Each iteration halves the probability that the number is a composite
+  - Probability = $(1/2)^k$
+  - If $k = 100$, the probability it's a composite is $(1/2)^{100} = 1\text{ in }1.2 * 10^{30}$ that the number is composite
+    - Greater chance of having a hardware error!
+  - Thus, $k = 100$ is a good value
+
+
+## More on the Fermat primality test
+- Even with a certainty of $k=100$, it is not certain that the number is prime!
+  - There are known numbers that are composite but will always report prime by this test
+  - The Carmichael numbers: 561, 1105, 1729, ...
+- [Reference](http://en.wikipedia.org/wiki/Fermat_primality_test)
+
+
+## Google's recruitment campaign
+![google billboard](https://statisticallyinsignificant.files.wordpress.com/2011/05/google.jpg)
+
+
+## Primarily test conclusions
+- If it says "composite" just once, it's definitely composite
+- Otherwise, it just says "probably prime"
+- Takes polynomial time (it's "easy" to compute)
+- We use $k=100$, as a hardware error is more likely beyond that
+- The computation involved is $a^{n-1}\text{ mod }n \neq 1$
+  - For 1200 digit numbers (what is used in practice), this is a significant computation!
+  - We will use existing libraries to compute this
+
+
+## The prime number theorem
+- The number of prime numbers less than $x$ is approximately $x/\text{ln}(x)$ [reference](http://en.wikipedia.org/wiki/Prime_number_theorem)
+  - Rephrased: the chance of an number $x$ being a prime number is  $1 / \text{ln}(x)$
+- Consider 200 digit prime numbers
+  - $\text{ln} (10^{200}) \approx 460$
+  - The chance of a random 200 digit number being prime is thus 1/460
+  - For only odd numbers, the chance is 2/460 = 1/230
+  - For a 2048 bit *odd* number (616 decimal digits) it's about 1/710
+
+
+## RSA
+- Stands for the inventors: Ron Rivest, Adi Shamir and Len Adleman
+- Three parts:
+  - Key generation
+  - Encrypting a message
+  - Decrypting a message
+
+
+## Key generation steps
+1. Choose two random large prime numbers $p$ and $q$ such that $p \neq q$, and then compute $n = p*q$
+2. Choose an integer $1 < e < n$ which is relatively prime to $(p-1)(q-1)$
+3. Compute $d$ such that:
+    - $d * e \equiv 1 (mod (p-1)(q-1))$
+   - Rephrased: $d*e \text{ mod  }(p-1)(q-1) = 1$
+4. Destroy all records of $p$ and $q$
+
+
+## Key generation, step 1
+- Choose two *random* large prime numbers $p \neq q$
+  - In reality, 2048 bit numbers are recommended
+    - That's about 617 decimal digits
+  - Chance of a random odd 2048 bit number being prime is about 1/710
+    - We can compute if a number is prime relatively quickly via the Fermat primality test
+- We choose $p = 107$ and $q = 97$
+- Compute $n = p*q$
+  - $n = 10379$
+
+
+## Key generation, step 1
+- Java code to find a big prime number:
+```
+BigInteger prime = new BigInteger
+          (numBits, certainty, random);
+```
+- Yes, it's that easy
+
+
+## Key generation, step 1
+- Full Java class to find a big prime number:
+```
+import java.math.*;
+import java.util.*;
+public class BigPrime {
+	static int numDigits = 617;
+	static int certainty = 100;
+	static final double LOG_2 = Math.log(10)/Math.log(2);
+	static int numBits = (int) (numDigits * LOG_2);
+	public static void main (String args[]) {
+		Random random = new Random();
+		BigInteger prime = new BigInteger (numBits, 
+						     certainty, random);
+		System.out.println (prime);
+	}
+}
+```
+
+
+## Key generation, step 1
+- How long does this take?
+  - On a modern (3.4 Ghz) machine, it took between 1/2 and 3 seconds
+	- Different runs require a different number of random number generations
+  - And this is Java -- it would be faster in C or C++
+
+
+## Key generation, step 1
+- Practical considerations
+  - $p$ and $q$ should not be too close together
+  - $(p-1)$ and $(q-1)$ should not have small prime factors
+- Use a good random number generator
+
+
+## Key generation, step 2
+- Choose an integer $1 < e < n$ which is relatively prime to $(p-1)(q-1)$
+- There are algorithms to do this efficiently...
+  - ... but we aren't going to go over them in this course
+- One easy way to do this: make $e$ be a prime number
+  - It only has to be relatively prime to $(p-1)(q-1)$, but it can be fully prime
+- $e$ should be a bit smaller than $n$ (maybe by a factor of 10 or 100 or so)
+
+
+## Key generation, step 2
+- Recall that $p = 107$ and $q = 97$
+  - $(p-1)(q-1) = 106 \* 96 = 10176$
+  - $10176 = 2^6\*3\*53$
+- We choose $e = 85$
+  - $85 = 5*17$
+  - $\text{gcd}(85, 10176) = 1$
+- Thus, 85 and 10176 are relatively prime
+  - Even though 85 is compisite
+
+
+## Key generation, step 3
+- Compute d such that:
+  - $d \* e \equiv 1 (\text{mod } (p-1)(q-1))$
+  - Rephrased: $d\*e \text{ mod } (p-1)(q-1) = 1$
+- There are algorithms to do this efficiently...
+  - ... but we aren't going to go over them
+- We determine $d = 4669$
+  - $4669\*85 \text{ mod } 10176 = 1$
+
+
+## Key generation, step 3
+- Java code to find d:
+```
+import java.math.*;
+public class FindD {
+	public static void main (String args[]) {
+		BigInteger pq = new BigInteger("10176");
+		BigInteger e = new BigInteger ("85");
+		System.out.println (e.modInverse(pq));
+    }
+}
+```
+- Result: 4669
+
+
+## Key generation, step 4
+- Destroy all records of $p$ and $q$
+  - If we know $p$ and $q$, then we can compute the private encryption key from the public decryption key via:
+  - $d * e \equiv 1 (\text{mod }(p-1)(q-1))$
+
+
+## The keys
+- We have $n = p*q = 10379$, $e = 85$, and $d = 4669$
+- The public key is $(n,e) = (10379, 85)$
+- The private key is $(n,d) = (10379, 4669)$
+- Thus, $n$ is not private; only $d$ is private
+- In reality, $p$ and $q$ are 616 (or so) digit numbers
+  - As that is 2048 bits
+  - Thus $n$ is a 1200 (or so) digit number
+  - $d$ and $e$ are about 1,199 (or so) digit numbers
+
+
+## Encrypting messages
+- To encode a message:
+  1. Encode the message $m$ into a number
+  2. Split the number into smaller numbers $m < n$
+  3. Use the formula $c = m^e \text{ mod }n$
+	 - $c$ is the ciphertext, and $m$ is the message
+- Java code to do the last step:
+```
+m.modPow (e, n)
+```
+	- Yes, it's that easy
+	- Where the object $m$ is the BigInteger to encrypt
+
+
+## Encrypting RSA messages
+Formula is $c = m^e\text{ mod }n$
+![RSA license plage](images/encryption/license-plate.jpg)
+
+
+## Encrypting messages example
+- Encode the message into a number
+   - String is "Go Cavaliers!!"
+   - *Modified* ASCII codes: 
+   - 41  81  02  37  67  88  67  78  75  71  84  85  03  03
+- Split the number into numbers $< n$
+   - Recall that $n = 10379$
+   - 4181  0237  6788  6778  7571  8485  0303
+
+
+## Encrypting messages example
+- Use the formula $c = m^e \text{ mod }n$
+   - $4181^{85}\text{ mod }10379 = 4501$
+   - $0237^{85}\text{ mod }10379 = 2867$
+   - $6788^{85}\text{ mod }10379 = 4894$
+   - Etc...
+- Encrypted message:
+  - 4501  2867  4894  0361  3630  4496  6720
+
+
+## Decrypting messages
+1. Use the formula $m = c^d\text{ mod }n$ on each number
+2. Split the number into individual ASCII character numbers
+3. Decode the message into a string
+
+
+## Decrypting messages example
+- Encrypted message:
+   - 4501  2867  4894  0361  3630  4496  6720
+- Use the formula $m = c^d\text{ mod }n$ on each number
+   - $4501^{4669}\text{ mod }10379 = 4181$
+   - $2867^{4669}\text{ mod }10379 = 0237$
+   - $4894^{4669}\text{ mod }10379 = 6788$
+   - Etc...
+
+
+## Decrypting messages example
+- Split the numbers into individual characters
+  - 41  81  02  37  67  88  67  78  75  71  84  85  03  03
+- Decode the message into a string
+  - Modified ASCII codes: 
+	- 41  81  02  37  67  88  67  78  75  71  84  85  03  03 
+	- Retrieved String is "Go Cavaliers!!"
+
+
+## modPow computation
+- How to compute $c = m^e\text{ mod }n$ or $m = c^d\text{ mod }n$?
+  - Example: $4501^{4669}\text{ mod }10379 = 4181$
+- Use the script at http://libra.cs.virginia.edu/modpow.php
+- Other means:
+  - Java: use the `BigInteger.modPow()` method
+  - Perl: use the `bmodpow()` function in the BigInt library
+  - C++: Use the `bigint` class (http://sourceforge.net/projects/cpp-bigint/) 
+  - Etc...
+
+
+## Cracking a message
+- In order to decrypt a m, we must compute $m = c^d \text{ mod }n$
+  - $n$ is known (part of the public key)
+  - $c$ is known (the ciphertext)
+  - $e$ is known (the encryption key)
+
+
+## Cracking a message
+- Thus, we must compute $d$ with no other information
+  - Recall: $n = p\*q$
+  - Recall: choose an integer $1 < e < n$ which is relatively prime to $(p-1)(q-1)$
+  - Recall: Compute $d$ such that: $d\*e\text{ mod }(p-1)(q-1) = 1$
+- Thus, given $n$ and $e$, we have to compute $d$
+
+
+## Cracking a message
+- Thus, we must factor the composite $n$ into it's component primes
+  - There is no efficient way to do this!
+  - We can, very easily, tell that $n$ is composite, but we can't tell what its factors are
+- Once $n$ is factored into $p$ and $q$, we compute $d$ as above
+  - Then we can decrypt $c$ to obtain $m$
+
+
+## Cracking a message example
+- In order to decrypt a message, we must compute $m = c^d\text{ mod }n$
+  - $n = 10379$, $e = 85$, and $c$ is the ciphertext
+- In order to determine $d$, we need to factor $n$
+  - $d\*e\text{ mod }(p-1)(q-1) = 1$
+  - We factor $n$ into $p$ and $q$: 97 and 107
+  - <font color='red'>This would not have been feasible with two large prime factors!!!</font>
+  - $d \* 85 (\text{mod }(96)(106)) = 1$
+- We then compute d as above, and crack the message
+
+
+## Signing a message
+- Recall that we computed:
+  - $d*e\text{ mod }(p-1)(q-1) = 1$
+- Note that $d$ and $e$ are interchangeable!
+  - You can use either for the encryption key
+- You can encrypt with either key!
+  - Thus, you must use the other key to decrypt
+
+
+## Signing a message
+- To "sign" a message:
+  1. Write a message, and determine the MD5 hash
+  2. Encrypt the hash with your private (encryption) key
+  3. Anybody can verify that you created the message because ONLY the public (encryption) key can decrypt the hash
+  4. The hash is then verified against the message
+
+
+## PGP and GnuPG
+- Two applications which implement the RSA algorithm
+- PGP was written in 1991 by Phil Zimmerman
+  - The US government didn't like PGP...
+- Gnu Privacy Guard (GnuPG) Is open-source (thus it's free) implementation of PGP, written in 1999
+- Both follow the OpenPGP Message Format
+  - Specified in RFC 4880: http://tools.ietf.org/html/rfc4880 
+
+
+## The US gov't and war munitions
+![war muntition shirt 1](images/encryption/war-munition-1.jpg)
+![war muntition shirt 2](images/encryption/war-munition-2.jpg)
+
+
+## Current state of the art for factoring
+- "As of the end of 2007, thanks to the constant decline in memory prices, the ready availability of multi-core 64-bit computers, and the availability of [efficient factoring software], special-form numbers of up to 750 bits and general-form numbers of up to about 520 bits can be factored [...]. These bounds would increase to about 900 and 600 [on a] few dozen PCs"
+  - We used 2048 bit (617 decimal digit) numbers!
+  - http://en.wikipedia.org/wiki/Integer_factorization_records 
+
+
+## Why RSA is considered secure
+- RSA security is based on two factors:
+  - Factoring large composites into their prime factors is hard
+	- In 2005, a 193-digit number was factored using 12.5 CPU years on a 2.2 GHz Operon CPU (actually 5 months on 30 CPUs)
+	- The best algorithm for factoring large numbers (general number field sieve) is $O(e^n)$
+
+
+## Why RSA is considered secure
+- RSA security is based on two factors:
+  - The "RSA problem": finding the $e^{th}$ roots modulo a composite number $N$ is hard
+	- Specifically, given $c = p^e\text{ mod } n$,  and knowing $c$, $e$, and $n$, finding $p$ is hard
+	- Considered as hard as integer factorization
+
+
+## RSA vulnerabilities
+- If $e$ is small, and $m$ is small (such that $m^e < n$), then the ciphertext can be easily decrypted
+- If multiple receivers share the same $e$, but different $p$, $q$, and $n$, then the same clear text message encrypted for the multiple receivers can be cracked via the Chinese remainder thoerem
+- RSA is vulnerable to chosen plaintext attacks (where you encrypt likely plain texts and compare it to the cipher text)
+- Etc.
+
+
+## Solution
+- Pad the message to make it longer
+  - And add random bits in the padding to prevent multiple encryptions of the same plain text from being the same cipher text
+- There are standards for doing this ([PKCS#1](https://en.wikipedia.org/wiki/PKCS_1))
+
+
+## How to "crack" PGP
+- Factoring $n$ is not feasible
+- Thus, "cracking" PGP is done by other means
+- Intercepting the private key
+  - "Hacking" into the computer, stealing the computer, etc.
+  - Man-in-the-middle attack (next 2 slides)
+  - Etc.
+
+
+<h2><a href="http://xkcd.com/538">Security</a></h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/security.png" title="Actual actual reality: nobody cares about his secrets.  (Also, I would be hard-pressed to find that wrench for $5.)" alt="Security">
+</textarea></section>
+
+	  <section class='rsa-anim'>
+<h2>"Normal" RSA communication</h2>
+<img alt="rsa communication bars" src="images/encryption/rsa-com-1-top.png">
+<img class="fragment fade-in"  data-fragment-index="1" alt="rsa communication 1a"  src="images/encryption/rsa-com-1-a.png">
+<img class="fragment fade-in"  data-fragment-index="2" alt="rsa communication 1b"  src="images/encryption/rsa-com-1-b.png">
+<img class="fragment fade-in"  data-fragment-index="3" alt="rsa communication 1c"  src="images/encryption/rsa-com-1-c.png">
+<img class="fragment fade-in"  data-fragment-index="4" alt="rsa communication 1d"  src="images/encryption/rsa-com-1-d.png">
+<img class="fragment fade-in"  data-fragment-index="5" alt="rsa communication 1e"  src="images/encryption/rsa-com-1-e.png">
+<img class="fragment fade-in"  data-fragment-index="6" alt="rsa communication 1f"  src="images/encryption/rsa-com-1-f.png">
+	  </section>
+
+	  <section data-markdown data-separator="^\n$"><textarea data-template>
+## SSH display to get a key
+![ssh good](images/encryption/ssh-good.png)
+
+
+## Man-in-the-middle attack
+- An attacker ("Eve") makes intercepts the communications between two participants, and relays messages between them
+  - Perhaps Eve has access to a router that the messages pass through
+  - Obviously, the participants ("Alice" and "Bob") are unaware that Eve is relaying the messages
+</textarea></section>
+
+	  <section class='rsa-anim'>
+<h2>MITM RSA communication</h2>
+<img alt="rsa communication bars" src="images/encryption/rsa-com-2-top.png">
+<img class="fragment fade-in"  data-fragment-index="1" alt="rsa communication 2a"  src="images/encryption/rsa-com-2-a.png">
+<img class="fragment fade-in"  data-fragment-index="2" alt="rsa communication 2b"  src="images/encryption/rsa-com-2-b.png">
+<img class="fragment fade-in"  data-fragment-index="3" alt="rsa communication 2c"  src="images/encryption/rsa-com-2-c.png">
+<img class="fragment fade-in"  data-fragment-index="4" alt="rsa communication 2d"  src="images/encryption/rsa-com-2-d.png">
+<img class="fragment fade-in"  data-fragment-index="5" alt="rsa communication 2e"  src="images/encryption/rsa-com-2-e.png">
+<img class="fragment fade-in"  data-fragment-index="6" alt="rsa communication 2f"  src="images/encryption/rsa-com-2-f.png">
+	  </section>
+
+	  <section data-markdown data-separator="^\n$"><textarea data-template>
+
+## SSH display with a possible MITM
+![ssh bad](images/encryption/ssh-bad.png)
+
+
+## How to prevent MITM attacks
+- You need a way to ensure that the key you get is the correct key
+- This gave rise to key stores
+  - Store in the sense of storage, not selling things
+- A key store's public key was well known and widely published
+- When you create a key, you upload it to the key store
+  - Somebody else would get your key from the key store
+- Still possible for me to upload a key and claim it's yours, though...
+
+
+## Other public key encryption methods
+- The goals are the same as RSA
+  - There must be two keys, which are paired
+  - Encryption and decryption (with the key!) should be "easy" (i.e. polynomial time)
+  - Cracking the message should be "hard" (i.e. exponential time)
+- Other ideas:
+  - Discrete logarithms (next slide)
+  - Elliptic curves
+
+
+## Discrete logarithms
+- Consider a mathematical group, or a congruence class, such as $Z_{12}$
+  - This is the same as a clock: add numbers, and mod the result by 12
+- Exponentiation: $3^4 = 81$
+  - But in the $Z_{17}$, 81 is really 13 as $81\text{ mod }17 = 13$)
+  - Thus $3^4 = 13$ in $Z_{17}$
+  - Or ${\log}_3  13 = 4$
+- Exponentiation is "easy", but finding a logarithm is "hard"
+- [Reference](http://en.wikipedia.org/wiki/Discrete_logarithm_problem)
+
+
+## History
+- 1976: Whitfield Diffe and Martin Hellman publish "New Directions in Cryptography", which proposes a public-key (i.e. asymmetric) system
+- 1978: RSA is invented by Rivest, Shamir, and Adleman
+- 1997: Whoops!  It turns out Diffe-Hellman and RSA were invented (independently) a bit earlier
+  - Diffe-Hellman by a British intelligence service (GCHQ) in '74
+  - RSA, also by the same British intelligence service, in 1975
+
+
+## Quantum computers
+- A quantum computer could (in principle) factor $n$ in reasonable time ($O(b^3)$, where $b$ is the number of bits)
+  - This would make RSA obsolete!
+  - Shown (in principle) by [Peter Shor in 1993](https://en.wikipedia.org/wiki/Shor's_algorithm)
+  - You would need a new (quantum) encryption algorithm to encrypt your messages
+- This is like saying, "in principle, you could program a computer to correctly predict the weather"
+- I bet the NSA is working on such a computer, also
+
+
+## Quantum computing factorization
+- In 2012, UCSB built a quantum computer that can factor 15 into 3*5 with 48% accuracy
+  - Yes, really
+  - (Okay, I realize that it was a big advancement, but come on now...)
+  - And it cost a *lot* of money...
+- [reference](http://www.popsci.com/science/article/2012-08/quantum-processor-calculates-15-3x5-about-half-time)
+
+
+## Latest quantum computing stats
+- April 2012: 143 factored into 13*11
+- April 2016: factored 200,099 into 401*499
+- [reference](https://en.wikipedia.org/wiki/Integer_factorization_records)
+
+
+## Should we be worried?
+- Probably not
+- It will likely be a while before quantum computers can be used to factor numbers used in modern encryption
+- And, at that point, we'll just use quantum encryption
+  - See [here](https://en.wikipedia.org/wiki/Quantum_key_distribution) for more details...
+	</textarea></section>
+
+	</section>
+
+	<section>
+      
+	  <section data-markdown id="random"><textarea data-template>
+# Randomness
+	  </textarea></section>
+	  
+	  <section data-markdown data-separator="^\n$"><textarea data-template>
+## Dilbert on random numbers
+![dilbert on random numbers](http://assets.amuniversal.com/321a39e06d6401301d80001dd8b71c47)
+
+
+## Computers and randomness
+- A computer, by definition, produces the same output for the same input
+- So how, then, can it produce truly random numbers?
+- The answer: it can't
+  - We instead generate [*pseudo-random* numbers](https://en.wikipedia.org/wiki/Pseudorandomness)
+- Pseudorandomness: "A pseudorandom process is a process that appears to be random but is not"
+  - That's all a computer can really generate
+
+
+## Necessity of randomness
+- Much of encryption depends on randomness
+- If you could "guess" the random number sequence, then you could figure out the one-time pad
+  - ... or the generated ssh keys, or the RSA keys...
+- So we need really good random numbers
+- Formally, we need a [cryptographically secure pseudorandom number generator](https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator)
+  - Formal definition shortly, but basically, it produces pseudo-random numbers that appear truly random
+
+
+## Typical generation method
+- The [linear congruential generator (LCG)](https://en.wikipedia.org/wiki/Linear_congruential_generator)
+- $X_{n+1}=(a*X_n+c) \text{ mod } m$
+  - $m$ is the modulus, and must be positive
+  - $a$ is the multiplier: $0 < a < m$
+  - $c$ is the increment: $0 < c < m$
+  - $X_0$ is the seed value
+- This will cycle through all values less than $m$ iff:
+  - $m$ and $c$ are relatively prime (i.e, $\gcd(m,c)=1$)
+  - $a-1$ is divisible by all prime factors of $m$
+  - $a-1$ is divisible by 4 if $m$ is divisible by 4
+
+
+## Typical method: example
+- Let $m=9$, $a=4$, $c=7$
+- We'll arbitrarily decide to start the sequence at 1
+  - Thus, $X_0=1$
+- Will this cycle through all values less than $m$?
+  - $m$ and $c$ are relatively prime: yes, as $\gcd(9,7)=1$
+  - $a-1$ is divisible by all prime factors of $m$: yes, the factors of 9 (3, 3) also divide 3 (which is $a-1$)
+  - $a-1$ is divisible by 4 if $m$ is divisible by 4: not applicable, as 3 (which is $a-1$) is not divisible by 4
+
+
+## Typical method: example
+- Let $m=9$, $a=4$, $c=7$
+- They will cycle through all the values, as shown on the last slide
+- $X_{n+1}=(a*X_n+c) \text{ mod } m$
+  - $X_0$ = 1
+  - $X_1 = (4*1+7) \text{ mod } 11 = 2$
+  - $X_2 = (4*2+7) \text{ mod } 11 = 6$
+  - $X_2 = (4*6+7) \text{ mod } 11 = 4$
+  - $X_3 = (4*4+7) \text{ mod } 11 = 5$
+  - Rest of the sequence: 0, 7, 8, 3, and then back to 1
+
+
+## Typical method: example
+- The linear congruential generator (LCG) sequence with $m=9$, $a=4$, $c=7$:
+  - 1, 2, 6, 4, 5, 0, 7, 8, 3, and then back to 1
+- But where to start in the sequence?
+  - We could start anywhere therein
+- Where we start is called the *seed*
+- Different seed values just start at a different spot in the cycle of random numbers
+
+
+## LCG parameters in use
+- libc uses $a=1103515245$, $c=12345$, and $m=2^{31}$
+  - This is what is called by `rand()` in C and C++; setting the seed is done by `srand()`
+  - This will cycle through 2 billion ($2^{31}$) values before repeating
+- It will cycle through all the values, as per the three properties defined earlier
+- With a seed of 1, the initial sequence is:
+  - 1, 1103527590, 377401575, 662824084, 1147902781, 2035015474, 368800899, ...
+
+
+## LCG parameters in use
+- [RANDU](https://en.wikipedia.org/wiki/RANDU) used $a=65539$, $c=0$, and $m=2^{31}$
+  - Used from the 1960's, it created a very easy to calculate sequence on old hardware
+  - But a *very* poor random sequence
+- It does *NOT* cycle through all possible numbers
+  - $\gcd(2^{31},0)\neq 1$, as $\gcd(a,0)=a$
+  - $a-1=65538$ is not divisible by 4 whereas $m=2^{31}$ is
+- With a seed of 1, the initial sequence is:
+  - 1, 65539, 393225, 1769499, 7077969, 26542323, ...
+  - All odd numbers!
+
+
+## LCG parameters in use
+- See [here](https://en.wikipedia.org/wiki/Linear_congruential_generator#Parameters_in_common_use) for more possibilities
+
+
+## What seed to use?
+- If you use the same seed, you will always get the same random sequence
+- Many people use `time(NULL)` in C/C++
+  - This is the current number of seconds since January 1st, 1970
+  - Which is how UNIX systems keep track of time
+- But if you run the program twice in the same second, it will use the same sequence!
+- That being said, this is probably sufficient for non-cryptographic purposes
+  - You could use the current time in milliseconds...
+
+
+## More randomness
+- There are many and better pseudo-random number generators
+- Those that are [computationally indistinguishable](https://en.wikipedia.org/wiki/Computational_indistinguishability) from true random numbers are considered suitable for cryptography
+  - These is what defines a [cryptographically secure pseudorandom number generator](https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator)
+- But how to get the initial seed?
+  - When computers produce the same output on the same input?
+
+
+## More randomness
+- We need a [randomness extractor](https://en.wikipedia.org/wiki/Randomness_extractor):
+> "a function, which being applied to output from a weakly random entropy source, together with a short, uniformly random seed, generates a highly random output that appears independent from the source and uniformly distributed"
+
+
+## More randomness
+- So how to get that "weakly random entropy source"?
+- You could use *other* input values such as:
+  - The 10th and 11th bit of the floating point value read in from the CPU temperature sensor
+  - Or the hash of that entire temperature value (use a good hash, as described later in this slide set)
+  - Or any other sensor that the computer has available
+  - Or [lava lamps](https://it.slashdot.org/story/17/11/07/1927239/how-cloudflare-uses-lava-lamps-to-encrypt-the-internet)
+  - Or many other methods
+
+
+## Determining randomness
+- To tell if a number sequence is truly (pseudo-) random, you run [randomness tests](https://en.wikipedia.org/wiki/Randomness_tests) on it
+- Examples:
+  - Run it a bagillion times and see if the distributions of the numbers is uniform across the range
+  - See if the numbers follow a [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution) (when run through the correct formulas)
+  - Interpret the numbers as 5 card stud poker hands, and see if the distrubtion of hands is the expected distribution
+  - And many others...
+
+
+## Debian OpenSSL predictability
+- A bit of background first...
+- Open source software is maintained by certain individuals
+  - Here called the "upstream developers"
+- Different Linux distrubtions will package them for easy installation
+  - Example: `sudo apt-get install openssl`
+  - Volunteers, called "package maintainers" do this work
+    - They are typically *not* the upstream developers
+
+
+## Debian OpenSSL predictability
+- Package maintainers do the following:
+  - Compile the (upstream) source code for various hardware platforms
+  - Change the configuration to match the system default (location of config files, etc.)
+  - Specifying the necessary dependent libraries / packages
+  - Putting all this together into an installable package, and uploading that to the distribution's servers
+
+
+## Debian OpenSSL predictability
+- In 2007 or 2008, the package maintainer for OpenSSL (the primary cryptographic library) noticed a series of warnings the compiler generated, and tracked them down to a given line in the code
+- Not being familiar with the code, he asked the upstream developer if that line could be removed
+- The upstream developer said "yes"
+- The line was removed, and the package distributed
+
+
+## Debian OpenSSL predictability
+- But that line is what added the randomness!
+- Without it, there were only 65k possible SSH keys that could be generated!
+  - Any computer could generate all of them in less than a day
+- Once patched, *everybody* had to regenerate their ssh keys...
+- Read more [here](https://www.debian.org/security/2008/dsa-1571)
+
+
+<h2><a href="http://xkcd.com/424/">Security Holes</a></h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/security_holes.png" title="True story: I had to try several times to upload this comic because my ssh key was blacklisted." alt="Security Holes">
+</textarea></section>
+
+	</section>
+
+	<section>
+      
+	  <section data-markdown id="hashing"><textarea data-template>
+# Hashing
+	  </textarea></section>
+	  
+	  <section data-markdown data-separator="^\n$"><textarea data-template>
+## Ensuring the download is correct...
+- What if we don't want to encrypt the data?
+  - So anybody can download it: patches, open source code, etc.
+  - But we want to be sure to allow those people to verify that they downloaded the correct file
+    - And that they didn't have any download errors
+- Solution: provide a hash code of the file
+
+
+## Hashing properties
+- Hash goals:
+  - Changing even a single bit has a dramatic effect on the hash code
+- Pigeon hole principle:
+  - If we use a 128-bit hash, that yields $2^{128} \approx 3.4 \* 10^{38}$ possible values
+  - If we have files that are 129+ bits, then there will be more possible files than there are hashes
+  - Thus, multiple files will provide the same hash
+  - This will hold for *all* hashes, as long as the hash code is of a finite length
+
+
+## Hash vulnerabilities
+- For a hash function to be really vulnerable, we want to be able to take an *arbitrary* text and make it match the desired hash code
+  - Sender sends: "deposit $1 million into account 12345" with hash "abcdefg"
+  - You intercept and send a new message: "deposit $1 million into account 67890; *(fl*_0" with hash "abcdefg"
+    - The trailing "; *(fl*_0" allowed the different document to match the same hash
+
+
+## Hash vulnerabilities
+- Being able to create two "random" files that match the same hash indicates a weakness, but is not yet a vulnerability
+
+
+## Collision resistant hashes
+- A *collision resistant hash* means that it is "hard" to find two inputs that hash to the same value
+  - Harder than, say, brute force
+  - If there is any way easier than brute force, that's bad
+
+
+## Collision resistant hashes
+- Due to the birthday paradox, one will typically have to brute force $2^{n/2}$ attempted values before a collision is found
+  - For MD5 (128 bits): $2^{128/2} = 2^{64} = 1.84 \* 10^{19}$ attempts
+    - Computing 1 million a second takes $5.85 \* 10^{11}$ years
+    - But a better attack can achieve this in under a minute
+    - (MD5 is *not* collision resistant, as described later)
+
+
+## Collision resistant hashes
+- For SHA-256 (256 bits): $2^{256/2} = 2^{128} = 3.40 \* 10^{38}$ attempts
+  - Computing 1 million a second takes $1.08 \* 10^{31}$ years
+- [reference](http://en.wikipedia.org/wiki/Collision_resistant )
+
+
+## [CRC32: Cyclic Redundancy Check](http://en.wikipedia.org/wiki/Crc32)
+- The hash value is a 32-bit integer
+  - There are variants of other bits: 16, 64, etc.
+- Is used for downloading files (via modem, download program, etc.) -- i.e. as a checksum
+  - It works great for this purpose
+- With the (simple) math behind the checksum, and "only" 4 billion possibilities, one can target a specific CRC 32 hash value
+  - This is a homework problem in [HW 9: hashes](../hws/hw9-hashes.html)
+
+
+## MD5: Message Digest 5
+- Produces a 128-bit value ($3.4 x 10^{38}$ possible values)
+  - Expressed as a 32-digit hex number
+- Probably the most widely used algorithm
+- Designed in 1991 when research indicated it's predecessor (MD4) was insecure
+- Printed in hex:
+```
+$ md5sum message1.txt 
+afe68f753a65f773a591bcf6f9ce3c63  message1.txt
+```
+
+
+## [MD5: Message Digest 5](http://en.wikipedia.org/wiki/Md5)
+- Still widely used for file downloading
+  - CERT: "should be considered cryptographically broken and unsuitable for further use"
+- A number of collisions have been found:
+  - 1996: "first" collisions found
+  - 2005: public keys (with associated private keys) could be constructed that have the same MD5 hash
+  - 2008: researchers faked SSL certificate validity by creating keys with desired MD5 hashes
+
+
+## SHA-0 and SHA-1
+- Designed by the NSA
+  - After the DES debacle, it's become an open standard
+  - Published by NIST (National Institute of Standards and Technology)
+- 160 bit hash
+- SHA-0 (1993): had a flaw, was quickly corrected
+  - The flaw introduced an unintended weakness
+- SHA-1 (1995): fixed that flaw, was very widely used for security applications
+  - But typically not for downloading files
+
+
+## SHA-0 and SHA-1
+- In 2005, security flaws were discovered in SHA-1
+  - A vulnerability has not been shown, however
+  - [reference](http://en.wikipedia.org/wiki/Sha-1)
+
+
+## [SHA-2](http://en.wikipedia.org/wiki/SHA-2)
+- Designed in 2001 to address the flaw discovered in SHA-1
+  - There are 4 variants, depending on the length of key desired: SHA-224, SHA-256, SHA-384, SHA-512
+- SHA-2 is mathematically similar (but not identical!) to SHA-1
+  - So if there are vulnerabilities in SHA-1, do they exist in SHA-2?
+  - Nobody knows, but this lead to the development of SHA-3
+- Most US gov't applications require a SHA-2 hash
+
+
+## [SHA-3](http://en.wikipedia.org/wiki/SHA-3)
+- Intent is for it NOT to derive (or be similar to) SHA-2
+  - So if the SHA-1 vulnerability exists in SHA-2, it thus will not affect SHA-3
+- NIST (National Institute for Standards and Technology) had an open solicitation / compettion for the algorithm
+  - The particular one selected was [Keccak](https://en.wikipedia.org/wiki/SHA-3)
+	</textarea></section>
+
+	</section>
+
+	<section>
+      
+	  <section data-markdown id="uncracked"><textarea data-template>
+# [Top 10 uncracked codes](http://listverse.com/miscellaneous/top-10-uncracked-codes)
+	  </textarea></section>
+	  
+	  <section data-markdown data-separator="^\n$"><textarea data-template>
+## 10. D'agapeyeff Cipher
+- A "challenge cipher" at the end of a 1939 book on cryptography
+- The author forgot how he encrypted it (and what it meant)
+- Many think that he made a mistake during encryption, hence why it has not been solved
+![d'agapeyeff cipher](images/encryption/dagapeyeff-cipher.png)
+
+
+## 9. Kryptos
+- A monument in the CIA headquarters, erected in 1990
+- In 1999, the first person publically admitted to solving about 90% of it
+- The other 10% remains unsolved (even by gov't cryptographers)
+![kryptos](http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2007/10/kryptos-tm.jpg)+
+
+
+## 8. Shugborough Hall Inscription
+- Based (somewhat) on a painting, but with a few differences
+- Has the following inscription:
+- D    O.U.O.S.V.A.V.V.    M
+- Is involved in the Holy Grail legend
+![shugborough hall inscription](http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2007/10/shug4big-tm.jpg)
+
+
+## 7. Chinese Gold Bar Cipher
+- Gold bars issued to a General Wang in 1933
+- It supposedly is a deposit greater than $300 billion
+- But the bank is unknown
+![chinese gold bar cipher](http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2007/10/10.1-tm.jpg)
+
+
+## 6. Chaocipher
+- An 'unbreakable' cipher from 1918
+- The gov't was rather uninterested in it
+![chaocipher](http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2007/10/jfb-tm.jpg)
+
+
+## 5. The Dorabella Cipher
+- A letter from Edward Elgar to Dora Penny in 1897 - she never figured it out, either
+- 87 characters from 24 symbols
+- Analysis indicates a frequency that would be expected from a substitution cipher
+![dorabella cipher](http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2007/10/elgciph-tm.jpg)
+
+
+## 4. Beale Ciphers
+- According to the story, a man in 1820 buried a load of treasure in VA
+- One of the ciphers has been decrypted, and it details the treasure itself
+- Perhaps the others lead to the treasure...
+![beale ciphers](http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2007/10/700px-beale-1.svg-tm.jpg)
+
+
+## 3. Linear A
+- A script used in ancient Crete
+  - This is from 1450 A.D.
+- It is somewhat similar to Linear B, and thus some info on this tablet is understood
+- But not all...
+![linear a](http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2007/10/lina-tm.jpg)
+
+
+## 2. [Voynich Manuscript](https://en.wikipedia.org/wiki/Voynich_manuscript)
+- An entire book in a secret script that is at least 400 years old
+  - 272 pages, although about 30 are missing
+- Lists unidentified plants, as well as herbal recipies, astrological diagrams
+- Has an 'alphabet' of 20-30 glyphs
+- Written in a 'confident' style - perhaps a hoax
+- Nobody has deciphered a single word
+![voynich manuscript](http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2007/10/awr-6vm2-tm.jpg)
+
+
+## 1. The Phaistos Disk
+- Also from ancient Crete
+  - And found along with Linear A
+- An inscription of hieroglyphics
+- Theories: a religious hymn, a list of soldiers, or a document about the building of a palace
+![phaistos disk](http://listverse.wpengine.netdna-cdn.com/wp-content/uploads/2007/10/phaistos-tm.jpg)
+	</textarea></section>
+
+      </section>
+      
+    </div>
+  </div>
+  <script src="reveal.js/lib/js/head.min.js"></script> 
+  <script src="reveal.js/js/reveal.js"></script>
+  <script src="settings.js"></script> 
+</body>
+</html>

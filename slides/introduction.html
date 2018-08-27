@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ICS: Course Introduction</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/ics.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+<section data-markdown id="cover"><script type="text/template">
+# CS 3501
+&nbsp;
+### Introduction to Cybersecurity
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/ics](http://github.com/aaronbloomfield/ics) / [&uarr;](index.html) / <a href="?print-pdf"><img class="print" width="20" src="images/print-icon.png" alt="print icon"></a></small></center>
+&nbsp;
+## Course Introduction
+</script></section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section data-markdown>
+  <textarea data-template>
+# Contents
+&nbsp;  
+[Motivation](#/why)  
+[Course Information](#/how)  
+[Ethics](#/ethics)  
+  </textarea>
+</section>
+  
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section data-markdown id="why" class="center"><textarea data-template>
+# Motivation
+  </textarea></section>
+      
+  <section data-markdown data-separator="^\n\n\n"><textarea>
+## First, a definition...
+> malware: software that is intended to damage or disable computers and computer systems
+
+
+
+## Costs of Malware
+- Cost of malware (worldwide):
+  - 1997: $3.3 billion ([source](http://www.computereconomics.com/article.cfm?id=1225))
+  - 2006: $13.3 billion ([source](http://www.computereconomics.com/article.cfm?id=1225))
+  - 2014: $491 billion ([source](https://www.scmagazine.com/breaches-malware-to-cost-491-billion-in-2014-study-says/article/539302/))
+- Companies often cover up the worst cases
+- Does not include cost of security measures
+
+
+
+## Malware Costs: Example 1
+- April 1999: [CIH (Chernobyl) virus](http://en.wikipedia.org/wiki/CIH_virus)
+  - Overwrites first megabyte of the hard drive with zeros, then overwrites the BIOS
+  - Only affects Windows 95, 98, and ME
+- $250 million lost in one day in Korea alone; widespread across Asia
+- Estimated $1 billion in damages in total
+- Hard to quantify cost of lost files, time spent reinstalling OS and applications, etc.
+
+
+
+## Malware Costs: Example 2
+- February 2001 mass mailer: [Anna Kournikova computer virus](https://en.wikipedia.org/wiki/Anna_Kournikova_(computer_virus))
+  - Visual Basic script attached to email, based on [LoveLetter](http://en.wikipedia.org/wiki/Loveletter)
+  - Enticed people to open it promising a picture of a popular and pretty tennis star
+    - Social engineering!
+  - Did little damage, though
+  - The creator didn't know how to program, but used a virus kit
+
+
+
+## Malware Costs: Example 3
+- 2010 / 2011: [Stuxnet worm](http://en.wikipedia.org/wiki/Stuxnet)
+  - By far the most advanced piece of malware ever created at that point
+  - It's goal (and it succeeded!) was to cripple Iran's nuclear enrichment
+    - Said program was set back by 1-2 years
+  - Authors have not come forward, but speculation is a joint Israel / US team
+
+
+
+## Malware Costs: Example 4
+- [Ashley Madison data breach](https://en.wikipedia.org/wiki/Ashley_Madison_data_breach)
+  - This is the site that peddled extra-marital affairs
+  - They threatened to release the site's DB info unless the site was closed down
+    - No ransom was requested!
+  - They did reveal the information, which led to embarrassment and some suicides
+  - Interestingly, almost all of the "female" members were bots...
+
+
+
+## Malware Costs: Example 5
+- [2016 US election hacks](https://en.wikipedia.org/wiki/Russian_interference_in_the_2016_United_States_elections)
+  - "The US intelligence community has concluded with high confidence that the Russian government interfered in the ... election"
+  - Whether it affected the outcome is up for debate (and not one I want to engage in)
+  - But the fact that they were able to interfere is worrisome
+- Interfering in elections is a common tactic; the US has done so a lot as well ([source](https://www.washingtonpost.com/news/worldviews/wp/2016/10/13/the-long-history-of-the-u-s-interfering-with-elections-elsewhere/))
+
+
+
+## Malware Costs: Example 6
+- [NotPetya](https://en.wikipedia.org/wiki/Petya_(malware))
+  - Infected Ukrainian companies through a back door put into a Ukrainian version of a TurboTax-like software
+    - Companies with Ukrainian subsidiaries were infected through their corporate network
+  - This was a "the equivalent of using a nuclear bomb to achieve a small tactical victory"
+  - There is a good [Wired article](https://www.wired.com/story/notpetya-cyberattack-ukraine-russia-code-crashed-the-world/) on it
+
+
+
+## Malware Costs: Conclusion
+- Computer viruses and other security attacks are very costly
+- Computer security is a hot field today; many career and research opportunities for graduates from this course
+- Knowledge of security issues is sensitive and carries an ethical responsibility with it
+- ...but how can you write a detection software for a virus that does not exist yet?
+
+
+
+## There are also policy motivations
+- US bills [SOPA](https://en.wikipedia.org/wiki/Stop_Online_Piracy_Act) / [PIPA](https://en.wikipedia.org/wiki/PROTECT_IP_Act) from 2011 were intended to hinder piracy, it would allow serious security problems
+  - There have been many such attempts since
+- US drone fleet virus (see articles [here](http://www.tgdaily.com/security-features/58927-virus-infects-us-military-drones) and [here](https://www.wired.com/2011/10/virus-hits-drone-fleet/))
+  - And people thought viruses were a thing of the past!
+</textarea></section>
+
+  <section>
+    <h2>A UVa hack (2013)</h2>
+    <img class="stretch" src="images/introduction/root-the-box-uva-hack.png" alt="uva hack image">
+    (<a href="http://www.c-ville.com/anatomy-of-a-hack-examining-root-the-boxs-attack-on-uvas-website/#.WZz6w3XythE">source</a>)
+  </section>
+  
+  <section>
+    <h2>Another UVa hack (2015)</h2>
+    <img class="stretch" src="images/introduction/uva-chinese-hack.png" alt="uva hack image">
+    (<a href="http://www.thedailybeast.com/chinese-hackers-target-us-university-with-government-ties">source</a>)
+  </section>
+
+  <section>
+    <h2>Yet another UVa hack (2016)</h2>
+    <img class="stretch" src="images/introduction/uva-phishing-hack.png" alt="uva hack image">
+    (<a href="https://www.washingtonpost.com/news/grade-point/wp/2016/01/22/phishing-hack-at-the-university-of-virginia-compromises-employee-computer-records/">source</a>)
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section data-markdown id="how" class="center"><textarea data-template>
+# Course Information
+  </textarea></section>
+
+  <section data-markdown data-separator="^\n\n\n"><textarea>
+## Course Objectives
+- Understand the ethical and policy context for cybersecurity in today's society
+- Understand how to better safeguard one's personal computer
+- Understand the basics of advanced topics in cybersecurity including encryption, digital forensics, binary exploits, and networks
+- Understand the modern concepts in cybersecurity attacks and prevention
+
+
+
+## Course Purpose
+- This course is meant to be a general introduction to cybersecurity
+- It will eventually be a pre-req for all the other cybersecurity courses at UVa
+  - But not yet, since this is the first semester the class is being taught
+
+
+
+## Content duplication
+- In the past, students have taken many different courses as their first cybersecurity course
+  - This led to a duplication of topics, including: encryption, networking basics, etc.
+- That content is being moved into this course
+  - Since it will shortly be a pre-req for all those other courses
+
+
+
+## Content duplication
+- Thus, if you have taken any of those classes:
+  - CS 4730: Defense Against the Dark Arts
+  - CS 4760: Network security
+  - CS 4501: Topics in Cryptography
+- You will see repeated content
+
+
+
+## Repeated content specifics
+Repeated content:
+- From CS 4730 (Defense Against the Dark Arts): terminology, encryption, SQL & XSS, networking basics, Stuxnet
+- From CS 4760 (Network security): networking basics, encryption, securing networks
+- From CS 4501 (Topics in Cryptography): encryption
+
+
+
+## Class Information
+- Prerequisites: CS 2150 with a grade of C- or higher
+- Grades
+  - Two midterms (15% each)
+    - Monday, October 1st, in lecture
+    - Wednesday, October 31st, in lecture
+  - Final exam (25%)
+  - Programming assignments (35%)
+  - Class participation, pop quizzes (10%)
+- I reserve the right to adjust the percentages based on the number of assignments and quizzes, and other factors
+
+
+
+## Final exam
+- It's on Friday, December 14th, from 2 pm to 5 pm
+  - I didn't get to choose the date and time...
+- You can't take it early, so please don't ask
+
+
+
+## Class Information
+- No textbooks required
+  - They get outdated too quickly!
+  - Readings will be via provided PDFs and online materials
+- Late homework is docked 25% per day (or fraction thereof)
+- Thus, more than 72 hours late will receive a zero 
+
+
+
+## Us and you
+- My office hours are M/W from 1:00-2:30; they start next week
+- We also have TAs for this course
+- I avoid e-mailing the class; announcements will be discussed each day in lecture
+- To contact me, please use the support tickets tool via the "Course Tools" tool in Collab
+  - Or directly via https://libra.cs.virginia.edu/~pedagogy/index.php
+  - It will allow for a much faster response time
+- We'll also have Piazza as well
+
+
+
+## Course Materials
+- They are kept in a github repo: https://github.com/aaronbloomfield/ics
+  - Released under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA) license
+- That repo is viewable online at http://aaronbloomfield.github.io/ics/
+
+
+
+## Collab
+- We'll use for only a few things:
+  - Quick login to the submission system
+  - Piazza link
+  - Large file downloads
+  - Not much else...
+- It will be available later this week
+- Recall that most of the course materials are in the [github repo](https://github.com/aaronbloomfield/ics)
+
+
+
+## Tentative schedule
+
+- Too long to list here, but a list of topics we will cover is shown at the end of the [course syllabus](../uva/syllabus.html)
+
+
+
+## Homeworks
+- There are expected to be one assignment every 1.5 weeks, on average
+  -  Some will be shorter and easier, some will be longer and harder
+- Will primarily be programming assignments
+
+
+
+## Completing the homeworks
+- You can use a VirtualBox image we will provide
+- You can use a NX/NoMachine account that we will provide
+- You can run it on your own computer
+
+
+
+## Honor policy
+- All assignments are individual assignments
+- You can talk at a high level about the assignment
+- You cannot look at anybody else's code prior to either of your submissions
+  - Including a later submission!
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section data-markdown id="ethics" class="center"><textarea data-template>
+# Ethics
+  </textarea></section>
+      
+  <section data-markdown data-separator="^\n\n\n"><textarea>
+## Computer Ethics
+- We must teach how attacks upon computer systems work in order to teach defenses against attacks
+- Information about attacks must NEVER be used to attack any computer system in any way
+
+
+
+## Ethics Pledge
+- You will have to read and sign the ethics pledge
+- It should not be difficult to follow
+- Ethics will be covered in more detail later
+- You cannot continue in the course without signing the [ethics pledge](../uva/ethics-pledge.pdf)!
+- I'll collect them in the next class
+
+
+
+## Ethics Pledge Points
+- Unauthorized use of computer resources is forbidden
+- Even malware that does nothing but copy itself uses resources
+- Don't ever rationalize that a system owner won't object to your actions; ask permission
+  - If you are afraid to ask permission, it must be forbidden!
+
+
+
+## Example: [1988 Morris Worm](http://en.wikipedia.org/wiki/Morris_worm)
+- Creator rationalized that the worm did no damage
+  - It only copied itself from system to system over the Internet
+- BUT: Copying monopolized system resources until they had to be shut down
+- Worm reached 10% of entire internet
+- Creator did not realize it would be that resource-intensive
+- Creator was convicted of felonies!
+  - And is now a professor at MIT.  Go figure!
+
+
+
+## Morris Worm Lessons
+- Consequences of a virus or worm cannot always be foreseen
+- Severe damage can be done without destroying data
+- Excessive resource usage is destructive enough to be criminal
+
+
+
+## Criminal Prosecution
+- Attackers have been prosecuted for:
+  - Stealing passwords, even if never used 
+  - Copying copyrighted materials
+  - Accessing confidential data, even if it was never used for harmful purposes
+  - Entering a system without permission, causing sys admins to spend time tracking them and securing the system, even without otherwise causing harm
+- Moral: Don't assume it is legally safe to do any of the above
+
+
+
+## Ethics Violations
+- Violations by students endanger our ability to offer this course
+- As a result, they will be treated severely
+  - UJC (University Judiciary Committee)
+  - Course grades
+  - Criminal prosecution
+
+
+
+## ACM Code of Ethics
+- ACM is the primary professional organization for computer scientists
+- The entire code is available at http://www.acm.org/about/code-of-ethics 
+
+
+
+## Ethics Questions
+- Scenario: John Doe attempts to guess the password of a user of a system on which John Doe has no account. After a few guesses, he succeeds, but finds nothing of interest on the system and logs off.
+- Q1: Has he committed a crime?
+- Q2: Are his actions analogous to any common crime not involving computers?
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+</div>
+</div>
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.js"></script>
+<script src="settings.js"></script>
+</body>
+</html>
