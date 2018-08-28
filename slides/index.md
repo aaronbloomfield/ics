@@ -6,7 +6,8 @@ ICS: Slides
 Slide sets, ordered in the order presented in lecture:
 
 - [Course introduction](introduction.html#/)
-- Terminology
+- [Terminology](terminology.html#/)
+- Security mindset
 - Ethics
 - Policy
 - Encryption

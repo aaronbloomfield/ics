@@ -8,7 +8,7 @@ This repository contains the materials for an Introduction to Cybersecurity (ICS
 
 Students *currently* in the course should view the [uva/index.html](uva/index.html) ([md](uva/index.md)) file in the **cloned** repository (i.e., don't try to view it on github.com); current students may also want to view the [daily announcements](uva/daily-announcements.html#/).  Note that many of the course materials are modified right before they are needed -- for example, this repository will be updated right before the semester starts.
 
-The primary author of this repository is [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) ([aaron@virginia.edu](<mailto:aaron@virginia.edu>)).
+The primary author of this repository is [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) ([aaron@virginia.edu](<mailto:aaron@virginia.edu>)). Many of the materials were taken, with permission, from other sources -- see the [license page](license.html) ([md](license.md)) for details.
 
 
 Repository Contents
@@ -16,6 +16,7 @@ Repository Contents
 
 - [Slides](slides/index.html) ([md](slides/index.md)): the slides presented in lecture, rendered using [reveal.js](https://github.com/hakimel/reveal.js/)
 - [UVa](uva/index.html) ([md](uva/index.md)): material specific to the current course instance at UVa (fall 2018)
+- [Homeworks](hws/index.html) ([md](hws/index.md))
 
 
 License

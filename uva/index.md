@@ -22,6 +22,25 @@ The parts of this course that are in this repo are:
 
 - [Course syllabus](syllabus.html) ([md](syllabus.md))
 - [Daily Announcements](daily-announcements.html#/)
+- [Homework policies](hw-policies.html) ([md](hw-policies.md))
+
+
+Readings
+--------
+
+All scholarly articles (such as from the ACM digital library) can be obtained from free from any UVa wireless network.  You will *NOT* be able to get it for free from your home Internet provider such as Comcast (unless you live in a UVa dorm, of course).
+
+- [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), due by Monday, September 3rd
+
+
+Homeworks
+-----------
+
+Unless otherwise noted, all submissions are due by the end of the day
+of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in 
+
+- [HW 1: Rational Paranoia](../hws/hw1-paranoia.html) ([md](../hws/hw1-paranoia.md)) is due on Thursday, September 6th 
+
 
 
 [152]: https://piazza.com/class/jlbqx6s57xq3we
