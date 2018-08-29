@@ -10,6 +10,7 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 I was obviously not the first to come up with the idea of an introduction to cybersecurity course, and many have paved the path before me.  Some of the content in this repository was taken, with permission, from the sources listed below.
 
 - [EECS 388 at the University of Michigan](https://www.eecs.umich.edu/courses/eecs388.w18/) -- this course, under a grant from Intel, was created and released under a [CC BY-SA](http://creativecommons.org/licenses/by-sa/4.0/) license.  The assignments were based on this course.
+- The ethics content is from [this module from Santa Clara University](https://www.scu.edu/ethics/focus-areas/technology-ethics/resources/an-introduction-to-cybersecurity-ethics/)
 
 ### Licensing details
 

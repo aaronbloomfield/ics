@@ -4,6 +4,17 @@ ICS: Homeworks: Homework Submission Policies
 [Go up to the ICS UVa page](index.html) ([md](index.md))
 
 
+### Honor System
+
+The honor system is in effect for all written assignments; details can
+be found in the [course syllabus](syllabus.html) ([md](syllabus.md))
+
+
+### Submission
+
+Submission is through the [online submission system](https://libra.cs.virginia.edu/~pedagogy/submit.php).  Note that the assignment will not open up until a few days before the due date.
+
+
 ### Colaboration
 
 Unless otherwise specified, it is not allowed.  We encourage you to

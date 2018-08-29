@@ -24,21 +24,25 @@ justifications or explanations as necessary. State any critical
 assumptions you decide to make. Your grade will be based on the
 thoroughness, realism, and thoughtfulness of your analysis.
 
-Pick two of the following scenarios. (If you answer more, we’ll
+Pick two of the following scenarios. (If you answer more, we'll
 ignore the last one(s))
 
-...
+a. You have to plan for the next anniversary of the [Unite the Right](https://en.wikipedia.org/wiki/Unite_the_Right_rally) rally, again in Charlottesville
+b. You are hired by [WillowTree](https://willowtreeapps.com/) to help secure their servers from corporate espionage
+c. You are grading homework 1 submissions for a class of 80 students
+d. You are in charge of the security for a home football game here at UVa
+e. You are in charge of making an election voting system that is both secure and has auditing capabilities
 
-Choose another scenario from everyday life that we haven’t discussed
-in class.  Your choice may be directly related to computer security,
-but it doesn’t have to be.
+In addition, choose another scenario from everyday life that we
+haven't discussed in class.  Your choice may be directly related to
+computer security, but it does not have to be.
 
 ### Submission Template
 
 Obviously reformat this in your word processor of choice.
 
 ```
-1. {Election|Checkout|Grading|NSA} Scenario
+1. {Rally|Server|Homework|Football|Election} Scenario
 
 [Assumptions: explain_assumptions]
 
@@ -59,7 +63,7 @@ Countermeasures:
 
 ----
 
-2. {Election|Checkout|Grading|NSA} Scenario
+2. {Rally|Server|Homework|Football|Election} Scenario
 
 ...
 
