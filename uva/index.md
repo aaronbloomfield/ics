@@ -21,7 +21,7 @@ There are a number of links and other parts of this course that are **NOT** incl
 The parts of this course that are in this repo are:
 
 - [Course syllabus](syllabus.html) ([md](syllabus.md))
-- [Daily Announcements](daily-announcements.html#/)
+- [Daily announcements](daily-announcements.html#/)
 - [Homework policies page](hw-policies.html) ([md](hw-policies.md))
 
 
@@ -43,6 +43,11 @@ of the due date given -- this means by 11:59:59 pm.  The late policies are discu
 
 - [HW 1: Rational Paranoia](../hws/hw1-paranoia.html) ([md](../hws/hw1-paranoia.md)) is due on Thursday, September 6th 
 
+
+Lecture progress
+----------------
+
+- Wed, Aug 29: [Course introduction](../slides/introduction.html#/), entire slide set
 
 
 [152]: https://piazza.com/class/jlbqx6s57xq3we
