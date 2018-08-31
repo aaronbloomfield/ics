@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ICS: The Security Mindset</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/ics.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+<section data-markdown id="cover"><script type="text/template">
+# CS 3501
+&nbsp;
+### Introduction to Cybersecurity
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/ics](http://github.com/aaronbloomfield/ics) / [&uarr;](index.html) / <a href="?print-pdf"><img class="print" width="20" src="images/print-icon.png" alt="print icon"></a></small></center>
+&nbsp;
+## The Security Mindset
+</script></section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section data-markdown>
+  <textarea data-template>
+# Contents
+&nbsp;  
+[Motivation](#/motivation)  
+[Security overview](#/overview)  
+[Case Study: C'ville's Unite the Right rally](#/casestudies)  
+  </textarea>
+</section>
+  
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+<section data-markdown id="motivation" class="center">
+  <textarea data-template>
+## Sources
+Some of the content for this slide set was based on [CS 487 from the University of Illinois at Chicago](https://www.cs.uic.edu/~s/teaching/cs487/2017-fall/slides/Lecture-01-Mindset.pdf), which was based on [ECE 422 / CS 461 from the University of Illinois](https://courses.engr.illinois.edu/cs461/sp2018/), which is also released under a [CC BY-SA](http://creativecommons.org/licenses/by-sa/4.0/) license
+  </textarea>
+</section>
+
+<section>
+
+<section data-markdown id="motivation" class="center">
+  <textarea data-template>
+# Motivation
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Security Fails
+You can find them [many places online](https://www.google.com/search?q=security+fails); Here is [one](https://brightside.me/wonder-curiosities/20-ridiculous-security-fails-that-are-too-good-to-be-true-426810/)
+
+
+
+## What is Security?
+>  Security is freedom from, or resilience against, potential harm (or other unwanted coercive change) from external forces.
+
+from [Wikipedia](https://en.wikipedia.org/wiki/Security)
+
+
+
+## What are "external forces"?
+- In our context, usually malware written by individuals
+    - But not always!  Stealing a computer to obtain the information on it is a non-software based approach...
+- To fight them, we have to understand them...
+
+
+
+## No security is 100% fool-proof
+- Consider the 128 bit MD5 hash
+  - One can brute force it!
+  - There are $2^{128}=3.4*10^{38}$ possible hashes
+  - So the chance of somebody guessing it is $100-\frac{1}{3.4*10^{38}}$ = 99.999999....% (a total of 42 9's)
+- That seems secure until you use a fast computer to brute force it in an hour or so...
+  - (there are mathematical weaknesses in MD5 that allow one to crack it in a minute or less)
+
+
+
+## Consider (only) 1024 bit RSA
+- There are approximately $1.88*10^{302}$ possible primes to brute force
+  - And there are only an estimated $10^{80}$ particles in the universe
+- Let's assume that each particle could compute one prime each millisecond
+  - That would take you $5.95*10^{211}$ years
+  - And the universe is only about $13.75*10^{9}$ years old...
+- Now 2048 bit is recommended, and 4096 is available
+- [Source](https://crypto.stackexchange.com/questions/3043/how-much-computing-resource-is-required-to-brute-force-rsa)
+
+
+
+## The key to good security...
+... is knowing your enemy
+</textarea></section>
+
+
+<section class="center">
+<p style="text-align:center"><i>If you know the enemy and know yourself,<br>you need not fear the result of a hundred battles.</i></p>
+<p style="text-align:center"><i>If you know yourself but not the enemy,<br>for every victory gained you will also suffer a defeat.</i></p>
+<p style="text-align:center"><i>If you know neither the enemy nor yourself,<br>you will succumb in every battle.</i></p>
+<p>&nbsp;</p>
+<p style="text-align:center">– Sun Tzu, Art of War, chapter 3<br>(Lionel Giles' translation)</p>
+</section>
+
+
+<section data-markdown data-separator="^\n\n\n"><textarea data-template>
+## Know your enemy
+- This is the threat model:
+  - ... what are their motives?
+  - ... what are their capabilities?
+  - ... what is their degree of access?
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="overview" class="center">
+  <textarea data-template>
+# Security Mindset Overview
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## The Security Mindset is...
+- Learning to think like the attacker
+  - Including trying to understand how to attack a system
+- Thinking critically about the system being examined
+- Understanding both technical and non-technical counter-measures
+- Trying to see how you can break something
+  - Or how something might break without you trying
+
+
+
+## The mindset...
+- From [Bruce Schneier's blog](https://www.schneier.com/blog/archives/2008/03/the_security_mi_1.html):
+> Security professionals ... can't walk into a store without noticing how they might shoplift. They can't use a computer without wondering about the security vulnerabilities. They can't vote without trying to figure out how to vote twice.
+
+
+</textarea></section>
+
+<section>
+<h2>Example: "Unbreakable" RSA</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/security.png" title="Actual actual reality: nobody cares about his secrets.  (Also, I would be hard-pressed to find that wrench for $5.)" alt="Security">
+<p class="center">"Security" from <a href="http://xkcd.com/538/">xkcd # 538</a></p>
+</section>
+
+<section data-markdown data-separator="^\n\n\n"><textarea data-template>
+## Security Mindset vs Crime
+- *Thinking* about the weaknesses of a system is different than *acting* on those weaknesses
+  - Thinking about how a lock can be picked allows one to build a better lock; this is not breaking and entering
+  - Thinking about how encryption can be exploited allows one to make more secure systems
+
+
+
+## Thinking Like an Attacker
+- Look for weakest links, as they are the easiest to attack
+- Identify assumptions that security depends on
+    - Are they false?
+- Think outside the box, and don't be constrained by the system designer's worldview
+
+
+</textarea></section>
+
+<section>
+<img alt="weakest link" class="stretch" src="images/security-mindset/road-block.jpg">
+</section>
+
+<section>
+<img alt="weakest link" class="stretch" src="images/security-mindset/lock.jpg">
+</section>
+
+<section data-markdown data-separator="^\n\n\n"><textarea data-template>
+## Thinking Like a Defender
+- There are four parts that we'll go over
+  - Security policy
+  - Threat model
+  - Risk assessment
+  - Countermeasures
+
+
+
+## Security policy
+- What are we trying to protect?
+- What properties are we trying to enforce?
+  - Confidentiality
+  - Integrity
+  - Availability
+  - Privacy
+  - Authenticity
+
+
+
+## Threat model 
+- Who are the attackers? 
+  - Motives?
+  - Capabilities?
+  - Access?
+
+
+
+## Risk assessment
+- What would security breaches cost us?
+  - Direct costs: money, property, safety, ...
+  - Indirect costs: reputation, future business, well being, ...
+- How likely are these costs?
+  - Probability of attacks?
+  - Probability of success?
+
+
+
+## Countermeasures
+- Technical countermeasures
+- Non-technical countermeasures
+  - Law, policy (government, institutional), procedures, training, auditing, incentives, etc.
+
+
+
+## Security Costs
+- No security mechanism is free
+  - Direct costs: design, implementation, enforcement, false positives
+  - Indirect costs: lost productivity, added complexity
+- Challenge is rationally weigh costs vs. risk
+  - Human psychology makes reasoning about high cost/low probability events hard
+
+
+
+## Case Study: Designing a software grading system
+- Thinking like an attacker:
+  - what are the weakest links?
+  - Security assumptions?
+  - Thinking outside the box?
+
+
+
+## Case Study: Designing a software grading system
+- Thinking like a defender:
+  - Security policy: what are we trying to protect?  What properties are we trying to enforce?
+  - Threat model: who are the attackers?  What are their motives, capabilities, and access?
+  - Risk assessment: what would a breach cost us, both in direct and indirect costs?  How likely are these costs?
+  - Countermeasures: both technical and non-technical
+</textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="casestudies" class="center">
+  <textarea data-template>
+# Case Study: Charlottesville's [2017 Unite the Right rally](https://en.wikipedia.org/wiki/Unite_the_Right_rally)
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+	<textarea data-template>
+## Introduction
+- All the information herein is taken from the [Heaphy report](https://www.policefoundation.org/wp-content/uploads/2017/12/Charlottesville-Critical-Incident-Review-2017.pdf)
+  - This report was commissioned by the Charlottesville City Council after the rally
+  - Immediately after it was released, both the Chief of Police for Charlottesville and the Superintendent of the Virginia State Police (VSP) resigned
+- Note that the *police officers* and the *VSP troopers* that were present did their jobs just fine -- it was the leadership that screwed up
+
+
+
+## Report results
+> The report found that the Charlottesville Police Department had failed to adequately prepare for its events, had a flawed plan of response, and was not properly trained. The report also criticized actions by the Charlottesville City Council, attorneys from the city and state, the University of Virginia and the Virginia State Police.
+
+from [Wikipedia's article on the rally](https://en.wikipedia.org/wiki/Unite_the_Right_rally#Heaphy_report)
+
+
+
+### Police watched violence happen
+From one (of many) [sources](https://www.propublica.org/article/police-stood-by-as-mayhem-mounted-in-charlottesville):  <i>"State police and National Guardsmen watched passively for hours as self-proclaimed Nazis engaged in street battles with counter-protesters. ProPublica reporter A.C. Thompson was on the scene and reports that the authorities turned the streets of the city over to groups of militiamen armed with assault rifles."</i>
+<p>&nbsp;</p>
+The image on the next slide shows this happening...
+</textarea></section><section>
+
+<img alt="rally picture" class="stretch" src="images/security-mindset/rally-166.jpg">
+
+</section><section data-markdown data-separator="^\n\n\n"><textarea data-template>
+## Streets were not properly closed
+- Some streets that were supposed to be closed were not
+  - Or were closed with an insufficient barrier
+- In particular, 4th Street NW where [Heather Heyer](https://en.wikipedia.org/wiki/Charlottesville_car_attack) was killed, was not properly closed
+  - Source: [Heaphy report](https://www.policefoundation.org/wp-content/uploads/2017/12/Charlottesville-Critical-Incident-Review-2017.pdf), pages 89-90
+- The next slide shows the *single* sawhorse barrier meant to stop all traffic on 4th street NW
+</textarea></section><section>
+
+<img alt="rally picture" class="stretch" src="images/security-mindset/rally-183.jpg">
+
+</section><section data-markdown data-separator="^\n\n\n"><textarea data-template>
+## Insufficient group separation
+- The Klan was told to exit right past the counter protesters
+  - With a police wall between the two groups
+  - The police where thus in the middle, and were the unfortunate recipients of thrown objects and being spit upon
+- An earlier plan didn't have any separation between the groups! (next slide)
+- Source: [Heaphy report](https://www.policefoundation.org/wp-content/uploads/2017/12/Charlottesville-Critical-Incident-Review-2017.pdf), pages 57-58
+</textarea></section><section>
+
+<img alt="rally picture" class="stretch" src="images/security-mindset/rally-119.jpg">
+
+</section><section data-markdown data-separator="^\n\n\n"><textarea data-template>
+## Other problems
+- Police did not have riot gear on (or ready) when people started showing up
+- The protesters (the Klan) were entrusted to enter the park where they were supposed to do so
+- An apparent lack of understanding how to plan for, control, and manage rioting demonstrators
+- The list goes on and on...
+
+
+
+## Countermeasures
+- Some where "non-technical"
+  - Lawsuits against the many armed militia groups resulted in legally binding agreements not to attend any more similar rallies in Charlottesville
+  - Lawsuits against the organizers
+  - The proof that violence can happen at these allowed Charlottesville to legally deny a permit for an aniversary rally
+
+
+
+## Countermeasure Results
+- The [Unite the Right anniversary rally](https://en.wikipedia.org/wiki/Unite_the_Right_2) in 2018 in Washington, DC had 20-30 supporters and "thousands" of counter-demonstrators
+  - It was described as a "pathetic failure" and "embarrassing"
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	
+</div>
+</div>
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.js"></script>
+<script src="settings.js"></script>
+</body>
+</html>
