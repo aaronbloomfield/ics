@@ -47,6 +47,8 @@ of the due date given -- this means by 11:59:59 pm.  The late policies are discu
 Lecture progress
 ----------------
 
+- Mon, Sep 3: [Security Mindset](../slides/security-mindset.html#/), all but the last column of slides; took quiz 1; signed ethics honor pledge
+- Fri, Aug 31: [Terminology](../slides/terminology.html#/), entire slide set
 - Wed, Aug 29: [Course introduction](../slides/introduction.html#/), entire slide set
 
 
