@@ -10,9 +10,10 @@ dates are listed on the [UVa course page](../uva/index.html)
 
 ### Assignment
 
-For each of the four scenarios (as explained below), imagine that you
-are in charge of security. Apply the security mindset (discussed in
-the [security slide set](../slides/security.html#/)) to answer these
+For each of the three total scenarios (two from our list, one of your
+own, as explained below), imagine that you are in charge of
+security. Apply the security mindset (discussed in the
+[security slide set](../slides/security.html#/)) to answer these
 questions:
 
 - *What assets are important for you to protect?*
