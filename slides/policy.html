@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ICS: US Cybersecurity Policy</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/ics.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+<section data-markdown id="cover"><script type="text/template">
+# CS 3501
+&nbsp;
+### Introduction to Cybersecurity
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/ics](http://github.com/aaronbloomfield/ics) / [&uarr;](index.html) / <a href="?print-pdf"><img class="print" width="20" src="images/print-icon.png" alt="print icon"></a></small></center>
+&nbsp;
+## US Cybersecurity Policy
+</script></section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section data-markdown>
+  <textarea data-template>
+# Contents
+&nbsp;  
+[Challenges](#/challenges)  
+[Case Study: SOPA & PIPA](#/sopapipa)  
+[History](#/history)  
+[3 later agencies](#/spooks)  
+[Presidential actions](#/pres)  
+  </textarea>
+</section>
+  
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="challenges" class="center">
+  <textarea data-template>
+# Challenges
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Narrowing our focus
+- This slide set focuses on *US* cybersecurity policy
+- Briefly, internationally:
+  - From the UN: [Half of all countries aware but lacking national plan on cybersecurity, UN agency reports](https://news.un.org/en/story/2017/07/560922-half-all-countries-aware-lacking-national-plan-cybersecurity-un-agency-reports) (from July 2017)
+  - The UN has focused on cybersecurity policy, [as early as 2011](http://www.un.org/en/development/desa/news/ecosoc/cybersecurity-demands-global-approach.html)
+    - However, the UN can not dictate policies for individual nations
+
+
+
+## Disclaimer
+- This topic is being presented in a non-partisan way
+  - All sources are non-partisan
+- You are going to see that I have a dim view of some (but not all!) of our elected representatives and their ability to get anything done...
+- Sorry if that offends anybody!
+  - I hope we don't have a child of a senator or representative here...
+
+
+
+## Question...
+- What do you think are the challenges in US cybersecurity policy?
+
+
+
+## Challenge 1: lack of congressional tech savvy
+- Political leaders are not elected based on their computer science knowledge
+  - Some are tech savvy, many are not
+- Consider the recent testimony of Facebook's Mark Zuckerberg before Congress on April 10, 2018
+  - This was in response to the [Cambridge Analytica data scandal](https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal) and Facebook's role in it
+- The video on the next slide is 1:00 long
+
+
+
+<iframe class="stretch" src="https://www.youtube.com/embed/n2H8wx1aBiQ?rel=0" data-autoplay></iframe>
+
+
+
+## Observations
+- That was Senator Orrin Hatch (Utah) questioning Zuckerberg in April 2018
+  - He is currently the longest serving senator and was then 84 years old
+- Zuckerberg seemed shocked by the question, and at first didn't know how to respond
+  - His smile after his "we run ads" comment is hilarious...
+- Hatch didn't seem to understand his response, but just said, "I see"
+
+
+
+## "It's a [series of tubes](https://en.wikipedia.org/wiki/Series_of_tubes)!"
+- Consider the late Senator Ted Stevens (Alaska)
+  - On June 28, 2006, he was criticizing an amendment that was effectively an early form of net neutrality
+  - At that time he was the chair for the Commerce, Science, and Transportation committee
+    - The committee in charge of regulating the (US) Internet!
+- I suspect that a staffer was trying to use the "tubes" analogy to explain the Internet to him
+- The video on the next slide is 2:29 long
+
+
+
+<iframe class="stretch" src="https://www.youtube.com/embed/f99PcP0aFNE?rel=0" data-autoplay></iframe>
+
+
+
+## Observations
+- Memorable quotes from that clip:
+  - "What happens to your own personal Internet?"
+  - "The Internet provided a new kind of long distance" (telephone service)
+  - "An Internet was sent by my staff" [the other day] which "got tangled up by all these things going on the Internet commercially"
+  - And, of course, [the Internet] is "not a big truck -- it's a series of tubes" that can be "filled"
+
+
+
+## Challenge 1: general lack of congressional understanding
+- Consider the [Burr-Feinstein Anti-Encryption Bill](https://www.burr.senate.gov/imo/media/doc/BAG16460.pdf) from April of 2016
+  - It would require tech companies to decrypt any communication upon court order
+  - This means that encryption would have to be developed that could be un-encrypted
+- Proper encryption does not work that way!
+- The [bill was declared dead](https://www.eff.org/deeplinks/2016/05/win-one-security-burr-feinstein-proposal-declared-dead-year) in May 2016
+- Sources: [1](https://techcrunch.com/2016/04/13/burr-feinstein-encryption-bill-is-officially-here-in-all-its-scary-glory/), [2](https://www.justsecurity.org/30606/burr-feinstein-crypto-bill-terrible/), [3](https://www.justsecurity.org/30606/burr-feinstein-crypto-bill-terrible/), [4](https://www.techdirt.com/articles/20160408/08381934131/burr-feinstein-release-their-anti-encryption-bill-more-ridiculous-than-expected.shtml), etc.
+
+
+
+## Challenge 2: rapid change in the field
+- This is a challenge for everybody, but especially for those who are not familiar with the field and not keeping up with it
+  - In other words, senators and representatives
+
+
+
+## Challenge 3: slow gov't response
+- The US gov't is slow in response to these things
+- Consider the 2015 [OMB](https://en.wikipedia.org/wiki/Office_of_Management_and_Budget)'s [HTTPS-Only Standard directive](https://obamawhitehouse.archives.gov/sites/default/files/omb/memoranda/2015/m-15-13.pdf):
+  - All federal gov't websites had to move from http to https
+  - They were given to December 31, 2016 -- *18 months later!*
+  - It takes about *18 minutes* to configure Apache with https, and most of that time is waiting for your certificate to be generated
+
+
+
+## Challenge 4: well funded adversaries
+- Other countries have stepped up their cyberwar capabilities
+  - Notably Russia, but also China
+- Many hacks originate from these countries
+  - And many of those are from gov't funded campaigns
+- The US would do this as well, but we aren't as good at doing so...
+
+
+
+## Challenge 5: state's rights
+- From the US Constitution's Bill of Rights, amendment 10:
+> The powers not delegated to the United States by the Constitution, nor prohibited by it to the States, are reserved to the States respectively, or to the people
+- The framers of the constitution, not having foreseen computers and cybersecurity, did not, in fact, delegate cyber *anything* to the US gov't
+
+
+
+## Challenge 5: state's rights
+- Does the federal government still have a role?
+  - Yes -- the security of the country is still in the federal government's powers
+- But many other things are not:
+  - ISP regulation
+  - Election machine security
+  - Currently, net neutrality (kinda...)
+  - Etc.
+
+
+
+## Challenge 6: US gov't working against secure computing
+- Many examples:
+  - Trying to put backdoors into encryption
+  - The NSA collected many exploits and did not tell the OS makers about them
+    - Other malware was exploiting these vulnerabilities as well
+    - When those [tools were leaked](https://en.wikipedia.org/wiki/The_Shadow_Brokers), additional malware made use of these exploits
+  - The [White House eliminated the administration's cybersecurity coordinator](https://www.darkreading.com/vulnerabilities---threats/us-government-cybersecurity-at-a-crossroads/d/d-id/1331815) in May 2018
+
+
+
+## Challenge 7: Who fixes this?
+- Executive branch: the president can issue an [executive order](https://en.wikipedia.org/wiki/Executive_order)
+  - They are limited (by design) in their scope
+  - Some of this power is relegated to certain departments, such as [DHS](https://en.wikipedia.org/wiki/United_States_Department_of_Homeland_Security)
+- Legislative branch: let's face it, they get nothing done, regardless of which party is in power.
+- Judicial branch: they interpret the law, not make it
+- So maybe... the states?
+  - But those problems often tend to occur on the state level as well
+
+
+
+## Challenge 8: lobbying and money in politics
+- [SOPA](https://en.wikipedia.org/wiki/Stop_Online_Piracy_Act) and [PIPA](https://en.wikipedia.org/wiki/Personal_Information_Protection_and_Electronic_Documents_Act) from 2012, which were heavily lobbied by the [MPAA](https://en.wikipedia.org/wiki/Motion_Picture_Association_of_America) and the [RIAA](https://en.wikipedia.org/wiki/Recording_Industry_Association_of_America), would have invalidated [DNSSEC](https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions)
+  - We'll see SOPA, PIPA, and DNSSEC shortly
+  - SOPA and PIPA were indefinitely postponed in 2012
+- Some people in congress will adopt any view if enough money is paid to them...
+
+
+
+## Challenge 9: retaining knowledgable people
+- In 2018, a typical starting salary for a *good* CS graduate with a bachelor's:
+  - About $100k in the industry
+  - $44k in the gov't ([source](https://www.payscale.com/research/US/Industry=Government/Salary)) -- yes, that's forty-four
+    - A bachelor's is GS-7 (or lower), [calculated](https://www.opm.gov/policy-data-oversight/pay-leave/salaries-wages/2016/general-schedule-gs-salary-calculator/) in the DC area
+  - Also, the gov't gives very little vacation to start
+
+
+
+## Challenge 9: retaining knowledgable people
+- This is why the gov't hires contractors, who can pay competitive rates
+  - But that causes lots of other issues, such as:
+    - Increased expense (overhead and profit for the contractor)
+	- Issues like the [Snowden leak](https://en.wikipedia.org/wiki/Snowden_leak)
+	- Contractors lobbying the gov't for unnecessary contracts
+	  - Like the [terrible website roll-out of the Affordable Care Act's HealthCare.gov site](https://en.wikipedia.org/wiki/HealthCare.gov#Concerns_about_the_website)
+
+
+
+## Challenge 10: contradictory gov't response
+- The US supports certain technologies for use by foreign individuals
+  - Example: encryption for use by groups subjugated from oppressive regimes
+- ... but they don't want these to be used by US citizens
+  - Since one cannot search a properly encrypted device
+</textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="sopapipa" class="center">
+  <textarea data-template>
+# Case Study:<br>[SOPA](https://en.wikipedia.org/wiki/Stop_Online_Piracy_Act) & [PIPA](https://en.wikipedia.org/wiki/Personal_Information_Protection_and_Electronic_Documents_Act)
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Introduction
+- SOPA = Stop Online Piracy Act (House bill 3261)
+- PIPA = Protect IP Act (Senate Bill 968)
+- Both were promoted in early 2012
+- This presentation focuses on SOPA, but they are pretty similar
+- Much of the content of this presentation (and all the images) comes from [the Wikipedia article](http://en.wikipedia.org/wiki/Stop_Online_Piracy_Act), as well as the pages linked to from there
+
+
+
+## Current status
+- SOPA and PIPA were "postponed" in 2012
+  - Basically, a way to kill the bill without formally admitting to killing it
+  - While these two bills will never become law, Congress does many similar things, which is why this is being discussed
+  - Example: [The Burr-Feinstein anti-encryption bill of 2016](https://www.techdirt.com/articles/20160408/08381934131/burr-feinstein-release-their-anti-encryption-bill-more-ridiculous-than-expected.shtml)
+
+
+
+## Hosting user content
+- To date, sites that host user content...
+  - Editable pages, such as on Wikipedia
+  - User submissions, such as on Reddit
+  - User comments, such as on Slashdot (and many other sites)
+  - User reviews, such as on Amazon
+- ... are not *liable* for an illegal posting ...
+  - Here 'illegal' means posting of copyrighted material
+- *AS LONG AS* the site takes the content down when notified in due course
+
+
+
+## SOPA and such sites
+- Under SOPA, any such site could be taken down for hosting illegal content *without giving them the chance to take it down themselves*
+  - But upon an accusation only; no need for proof!
+	- This is *contrary* to the whole concept of innocent-until-proven-guilty!
+- So one user post could take down an entire *domain*
+- Many sites would no longer be able to exist: etsy, flickr, vimeo, etc.
+
+
+
+## More on website take-down
+- Part of the issue is the wording in the bill is vague
+- [eWeek stated](http://www.eweek.com/cloud/house-sopa-hearings-reveal-anti-internet-bias-on-committee-witness-list):
+> The language of SOPA is so broad, the rules so unconnected to the reality of Internet technology and the penalties so disconnected from the alleged crimes that this bill could effectively kill e-commerce or even normal Internet use.
+
+
+
+## Users could be held criminally liable
+- It's fine if you post a Youtube video of yourself
+- But if copyrighted material happens to be in the background...
+  - ... you left the TV on, for example...
+  - ... or you had a can of soda on the table...
+- ... then you would be criminally liable under SOPA
+
+
+
+## Effect on pirate websites...
+- Almost none!
+- They just start posting their numeric IP addresses
+- And US law has no jurisdiction outside of the US, so piratebay.org can keep on operating, just like it has since 2003
+
+
+
+## Background: DNS
+- DNS (Domain Name Service) is what translates "www.cs.virginia.edu" into "128.143.67.11"
+  - Computers only use numerical addresses; it's only us humans that use text-based URLs
+- But how do you know you didn't get a maliciously corrupted response (called DNS cache poisoning)?
+
+
+
+## Background: DNSSEC
+- DNSSEC (DNS SECurity) is a hash-based signature confirming that the response received is from a trusted source
+  - It (mostly) prevents DNS cache poisoning
+- We will see all this in more detail in the encryption and networks slide sets
+
+
+
+## SOPA & DNS
+- SOPA provided a legal means to forcibly remove a site from DNS servers if a website was to be removed
+  - And using DNS circumvention methods (foreign DNS, for example) would become illegal
+- Such a website would bounce to a different website that states that the original one was taken down per SOPA
+  - (the bill sponsor agreed to remove these from the pending bill)
+
+
+
+## DNS failures...
+- Let's say you go to amazon.com...
+  - They do have user content (reviews) after all!
+- ... and you don't get there because of either:
+  - The domain was removed pursuant to SOPA
+  - There was DNS cache poisoning
+    - i.e., somebody inserted an imposter site for amazon.com
+- How could you tell the difference?
+- Answer: you can't.  They are indistinguishable.
+
+
+
+## Irony
+- Online censorship circumvention tools are used by many groups in authoritative countries
+  - And the US supports these tools - both their development, and financial support of their deployment
+- So the US gov't would be supporting these tools for non-free countries, but outlawing them for the US
+
+
+
+## Deep-packet inspection
+- So you manage to bypass this DNS removal
+  - By using the IP address directly, by using a foreign DNS, etc.
+- But now ISPs would be required to inspect EACH packet sent to see what website you are going to
+  - That means https (and Tor and other network levels of encryption) would be illegal to use!
+  - And let's ignore the immense computational task of checking each IP packet against a (very large and dynamically changing) list
+- Those IP addresses would then be blocked
+
+
+
+## Deep-packet inspection arms race
+- This will cause people to find circumvention routines (masking the IP addresses, using foreign redirector sites, etc.)
+  - As well as counters against the circumvention routines
+  - An arms race!
+- Savvy users would be able to circumvent these
+  - And the increased surveillance (aimed to catch these savvy users) would fall on the less-savvy users
+
+
+
+## SOPA & DNSSEC
+- DNSSEC requires browsers (really, application-level software) must continue searching DNS servers until it finds one -- possibly overseas -- that provides untampered results
+- But this would be *illegal* under SOPA
+- The attorney general can sue "any entity that knowingly and willfully provides ... a product ... for the circumvention or bypassing of" removed websites
+  - Meaning nobody in the US could provide DNSSEC or use it
+
+
+
+## Internet protest
+- On Wed, Jan 17, 2012, many sites lodged a protest by blacking out logos, headers, content, etc.
+  - Wikipedia, google, reddit, xkcd, the list goes on and on
+- This got *significant* press, and effectively shut down the bill in it's current state
+- But the supporters of the bills have strong lobbyists and deep pockets, so they'll be back...
+- Read [here for more info](http://en.wikipedia.org/wiki/Wikipedia:SOPA_initiative/Learn_more)
+
+
+
+## The bill was killed
+- SOPA and PIPA were "postponed" in 2012
+  - Basically, a way to kill the bill without formally admitting to killing it
+- While these two bills will never become law, Congress does many similar things, which is why this is being discussed
+  - Example: [The Burr-Feinstein anti-encryption bill of 2016](https://www.techdirt.com/articles/20160408/08381934131/burr-feinstein-release-their-anti-encryption-bill-more-ridiculous-than-expected.shtml)
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="history" class="center">
+  <textarea data-template>
+# History
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Talk about...
+- PGP and war munitions
+- SOPA, PIPA
+- DMCA
+
+
+
+## new slide
+three blank lines above causes a slide change
+
+
+
+## another new slide
+three blank lines above causes a slide change
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="spooks" class="center">
+  <textarea data-template>
+# 3 letter agencies
+<p style="text-align:center">(NSA, FBI, CIA, DOE, DHS, etc.)</p>
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Talk about...
+- Snowden
+- reality winner
+- ...
+
+
+
+## new slide
+three blank lines above causes a slide change
+
+
+
+## another new slide
+three blank lines above causes a slide change
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="pres" class="center">
+  <textarea data-template>
+# Presidential Actions
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Talk about...
+- ...
+
+
+
+## new slide
+three blank lines above causes a slide change
+
+
+
+## another new slide
+three blank lines above causes a slide change
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	
+</div>
+</div>
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.js"></script>
+<script src="settings.js"></script>
+</body>
+</html>

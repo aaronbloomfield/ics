@@ -10,6 +10,6 @@ Slide sets, ordered in the order presented in lecture:
 - [Course introduction](introduction.html#/)
 - [Terminology](terminology.html#/)
 - [Security mindset](security-mindset.html#/)
+- [Policy](policy.html#/)
 - Ethics
-- Policy
 - Encryption
