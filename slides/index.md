@@ -7,9 +7,9 @@ You may want to see the [daily announcements slide set](../uva/daily-announcemen
 
 Slide sets, ordered in the order presented in lecture:
 
-- [Course introduction](introduction.html#/)
+- [Course Introduction](introduction.html#/)
 - [Terminology](terminology.html#/)
-- [Security mindset](security-mindset.html#/)
-- [Policy](policy.html#/)
+- [The Security Mindset](security-mindset.html#/)
+- [US Cybersecurity Policy](policy.html#/)
 - Ethics
 - Encryption

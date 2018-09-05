@@ -10,3 +10,4 @@ please read that!
 ### Written homeworks
 
 - [Written homework 1: Rational Paranoia](hw1-paranoia.html) ([md](hw1-paranoia.html))
+- [Written homework 2: Cybersecurity Policy](hw2-policy.html) ([md](hw2-policy.html))

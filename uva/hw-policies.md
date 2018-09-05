@@ -59,6 +59,22 @@ either.  We were all college students once, and we know all those
 tricks too...
 
 
+## Essays
+
+Some written assignments will be essays.  These will have a
+***strict*** word limit, such as 500 words.  Each assignment will
+specify the word limit for that assignment (if it applies).  500 words
+is about 1 page worth of content.  Note that your name and title (if
+any) do not count toward the word limit.  References, if you use any,
+also do not count against this limit.  ***If it is over the word
+limit, then we will not grade it and give you a zero!***
+
+While we are not grading you based on your English writing skills, it
+still has to be reasonablly good English grammar (and spelling).
+Unless otherwise stated, it needs to be prose, not bulleted lists or
+similar.
+
+
 ### Grammar and spelling
 
 While this is not an English course, you have to have well English in
