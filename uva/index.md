@@ -52,6 +52,7 @@ of the due date given -- this means by 11:59:59 pm.  The late policies are discu
 Lecture progress
 ----------------
 
+- Mon, Sep 10: the remainder of [US Cybersecurity Policy](../slides/policy.html#/)
 - Fri, Sep 7: [US Cybersecurity Policy](../slides/policy.html#/), through the first few slides of the History section
 - Wed, Sep 5: [Security Mindset](../slides/security-mindset.html#/), the last column of slides; [US Cybersecurity Policy](../slides/policy.html#/), through challenge 7 in the Challenges section
 - Mon, Sep 3: [Security Mindset](../slides/security-mindset.html#/), all but the last column of slides; took quiz 1; signed ethics honor pledge
