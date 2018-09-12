@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ICS: Ethics</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/ics.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+<section data-markdown id="cover"><script type="text/template">
+# CS 3501
+&nbsp;
+### Introduction to Cybersecurity
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/ics](http://github.com/aaronbloomfield/ics) / [&uarr;](index.html) / <a href="?print-pdf"><img class="print" width="20" src="images/print-icon.png" alt="print icon"></a></small></center>
+&nbsp;
+## Ethics
+</script></section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section data-markdown>
+  <textarea data-template>
+# Contents
+&nbsp;  
+[Ethical Questions](#/cases)  
+[Ethical Issues](#/issues)  
+[Public Obligations](#/public)  
+[Ethical Frameworks](#/frameworks)  
+[Best Practices](#/practices)  
+  </textarea>
+</section>
+  
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section data-markdown>
+  <textarea data-template>
+## Sources
+Much of the material in this slide set came from [An Introduction to Cybersecurity Ethics](https://www.scu.edu/ethics/focus-areas/technology-ethics/resources/an-introduction-to-cybersecurity-ethics/), a free online cybersecurity ethics module provided by the [Markkula Center for Applied Ethics](https://www.scu.edu/ethics/) at [Santa Clara University](https://www.scu.edu)
+  </textarea>
+</section>
+  
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="cases" class="center">
+  <textarea data-template>
+# Ethical Questions
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Question 1: What if Google were out to get you?
+- Imagine that you were the mortal enemy of Larry Page or Sergey Brin
+  - The founders of Google
+- How much damage could they do to you?
+  - Control the information that you see?
+  - How much does Google know about you?
+  - How much access to your private digital life does Google have, beyond Gmail?
+- There are few laws that regulate any of this!
+
+
+
+## Question 1: What if Google were out to get you?
+- So why doesn't Google do this?
+  - Well, Brin and Page are not evil (although this is debated: [1](https://www.cnbc.com/2018/05/21/google-seems-to-have-removed-most-mentions-of-dont-be-evil-from-its-code-of-conduct.html), [2](https://www.engadget.com/2018/05/24/google-will-always-do-evil/), [3](https://www.infoworld.com/article/2610434/cringely/google--evil--you-have-no-idea.html), etc.)
+  - Actually, they do [do some of these things in other countries](https://www.nytimes.com/2018/08/01/technology/china-google-censored-search-engine.html)
+- Beyond not being evil, few people would use their services if they were known to do these things
+
+
+
+## Question 2: [Trolley Problem](https://en.wikipedia.org/wiki/Trolley_problem)
+<img alt="trolley problem" src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Trolley_problem.png" style="height:200px">
+- You see a runaway trolley moving toward five tied-up people lying on the tracks
+- You are next to a lever that controls a switch
+- If you pull the lever, the trolley will be redirected onto a side track and the five people on the main track will be saved
+
+
+
+## Question 2: [Trolley Problem](https://en.wikipedia.org/wiki/Trolley_problem)
+<img alt="trolley problem" src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Trolley_problem.png" style="height:200px">
+- However, there is a single person lying on the side track
+  - Option 1: Do nothing and allow the trolley to kill the five people on the main track
+  - Option 2: Pull the lever, diverting the trolley onto the side track where it will kill one person
+- Which is the most ethical option?
+
+
+
+## Question 3: Another variation
+- Imagine you somehow knew that an individual would inadvertently kill another person
+- Would you kill them to prevent this?
+  - Assume that nobody would have this foreknowledge, and you would be branded a murderer
+<li class="fragment" data-fragment-index="1">What if the person would inadvertently kill 5 others?  10?  100?  A million?</li>
+<li class="fragment" data-fragment-index="2">What if this were inadvertent?</li><ul><li class="fragment" data-fragment-index="2">Meaning the individual would murder those other(s)</li></ul>
+
+
+
+## Question 4: FBI & Apple Encryption Dispute
+- The 2 who caused the [2015 San Bernardino attack](https://en.wikipedia.org/wiki/2015_San_Bernardino_attack) that killed 14 used encryption on their iPhone 5C
+  - The FBI was unable to crack it at the time
+- The FBI ordered Apple to *write a program* to crack it, but Apple refused
+  - It could allow mass surveillance and persecution of others
+    - Especially if it leaked out of US control
+- Apple refused, citing privacy and ethics
+- This is the [FBI-Apple encryption dispute](https://en.wikipedia.org/wiki/FBI%E2%80%93Apple_encryption_dispute)
+
+
+
+## Question 4: FBI & Apple Encryption Dispute
+- What were Apple's ethical requirements?
+  - While one can agree or disagree with Apple, there are definitely arguments on both sides
+- Ultimately, it was discovered that one can hack into these phones via booting it through the USB port
+  - This "feature" has been removed on more recent iPhones
+- However, Apple's [appeal to public more about protecting market share than privacy, says UAlberta ethics professor](https://www.folio.ca/apple-vs-fbi-and-the-ethics-of-encryption/)
+
+
+
+## Question 5: Gov't Leaks
+- Are leaks from within the government unethical?
+  - Such as leaks from within the White House, etc.
+- Consider how partisan of a world we live in...
+- For members of the *same* party as the president:
+  - *Yes, they are unethical!  Those perpetrators should be caught and thrown in jail!*
+- For members of the *opposite* party as the president:
+  - *No, they are not!  They are revealing what an awful regime is running the country!*
+- This has happened to previous administrations as well, to varying degrees
+
+
+
+## Lessons Learned
+- Question 1: Google
+  - Companies with a lot of power can do greater damage with unethical choices
+- Question 2: Trolley
+  - Not all of these have correct answers (or even widely accepted answers)
+- Question 3: Stopping a murderer
+  - All these questions have thresholds
+
+
+
+
+## Lessons Learned
+- Question 4: FBI & Apple
+  - Allowing a "crack" on encryption can have unintended consequences
+  - Companies that state they are making the ethical choice may only be making the best financial choice
+- Question 5: 
+  - Reasonable people will have different views as to what is "ethical"
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="issues" class="center">
+  <textarea data-template>
+# Ethical Issues
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## What is Ethics?
+> Ethics is a branch of philosophy that involves systematizing, defending, and recommending concepts of right and wrong conduct
+
+- [Wikipedia](https://en.wikipedia.org/wiki/Ethics)
+
+> the most important thing is not life, but the good life
+
+- Socrates
+
+
+
+## Ethics helps stabilize society
+- Obvious examples: don't kill, don't steal, etc.
+- As a result, all major religions and societies have these rules
+  - Secular and sacred laws follow these ethics: don't kill, don't steal, etc.
+- They help us live a "good life", as per Socrates
+- Separate from moral arguments, ethics is a matter of self-preservation
+  - Keep others from harming you
+
+
+
+<!-- .slide: class="right-float-img-800" -->
+## With Great Power Comes Great Responsibility
+![spider man image](https://images-na.ssl-images-amazon.com/images/I/61yJKZIJqjL.jpg)
+- Technology gives us great<br>power
+  - To accomplish a lot,<br>to harm others
+- The quote is [more likely<br>from the period of the<br>French Revolution](https://quoteinvestigator.com/2015/07/23/great-power/)
+
+
+
+## Technological Dependence
+- We are increasingly becoming more dependent on technology
+- If it were used in ways that could harm us, then that would have a much greater effect than it would have decades ago
+  - See: [Facebook and the 2016 election](https://en.wikipedia.org/wiki/Social_media_in_the_United_States_presidential_election,_2016)
+
+
+
+## Inability to keep up
+- With the rapid change of technological advancement, it is not realistic to have laws force ethical behavior
+  - Lawmakers don't understand technology
+  - Change is faster than laws can realistically be passed
+  - Poor law wording can have wide-ranging negative effects
+- Thus, various organizations have their own ethics policies, including the [ACM Code of Ethics](https://www.acm.org/code-of-ethics) and [IEEE's technological ethics division](https://techethics.ieee.org/)
+
+
+
+## Ethics and Cybersecurity
+- Design of cybersecurity systems seeks to protect:
+  - Integrity
+  - Functionality
+  - Reliability
+  - Etc.
+- As designers, we want to ensure that we are designing systems that:
+  - Are as safe as possible
+  - Do not have intentional backdoors or means for improper surveillance
+
+
+
+## How can harm result?
+- Beyond intentional backdoors and such...
+- From poor programming or deliberate unethical choices
+  - Note that the poor design choices are considered unethical when people depend on the system in some way
+  - People have gone to jail for poor design of systems, both computer and otherwise, in these situations
+- Can you go to jail for coding?
+
+
+
+## How can harm result?
+- Can you go to jail for coding?
+- Note that this is poor programming to the point of being *negligent*
+  - Not just a coding mistake
+- However, it is ethical to ensure that your system works via tests and testing suites
+
+
+
+## Ethical Issues in Cybersecurity
+- Harm to privacy
+- Harm to property
+- Cybersecurity costs
+- Transparency and disclosure
+- Roles, duties, and interests
+
+
+
+## Harm to privacy
+- Beyond just embarrassment at your porn viewing history, that is...
+- Consider:
+  - Identity theft, including financial account theft
+    - The most common of these, since there is money to be obtained through this
+  - Social ostracisation
+  - Blackmail
+  - Extortion
+  - Theft of state secrets
+
+
+
+## Harm to property
+- Loss of funds from a financial account
+- Perhaps digital property (loss of data)
+- Some machines can be damaged via malware; this happened as early as 1999 via the [Chernobyl virus](https://en.wikipedia.org/wiki/CIH_virus)
+- Connected weapon systems can damage property (and people!)
+  - Think of [Skynet](https://en.wikipedia.org/wiki/Skynet_(Terminator%29) from the [Terminator franchise](https://en.wikipedia.org/wiki/Terminator_(franchise%29)
+  - Luckily not many exist (yet)...
+
+
+
+## Cybersecurity costs
+- Too much security, and the system becomes unusable
+  - Consider a system that needs to be accessed quickly: emergency response systems
+- Too little, and the system is too insecure
+- This decision is an ethical one, balancing between these two factors
+  - Companies hire [business ethicists](https://en.wikipedia.org/wiki/Business_ethics) for this purpose
+- There is one-size-fits-all correct answer to this!
+
+
+
+## Transparency and disclosure
+- If a vulnerability is found, how soon to notify?
+  - Perhaps not all that soon if it's hard to find, or if no patch yet exists
+  - Otherwise, notify right away
+- This decision is an ethical one, balancing between these two factors
+- There is one-size-fits-all correct answer to this!
+
+
+
+## Roles, duties, and interests
+- Consider conflicts of interest:
+  - Wanting to release an encryption vulnerability to help promote a better algorithm
+  - Hiring an ethically deficient person to try to turn them to the light side of the Force
+- Are these ethically allowed?
+- This decision is an ethical one, balancing between these two factors
+- There is one-size-fits-all correct answer to this!
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="public" class="center">
+  <textarea data-template>
+# Public Obligations
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Introduction to ...
+- some intro list here
+- another list item
+<aside class="notes">
+  Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit »S« on your keyboard).
+</aside>
+
+
+
+<!-- .slide: class="right-float-img" -->
+## new slide
+three blank lines above causes a slide change
+
+
+
+## another new slide
+three blank lines above causes a slide change
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="frameworks" class="center">
+  <textarea data-template>
+# Ethical Frameworks
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Introduction to ...
+- some intro list here
+- another list item
+<aside class="notes">
+  Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit »S« on your keyboard).
+</aside>
+
+
+
+<!-- .slide: class="right-float-img" -->
+## new slide
+three blank lines above causes a slide change
+
+
+
+## another new slide
+three blank lines above causes a slide change
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="practices" class="center">
+  <textarea data-template>
+# Best Practices
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+
+
+
+
+
+
+- some intro list here
+- another list item
+<aside class="notes">
+  Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit »S« on your keyboard).
+</aside>
+
+
+
+<!-- .slide: class="right-float-img" -->
+## new slide
+three blank lines above causes a slide change
+
+
+
+## another new slide
+three blank lines above causes a slide change
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	
+</div>
+</div>
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.js"></script>
+<script src="settings.js"></script>
+</body>
+</html>
