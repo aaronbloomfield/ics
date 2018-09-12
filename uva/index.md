@@ -47,12 +47,15 @@ of the due date given -- this means by 11:59:59 pm.  The late policies are discu
 
 - [HW 1: Rational Paranoia](../hws/hw1-paranoia.html) ([md](../hws/hw1-paranoia.md)) is due on Thursday, September 6th 
 - [HW 2: Policy](../hws/hw2-policy.html) ([md](../hws/hw2-policy.md)) is due on Thursday, September 13th 
+- [HW 3: Ethics](../hws/hw3-ethics.html) ([md](../hws/hw3-ethics.md)) is due on Thursday, September 20th
+
 
 
 Lecture progress
 ----------------
 
-- Mon, Sep 10: the remainder of [US Cybersecurity Policy](../slides/policy.html#/)
+- Wed, Sep 12: [Ethics](../slides/ethics.html#/), through ...
+- Mon, Sep 10: the remainder of [US Cybersecurity Policy](../slides/policy.html#/) slide set
 - Fri, Sep 7: [US Cybersecurity Policy](../slides/policy.html#/), through the first few slides of the History section
 - Wed, Sep 5: [Security Mindset](../slides/security-mindset.html#/), the last column of slides; [US Cybersecurity Policy](../slides/policy.html#/), through challenge 7 in the Challenges section
 - Mon, Sep 3: [Security Mindset](../slides/security-mindset.html#/), all but the last column of slides; took quiz 1; signed ethics honor pledge
