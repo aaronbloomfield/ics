@@ -23,6 +23,10 @@ one for which there are arguments on both sides (or all sides, if
 there are more than 2 sides) as to which path is the correct one
 ethically.
 
+Which one to choose?  That's up to you.  However, please copy and
+paste the challenge scenario into your answer (this does not count
+against your 500 word limit).
+
 Your essay should discuss the pros and cons of each of the sides.  It
 must conclude with a decision that you make.  We aren't going to judge
 you on *which* decision you make, as long as said decision is based on
@@ -52,7 +56,7 @@ time and also a waste of our time.
 
 ### Submission
 
-Please ensure that you follow *all* four of these requirements:
+Please ensure that you follow *all* of these requirements:
 
 1. You will submit *both* a PDF and a .docx file of your essay.  If
    you are not using Microsoft Word, then just export your final copy
@@ -67,7 +71,7 @@ Please ensure that you follow *all* four of these requirements:
    zero!
 4. You ***MUST*** name your files userid.pdf and userid.docx where
    'userid' is your UVa userid.
-
-
+5. Please copy and paste the challenge scenario, as listed in the PDF,
+   into your answer (this does not count against your 500 word limit).
 
 [1]: https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf
