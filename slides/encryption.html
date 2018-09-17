@@ -57,7 +57,7 @@
 
 	<section>
       
-	  <section data-markdown id="intro"><textarea data-template>
+	  <section data-markdown id="intro" class="center"><textarea data-template>
 # Introduction
 	  </textarea></section>
 	  
@@ -121,7 +121,7 @@
 
 	<section>
 
-	  <section data-markdown id="classical"><textarea data-template>
+	  <section data-markdown id="classical" class="center"><textarea data-template>
 # Classical ciphers and rotor machines 
 	  </textarea></section>
 	  
@@ -153,7 +153,7 @@
   - There are only 26 possibilities!
     - Well, 25 really -- nobody would encrypt with a key of 0 or 26...
   - A program could do this in a matter of microseconds; a person in a matter of minutes
-  - Example: crack "s psxn iyeb vkmu yp pksdr nscdeblsxq" online at http://md5decrypt.net/en/Caesar/
+  - Example: crack "s psxn iyeb vkmu yp pksdr nscdeblsxq" online at http://md5decrypt.net/en/Caesar/ (select 'bruteforce')
 - Substitution ciphers can be more complex
   - Having a mapping, rather than a rotation
 
@@ -241,7 +241,7 @@ Encrypt "attackatdawn" with "lemon"
 ## Route cipher
 - A transposition cipher
   - The plain text is written in a grid
-  - The secret key is the direction to read the cipher text
+  - The secret is the direction to read the cipher text
 - Plain text: 'we are discovered flee at once'
 - Cipher progression:
 ```
@@ -315,7 +315,7 @@ W . . . E . . . C . . . R . . . L . . . T . . . E
 
 	<section>
       
-	  <section data-markdown id="private"><textarea data-template>
+	  <section data-markdown id="private" class="center"><textarea data-template>
 # Private key "symetric" ciphers
 	  </textarea></section>
 	  
@@ -359,7 +359,7 @@ W . . . E . . . C . . . R . . . L . . . T . . . E
 
 	<section>
       
-	  <section data-markdown id="rsa"><textarea data-template>
+	  <section data-markdown id="rsa" class="center"><textarea data-template>
 # [RSA](http://en.wikipedia.org/wiki/RSA)
 	  </textarea></section>
 	  
@@ -822,7 +822,6 @@ Formula is $c = m^e\text{ mod }n$
 	  </section>
 
 	  <section data-markdown data-separator="^\n$"><textarea data-template>
-
 ## SSH display with a possible MITM
 ![ssh bad](images/encryption/ssh-bad.png)
 
@@ -890,7 +889,7 @@ Formula is $c = m^e\text{ mod }n$
 
 
 ## Should we be worried?
-- Probably not
+- Probably not just yet
 - It will likely be a while before quantum computers can be used to factor numbers used in modern encryption
 - And, at that point, we'll just use quantum encryption
   - See [here](https://en.wikipedia.org/wiki/Quantum_key_distribution) for more details...
@@ -900,7 +899,7 @@ Formula is $c = m^e\text{ mod }n$
 
 	<section>
       
-	  <section data-markdown id="random"><textarea data-template>
+	  <section data-markdown id="random" class="center"><textarea data-template>
 # Randomness
 	  </textarea></section>
 	  
@@ -1079,7 +1078,7 @@ Formula is $c = m^e\text{ mod }n$
 
 	<section>
       
-	  <section data-markdown id="hashing"><textarea data-template>
+	  <section data-markdown id="hashing" class="center"><textarea data-template>
 # Hashing
 	  </textarea></section>
 	  
@@ -1200,7 +1199,7 @@ afe68f753a65f773a591bcf6f9ce3c63  message1.txt
 
 	<section>
       
-	  <section data-markdown id="uncracked"><textarea data-template>
+	  <section data-markdown id="uncracked" class="center"><textarea data-template>
 # [Top 10 uncracked codes](http://listverse.com/miscellaneous/top-10-uncracked-codes)
 	  </textarea></section>
 	  

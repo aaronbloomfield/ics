@@ -54,7 +54,8 @@ of the due date given -- this means by 11:59:59 pm.  The late policies are discu
 Lecture progress
 ----------------
 
-- Fri, Sep 14: [Ethics](../slides/ethics.html#/), through the "Abuses of ethical frameworks" slide
+- Mon, Sep 17: Finished the [Ethics](../slides/ethics.html#/) slide set (started today [here](../slides/ethics.html#/6/13)); started [encryption](../slides/encryption.html#/) and got to ...
+- Fri, Sep 14: [Ethics](../slides/ethics.html#/), through the [Abuses of ethical frameworks](../slides/ethics.html#/6/13) slide
 - Wed, Sep 12: [Ethics](../slides/ethics.html#/), through the "Harm to Privacy" slide
 - Mon, Sep 10: the remainder of [US Cybersecurity Policy](../slides/policy.html#/) slide set
 - Fri, Sep 7: [US Cybersecurity Policy](../slides/policy.html#/), through the first few slides of the History section

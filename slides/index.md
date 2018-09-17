@@ -14,14 +14,13 @@ Slide sets, ordered in the order presented in lecture:
 - Ethics & Policy
     - [US Cybersecurity Policy](policy.html#/)
     - [Ethics](ethics.html#/)
+- Crytpography
+	- [Encryption](encryption.html#/)
 
 
 
 Slide sets to be created or added as the semester progresses:
 
-- Crytpography
-	- Encryption
-	- Randomness
 - Digital Forensics
 	- Digital Forensics
 - Networks
