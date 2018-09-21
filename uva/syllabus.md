@@ -94,18 +94,18 @@ If you or someone you know is struggling with gender, sexual, or domestic violen
     - Encryption, hashes, and randomness
     - Case studies
 - *Midterm 1: Monday, October 1st, in lecture*
-- Network security (follow-on course: CS 4760, Network Security) (6 lectures)
-    - Networking overview: TCP/IP, Wifi
-    - Security mechanisms: firewalls, encryption of existing TCP/IP stack, etc.
-    - Malware: worms, password cracking, etc.
-- Digital forensics (no follow-on course just yet, but one is being planned) (6 lectures)
-    - Topics to be announced
-- *Midterm 2: Wednesday, October 31st, in lecture*
 - Binary manipulation (follow-on course: CS 4630, Defense Against the Dark Arts) (6 lectures)
     - Virtual machines
     - Viruses and binary-modification malware
     - Buffer overflows and other exploits
     - Root kits
+- Network security (follow-on course: CS 4760, Network Security) (6 lectures)
+    - Networking overview: TCP/IP, Wifi
+    - Security mechanisms: firewalls, encryption of existing TCP/IP stack, etc.
+    - Malware: worms, password cracking, etc.
+- *Midterm 2: Wednesday, October 31st, in lecture*
+- Digital forensics (no follow-on course just yet, but one is being planned) (6 lectures)
+    - Topics to be announced
 - Modern threats (6 lectures)
     - SQL & XSS
     - Modern malware such as Stuxnet, NotPetya, etc.

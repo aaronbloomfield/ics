@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>test-rsa.sh</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">#!/bin/bash</font></i>
+<i><font color="#9A1900"># setup: create the message1.txt and message2.txt files</font></i>
+/bin/rm -f message<font color="#990000">[</font><font color="#993399">12</font><font color="#990000">].</font>txt
+echo <font color="#FF0000">"Two things are infinite: the universe and human stupidity;"</font> <font color="#990000">&gt;</font> message1<font color="#990000">.</font>txt
+echo <font color="#FF0000">"and I'm not sure about the the universe."</font> <font color="#990000">&gt;&gt;</font> message1<font color="#990000">.</font>txt
+echo <font color="#FF0000">"by Albert Einstein"</font> <font color="#990000">&gt;&gt;</font> message1<font color="#990000">.</font>txt
+echo <font color="#FF0000">"The quick brown fox jumped over the lazy dog."</font> <font color="#990000">&gt;</font> message2<font color="#990000">.</font>txt
+<i><font color="#9A1900"># 1: create keys alice-public.key and alice-private.key</font></i>
+java RSA -key alice -keygen <font color="#993399">200</font>
+<i><font color="#9A1900"># 2: create keys bob-public.key and bob-private.key</font></i>
+java RSA -key bob -keygen <font color="#993399">200</font>
+<i><font color="#9A1900"># 3: alice is going to encrypt a message for bob</font></i>
+java RSA -key bob -input message1<font color="#990000">.</font>txt -output encrypted1<font color="#990000">.</font>txt -encrypt
+<i><font color="#9A1900"># 4: bob will decrypt the message</font></i>
+java RSA -key bob -input encrypted1<font color="#990000">.</font>txt -output message1b<font color="#990000">.</font>txt -decrypt
+<i><font color="#9A1900"># 5: are they the same?</font></i>
+diff message1<font color="#990000">.</font>txt message1b<font color="#990000">.</font>txt
+<i><font color="#9A1900"># 6: bob now sends a message to alice</font></i>
+java RSA -key alice -input message2<font color="#990000">.</font>txt -output encrypted2<font color="#990000">.</font>txt -encrypt
+<i><font color="#9A1900"># 7: alice will decrypt the message</font></i>
+java RSA -key alice -input encrypted2<font color="#990000">.</font>txt -output message2b<font color="#990000">.</font>txt -decrypt
+<i><font color="#9A1900"># 8: are they the same?</font></i>
+diff message2<font color="#990000">.</font>txt message2b<font color="#990000">.</font>txt
+<i><font color="#9A1900"># 9: alice signs her message1.txt</font></i>
+java RSA -key alice -input message1<font color="#990000">.</font>txt -sign
+<i><font color="#9A1900"># 10: bob checks that sign; they should match</font></i>
+java RSA -key alice -input message1<font color="#990000">.</font>txt -checksign
+<i><font color="#9A1900"># 11: modify message1.txt</font></i>
+/bin/mv -f message1<font color="#990000">.</font>txt message1<font color="#990000">.</font>txt<font color="#990000">.</font>bak
+echo hi <font color="#990000">&gt;&gt;</font> message1<font color="#990000">.</font>txt
+<i><font color="#9A1900"># 12: bob checks that sign; they should NOT match</font></i>
+java RSA -key alice -input message1<font color="#990000">.</font>txt -checksign
+<i><font color="#9A1900"># 13: restore message1.txt</font></i>
+/bin/mv -f message1<font color="#990000">.</font>txt<font color="#990000">.</font>bak message1<font color="#990000">.</font>txt
+java RSA -key alice -input message1<font color="#990000">.</font>txt -checksign
+<i><font color="#9A1900"># 14: charlie generates an easy-to-crack key</font></i>
+java RSA -key charlie -keygen <font color="#993399">10</font>
+<i><font color="#9A1900"># eve tries to crack alice's key</font></i>
+java RSA -key charlie -crack
+<i><font color="#9A1900"># 15: is the cracked key the same as the original key?</font></i>
+diff charlie-cracked-private<font color="#990000">.</font>key charlie-private<font color="#990000">.</font>key
+<i><font color="#9A1900"># 16: clean up files (commented out by default)</font></i>
+/bin/rm -f alice<font color="#990000">*.</font>key bob<font color="#990000">*.</font>key charlie<font color="#990000">*.</font>key message<font color="#990000">*.</font>sign message<font color="#990000">?</font>b<font color="#990000">.</font>txt encrypted<font color="#990000">?.</font>txt message<font color="#990000">?.</font>txt
+</tt></pre>
+</body>
+</html>

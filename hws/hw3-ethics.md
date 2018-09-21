@@ -18,10 +18,11 @@ will have wanted to have *read* that PDF.
 
 For this assignment, you are to write a essay on *one* of the
 cybersecurity challenges listed in part 2 of the
-[An Introduction to Cybersecurity Ethics][1] PDF.  However, it must be
-one for which there are arguments on both sides (or all sides, if
-there are more than 2 sides) as to which path is the correct one
-ethically.
+[An Introduction to Cybersecurity Ethics][1] PDF.  (A challenge is one
+single paragraph, typically 4-5 lines, with the first sentence
+bolded.)  However, it must be one for which there are arguments on
+both sides (or all sides, if there are more than 2 sides) as to which
+path is the correct one ethically.
 
 Which one to choose?  That's up to you.  However, please copy and
 paste the challenge scenario into your answer (this does not count

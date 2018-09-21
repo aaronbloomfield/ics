@@ -1,0 +1,526 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>RSA.java</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">import</font></b> java<font color="#990000">.</font>util<font color="#990000">.*;</font>
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>math<font color="#990000">.*;</font>
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>io<font color="#990000">.*;</font>
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>security<font color="#990000">.*;</font>
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>text<font color="#990000">.*;</font>
+
+<i><font color="#9A1900">/** Holds a RSA key, either public or private (or possibly both).  In</font></i>
+<i><font color="#9A1900"> * addition to *n*, which must be in all keys, one (or both) of *d*</font></i>
+<i><font color="#9A1900"> * and e* must be set.  Which one(s) will determine whether it's a</font></i>
+<i><font color="#9A1900"> * public key (if only *e* is set), a private key (if only *d* is</font></i>
+<i><font color="#9A1900"> * set), or a dual key (if both *d* and *e* are set). This class is</font></i>
+<i><font color="#9A1900"> * meant to hold the values, and has no methods itself.</font></i>
+<i><font color="#9A1900"> */</font></i>
+<b><font color="#0000FF">class</font></b> <font color="#008080">RSAKey</font> <font color="#FF0000">{</font>
+
+    <i><font color="#9A1900">/// The decryption key, only included in private keys.</font></i>
+    <font color="#008080">BigInteger</font> d<font color="#990000">;</font>
+
+    <i><font color="#9A1900">/// The encryption key, only used in public keys.</font></i>
+    <font color="#008080">BigInteger</font> e<font color="#990000">;</font>
+
+    <i><font color="#9A1900">/// The value *n*, which was computed by p*q during the key generation</font></i>
+    <font color="#008080">BigInteger</font> n<font color="#990000">;</font>
+
+    <i><font color="#9A1900">/// The bit length of p and also q during the key generation; n is</font></i>
+    <i><font color="#9A1900">/// expected to be twice that value</font></i>
+    <font color="#009900">int</font> bitLength<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/** Holds the necessary cipher text information.  This class is meant</font></i>
+<i><font color="#9A1900"> * to hold the values, and has no methods itself.</font></i>
+<i><font color="#9A1900"> */</font></i>
+<b><font color="#0000FF">class</font></b> <font color="#008080">CipherText</font> <font color="#FF0000">{</font>
+
+    <i><font color="#9A1900">/// The list of encrypted blocks in the cipher text</font></i>
+    <font color="#008080">ArrayList&lt;BigInteger&gt;</font> encryptedBlocks<font color="#990000">;</font>
+
+    <i><font color="#9A1900">/// The length of the original plaintext message</font></i>
+    <font color="#009900">int</font> fileLength<font color="#990000">;</font>
+
+    <i><font color="#9A1900">/// The length of each block, in characters</font></i>
+    <font color="#009900">int</font> blockLength<font color="#990000">;</font>
+
+    <i><font color="#9A1900">/// Default constructor, it initializes an empty object.</font></i>
+    <b><font color="#000000">CipherText</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+        encryptedBlocks <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> ArrayList<font color="#990000">&lt;</font>BigInteger<font color="#990000">&gt;();</font>
+    <font color="#FF0000">}</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">/** The main RSA class.  This is the class that contains all of the</font></i>
+<i><font color="#9A1900"> * functionality, and there are five methods that need to be completed</font></i>
+<i><font color="#9A1900"> * for this assignment: {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> generateKeys()}, {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> encrypt()},</font></i>
+<i><font color="#9A1900"> * {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> decrypt()}, {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> sign()}, {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> checkSign()}, and {</font></i><font color="#009900">@link</font>
+<i><font color="#9A1900"> * crack()}.</font></i>
+<i><font color="#9A1900"> */</font></i>
+<b><font color="#0000FF">public</font></b> <b><font color="#0000FF">class</font></b> <font color="#008080">RSA</font> <font color="#FF0000">{</font>
+
+    <i><font color="#9A1900">/** Whether to print verbose messages.  This is useful for</font></i>
+<i><font color="#9A1900">     * debugging, as it will never be set to true (via the -verbose</font></i>
+<i><font color="#9A1900">     * flag) during grading.</font></i>
+<i><font color="#9A1900">     */</font></i>
+    <b><font color="#0000FF">static</font></b> <font color="#009900">boolean</font> verbose <font color="#990000">=</font> <b><font color="#0000FF">false</font></b><font color="#990000">;</font>
+
+    <i><font color="#9A1900">/** Whether the values of p and q are displayed during key</font></i>
+<i><font color="#9A1900">     * generation.  This is useful for debugging, and it *is*</font></i>
+<i><font color="#9A1900">     * something that we will test during grading.</font></i>
+<i><font color="#9A1900">     */</font></i>
+    <b><font color="#0000FF">static</font></b> <font color="#009900">boolean</font> showPandQ <font color="#990000">=</font> <b><font color="#0000FF">false</font></b><font color="#990000">;</font>
+
+    <i><font color="#9A1900">/** The hash algorithm to be used.  While there are many</font></i>
+<i><font color="#9A1900">     * available, we'll use SHA-256 for this code.</font></i>
+<i><font color="#9A1900">     */</font></i>
+    <b><font color="#0000FF">final</font></b> <b><font color="#0000FF">static</font></b> <font color="#008080">String</font> hashAlgorithm <font color="#990000">=</font> <font color="#FF0000">"SHA-256"</font><font color="#990000">;</font>
+
+    <i><font color="#9A1900">/** Write a {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSAKey} key (public or private) to a file.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * This method is provided to enforce the format of the key files.</font></i>
+<i><font color="#9A1900">     * Key files are ASCII text files with exactly four lines:</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * - The string "public" or "private"</font></i>
+<i><font color="#9A1900">     * - The bit length of the keys; this is expected to fit within a</font></i>
+<i><font color="#9A1900">     *   standard `int`</font></i>
+<i><font color="#9A1900">     * - Either *e* (if it's a public key) or *d* (if it's a private</font></i>
+<i><font color="#9A1900">     *   key); this is expected to require a BigInteger to store it</font></i>
+<i><font color="#9A1900">     * - *n*; this is expected to require a BigInteger to store it</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * If the passed key is either public or private, then the method</font></i>
+<i><font color="#9A1900">     * will write only one key file.  If *both* d and e are set in the</font></i>
+<i><font color="#9A1900">     * passed in RSAKey, then the method will write both files (this</font></i>
+<i><font color="#9A1900">     * is tyipcally only done after key generation).</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> key The {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSAKey} to write to the file</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> keyName The base of the file name.  If the base is</font></i>
+<i><font color="#9A1900">     * 'foo', then this file will write foo-public.key and/or</font></i>
+<i><font color="#9A1900">     * foo-private.key, as appropriate.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@throws</font><i><font color="#9A1900"> Exception If the file handling code within the method</font></i>
+<i><font color="#9A1900">     * throws an exception, this method will pass that method up the</font></i>
+<i><font color="#9A1900">     * throw stack.</font></i>
+<i><font color="#9A1900">     */</font></i>
+    <b><font color="#0000FF">static</font></b> <font color="#009900">void</font> <b><font color="#000000">writeKeyToFile</font></b> <font color="#990000">(</font><font color="#008080">RSAKey</font> key<font color="#990000">,</font> <font color="#008080">String</font> keyName<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> key<font color="#990000">.</font>e <font color="#990000">!=</font> <b><font color="#0000FF">null</font></b> <font color="#990000">)</font> <font color="#FF0000">{</font> <i><font color="#9A1900">// it's a public key</font></i>
+            <font color="#008080">PrintStream</font> output <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">PrintStream</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">File</font></b><font color="#990000">(</font>keyName<font color="#990000">+</font><font color="#FF0000">"-public.key"</font><font color="#990000">));</font>
+            output<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font><font color="#FF0000">"public</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font> <font color="#990000">+</font> key<font color="#990000">.</font>bitLength <font color="#990000">+</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font> <font color="#990000">+</font> key<font color="#990000">.</font>e <font color="#990000">+</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font> <font color="#990000">+</font> key<font color="#990000">.</font>n<font color="#990000">);</font>
+            output<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
+        <font color="#FF0000">}</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> key<font color="#990000">.</font>d <font color="#990000">!=</font> <b><font color="#0000FF">null</font></b> <font color="#990000">)</font> <font color="#FF0000">{</font> <i><font color="#9A1900">// it's a private key</font></i>
+            <font color="#008080">PrintStream</font> output <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">PrintStream</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">File</font></b><font color="#990000">(</font>keyName<font color="#990000">+</font><font color="#FF0000">"-private.key"</font><font color="#990000">));</font>
+            output<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font><font color="#FF0000">"private</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font> <font color="#990000">+</font> key<font color="#990000">.</font>bitLength <font color="#990000">+</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font> <font color="#990000">+</font> key<font color="#990000">.</font>d <font color="#990000">+</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font> <font color="#990000">+</font> key<font color="#990000">.</font>n<font color="#990000">);</font>
+            output<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
+        <font color="#FF0000">}</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">/** Read a {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSAKey} key (public or private) to a file and</font></i>
+<i><font color="#9A1900">     * return it.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * This method is provided to enforce the format of the key files.</font></i>
+<i><font color="#9A1900">     * Key files are ASCII text files with exactly four lines:</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * - The string "public" or "private"</font></i>
+<i><font color="#9A1900">     * - The bit length of the keys; this is expected to fit within a</font></i>
+<i><font color="#9A1900">     *   standard `int`</font></i>
+<i><font color="#9A1900">     * - Either *e* (if it's a public key) or *d* (if it's a private</font></i>
+<i><font color="#9A1900">     *   key); this is expected to require a BigInteger to store it</font></i>
+<i><font color="#9A1900">     * - *n*; this is expected to require a BigInteger to store it</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * The method will set either *d* or *e* in the returned RSAKey,</font></i>
+<i><font color="#9A1900">     * depending on whether the key read in is a public key (e will be</font></i>
+<i><font color="#9A1900">     * set) or a private key (d will be set).</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> filename The key file name; it is assumed to be the</font></i>
+<i><font color="#9A1900">     * correct format, such as that written by {</font></i><font color="#009900">@link</font>
+<i><font color="#9A1900">     * writeKeyToFile()}, as there is no real error checking on the</font></i>
+<i><font color="#9A1900">     * file format.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@return</font><i><font color="#9A1900"> The RSAKey read in from the file.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@throws</font><i><font color="#9A1900"> Exception If the file handling code within the method</font></i>
+<i><font color="#9A1900">     * throws an exception, this method will pass that method up the</font></i>
+<i><font color="#9A1900">     * throw stack.</font></i>
+<i><font color="#9A1900">     */</font></i>
+    <b><font color="#0000FF">static</font></b> <font color="#008080">RSAKey</font> <b><font color="#000000">readKeyFromFile</font></b> <font color="#990000">(</font><font color="#008080">String</font> filename<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
+        <font color="#008080">Scanner</font> filein <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Scanner</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">File</font></b><font color="#990000">(</font>filename<font color="#990000">));</font>
+        <font color="#008080">RSAKey</font> key <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">RSAKey</font></b><font color="#990000">();</font>
+        <font color="#009900">boolean</font> isPublic <font color="#990000">=</font> filein<font color="#990000">.</font><b><font color="#000000">next</font></b><font color="#990000">().</font><b><font color="#000000">equals</font></b><font color="#990000">(</font><font color="#FF0000">"public"</font><font color="#990000">);</font>
+        key<font color="#990000">.</font>bitLength <font color="#990000">=</font> filein<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> isPublic <font color="#990000">)</font>
+            key<font color="#990000">.</font>e <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">BigInteger</font></b><font color="#990000">(</font>filein<font color="#990000">.</font><b><font color="#000000">next</font></b><font color="#990000">());</font>
+        <b><font color="#0000FF">else</font></b>
+            key<font color="#990000">.</font>d <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">BigInteger</font></b><font color="#990000">(</font>filein<font color="#990000">.</font><b><font color="#000000">next</font></b><font color="#990000">());</font>
+        key<font color="#990000">.</font>n <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">BigInteger</font></b><font color="#990000">(</font>filein<font color="#990000">.</font><b><font color="#000000">next</font></b><font color="#990000">());</font>
+        <b><font color="#0000FF">return</font></b> key<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">/** Read in cipher text from the provided file.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * This method is provided to encorce the correct format for</font></i>
+<i><font color="#9A1900">     * cipher text files.  Cipher text files are ASCII text files that</font></i>
+<i><font color="#9A1900">     * contain the following:</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * - The first line will have two `int` values, separated by a</font></i>
+<i><font color="#9A1900">     *   single space: the original size of the plain text, and the</font></i>
+<i><font color="#9A1900">     *   number of characters in each block</font></i>
+<i><font color="#9A1900">     * - Each block will have a single number, one per line; this is</font></i>
+<i><font color="#9A1900">     *   expected to require a BigInteger to store it</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> filename The file name of the cipher text to read in</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@return</font><i><font color="#9A1900"> A {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> CipherText} object representing the read in</font></i>
+<i><font color="#9A1900">     * cipher text</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@throws</font><i><font color="#9A1900"> Exception If the file handling code within the method</font></i>
+<i><font color="#9A1900">     * throws an exception, this method will pass that method up the</font></i>
+<i><font color="#9A1900">     * throw stack.</font></i>
+<i><font color="#9A1900">     */</font></i>
+    <b><font color="#0000FF">static</font></b> <font color="#008080">CipherText</font> <b><font color="#000000">readCipherTextFromFile</font></b> <font color="#990000">(</font><font color="#008080">String</font> filename<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
+        <font color="#008080">Scanner</font> filein <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Scanner</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">File</font></b><font color="#990000">(</font>filename<font color="#990000">));</font>
+        <font color="#008080">CipherText</font> c <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">CipherText</font></b><font color="#990000">();</font>
+        c<font color="#990000">.</font>fileLength <font color="#990000">=</font> filein<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font>
+        c<font color="#990000">.</font>blockLength <font color="#990000">=</font> filein<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font>
+        <b><font color="#0000FF">while</font></b> <font color="#990000">(</font> filein<font color="#990000">.</font><b><font color="#000000">hasNext</font></b><font color="#990000">()</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+            <font color="#008080">String</font> num <font color="#990000">=</font> filein<font color="#990000">.</font><b><font color="#000000">next</font></b><font color="#990000">();</font>
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> num <font color="#990000">!=</font> <font color="#FF0000">""</font> <font color="#990000">)</font>
+                c<font color="#990000">.</font>encryptedBlocks<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">BigInteger</font></b><font color="#990000">(</font>num<font color="#990000">));</font>
+        <font color="#FF0000">}</font>
+        <b><font color="#0000FF">return</font></b> c<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">/** Write cipher text to a file.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * This method is provided to encorce the correct format for</font></i>
+<i><font color="#9A1900">     * cipher text files.  Cipher text files are ASCII text files that</font></i>
+<i><font color="#9A1900">     * contain the following:</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * - The first line will have two `int` values, separated by a</font></i>
+<i><font color="#9A1900">     *   single space: the original size of the plain text, and the</font></i>
+<i><font color="#9A1900">     *   number of characters in each block</font></i>
+<i><font color="#9A1900">     * - Each block will have a single number, one per line; this is</font></i>
+<i><font color="#9A1900">     *   expected to require a BigInteger to store it</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> filename The file name to write the cipher text to</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> cipherText The {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> CipherText} object that contains</font></i>
+<i><font color="#9A1900">     * all the data to be written to the file.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@throws</font><i><font color="#9A1900"> Exception If the file handling code within the method</font></i>
+<i><font color="#9A1900">     * throws an exception, this method will pass that method up the</font></i>
+<i><font color="#9A1900">     * throw stack.</font></i>
+<i><font color="#9A1900">     */</font></i>
+    <b><font color="#0000FF">static</font></b> <font color="#009900">void</font> <b><font color="#000000">writeCipherTextToFile</font></b> <font color="#990000">(</font><font color="#008080">String</font> filename<font color="#990000">,</font> <font color="#008080">CipherText</font> cipherText<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
+        <font color="#008080">PrintStream</font> output <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">PrintStream</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">File</font></b><font color="#990000">(</font>filename<font color="#990000">));</font>
+        output<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font>cipherText<font color="#990000">.</font>fileLength <font color="#990000">+</font> <font color="#FF0000">" "</font> <font color="#990000">+</font> cipherText<font color="#990000">.</font>blockLength<font color="#990000">);</font>
+        <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#008080">BigInteger</font> num<font color="#990000">:</font> cipherText<font color="#990000">.</font>encryptedBlocks <font color="#990000">)</font>
+            output<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font>num<font color="#990000">);</font>
+        output<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">/** Read in the contents of a file into a string.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * This file just reads in the entire file into a String.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> filename The file to read in</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@return</font><i><font color="#9A1900"> A String containing the entire contents of the passed</font></i>
+<i><font color="#9A1900">     * file</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@throws</font><i><font color="#9A1900"> Exception If the file handling code within the method</font></i>
+<i><font color="#9A1900">     * throws an exception, this method will pass that method up the</font></i>
+<i><font color="#9A1900">     * throw stack.</font></i>
+<i><font color="#9A1900">     */</font></i>
+    <b><font color="#0000FF">static</font></b> <font color="#008080">String</font> <b><font color="#000000">getFileContents</font></b> <font color="#990000">(</font><font color="#008080">String</font> filename<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
+        <font color="#008080">File</font> file <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">File</font></b><font color="#990000">(</font>filename<font color="#990000">);</font>
+        <font color="#009900">long</font> fileLength <font color="#990000">=</font> file<font color="#990000">.</font><b><font color="#000000">length</font></b><font color="#990000">();</font>
+        <font color="#008080">FileInputStream</font> fin <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">FileInputStream</font></b><font color="#990000">(</font>file<font color="#990000">);</font>
+        <font color="#009900">byte</font><font color="#990000">[]</font> data <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">byte</font><font color="#990000">[(</font><font color="#009900">int</font><font color="#990000">)</font>fileLength<font color="#990000">];</font>
+        fin<font color="#990000">.</font><b><font color="#000000">read</font></b><font color="#990000">(</font>data<font color="#990000">);</font>
+        fin<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
+        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">new</font></b> <b><font color="#000000">String</font></b><font color="#990000">(</font>data<font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">/** Convert a hash to a more human-readable string</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * The java.security.MessageDigest routines will return a hash as</font></i>
+<i><font color="#9A1900">     * a `byte` array.  This method will convert that byte array to</font></i>
+<i><font color="#9A1900">     * the more recognizable human-readable form: hexadecimal format.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> hash The `byte` array that is returned by the</font></i>
+<i><font color="#9A1900">     * computation of the hash (via the digest() routine in</font></i>
+<i><font color="#9A1900">     * java.security.MessageDigest)</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@return</font><i><font color="#9A1900"> A String containing the printable hexadecimal</font></i>
+<i><font color="#9A1900">     * representation of the hash</font></i>
+<i><font color="#9A1900">     */</font></i>
+    <b><font color="#0000FF">static</font></b> <font color="#008080">String</font> <b><font color="#000000">convertHash</font></b> <font color="#990000">(</font><font color="#009900">byte</font> hash<font color="#990000">[])</font> <font color="#FF0000">{</font>
+        <font color="#009900">int</font> hashSize <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+        <b><font color="#0000FF">try</font></b> <font color="#FF0000">{</font>
+            hashSize <font color="#990000">=</font> MessageDigest<font color="#990000">.</font><b><font color="#000000">getInstance</font></b><font color="#990000">(</font>hashAlgorithm<font color="#990000">).</font><b><font color="#000000">getDigestLength</font></b><font color="#990000">()</font> <font color="#990000">*</font> <font color="#993399">2</font><font color="#990000">;</font>
+        <font color="#FF0000">}</font> <b><font color="#0000FF">catch</font></b> <font color="#990000">(</font><font color="#008080">Exception</font> e<font color="#990000">)</font> <font color="#FF0000">{</font>
+            System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b> <font color="#990000">(</font><font color="#FF0000">"Your Java installation does not suport the '"</font> <font color="#990000">+</font> hashAlgorithm <font color="#990000">+</font>
+                                <font color="#FF0000">"' hashing method; change that in RSA.java to continue."</font><font color="#990000">);</font>
+            System<font color="#990000">.</font><b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
+        <font color="#FF0000">}</font>
+        <font color="#009900">char</font> chash<font color="#990000">[]</font> <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">char</font><font color="#990000">[</font>hashSize<font color="#990000">];</font>
+        <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> hashSize<font color="#990000">/</font><font color="#993399">2</font><font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+            <font color="#009900">int</font> hashValue <font color="#990000">=</font> hash<font color="#990000">[</font>i<font color="#990000">];</font>
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> hashValue <font color="#990000">&lt;</font> <font color="#993399">0</font> <font color="#990000">)</font>
+                hashValue <font color="#990000">+=</font> <font color="#993399">256</font><font color="#990000">;</font>
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> hashValue<font color="#990000">/</font><font color="#993399">16</font> <font color="#990000">&lt;</font> <font color="#993399">10</font> <font color="#990000">)</font>
+                chash<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">*</font>i<font color="#990000">]</font> <font color="#990000">=</font> <font color="#990000">(</font><font color="#009900">char</font><font color="#990000">)</font> <font color="#990000">(</font><font color="#FF0000">'0'</font> <font color="#990000">+</font> hashValue<font color="#990000">/</font><font color="#993399">16</font><font color="#990000">);</font>
+            <b><font color="#0000FF">else</font></b>
+                chash<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">*</font>i<font color="#990000">]</font> <font color="#990000">=</font> <font color="#990000">(</font><font color="#009900">char</font><font color="#990000">)</font> <font color="#990000">(</font><font color="#FF0000">'a'</font> <font color="#990000">+</font> hashValue<font color="#990000">/</font><font color="#993399">16</font> <font color="#990000">-</font> <font color="#993399">10</font><font color="#990000">);</font>
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> hashValue<font color="#990000">%</font><font color="#993399">16</font> <font color="#990000">&lt;</font> <font color="#993399">10</font> <font color="#990000">)</font>
+                chash<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">*</font>i<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#990000">(</font><font color="#009900">char</font><font color="#990000">)</font> <font color="#990000">(</font><font color="#FF0000">'0'</font> <font color="#990000">+</font> hashValue<font color="#990000">%</font><font color="#993399">16</font><font color="#990000">);</font>
+            <b><font color="#0000FF">else</font></b>
+                chash<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">*</font>i<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#990000">(</font><font color="#009900">char</font><font color="#990000">)</font> <font color="#990000">(</font><font color="#FF0000">'a'</font> <font color="#990000">+</font> hashValue<font color="#990000">%</font><font color="#993399">16</font> <font color="#990000">-</font> <font color="#993399">10</font><font color="#990000">);</font>
+        <font color="#FF0000">}</font>
+        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">new</font></b> <b><font color="#000000">String</font></b><font color="#990000">(</font>chash<font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">/** RSA key generation; requires completion.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * This method will generate (and return) a pair of keys based on</font></i>
+<i><font color="#9A1900">     * the parameters provided.  This method uses the java.util.Random</font></i>
+<i><font color="#9A1900">     * random number generator.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> bitLength The bit length of *p* and *q* used in the</font></i>
+<i><font color="#9A1900">     * generation routines; this means that *n* will be approximately</font></i>
+<i><font color="#9A1900">     * *2n* bits in length.</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> seed The seed to provide to the random number generator;</font></i>
+<i><font color="#9A1900">     * if zero, then no seed is provided when the random number</font></i>
+<i><font color="#9A1900">     * generator is created.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@return</font><i><font color="#9A1900"> The keys generated.  Note that in the returned {</font></i><font color="#009900">@link</font>
+<i><font color="#9A1900">     * RSAKey}, *both* *d* and *e* are set, which means it contains</font></i>
+<i><font color="#9A1900">     * the information for both public and private keys.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@throws</font><i><font color="#9A1900"> Exception It is not expected that this method will</font></i>
+<i><font color="#9A1900">     * throw an exception, but this is included in case a future</font></i>
+<i><font color="#9A1900">     * implemention does choose to do so.</font></i>
+<i><font color="#9A1900">     */</font></i>
+    <b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#008080">RSAKey</font> <b><font color="#000000">generateKeys</font></b> <font color="#990000">(</font><font color="#009900">int</font> bitLength<font color="#990000">,</font> <font color="#009900">int</font> seed<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
+        <i><font color="#9A1900">// random number generation -- don't modify this part!</font></i>
+        <font color="#008080">Random</font> random <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Random</font></b><font color="#990000">();</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> seed <font color="#990000">!=</font> <font color="#993399">0</font> <font color="#990000">)</font>
+            random <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Random</font></b><font color="#990000">(</font>seed<font color="#990000">);</font>
+        <i><font color="#9A1900">// your code here; a dummy return statement is put below to allow this to compile</font></i>
+        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">null</font></b><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">/** Performs RSA encryption; requires completion.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * This method will perform RSA encryption on the passed plain</font></i>
+<i><font color="#9A1900">     * text using the passed *public* key, and return the cipher text.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * Note that the returned {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> CipherText} object must have all</font></i>
+<i><font color="#9A1900">     * three fields set: bitLength, blockLength, *and*</font></i>
+<i><font color="#9A1900">     * encryptedBlocks.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> key The public key to encrypt the plain text with</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> plainText The text to encrypt</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@return</font><i><font color="#9A1900"> A properly initialized CipherText object containing the</font></i>
+<i><font color="#9A1900">     * encrypted message.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@throws</font><i><font color="#9A1900"> Exception It is not expected that this method will</font></i>
+<i><font color="#9A1900">     * throw an exception, but this is included in case a future</font></i>
+<i><font color="#9A1900">     * implemention does choose to do so.</font></i>
+<i><font color="#9A1900">     */</font></i>
+    <b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#008080">CipherText</font> <b><font color="#000000">encrypt</font></b> <font color="#990000">(</font><font color="#008080">RSAKey</font> key<font color="#990000">,</font> <font color="#008080">String</font> plainText<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
+        <i><font color="#9A1900">// your code here; a dummy return statement is put below to allow this to compile</font></i>
+        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">null</font></b><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">/** Performs RSA decryption; requires completion.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * This method will perform RSA decryption on the passed cipher</font></i>
+<i><font color="#9A1900">     * text using the passed *private* key, and return the plain text.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> key The private key to encrypt the plain text with</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> cipherText a {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> CipherText} object containing the</font></i>
+<i><font color="#9A1900">     * cipher text to decrypt</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@return</font><i><font color="#9A1900"> A String containing the decrypted message.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@throws</font><i><font color="#9A1900"> Exception It is not expected that this method will</font></i>
+<i><font color="#9A1900">     * throw an exception, but this is included in case a future</font></i>
+<i><font color="#9A1900">     * implemention does choose to do so.</font></i>
+<i><font color="#9A1900">     */</font></i>
+    <b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#008080">String</font> <b><font color="#000000">decrypt</font></b> <font color="#990000">(</font><font color="#008080">RSAKey</font> key<font color="#990000">,</font> <font color="#008080">CipherText</font> cipherText<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
+        <i><font color="#9A1900">// your code here; a dummy return statement is put below to allow this to compile</font></i>
+        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">null</font></b><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">/** Performs RSA key cracking; requires completion.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * This will take a *SIGNIFICANT* amount of time if used on any</font></i>
+<i><font color="#9A1900">     * reasonable bit lengths; using it on a bit length of 10 is</font></i>
+<i><font color="#9A1900">     * reasonable to test.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> key The public key to crack</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@return</font><i><font color="#9A1900"> A String containing the cracked *full* key (both d and</font></i>
+<i><font color="#9A1900">     * e are set, as well as the other fields)</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@throws</font><i><font color="#9A1900"> Exception It is not expected that this method will</font></i>
+<i><font color="#9A1900">     * throw an exception, but this is included in case a future</font></i>
+<i><font color="#9A1900">     * implemention does choose to do so.</font></i>
+<i><font color="#9A1900">     */</font></i>
+    <b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#008080">RSAKey</font> <b><font color="#000000">crack</font></b> <font color="#990000">(</font><font color="#008080">RSAKey</font> key<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
+        <i><font color="#9A1900">// your code here; a dummy return statement is put below to allow this to compile</font></i>
+        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">null</font></b><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">/** Performs RSA message signing; requires completion.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * Note that the encrypt() method is likely expecting a public key,</font></i>
+<i><font color="#9A1900">     * so you will have to copy d over to e before passing it into</font></i>
+<i><font color="#9A1900">     * encrypt()</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * Note that the particular hash algorithm to be used is set in</font></i>
+<i><font color="#9A1900">     * the {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> hashAlgorithm} variable, and is likely SHA-256.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> key The private key to sign the message with.</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> plainText the message to sign</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@return</font><i><font color="#9A1900"> The cipher text containing the encrypted hash of the</font></i>
+<i><font color="#9A1900">     * message</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@throws</font><i><font color="#9A1900"> Exception If the method digest code within the method</font></i>
+<i><font color="#9A1900">     * throws an exception, this method will pass that method up the</font></i>
+<i><font color="#9A1900">     * throw stack.</font></i>
+<i><font color="#9A1900">     */</font></i>
+    <b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#008080">CipherText</font> <b><font color="#000000">sign</font></b> <font color="#990000">(</font><font color="#008080">RSAKey</font> key<font color="#990000">,</font> <font color="#008080">String</font> plainText<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
+        <i><font color="#9A1900">// your code here; a dummy return statement is put below to allow this to compile</font></i>
+        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">null</font></b><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">/** Performs RSA message signature checking; requires completion.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * Note that the decrypt() method is likely expecting a private</font></i>
+<i><font color="#9A1900">     * key, so you will have to copy e over to d before passing it</font></i>
+<i><font color="#9A1900">     * into encrypt()</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * Note that the particular hash algorithm to be used is set in</font></i>
+<i><font color="#9A1900">     * the {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> hashAlgorithm} variable, and is likely SHA-256.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> key The public key to sign the message with.</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> plainText The message to check the signature of</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> signature The encrypted signature to check</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@return</font><i><font color="#9A1900"> True of false, depending if the signatures match (or</font></i>
+<i><font color="#9A1900">     * not)</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@throws</font><i><font color="#9A1900"> Exception If the method digest code within the method</font></i>
+<i><font color="#9A1900">     * throws an exception, this method will pass that method up the</font></i>
+<i><font color="#9A1900">     * throw stack.</font></i>
+<i><font color="#9A1900">     */</font></i>
+    <b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#009900">boolean</font> <b><font color="#000000">checkSign</font></b> <font color="#990000">(</font><font color="#008080">RSAKey</font> key<font color="#990000">,</font> <font color="#008080">String</font> plainText<font color="#990000">,</font> <font color="#008080">CipherText</font> signature<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
+        <i><font color="#9A1900">// your code here; a dummy return statement is put below to allow this to compile</font></i>
+        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">null</font></b><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">/** Parses the parameters and allows program execution.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * The `main()` method will parse the command line parameters, and</font></i>
+<i><font color="#9A1900">     * call the appropriate methods within this class.  You should not</font></i>
+<i><font color="#9A1900">     * have to modify this main() method at all.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * The command line parameters are specified at {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> cmdparam}.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> args The command-line arguments</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@throws</font><i><font color="#9A1900"> Exception Many of the invoked methods will pass up an</font></i>
+<i><font color="#9A1900">     * exception thrown by their file handling routines (or the</font></i>
+<i><font color="#9A1900">     * message digest routines).  The main method will pass that up as</font></i>
+<i><font color="#9A1900">     * well (which means program termination).</font></i>
+<i><font color="#9A1900">     */</font></i>
+    <b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#009900">void</font> <b><font color="#000000">main</font></b> <font color="#990000">(</font>String<font color="#990000">[]</font> args<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
+        <font color="#008080">String</font> outputFileName <font color="#990000">=</font> <font color="#FF0000">"output.txt"</font><font color="#990000">,</font> inputFileName <font color="#990000">=</font> <font color="#FF0000">"input.txt"</font><font color="#990000">,</font> keyName <font color="#990000">=</font> <font color="#FF0000">"default"</font><font color="#990000">;</font>
+        <font color="#009900">int</font> seed <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+
+        <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> args<font color="#990000">.</font>length<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> args<font color="#990000">[</font>i<font color="#990000">].</font><b><font color="#000000">equals</font></b><font color="#990000">(</font><font color="#FF0000">"-verbose"</font><font color="#990000">)</font> <font color="#990000">)</font>
+                verbose <font color="#990000">=</font> <font color="#990000">!</font>verbose<font color="#990000">;</font>
+
+            <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> args<font color="#990000">[</font>i<font color="#990000">].</font><b><font color="#000000">equals</font></b><font color="#990000">(</font><font color="#FF0000">"-output"</font><font color="#990000">)</font> <font color="#990000">)</font>
+                outputFileName <font color="#990000">=</font> args<font color="#990000">[++</font>i<font color="#990000">];</font>
+
+            <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> args<font color="#990000">[</font>i<font color="#990000">].</font><b><font color="#000000">equals</font></b><font color="#990000">(</font><font color="#FF0000">"-input"</font><font color="#990000">)</font> <font color="#990000">)</font>
+                inputFileName <font color="#990000">=</font> args<font color="#990000">[++</font>i<font color="#990000">];</font>
+
+            <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> args<font color="#990000">[</font>i<font color="#990000">].</font><b><font color="#000000">equals</font></b><font color="#990000">(</font><font color="#FF0000">"-key"</font><font color="#990000">)</font> <font color="#990000">)</font>
+                keyName <font color="#990000">=</font> args<font color="#990000">[++</font>i<font color="#990000">];</font>
+
+            <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> args<font color="#990000">[</font>i<font color="#990000">].</font><b><font color="#000000">equals</font></b><font color="#990000">(</font><font color="#FF0000">"-showpandq"</font><font color="#990000">)</font> <font color="#990000">)</font>
+                showPandQ <font color="#990000">=</font> <b><font color="#0000FF">true</font></b><font color="#990000">;</font>
+
+            <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> args<font color="#990000">[</font>i<font color="#990000">].</font><b><font color="#000000">equals</font></b><font color="#990000">(</font><font color="#FF0000">"-keygen"</font><font color="#990000">)</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+                <font color="#009900">int</font> bitLength <font color="#990000">=</font> Integer<font color="#990000">.</font><b><font color="#000000">parseInt</font></b><font color="#990000">(</font>args<font color="#990000">[++</font>i<font color="#990000">]);</font>
+                <font color="#008080">RSAKey</font> key <font color="#990000">=</font> <b><font color="#000000">generateKeys</font></b><font color="#990000">(</font>bitLength<font color="#990000">,</font> seed<font color="#990000">);</font>
+                <b><font color="#000000">writeKeyToFile</font></b> <font color="#990000">(</font>key<font color="#990000">,</font>keyName<font color="#990000">);</font>
+            <font color="#FF0000">}</font>
+
+            <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> args<font color="#990000">[</font>i<font color="#990000">].</font><b><font color="#000000">equals</font></b><font color="#990000">(</font><font color="#FF0000">"-encrypt"</font><font color="#990000">)</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+                <font color="#008080">RSAKey</font> key <font color="#990000">=</font> <b><font color="#000000">readKeyFromFile</font></b> <font color="#990000">(</font>keyName <font color="#990000">+</font> <font color="#FF0000">"-public.key"</font><font color="#990000">);</font>
+                <font color="#008080">String</font> plainText <font color="#990000">=</font> <b><font color="#000000">getFileContents</font></b><font color="#990000">(</font>inputFileName<font color="#990000">);</font>
+                <font color="#008080">CipherText</font> cipherText <font color="#990000">=</font> <b><font color="#000000">encrypt</font></b><font color="#990000">(</font>key<font color="#990000">,</font> plainText<font color="#990000">);</font>
+                <b><font color="#000000">writeCipherTextToFile</font></b><font color="#990000">(</font>outputFileName<font color="#990000">,</font> cipherText<font color="#990000">);</font>
+            <font color="#FF0000">}</font>
+
+            <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> args<font color="#990000">[</font>i<font color="#990000">].</font><b><font color="#000000">equals</font></b><font color="#990000">(</font><font color="#FF0000">"-decrypt"</font><font color="#990000">)</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+                <font color="#008080">RSAKey</font> key <font color="#990000">=</font> <b><font color="#000000">readKeyFromFile</font></b> <font color="#990000">(</font>keyName <font color="#990000">+</font> <font color="#FF0000">"-private.key"</font><font color="#990000">);</font>
+                <font color="#008080">CipherText</font> cipherText <font color="#990000">=</font> <b><font color="#000000">readCipherTextFromFile</font></b><font color="#990000">(</font>inputFileName<font color="#990000">);</font>
+                <font color="#008080">String</font> plainText <font color="#990000">=</font> <b><font color="#000000">decrypt</font></b><font color="#990000">(</font>key<font color="#990000">,</font> cipherText<font color="#990000">);</font>
+                <font color="#008080">PrintWriter</font> fileout <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">PrintWriter</font></b><font color="#990000">(</font>outputFileName<font color="#990000">);</font>
+                fileout<font color="#990000">.</font><b><font color="#000000">print</font></b><font color="#990000">(</font>plainText<font color="#990000">);</font>
+                fileout<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
+            <font color="#FF0000">}</font>
+
+            <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> args<font color="#990000">[</font>i<font color="#990000">].</font><b><font color="#000000">equals</font></b><font color="#990000">(</font><font color="#FF0000">"-sign"</font><font color="#990000">)</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+                <font color="#008080">RSAKey</font> key <font color="#990000">=</font> <b><font color="#000000">readKeyFromFile</font></b> <font color="#990000">(</font>keyName <font color="#990000">+</font> <font color="#FF0000">"-private.key"</font><font color="#990000">);</font>
+                <font color="#008080">String</font> plainText <font color="#990000">=</font> <b><font color="#000000">getFileContents</font></b><font color="#990000">(</font>inputFileName<font color="#990000">);</font>
+                <font color="#008080">CipherText</font> signature <font color="#990000">=</font> <b><font color="#000000">sign</font></b><font color="#990000">(</font>key<font color="#990000">,</font>plainText<font color="#990000">);</font>
+                <b><font color="#000000">writeCipherTextToFile</font></b><font color="#990000">(</font>inputFileName<font color="#990000">+</font><font color="#FF0000">".sign"</font><font color="#990000">,</font> signature<font color="#990000">);</font>
+            <font color="#FF0000">}</font>
+
+            <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> args<font color="#990000">[</font>i<font color="#990000">].</font><b><font color="#000000">equals</font></b><font color="#990000">(</font><font color="#FF0000">"-checksign"</font><font color="#990000">)</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+                <font color="#008080">RSAKey</font> key <font color="#990000">=</font> <b><font color="#000000">readKeyFromFile</font></b> <font color="#990000">(</font>keyName <font color="#990000">+</font> <font color="#FF0000">"-public.key"</font><font color="#990000">);</font>
+                <font color="#008080">String</font> plainText <font color="#990000">=</font> <b><font color="#000000">getFileContents</font></b><font color="#990000">(</font>inputFileName<font color="#990000">);</font>
+                <font color="#008080">CipherText</font> signature <font color="#990000">=</font> <b><font color="#000000">readCipherTextFromFile</font></b><font color="#990000">(</font>inputFileName<font color="#990000">+</font><font color="#FF0000">".sign"</font><font color="#990000">);</font>
+                <font color="#009900">boolean</font> result <font color="#990000">=</font> <b><font color="#000000">checkSign</font></b><font color="#990000">(</font>key<font color="#990000">,</font>plainText<font color="#990000">,</font>signature<font color="#990000">);</font>
+                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font>result <font color="#990000">)</font>
+                    System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font><font color="#FF0000">"Signatures do not match!"</font><font color="#990000">);</font>
+            <font color="#FF0000">}</font>
+
+            <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> args<font color="#990000">[</font>i<font color="#990000">].</font><b><font color="#000000">equals</font></b><font color="#990000">(</font><font color="#FF0000">"-crack"</font><font color="#990000">)</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+                <font color="#008080">RSAKey</font> key <font color="#990000">=</font> <b><font color="#000000">readKeyFromFile</font></b> <font color="#990000">(</font>keyName <font color="#990000">+</font> <font color="#FF0000">"-public.key"</font><font color="#990000">);</font>
+                <font color="#008080">RSAKey</font> crack <font color="#990000">=</font> <b><font color="#000000">crack</font></b><font color="#990000">(</font>key<font color="#990000">);</font>
+                <b><font color="#000000">writeKeyToFile</font></b> <font color="#990000">(</font>crack<font color="#990000">,</font>keyName<font color="#990000">+</font><font color="#FF0000">"-cracked"</font><font color="#990000">);</font>
+            <font color="#FF0000">}</font>
+
+            <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> args<font color="#990000">[</font>i<font color="#990000">].</font><b><font color="#000000">equals</font></b><font color="#990000">(</font><font color="#FF0000">"-seed"</font><font color="#990000">)</font> <font color="#990000">)</font>
+                seed <font color="#990000">=</font> Integer<font color="#990000">.</font><b><font color="#000000">parseInt</font></b><font color="#990000">(</font>args<font color="#990000">[++</font>i<font color="#990000">]);</font>
+
+            <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+                System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font><font color="#FF0000">"Unknown parameter: '"</font> <font color="#990000">+</font> args<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">+</font> <font color="#FF0000">"', exiting."</font><font color="#990000">);</font>
+                System<font color="#990000">.</font><b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
+            <font color="#FF0000">}</font>
+
+        <font color="#FF0000">}</font>
+    <font color="#FF0000">}</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>
