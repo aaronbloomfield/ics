@@ -1,4 +1,4 @@
-ICS: Written Homework 2: US Cybersecurity Policy
+ICS: Written Homework: US Cybersecurity Policy
 ================================================
 
 [Go up to the ICS HW page](index.html) ([md](index.md))

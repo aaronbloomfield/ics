@@ -1,4 +1,4 @@
-ICS: Written Homework 3: Cybersecurity Ethics
+ICS: Written Homework: Cybersecurity Ethics
 =============================================
 
 [Go up to the ICS HW page](index.html) ([md](index.md))

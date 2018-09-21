@@ -55,7 +55,7 @@ of the due date given -- this means by 11:59:59 pm.  The late policies are discu
 Lecture progress
 ----------------
 
-- Fri, Sep 21: [encryption](../slides/encryption.html#/rsa) through ...
+- Fri, Sep 21: [encryption](../slides/encryption.html#/rsa) through the end of message decryption (slide 6.32)
 - Wed, Sep 19: [encryption](../slides/encryption.html#/), up to (but not starting) [encryption](../slides/encryption.html#/rsa)
 - Mon, Sep 17: Finished the [Ethics](../slides/ethics.html#/) slide set (started today [here](../slides/ethics.html#/6/13)); started [encryption](../slides/encryption.html#/) and got to the end of the Caesar Cipher ("Cracking a substitution cipher")
 - Fri, Sep 14: [Ethics](../slides/ethics.html#/), through the [Abuses of ethical frameworks](../slides/ethics.html#/6/13) slide

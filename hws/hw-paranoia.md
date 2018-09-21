@@ -1,4 +1,4 @@
-ICS: Written Homework 1: Rational Paranoia
+ICS: Written Homework: Rational Paranoia
 ==========================================
 
 [Go up to the ICS HW page](index.html) ([md](index.md))
