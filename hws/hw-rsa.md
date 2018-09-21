@@ -278,5 +278,6 @@ it has via the `file foo.txt` command.
 You should submit two files: `RSA.java`, which contains all your Java
 code.  The compilation command will be `javac *.java`, so your
 RSA.java should have only one public class called `RSA`, and not be in
-a package.
-
+a package.  The submission system will expect to see a `RSA.class`
+file after compilation, and will complain if it is not present
+(`missing binary executable`, or similar).

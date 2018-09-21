@@ -45,15 +45,18 @@ Homeworks
 Unless otherwise noted, all submissions are due by the end of the day
 of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the [online submission system][162].
 
-- [HW 1: Rational Paranoia](../hws/hw1-paranoia.html) ([md](../hws/hw1-paranoia.md)) is due on Thursday, September 6th 
-- [HW 2: Policy](../hws/hw2-policy.html) ([md](../hws/hw2-policy.md)) is due on Thursday, September 13th 
-- [HW 3: Ethics](../hws/hw3-ethics.html) ([md](../hws/hw3-ethics.md)) is due on Thursday, September 20th
+- [HW 4: RSA](../hws/hw-rsa.html) ([md](../hws/hw-rsa.md)) is due on Thursday, September 27th
+- [HW 3: Ethics](../hws/hw-ethics.html) ([md](../hws/hw-ethics.md)) is due on Thursday, September 20th
+- [HW 2: Policy](../hws/hw-policy.html) ([md](../hws/hw-policy.md)) is due on Thursday, September 13th 
+- [HW 1: Rational Paranoia](../hws/hw-paranoia.html) ([md](../hws/hw-paranoia.md)) is due on Thursday, September 6th 
 
 
 
 Lecture progress
 ----------------
 
+- Fri, Sep 21: [encryption](../slides/encryption.html#/rsa) through ...
+- Wed, Sep 19: [encryption](../slides/encryption.html#/), up to (but not starting) [encryption](../slides/encryption.html#/rsa)
 - Mon, Sep 17: Finished the [Ethics](../slides/ethics.html#/) slide set (started today [here](../slides/ethics.html#/6/13)); started [encryption](../slides/encryption.html#/) and got to the end of the Caesar Cipher ("Cracking a substitution cipher")
 - Fri, Sep 14: [Ethics](../slides/ethics.html#/), through the [Abuses of ethical frameworks](../slides/ethics.html#/6/13) slide
 - Wed, Sep 12: [Ethics](../slides/ethics.html#/), through the "Harm to Privacy" slide

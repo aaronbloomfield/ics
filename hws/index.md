@@ -14,6 +14,6 @@ please read that!
 
 ### Written homeworks
 
-- [Written homework 1: Rational Paranoia](hw1-paranoia.html) ([md](hw1-paranoia.html))
-- [Written homework 2: Cybersecurity Policy](hw2-policy.html) ([md](hw2-policy.html))
-- [Written homework 3: Ethics](hw3-ethics.html) ([md](hw3-ethics.html))
+- [Written homework 1: Rational Paranoia](hw-paranoia.html) ([md](hw-paranoia.html))
+- [Written homework 2: Cybersecurity Policy](hw-policy.html) ([md](hw-policy.html))
+- [Written homework 3: Ethics](hw-ethics.html) ([md](hw-ethics.html))
