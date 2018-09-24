@@ -31,6 +31,8 @@ Readings
 All scholarly articles (such as from the ACM digital library) can be obtained from free from any UVa wireless network.  You will *NOT* be able to get it for free from your home Internet provider such as Comcast (unless you live in a UVa dorm, of course).  All readings are due by the lecture that day.
 
 
+- Due Monday, October 8th:
+    - Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf)
 - Due Wednesday, September 12th:
     - [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf)
 	    - You can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages.
@@ -45,6 +47,7 @@ Homeworks
 Unless otherwise noted, all submissions are due by the end of the day
 of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the [online submission system][162].
 
+- [HW 5: Movie Night](../hws/hw-movie-night.html) ([md](../hws/hw-movie-night.html)) is due on Friday, October 5th
 - [HW 4: RSA](../hws/hw-rsa.html) ([md](../hws/hw-rsa.md)) is due on Thursday, September 27th
 - [HW 3: Ethics](../hws/hw-ethics.html) ([md](../hws/hw-ethics.md)) is due on Thursday, September 20th
 - [HW 2: Policy](../hws/hw-policy.html) ([md](../hws/hw-policy.md)) is due on Thursday, September 13th 
