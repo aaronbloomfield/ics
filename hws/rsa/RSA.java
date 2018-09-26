@@ -358,7 +358,7 @@ public class RSA {
      *
      * @param key The public key to crack
      *
-     * @return A String containing the cracked *full* key (both d and
+     * @return A RSAKey containing the cracked *full* key (both d and
      * e are set, as well as the other fields)
      *
      * @throws Exception It is not expected that this method will
