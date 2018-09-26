@@ -275,7 +275,7 @@ it has via the `file foo.txt` command.
 
 ### Submission requirements
 
-You should submit two files: `RSA.java`, which contains all your Java
+You should submit one file: `RSA.java`, which contains all your Java
 code.  The compilation command will be `javac *.java`, so your
 RSA.java should have only one public class called `RSA`, and not be in
 a package.  The submission system will expect to see a `RSA.class`
