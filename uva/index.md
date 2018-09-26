@@ -59,6 +59,7 @@ of the due date given -- this means by 11:59:59 pm.  The late policies are discu
 Lecture progress
 ----------------
 
+- Wed, Sep 26: [encryption](../slides/encryption.html#/rsa) through the the last of the three "more randomness" slides (slide 7.15)
 - Mon, Sep 24: [encryption](../slides/encryption.html#/rsa) through the xkcd comic (slide 6.49)
 - Fri, Sep 21: [encryption](../slides/encryption.html#/rsa) through the end of message decryption (slide 6.32)
 - Wed, Sep 19: [encryption](../slides/encryption.html#/), up to (but not starting) [encryption](../slides/encryption.html#/rsa)
