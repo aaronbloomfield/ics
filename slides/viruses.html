@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ICS: Viruses</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/ics.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+<section data-markdown id="cover"><script type="text/template">
+# CS 3501
+&nbsp;
+### Introduction to Cybersecurity
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/ics](http://github.com/aaronbloomfield/ics) / [&uarr;](index.html) / <a href="?print-pdf"><img class="print" width="20" src="images/print-icon.png" alt="print icon"></a></small></center>
+&nbsp;
+## Viruses
+</script></section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section data-markdown>
+  <textarea data-template>
+# Contents
+&nbsp;  
+[Introduction](#/intro)  
+[File Formats](#/files)  
+[Virus Infections](#/infections)  
+[Basic Virus Stealth](#/stealth)  
+[Advanced Virus Stealth](#/advanced)  
+[Even More Advanced Virus Stealth](#/moreadvanced)  
+</textarea>
+</section>
+  
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="intro" class="center">
+  <textarea data-template>
+# Introduction
+  </textarea>
+</section>
+
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Computer Virus
+- Malware that:
+  - Alters an executable files and inserts its own code in there
+    - Often a binary executable, but can be a script, batch file, etc.
+  - At some point during execution, control is transferred to the virus
+    - Or at least the transfer of control is attempted...
+  - Often (but not always!) has a *payload*
+
+
+
+## Why Windows as a target?
+- Most viruses affect Windows -- but why?
+- Market share!
+  - As of September 2018, Windows has 82% of the market, Mac OS X 13%, Linux 2% ([source](http://gs.statcounter.com/os-market-share/desktop/worldwide/))
+	- That is home computer share, and does not include, say, Amazon's clusters
+	- Android is 25% of all viruses, but that is not included above
+- Relative weak security, compared to Linux and Mac OS X
+- Main user often has admin access
+
+
+
+## Virus arms race
+- The loop:
+  - Virus writers will develop a creative new way to "hide" from the anti-virus scanners
+  - Anti-virus scanners will adapt, and be able to detect the new virus
+- Rinse, lather, repeat
+- This played out especially in the 1980's and 1990's
+  - Nowadays malware has moved on to other infection methods
+  </textarea>
+</section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="files" class="center">
+  <textarea data-template>
+# File Formats
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+<!-- .slide: class="right-float-img-800" -->
+## Windows PE file format
+![PE format](http://2we26u4fam7n16rz3a44uhbe1bq2.wpengine.netdna-cdn.com/wp-content/uploads/112015_2323_2MalwareRes1.jpg)
+- Parts:
+  - DOS header
+  - DOS stub
+  - PE header
+    - Where Windows<br>looks...
+  - PE sections
+    - .data section
+    - .rdata section
+    - .text section
+
+Image from [here](http://resources.infosecinstitute.com/2-malware-researchers-handbook-demystifying-pe-file/#gref)
+
+
+
+## Linux ELF Files
+<!-- .slide: class="right-float-img-800" -->
+![ELF file](https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Elf-layout--en.svg/693px-Elf-layout--en.svg.png)
+- Similar in concept to PE files
+  - No DOS header, though!
+- Same common sections
+  - .data, .text, .rodata, etc.
+- Meant as a generic format
+  - Runs on Linux, Playstation,<br>many UNIX OSes,<br>Android (sorta), etc.
+- Image from [Wikipedia](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format)
+
+
+
+## PE Sections
+- .text: Code 
+- .data: Initialized data
+- .bss: Uninitialized data
+- .rdata: Const/read-only (and initialized) data
+- .edata: Export descriptors
+- .idata: Import descriptors
+- .reloc: Relocation table
+- .rsrc: Resources (icon, bitmap, dialog, ...)
+
+(shamelessly copied from [here](https://stackoverflow.com/questions/19012300/whats-the-difference-between-rdata-and-idata-segments))
+
+
+
+<!-- .slide: class="right-float-img-800" -->
+## Linking a PE file
+![PE file linking](images/viruses/pe-linking.png)
+- Compiler produces .o files
+- Each .o has it's own sections
+- Linker combines into the PE
+- Linker: the last compiler stage
+
+
+
+## Linking a PE file
+- Why the dead spaces?
+ - Alignment restrictions
+  - Perhaps 128 byte boundaries
+- Some linkers make PE file align to page boundaries
+  - Memory pages are much bigger (1 Kb to 4 Kb)
+  - This simplifies the loader's job
+  - But makes PE file bigger on disk
+
+
+
+## PE file expansion
+![PE file expansion](images/viruses/pe-expansion.png)
+
+
+
+## PE file expansion
+- Why the expansion?
+  - Memory will have different alignment restrictions than the file on disk
+  - Loader increases dead spaces to use page boundaries, while alignment is to a lesser size (e.g. 128 bytes) in the PE file on disk
+  - Page sizes are 1 Kb to 4 Kb
+- The OS can place *restrictions* on pages (read-only, no-execute, etc)
+- Like unpacking a suitcase...
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="infections" class="center">
+  <textarea data-template>
+# Virus Infections
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## File infection modalities
+- Beginning of .text section with Destructive Overwrite
+- Random Location in .text section with Destructive Overwrite
+  - Will not always execute!
+- Appending Viruses
+- Multiple Techniques
+- Cavity Viruses (possibly fractionated)
+- Compressing Viruses
+- Entry-Point Obscuring (EPO) Viruses
+  - Including IAT replacement
+
+
+
+## The "tricky jump"
+- The most common technique to transfer control to a virus
+- Recall that the `ret` assembly command pops a address from the stack and then jumps there
+
+
+
+## The "tricky jump"
+- Insert virus code somewhere
+  - At the end, in a cavity, etc.
+- Find a suitable `ret` in some subroutine
+- Overwrite the last few instructions in that subroutine with:
+  - `push [virus code address]`
+  - `ret`
+- Saved instructions are put into the virus code
+  - At the end, prior to the ret
+
+
+
+## Detecting a tricky jump
+- This is very easy to find!
+  - Just look for a `push` followed immediately by a `ret`
+    - No compiler would ever compile assembly that does that
+- Virus writers got creative:
+  - Added a bunch of nops between (`add eax, 0`, etc.)
+- Anti-virus researches figured out how to detect those
+- So better stealth was needed...
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="stealth" class="center">
+  <textarea data-template>
+# Basic Virus Stealth
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Viruses must be stealthy
+- Otherwise you immediately know something is wrong, and you fix it, removing the virus
+- Thus, the virus must:
+  - Quickly execute it's payload (and possible other infections)
+  - Jump back to the "expected" behavior when done
+
+
+
+## Entry-Point Obscuring (EPO) Viruses
+- An EPO virus obscures its own entry point by finding a call instruction in the targeted PE file and "hijacking" the call so that the virus code is called instead
+- Thus, we find a `call` opcode and replace the target with the virus address
+- A good EPO virus will save all registers, and then restore them on the way out
+
+
+
+## Detecting Call-Hijacking Viruses
+- Check if any of the `call` targets are outside the .text section of code
+- The .reloc section is examined by modern anti-virus software to see if it looks like a legitimate .reloc section
+  - Code patterns such as saving state, tricky jumps, etc., can be detected in the .reloc section
+
+
+
+## Calling library functions
+- When your binary code calls a library function
+  - such as `printf()`, or `<<` on `cout`, etc.
+- The program consults the Import Address Table (in Windows)
+  - aka the .dynsym section in Linux
+  - aka the LC\_DYLD\_INFO section in Mac OS X
+- And looks up the address (in the libc library) for `printf()`
+- The *loader* patches the address for `printf()` (and other methods) into the IAT when the program starts up
+
+
+
+## EPO Viruses: IAT Replacement
+- A virus can change the address in the IAT to that of the virus code
+  - It saves the "real" address and jumps there when done
+- Several function pointers can be saved in the virus body, then replaced with pointers to the virus code
+- After the virus code is memory-resident, it can restore the IAT in memory so that the API is preserved and stealth is maintained
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="advanced" class="center">
+  <textarea data-template>
+# Advanced Virus Stealth
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Anti-disassembly techniques
+- Prevent a disassembly (i.e., printout) to hinder analysis
+- Examples:
+  - Encrypt the virus (machine) code (next slide)
+  - Obfuscated computation (next next slide)
+  - Using checksums (next next next slide)
+  - Compressed code (like encrypted viruses)
+
+
+
+## Example: Cascade Virus
+- The simple decryptor of Cascade, circa 1990:
+```
+   lea  si,Start ; start of encrypted code 
+                 ; (computed by virus)
+   mov  sp,0682h ; length of encrypted code (1666 bytes)
+Decrypt:
+   xor  [si],si  ; xor code with its address
+   xor  [si],sp  ; xor code with its inverse index
+   inc  si       ; increment address pointer
+   dec  sp       ; decrement byte counter
+   jnz  Decrypt  ; loop if more bytes to decrypt
+Start:         ; virus code body
+```
+- Note that one of the `xor` commands is xor'ing it with the address, which will change with each infection
+  - Thus, pattern matching won't find the code!
+  - But pattern matching can find the decryptor...
+
+
+
+
+## Obfuscated Computation
+- Example from Szor text, p. 223 (section 6.2.3):
+- Straightforward code to write 256 bytes into a file:
+```
+mov  cx, 100h   ; 100h = 256 bytes to write
+mov  ah, 40h    ; 40h = DOS function number
+int  21h        ; Invoke DOS handler
+```
+- Convoluted code to do the same thing:
+```
+mov  cx, 003Fh  ; cx = 003fh
+inc  cx         ; cx = 0040h
+xchg ch, cl     ; swap ch, cl (cx = 4000h)
+xchg ax, cx     ; swap ax, cx (ax = 4000h)
+mov  cx, 0100h  ; cx = 100h
+int  21h        ; Invoke DOS handler 
+```
+
+
+
+## Checksums
+- Instead of:
+```
+for (each prototype in DLL export table) 
+    if (0 == strcmp(name,"GetFileHandle(int)"))
+        infect(current export table address);
+endfor
+```
+which has the subroutine name clearly visible, use:
+```
+int ConstantName = 0x89f7e5b2; // Computed by virus writer
+for (each prototype in DLL export table)
+     if (checksum(name) == ConstantName)
+        infect(current export table address);
+endfor
+```
+
+
+
+
+## Anti-debugging techniques
+- Prevent tracing the code in a debugger
+- Techniques:
+  - Hook interrupts 1 and 3 (next slide)
+  - Pre-compute a checksum of code, so if it's modified (by a debugger placing an interrupt there), it can choose not to execute
+  - Detect debugger changes to the stack (next next slide)
+  - Use the stack pointer as a counter for a decryption routine
+
+
+
+## Hooking interrupts
+- There are interrupts for single-stepping (INT 1) and breakpoints (INT 3)
+- A debugger will "register" (aka "hook") the interrupt
+  - This means telling the CPU to execute a particular address of code when that interrupt is called
+  - It will then *overwrite* the instruction to break at with `INT 3`
+    - Once in the handler, the original instruction is restored, and the debugger pauses at a break point
+
+
+
+## Hooking interrupts, cont'd
+- So a virus can put it's code as an *interrupt handler* for either, and then call the interrupt directly
+	- The virus won't work under a debugger, then!
+
+
+
+## Detecting Stack Changes
+- Without single-step debug state changes, a location on the stack will remain unchanged until an instruction changes it
+  - But will be changed by the debugger after every instruction during single-step debug
+- To detect this:
+```
+mov rbp,rsp      ; rbp gets current stack pointer
+push rax
+pop rax          ; old pushed value still at [rbp-8]
+                   ;    which is beyond current stack
+cmp qword ptr [rbp-8],rax   ; equal if no debugger
+jne DEBUG        ; debugger detected! Go abort!
+```
+
+
+
+## Anti-emulation techniques
+- Prevent emulation, either in a full virtual environment (such as VirtualBox) or just a regular emulator
+- Techniques:
+  - Attempt to throw exceptions
+    - Emulators have a hard time determining exactly when an exception will occur
+  - Use long idle loops
+    - Takes longer in emulators
+  - Be a time or logic bomb
+    - Won't always work, then!
+
+
+
+## Anti-heuristic techniques
+- A heuristic is a algorithm for determining if there is a virus
+  - Something that can find *if* a virus exists (by a tricky jump, say), if not necessarily the exact virus
+- Techniques:
+  - EPO viruses
+  - Re-arrange PE files so the virus is not "appended" anymore
+
+
+
+## Anti-goat techniques
+- A goat file (from the concept of sacrificial goats) is a dummy file of known content whose infection will signal the presence of a virus
+  - Scattered around the disk in various file types that are prone to infection, e.g. .exe, .vbs, etc.
+- Viruses examine files for goat file characteristics:
+  - Lots of no-ops and do-nothing instructions
+  - Clusters of files with sequential numbers in their names, e.g. abcd0001.vbs, abcd0002.vbs, etc.
+
+
+
+## Retroviruses
+- Malware that attacks the defenses
+  - In biology, that's the immune system, such as what HIV does
+  - For computers, that's the anti-virus software
+- Techniques:
+  - Direct attack on the anti-virus software (rename the executable, kill the process, etc.)
+  - Affect the integrity database
+  - Deter anti-virus use with a "warning"
+  </textarea>
+</section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="moreadvanced" class="center">
+  <textarea data-template>
+# Even More Advanced Virus Stealth
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+  </textarea>
+</section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	
+</div>
+</div>
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.js"></script>
+<script src="settings.js"></script>
+</body>
+</html>

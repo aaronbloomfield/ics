@@ -16,7 +16,9 @@ Slide sets, ordered in the order presented in lecture:
     - [Ethics](ethics.html#/)
 - Crytpography
 	- [Encryption](encryption.html#/)
-
+- Binary Exploits
+	- [Viruses](viruses.html#/)
+	- Binary Exploits
 
 
 Slide sets to be created or added as the semester progresses:
@@ -26,9 +28,6 @@ Slide sets to be created or added as the semester progresses:
 - Networks
 	- Networking Overview
 	- Network Attacks
-- Binary Exploits
-	- Viruses
-	- Binary Exploits
 - Modern Topics
 	- SQL, XSS & CSRF
 	- Stuxnet
