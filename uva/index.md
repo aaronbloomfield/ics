@@ -59,6 +59,8 @@ of the due date given -- this means by 11:59:59 pm.  The late policies are discu
 Lecture progress
 ----------------
 
+- Mon, Oct 1: [exam 1](../exams/exam1-f18.pdf) was taken during lecture
+- Fri, Sep 28: [encryption](../slides/encryption.html#/) to the end
 - Wed, Sep 26: [encryption](../slides/encryption.html#/) through the the last of the three "more randomness" slides (slide 7.15)
 - Mon, Sep 24: [encryption](../slides/encryption.html#/) through the xkcd comic (slide 6.49)
 - Fri, Sep 21: [encryption](../slides/encryption.html#/) through the end of message decryption (slide 6.32)
