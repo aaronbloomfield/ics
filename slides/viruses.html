@@ -484,6 +484,193 @@ jne DEBUG        ; debugger detected! Go abort!
     
 <section data-markdown data-separator="^\n\n\n">
   <textarea data-template>
+## Encrypted viruses
+- Encrypted viruses started appearing in the late 1980's
+- One could not pattern match on the virus body...
+  - ... since part of the encryption was the *address* in the executable, which would vary with each different file infected
+- So one had to mutate the *encryptor*
+- This was all to prevent pattern matching detection
+
+
+
+## Encryptor mutation types
+- Three types:
+  - Oligomorphic have a pre-set number of different encryptors (say, a few dozen)
+  - Polymorphic can permute the encryptor into millions or billions of variations
+  - Metamorphic mutate the virus *body* into countless variations
+    - Thus, no need for encryption!
+
+
+
+## Assembly code permutation
+- Add nop instructions: `nop`; `add rax, 0`; `shr rax, 0`; etc.
+- Instructions that modify registers that are not used by the code
+- Instructions that have a cumulative zero net effect: `inc rax` followed by `sub rax, 1`
+- Re-ordering of instructions
+- Register replacement
+
+
+
+## Oligomorphic viruses
+- Memorial was a Windows 95 oligomorphic virus that generated 96 different decryptors, choosing one at replication time
+  - Detecting 96 different patterns is an impractical solution for virus scanners that must deal with thousands of viruses; pattern database size explosion would result
+- It inserted junk instructions at various points in the decryptor code
+
+
+
+## Polymorphic viruses
+- First one was in 1990: [V2PX](https://en.wikipedia.org/wiki/1260_(computer_virus%29) or 1260 (because it was only 1260 bytes!)
+  - Created by an anti-virus researcher as a proof-of-concept
+    - Thus, it had no payload
+- Instructions were in three groups; within each group the instructions could have any order
+- A limited number of junk instructions could be inserted
+
+
+
+## The 1260 Virus Decryptor
+- One instance of a decryptor:
+```
+; Group 1: Prolog instructions
+	mov ax,0E9Bh    ; set key 1
+	mov di,012Ah    ; offset of virus Start
+	mov cx,0571h    ; byte count, used as key 2
+; Group 2: Decryption instructions
+Decrypt:
+	xor [di],cx     ; decrypt first 16-bit word with key 2
+	xor [di],ax     ; decrypt first 16-bit word with key 1
+; Group 3: Decryption instructions
+	inc di          ; move on to next byte
+	inc ax          ; slide key 1
+; loop instruction (not part of Group 3)
+	loop Decrypt    ; slide key 2 and loop back if not zero
+; Random padding up to 39 bytes
+Start:          ; encrypted virus body starts here
+```
+
+
+
+## 1260 Permutations
+- Group sizes were 3, 2, 2: total of 24 orderings of instructions
+- Could choose around a hundred thousand junk instructions
+- A limit of about 15 total junk instructions could be placed in 11 locations: several thousand possibilities
+- This yields around a billion variants
+  - And in only 1260 bytes of (machine) code!
+
+
+
+## Mutation Engines
+- Creating a polymorphic virus that makes no errors is really hard
+  - Especially for the average virus writer
+- A few virus writers started creating mutation engines, which can transform an encrypted virus into a polymorphic virus 
+- The Dark Avenger mutation engine, also called MtE, was the first such engine (DOS viruses, summer 1991, from Bulgaria)
+
+
+
+## Early Metamorphics: Regswap
+- A Win 95 metamorphic virus from Dec, 1998
+- Metamorphism was only register replacement:
+```
+pop edx                    pop eax
+mov edi,0004h              mov ebx,0004h
+mov esi,ebp                mov edx,ebp
+mov eax,000Ch              mov edi,000Ch
+add edx,0088h              add eax,0088h
+mov ebx,[edx]              mov esi,[eax]
+mov [esi+eax*4+1118],ebx   mov [edx+edi*4+1118],esi
+etc.                       etc.
+```
+- Not much of an obstacle with wildcards:
+<pre class="code">
+5<span class="hotpink">A</span> B<span class="hotpink">F</span>04000000            5<span class="hotpink">8</span> B<span class="hotpink">B</span>04000000
+</pre>
+- Both variants match 5? B?04000000
+
+
+
+## Metamorphic Engine Example
+- The Evol virus of July, 2000
+- Compare different generations, after several generations of evolution:
+```
+mov  dword ptr [esi],55000000h      ; 1st generation
+mov  dword ptr [esi+0004],5151EC8Bh ; 1st generation
+```
+```
+mov edi,55000000h      ;2nd gen., constant not changed
+mov dword ptr [esi],edi
+pop edi                ; junk
+push edx               ; junk
+mov dh,40h             ; junk
+mov edx,5151EC8Bh      ; constant not changed yet
+push ebx               ; junk
+mov ebx,edx
+mov dword ptr [esi+0004],ebx
+```
+
+
+
+## Evol Example cont.
+- A later generation shows the constant mutation starting:
+```
+mov ebx,5500000Fh      ; 3rd gen., constant has changed
+mov dword ptr [esi],ebx
+pop ebx                ; junk
+push ecx               ; junk
+mov ecx,5FC0000CBh     ; constant has changed
+add ecx,F191EBC0h      ; ECX now has original value
+mov dword ptr [esi+0004],ecx
+```
+- As it replicates, the metamorphic engine makes just a few changes each generation, but the AV scanner code patterns change drastically 
+- Eventually, all constants will be mutated many times
+
+
+
+## Other approaches
+- Zperm: lots of jumps, so the reordering can be done easily
+- Zmorph: lots of small body-polymorphic subroutines that build the virus on the stack
+- Zmist: *disassembles* the PE file, inserts its code inside, and then *reassembles* the PE file
+  - One of the most complex viruses ever written
+- [Simile](http://en.wikipedia.org/wiki/Simile_(computer_virus%29): benign payload, but had 14,000 lines of the metamorphic engine
+
+
+
+## What this led to...
+- ... is that people gave up using pattern matching on viruses
+- Instead, started using emulation and heuristics
+
+
+
+## Virus Creation Laboratory
+A virus creation kit, which does exactly what it sounds like it does
+![VCL](images/viruses/vcl.png)
+
+
+
+## NGVCK 
+<!-- .slide: class="right-float-img-800" -->
+Next Generation Virus Creation Kit (2001)
+![NGVCK](images/viruses/ngvck.gif)
+
+A VB script
+
+Similar to VCL, but could infect PE files
+
+Advanced assembly source morphing engine
+
+
+
+## Anna Kournikova virus
+- Most known virus created with the VBSWG virus creation kit
+- People executed a AnnaKournikova.jpg.vbs e-mail attachment
+  - ... because they wanted to see pictures of [Anna Kournikova](https://www.google.com/search?q=anna+kournikova&safe=on&tbm=isch)
+- Which then e-mailed itself out to everybody in their Outlook address box
+  - Author, 20-year old Jan de Wit created it, even though he did not know how to write a program
+
+
+
+## Why we still study viruses today
+- Being as this all happened decades ago
+- The techhniques used in these viruses is present in modern malware
+  - Among many other techniques...
   </textarea>
 </section>
 
