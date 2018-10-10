@@ -625,9 +625,9 @@ mov dword ptr [esi+0004],ecx
 
 
 ## Other approaches
-- Zperm: lots of jumps, so the reordering can be done easily
+- [Zperm](https://www.symantec.com/security-center/writeup/2000-121812-0711-99): lots of jumps, so the reordering can be done easily
 - Zmorph: lots of small body-polymorphic subroutines that build the virus on the stack
-- Zmist: *disassembles* the PE file, inserts its code inside, and then *reassembles* the PE file
+- [Zmist](https://en.wikipedia.org/wiki/Zmist): *disassembles* the PE file, inserts its code inside, and then *reassembles* the PE file
   - One of the most complex viruses ever written
 - [Simile](http://en.wikipedia.org/wiki/Simile_(computer_virus%29): benign payload, but had 14,000 lines of the metamorphic engine
 
