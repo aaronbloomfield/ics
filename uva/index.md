@@ -59,7 +59,7 @@ of the due date given -- this means by 11:59:59 pm.  The late policies are discu
 Lecture progress
 ----------------
 
-- Wed, Oct 10: ...
+- Wed, Oct 10: [viruses](../slides/viruses.html#/) through the "Evol Example cont" slide
 - Mon, Oct 8: fall break, so no class
 - Fri, Oct 5: no class :-(
 - Wed, Oct 3: [viruses](../slides/viruses.html#/) through the Cascade encryption slide
