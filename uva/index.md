@@ -47,7 +47,7 @@ Homeworks
 Unless otherwise noted, all submissions are due by the end of the day
 of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the [online submission system][162].
 
-- HW 6 (not yet out) will be due Thursday, October 11th
+- [HW 6: Hashing](../hws/hw-hashing.html) ([md](../hws/hw-hashing.md)) is due Monday, October 15th
 - [HW 5: Movie Night](../hws/hw-movie-night.html) ([md](../hws/hw-movie-night.html)) is due on Sunday, October 7th
 - [HW 4: RSA](../hws/hw-rsa.html) ([md](../hws/hw-rsa.md)) is due on Thursday, September 27th
 - [HW 3: Ethics](../hws/hw-ethics.html) ([md](../hws/hw-ethics.md)) is due on Thursday, September 20th

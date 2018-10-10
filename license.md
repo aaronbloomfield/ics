@@ -20,3 +20,4 @@ Various components in this repository were obtained from other sources, all of w
 - [reveal.js](https://github.com/hakimel/reveal.js/) (used for the slides), released under an MIT license
 - Some of the images
     - [slides/images/print-icon.png](slides/images/print-icon.png) is from [here](http://www.iconarchive.com/show/windows-8-icons-by-icons8/Very-Basic-Print-icon.html); the license requires a linkback, which was that link.
+- The MD5 collision materials, used for the [Hashing homework](hws/hw-hashing.html) ([md](hws/hw-hashing.md)) is from [here](http://www.mscs.dal.ca/~selinger/md5collision/), and is used with the permission posted on that website.

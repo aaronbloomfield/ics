@@ -11,6 +11,7 @@ all listed on the [main UVa page](../uva/index.html)
 
 ### Programing homeworks
 
+- [Programming homework: Hashing](hw-hashing.html) ([md](hw-hashing.md))
 - [Programming homework: RSA](hw-rsa.html) ([md](hw-rsa.md))
 
 
