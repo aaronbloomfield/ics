@@ -31,7 +31,7 @@ Readings
 All scholarly articles (such as from the ACM digital library) can be obtained from free from any UVa wireless network.  You will *NOT* be able to get it for free from your home Internet provider such as Comcast (unless you live in a UVa dorm, of course).  All readings are due by the lecture that day.
 
 
-- Due Monday, October 8th:
+- Due Friday, October 12th:
     - Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf)
 - Due Wednesday, September 12th:
     - [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf)
@@ -59,6 +59,10 @@ of the due date given -- this means by 11:59:59 pm.  The late policies are discu
 Lecture progress
 ----------------
 
+- Wed, Oct 10: ...
+- Mon, Oct 8: fall break, so no class
+- Fri, Oct 5: no class :-(
+- Wed, Oct 3: [viruses](../slides/viruses.html#/) through the Cascade encryption slide
 - Mon, Oct 1: [exam 1](../exams/exam1-f18.pdf) was taken during lecture
 - Fri, Sep 28: [encryption](../slides/encryption.html#/) to the end
 - Wed, Sep 26: [encryption](../slides/encryption.html#/) through the the last of the three "more randomness" slides (slide 7.15)

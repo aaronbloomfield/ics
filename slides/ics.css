@@ -231,3 +231,13 @@ p.blankline { height:1em; }
 .reveal section img {
     background:white
 }
+
+span.red { color:red; }
+span.skyblue { color:skyblue; }
+span.pink { color:pink; }
+span.hotpink { color:hotpink; }
+span.blue { color:blue; }
+span.green { color:green; }
+span.lightgreen { color:lightgreen; }
+span.orange { color:orange; }
+span.yellow { color:yellow; }
