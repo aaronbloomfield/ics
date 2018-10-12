@@ -18,6 +18,7 @@ Slide sets, ordered in the order presented in lecture:
 	- [Encryption](encryption.html#/)
 - Binary Exploits
 	- [Viruses](viruses.html#/)
+	- [Buffer Overflows](buffer-overflows.html#/)
 	- Binary Exploits
 
 

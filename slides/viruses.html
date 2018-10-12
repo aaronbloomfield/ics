@@ -223,9 +223,10 @@ Image from [here](http://resources.infosecinstitute.com/2-malware-researchers-ha
 ## The "tricky jump"
 - The most common technique to transfer control to a virus
 - Recall that the `ret` assembly command pops a address from the stack and then jumps there
+</textarea></section>
 
-
-
+<section data-markdown data-separator="^\n\n\n" id="trickyjump">
+  <textarea data-template>
 ## The "tricky jump"
 - Insert virus code somewhere
   - At the end, in a cavity, etc.
@@ -235,9 +236,10 @@ Image from [here](http://resources.infosecinstitute.com/2-malware-researchers-ha
   - `ret`
 - Saved instructions are put into the virus code
   - At the end, prior to the ret
+</textarea></section>
 
-
-
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
 ## Detecting a tricky jump
 - This is very easy to find!
   - Just look for a `push` followed immediately by a `ret`

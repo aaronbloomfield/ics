@@ -241,3 +241,20 @@ span.green { color:green; }
 span.lightgreen { color:lightgreen; }
 span.orange { color:orange; }
 span.yellow { color:yellow; }
+
+section.small-code pre {
+font-size:45%;
+line-height:110%;
+}
+
+.max-image-height-200 img {
+    max-height:200px;
+}
+
+.max-image-height-300 img {
+    max-height:300px;
+}
+
+.max-image-height-500 img {
+    max-height:500px;
+}
