@@ -35,7 +35,7 @@ CS 3501: Introduction to Cybersecurity
 
 **Grades:** Grades will be calculated by the following formula:
 
-- Programming assignments (35%)
+- Programming and written assignments (35%)
 - Two midterms (15% each)
 - Final exam (25%)
 - Class participation, pop quizzes (10%)

@@ -59,6 +59,7 @@ of the due date given -- this means by 11:59:59 pm.  The late policies are discu
 Lecture progress
 ----------------
 
+- Fri, Oct 12: the rest of [viruses](../slides/viruses.html#/); [buffer overflows](../slides/buffer-overflows.html#/) through the end of the "how to do it" column (maybe?)
 - Wed, Oct 10: [viruses](../slides/viruses.html#/) through the "Evol Example cont" slide
 - Mon, Oct 8: fall break, so no class
 - Fri, Oct 5: no class :-(
