@@ -374,6 +374,9 @@ section .text
   - rdx is the size of the buffer
 - sys_exit: rax = 60
   - rdi is the exit code
+- stub_execve: rax = 59
+  - ([on Linux systems](https://filippo.io/linux-syscall-table/); value 59 varies on other systems)
+  - Execute a passed command!
 
 
 ## Print without puts()
@@ -545,7 +548,23 @@ Note that the `lea` loads an negative offset, which has no 0x00 bytes
 <!-- .slide: class="max-image-height-500" -->
 We put all that together, and we get:
 ![stack diagram](images/buffer-overflows/return-to-stack.png)
+	  </textarea></section>
+
+	  <section data-markdown data-separator="^\n$"><textarea data-template>
+## There are still 0x00 bytes!
+- Specifically in the return address: 0x00007fffffffdc90
+  - In little Endian: 0x90dcffffff7f0000
+- It turns out that we only have to write only the value 0x7fffffffdc90
+  - In little Endian: 0x90dcffffff7f
+- The computer writes the value in in word (4-byte) chunks
+- Since it's in little Endian, it will fill the remainder with 0's
 </textarea></section>
+
+	  <section data-markdown data-separator="^\n$"><textarea data-template>
+## More advanced shellcode
+- Using `stub_execve` (set rax to 59), you can execute any command
+- At http://shell-storm.org/shellcode/files/shellcode-806.php you can see shellcode to run `/bin/sh` in 27 bytes
+	  </textarea></section>
 
       </section>
       
@@ -571,11 +590,11 @@ We put all that together, and we get:
   - More on this in a bit
 
 
-## No execution on the stack
-- Modern hardware (and OSes) will not allow execution of code on the stack
-- The computer has to switch over to 'legacy' virtual memory mode that doesn't have this feature
-- Disable with the `-L` flag to `setarch`
-  - More on this in a bit
+## Different memory model
+- We need to change the way virtual memory is allocated
+- Thus, the computer has to switch over to 'legacy' virtual memory mode
+- Do this with the `-L` flag to `setarch`
+  - More on this on the next slide
 
 
 ## setarch
@@ -585,6 +604,12 @@ setarch -v -LR bash
 ```
 - You can run any program, but `bash` is the shell, and you don't have to run the `setarch` command each time you want to run a program
 - Recall that `-R` disables ASLR, and `-L` allows execution on the stack
+
+
+## No execution on the stack
+- Modern hardware (and OSes) will not allow execution of code on the stack
+- You have to run [mprotect()](http://man7.org/linux/man-pages/man2/mprotect.2.html) to change this
+  - You can also set the .text section to writable that way as well
 
 
 ## Compiler protection
