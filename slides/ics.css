@@ -258,3 +258,29 @@ line-height:110%;
 .max-image-height-500 img {
     max-height:500px;
 }
+
+/* to color <pre> blocks of code */
+
+.reveal pre.code { 
+    max-height: 700px;
+    background-color:dimgray;
+    border-radius:7px;
+    box-shadow: 5px 5px 5px black;
+    font-family: monospace;
+    padding: 5px;
+    overflow: auto;
+    word-wrap: normal;
+}
+
+.reveal pre.codesmall {
+    font-size: 18px;
+    max-height: 700px;
+    background-color:dimgray;
+    border-radius:7px;
+    box-shadow: 5px 5px 5px black;
+    font-family: monospace;
+    padding: 5px;
+    overflow: auto;
+    word-wrap: normal;
+}
+
