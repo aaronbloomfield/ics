@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>ICS: Programming Homework: Buffer Overflow</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+</head>
+<body>
+<h1 id="ics-programming-homework-buffer-overflow">ICS: Programming Homework: Buffer Overflow</h1>
+<p><a href="index.html">Go up to the ICS HW page</a> (<a href="index.md">md</a>)</p>
+<p>You will want to see the <a href="../uva/hw-policies.html">homeworks policies page</a> (<a href="../uva/hw-policies.md">md</a>) for formatting and other details. The due dates are listed on the <a href="../uva/index.html">UVa course page</a> (<a href="../uva/index.md">md</a>).</p>
+<h3 id="purpose">Purpose</h3>
+<p>This assignment will have you implement a shellcode-based buffer overflow attack against a program executable. You will need to be familiar with the content in the <a href="../slides/buffer-overflows.html#/">buffer overflow slide set</a>.</p>
+<p>This assignment has five parts (or tasks), where tasks 2, 3, and 4 are parts to a full buffer overflow attack, and thus are typically done in order.</p>
+<h3 id="reference-platform">Reference platform</h3>
+<p>This program must run on the 64-bit Ubuntu 18.04 VirtualBox image provided to the class.</p>
+<h3 id="relevant-links">Relevant links</h3>
+<p>These links are all described below, but are included here, all in one place.</p>
+<ul>
+<li>The <a href="../slides/buffer-overflows.html#/">buffer overflow slide set</a></li>
+<li>The CS 2150 <a href="https://uva-cs.github.io/pdr/tutorials/05-make/index.html">Makefile tutorial</a>,</li>
+<li>CS 2150 assembly references: <a href="https://uva-cs.github.io/pdr/slides/08-assembly-64bit.html#/">slides</a>, labs (<a href="https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html">1</a> &amp; <a href="https://uva-cs.github.io/pdr/labs/lab09-64bit/index.html">2</a>), book chapters (<a href="https://uva-cs.github.io/pdr/book/x86-64bit-asm-chapter.pdf">1</a> &amp; <a href="https://uva-cs.github.io/pdr/book/x86-64bit-ccc-chapter.pdf">2</a>), and/or <a href="https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf">recommended online document</a></li>
+<li>The source code (grade.c) for the executable to be attacked: <a href="buffer/grade.c.html">HTML version</a>, <a href="buffer/grade.c">C version</a></li>
+<li><a href="http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/">Linux 64-bit syscall reference</a></li>
+<li>The <a href="https://uva-cs.github.io/pdr/tutorials/02-gdb/index.html">CS 2150 GDB tutorial</a></li>
+</ul>
+<h3 id="the-executable-target">The executable target</h3>
+<p>The executable we are attacking is called <code>grade</code>. When run, you enter your name, and it will tell you your grade. An example run of the program:</p>
+<pre><code>$ ./grade
+Please enter your name:
+Aaron Bloomfield
+
+Aaron Bloomfield, your grade on this assignment is a F
+$</code></pre>
+<p>Note that the first instance of the name is what the user input, and the second is what the program printed back.</p>
+<p>The grade reported by this program is the grade you will receive on (part of) this assignment.</p>
+<p>The source code for this program is available: <a href="buffer/grade.c.html">HTML version</a>, <a href="buffer/grade.c">C version</a>. It MUST be compiled with the following command: <code>gcc -g -fno-stack-protector -m64 -fomit-frame-pointer -o grade grade.c</code>. You are welcome to add the <code>-g</code> option to help with debugging, but when we test your program, we will not add the <code>-g</code> option.</p>
+<p>Your job is to create a shellcode-based buffer overflow attack that will assign you a different grade. For example:</p>
+<pre><code>$ ./grade &lt; input.txt
+Please enter your name:
+Aaron Bloomfield, your grade on this assignment is an A
+$</code></pre>
+<p>The contents of input.txt are output by a program that you will write in tasks 3 &amp; 4.</p>
+<h3 id="step-1-create-a-makefile">Step 1: Create a Makefile</h3>
+<p>Not much to do here yet, but we are going to call <code>make</code> to compile your code. All of your compilation lines must be in that Makefile, and all under one target. If you forget how to write a Makefile, you can see the <a href="https://uva-cs.github.io/pdr/tutorials/05-make/index.html">Makefile tutorial from CS 2150</a>, or any other reference online.</p>
+<p>Most of the following steps will have you add some lines to the Makefile. A collection of all the compilation commands is at the end of this document (in the Submission section).</p>
+<h3 id="step-2-create-the-shellcode">Step 2: Create the shellcode</h3>
+<p>Your first step is to create shellcode that will print out the grade you want to receive, and then gracefully exit. This should be in a file called <code>shellcode.s</code>. Recall that you will have to remove all end-of-string characters from the machine code generated. While this will mostly be 0x00 bytes, you will also have to check for newlines (0x0a) and carriage returns (0x0d). The <a href="../slides/buffer-overflows.html#/">buffer overflow slide set</a> goes over how to do this.</p>
+<p>To test that your code works, you will need a <code>main()</code> function to call your shellcode; this will go into a <code>shellcode-test.c</code> file. Here is an example such file:</p>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;sys/mman.h&gt;
+extern void shellcode();
+void main() {
+  int on_stack;
+  mprotect((char *)((long)&amp;on_stack &amp; -0x1000), 1, PROT_READ | PROT_WRITE | PROT_EXEC);
+  mprotect((char *)((long)&amp;main &amp; -0x1000), 1, PROT_READ | PROT_WRITE | PROT_EXEC);
+  shellcode();
+  printf (&quot;After shell code is executed.\n&quot;);
+}</code></pre>
+<p>The <code>mprotect()</code> calls work the same as described in the grade.c program (<a href="buffer/grade.c.html">HTML</a>, <a href="buffer/grade.c">C</a>) -- they allow execution on the stack (the first call) and modifying the machine code (the second call). Needless to say, this requires that your assembly routine be called <code>shellcode</code>.</p>
+<p>Your Makefile will need to have three lines to compile this program: one to call nasm to compile shellcode.s, one to compile shellcode-test.c, and one to link them together.</p>
+<p>Some notes and hints for developing this shellcode:</p>
+<ul>
+<li>If you forget how to write assembly, see the appropriate <a href="https://uva-cs.github.io/pdr/slides/08-assembly-64bit.html#/">slides</a>, labs (<a href="https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html">1</a> &amp; <a href="https://uva-cs.github.io/pdr/labs/lab09-64bit/index.html">2</a>), book chapters (<a href="https://uva-cs.github.io/pdr/book/x86-64bit-asm-chapter.pdf">1</a> &amp; <a href="https://uva-cs.github.io/pdr/book/x86-64bit-ccc-chapter.pdf">2</a>), and/or <a href="https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf">recommended online document</a> from CS 2150.</li>
+<li>You can use <code>objdump -d shellcode.o</code> to see the machine language that your assembly opcodes compiled into.</li>
+<li>The system calls for 32-bit x86 are DIFFERENT than those for 64-bit x86. In particular, syscall 1 is exit in 32-bit and sys_write in 64-bit. We want this to be a 64-bit program, so be sure to use the syscalls that are listed <a href="http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/">here</a>. You are welcome to use any other online table for your syscall reference, but be SURE it's the 64-bit version.</li>
+<li>When invoking <code>syscall</code> in assembly, it looks at the <em>entire</em> register rax for the syscall function. So if you only set the value in the lower 32 bits (i.e., <code>mov eax, 1</code>), then the overall value in rax may not be 1 if any of the upper 32 bits were set previously (which is likely), and you will not get the syscall you expect. So be sure to zero out the 64-bit versions of all the registers that syscall is using.</li>
+<li>Note that <code>syscall</code> can modify the registers, so if the value in rax was 1 before syscall was invoked, it may be quite different afterward -- so zero out your registers again for your second syscall invocation.</li>
+<li>As mentioned in the slides, you will want your string to be in your .text section.</li>
+<li>To save yourself a headache, don't bother putting in a newline at the end of the string at this time.</li>
+</ul>
+<p>Some VERY important notes for compilation:</p>
+<ul>
+<li>We are using C, not C++, so you will have to use the <code>gcc</code> compiler.</li>
+<li>We are doing this as a 64-bit program, so you will have to pass <code>-f   elf64</code> to nasm, and <code>-m64</code> to BOTH of the gcc compilation commands.</li>
+<li>You will have to add the <code>-no-pie</code> flag to the final link line. (If you are interested, the default for the current version of gcc is to create a position independent executable (PIE), which means the addresses for everything are relative, not absolute. This does not work with what we are compiling, so we turn it off with that flag.)</li>
+<li>Your compiled shellcode.s file should be named <code>shellcode.o</code> -- we are going to run a disassembler on that file, so please name it correctly.</li>
+<li>Your final binary should be called <code>shellcode-test</code> -- we are going to execute it, so please name it correctly.</li>
+</ul>
+<h3 id="task-3-perform-the-overflow">Task 3: perform the overflow</h3>
+<p>This is what we are all here for: the buffer overflow itself. Presumably, from task 2, you have shell code that does not contain any 0x00 bytes (or newlines or carriage returns), prints out the grade you want, and then exits.</p>
+<p>In this part, you are going to create a C program called <code>attack-shellcode.c</code> that will write the carefully constructed data to stdout. You can run your program as follows (this is how we will do it to test):</p>
+<pre><code>$ ./attack-shellcode &gt; input.txt</code></pre>
+<p>Needless to say, be sure to name your executable <code>attack-shellcode</code>. You will then be able to run the buffer overflow via <code>./grade &lt; input.txt</code>, as shown above.</p>
+<p>The <a href="../slides/buffer-overflows.html#/">buffer overflow slide set</a> will be a useful reference for this. The output of your <code>attack-shellcode</code> executable, which is what is stored in input.txt, will likely have three parts:</p>
+<ul>
+<li>The NOP sled</li>
+<li>The shellcode</li>
+<li>The return address</li>
+</ul>
+<p>You are going to have become friendly with gdb -- there is no way around that. Here are a bunch of commands that will be of help; you can also see the <a href="https://uva-cs.github.io/pdr/tutorials/02-gdb/index.html">CS 2150 GDB tutorial</a> (although some of the commands below are not listed there).</p>
+<ul>
+<li>'n' steps <em>over</em> the next instruction, so it will pause (break) at the instruction following the one it is currently stopped at</li>
+<li><code>stepi</code> steps into the assembly being executed -- this will be necessary to trace your shellcode.</li>
+<li><code>layout asm</code> will split the screen so that the assembly being executed is shown at the top (with an arrow at the current instruction pointer), and a place to enter commands below. This can be <em>very</em> useful for tracing your assembly, especially once it is on the stack.</li>
+<li>If you want to repeat the last command, just hit Enter -- this is particularly useful when you are repeatedly stepping through assembly commands via <code>stepi</code>.</li>
+<li>To print the value in a register, use <code>p/x $rsi</code></li>
+<li>When paused in a part of the executable code, you can see the assembly listing via <code>disassemble</code> (or just <code>disas</code>). However, when you are executing on the stack, gdb can't figure out what to disassemble, so it won't show anything via a <code>disas</code> command. Instead, you can give it a range, such as: <code>disassemble 0x7fffffffdcb0,0x7fffffffdd30</code>. As x86 instructions are variable length, if your start address is not on an instruction boundary, you will not get the output you intend.</li>
+<li>To print a number of values on the stack, try <code>x/40xw $rsp</code>. Note that this displays the data in little Endian, whereas <code>hexdump -C</code> (see below) displays it in big Endian.</li>
+</ul>
+<p>Some other notes and tips:</p>
+<ul>
+<li>We are not, at this time, expecting a newline to be printed at the end of your desired grade -- that's the next task.</li>
+<li>Nothing here will work unless you have run <code>setarch x86_64 -v -LR   bash</code> first, as described in the <a href="../slides/buffer-overflows.html#/">buffer overflow slide set</a>.</li>
+<li>The address of the <code>name</code> buffer in <code>vulnerable()</code> should EXACTLY match ours. As you are running the code on the exact same system (the VirtualBox image), and you used the EXACT same compilation line from above (you did, didn't you?), your <code>name</code> buffer should start at 0x7fffffffddc0 when you are in gdb.</li>
+<li>When you are <em>not</em> running it in gdb, the buffer address will change slightly. It's up to you to figure out what that is (you can modify grade.c to find out; just be sure to change it back).</li>
+<li>You can look at your created file via <code>hexdump -C input.txt</code>. With the <code>-C</code> parameter, hexdump will display it in big Endian (different parameters to hexdump will show it in different Endian-nesses).</li>
+<li>You may be tempted to use <a href="http://www.cplusplus.com/reference/cstdio/puts/">puts()</a> to write your data to standard output. However, <code>puts()</code> will write a newline character ('\n', hex value 0x0a) after the data it prints. You can use <a href="http://www.cplusplus.com/reference/cstdio/fputs/">fputs()</a> instead (use <code>stdout</code> as the file descriptor) -- this will print to standard output without the trailing newline.</li>
+</ul>
+<p>Your Makefile will need to compile your program into an executable named <code>attack-shellcode</code>.</p>
+<h3 id="task-4-add-a-newline">Task 4: add a newline</h3>
+<p><strong><em>BACK UP YOUR CODE FIRST!!!</em></strong> You are about to modify your program, and if things go poorly, then you want to be able to revert back to the code that successfully completes task 3.</p>
+<p>If you have made it this far, then your code, when run, looks something like:</p>
+<pre><code>$ ./grade &lt; input.txt
+Please enter your name:
+Aaron Bloomfield, your grade on this assignment is an A$</code></pre>
+<p>You will notice that the prompt (the '$') is on the same line as the desired grade because of the lack of a newline character in the string. You obviously can not put a newline in the string itself, as that would indicate end-of-string, and the rest of your carefully constructed data in input.txt would never make it onto the stack -- so your buffer overflow attack would never occur.</p>
+<p>For this task, you are to modify your shellcode (in shellcode.s), and your attack-shellcode.c file, to put a newline at the end of the string. You will likely want to compute that value and store it in the string, since you can't include a newline in the shellcode itself. You should test this out via your <code>shellcode-test</code> program first. Note that one of the <code>mprotect()</code> calls in the provided shellcode-test.c allows for modification of the .text section, so such a modification will work in <code>shellcode-test</code>.</p>
+<p>This is just a modification of the attack-shellcode.c file, so your modifications for task 4 can overwrite parts of your task 3 (if you did task 4, then you obviously did task 3).</p>
+<h3 id="task-5-brief-write-up">Task 5: brief write-up</h3>
+<p>Please include, as a file named writeup.pdf, the following information:</p>
+<ul>
+<li>Your name and userid</li>
+<li>How far did you get (i.e., which tasks did you complete)?</li>
+<li>What thing(s) did you get stuck on for this assignment?</li>
+<li>Compared to some of the harder assignments you've done -- such as CS 2150's hash lab -- how hard was this assignment?</li>
+<li>Other than just giving the answers, what could we do to make this assignment run more smoothly in the future?</li>
+</ul>
+<p>We are not looking for any significant length here, just candid answers.</p>
+<h3 id="submission-requirements">Submission requirements</h3>
+<p>You are going to submit a number of files:</p>
+<ul>
+<li>Makefile: this calls four compilation lines (three from task 2, and one from task 3; the line for task 3 will also apply to task 4).
+<ul>
+<li>Make sure that things are compiled to the right names! shellcode.s should compile to shellcode.o, all of task 2 should compile into the <code>shellcode-test</code> executable, and the code from tasks 3 and 4 should compile into the <code>attack-shellcode</code> executable.</li>
+</ul></li>
+<li>shellcode.s and shellcode-test.c from task 2</li>
+<li>attack-shellcode.c from task 3 &amp; 4 (if you completed task 4, just submit that, as that shows you also completed task 3)</li>
+<li>writeup.pdf from task 5</li>
+</ul>
+</body>
+</html>

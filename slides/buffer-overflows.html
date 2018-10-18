@@ -507,6 +507,11 @@ The assembly on the previous slide results in:
 Note that the `lea` loads an negative offset, which has no 0x00 bytes
 
 
+## We removed the .data section
+- On the last two slides, we removed the .data section, and had the string in the .text section
+- When injecting code via a buffer overflow, we can only inject one section, so it has to have both the data and code (text)
+
+
 ## Determining the return address
 - Now that we have the shellcode, we need to determine the return address of the buffer
 - How to do so?

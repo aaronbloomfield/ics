@@ -19,7 +19,7 @@ Slide sets, ordered in the order presented in lecture:
 - Binary Exploits
 	- [Viruses](viruses.html#/)
 	- [Buffer Overflows](buffer-overflows.html#/)
-	- [Binary Exploits](exploits.html#/)
+	- [Binary Exploits](binary-exploits.html#/)
 
 
 Slide sets to be created or added as the semester progresses:
