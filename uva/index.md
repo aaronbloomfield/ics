@@ -60,6 +60,7 @@ of the due date given -- this means by 11:59:59 pm.  The late policies are discu
 Lecture progress
 ----------------
 
+- Wed, Oct 17: [binary exploits](../slides/binary-exploits.html#/) through the "Example: Uses of printf()" slide (5.7)
 - Mon, Oct 15: [buffer overflows](../slides/buffer-overflows.html#/) through the end
 - Fri, Oct 12: the rest of [viruses](../slides/viruses.html#/); [buffer overflows](../slides/buffer-overflows.html#/) through the end of the "introduction" column
 - Wed, Oct 10: [viruses](../slides/viruses.html#/) through the "Evol Example cont" slide
