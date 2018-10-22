@@ -20,15 +20,15 @@ Slide sets, ordered in the order presented in lecture:
 	- [Viruses](viruses.html#/)
 	- [Buffer Overflows](buffer-overflows.html#/)
 	- [Binary Exploits](binary-exploits.html#/)
+- Networks
+	- [Networking Overview](networks.html#/)
+	- Network Attacks
 
 
 Slide sets to be created or added as the semester progresses:
 
 - Digital Forensics
 	- Digital Forensics
-- Networks
-	- Networking Overview
-	- Network Attacks
 - Modern Topics
 	- SQL, XSS & CSRF
 	- Stuxnet
