@@ -53,7 +53,7 @@ I expect that grades will follow the standard decade curve: 90 and above is an A
 **Exams:** There will be two midterm exams (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date.
 
 - Midterm Exam 1: Monday, October 1st, during lecture
-- Midterm Exam 2: Wednesday, October 31st, during lecture
+- Midterm Exam 2: Mondayd, November 5th, during lecture
 - Final Exam: Friday, December 14th, from 2 pm to 5 pm
 
 Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  Since there are no other exams scheduled during that time, it is unlikely that you will have a conflict.
