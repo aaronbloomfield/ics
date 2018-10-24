@@ -22,6 +22,7 @@ Slide sets, ordered in the order presented in lecture:
 	- [Binary Exploits](binary-exploits.html#/)
 - Networks
 	- [Networking Overview](networks.html#/)
+	- [Web Security](web-security.html#/)
 	- Network Attacks
 
 

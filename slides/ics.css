@@ -188,8 +188,6 @@ p.blankline { height:1em; }
 
 .right-float-img img {
     float:right;
-    max-width:400px;
-    max-height:200px;
     margin-left:20px !important;
 }
 

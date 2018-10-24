@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ICS: Web Security</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/ics.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+<section data-markdown id="cover"><script type="text/template">
+# CS 3501
+&nbsp;
+### Introduction to Cybersecurity
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/ics](http://github.com/aaronbloomfield/ics) / [&uarr;](index.html) / <a href="?print-pdf"><img class="print" width="20" src="images/print-icon.png" alt="print icon"></a></small></center>
+&nbsp;
+## Web Security
+</script></section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section data-markdown>
+  <textarea data-template>
+## Credit Where Credit is Due
+
+Much of the material in this slide set, including some of the images, were obtained from [EECS 388](https://www.eecs.umich.edu/courses/eecs388/) from the the [CS department at the University of Michigan](https://www.cse.umich.edu/).  That course material was released under a [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0/deed.en_US) license.  Other images are from [Wikipedia](https://en.wikipedia.org), and each of those images are linked to it's source on Wikipedia.
+  </textarea>
+</section>
+  
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section data-markdown>
+  <textarea data-template>
+# Contents
+&nbsp;  
+[Key Exchange](#/keyexch)  
+[Certificates](#/certificates)  
+[SSL & TLS](#/ssltls)  
+[Privacy](#/privacy)  
+  </textarea>
+</section>
+  
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="keyexch" class="center">
+  <textarea data-template>
+# Key Exchange
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Key Exchange
+- If you want to communicate with another party, how do you create a private key?
+  - One solution: Key stores, but only if you both have generated public/private key sets
+    - Not always practical for all security protocols
+- One solution: [Diffie–Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange)
+  - Uses discrete logs
+
+
+
+## DH key exchange
+- Alice and Bob agree on public values *g* (generator) and *p* (prime or modulus)
+- Alice pics a private *a* and sends to Bob $A=g^a \mod p$
+- Bob pics a private *b* and sends to Alice $B=g^b \mod p$
+- Because $g^{ab} \mod p = g^{ba} \mod p$, both can compute the secret key
+  - Alice received $g^b \mod p$ and computes $(g^b \mod p)^a \mod p = g^{ab} \mod p$
+  - Similarly for Bob
+<span class="green">
+<span class="pink">
+</span>
+
+
+
+## DH key exchange example
+From [Wikipedia](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange#Cryptographic_explanation); <span style="color:blue">blue</span> are public, <span style="color:red">red</span> are secret
+<ol style="font-size:80%;line-height:110%;">
+<li>Alice and Bob agree to use a modulus <i><span style="color:blue">p</span></i> = <span style="color:blue">23</span> and base <span style="color:blue">g</span></i> = <span style="color:blue">5</span> (which is a primitive root modulo 23).</li>
+<li>Alice chooses a secret integer <i><b><span style="color:red">a</span></b></i> = 4, then sends Bob <i><span style="color:blue">A</span></i> = <i><span style="color:blue">g</span><sup><b><span style="color:red">a</span></b></sup></i> mod <i><span style="color:blue">p</span></i>
+<ul><li><i><span style="color:blue">A</span></i> = <span style="color:blue">5</span><sup><b><span style="color:red">4</span></b></sup> mod <span style="color:blue">23</span> = <span style="color:blue">4</span></li></ul></li>
+<li>Bob chooses a secret integer <i><b><span style="color:red">b</span></b></i> = 3, then sends Alice <i><span style="color:blue">B</span></i> = <i><span style="color:blue">g</span><sup><b><span style="color:red">b</span></b></sup></i> mod <i><span style="color:blue">p</span></i>
+<ul><li><i><span style="color:blue">B</span></i> = <span style="color:blue">5</span><sup><b><span style="color:red">3</span></b></sup> mod <span style="color:blue">23</span> = <span style="color:blue">10</span></li></ul></li>
+<li>Alice computes <i><b><span style="color:red">s</span></b></i> = <i><span style="color:blue">B</span><sup><b><span style="color:red">a</span></b></sup></i> mod <i><span style="color:blue">p</span></i>
+<ul><li><i><b><span style="color:red">s</span></b></i> = <span style="color:blue">10</span><sup><b><span style="color:red">4</span></b></sup> mod <span style="color:blue">23</span> = <span style="color:red">18</span></li></ul></li>
+<li>Bob computes <i><b><span style="color:red">s</span></b></i> = <i><span style="color:blue">A</span><sup><b><span style="color:red">b</span></b></sup></i> mod <i><span style="color:blue">p</span></i>
+<ul><li><i><b><span style="color:red">s</span></b></i> = <span style="color:blue">4</span><sup><b><span style="color:red">3</span></b></sup> mod <span style="color:blue">23</span> = <span style="color:red">18</span></li></ul></li>
+<li>Alice and Bob now share a secret (the number 18)</li>
+</ol>
+
+
+
+<!-- .slide: class="right-float-img" -->
+[![DH key exchange as colors](images/web-security/Diffie-Hellman_Key_Exchange.svg)](https://commons.wikimedia.org/wiki/File:Diffie-Hellman_Key_Exchange.svg)
+## DH key<br>exchange<br>example<br>as colors
+
+
+
+## Colors in video
+<iframe width="720" height="540" src="http://www.youtube.com/embed/https://youtu.be/YEBfamv-_do?t=163&rel=0" frameborder="0" allowfullscreen></iframe>
+
+If that doesn't work, try the [direct Youtube link](http://youtu.be/YEBfamv-_do?t=163), but start at 2:43
+
+
+
+## DH key exchange in practical use
+- Used in many cryptographic protocols
+  - Including ones we will see shortly
+- Uses *very* large numbers created with a very good pseudo-random number generator
+
+
+
+## MITM versus DH key exchange?
+- Possible if Eve actively controls the communication medium
+- If s/he is only a *passive* listener, then it is not possible
+- How to avoid an active compromiser:
+  - Post on a public forum
+  - Use communication methods s/he can't compromise, such as shortwave radio
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="certificates" class="center">
+  <textarea data-template>
+# Certificates
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Definition
+- A certificate is:
+  - A public key
+  - Information about the key (algorithm used, version number, etc.)
+  - An identify (hostname, individual, etc.)
+  - Other metadata (expiration date, etc.)
+  - A *signature* from a *certificate authority*
+- Most common format is [X.509](https://en.wikipedia.org/wiki/X.509)
+
+
+
+## Diagram of an X.509 cert
+![x.509 certificate](images/web-security/x.509-cert.svg)
+
+
+
+<!-- .slide: class="right-float-img-800" -->
+## Certificate usage
+![https certificate](images/web-security/ServerCertificate.png)
+- All websites that<br>support https<br>provide such a<br>certificate to<br>any client
+- Browsers can<br>display certificate<br>info, such as<br>shown here
+
+
+
+## Certificate validity
+- All certificates are *signed* with the (private) key of a certificate authority (CA)
+  - Their public keys are well known, and are hard-coded into browsers
+- One can verify such a certificate by the (known) public key of the CA
+- One can "self sign" a certificate, but modern browsers typically won't allow viewing without manual exceptions
+
+
+
+## Certificate Chains
+[![certificate chain](images/web-security/Chain_of_trust.svg)](https://commons.wikimedia.org/wiki/File:Chain_of_trust.svg)
+An entity (such as virginia.edu) can hold an *intermediate* certificate, which allows it to sign for entities in it's division (such as news.virginia.edu)
+
+
+
+## Certificate Authorities (CAs)
+- Any CA can "vouch" (i.e., sign) for *any* certificate
+  - For any website or any (likely new) CA
+- Thus, the security is based on the weakest CA
+- What happens if a CA is compromised or goes rogue?
+
+
+
+## CA Revocation
+- This has happened!  In February 2018.
+  - [Google to kill Symantec certs in Chrome 66, due in early 2018](https://www.theregister.co.uk/2017/09/12/chrome_66_to_reject_symantec_certs/)
+  - Firefox also: [Distrust of Symantec TLS Certificates](https://blog.mozilla.org/security/2018/03/12/distrust-symantec-tls-certificates/)
+- The reason: a site called [Trustico](https://www.trustico.com/) resold Symantec-signed certificates
+  - The 23,000 certificates Trustico sold were "compromised"
+    - They still had the private keys (a big no-no)
+  - They were sold under the umbrella of Symantec, so Symantec was party at fault as well
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="ssltls" class="center">
+  <textarea data-template>
+# SSL & TLS
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## SSL & TLS
+- They are cryptographic protocols used to encrypt network communication
+- SSL: Secure Sockets Layer
+  - v1.0 never released due to flaws
+  - v2.0 released in 1995; broken and not used
+  - v3.0 released in 1996; broken and not used
+- TLS: Transport Layer Security, the successor to SSL
+  - v1.0 released Jan 1999; currently deprecated
+  - v1.1 released Apr 2006; currently deprecated
+  - v1.2 released Aug 2008; in widespread use
+  - v1.3 released Aug 2018; currently being adopted
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="privacy" class="center">
+  <textarea data-template>
+# Privacy
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## ...
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	
+</div>
+</div>
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.js"></script>
+<script src="settings.js"></script>
+</body>
+</html>
