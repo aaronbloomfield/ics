@@ -115,7 +115,7 @@ will mostly be 0x00 bytes, you will also have to check for newlines
 over how to do this.
 
 To test that your code works, you will need a `main()` function to
-call your shellcode; this will go into a `shellcode-test.c` file.
+call your shellcode; this will go into a `shellcode_test.c` file.
 Here is an example such file:
 
 ```
@@ -139,7 +139,7 @@ your assembly routine be called `shellcode`.
 
 Your Makefile will need to have three lines to compile this program:
 one to call nasm to compile shellcode.s, one to compile
-shellcode-test.c, and one to link them together.
+shellcode_test.c, and one to link them together.
 
 Some notes and hints for developing this shellcode:
 
@@ -191,7 +191,7 @@ Some VERY important notes for compilation:
 - Your compiled shellcode.s file should be named `shellcode.o` -- we
   are going to run a disassembler on that file, so please name it
   correctly.
-- Your final binary should be called `shellcode-test` -- we are going
+- Your final binary should be called `shellcode_test` -- we are going
   to execute it, so please name it correctly.
 
 
@@ -203,21 +203,21 @@ Presumably, from task 2, you have shell code that does not contain any
 grade you want, and then exits.
 
 In this part, you are going to create a C program called
-`attack-shellcode.c` that will write the carefully constructed data to
+`attack_shellcode.c` that will write the carefully constructed data to
 stdout.  You can run your program as follows (this is how we will do
 it to test):
 
 ```
-$ ./attack-shellcode > input.txt
+$ ./attack_shellcode > input.txt
 ```
 
-Needless to say, be sure to name your executable `attack-shellcode`.
+Needless to say, be sure to name your executable `attack_shellcode`.
 You will then be able to run the buffer overflow via `./grade <
 input.txt`, as shown above.
 
 The [buffer overflow slide set](../slides/buffer-overflows.html#/)
 will be a useful reference for this.  The output of your
-`attack-shellcode` executable, which is what is stored in input.txt,
+`attack_shellcode` executable, which is what is stored in input.txt,
 will likely have three parts:
 
 - The NOP sled
@@ -262,11 +262,9 @@ Some other notes and tips:
 - Nothing here will work unless you have run `setarch x86_64 -v -LR
   bash` first, as described in the
   [buffer overflow slide set](../slides/buffer-overflows.html#/).
-- The address of the `name` buffer in `vulnerable()` should EXACTLY
-  match ours.  As you are running the code on the exact same system
-  (the VirtualBox image), and you used the EXACT same compilation line
-  from above (you did, didn't you?), your `name` buffer should start
-  at 0x7fffffffddc0 when you are in gdb.
+- The address of the `name` buffer in `vulnerable()` MUST be specified
+  as described below, otherwise your program will not work and you
+  will not receive credit for that part
 - When you are *not* running it in gdb, the buffer address will change
   slightly.  It's up to you to figure out what that is (you can modify
   grade.c to find out; just be sure to change it back).
@@ -283,10 +281,41 @@ Some other notes and tips:
   output without the trailing newline.
 
 Your Makefile will need to compile your program into an executable
-named `attack-shellcode`.
+named `attack_shellcode`.
+
+Note that you will not be able to get credit for this part without
+also completing part 4.
 
 
-### Task 4: add a newline
+### Task 4: a variable buffer address
+
+The address of the buffer on the stack will vary based on many
+factors.  In an effort to make this assignment viable, you will need
+to create a file named `buffer_addr.h`, which you will include in your
+`attack_shellcode.c` file.  The .h file will specify the address of
+the buffer, and will have three lines:
+
+```
+#define BUFFER_ADDR 0x00007fffffffde10
+#define BUFFER_ADDR_ARRAY { 0x10, 0xde, 0xff, 0xff, 0xff, 0x7f, 0x00 }
+#define BUFFER_ADDR_STR "0x00007fffffffde10"
+```
+
+These lines define the address of the buffer in three different
+formats; use whichever format you would like.  You can use the middle
+one as follows: `unsigned char buffer_addr[] = BUFFER_ADDR_ARRAY;`.
+
+When we are testing your code, we will create a `buffer_addr.h` file
+with the correct address of the buffer, and then recompile your code
+(your Makefile need not have a dependency; we will delete any .o
+files, delete the attack-shellcode executable, and then run `make`).
+
+You will need to submit a copy of the buffer_addr.h file when you
+submit your program so that it compiles.  You can have any values in
+that file, since we will provide our own during testing.
+
+
+### Task 5: add a newline
 
 ***BACK UP YOUR CODE FIRST!!!*** You are about to modify your program,
 and if things go poorly, then you want to be able to revert back to
@@ -309,19 +338,19 @@ constructed data in input.txt would never make it onto the stack -- so
 your buffer overflow attack would never occur.
 
 For this task, you are to modify your shellcode (in shellcode.s), and
-your attack-shellcode.c file, to put a newline at the end of the
+your attack_shellcode.c file, to put a newline at the end of the
 string.  You will likely want to compute that value and store it in
 the string, since you can't include a newline in the shellcode itself.
-You should test this out via your `shellcode-test` program first.
+You should test this out via your `shellcode_test` program first.
 Note that one of the `mprotect()` calls in the provided
-shellcode-test.c allows for modification of the .text section, so such
-a modification will work in `shellcode-test`.
+shellcode_test.c allows for modification of the .text section, so such
+a modification will work in `shellcode_test`.
 
-This is just a modification of the attack-shellcode.c file, so your
+This is just a modification of the attack_shellcode.c file, so your
 modifications for task 4 can overwrite parts of your task 3 (if you
 did task 4, then you obviously did task 3).
 
-### Task 5: brief write-up
+### Task 6: brief write-up
 
 Please include, as a file named writeup.pdf, the following information:
 
@@ -343,10 +372,51 @@ You are going to submit a number of files:
   one from task 3; the line for task 3 will also apply to task 4).
     - Make sure that things are compiled to the right names!
       shellcode.s should compile to shellcode.o, all of task 2 should
-      compile into the `shellcode-test` executable, and the code from
-      tasks 3 and 4 should compile into the `attack-shellcode`
+      compile into the `shellcode_test` executable, and the code from
+      tasks 3 and 4 should compile into the `attack_shellcode`
       executable.
-- shellcode.s and shellcode-test.c from task 2
-- attack-shellcode.c from task 3 & 4 (if you completed task 4, just
+- shellcode.s and shellcode_test.c from task 2
+- attack_shellcode.c from task 3 & 5 (if you completed task 5, just
   submit that, as that shows you also completed task 3)
-- writeup.pdf from task 5
+- buffer_addr.h from task 4 -- if this is not in the correct
+  format, as described above, then your code will not work, and you
+  will not receive credit for most of this assignment
+- writeup.pdf from task 6
+
+
+### Troubleshooting
+
+You are likely to run into prolems, which will probably be
+segmentation faults.  Here are some ideas about how to solve that.
+
+Recall that g++ often leaves some extra space between the buffer and
+the return address.  How much?  You have to figure that out yourself.
+You can look at the assembly generated for grade.c (run `g++ -S -o
+grade.s grade.c`) to start.
+
+One issue is to figure out whether you are setting the return address
+correctly -- if not, that would be the cause of the segfault.  First,
+we need to find what the return address should be.  To do this, we
+first need to find the return address from `vulnerable()` back to
+`main()`.  Run `objdump -d grade`, and find the line *after* the call
+(in `main()`) to `vulnerable()` -- that is the return address from
+vulnerable.  Next, load up the executable in gdb, and set up a break
+point right when you enter into the `vulnerable()` function.  You can
+list the stack with a command such as, `x/100xw $rsp`.  This will
+print out 100 hex values,, each one being 4 bytes.  A typical gdb
+display will list four 32-bit (4 byte) values per line, which is 16
+bytes per line.  Since you know the size of the buffer (200 bytes),
+the return address is likely to be about 200/16 lines down, or about a
+dozen lines down.  Keep in mind that a return address is 64 bits,
+which will be *two* of the 32-bit values listed in this display.  That
+return address should (mostly) match the value you gleaned from the
+objdump command.  Once you have the return address, figure out the
+command to just print out that return address: `x/2xw 0x7fffffffdcc0`
+might work (if the return address were located at 0x7fffffffdcc0).
+Next, set up a break point for the *end* of the `vulnerable()`
+function.  Check that return address value again -- it should look
+similar to (but not the exact same value as) the value in the rsp
+register (`print $rsp`).  When split among two values, it will list
+like, `0xffffde00 0x00007fff`.  Once you see that value, it should be
+the exact address of the `name` buffer.  If not, then your program is
+going to seg fault.
