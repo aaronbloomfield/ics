@@ -81,7 +81,8 @@ Much of the material in this slide set, including some of the images, were obtai
   - One solution: Key stores, but only if you both have generated public/private key sets
     - Not always practical for all security protocols
 - One solution: [Diffie–Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange)
-  - Uses discrete logs
+  - This version uses discrete logs
+  - A variant called [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) uses elliptic curves
 
 
 
@@ -240,7 +241,70 @@ An entity (such as virginia.edu) can hold an *intermediate* certificate, which a
   - v1.1 released Apr 2006; currently deprecated
   - v1.2 released Aug 2008; in widespread use
   - v1.3 released Aug 2018; currently being adopted
+
+
+
+## TLS Usage
+- TLS can be implemented on top of just about any protocol
+- Most common use: when implemented on top of HTTP, that yields HTTPS
+- Also used for encrypting mail (SMTP)
+- A programmer can use it for any other purpose
+
+
+
+## Forward Secrecy (FS)
+- Also known as perfect forward secrecy (PFS)
+- The concept that a compromise of keys...
+  - ... including the server's private keys...
+- Will *not* allow decryption of past sessions
+- Solution: generate a unique *session key* for each encrypted connection
+  - And discard once done
+- That session key can be communicated via public key cryptography
+
+
+
+## Public vs. Symmetric Cryptography
+- Public key cryptosystems (such as RSA) are:
+  - Very secure: one message will take all the computers in the world longer than the life of the universe to crack
+  - Very slow: not feasible for real-time data transmission (downloading a large file, streaming, etc.)
+- They are typically used for key exchange, and then symmetric key cryptograhy is used for the rest of the communication
+
+
+
+## TLS 1.2 Handshake, part 1
+- Client opens a network connection to server
+- Client sends *hello*, including a random number $R_c$ and supported ciphers
+- Server responds with *hello*, including a random number $R_s$, selection of which client-supported cipher to use, it's certificate, and requests client certiicate
+- Client checks server certificate, and sends it's own cert, and a signature of all previous messages sent
+  - Signed with the client certificate's private key
+- Server checks client certificate and signature
+
+
+
+## TLS 1.2 Handshake, part 2
+- Client generates $PMS$ (Pre-Master Secret) -- a session key -- and sends it to server, encrypted with server's public key
+- Both sides compute $MS$ (Master Secret) from $PMS$, $R_s$, and $R_c$
+- Client send a message to switch over to using the $MS$ for symmetric encryption
+  - Server confirms switching over to using the $MS$ for encryption
+- Both sides terminate the SSL handshake, and use $MS$ as the symmetric encryption key
   </textarea>
+</section>
+
+<section><a href="https://commons.wikimedia.org/wiki/File:SSL_handshake_with_two_way_authentication_with_certificates.svg"><img style="max-width:100%;height:auto;max-height:90%;margin-top:-20px" alt="tls 1.2 protocol" src="images/web-security/SSL_handshake_with_two_way_authentication_with_certificates.svg"></a></section>
+
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## TLS Ciphers Supported
+- In version 1.3, for key exchange, only forward-secret public key systems are supported
+  - Mostly RSA variants with a secure DH key exchange
+  - Version 1.2 allows many other algorithms
+- Once the channel is configured, multiple algorithms are supported, the most common being AES
+
+
+
+## Attacks against TLS
+- ...
+</textarea>
 </section>
 
 </section>
