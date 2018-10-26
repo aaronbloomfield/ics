@@ -100,17 +100,17 @@ Much of the material in this slide set, including some of the images, were obtai
 
 
 ## DH key exchange example
-From [Wikipedia](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange#Cryptographic_explanation); <span style="color:blue">blue</span> are public, <span style="color:red">red</span> are secret
+From [Wikipedia](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange#Cryptographic_explanation); <span style="color:skyblue">blue</span> are public, <span style="color:red">red</span> are secret
 <ol style="font-size:80%;line-height:110%;">
-<li>Alice and Bob agree to use a modulus <i><span style="color:blue">p</span></i> = <span style="color:blue">23</span> and base <span style="color:blue">g</span></i> = <span style="color:blue">5</span> (which is a primitive root modulo 23).</li>
-<li>Alice chooses a secret integer <i><b><span style="color:red">a</span></b></i> = 4, then sends Bob <i><span style="color:blue">A</span></i> = <i><span style="color:blue">g</span><sup><b><span style="color:red">a</span></b></sup></i> mod <i><span style="color:blue">p</span></i>
-<ul><li><i><span style="color:blue">A</span></i> = <span style="color:blue">5</span><sup><b><span style="color:red">4</span></b></sup> mod <span style="color:blue">23</span> = <span style="color:blue">4</span></li></ul></li>
-<li>Bob chooses a secret integer <i><b><span style="color:red">b</span></b></i> = 3, then sends Alice <i><span style="color:blue">B</span></i> = <i><span style="color:blue">g</span><sup><b><span style="color:red">b</span></b></sup></i> mod <i><span style="color:blue">p</span></i>
-<ul><li><i><span style="color:blue">B</span></i> = <span style="color:blue">5</span><sup><b><span style="color:red">3</span></b></sup> mod <span style="color:blue">23</span> = <span style="color:blue">10</span></li></ul></li>
-<li>Alice computes <i><b><span style="color:red">s</span></b></i> = <i><span style="color:blue">B</span><sup><b><span style="color:red">a</span></b></sup></i> mod <i><span style="color:blue">p</span></i>
-<ul><li><i><b><span style="color:red">s</span></b></i> = <span style="color:blue">10</span><sup><b><span style="color:red">4</span></b></sup> mod <span style="color:blue">23</span> = <span style="color:red">18</span></li></ul></li>
-<li>Bob computes <i><b><span style="color:red">s</span></b></i> = <i><span style="color:blue">A</span><sup><b><span style="color:red">b</span></b></sup></i> mod <i><span style="color:blue">p</span></i>
-<ul><li><i><b><span style="color:red">s</span></b></i> = <span style="color:blue">4</span><sup><b><span style="color:red">3</span></b></sup> mod <span style="color:blue">23</span> = <span style="color:red">18</span></li></ul></li>
+<li>Alice and Bob agree to use a modulus <i><span style="color:skyblue">p</span></i> = <span style="color:skyblue">23</span> and base <span style="color:skyblue">g</span></i> = <span style="color:skyblue">5</span> (which is a primitive root modulo 23).</li>
+<li>Alice chooses a secret integer <i><b><span style="color:red">a</span></b></i> = 4, then sends Bob <i><span style="color:skyblue">A</span></i> = <i><span style="color:skyblue">g</span><sup><b><span style="color:red">a</span></b></sup></i> mod <i><span style="color:skyblue">p</span></i>
+<ul><li><i><span style="color:skyblue">A</span></i> = <span style="color:skyblue">5</span><sup><b><span style="color:red">4</span></b></sup> mod <span style="color:skyblue">23</span> = <span style="color:skyblue">4</span></li></ul></li>
+<li>Bob chooses a secret integer <i><b><span style="color:red">b</span></b></i> = 3, then sends Alice <i><span style="color:skyblue">B</span></i> = <i><span style="color:skyblue">g</span><sup><b><span style="color:red">b</span></b></sup></i> mod <i><span style="color:skyblue">p</span></i>
+<ul><li><i><span style="color:skyblue">B</span></i> = <span style="color:skyblue">5</span><sup><b><span style="color:red">3</span></b></sup> mod <span style="color:skyblue">23</span> = <span style="color:skyblue">10</span></li></ul></li>
+<li>Alice computes <i><b><span style="color:red">s</span></b></i> = <i><span style="color:skyblue">B</span><sup><b><span style="color:red">a</span></b></sup></i> mod <i><span style="color:skyblue">p</span></i>
+<ul><li><i><b><span style="color:red">s</span></b></i> = <span style="color:skyblue">10</span><sup><b><span style="color:red">4</span></b></sup> mod <span style="color:skyblue">23</span> = <span style="color:red">18</span></li></ul></li>
+<li>Bob computes <i><b><span style="color:red">s</span></b></i> = <i><span style="color:skyblue">A</span><sup><b><span style="color:red">b</span></b></sup></i> mod <i><span style="color:skyblue">p</span></i>
+<ul><li><i><b><span style="color:red">s</span></b></i> = <span style="color:skyblue">4</span><sup><b><span style="color:red">3</span></b></sup> mod <span style="color:skyblue">23</span> = <span style="color:red">18</span></li></ul></li>
 <li>Alice and Bob now share a secret (the number 18)</li>
 </ol>
 

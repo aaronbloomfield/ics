@@ -420,3 +420,22 @@ register (`print $rsp`).  When split among two values, it will list
 like, `0xffffde00 0x00007fff`.  Once you see that value, it should be
 the exact address of the `name` buffer.  If not, then your program is
 going to seg fault.
+
+If you are sure the return address is set correctly, the next step is
+to trace the injected assembly.  Set a breakkpoint for the end of the
+`vulnerable()` function.  If you set it *before* the last function
+call (the `strncpy()` call), hit `n` to step over that function.  You
+will then start using `stepi` to single-step through the assembly
+instructions.  Running `layout asm` will help the trace.  You should
+step through your assembly code to make sure it works -- presumably
+there will be the nop sled, then your injected code.  Note that x86
+instructions are of a different lengths, so if your jump is off, it
+may jump to the middle of an instruction, and you will get an illegal
+instruction error.  You can disassemble a region of memory with a
+command such as `disassemble 0x7fffffffdcb0,0x7fffffffdd30`.  Also
+note that when you are disassembling the contents of the stack, gdb
+will attempt to map the string (that you should receive, presumably,
+an A) to x86 instructions, many of which will be invalid.  But if you
+do a disassembly from the start of your shell code (which is the
+target of your initial jump), you should see the assembly that you
+wrote.
