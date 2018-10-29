@@ -60,6 +60,10 @@ of the due date given -- this means by 11:59:59 pm.  The late policies are discu
 Lecture progress
 ----------------
 
+
+- Fri, Oct 26: finished [networks](../slides/networks.html#/); [web security](../slides/web-security.html#/) through "TLS Usage" slide
+- Wed, Oct 24: [networks](../slides/networks.html#/), though SYN flood DoS attack
+- Mon, Oct 22: started [networks](../slides/networks.html#/) got to ...
 - Fri, Oct 19: finished [binary exploits](../slides/binary-exploits.html#/)
 - Wed, Oct 17: [binary exploits](../slides/binary-exploits.html#/) through the "Example: Uses of printf()" slide (5.7)
 - Mon, Oct 15: [buffer overflows](../slides/buffer-overflows.html#/) through the end
