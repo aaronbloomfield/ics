@@ -60,6 +60,7 @@ Much of the material in this slide set, including some of the images, were obtai
 [Key Exchange](#/keyexch)  
 [Certificates](#/certificates)  
 [SSL & TLS](#/ssltls)  
+[Attacking HTTPS](#/attacks)  
 [Privacy](#/privacy)  
   </textarea>
 </section>
@@ -302,8 +303,210 @@ An entity (such as virginia.edu) can hold an *intermediate* certificate, which a
 
 
 
-## Attacks against TLS
-- ...
+## [TLS key exchange protocols](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
+![TLS key exchange protocols](images/web-security/tls-protocols-1.png)
+
+
+
+## [TLS session protocols](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
+![TLS session protocols](images/web-security/tls-protocols-2.png)
+
+
+
+## Message authentication code (MAC)
+- It's "a short piece of information used to authenticate a message" ([Wikipedia](https://en.wikipedia.org/wiki/Message_authentication_code))
+- Like a digital signature, but:
+  - uses a shared *secret* key, so it is faster
+- Like a hash, but:
+  - provides authentication, not just a message digest
+  - includes the secret key, so two different connections' MAC of the same text will be different due to different secret keys
+
+
+
+## A possible MAC
+- Given a message $m$ and a secret key $k$:
+  - Create a new value $x = m \cdot k$
+	- That's string concatenation
+  - Hash that message: $h = hash(x)$
+	- Use a good hash function!
+  - Encrypt that hash with $k$: $mac = encrypt(h,k)$
+    - Likely AES (or similar) with the shared secret key
+- In one line: $mac = encrypt(hash(m \cdot k),k)$
+
+
+
+## MAC properties
+- Does not encrypt the message!
+  - If the connection is not encrypted, then the message is evesdroppable
+- Cannot be forged without the secret key
+  - Any evesdropper must know the secret key in order to create a valid MAC
+- It is "unforgeable under chosen-message attacks"
+  - Even if Eve can get Bob to send chosen text attacks, she needs the (unknown to her) secret key to generate a valid MAC
+- Provides authentication (since only the other party has the secret key)
+
+
+
+## HMAC
+- A MAC is a general term for a message authentication code
+- A HMAC uses a hash as it's algorithm
+- Not all MACs use hashes
+  - A CMAC uses a cipher (AES, DES, etc.) to create the code
+    - Likely truncating it to the first $x$ bits
+- The example algorithm a few slides back was an HMAC
+- Named by their hash algorithm:
+  - HMAC-MD5, HMAC-SHA1, etc.
+
+
+
+<table class="transparent"><tr><td style="vertical-align:middle"><h2>HMAC<br>with<br>SHA1</h2></td><td><a href="https://commons.wikimedia.org/wiki/File:SHAhmac.svg"><img alt="hmac-sha1" src="images/web-security/SHAhmac.svg"></a></td></tr></table>
+
+*i_pad* and *o_pad* have known and non-secret values
+
+
+
+## Authenticated Encryption with Associated Data (AEAD)
+- MACs do not *encrypt* the data, and we want to do so
+- If we combine encryption and a MAC, we get an AEAD
+  - Assuming a few properties about the quality of the encryption and MAC function
+
+
+
+## [TLS MAC protocols](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
+![TLS MAC protocols](images/web-security/tls-protocols-3.png)
+Note that even if the MAC doesn't support encryption (in the first 3 rows), the cipher (likely AES) still does
+</textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="attacks" class="center">
+  <textarea data-template>
+# Attacking HTTPS
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Attacks on HTTPS
+- Most are attacks on TLS in some form
+- Like the attacks on RSA, they tend to focus on attacking the *protocol*, and not cracking the encryption
+  - Although there are some exceptions...
+
+
+
+## Heartbleed (2012)
+<!-- .slide: class="right-float-img-800" -->
+![heartbleed icon](images/web-security/Heartbleed.svg)
+- A problem in *one*<br>implementation of<br>the TLS protocol
+  - Specifically the<br>OpenSSL library<br>implementation
+- Affected about<br>one sixth of<br>all websites
+
+
+
+## Heartbleed
+- [RFC 6520](https://tools.ietf.org/html/rfc6520) allows a client to send a *Heartbeat Request* message -- like a ping -- to the server
+  - It consists of a string and it's size (as a 16-bit int)
+- The server sends that message back
+- In OpenSSL, the library did not check the size of the message
+  - So if you sent "bird" and 65,536, it would send 64Kb of data back
+    - Which would be a 64Kb dump of the server's memory
+
+
+</textarea>
+</section>
+
+<section>
+<h2>xkcd on Heartbleed (<a href="https://xkcd.com/1354/"># 1354</a>)</h2>
+<img class="stretch" alt="xkcd heartbleed" src="images/web-security/heartbleed_explanation_2x-a.png">
+</section>
+
+<section>
+<h2>xkcd on Heartbleed (<a href="https://xkcd.com/1354/"># 1354</a>)</h2>
+<img class="stretch" alt="xkcd heartbleed" src="images/web-security/heartbleed_explanation_2x-b.png">
+</section>
+
+<section>
+<h2>xkcd on Heartbleed (<a href="https://xkcd.com/1354/"># 1354</a>)</h2>
+<img class="stretch" alt="xkcd heartbleed" src="images/web-security/heartbleed_explanation_2x-c.png">
+</section>
+
+
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Mining Your Ps and Qs (2012)
+- In 2012 it was found that 5% of TLS servers and 9% of SSH servers shared common key material
+  - Also, one could compute keys for about 0.5% of TLS hosts (64,000) an 1% of SSH hosts (108,000)
+  - Most were headless or embedded devices
+- Reference: [Mining Your Ps and Qs: Detection of Widespread Weak Keys in Network Devices](https://factorable.net/weakkeys12.extended.pdf), USENIX '12
+- But why?
+
+
+
+## Mining Your Ps and Qs
+- These devices generated their TLS and/or SSH keys at boot-up
+  - Either the first time they were powered on or each time they powered up
+- Recall that for RSA, $n = p*q$
+- The pseudo-random number generator (PRG) on Linux is of very low qualily at boot-up
+  - It takes about a minute after bootup to create good quality keys
+</textarea>
+</section>
+
+<section>
+<h2>Bootup time versus PRG quality</h2>
+<img class="stretch" src="images/web-security/weakkeys12.extended.svg">
+<p>Source: <a href="https://factorable.net/weakkeys12.extended.pdf">Mining Your Ps and Qs: Detection of Widespread Weak Keys in Network Devices</a></p>
+</section>
+
+
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Apple Goto Fail (Feb 2014)
+- A stray `goto` statement kept the Apple libraries from properly checking certificates for almost a year
+
+<pre class="codesmall"><code>hashOut.data = hashes + SSL_MD5_DIGEST_LEN;
+hashOut.length = SSL_SHA1_DIGEST_LEN;
+if ((err = SSLFreeBuffer(&hashCtx)) != 0)
+    goto fail;
+if ((err = ReadyHash(&SSLHashSHA1, &hashCtx)) != 0)
+    goto fail;
+if ((err = SSLHashSHA1.update(&hashCtx, &clientRandom)) != 0)
+    goto fail;
+if ((err = SSLHashSHA1.update(&hashCtx, &serverRandom)) != 0)
+    goto fail;
+if ((err = SSLHashSHA1.update(&hashCtx, &signedParams)) != 0)
+    goto fail;
+    goto fail;  /* MISTAKE! THIS LINE SHOULD NOT BE HERE */
+if ((err = SSLHashSHA1.final(&hashCtx, &hashOut)) != 0)
+    goto fail;
+
+err = sslRawVerify(...)
+</code></pre>
+
+
+
+## Null Prefix Attack (2009)
+- String types
+  - C strings end in a NUL byte ('\0')
+  - Pascal style strings have the length at the beginning
+    - NUL characters are valid in these strings
+- X.509 certificates use Pascal-style strings
+- Consider obtaining a certificate for:
+  ```
+gmail.com\0.mydomain.com
+```
+- The CA sees some subdomain off of mydomain.com
+- Browsers see a certificate for gmail.com
+
+
+
+## More attacks
+- Wikipedia [lists a dozen or so](https://en.wikipedia.org/wiki/Transport_Layer_Security#Attacks_against_TLS/SSL)
+
+
 </textarea>
 </section>
 
