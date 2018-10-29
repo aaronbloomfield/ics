@@ -80,24 +80,25 @@ line-height:120%;
   - Homework 7, on buffer overflows, is due this Friday
     - You will need VirtualBox for this; the image can be downloaded from https://tinyurl.com/y8jxyav6
 	- `make` was not installed (whoops!); run `sudo apt-get update; sudo apt-get install make` to install it
-  - Homework 8 will be out on Monday (today) since HW 7 is now due on Sunday
+    - There is only a 10% late penalty for today, but 50% starting tomorrow
+  - Homework 8 will be out on Monday (today) since HW 7 was due last night
 - [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
-- I want to show a slide or two that I added to a previous slide set...
+- I want to show a slide that I added to the [encryption slide set](../slides/encryption.html#/)
 - Today we will continue with [web security](../slides/web-security.html#/)
   </textarea></section>
 
 	  <section>
 	    <h2>Re-using a one-time pad</h2>
 <table class="transparent">
-  <tr><td>Use an OTP:&nbsp;</td><td><img alt="re-using OTP" style="vertical-align:middle;display:initial" src="images/encryption/otp-1.png"> &oplus;
-  <img alt="re-using OTP" style="vertical-align:middle;display:initial" src="images/encryption/otp.png"> =
-  <img alt="re-using OTP" style="vertical-align:middle;display:initial;border:2px solid red" src="images/encryption/otp-1e.png"></td></tr>
-  <tr class="fragment"><td>Re-use the<br>same OTP:&nbsp;</td><td><img alt="re-using OTP" style="vertical-align:middle;display:initial" src="images/encryption/otp-2.png"> &oplus;
-  <img alt="re-using OTP" style="vertical-align:middle;display:initial" src="images/encryption/otp.png"> =
-  <img alt="re-using OTP" style="vertical-align:middle;display:initial;border:2px solid blue" src="images/encryption/otp-2e.png"></td></tr>
-<tr class="fragment"><td>Extract<br>the images:&nbsp;</td><td><img alt="re-using OTP" style="vertical-align:middle;display:initial;border:2px solid red" src="images/encryption/otp-1e.png"> &oplus;
-  <img alt="re-using OTP" style="vertical-align:middle;display:initial;border:2px solid blue" src="images/encryption/otp-2e.png"> =
-  <img alt="re-using OTP" style="vertical-align:middle;display:initial" src="images/encryption/otp-ans.png"></td></tr>
+  <tr><td>Use an OTP:&nbsp;</td><td><img alt="re-using OTP" style="vertical-align:middle;display:initial" src="../slides/images/encryption/otp-1.png"> &oplus;
+  <img alt="re-using OTP" style="vertical-align:middle;display:initial" src="../slides/images/encryption/otp.png"> =
+  <img alt="re-using OTP" style="vertical-align:middle;display:initial;border:2px solid red" src="../slides/images/encryption/otp-1e.png"></td></tr>
+  <tr class="fragment"><td>Re-use the<br>same OTP:&nbsp;</td><td><img alt="re-using OTP" style="vertical-align:middle;display:initial" src="../slides/images/encryption/otp-2.png"> &oplus;
+  <img alt="re-using OTP" style="vertical-align:middle;display:initial" src="../slides/images/encryption/otp.png"> =
+  <img alt="re-using OTP" style="vertical-align:middle;display:initial;border:2px solid blue" src="../slides/images/encryption/otp-2e.png"></td></tr>
+<tr class="fragment"><td>Extract<br>the images:&nbsp;</td><td><img alt="re-using OTP" style="vertical-align:middle;display:initial;border:2px solid red" src="../slides/images/encryption/otp-1e.png"> &oplus;
+  <img alt="re-using OTP" style="vertical-align:middle;display:initial;border:2px solid blue" src="../slides/images/encryption/otp-2e.png"> =
+  <img alt="re-using OTP" style="vertical-align:middle;display:initial" src="../slides/images/encryption/otp-ans.png"></td></tr>
 </table>
 <p>This example from <a href="https://crypto.stackexchange.com/questions/59/taking-advantage-of-one-time-pad-key-reuse">StackExchange</a></p>
 	    </section>

@@ -165,7 +165,7 @@ If that doesn't work, try the [direct Youtube link](http://youtu.be/YEBfamv-_do?
   - A public key
   - Information about the key (algorithm used, version number, etc.)
   - An identify (hostname, individual, etc.)
-  - Other metadata (expiration date, etc.)
+  - Other meta-data (expiration date, etc.)
   - A *signature* from a *certificate authority*
 - Most common format is [X.509](https://en.wikipedia.org/wiki/X.509)
 
@@ -268,14 +268,14 @@ An entity (such as virginia.edu) can hold an *intermediate* certificate, which a
 - Public key cryptosystems (such as RSA) are:
   - Very secure: one message will take all the computers in the world longer than the life of the universe to crack
   - Very slow: not feasible for real-time data transmission (downloading a large file, streaming, etc.)
-- They are typically used for key exchange, and then symmetric key cryptograhy is used for the rest of the communication
+- They are typically used for key exchange, and then symmetric key cryptography is used for the rest of the communication
 
 
 
 ## TLS 1.2 Handshake, part 1
 - Client opens a network connection to server
 - Client sends *hello*, including a random number $R_c$ and supported ciphers
-- Server responds with *hello*, including a random number $R_s$, selection of which client-supported cipher to use, it's certificate, and requests client certiicate
+- Server responds with *hello*, including a random number $R_s$, selection of which client-supported cipher to use, it's certificate, and requests client certificate
 - Client checks server certificate, and sends it's own cert, and a signature of all previous messages sent
   - Signed with the client certificate's private key
 - Server checks client certificate and signature
@@ -310,9 +310,18 @@ An entity (such as virginia.edu) can hold an *intermediate* certificate, which a
 
 ## [TLS session protocols](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
 ![TLS session protocols](images/web-security/tls-protocols-2.png)
+</textarea>
+</section>
+
+<section>
+  <h2>Initialization Vectors (IVs)</h2>
+  <p>Each successive encrypted block depends on the previous one, so that two encrypted blocks that are the same plaintext will have different ciphertext</p>
+<img class="stretch" alt="IVs" src="images/web-security/IVs.svg"></p>
+</section>
 
 
-
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
 ## Message authentication code (MAC)
 - It's "a short piece of information used to authenticate a message" ([Wikipedia](https://en.wikipedia.org/wiki/Message_authentication_code))
 - Like a digital signature, but:
@@ -337,9 +346,9 @@ An entity (such as virginia.edu) can hold an *intermediate* certificate, which a
 
 ## MAC properties
 - Does not encrypt the message!
-  - If the connection is not encrypted, then the message is evesdroppable
+  - If the connection is not encrypted, then the message is eavesdroppable
 - Cannot be forged without the secret key
-  - Any evesdropper must know the secret key in order to create a valid MAC
+  - Any eavesdropper must know the secret key in order to create a valid MAC
 - It is "unforgeable under chosen-message attacks"
   - Even if Eve can get Bob to send chosen text attacks, she needs the (unknown to her) secret key to generate a valid MAC
 - Provides authentication (since only the other party has the secret key)
@@ -450,13 +459,13 @@ Note that even if the MAC doesn't support encryption (in the first 3 rows), the 
 - These devices generated their TLS and/or SSH keys at boot-up
   - Either the first time they were powered on or each time they powered up
 - Recall that for RSA, $n = p*q$
-- The pseudo-random number generator (PRG) on Linux is of very low qualily at boot-up
-  - It takes about a minute after bootup to create good quality keys
+- The pseudo-random number generator (PRG) on Linux is of very low quality at boot-up
+  - It takes about a minute after boot-up to create good quality keys
 </textarea>
 </section>
 
 <section>
-<h2>Bootup time versus PRG quality</h2>
+<h2>Boot-up time versus PRG quality</h2>
 <img class="stretch" src="images/web-security/weakkeys12.extended.svg">
 <p>Source: <a href="https://factorable.net/weakkeys12.extended.pdf">Mining Your Ps and Qs: Detection of Widespread Weak Keys in Network Devices</a></p>
 </section>
@@ -498,7 +507,7 @@ err = sslRawVerify(...)
   ```
 gmail.com\0.mydomain.com
 ```
-- The CA sees some subdomain off of mydomain.com
+- The CA sees some sub-domain off of mydomain.com
 - Browsers see a certificate for gmail.com
 
 
