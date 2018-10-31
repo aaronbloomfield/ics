@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="no"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="300" height="180" version="1.1" 
+  xmlns="http://www.w3.org/2000/svg" fill="#000000">
+    <rect x="0" y="0" width="100%" height="100%" fill="#000000" />
+    <g style="font-family:monospace;fill:#a7a8a9;" width="100%" height="100%">
+      <text x="5" y="20">
+        HTTP/1.1 200 OK
+      </text>
+      <text x="5" y="40">
+        Cache-Control: private
+      </text>
+      <text x="5" y="60">
+        Content-Type: text/html
+      </text>
+      <text x="5" y="80">
+        Set-Cookie: PREF=ID=5e66ffd215b4c5e6:
+      </text>
+      <text x="5" y="100">
+        TM=1147099841:LM=1147099841:S=Of69MpW
+      </text>
+      <text x="5" y="120">
+        Bs23xeSv0; expires=Sun, 17-Jan-2038 1
+      </text>
+      <text x="5" y="140">
+        9:14:07 GMT; path=/; domain=.google.c
+      </text>
+      <text x="5" y="160">
+        om
+      </text>
+    </g>
+</svg> 

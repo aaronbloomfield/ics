@@ -533,7 +533,166 @@ gmail.com\0.mydomain.com
     
 <section data-markdown data-separator="^\n\n\n">
   <textarea data-template>
-## ...
+## How are you tracked online?
+- Can you list the ways?
+- I listed 10 different ways...
+
+
+
+## 1. "Standard" cookies
+- All web connections are, by definition, stateless
+- A cookie allows one to "save" state
+  - Remember who you are, for example
+- So when you return to amazon.com, it knows who you are
+- Most sites that log you in use cookies of some sort
+  - Some use server variables, such as UVa's netbadge
+
+
+
+## Cookie exchange
+[![web cookie](images/web-security/800px-HTTP_cookie_exchange.svg.png)](https://commons.wikimedia.org/wiki/File:HTTP_cookie_exchange.svg)
+
+
+
+## What a cookie stores
+<!-- .slide: class="right-float-img-800" -->
+[![http cookie](images/web-security/HTTP-Cookie-Google.svg)](https://commons.wikimedia.org/wiki/File:HTTP-Cookie-Google.svg)
+- The URL the cookie<br>applies to (domain<br>and path)
+- An information string
+- An expiration date
+
+Modern browsers limit cookie viewing to the domain (or URL) that issued the cookie
+
+
+
+## 2. Cross-domain content
+- Website A can include an image (or script, or CSS file) from website B
+  - Now both A and B can leave cookies
+  - This request includes the referring website!  So B can see where you have been
+- Part of the headers of any [Stack Overflow](https://stackoverflow.com) page:
+  ```
+<script
+src="https://ajax.googleapis.com/.../jquery.min.js">
+</script>
+```
+- So Google now knows what sites you've visited
+
+
+
+<!-- .slide: class="max-pre-400" -->
+## An example close to home...
+- A recent [cavalier daily article](http://www.cavalierdaily.com/article/2018/10/early-voting-numbers-show-sharp-increase-from-last-off-year-midterm-elections) loaded 347 (sic) different pieces of content from 52 different domains (33 unique TLDs)
+```
+adsafeprotected.com
+adsrvr.org
+bootstrapcdn.com
+cavalierdaily.com
+cloudfront.net
+digitru.st
+doubleclick.net
+everesttech.net
+facebook.com
+facebook.net
+google-analytics.com
+googleapis.com
+google.com
+googlesyndication.com
+googletagmanager.com
+gstatic.com
+iasds01.com
+imgix.net
+mathtag.com
+moatads.com
+moatpixel.com
+openx.net
+quantcount.com
+quantserve.com
+rfihub.com
+serving-sys.com
+sitescout.com
+spotxcdn.com
+spotxchange.com
+spotx.tv
+thesn.net
+turn.com
+yahoo.com
+```
+
+
+
+
+## 3. "Tracking" cookies
+- A cookie from a known domain that attempts to track you across multiple sites
+  - The difference is that it is known that this particular domain does lots of tracking
+  - It is ultimately no different than a regular cookie
+- Considered spyware, they are flagged (and removed) by modern anti-virus scanners
+
+
+
+## 4. Social media comment boxes
+- Those tiny little icons to encourage you to share that page on social media: <img alt="social media comments" src="images/web-security/social-media-comments.png" style="width:600px">
+- It's actually an [iframe](https://www.w3schools.com/tags/tag_iframe.asp) with FB content, and obviously includes the referrer
+- Now Facebook knows what articles you read
+- Many social media widgets are similar
+
+
+
+## 5. Javascript tracking code
+- Javascript is basically somebody else's code running in your (sandboxed) browser
+- One can easily include code to track users, such as via [Google analytics](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
+- Google Analytics is included from http://www.virginia.edu (along with a twitter widget)
+
+
+
+## 6. Non-digital purchases
+- Brick-and-mortar retailers have gotten in on the tracking game also:
+  - Grocery store "loyalty cards
+  - Coupons, such as Bed Bath & Beyond's 20% off coupons
+    - They connect it to you even if you pay cash!
+
+
+
+## 7. Canvas elements
+- The [canvas element](https://www.w3schools.com/html/html5_canvas.asp) allows graphic-based mark-up, rendering of fonts, etc.
+  - The element can be hidden
+- So create a hidden canvas element, and render some text
+  - Each browser / OS / set of fonts will render this slightly differently
+- This creates a partial *signature* to help identify you
+  - We'll see one in a bit...
+- There are canvas blocker extensions available for every major browser
+
+
+
+## 8. Browser fingerprint
+- When you visit a website, your browser sends information about your host system
+  - OS (including version), browser (including version), etc.
+- Combine that with a few other things, such as canvas-rendered text ...
+- ... and you get a possibly unique signature of you
+
+
+
+## More on browser fingerprints
+- These can be used to track you even *after* you have cleared your cookies
+  - And they can link you to previous visits
+- Is yours unique?  Check out https://amiunique.org
+  - It shows a canvas-based text rendering
+
+
+
+## 9. Financial payments
+- If you use PayPal, then it knows a lot about what you buy
+  - Likewise amazon pay, venmo, etc.
+- These sites have differing levels of privacy statements
+
+
+
+## 10. Geo-location
+- For a device without a GPS, this is easy, but rough
+  - Go to https://www.iplocation.net/; they were within 2.2 miles for me
+- For any mobile device with a GPS, this is trivial
+  - And *very* precise -- which store you just visited, whose house you are at, etc.
+  - And, likely, who else is there with you
+- Google continues to track your mobile device even after you have signed out or opted out ([reference](https://www.pcmag.com/news/363068/report-google-tracks-location-data-even-if-youve-opted-out))
   </textarea>
 </section>
 

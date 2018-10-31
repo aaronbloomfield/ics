@@ -226,6 +226,10 @@ p.blankline { height:1em; }
     margin-left:20px !important;
 }
 
+.max-pre-400 pre code {
+    max-height:400px;
+}
+
 .reveal section img {
     background:white
 }
