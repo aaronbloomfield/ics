@@ -60,7 +60,7 @@ of the due date given -- this means by 11:59:59 pm.  The late policies are discu
 Lecture progress
 ----------------
 
-
+- Mon, Oct 28: [web security](../slides/web-security.html#/) through the first two heartbleed slides
 - Fri, Oct 26: finished [networks](../slides/networks.html#/); [web security](../slides/web-security.html#/) through "TLS Usage" slide
 - Wed, Oct 24: [networks](../slides/networks.html#/), though SYN flood DoS attack
 - Mon, Oct 22: started [networks](../slides/networks.html#/) got to ...
