@@ -38,7 +38,7 @@
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu)</small></center>
 <center><small>Repository: [github.com/aaronbloomfield/ics](http://github.com/aaronbloomfield/ics) / [&uarr;](index.html) / <a href="?print-pdf"><img class="print" width="20" src="images/print-icon.png" alt="print icon"></a></small></center>
 &nbsp;
-## SQL & XSS
+## SQL, XSS, & CSRF
 </script></section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -49,12 +49,14 @@
 [SQL Primer](#/sqlintro)  
 [SQL Injection Attacks](#/sqlinject)  
 [HTML and Javascript Primer](#/htmljs)  
-[Cross site scripting](#/xss)  
+[Cross site scripting (XSS)](#/xss)  
+[HTML and Forms](#/forms)  
+[Cross-Site Request Forgery (CSRF)](#/csrf)  
 	</textarea></section>
 
 	<section>
-      
-	  <section data-markdown id="sqlintro"><textarea data-template>
+     
+	  <section data-markdown class="center" id="sqlintro"><textarea data-template>
 # SQL Primer
 	  </textarea></section>
 	  
@@ -195,7 +197,7 @@ delete from course;
 
     <section>
       
-	  <section data-markdown id="sqlinject"><textarea data-template>
+	  <section data-markdown class="center" id="sqlinject"><textarea data-template>
 # SQL Injection Attacks
 	  </textarea></section>
 	  
@@ -251,7 +253,7 @@ select * from course where
 - We can put in various commands to modify the database, or access data from it that we would not be able to access otherwise
 - Typically, the privileges that a script runs allow full read/write access to the entire database
 - We can obviously put more nefarious commands in the injection attack as well
-- drop table, drop database, etc.
+  - drop table, drop database, etc.
 
 
 ## SQL injection attack prevention
@@ -295,14 +297,15 @@ select * from course where
 	- Check it against a regex for userids!
   - If not, then trigger an error response
   - And log and notify that error response!!!
+	  </textarea></section>
 
+<section>
+  <h2><a href="https://xkcd.com/327/">xkcd # 327</a> on SQL injection attacks</h2>
+<p style="text-align:center">Exploits of a Mom</p>
+<img title="Her daughter is named &quot;Help I&#39;m trapped in a driver&#39;s license factory&quot;." alt="Exploits of a Mom" src="http://imgs.xkcd.com/comics/exploits_of_a_mom.png" class="stretch">
+</section>
 
-## xkcd on SQL injection attacks
-Exploits of a Mom:
-![Her daughter is named Help I&#39;m trapped in a driver&#39;s license factory." alt="Exploits of a Mom"](http://imgs.xkcd.com/comics/exploits_of_a_mom.png)
-[xkcd # 327](https://xkcd.com/327/)
-
-
+	  <section data-markdown data-separator="^\n$"><textarea data-template>
 ## Real-world examples
 - From [Wikipedia](https://en.wikipedia.org/wiki/SQL_injection#Examples)
 - Oct 15: 156k customer's personal info was stolen from a British telecom company
@@ -315,7 +318,7 @@ Exploits of a Mom:
 
     <section>
       
-	  <section data-markdown id="htmljs"><textarea data-template>
+	  <section data-markdown class="center" id="htmljs"><textarea data-template>
 # HTML and Javascript Primer
 	  </textarea></section>
 	  
@@ -416,8 +419,8 @@ End of the HTML text
 
     <section>
       
-	  <section data-markdown id="xss"><textarea data-template>
-# Cross-site scripting
+	  <section data-markdown class="center" id="xss"><textarea data-template>
+# Cross-site scripting (XSS)
 	  </textarea></section>
 	  
 	  <section data-markdown data-separator="^\n$"><textarea data-template>
@@ -559,6 +562,28 @@ Output: Hello Aaron! Your account balance is 1000000
   - The script can be used to send Alice's session cookie to Mallory.
 - Mallory can then use the session cookie to steal sensitive information available to Alice (authentication credentials, billing info, etc.) without Alice's knowledge.
 - [Reference](https://en.wikipedia.org/wiki/Cross-site_scripting#Non-persistent)
+</textarea></section>
+
+	</section>
+
+    <section>
+      
+	  <section data-markdown class="center" id="forms"><textarea data-template>
+# HTML and Forms
+	  </textarea></section>
+	  
+	  <section data-markdown data-separator="^\n$"><textarea data-template>
+</textarea></section>
+
+	</section>
+
+    <section>
+      
+	  <section data-markdown class="center" id="csrf"><textarea data-template>
+# Cross-Site Request Forgery (CSRF)
+	  </textarea></section>
+	  
+	  <section data-markdown data-separator="^\n$"><textarea data-template>
 
 	  </textarea></section>
 
