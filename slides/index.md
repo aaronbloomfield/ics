@@ -23,7 +23,7 @@ Slide sets, ordered in the order presented in lecture:
 - Networks
 	- [Networking Overview](networks.html#/)
 	- [Web Security](web-security.html#/)
-	- Network Attacks
+	- [SQL, XSS, and CSRF](sql-xss-csrf.html#/)
 
 
 Slide sets to be created or added as the semester progresses:
