@@ -122,7 +122,7 @@ mysql>
 ## SQL commands: update
 - To change a single entry:
 ```
-update course set year=5 where userid=`edj4v';
+update course set year=5 where userid='edj4v';
 ```
 - To update all entries
 ```
@@ -133,19 +133,19 @@ update course set year=5;
 ## SQL commands: insert
 - To create a new entry:
 ```
-insert into course set lname=`Moore', fname=`Ava',
-       userid=`aim9r', year=5;
+insert into course set lname='Moore', fname='Ava',
+       userid='aim9r', year=5;
 ```
 - An alternate form:
 ```
-insert into course values (`Moore', 'Ava', 'aim9r', 5);
+insert into course values ('Moore', 'Ava', 'aim9r', 5);
 ```
 
 
 ## SQL commands: delete
 - To delete a single entry:
 ```
-delete from course where userid=`ias1s';
+delete from course where userid='ias1s';
 ```
 - To delete many entries:
 ```
@@ -165,7 +165,7 @@ delete from course;
 - `create database <db>;`
   - Creates a database, which can hold an arbitrary number of tables
 - `grant [...];`
-  - Sets (`grants') permissions on a database to a given user
+  - Sets ('grants') permissions on a database to a given user
 
 
 ## Other SQL commands

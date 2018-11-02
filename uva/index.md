@@ -60,6 +60,7 @@ of the due date given -- this means by 11:59:59 pm.  The late policies are discu
 Lecture progress
 ----------------
 
+- Fri, Nov 2: finished [web security](../slides/web-security.html#/); [SQL, XSS & CSRF](../slides/sql-xss-csrf.html#/) through the "SQL escaped strings" slide
 - Wed, Oct 31: [web security](../slides/web-security.html#/) through (but not including) the browser fingerprint privacy slide
 - Mon, Oct 29: [web security](../slides/web-security.html#/) through the first two heartbleed slides
 - Fri, Oct 26: finished [networks](../slides/networks.html#/); [web security](../slides/web-security.html#/) through "TLS Usage" slide
