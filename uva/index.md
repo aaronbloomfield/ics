@@ -47,6 +47,7 @@ Homeworks
 Unless otherwise noted, all submissions are due by the end of the day
 of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the [online submission system][162].
 
+- [HW 8: SQL, XSS, and CSRF](../hws/hw-sql-xss-csrf.html) ([md](../hws/hw-sql-xss-csrf.md)) is due Monday, November 12th
 - [HW 7: Buffer overflow](../hws/hw-buffer.html) ([md](../hws/hw-buffer.md)) is due Friday, October 26th
 - [HW 6: Hashing](../hws/hw-hashing.html) ([md](../hws/hw-hashing.md)) is due Wednesday, October 17th
 - [HW 5: Movie Night](../hws/hw-movie-night.html) ([md](../hws/hw-movie-night.html)) is due on Sunday, October 7th
