@@ -50,7 +50,6 @@
 [SQL Injection Attacks](#/sqlinject)  
 [HTML and Javascript Primer](#/htmljs)  
 [Cross site scripting (XSS)](#/xss)  
-[HTML and Forms](#/forms)  
 [Cross-Site Request Forgery (CSRF)](#/csrf)  
 	</textarea></section>
 
@@ -73,7 +72,7 @@
 ## SQL Basics
 - SQL data is stored in tables, similar to spreadsheets like excel
 - Each row is an entry, and each column has a type
-- This table on the nex slide has types: string, string, string, integer
+- This table on the next slide has types: string, string, string, integer
 
 
 ## SQL Table
@@ -305,6 +304,12 @@ select * from course where
 <img title="Her daughter is named &quot;Help I&#39;m trapped in a driver&#39;s license factory&quot;." alt="Exploits of a Mom" src="http://imgs.xkcd.com/comics/exploits_of_a_mom.png" class="stretch">
 </section>
 
+<section>
+  <h2>A clever hacker tries to clear his/her record...</h2>
+  <p><img class="stretch" src="https://hackadaycom.files.wordpress.com/2014/04/18mpenleoksq8jpg.jpg?w=800&zoom=2"></p>
+<p>From <a href="https://hackaday.com/2014/04/04/sql-injection-fools-speed-traps-and-clears-your-record/">hackaday.com</a></p>
+</section>
+
 	  <section data-markdown data-separator="^\n$"><textarea data-template>
 ## Real-world examples
 - From [Wikipedia](https://en.wikipedia.org/wiki/SQL_injection#Examples)
@@ -413,6 +418,39 @@ End of the HTML text
    <title>Home page</title>
 ...
 ```
+
+
+## Forms
+We've all seen HTML forms:
+```
+ <form action="/action_page.php">
+  First name: <input type="text"><br>
+  Last name: <input type="text" name="lastname"><br>
+  <input type="submit" value="Submit">
+</form> 
+```
+- Allows one to request multiple data elements from the client
+
+
+## $<$form$>$ tag
+- Attributes:
+  - `action="/action_page.php"`: specifies the script to receive the form data
+  - `method="post"`: how the data is sent
+    - GET means it's a long URL: http://server.com/foo.php?username=abcd&password=123
+	  - There are limits to the data size sent
+	  - And lots of security issues for sensitive data
+	- POST means it's sent, but not in the URL
+  - `enctype="multipart/form-data"`: if you are uploading files or attachments
+
+
+## HTML Form Widgets
+Lots of different ones (image from [OpenTechSchool](http://opentechschool.github.io/python-flask/core/forms.html)):
+![input types](images/sql-xss-csrf/sample_web_form.png)
+
+There are also *hidden* input fields:
+```
+<input type="hidden" name="school" value="uva">
+```
 </textarea></section>
 
 	</section>
@@ -424,6 +462,14 @@ End of the HTML text
 	  </textarea></section>
 	  
 	  <section data-markdown data-separator="^\n$"><textarea data-template>
+## Background: same origin policy
+- Web browsers only allow one script to access data from another script if the scripts:
+  - Are on the same domain
+  - Use the same protocol
+  - Use the same port
+- This prevents a malicious script from accessing the data from another script
+
+
 ## XSS Vulnerable Scripts
 - Let's envision a very simple web script
   - It asks you for your name in a web form text field in a web form
@@ -502,7 +548,7 @@ Output: Hello Aaron! Your account balance is 1000000
 - If a decision is based upon said balance, then the decision point can be changed
   - Not likely that such a decision will be decided client-side
 - Perhaps you can inject code to view cookies or session variables
-  - But these are easily discernable through the browser anyway
+  - But these are easily discernible through the browser anyway
 - So we need a reason do perform such an exploit...
 
 
@@ -562,29 +608,70 @@ Output: Hello Aaron! Your account balance is 1000000
   - The script can be used to send Alice's session cookie to Mallory.
 - Mallory can then use the session cookie to steal sensitive information available to Alice (authentication credentials, billing info, etc.) without Alice's knowledge.
 - [Reference](https://en.wikipedia.org/wiki/Cross-site_scripting#Non-persistent)
+
+
+## Defenses
+- Treat data as data, and escape it!
+  - Use web frameworks or modern PLs that do this for you
+- There are many minute details to get right; see [here](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet) for details
 </textarea></section>
 
 	</section>
+	
+	<section>
 
-    <section>
-      
-	  <section data-markdown class="center" id="forms"><textarea data-template>
-# HTML and Forms
-	  </textarea></section>
-	  
-	  <section data-markdown data-separator="^\n$"><textarea data-template>
-</textarea></section>
-
-	</section>
-
-    <section>
-      
 	  <section data-markdown class="center" id="csrf"><textarea data-template>
 # Cross-Site Request Forgery (CSRF)
 	  </textarea></section>
 	  
 	  <section data-markdown data-separator="^\n$"><textarea data-template>
+## CSRF
+- Take a site you are logged into (facebook, bank, etc.)
+- Imagine a malicious form posting (or GET request) that is hidden in another link that you "accidentally" click
+  - That form posting has you do something malicious: transfer money, upload file, like a comment, post to your wall, etc.
+- How does the site know that the form posting came from itself and not a malicious link that was "accidentally" clicked on?
 
+
+## CSRF example
+- An example link: https://site.com/post.php?title=abcd&content=Lorem.ipsum
+- One can imagine a form as well (that is not on site.com):
+```
+ <form action="https://site.com/post.php" method="post">
+  <input type="hidden" name="title"   content="abcd">
+  <input type="hidden" name="content" 
+         content="Lorem.ipsum">
+  <input type="submit" value="Submit">
+</form> 
+```
+  - This form will only show a submit button, which can be disguised via CSS to look like *anything*
+
+
+## The need for CSRF
+- We need to be able to prevent another site from forging a form posting request
+- Solution: we'll add a *token* to the form, and check it upon submission
+  - That token is sent over the HTTPS (i.e., TLS encrypted) connection, so any eavesdropper won't be able to see it
+
+
+## HTML form with a CSRF token
+
+This is based on the form from the [HTML and Javascript primer](#/htmljs) section:
+```
+ <form action="/action_page.php">
+  First name: <input type="text"><br>
+  Last name: <input type="text" name="lastname"><br>
+  <input type="hidden" name="csrf_token" 
+         value="5AEF1xArSLLcoQQJrNkuaRs9tsSb8C8aFm">
+  <input type="submit" value="Submit">
+</form> 
+```
+
+
+## CSRF Requirements
+- The server needs to keep track of *which* token it sent and to *who*
+  - The *who* is likely an (authenticated) user at a given IP address
+  - Or maybe based on cookie (which may be tied to an IP address)
+- Modern web frameworks do this for you
+  - The csrf token from the previous slide was based on what Django provides
 	  </textarea></section>
 
       </section>
