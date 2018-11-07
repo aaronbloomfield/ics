@@ -77,7 +77,7 @@ Your goal is to transfer $200 to 'mallory' via that URL.  This must be done two 
 - Via GET variables, so that it's an attack in a single URL.  This URL could be hidden through a link, a picture, etc.
 - Via a form posting, which uses that URL as the 'action' value of the form.
 
-Now try visiting the site but add `?csrf` to the link (so it's [https://libra.cs.virginia.edu/~insecure/csrf.php?csrf](https://libra.cs.virginia.edu/~insecure/csrf.php?csrf)).  This adds a CSRF token to the form.  Unfortunately for this bank's security, the token that was added is always the same.  Perform the two CSRF attacks (via GET and via POST) against this variant URL.  For the GET, your URL would be something like `.../csrf.php?token&foo=bar&...`, and for the post, the `action` field of the `form` tag would have the `csrf.php` part be `csrf.php?token`.
+Now try visiting the site but add `?token` to the link (so it's [https://libra.cs.virginia.edu/~insecure/csrf.php?token](https://libra.cs.virginia.edu/~insecure/csrf.php?token)).  This adds a CSRF token to the form.  Unfortunately for this bank's security, the token that was added is always the same.  Perform the two CSRF attacks (via GET and via POST) against this variant URL.  For the GET, your URL would be something like `.../csrf.php?token&foo=bar&...`, and for the post, the `action` field of the `form` tag would have the `csrf.php` part be `csrf.php?token`.
 
 In your write-up, show the two URLs used (for the two GET attacks), and the two HTML forms used for the two POST attacks).
 
