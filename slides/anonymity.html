@@ -1,0 +1,747 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ICS: Anonymity</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/ics.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+<section data-markdown id="cover"><script type="text/template">
+# CS 3501
+&nbsp;
+### Introduction to Cybersecurity
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/ics](http://github.com/aaronbloomfield/ics) / [&uarr;](index.html) / <a href="?print-pdf"><img class="print" width="20" src="images/print-icon.png" alt="print icon"></a></small></center>
+&nbsp;
+## Anonymity
+</script></section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section data-markdown>
+  <textarea data-template>
+# Contents
+&nbsp;  
+[Introduction](#/intro)  
+[Sender Anonymity](#/sender)  
+[Tor](#/tor)  
+  </textarea>
+</section>
+  
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section data-markdown>
+  <textarea data-template>
+## Source
+
+This slide set was based, with permission, on one created by Benjamin Kreuter while at the University of Virginia in 2012.  He now works for Google, and you can see his work [here](https://www.youtube.com/watch?v=iViQHHchtbk) and [here](https://www.youtube.com/watch?v=ee7oRsDnNNc&t=1239s).
+  </textarea>
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="intro" class="center">
+  <textarea data-template>
+# Introduction
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Review: Public Key Encryption
+- A public key encryption system is a triple $\Pi = (KeyGen, Enc, Dec)$ such that:
+  - A random pair of keys, $(pk, sk)$, is produced by $KeyGen(n)$, where $n$ is the security parameter
+  - If $m$ is a message, $c \leftarrow Enc(pk, m)$ is a randomized encryption process that can be performed by anyone
+    - $pk$ does not contain enough information to decrypt $c$
+
+
+
+## Review: Public Key Encryption
+- A public key encryption system is a triple $\Pi = (KeyGen, Enc, Dec)$ such that:
+  - If $c \leftarrow Enc(pk, m)$ then $Dec(sk, c) = m$, i.e. decryption, can be performed using the secret key
+    - Decryption may or may not be a randomized process; if it is, then $Pr [Dec(sk, c) = m] \ge 1 - negl(n)$
+
+
+
+## Why anonymity?
+- Whenever a big announcement is planned, the White House staff places a big order for pizza from a nearby pizza shop
+<li class="fragment">Journalists begin publishing speculation about the big announcement hours before it is made</li>
+<li class="fragment"><b><i>What went wrong?</i></b></li>
+<p>&nbsp;</p>  
+<p class="fragment">(this is called the <a href="http://www.slate.com/articles/life/food/2016/07/the_pizza_meter_was_a_staple_of_1990s_pop_pseudoscience_we_should_revive.html">Pizza Meter</a>, by the way)</p>
+
+
+
+## Why anonymity?
+
+- Suppose you are running a human rights organization in a hostile nation 
+  - The government is probably watching your communication, so you encrypt your email</ul></li>
+<li class="fragment">A dissident in a nearby town sends you emails, encrypted using your public key</li>
+<li class="fragment">Suddenly the dissident is arrested and sent to a reeducation camp</li>
+<li class="fragment"><b><i>What went wrong?</i></b></li>
+
+
+
+## Why anonymity?
+
+Encryption is great for preventing people from reading your messages
+
+<p class="fragment">It does not prevent people from seeing who you correspond with, which in some cases is more important than the content of that correspondence</p>
+
+
+
+## Receiving Messages Anonymously
+
+- *Receiving* a message anonymously is easier than sending a message anonymously
+- Intelligence agencies have been taking advantage of this for decades, by broadcasting instructions to covert agents using shortwave radio, which has a global range
+- We can duplicate this online:
+  - A message may be sent to a mailing list, posted to Usenet (e.g. in alt.anonymous.messages), uploaded to a blog or wiki, etc.
+
+
+
+## Broadcasting is not Enough
+- A medical doctor known for advocating medical marijuana use corresponds with his patients by broadcasting encrypted messages on Usenet and by having them do the same
+<li class="fragment">The DEA raids the doctor's office, taking his computer and identifying the doctor's patients</li>
+<li class="fragment"><b><i>What went wrong?</i></b></li>
+  </textarea>
+</section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="sender" class="center">
+  <textarea data-template>
+# Sender Anonymity
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Sender Anonymity
+
+Protecting the identity of a *sender* is more technically challenging
+
+We will not address with situations where the *use* of encryption or of an anonymity system must be hidden.
+
+
+
+## Overview
+- Early systems - Penet
+- Cypherpunks remailers
+- Some theory
+- Tor
+- Attacking anonymity systems
+- Ethical questions
+
+
+
+## "Should people be required to use their real name online?"
+- In the early 90s, Johan Helsingius created the Penet Remailer as a response to suggestions that people should be required to use their legal names online
+  - References: [1](https://web.archive.org/web/20160429150813/http://waste.informatik.hu-berlin.de/Grassmuck/Texts/remailer.html) and [2](https://www.amazon.com/dp/047105318X/)
+
+
+
+## "Should people be required to use their real name online?"
+- To use Penet, send an email requesting a pseudonym
+- Mail sent to the pseudonym would be forwarded to the user's real email address
+- A user could send an email to Penet, and have the message forwarded with their pseudonym in the "From:" field
+
+
+
+## Getting a Penet anon ID
+```
+From: daemon@anon.penet.fi
+To: <user questing the ID>
+
+You have sent a message using the anonymous contact 
+service.
+You have been allocated the code name an123456.
+You can be reached anonymously using the address
+an123456@anon.penet.fi.
+
+If you want to use a nickname, please send a message to
+nick@anon.penet.fi, with a Subject: field containing 
+your nickname.
+
+For instructions, send a message to help@anon.penet.fi.
+```
+(not a real anon ID, by the way)
+
+
+
+## The Demise of Penet
+<p>&nbsp;</p>  
+<p>&nbsp;</p>  
+What could possibly go wrong?
+
+
+
+## The Demise of Penet
+Penet maintained a database mapping pseudonyms to email addresses - a single point of failure!
+
+Numerous requests for specific entries, and for the whole database, had been made while Penet was running
+
+Penet was ultimately shut down after several legal attacks by the Church of Scientology, after secret Scientology material was posted to Usenet through Penet
+
+See the [Wikipedia article on the Penet remailer](https://en.wikipedia.org/wiki/Penet_remailer)
+
+
+
+## After Penet
+Lessons learned from Penet:
+- Remailer control messages should be encrypted, so that remailers can be chained. No single remailer should know both the sender and receiver of a message
+- Records should not be necessary for sending anonymous messages. To receive replies records need to be kept, but should allow for messages to be encrypted and forwarded through other remailers
+
+
+
+## After Penet
+Lessons learned from Penet:
+- Those wishing to compromise remailers may be willing to go to great lengths, using legal or illegal means
+
+
+
+## [Cypherpunks Remailers](https://en.wikipedia.org/wiki/Cypherpunk_anonymous_remailer)
+After Penet, the next generation of remailers was built using *PGP*, a popular email encryption program
+
+To use a Cypherpunks remailer, email messages encrypted, then sent to the remailer in the following format, encrypted using the remailer's public key:
+![email screen grab](images/anonymity/cypherpunks.jpg)
+
+
+
+## Cypherpunks Remailers
+Cypherpunks remailers have a variety of directives that can be used to improve security:
+- Remailers can be instructed to re-encrypt part of a message using a symmetric cipher; this is used to setting up reply chains for pseudonymous remailers like Penet
+- Random padding can be added, or messages may be truncated below a certain line
+
+
+
+## Cypherpunks Remailers
+Cypherpunks remailers have a variety of directives that can be used to improve security:
+- Messages can rendered invalid after a certain date, or after being remailed a certain number of times.
+  - This helps prevent replay attacks
+- The subject line can be encrypted
+- Random remailer hops can be added
+
+
+
+## Cypherpunks Remailers
+Despite being somewhat ad-hoc, Cypherpunks remailers remain around in some form (see https://remailer.paranoici.org/)
+
+Some remailers provide reliability statistics, by sending test messages through known remailers
+
+Cypherpunks remailers can be used to send messages to email addresses or to Usenet newsgroups
+
+
+
+## Anonymity Theory
+- Cypherpunks remailers work well, but they provide only *heuristic* guarantees of security
+  - In particular, there is no proof that an adversary could not send specially crafted messages through a remailer to break the security model
+- David Chaum proposed a more rigorous formulation of security, which imposes stricter requirements than Cypherpunks remailers
+  - Chaum's solution is implemented in more advanced remailers called *Mixmaster remailers*
+
+
+
+## Anonymity Theory
+- However, even these remailers do not provide strong security guarantees.
+- In cryptography research, there is a notion of *provable* security
+  - Showing that breaking a cryptosystem's security is *at least as hard* as solving a computationally difficult problem, such as the *discrete logarithm problem*
+- Consdier [ciphertext indistinguishability](https://en.wikipedia.org/wiki/Ciphertext_indistinguishability): "an adversary will be unable to distinguish pairs of ciphertexts based on the message they encrypt"
+
+
+
+## Anonymity Theory
+- It can be shown that if the [ElGamal](https://en.wikipedia.org/wiki/ElGamal_encryption) encryption system does not a given satisfy ciphertext indistinguishability, then the *discrete logarithm problem* is
+computationally easy
+  - ElGamal is based on, and similar in function to, the Diffie-Hellman key exchange
+- Since it is widely assumed that the discrete logarithm problem is computationally hard (for good reasons), we can conclude that ElGamal is secure against any chosen plaintext attack
+
+
+
+## Anonymity Theory
+- Stronger security guarantees can also be proved
+- *Adaptive chosen ciphertext* attacks allow the adversary to request decryptions of any ciphertext except the challenge, both before and after seeing the challenge
+- Cryptosystems that are secure against such attacks are known; Cramer-Shoup is an analog of ElGamal with this property
+
+
+
+## Anonymity Theory
+- We can apply this technique to the analysis of other security systems, including anonymity systems
+- We need a definition of anonymity that captures our notions about security
+
+
+
+## Anonymity Theory "Notions"
+1. The adversary might be global - all the messages sent between nodes in the system might be observed
+2. The adversary might be able to take control of some of the nodes, both before and after observing messages (adaptive corruption)
+3. The adversary might send messages through the system, both before and after observing messages
+4. The adversary might be able to choose what messages are sent by honest parties
+
+
+
+## Anonymity Theory
+- A rigorous definition of security for an anonymity system was given by Abe and Imai in 2003, which meets all of the above criteria
+- Camenisch and Mityagin in 2006 proposed a system which meets this definition and which can be securely composed with any other protocol
+- Following another rigorous definition, Danezis and Goldberg in 2008 presented Sphinx, a provably secure remailer that can be integrated with Mixmaster and Cypherpunks remailers
+- So we can have a secure remailer!
+
+
+
+## Anonymity Beyond Email
+- Remailers are great for high-latency communication like email
+- Can we get low-latency anonymity?
+- Can we browse the web anonymously?
+- In 1998, researchers at the US Naval Research Laboratory released a low-latency anonymity system call Tor, which uses onion routing
+  </textarea>
+</section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="tor" class="center">
+  <textarea data-template>
+# Onion Routing (Tor)
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Tor
+- Tor stands for The Onion Router
+- Consdier a path to destination S through a network:
+  - Y (client) <-> A <-> B <-> C <-> S (server)
+  - A, B, and C are randommly chosen nodes in the Tor network
+  - Each node has a public key $pk_A$, $pk_S$, etc.
+- We have two functions we will use:
+  - $enc(pk,X)$: encrypt $X$ with public key $pk$
+  - $sendTo(dest,X)$: a request to send $X$ to destination $dest$
+
+
+
+## Tor Terminology
+- Given path: Y (client) <-> A <-> B <-> C <-> S (server)
+- A is the *entry relay* or a *bridge*
+  - These are generally well known and published
+- B and C are just *relays*
+  - Some are well known, others are kept secret
+- As for S:
+  - If the detination is *outside* of Tor, then it sends the data (via TLS) to the destination, and S is called the *exit relay*
+  - If the destination is *inside* of Tor, then S is the *hidden service*
+
+
+
+## How Tor works
+- Given path: Y (client) <-> A <-> B <-> C <-> S (server)
+- Given primitives: $enc(pk,X)$ & $sendTo(dest,X)$
+- To send $p$ to $S$, we construct:
+  - $m_1 = enc(pk_S,p)$
+  - $m_2 = sendTo(S,m_1)$
+  - $m_3 = enc(pk_C,m_2)$
+  - $m_4 = sendTo(C,m_3)$
+  - $m_5 = enc(pk_B,m_4)$
+  - $m_6 = sendTo(B,m_5)$
+  - $m_7 = enc(pk_A,m_6)$
+- $m_7$ is then sent by the client to entry relay $A$
+
+
+
+## The final message
+- $m = enc(pk_A,sendTo(B,enc(pk_B,$<br>$sendTo($$C,enc(pk_C,$<br>$sendTo(S,enc(pk_S,m)))))))$
+- Each successive message is encrypted, forming *layers*
+  - Layers like an onion, hence the name *onion routing*
+- Note that the final node ($S$) is the final node *inside* Tor
+  - Either the exit relay or the hidden service
+
+
+
+## Tor overview
+- Tor can be viewed as a chain of proxy servers, which is periodically changed to make attacks harder
+- Each Tor connection goes through three (or more) nodes: the entry node, middle node(s), and exit node
+- To connect to Tor, the client first downloads a list of all Tor nodes from several directory authorities
+- The nodes used for connections will be selected offline, so that no information about a client's route will be leaked
+
+
+
+## Hidden Services
+- Tor also provides hidden services
+  - This allows a server to be run anonymously
+- Each hidden service selects several middle nodes to act as "guards" (or *introduction points*) which are connected through additional Tor nodes to the hidden service
+  - Clients can look up guards for a hidden service in a distributed hash table
+  - Thus, the client has to route to the introduction point, and the introduction point will route to the hidden service
+
+
+
+## The Silk Road
+<!-- .slide: class="right-float-img-600" -->
+![silk road website](images/anonymity/Silk_Road_Marketplace_Item_Screen.jpg)
+- A Tor hidden serivce at<br>silkroad7rn2puhj.onion
+  - Named after the<br>[historical trade route<br>of the same name](https://en.wikipedia.org/wiki/Silk_Road)
+- It sold illegal drugs online
+- Run by the "Dread Pirate<br>Roberts" (DPR), it was shut<br>down in 2013
+  - Others quickly took its<br>place
+
+
+
+## How was the Silk Road busted?
+- Two versions (from [Wikipedia](https://en.wikipedia.org/wiki/Silk_Road_(marketplace))
+  - "The FBI has claimed that the real IP address of the Silk Road server was found via data leaked directly from the site's CAPTCHA"
+  - Security researchers believe that the PHP login page was manipulated to output its server variables, including the IP address
+- Ross Ulbricht, alleged to be DPR, was arrested in Oct 2, 2013
+  - The FBI siezed about $90 million in bitcoins
+  - He was sentenced to life in prison w/out parole
+
+
+
+## Tor stats
+- Tor is currently the most popular anonymity system in use, with hundreds of thousands of users
+- These metrics are as of November 2018 and are from https://metrics.torproject.org/:
+  - 653 entry relays ("bridges")
+  - 6,398 (internal) relays
+  - About 2 million users
+  - 107,490 unique onion services
+    - [Some estimates](https://en.wikipedia.org/wiki/Tor_(anonymity_network%29#Usage) indicate that about half are inactive
+
+
+
+## How to detect Tor
+- Assuming one can monitor a network link...
+- If TLS encrypted data is sent to a Tor entry node, then one is likely using Tor
+- Many gov't's (including the US) will pay "more" attention to you if it seems you are using Tor
+
+
+
+## Tor usage
+- Tor is often used to defeat national firewalls; an ongoing area of work is disguising a Tor connection as a typical Firefox TLS connection
+- A common pattern has emerged in such countries: Tor is typically blocked just before big announcements by the government, or immediately following news of rebellions or unrest in other countries
+
+
+
+## US gov't policy on Tor
+- Some agencies support it: US state department, NSF, and [Radio Free Asia](https://en.wikipedia.org/wiki/Radio_Free_Asia)
+- Some oppose it: NSA, FBI, CIA
+
+
+
+## Would you by an Internet connected sex toy?
+
+
+
+## Would you by an Internet connected sex toy?
+- Apparently a lot of people do, but they keep getting hacked
+  - [Wired article on this](https://www.wired.co.uk/article/sex-toy-bluetooth-hacks-security-fix)
+- This is a field of research called "onion dildonics"
+  - I promise that I did not make that name up...
+- While the application is somewhat humorous, the privacy implications involved are very real
+- Tor has been suggested as the answer to this
+
+
+
+
+## Tor: The Benefits
+- It allows for "true" anonyminity online
+- It allows for much better privacy than otherwise is available
+- The gov't cannot figure out what you are saying or doing
+  - (Although they can tell if you are using it)
+
+
+
+## Tor: The Drawbacks.
+- This is how evil stuff is propogated online
+  - Child pornography, snuff films, torture films, rape videos, etc.
+  - The real stuff, not fake films done by actors for entertainment
+
+
+
+## Tor: Ethics
+- Considering the benefits and drawbacks, is it ethical to use Tor?
+
+
+
+## Tor: Ethics
+- Considering the benefits and drawbacks, is it ethical to use Tor?
+- If you are using for ethical means (privacy, for example), then yes
+  - Just because a technology *can* be used for illegal means does not automatically make that technology unethical
+  - If that were the case, then all of computers would be illegal
+</textarea>
+</section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="sender" class="center">
+  <textarea data-template>
+# ...
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+
+## Attacking Anonymity Systems
+Attacking Cypherpunks and Mixmaster Remailers
+
+## Attacking Anonymity Systems
+Attacking Cypherpunks and Mixmaster Remailers
+I
+
+Global eavesdropping: watching all traffic through all
+remailers, and following one message. This can be thwarted
+using random delays, random padding, and message
+reordering.
+
+## Attacking Anonymity Systems
+Attacking Cypherpunks and Mixmaster Remailers
+I
+
+Global eavesdropping: watching all traffic through all
+remailers, and following one message. This can be thwarted
+using random delays, random padding, and message
+reordering.
+
+I
+
+Replay attacks: sending the same message through a
+Remailer, and seeing what comes out. This can be thwarted
+with maximum date headers, assuming PGP is non-malleable
+(which could be untrue), and does not work against
+Mixmaster remailers.
+
+## Attacking Anonymity Systems
+Attacking Cypherpunks and Mixmaster Remailers
+I
+
+Global eavesdropping: watching all traffic through all
+remailers, and following one message. This can be thwarted
+using random delays, random padding, and message
+reordering.
+
+I
+
+Replay attacks: sending the same message through a
+Remailer, and seeing what comes out. This can be thwarted
+with maximum date headers, assuming PGP is non-malleable
+(which could be untrue), and does not work against
+Mixmaster remailers.
+
+I
+
+Attacking specific remailers: if the adversary has some
+remailers under his control, he can flood other remailers in an
+attempt to prevent them from being used. [PP06]
+
+## Attacking Anonymity Systems
+Attacking Cypherpunks and Mixmaster Remailers
+I
+
+Spamming attacks: If a pseudonym delivers messages to an
+email address, through a chain of remailers, the chain could
+be traced by an attacker who sends many "spam" messages
+to the pseudonym. This can be thwarted by having messages
+delivered to a Usenet newsgroup or by limiting how many
+messages can be sent before the remailer chain is changed.
+
+## Attacking Anonymity Systems
+Attacking Cypherpunks and Mixmaster Remailers
+I
+
+Spamming attacks: If a pseudonym delivers messages to an
+email address, through a chain of remailers, the chain could
+be traced by an attacker who sends many "spam" messages
+to the pseudonym. This can be thwarted by having messages
+delivered to a Usenet newsgroup or by limiting how many
+messages can be sent before the remailer chain is changed.
+
+I
+
+Mail loops: A pseudonym may be configured to have replies
+sent through several remailer chains; this could be used to
+create loops that exponentially increase the load on a remailer.
+Typically, the amount of mail a pseudonym can receive in a
+given day before being disabled is deliberately limited. [MK98]
+
+## Attacking Anonymity Systems
+Attacking Tor
+
+## Attacking Anonymity Systems
+Attacking Tor
+I
+
+Global eavesdropping: Tor does not have random delays or
+padding, so a global eavesdropper can defeat Tor.
+
+## Attacking Anonymity Systems
+Attacking Tor
+I
+
+Global eavesdropping: Tor does not have random delays or
+padding, so a global eavesdropper can defeat Tor.
+
+I
+
+Fingerprinting: a local eavesdropper can collect information
+about latency patterns for specific systems accessed through
+Tor, and check for such patterns in a target connection. This
+is particularly bad in cases where some information about a
+person's identity is leaked; for example, forum posts that use
+regional spellings or phrases.
+
+## Attacking Anonymity Systems
+Attacking Tor
+I
+
+Global eavesdropping: Tor does not have random delays or
+padding, so a global eavesdropper can defeat Tor.
+
+I
+
+Fingerprinting: a local eavesdropper can collect information
+about latency patterns for specific systems accessed through
+Tor, and check for such patterns in a target connection. This
+is particularly bad in cases where some information about a
+person's identity is leaked; for example, forum posts that use
+regional spellings or phrases.
+
+I
+
+Malicious exit nodes: if end-to-end encryption is not used, a
+malicious exit can sniff usernames, passwords, and other
+information.
+
+## Ethical Questions
+
+I
+
+Should anonymity systems even be deployed?
+I
+
+I
+
+Criminals, terrorists, etc. may use anonymity systems to avoid
+detection or prosecution. Anonymity systems have been used
+for harassing people and by child predators.
+Human rights groups, political dissidents, law enforcement
+agencies, etc. also use anonymity systems. In some cases,
+anonymity systems could save lives.
+
+## Ethical Questions
+
+I
+
+Should attacks on anonymity systems be published?
+I
+
+I
+
+Law enforcement agencies may be given an advantage with
+unpublished attacks.
+Such attacks are likely to be discovered and kept secret by
+hostile governments, criminal hackers, etc.
+
+## Masayuki Abe and Hideki Imai.
+Flaws in some robust optimistic mix-nets.
+In Rei Safavi-Naini and Jennifer Seberry, editors, Information
+Security and Privacy, volume 2727 of Lecture Notes in
+Computer Science, pages 216-216. Springer Berlin /
+Heidelberg, 2003.
+10.1007/3-540-45067-X-4.
+David L. Chaum.
+Untraceable electronic mail, return addresses, and digital
+pseudonyms.
+Commun. ACM, 24(2):84-90, February 1981.
+Jan Camenisch and Anton Mityagin.
+Mix-network with stronger security.
+In George Danezis and David Martin, editors, Privacy
+Enhancing Technologies, volume 3856 of Lecture Notes in
+Computer Science, pages 128-146. Springer Berlin /
+Heidelberg, 2006.
+10.1007/11767831-9.
+
+## George Danezis and Ian Goldberg.
+Sphinx: A compact and provably secure mix format.
+Cryptology ePrint Archive, Report 2008/475, 2008.
+http://eprint.iacr.org/.
+Volker Grassmuck.
+Don't try to control the network because it's impossible
+anyway.
+http://waste.informatik.hu-berlin.de/Grassmuck/
+Texts/remailer.html Retrieved: April 19, 2012.
+David Mazi`eres and M. Frans Kaashoek.
+The design, implementation and operation of an email
+pseudonym server.
+In Proceedings of the 5th ACM conference on Computer and
+communications security, CCS '98, pages 27-36, New York,
+NY, USA, 1998. ACM.
+Charles P. Pfleeger and Shari L. Pfleeger.
+Security in Computing, 4th Edition.
+Prentice Hall PTR, 4th edition, October 2006.
+
+## M.G. Reed, P.F. Syverson, and D.M. Goldschlag.
+Anonymous connections and onion routing.
+Selected Areas in Communications, IEEE Journal on,
+16(4):482 -494, may 1998.
+Bruce Schneier.
+E-mail Security, pages 84-87.
+John Wiley & Sons, inc., 1995.
+
+## ## Introduction to ...
+- some intro list here
+- another list item
+
+
+
+## new slide
+three blank lines above causes a slide change
+
+
+
+## another new slide
+three blank lines above causes a slide change
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	
+</div>
+</div>
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.js"></script>
+<script src="settings.js"></script>
+</body>
+</html>
