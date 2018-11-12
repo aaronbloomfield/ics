@@ -50,7 +50,8 @@
 [Introduction](#/intro)  
 [Sender Anonymity](#/sender)  
 [Tor](#/tor)  
-  </textarea>
+[Attacking Anonymity Systems](#/attacks)  
+</textarea>
 </section>
   
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -477,7 +478,7 @@ computationally easy
 
 
 
-## Tor: The Drawbacks.
+## Tor: The Drawbacks
 - This is how evil stuff is propogated online
   - Child pornography, snuff films, torture films, rape videos, etc.
   - The real stuff, not fake films done by actors for entertainment
@@ -503,234 +504,72 @@ computationally easy
 
 <section>
 
-<section data-markdown id="sender" class="center">
+<section data-markdown id="attacks" class="center">
   <textarea data-template>
-# ...
+# Attacking Anonymity Systems
   </textarea>
 </section>
     
 <section data-markdown data-separator="^\n\n\n">
   <textarea data-template>
+## Attacking Remailers
+- Global eavesdropping: watching all traffic through all remailers, and following one message
+  - This can be thwarted using random delays, random padding, and message reordering
+
+
+
+## Attacking Remailers
+- Replay attacks: sending the same message through a Remailer, and seeing what comes out
+  - This can be thwarted with maximum date headers, assuming PGP is non-malleable (which could be untrue), and does not work against Mixmaster remailers
+
+
+
+## Attacking Remailers
+- Attacking specific remailers: if the adversary has some remailers under his control, he can flood other remailers in an attempt to prevent them from being used
+
+
+
+## Attacking Remailers
+- Spamming attacks: If a pseudonym delivers messages to an email address, through a chain of remailers, the chain could be traced by an attacker who sends many "spam" messages to the pseudonym
+  - This can be thwarted by having messages delivered to a Usenet newsgroup or by limiting how many messages can be sent before the remailer chain is changed
+
+
+
+## Attacking Remailers
+- Mail loops: A pseudonym may be configured to have replies sent through several remailer chains; this could be used to create loops that exponentially increase the load on a remailer
+  - Typically, the amount of mail a pseudonym can receive in a given day before being disabled is deliberately limited
+
+
+
+## Attacking Tor
+- Global eavesdropping: Tor does not have random delays or padding, so a global eavesdropper can defeat Tor
+
+
+
+## Attacking Tor
+- Fingerprinting: a local eavesdropper can collect information about latency patterns for specific systems accessed through Tor, and check for such patterns in a target connection
+  - This is particularly bad in cases where some information about a person's identity is leaked; for example, forum posts that use regional spellings or phrases
+
+
 
 ## Attacking Anonymity Systems
-Attacking Cypherpunks and Mixmaster Remailers
+- Malicious exit nodes: if end-to-end encryption is not used, a malicious exit can sniff usernames, passwords, and other information
 
-## Attacking Anonymity Systems
-Attacking Cypherpunks and Mixmaster Remailers
-I
 
-Global eavesdropping: watching all traffic through all
-remailers, and following one message. This can be thwarted
-using random delays, random padding, and message
-reordering.
-
-## Attacking Anonymity Systems
-Attacking Cypherpunks and Mixmaster Remailers
-I
-
-Global eavesdropping: watching all traffic through all
-remailers, and following one message. This can be thwarted
-using random delays, random padding, and message
-reordering.
-
-I
-
-Replay attacks: sending the same message through a
-Remailer, and seeing what comes out. This can be thwarted
-with maximum date headers, assuming PGP is non-malleable
-(which could be untrue), and does not work against
-Mixmaster remailers.
-
-## Attacking Anonymity Systems
-Attacking Cypherpunks and Mixmaster Remailers
-I
-
-Global eavesdropping: watching all traffic through all
-remailers, and following one message. This can be thwarted
-using random delays, random padding, and message
-reordering.
-
-I
-
-Replay attacks: sending the same message through a
-Remailer, and seeing what comes out. This can be thwarted
-with maximum date headers, assuming PGP is non-malleable
-(which could be untrue), and does not work against
-Mixmaster remailers.
-
-I
-
-Attacking specific remailers: if the adversary has some
-remailers under his control, he can flood other remailers in an
-attempt to prevent them from being used. [PP06]
-
-## Attacking Anonymity Systems
-Attacking Cypherpunks and Mixmaster Remailers
-I
-
-Spamming attacks: If a pseudonym delivers messages to an
-email address, through a chain of remailers, the chain could
-be traced by an attacker who sends many "spam" messages
-to the pseudonym. This can be thwarted by having messages
-delivered to a Usenet newsgroup or by limiting how many
-messages can be sent before the remailer chain is changed.
-
-## Attacking Anonymity Systems
-Attacking Cypherpunks and Mixmaster Remailers
-I
-
-Spamming attacks: If a pseudonym delivers messages to an
-email address, through a chain of remailers, the chain could
-be traced by an attacker who sends many "spam" messages
-to the pseudonym. This can be thwarted by having messages
-delivered to a Usenet newsgroup or by limiting how many
-messages can be sent before the remailer chain is changed.
-
-I
-
-Mail loops: A pseudonym may be configured to have replies
-sent through several remailer chains; this could be used to
-create loops that exponentially increase the load on a remailer.
-Typically, the amount of mail a pseudonym can receive in a
-given day before being disabled is deliberately limited. [MK98]
-
-## Attacking Anonymity Systems
-Attacking Tor
-
-## Attacking Anonymity Systems
-Attacking Tor
-I
-
-Global eavesdropping: Tor does not have random delays or
-padding, so a global eavesdropper can defeat Tor.
-
-## Attacking Anonymity Systems
-Attacking Tor
-I
-
-Global eavesdropping: Tor does not have random delays or
-padding, so a global eavesdropper can defeat Tor.
-
-I
-
-Fingerprinting: a local eavesdropper can collect information
-about latency patterns for specific systems accessed through
-Tor, and check for such patterns in a target connection. This
-is particularly bad in cases where some information about a
-person's identity is leaked; for example, forum posts that use
-regional spellings or phrases.
-
-## Attacking Anonymity Systems
-Attacking Tor
-I
-
-Global eavesdropping: Tor does not have random delays or
-padding, so a global eavesdropper can defeat Tor.
-
-I
-
-Fingerprinting: a local eavesdropper can collect information
-about latency patterns for specific systems accessed through
-Tor, and check for such patterns in a target connection. This
-is particularly bad in cases where some information about a
-person's identity is leaked; for example, forum posts that use
-regional spellings or phrases.
-
-I
-
-Malicious exit nodes: if end-to-end encryption is not used, a
-malicious exit can sniff usernames, passwords, and other
-information.
 
 ## Ethical Questions
+- Should anonymity systems even be deployed?
+  - Criminals, terrorists, etc. may use anonymity systems to avoid detection or prosecution
+  - Anonymity systems have been used for harassing people and by child predators
+  - Human rights groups, political dissidents, law enforcement agencies, etc. also use anonymity systems
+  - In some cases, anonymity systems could save lives
 
-I
 
-Should anonymity systems even be deployed?
-I
-
-I
-
-Criminals, terrorists, etc. may use anonymity systems to avoid
-detection or prosecution. Anonymity systems have been used
-for harassing people and by child predators.
-Human rights groups, political dissidents, law enforcement
-agencies, etc. also use anonymity systems. In some cases,
-anonymity systems could save lives.
 
 ## Ethical Questions
-
-I
-
-Should attacks on anonymity systems be published?
-I
-
-I
-
-Law enforcement agencies may be given an advantage with
-unpublished attacks.
-Such attacks are likely to be discovered and kept secret by
-hostile governments, criminal hackers, etc.
-
-## Masayuki Abe and Hideki Imai.
-Flaws in some robust optimistic mix-nets.
-In Rei Safavi-Naini and Jennifer Seberry, editors, Information
-Security and Privacy, volume 2727 of Lecture Notes in
-Computer Science, pages 216-216. Springer Berlin /
-Heidelberg, 2003.
-10.1007/3-540-45067-X-4.
-David L. Chaum.
-Untraceable electronic mail, return addresses, and digital
-pseudonyms.
-Commun. ACM, 24(2):84-90, February 1981.
-Jan Camenisch and Anton Mityagin.
-Mix-network with stronger security.
-In George Danezis and David Martin, editors, Privacy
-Enhancing Technologies, volume 3856 of Lecture Notes in
-Computer Science, pages 128-146. Springer Berlin /
-Heidelberg, 2006.
-10.1007/11767831-9.
-
-## George Danezis and Ian Goldberg.
-Sphinx: A compact and provably secure mix format.
-Cryptology ePrint Archive, Report 2008/475, 2008.
-http://eprint.iacr.org/.
-Volker Grassmuck.
-Don't try to control the network because it's impossible
-anyway.
-http://waste.informatik.hu-berlin.de/Grassmuck/
-Texts/remailer.html Retrieved: April 19, 2012.
-David Mazi`eres and M. Frans Kaashoek.
-The design, implementation and operation of an email
-pseudonym server.
-In Proceedings of the 5th ACM conference on Computer and
-communications security, CCS '98, pages 27-36, New York,
-NY, USA, 1998. ACM.
-Charles P. Pfleeger and Shari L. Pfleeger.
-Security in Computing, 4th Edition.
-Prentice Hall PTR, 4th edition, October 2006.
-
-## M.G. Reed, P.F. Syverson, and D.M. Goldschlag.
-Anonymous connections and onion routing.
-Selected Areas in Communications, IEEE Journal on,
-16(4):482 -494, may 1998.
-Bruce Schneier.
-E-mail Security, pages 84-87.
-John Wiley & Sons, inc., 1995.
-
-## ## Introduction to ...
-- some intro list here
-- another list item
-
-
-
-## new slide
-three blank lines above causes a slide change
-
-
-
-## another new slide
-three blank lines above causes a slide change
+- Should attacks on anonymity systems be published?
+  - Law enforcement agencies may be given an advantage with unpublished attacks
+  - Such attacks are likely to be discovered and kept secret by hostile governments, criminal hackers, etc.
   </textarea>
 </section>
 
