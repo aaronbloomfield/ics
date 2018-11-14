@@ -19,10 +19,12 @@ all listed on the [main UVa page](../uva/index.html)
 
 ### Written homeworks
 
-- [Written homework: Rational Paranoia](hw-paranoia.html)
-  ([md](hw-paranoia.html))
-- [Written homework: Cybersecurity Policy](hw-policy.html)
-  ([md](hw-policy.html))
-- [Written homework: Ethics](hw-ethics.html) ([md](hw-ethics.html))
+- [Written homework: Celebrity Visit](hw-celebrity-visit.html)
+  ([md](hw-celebrity-visit.md))
 - [Written homework: Movie Night](hw-movie-night.html)
   ([md](hw-movie-night.html))
+- [Written homework: Ethics](hw-ethics.html) ([md](hw-ethics.html))
+- [Written homework: Cybersecurity Policy](hw-policy.html)
+  ([md](hw-policy.html))
+- [Written homework: Rational Paranoia](hw-paranoia.html)
+  ([md](hw-paranoia.html))

@@ -61,7 +61,8 @@ of the due date given -- this means by 11:59:59 pm.  The late policies are discu
 Lecture progress
 ----------------
 
-- Fri, Nov 9: The rest of [SQL, XSS & CSRF](../slides/sql-xss-csrf.html#/) (which was just the CSRF slides); [Anonymity](../slides/anonymity.html#/), through...
+- Mon, Nov 12: [Anonymity](../slides/anonymity.html#/), through the end of the Tor slide column
+- Fri, Nov 9: The rest of [SQL, XSS & CSRF](../slides/sql-xss-csrf.html#/) (which was just the CSRF slides); [Anonymity](../slides/anonymity.html#/), through the first 'anonymity theory' slide
 - Wed, Nov 7: [SQL, XSS & CSRF](../slides/sql-xss-csrf.html#/) through the end of the XSS slides
 - Mon, Nov 5: second midterm
 - Fri, Nov 2: finished [web security](../slides/web-security.html#/); [SQL, XSS & CSRF](../slides/sql-xss-csrf.html#/) through the "SQL escaped strings" slide
