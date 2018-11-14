@@ -261,6 +261,12 @@ line-height:110%;
     max-height:500px;
 }
 
+section.no-white-img-background img {
+    background:none;
+    border:0;
+}
+
+
 /* to color <pre> blocks of code */
 
 .reveal pre.code { 

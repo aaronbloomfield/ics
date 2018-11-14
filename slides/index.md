@@ -26,8 +26,8 @@ Slide sets, ordered in the order presented in lecture:
 - Modern Topics
 	- [SQL, XSS, and CSRF](sql-xss-csrf.html#/)
 	- [Anonymity](anonymity.html#/)
+	- [Crytocurrency](cryptocurrency.html#/)
 	- [Stuxnet](stuxnet.html#/)
-	- Cryto-currencies
 	- CVEs and Exploits
 
 

@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ICS: Cryptocurrency</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/ics.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+<section data-markdown id="cover"><script type="text/template">
+# CS 3501
+&nbsp;
+### Introduction to Cybersecurity
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/ics](http://github.com/aaronbloomfield/ics) / [&uarr;](index.html) / <a href="?print-pdf"><img class="print" width="20" src="images/print-icon.png" alt="print icon"></a></small></center>
+&nbsp;
+## Cryptocurrency
+</script></section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section data-markdown>
+  <textarea data-template>
+# Contents
+&nbsp;  
+[Introduction](#/intro)  
+[Bitcoin Basics](#/bitcoin)  
+[Mining](#/mining)  
+  </textarea>
+</section>
+  
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="intro" class="center">
+  <textarea data-template>
+# Introduction
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## What is a cryptocurrency?
+- A digital asset designed to work as a [medium of exchange](https://en.wikipedia.org/wiki/Medium_of_exchange)
+  - "a widely accepted token which can be exchanged for goods and services"
+  - What all modern currencies are (or are intended to be)
+- They use modern cryptographic technologies (encryption and hashing), hence the name
+
+
+
+## Consider the AaronDollar (TM)
+<!-- .slide: class="no-white-img-background max-image-height-300" -->
+![AaronDollar (TM)](images/cryptocurrency/aaron-dollar.svg)
+- Would you pay me 1 dollar for it?  What about 10?  100?
+<li class="fragment" data-fragment-index="1">If I told you it would buy you an A+ in the course...<ul><li>Would you pay me 1 dollar for it?  What about 10?  100?</li></ul></li>
+
+
+
+## What makes money worth anything?
+- A currency has value if people *believe* that it has value based on:
+  - It being widely accepted
+  - It being backed by a stable government or entity
+  - It having a reasonable inflation rate
+  - It being exchangable for something else of value
+
+
+
+## Currency examples
+- Some examples:
+  - The US Dollar is the most widely used in international financial transactions
+  - Due to the [crisis Venezuela](https://en.wikipedia.org/wiki/Crisis_in_Venezuela), the Venezuelan [bolivar soberano](https://en.wikipedia.org/wiki/Venezuelan_bol%C3%ADvar) (VEB), and it's predecessor the bolivar fuerte, are essentially worthless
+    - The VEB has had 149,900% inflation rate so far in 2018 (as of Nov 7, 2018)
+
+
+
+## What makes a digital currency worth anything?
+- This means currencies for which there is no non-digital equivalent
+- It is worth something if:
+  - It is widely accepted
+  - Entities are willing to exchange it for goods or other currencies
+  - It can be exchanged for something else
+
+
+
+## Cryptocurrencies
+- There are 2,496 currently, as per [investing.com](https://www.investing.com/crypto/currencies) (as of mid-Nov, 2018)
+- Some are [Ponzi schemes](https://en.wikipedia.org/wiki/Ponzi_scheme), some are [pyramid schemes](https://en.wikipedia.org/wiki/Ponzi_scheme), and some are worthwhile
+- Their value comes in if they are widely accepted, and very few are
+  - You can see a [list of the 10 most popular](https://www.telegraph.co.uk/technology/digital-money/top-10-popular-cryptocurrencies-2018/)
+- Bitcoin was the first, the most widely accepted, and the most stable, so it will be focused on in this slide set
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="bitcoin" class="center">
+  <textarea data-template>
+# Bitcoin Basics
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## History
+- The first viable cryptocurrency, it was created in 2008 by Satoshi Nakamoto
+  - That's a pseudonym; nobody knows who the real person (or group) that created it
+  - Although the person is [likely British](https://en.wikipedia.org/wiki/Satoshi_Nakamoto#Characteristics_and_identity)
+- It is now fully open source
+- It was also one of the first digital-only currencies that didn't bankrupt the creator...
+
+
+
+## Bitcoin price from [blockchain.com](https://blockchain.com)
+BTC peaked at $19,290 on Dec 16, 2017
+![BTC price](images/cryptocurrency/btc-price.png)
+
+
+
+## Peer to peer
+- Bitcoin is completely peer to peer
+  - No central authority!
+- When a decision has to be made...
+  - ... such as which mined block to accept (more on that later)...
+  - ... the nodes vote on the choice
+- This means little regulation, but also lots of privacy
+
+
+
+## Wallet
+- You create a bitcoin *wallet*, which is a public/private key set
+  - Many software programs can create this for you
+  - With such rampant Bitcoin theft, hardware wallets are much more secure
+- Transfers are between the public keys of the wallets, but require signing by the private key
+  - If you lose your private key (or forget the password it's encrypted with), there is no way to get your Bitcoin back
+
+
+
+## Anonymity and usage
+- Bitcoin allows for (mostly) anonymous transactions
+  - You only publish your wallet's public key
+- Thus, it's also used for illegal things:
+  - Tax evasion
+  - Purchasing of illegal items
+  - Transfers of money without oversight
+
+
+
+## Transactions
+- You state you want to transfer *x* from yourself (*S*) to a destination (*D*)
+  - *S* and *D* are the public keys of the wallets
+  - You also include the hash of the transaction(s) where you got the money
+- You sign all this with your wallet's private key
+  - You then broadcast this to the P2P network
+- This takes *10 minutes* for the transaction to occur
+  - This prevents [double spending](https://en.wikipedia.org/wiki/Double-spending)
+  - And this is partly for mining reasons we will see shortly
+
+
+
+## The ledger
+- All transactions are stored in a *ledger*, which is public
+  - Maintained by a network of "equally privileged miners"
+- Every 10 minutes or so, all the transactions are combined into a single *block*
+  - That block eventually becomes part of the *blockchain* (through mining)
+
+
+
+## Blockchain
+- The first block was the "genesis block"
+- Each successive block includes the SHA-256 hash of the previous block
+  - This, you can't make a change to a previous block without changing all future blocks
+- The current blockchain (as of mid-Nov, 2018) is  550,009 blocks ([source]((https://www.bitcoinblockhalf.com/)) and about 192 Gb ([source](https://www.blockchain.com/charts/blocks-size))
+</textarea>
+</section>
+
+<section>
+<img alt="btc summary" title="from IEEE spectrum" src="images/cryptocurrency/bitcoin-infographic.jpg" class="stretch">
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="mining" class="center">
+  <textarea data-template>
+# Mining
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Mining
+- Mining is just a record keeping operation
+  - It is what creates the blocks of blockchain
+- A block consists of:
+  - A listing of the transactions over the last 10 (or so) minutes
+  - The SHA-256 hash of the *previous* block in the chain
+  - A *nonce* (described later), which is just a number
+- The process is intentionally computationally intensive, and generates BTC as a reward
+
+
+
+## Target
+- The [target](https://en.bitcoin.it/wiki/Target) is the 256-bit number that a blockchain SHA-256 hash must be below
+- Goal: generate a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) (a one-time numerical value) to add to the block that will cause the SHA-256 hash to be below the target
+  - Similar to what you did in the CRC part of the [hashing homework](../hws/hw-hashing.html)
+
+
+
+## First target
+- The first target was defined as: 00000000ffff00000000000000000000 00000000000000000000000000000000
+  - (that's 8 hex 0's, 4 hex f's, then 52 hex 0's)
+  - To properly mine a block, your nonce must create a SHA-256 hash below that value
+  - With 8 leading hex 0's, the chance of a random nonce working is $(1/16)^8 = 1/(2^4)^8=1/2^{32}$
+  - Or 1 in about 4.3 billion
+
+
+
+## Difficulty
+- First target ($ft$): 00000000ffff00000000000000 00000000000000000000000000000000000000
+- The current target ($ct$) is 000000000000000000272d9200000000 00000000000000000000000000000000
+  - As of mid-Nov, 2018, and can be found [here](http://learnmeabitcoin.com/glossary/target)
+- The new target is harder than the old: specifically $ct/ft$ = 7,184,404,942,701.792 times harder (that's 7.2 *trillion*)
+- This number is the bitcoin *difficulty*, and the latest value can be found [here](https://blockexplorer.com/api/status?q=getDifficulty)
+
+
+
+## Current hash difficulty
+- For the first target, a random nonce had a 1 in 4.3 billion chance of success
+- The current target is 7,184,404,942,701.792 times harder
+  - A random nonce now has a 1 in $3.1 \times 10^{22}$ chance of success
+
+
+
+## How long this will take
+- A typical CPU can do maybe 10 Mhash/sec (million hashes per second)
+  - A very fast CPU today could do about 25 Mhash/sec
+  - A [$900 video card](https://www.amazon.com/gp/product/B07GHXQTGZ/) today could do about 800 Mhash/sec (estimate based on [this](https://en.bitcoin.it/wiki/Non-specialized_hardware_comparison#Nvidia) and [this](https://gpu.userbenchmark.com/Compare/Nvidia-RTX-2080-vs-Nvidia-GeForce-GTX-590-SLI-Disabled/4026vsm8041))
+- Consider a 1 in $3.1 \times 10^{22}$ chance of success
+- To generate $3.1 \times 10^{22}$ hashes at 800 million (8 Mhash) per second on a fast graphics card, this will take $3.8 \times 10^{13}$ seconds or 1.2 *million years*
+
+
+
+## Electricity usage
+- A graphics card uses about 100 W (watts) (estimated from [here](https://en.bitcoin.it/wiki/Non-specialized_hardware_comparison#Nvidia))
+- Electricity in Charlottesville costs 11.04 cents per kW/h (as per [here](https://www.electricitylocal.com/states/virginia/charlottesville/))
+- So 1.2 million years is $1.1*10^{10}$ hours
+- Which will cost 1.2 *billion* dollars
+
+
+
+## Why so hard?
+- Mining generates a reward so that:
+  - People are encouraged to mine, which will allow for proper record keeping
+  - The system can add BTC over time as more transactions occur
+    - Adding money into an economy is something that countries do, and (when done responsibly) is good financial policy
+- Because of the reward, mining is intentionally difficult to do
+
+
+
+## Why so hard?
+- The mining difficulty is set so that the time to compute one block will take approximately 10 minutes
+  - The more computational resources that are devoted to mining, the harder the difficulty will be
+- The difficulty is recomputed every 2016 blocks
+  - If a block takes exactly 10 minutes, that's every 2 weeks
+- The difficulty is adjusted to meet the 10 minute per block target
+
+
+
+## All-time difficulty graph from [blockchain.com](https://www.blockchain.com/en/charts/difficulty)
+![BTC difficulty, all time](images/cryptocurrency/btc-difficulty-all-time.png)
+
+
+
+## Last 2 years difficulty graph from [blockchain.com](https://www.blockchain.com/en/charts/difficulty)
+![BTC difficulty, last 2 years](images/cryptocurrency/btc-difficulty-last-2-years.png)
+
+
+
+## Reward per block
+- The reward for computing a block was 50 BTC in block #1
+  - It halves every 210,000 blocks
+  - At about 10 minutes per block, that's about every 4 years before it halves
+- This is the creation of new BTC, and how currency is added
+  - As the reward becomes smaller, transaction fees will kick in to help
+
+
+
+## Reward per block
+- The current reward (as of Nov 2018) is 12.5 BTC
+  - The estimated date when it drops to 6.25 is May 2020 ([source](https://www.bitcoinblockhalf.com/))
+- At a price of $6,263.05 per block ([source](https://www.coindesk.com/price/bitcoin)), that's about $78,000 for a properly signed block!
+  - But if it costs $1.2 billion in electricity, perhaps it's not all that worth it
+  - Unless you use somebody else's electricity...
+
+
+
+## Current state of mining
+- Needless to say, CPUs and graphics cards are no longer viable to use for mining
+  - Special purpose hardware can be found online
+- Many people use company resources for the mining
+- Others use botnets
+- Javascript mining programs are found on many web pages, and run in *your* browser
+  - Thus, they are using *your* electricity for their financial gain
+
+
+
+## Pooled mining
+- If it would take your high-end GPU a million years to compute a block, and blocks need to be computed every 10 minutes, then you aren't going to get very far on your own
+- *Mining pools* aggregate many resources, and distribute any rewards based on the computational resources provided to the pool
+
+
+
+## Mining hardware
+- A whole industry has sprung up: you can find the hardware online (such as [here](https://www.bitcoinmining.com/bitcoin-mining-hardware/))
+- These devices are much faster and use much less electricity
+- Consider the [AntMinder S9](https://www.amazon.com/dp/B07FF4F6P6), which costs $465
+  - It can compute 10.5 Thash/sec (tera), or $10.5*10^{12}$ hash/sec
+  - I don't believe their numbers that they post at that link
+
+
+
+## Mining profitability
+- A reasonable profit margin estimate:
+  - For a investment of $x$ dollars in mining equipment, you might make one-tenth of that per month
+  - So you will start to make a profit in almost a year, assuming that the difficulty doesn't go up that much
+- Keep in mind that if this were *really* profitable, then everybody would jump in on it, and the difficulty would just jump up, causing it to become suddenly less profitable
+
+
+
+## Should you mine bitcoin?
+No.
+
+
+
+## Hashes per second from [blockchain.com](https://www.blockchain.com)
+For the entire Bitcoin network; exa = $10^{18}$
+![hashes per second](images/cryptocurrency/btc-hashes-per-sec.png)
+
+
+
+## Current value links, all in one place
+- [Current target](http://learnmeabitcoin.com/glossary/target)
+- [Current difficulty](https://blockexplorer.com/api/status?q=getDifficulty)
+- [Charlottesville's electric rates](https://www.electricitylocal.com/states/virginia/charlottesville/)
+- [Reward halving date estimator and total block count](https://www.bitcoinblockhalf.com/)
+- [Current price](https://www.coindesk.com/price/bitcoin)
+- [Difficulty graphs](https://www.blockchain.com/en/charts/difficulty)
+- [Blockchain size, in Gb](https://www.blockchain.com/charts/blocks-size)
+
+</textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	
+</div>
+</div>
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.js"></script>
+<script src="settings.js"></script>
+</body>
+</html>
