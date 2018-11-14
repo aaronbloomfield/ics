@@ -36,7 +36,9 @@ Some libraries will be installed for you:
   look [here](https://gist.github.com/dmydlarz/32c58f537bb7e0ab9ebf)
   for how to handle RSA in Java, and see the [MessageDigest
   class](https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html)
-  for SHA.  The Java version on the submission server is 1.8.
+  for SHA (and the example [here](https://www.baeldung.com/sha-256-hashing-java)).
+  An example about how to sign a message can be found [here](https://niels.nu/blog/2016/java-rsa.html).
+  The Java version on the submission server is 1.8.
 - C/C++: Boost is installed, as well as the openssl library.  There
   are many great things about C and C++, but we think this will give
   you a real headache if you try to implement it in C or C++.
@@ -120,10 +122,12 @@ The requirements are:
 2. Generate wallets (`generate`): this will create a public/private
    key set.  It will output it (but how?)
 3. Get wallet tag (`address`): this will print out the tag the public
-	key for a given wallet, which is likely the hash of the public
-	key.  Note that it *only* prints out that tag (no other output).
-	When the other commands talk about naming a wallet, this is what
-	it actually means.
+   key for a given wallet, which is likely the hash of the public
+   key.  Note that it *only* prints out that tag (no other output).
+   When the other commands talk about naming a wallet, this is what
+   it actually means.  You are welcome to use the first 16 bytes of
+   the hash of the public key for this assignemnt; you don't need to
+   use the entire hash.
 4. Fund wallets (`fund`): this allows us to add as much money as we
    want to the wallet.  While this is obviously not practical in the
    real world, it will allow us to test your program.  Create a
@@ -132,7 +136,7 @@ The requirements are:
    knows not to verify when handling verification, below.  This means
    that 'bigfoot' will appear alongside the hash of the public keys as
    the source of funds.
-5. Create a transaction statement (`create`): this statement will
+5. Create a transaction statement (`transfer`): this statement will
    contain the sender, the recipient, the amount, and will have to be
    digitally signed with the private key of the wallet.  Any reasonable
    format is fine for this, as long as the transaction statement is
@@ -205,21 +209,25 @@ etc.).
 This is just meant to show the syntax -- it is not meant to be a full
 fledged testing suite of your homework.  However, it does call each of
 the commands listed above. Note that the lines with the equals signs
-are setting variables to be used later on
+are setting variables to be used later on.
 
 ```
 ./cryptomoney.sh name
-./cryptomoney.sh genesis > block_0.txt
-./cryptomoney.sh generate > alice.wallet.txt
+./cryptomoney.sh genesis
+./cryptomoney.sh generate alice.wallet.txt
 export alice=`./cryptomoney.sh address alice.wallet.txt`
-./cryptomoney.sh fund $alice 100
-./cryptomoney.sh generate > bob.wallet.txt
+echo alice.wallet.txt wallet signature: $alice
+./cryptomoney.sh fund $alice 100 01-alice-funding.txt
+./cryptomoney.sh generate bob.wallet.txt
 export bob=`./cryptomoney.sh address bob.wallet.txt`
-./cryptomoney.sh fund $bob 100
-./cryptomoney.sh create $alice $bob 12.5 > 01-alice-to-bob.txt
-./cryptomoney.sh verify 01-alice-to-bob.txt
-./cryptomoney.sh create $bob $alice 2.5 > 02-bob-to-alice.txt
-./cryptomoney.sh verify 02-bob-to-alice.txt
+echo bob.wallet.txt wallet signature: $bob
+./cryptomoney.sh fund $bob 100 02-bob-funding.txt
+./cryptomoney.sh transfer alice.wallet.txt $bob 12.5 03-alice-to-bob.txt
+./cryptomoney.sh transfer bob.wallet.txt $alice 2.5 04-bob-to-alice.txt
+./cryptomoney.sh verify 01-alice-funding.txt
+./cryptomoney.sh verify 01-bob-funding.txt
+./cryptomoney.sh verify 03-alice-to-bob.txt
+./cryptomoney.sh verify 04-bob-to-alice.txt
 cat ledger.txt
 ./cryptomoney.sh balance $alice
 ./cryptomoney.sh balance $bob

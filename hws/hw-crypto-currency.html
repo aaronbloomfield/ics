@@ -19,7 +19,7 @@
 <p>Some libraries will be installed for you:</p>
 <ul>
 <li>Python: we will install the <a href="https://pypi.org/project/rsa/">rsa</a> package; hashes in Python are in hashlib, which is part of the Python installation. Note that you have to use Python 3 for this assignment if you are using Python; the version installed on the submission server is 3.5.2.</li>
-<li>Java: RSA and SHA are already in the standard Java library; you can look <a href="https://gist.github.com/dmydlarz/32c58f537bb7e0ab9ebf">here</a> for how to handle RSA in Java, and see the <a href="https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html">MessageDigest class</a> for SHA. The Java version on the submission server is 1.8.</li>
+<li>Java: RSA and SHA are already in the standard Java library; you can look <a href="https://gist.github.com/dmydlarz/32c58f537bb7e0ab9ebf">here</a> for how to handle RSA in Java, and see the <a href="https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html">MessageDigest class</a> for SHA (and the example <a href="https://www.baeldung.com/sha-256-hashing-java">here</a>). An example about how to sign a message can be found <a href="https://niels.nu/blog/2016/java-rsa.html">here</a>. The Java version on the submission server is 1.8.</li>
 <li>C/C++: Boost is installed, as well as the openssl library. There are many great things about C and C++, but we think this will give you a real headache if you try to implement it in C or C++.</li>
 </ul>
 <p>One option will be to copy how Bitcoin handles these functions, as described in the <a href="../slides/cryptocurrency.html#/">Cryptocurrency slide set</a> slide set. However, coming up with new ideas will get you more points on the assignment.</p>
@@ -46,9 +46,9 @@
 <li>Print the name of the cryptocurrency (<code>name</code>): this one command doesn't need to call your program; it can be part of the shell script instead.</li>
 <li>Create the genesis block (<code>genesis</code>): this is the initial block in the block chain, and the block should always be the same. Come up with a fun quote!</li>
 <li>Generate wallets (<code>generate</code>): this will create a public/private key set. It will output it (but how?)</li>
-<li>Get wallet tag (<code>address</code>): this will print out the tag the public key for a given wallet, which is likely the hash of the public key. Note that it <em>only</em> prints out that tag (no other output). When the other commands talk about naming a wallet, this is what it actually means.</li>
+<li>Get wallet tag (<code>address</code>): this will print out the tag the public key for a given wallet, which is likely the hash of the public key. Note that it <em>only</em> prints out that tag (no other output). When the other commands talk about naming a wallet, this is what it actually means. You are welcome to use the first 16 bytes of the hash of the public key for this assignemnt; you don't need to use the entire hash.</li>
 <li>Fund wallets (<code>fund</code>): this allows us to add as much money as we want to the wallet. While this is obviously not practical in the real world, it will allow us to test your program. Create a special case ID ('bigfoot', 'daddy_warbucks', or whatever) that your program knows to use as the source for a fund request, and also knows not to verify when handling verification, below. This means that 'bigfoot' will appear alongside the hash of the public keys as the source of funds.</li>
-<li>Create a transaction statement (<code>create</code>): this statement will contain the sender, the recipient, the amount, and will have to be digitally signed with the private key of the wallet. Any reasonable format is fine for this, as long as the transaction statement is text and thus readable by a human. Note that this command does <em>NOT</em> add anything to the ledger. There will be four additional parameters to this command -- in order, they are: the sender, the recipient, the amount, and the name of the file to write the transaction record to.</li>
+<li>Create a transaction statement (<code>transfer</code>): this statement will contain the sender, the recipient, the amount, and will have to be digitally signed with the private key of the wallet. Any reasonable format is fine for this, as long as the transaction statement is text and thus readable by a human. Note that this command does <em>NOT</em> add anything to the ledger. There will be four additional parameters to this command -- in order, they are: the sender, the recipient, the amount, and the name of the file to write the transaction record to.</li>
 <li>Verify a transaction (<code>verify</code>): verify that a given transaction statement is valid, which will require checking the signature and also the availability of funds. Once verified, it should be added to the ledger. Once in the ledger, it becomes a transaction record.</li>
 <li>Check a balance (<code>balance</code>): based on the transactions in the block chain AND ALSO in the ledger, compute the balance for the provided wallet.</li>
 <li>Sign block (<code>sign</code>): this will form another block in the blockchain. The ledger will be emptied of transaction records, as they will all go into the current block being computed.</li>
@@ -76,19 +76,23 @@ case &quot;$1&quot; in
 esac</code></pre>
 <p>We realize that the bash syntax for case statements is pretty horrid, which is why we are providing this outline of the shell script. When calling the shell script, the function (genesis, generate, fund, etc.) will always be the first command line parameter (thus in $1). If any additional ones are needed, they will be after that (thus in $2, $3, etc.).</p>
 <h3 id="sample-execution">Sample execution</h3>
-<p>This is just meant to show the syntax -- it is not meant to be a full fledged testing suite of your homework. However, it does call each of the commands listed above. Note that the lines with the equals signs are setting variables to be used later on</p>
+<p>This is just meant to show the syntax -- it is not meant to be a full fledged testing suite of your homework. However, it does call each of the commands listed above. Note that the lines with the equals signs are setting variables to be used later on.</p>
 <pre><code>./cryptomoney.sh name
-./cryptomoney.sh genesis &gt; block_0.txt
-./cryptomoney.sh generate &gt; alice.wallet.txt
+./cryptomoney.sh genesis
+./cryptomoney.sh generate alice.wallet.txt
 export alice=`./cryptomoney.sh address alice.wallet.txt`
-./cryptomoney.sh fund $alice 100
-./cryptomoney.sh generate &gt; bob.wallet.txt
+echo alice.wallet.txt wallet signature: $alice
+./cryptomoney.sh fund $alice 100 01-alice-funding.txt
+./cryptomoney.sh generate bob.wallet.txt
 export bob=`./cryptomoney.sh address bob.wallet.txt`
-./cryptomoney.sh fund $bob 100
-./cryptomoney.sh create $alice $bob 12.5 &gt; 01-alice-to-bob.txt
-./cryptomoney.sh verify 01-alice-to-bob.txt
-./cryptomoney.sh create $bob $alice 2.5 &gt; 02-bob-to-alice.txt
-./cryptomoney.sh verify 02-bob-to-alice.txt
+echo bob.wallet.txt wallet signature: $bob
+./cryptomoney.sh fund $bob 100 02-bob-funding.txt
+./cryptomoney.sh transfer alice.wallet.txt $bob 12.5 03-alice-to-bob.txt
+./cryptomoney.sh transfer bob.wallet.txt $alice 2.5 04-bob-to-alice.txt
+./cryptomoney.sh verify 01-alice-funding.txt
+./cryptomoney.sh verify 01-bob-funding.txt
+./cryptomoney.sh verify 03-alice-to-bob.txt
+./cryptomoney.sh verify 04-bob-to-alice.txt
 cat ledger.txt
 ./cryptomoney.sh balance $alice
 ./cryptomoney.sh balance $bob
