@@ -1,0 +1,81 @@
+<!-- Generator: GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><b><font color="#000080">import</font></b> java<font color="#990000">.</font>security<font color="#990000">.*;</font>
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>io<font color="#990000">.*;</font>
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>nio<font color="#990000">.</font>file<font color="#990000">.*;</font>
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>security<font color="#990000">.</font>spec<font color="#990000">.*;</font>
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>util<font color="#990000">.*;</font>
+
+<b><font color="#0000FF">public</font></b> <b><font color="#0000FF">class</font></b> <font color="#008080">Sample</font> <font color="#FF0000">{</font>
+
+    <i><font color="#9A1900">// this converts an array of bytes into a hexadecimal number in</font></i>
+    <i><font color="#9A1900">// text format</font></i>
+    <b><font color="#0000FF">static</font></b> <font color="#008080">String</font> <b><font color="#000000">getHexString</font></b><font color="#990000">(</font><font color="#009900">byte</font><font color="#990000">[]</font> b<font color="#990000">)</font> <font color="#FF0000">{</font>
+	<font color="#008080">String</font> result <font color="#990000">=</font> <font color="#FF0000">""</font><font color="#990000">;</font>
+	<b><font color="#0000FF">for</font></b> <font color="#990000">(</font><font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> b<font color="#990000">.</font>length<font color="#990000">;</font> i<font color="#990000">++)</font> <font color="#FF0000">{</font>
+	    <font color="#009900">int</font> val <font color="#990000">=</font> b<font color="#990000">[</font>i<font color="#990000">];</font>
+	    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> val <font color="#990000">&lt;</font> <font color="#993399">0</font> <font color="#990000">)</font>
+		val <font color="#990000">+=</font> <font color="#993399">256</font><font color="#990000">;</font>
+	    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> val <font color="#990000">&lt;=</font> <font color="#993399">0xf</font> <font color="#990000">)</font>
+		result <font color="#990000">+=</font> <font color="#FF0000">"0"</font><font color="#990000">;</font>
+	    result <font color="#990000">+=</font> Integer<font color="#990000">.</font><b><font color="#000000">toString</font></b><font color="#990000">(</font>val<font color="#990000">,</font> <font color="#993399">16</font><font color="#990000">);</font>
+	<font color="#FF0000">}</font>
+	<b><font color="#0000FF">return</font></b> result<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">// this converts a hexadecimal number in text format into an array</font></i>
+    <i><font color="#9A1900">// of bytes</font></i>
+    <b><font color="#0000FF">static</font></b> <font color="#009900">byte</font><font color="#990000">[]</font> <b><font color="#000000">getByteArray</font></b><font color="#990000">(</font><font color="#008080">String</font> hexstring<font color="#990000">)</font> <font color="#FF0000">{</font>
+	<font color="#009900">byte</font><font color="#990000">[]</font> ret <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">byte</font><font color="#990000">[</font>hexstring<font color="#990000">.</font><b><font color="#000000">length</font></b><font color="#990000">()/</font><font color="#993399">2</font><font color="#990000">];</font>
+	<b><font color="#0000FF">for</font></b> <font color="#990000">(</font><font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> hexstring<font color="#990000">.</font><b><font color="#000000">length</font></b><font color="#990000">();</font> i <font color="#990000">+=</font> <font color="#993399">2</font><font color="#990000">)</font> <font color="#FF0000">{</font>
+	    <font color="#008080">String</font> hex <font color="#990000">=</font> hexstring<font color="#990000">.</font><b><font color="#000000">substring</font></b><font color="#990000">(</font>i<font color="#990000">,</font>i<font color="#990000">+</font><font color="#993399">2</font><font color="#990000">);</font>
+	    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> hex<font color="#990000">.</font><b><font color="#000000">equals</font></b><font color="#990000">(</font><font color="#FF0000">""</font><font color="#990000">)</font> <font color="#990000">)</font>
+		<b><font color="#0000FF">continue</font></b><font color="#990000">;</font>
+	    ret<font color="#990000">[</font>i<font color="#990000">/</font><font color="#993399">2</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#990000">(</font><font color="#009900">byte</font><font color="#990000">)</font> Integer<font color="#990000">.</font><b><font color="#000000">parseInt</font></b><font color="#990000">(</font>hex<font color="#990000">,</font><font color="#993399">16</font><font color="#990000">);</font>
+	<font color="#FF0000">}</font>
+	<b><font color="#0000FF">return</font></b> ret<font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    
+    <i><font color="#9A1900">// This will write the public/private key pair to a file in text</font></i>
+    <i><font color="#9A1900">// format.  It is adapted from the code from</font></i>
+    <i><font color="#9A1900">// https://snipplr.com/view/18368/saveload--private-and-public-key-tofrom-a-file/</font></i>
+    <b><font color="#0000FF">static</font></b> <font color="#009900">void</font> <b><font color="#000000">SaveKeyPair</font></b><font color="#990000">(</font><font color="#008080">String</font> filename<font color="#990000">,</font> <font color="#008080">KeyPair</font> keyPair<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
+	<font color="#008080">X509EncodedKeySpec</font> x509EncodedKeySpec <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">X509EncodedKeySpec</font></b><font color="#990000">(</font>keyPair<font color="#990000">.</font><b><font color="#000000">getPublic</font></b><font color="#990000">().</font><b><font color="#000000">getEncoded</font></b><font color="#990000">());</font>
+	<font color="#008080">PKCS8EncodedKeySpec</font> pkcs8EncodedKeySpec <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">PKCS8EncodedKeySpec</font></b><font color="#990000">(</font>keyPair<font color="#990000">.</font><b><font color="#000000">getPrivate</font></b><font color="#990000">().</font><b><font color="#000000">getEncoded</font></b><font color="#990000">());</font>
+	<font color="#008080">PrintWriter</font> fout <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">PrintWriter</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">FileOutputStream</font></b><font color="#990000">(</font>filename<font color="#990000">));</font>
+	fout<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font><b><font color="#000000">getHexString</font></b><font color="#990000">(</font>x509EncodedKeySpec<font color="#990000">.</font><b><font color="#000000">getEncoded</font></b><font color="#990000">()));</font>
+	fout<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font><b><font color="#000000">getHexString</font></b><font color="#990000">(</font>pkcs8EncodedKeySpec<font color="#990000">.</font><b><font color="#000000">getEncoded</font></b><font color="#990000">()));</font>
+	fout<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">// This will read a public/private key pair from a file.  It is</font></i>
+    <i><font color="#9A1900">// adapted from the code from</font></i>
+    <i><font color="#9A1900">// https://snipplr.com/view/18368/saveload--private-and-public-key-tofrom-a-file/</font></i>
+    <b><font color="#0000FF">static</font></b> <font color="#008080">KeyPair</font> <b><font color="#000000">LoadKeyPair</font></b><font color="#990000">(</font><font color="#008080">String</font> filename<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
+	<i><font color="#9A1900">// Read wallet</font></i>
+	<font color="#008080">Scanner</font> sin <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Scanner</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">File</font></b><font color="#990000">(</font>filename<font color="#990000">));</font>
+	<font color="#009900">byte</font><font color="#990000">[]</font> encodedPublicKey <font color="#990000">=</font> <b><font color="#000000">getByteArray</font></b><font color="#990000">(</font>sin<font color="#990000">.</font><b><font color="#000000">next</font></b><font color="#990000">());</font>
+	<font color="#009900">byte</font><font color="#990000">[]</font> encodedPrivateKey <font color="#990000">=</font> <b><font color="#000000">getByteArray</font></b><font color="#990000">(</font>sin<font color="#990000">.</font><b><font color="#000000">next</font></b><font color="#990000">());</font>
+	sin<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
+	<i><font color="#9A1900">// Generate KeyPair.</font></i>
+	<font color="#008080">KeyFactory</font> keyFactory <font color="#990000">=</font> KeyFactory<font color="#990000">.</font><b><font color="#000000">getInstance</font></b><font color="#990000">(</font><font color="#FF0000">"RSA"</font><font color="#990000">);</font>
+	<font color="#008080">X509EncodedKeySpec</font> publicKeySpec <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">X509EncodedKeySpec</font></b><font color="#990000">(</font>encodedPublicKey<font color="#990000">);</font>
+	<font color="#008080">PublicKey</font> publicKey <font color="#990000">=</font> keyFactory<font color="#990000">.</font><b><font color="#000000">generatePublic</font></b><font color="#990000">(</font>publicKeySpec<font color="#990000">);</font>
+	<font color="#008080">PKCS8EncodedKeySpec</font> privateKeySpec <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">PKCS8EncodedKeySpec</font></b><font color="#990000">(</font>encodedPrivateKey<font color="#990000">);</font>
+	<font color="#008080">PrivateKey</font> privateKey <font color="#990000">=</font> keyFactory<font color="#990000">.</font><b><font color="#000000">generatePrivate</font></b><font color="#990000">(</font>privateKeySpec<font color="#990000">);</font>
+	<b><font color="#0000FF">return</font></b> <b><font color="#0000FF">new</font></b> <b><font color="#000000">KeyPair</font></b><font color="#990000">(</font>publicKey<font color="#990000">,</font> privateKey<font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">// This will get the SHA-256 hash of a file, and is the same as</font></i>
+    <i><font color="#9A1900">// calling the `sha256sum` command line program</font></i>
+    <b><font color="#0000FF">static</font></b> <font color="#008080">String</font> <b><font color="#000000">getSignatureOfFile</font></b><font color="#990000">(</font><font color="#008080">String</font> filename<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
+	<font color="#009900">byte</font><font color="#990000">[]</font> filebytes <font color="#990000">=</font> Files<font color="#990000">.</font><b><font color="#000000">readAllBytes</font></b><font color="#990000">(</font>Paths<font color="#990000">.</font><b><font color="#000000">get</font></b><font color="#990000">(</font>filename<font color="#990000">));</font>
+	<font color="#008080">MessageDigest</font> digest <font color="#990000">=</font> MessageDigest<font color="#990000">.</font><b><font color="#000000">getInstance</font></b><font color="#990000">(</font><font color="#FF0000">"SHA-256"</font><font color="#990000">);</font>
+	<font color="#009900">byte</font><font color="#990000">[]</font> encodedHash <font color="#990000">=</font> digest<font color="#990000">.</font><b><font color="#000000">digest</font></b><font color="#990000">(</font>filebytes<font color="#990000">);</font>
+	<b><font color="#0000FF">return</font></b> <b><font color="#000000">getHexString</font></b><font color="#990000">(</font>encodedHash<font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+
+<font color="#FF0000">}</font>
+</tt></pre>
