@@ -35,15 +35,30 @@ with new ideas will get you more points on the assignment.
 
 ## Languages
 
-As mentioned above, you may use any programming language for this, but if you want to use
-a language other than C, C++, Java, or Python, please check with us
-first.
+As mentioned above, you may use any programming language for this, but
+if you want to use a language other than C, C++, Java, or Python,
+please check with us first.
 
-**Python:** we will install the [rsa](https://pypi.org/project/rsa/)
-package; hashes in Python are in hashlib, which is part of the Python
-installation.  Note that you have to use Python 3 for this assignment
-if you are using Python; the version installed on the submission
-server is 3.5.2.
+For Java and Python, we provide you with the code to convert a hex
+string to an array of bytes, to convert an array of bytes to a hex
+string, getting the SHA-256 hash of a file, and to read and write RSA
+keys.  For Java, that is in the form of methods that you can use.  For
+Python, it is links to the library functions that performs that task.
+
+**Python:** you have to use Python 3 for this.  We will install the
+[rsa](https://pypi.org/project/rsa/) package; the documentation for
+that library, including code examples, is
+[here](https://stuvel.eu/rsa).  Some of these functions will require
+you to encode your message as ascii (it gives 'Unicode-objects must be
+encoded before hashing' mesage otherwise) -- just call
+`.encode('ascii')` on the string first.  Encoding from a byte array to
+a string is done via the `binascii` library (example:
+`binascii.b2a_hex(byte)`); the other direction uses `a2b_hex()`.
+Hashes in Python are in hashlib, which is part of the Python
+installation.  To take the SHA-256 hash of a file, see [this code on
+stack overflow](https://stackoverflow.com/a/44873382).
+
+
 
 **Java:** RSA and SHA are already in the standard Java library; you
 can look [here](https://gist.github.com/dmydlarz/32c58f537bb7e0ab9ebf)
@@ -53,7 +68,7 @@ for SHA (and the example
 [here](https://www.baeldung.com/sha-256-hashing-java)).  An example
 about how to sign a message can be found
 [here](https://niels.nu/blog/2016/java-rsa.html).  You may use any of
-the code on those sites for your program.  Note that the Java version
+the code on those pages for your program.  Note that the Java version
 on the submission server is 1.8.  We provide some methods in the
 [Sample.java](cryptocurrency/Sample.java)
 ([html](cryptocurrency/Sample.java.html)) file for you to use.

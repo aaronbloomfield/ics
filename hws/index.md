@@ -11,6 +11,7 @@ all listed on the [main UVa page](../uva/index.html)
 
 ### Programing homeworks
 
+- [Programming homework: Cryptocurrency](hw-cryptocurrency.html) ([md](hw-cryptocurrency.md))
 - [Programming homework: SQL, XSS, and CSRF](hw-sql-xss-csrf.html) ([md](hw-sql-xss-csrf.md))
 - [Programming homework: Buffer Overflow](hw-buffer.html) ([md](hw-buffer.md))
 - [Programming homework: Hashing](hw-hashing.html) ([md](hw-hashing.md))
