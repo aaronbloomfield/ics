@@ -45,8 +45,13 @@ Homeworks
 -----------
 
 Unless otherwise noted, all submissions are due by the end of the day
-of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the [online submission system][162].
+of the due date given -- this means by 11:59:59 pm.  The late policies
+are discussed in the [homework policies page](hw-policies.html)
+([md](hw-policies.md)).  Submission is through the [online submission
+system][162].
 
+- [HW 10: Cryptocurrency](../hws/hw-cryptocurrency.html) ([md](../hws/hw-cryptocurrency.md)) is due Thursday, November 29th
+- [HW 9: Celebrity visit](../hws/hw-celebrity-visit.html) ([md](../hws/hw-celebrity-visit.md)) is due Tuesday, November 27th -- there is NO LATE SUBMISSIONS ACCEPTED ON THIS ASSIGNMENT
 - [HW 8: SQL, XSS, and CSRF](../hws/hw-sql-xss-csrf.html) ([md](../hws/hw-sql-xss-csrf.md)) is due Monday, November 12th
 - [HW 7: Buffer overflow](../hws/hw-buffer.html) ([md](../hws/hw-buffer.md)) is due Friday, October 26th
 - [HW 6: Hashing](../hws/hw-hashing.html) ([md](../hws/hw-hashing.md)) is due Wednesday, October 17th
@@ -61,6 +66,8 @@ of the due date given -- this means by 11:59:59 pm.  The late policies are discu
 Lecture progress
 ----------------
 
+- Fri, Nov 16: Finished [Cryptocurrency](../slides/cryptocurrency.html#/)
+- Wed, Nov 14: Finished [Anonymity](../slides/anonymity.html#/); started [Cryptocurrency](../slides/cryptocurrency.html#/) and got through the "Blockchain" slide (4.9)
 - Mon, Nov 12: [Anonymity](../slides/anonymity.html#/), through the end of the Tor slide column
 - Fri, Nov 9: The rest of [SQL, XSS & CSRF](../slides/sql-xss-csrf.html#/) (which was just the CSRF slides); [Anonymity](../slides/anonymity.html#/), through the first 'anonymity theory' slide
 - Wed, Nov 7: [SQL, XSS & CSRF](../slides/sql-xss-csrf.html#/) through the end of the XSS slides

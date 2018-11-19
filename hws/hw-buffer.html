@@ -118,7 +118,7 @@ void main() {
 #define BUFFER_ADDR_ARRAY { 0x10, 0xde, 0xff, 0xff, 0xff, 0x7f, 0x00 }
 #define BUFFER_ADDR_STR &quot;0x00007fffffffde10&quot;</code></pre>
 <p>These lines define the address of the buffer in three different formats; use whichever format you would like. You can use the middle one as follows: <code>unsigned char buffer_addr[] = BUFFER_ADDR_ARRAY;</code>.</p>
-<p>When we are testing your code, we will create a <code>buffer_addr.h</code> file with the correct address of the buffer, and then recompile your code (your Makefile need not have a dependency; we will delete any .o files, delete the attack-shellcode executable, and then run <code>make</code>).</p>
+<p>When we are testing your code, we will create a <code>buffer_addr.h</code> file with the correct address of the buffer, and then recompile your code (your Makefile need not have a dependency; we will delete any .o files, delete the attack_shellcode executable, and then run <code>make</code>).</p>
 <p>You will need to submit a copy of the buffer_addr.h file when you submit your program so that it compiles. You can have any values in that file, since we will provide our own during testing.</p>
 <h3 id="task-5-add-a-newline">Task 5: add a newline</h3>
 <p><strong><em>BACK UP YOUR CODE FIRST!!!</em></strong> You are about to modify your program, and if things go poorly, then you want to be able to revert back to the code that successfully completes task 3.</p>

@@ -1,7 +1,7 @@
 ICS: Programming Homework: SQL, CSRF, and XSS
 =============================================
 
-[Go up to the main DADA homeworks page](index.html) ([md](index.md))
+[Go up to the main ICS homeworks page](index.html) ([md](index.md))
 
 
 ### Introduction

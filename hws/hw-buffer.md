@@ -308,7 +308,7 @@ one as follows: `unsigned char buffer_addr[] = BUFFER_ADDR_ARRAY;`.
 When we are testing your code, we will create a `buffer_addr.h` file
 with the correct address of the buffer, and then recompile your code
 (your Makefile need not have a dependency; we will delete any .o
-files, delete the attack-shellcode executable, and then run `make`).
+files, delete the attack_shellcode executable, and then run `make`).
 
 You will need to submit a copy of the buffer_addr.h file when you
 submit your program so that it compiles.  You can have any values in
