@@ -66,6 +66,9 @@ system][162].
 Lecture progress
 ----------------
 
+- Fri, Nov 23: Thanksgiving break
+- Wed, Nov 21: Thanksgiving break
+- Mon, Nov 19: [Stuxnet](../slides/stuxnet.html#/) through the end?
 - Fri, Nov 16: Finished [Cryptocurrency](../slides/cryptocurrency.html#/)
 - Wed, Nov 14: Finished [Anonymity](../slides/anonymity.html#/); started [Cryptocurrency](../slides/cryptocurrency.html#/) and got through the "Blockchain" slide (4.9)
 - Mon, Nov 12: [Anonymity](../slides/anonymity.html#/), through the end of the Tor slide column
