@@ -188,12 +188,12 @@ The requirements are:
    hash of the public keys as the source of funds.  This function will
    be provided with three additional command line parameters: the
    destination wallet address, the amount to transfer, and the file
-   name to save the transaction record to.
+   name to save the transaction statement to.
 6. Transfer funds (`transfer`): this is how we pay with our
    cryptocurrency.  It will be provided with four additional command
    line parameters: the source wallet file name (not address!), the
    destination wallet address, the amount to transfer, and the file
-   name to save the transaction record to.  Any reasonable format for
+   name to save the transaction statement to.  Any reasonable format for
    the transaction statement is fine for this, as long as the
    transaction statement is text and thus readable by a human.  Note
    that this command does *NOT* add anything to the ledger.
