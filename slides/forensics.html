@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ICS: Digital Forensics</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/ics.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+<section data-markdown id="cover"><script type="text/template">
+# CS 3501
+&nbsp;
+### Introduction to Cybersecurity
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/ics](http://github.com/aaronbloomfield/ics) / [&uarr;](index.html) / <a href="?print-pdf"><img class="print" width="20" src="images/print-icon.png" alt="print icon"></a></small></center>
+&nbsp;
+## Digital Forensics
+</script></section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section data-markdown>
+  <textarea data-template>
+# Contents
+&nbsp;  
+[Introduction](#/introduction)  
+[Techniques](#/techniques)  
+[Barriers](#/barriers)  
+[Case Studies](#/casestudies)  
+[System Analysis](#/analysis)  
+[Tools](#/tools)  
+</textarea>
+</section>
+  
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="introduction" class="center">
+  <textarea data-template>
+# Introduction
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Forensics
+> **forensics:** (plural in form but singular or plural in construction): the application of scientific knowledge to legal problems
+>
+> *especially*: scientific analysis of physical evidence (as from a crime scene)
+
+- [Merriam-Webster](https://www.merriam-webster.com/dictionary/forensic)
+
+
+
+<!-- .slide: class="right-float-img-600" -->
+## Stages
+[![write-blocker](images/forensics/640px-Portable_forensic_tableau.jpg)](https://commons.wikimedia.org/wiki/File:Portable_forensic_tableau.JPG)
+1. Acquisition of evidence
+  - Imaging a hard drive<br>or USB key, often via<br>a "write-blocker"
+  - [One is $359 on Amazon](https://www.amazon.com/dp/B00Q76XG5W)
+  - And others...
+2. Analysis
+  - The real work here...
+3. Report
+  - Often must hold up<br>in court!
+
+
+
+## Evidence acquisition
+- Most common is to image a hard drive or USB key
+  - Technically, this is *media forensics*
+- Other possibilities:
+  - Physical evidence of the computer/media
+  - Recording network packets
+  - Social media account analysis
+  - Use of "cloud" services, including smart speakers
+- We will primarily focus on drive images
+
+
+
+## History
+- 1980's: specialized groups of individuals who did this type of analysis
+- 1990's: more national groups, growth of the field, initial tools
+- 2000's: better tools, guidlines, related laws and court rulings, training initiatives
+- 2010's: better AI in tools, use of cloud, better virtualization options
+
+
+
+## Background: filesystems
+- Filesystems keep the file contents and also the *metadata*
+  - Timestamps, owners, permissions, file type, etc.
+  - Plus the directory structure
+- When a file is deleted, typically only the directory entry is removed
+  - The blocks that the file took up are marked as available, but are not wiped
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="techniques" class="center">
+  <textarea data-template>
+# Techniques
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Deleted file recovery
+- Undelete programs search hard drivers sectors for file blocks
+  - If the blocks have not been overwritten, then the file can be successfully restored
+- Some times only parts can be recovered
+- Secure delete programs can (often) solve this
+
+
+
+## Password protected files
+- Various password crackers exist for many means of password protecting files
+  - Example: the .zip password cracker used in the [SQL, CSRF, and XSS HW](../hws/hw-sql-xss-csrf.html)
+
+
+
+## Image search
+- Some illegal activity involves images and videos
+  - Child porn, in particular
+- While programs exist to find images that look like something else, a manual search is likely the most viable
+  - One can view a page of thumbnails to quickly search through an image library
+
+
+
+## Keyword search
+- Some OSes can do this from a file browser
+  - Windows Explorer, for example
+- Others may require indexing the files
+  - Mac's spotlight search is a good example of this
+  - Linux has baloo which is similar
+- Intelligent OSes & applications can read into .zip files, JPEG EXIF data, etc.
+
+
+
+## Browser history
+- Not everybody uses ~~porn~~ privacy mode on their web browser
+- In-browser instuctions are [readily available](https://www.wikihow.com/View-Browsing-History)
+- This can be done by the command line as well
+
+
+
+## Browser cache
+- All browsers support searching through this
+  - Firefox: view `about:cache`
+  - Chrome: various [cache viewers exist](https://www.nirsoft.net/utils/chrome_cache_view.html)
+  - Similarly for other browsers
+- The files are also on the hard drive
+  - Windows/Chrome example: `C:\Users\User\AppData\Local\Google\Chrome\User Data\Default\Cache`
+
+
+
+## Email search
+- Either a keyword or filesystem search, as above, or...
+  - Just loading up the email client and using that to search
+- A legal warrant can also obtain information from the mail provider
+
+
+
+## Network connection search
+- DNS entries are cached for a period of time
+  - Try running `ipconfig /displaydns` under Windows, for example
+  - This lists websites contacted
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="barriers" class="center">
+  <textarea data-template>
+# Barriers
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## Encrypted Drives
+- A properly encrypted drive...
+  - ... meaning a good cipher and a good password...
+- ... cannot reasonably be cracked
+- "In October [2017], FBI Director Christopher Wray said that in an 11-month period, the FBI had been unable to extract data from more than 6,900 devices; that is over half of the devices it had attempted to unlock" ([source](https://www.lawfareblog.com/fifth-amendment-decryption-and-biometric-passcodes))
+
+
+
+
+## Encrypted Hard Drives
+- If you have an encrypted hard drive, and the gov't has a (valid) search warrant...
+  - You can't refuse on 1st amendment (free speech) grounds 
+  - Analogy: you can't refuse to unlock a door on your house if the police have a (valid) search warrant based on free speech grounds
+	- Granted, they have battering rams...
+
+
+
+## Encrypted Hard Drives
+- What about the 5th amendment (can't force self-incrimination)?
+  - This *sometimes* can work
+  - That amendment only applies to *testimonials*, not actions
+	- But is forcing you to decrypt your hard drive an action or a testimonial
+- That depends on the *foregone conclusion doctrine*
+  - If the gov't already knows what is there (at the time of the attempted search!), then it's an action; if not, it's a testimonial
+
+
+
+## Foregone Conclusion Doctrine
+- In USA vs. Fricosu (2012), the defendant was forced to decrypt
+  - Fricosu admitted on a recorded phone call that there was "stuff" on the machine
+- In USA vs. Doe (2012), the defendant was *not* forced to decrypt
+  - The gov't didn't know what was there
+  - The court rejected the notion "that simply because the devices were encrypted necessarily means that Doe was trying to hide something"
+- Sources: [WaPo](https://www.washingtonpost.com/news/volokh-conspiracy/wp/2016/06/07/the-fifth-amendment-limits-on-forced-decryption-and-applying-the-foregone-conclusion-doctrine/), [EFF](https://www.eff.org/deeplinks/2012/03/tale-two-encryption-cases)
+
+
+
+## Self-incrimination
+- Courts have held that self-incrimination is the act of stating you are guilty
+  - Formally, a *testimonial communication* that is incriminating
+- Using information about you does not qualify
+  - So the 5th amendment does not allow you to prevent biometric scans, fingerprint readers, etc.
+- [Source](https://www.lawfareblog.com/fifth-amendment-decryption-and-biometric-passcodes)
+
+
+
+## Other use of encryption
+- https blocks packet sniffing
+- ...
+</textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="analysis" class="center">
+  <textarea data-template>
+# System Analysis
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+</textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="tools" class="center">
+  <textarea data-template>
+# Tools
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="casestudies" class="center">
+  <textarea data-template>
+# Case Studies
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+  </textarea>
+</section>
+
+</section>
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	
+</div>
+</div>
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.js"></script>
+<script src="settings.js"></script>
+</body>
+</html>

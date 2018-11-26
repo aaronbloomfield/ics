@@ -28,11 +28,11 @@ Slide sets, ordered in the order presented in lecture:
 	- [Anonymity](anonymity.html#/)
 	- [Crytocurrency](cryptocurrency.html#/)
 	- [Stuxnet](stuxnet.html#/)
-	- CVEs and Exploits
+- Digital Forensics
+	- [Digital Forensics](forensics.html#/)
 
 
 Slide sets to be created or added as the semester progresses:
 
-- Digital Forensics
-	- Digital Forensics
+- CVEs and Exploits
 - Course Summary
