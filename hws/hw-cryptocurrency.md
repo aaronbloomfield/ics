@@ -107,9 +107,19 @@ functionalities that you have to implement is the transfer of the
 transaction records in the ledger into a block in the block chain.
 
 Each line will be of the the same form as the lines in the ledger (`S
-transferred x to D`).  You can have additional information after the
-required text, but it must all be on the same line.  This is important
--- each transaction record in the ledger must be exactly one line!
+transferred x to D`).  You are welcome to use present tense as well
+(transfers instead of trasnfered).  You can have additional
+information after the required text, but it must all be on the same
+line.  This is important -- each transaction record in the ledger must
+be exactly one line!
+
+Below is an example of a line from the ledger.  This line is a
+*transaction record*, which is described next.
+
+```
+abdfa7a347c40443 transfers 12.5 to 007fa96df53eb514
+```
+
 
 **Transaction statement versus transaction record**
 
@@ -119,12 +129,28 @@ Each transaction statement will be in its own file.
 
 A transaction *record* is a single line in a ledger (and, later, in a
 block in the blockchain) that contains similar information, but on a
-single line.
+single line.  The example above, in the ledger section, is a
+transaction record.
 
 Another of the functionalities that you will have to implement is the
 verification of a transaction record (checking it's signature and that
 there is enough money), which will then insert a single transaction
 record for that transaction into the ledger.
+
+As an example, below is one of the transaction statements that was
+generated from the script provided (specifically the `./cryptomoney.sh
+transfer alice.wallet.txt $bob 12.5 03-alice-to-bob.txt` line).  Note
+that you don't have to have the same format!  This is just what we
+used.  The ledger line, above, is the corresponding transaction record
+for this transaction statement.
+
+```
+From: abdfa7a347c40443
+To: 007fa96df53eb514
+Amount: 12.5
+
+2b7ed9f7e8b01f7baaf4a5fe8c5011dde9249e4a932f8bec80496ff96ce970021aab6ccbe94dc85d2c437b09b073fcd9a99e95fa753ccb97ab99e876d3f8889bfedf49bf7725f0879922dacd23b75240b552034b7520f8a8eec57dc5dfa053837f3e1782eb95e0b37b9f6ef16c7c782353960bb36b0082950a130d09c8568c74
+```
 
 **Wallet address versus wallet file**
 
