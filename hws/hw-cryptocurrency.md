@@ -49,15 +49,15 @@ Python, it is links to the library functions that performs that task.
 [rsa](https://pypi.org/project/rsa/) package; the documentation for
 that library, including code examples, is
 [here](https://stuvel.eu/rsa).  Some of these functions will require
-you to encode your message as ascii (it gives 'Unicode-objects must be
-encoded before hashing' mesage otherwise) -- just call
+you to encode your message as ASCII (it gives 'Unicode-objects must be
+encoded before hashing' message otherwise) -- just call
 `.encode('ascii')` on the string first.  Encoding from a byte array to
-a string is done via the `binascii` library (example:
-`binascii.b2a_hex(byte)`); the other direction uses `a2b_hex()`.
-Hashes in Python are in hashlib, which is part of the Python
-installation.  To take the SHA-256 hash of a file, see [this code on
-stack overflow](https://stackoverflow.com/a/44873382).
-
+a string is done via the `binascii` library.  Hashes in Python are in
+hashlib, which is part of the Python installation.  To take the
+SHA-256 hash of a file, see [this code on stack
+overflow](https://stackoverflow.com/a/44873382).  You can see some
+example code in the [sample.py](cryptocurrency/sample.py)
+([html](cryptocurrency/sample.py.html)) file for you to use.
 
 
 **Java:** RSA and SHA are already in the standard Java library; you
@@ -108,7 +108,7 @@ transaction records in the ledger into a block in the block chain.
 
 Each line will be of the the same form as the lines in the ledger (`S
 transferred x to D`).  You are welcome to use present tense as well
-(transfers instead of trasnfered).  You can have additional
+(transfers instead of transferred).  You can have additional
 information after the required text, but it must all be on the same
 line.  This is important -- each transaction record in the ledger must
 be exactly one line!
@@ -283,6 +283,16 @@ in the [basic-test.sh](cryptocurrency/basic-test.sh)
 ([html](cryptocurrency/basic-test.sh.html)) script.  Note that you
 will have to run `chmod 755 basic-test.sh` before you can run the
 shell script.
+
+A quick note notes about this execution run: when a wallet is
+generated, a signature of the public key is used to identify the
+wallet (or perhaps it's the public key itself -- how this is done is
+up to you).  It is this value that is returned by the `address` call,
+and is indicated below in the output (`New wallet generated in
+'alice.wallet.txt' with signature abdfa7a347c40443`).  You can (and
+likely should, as this program does) use only the first 20 (or so)
+digits of that wallet signature.
+
 
 ```
 # ./cryptomoney.sh name
