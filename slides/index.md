@@ -30,6 +30,8 @@ Slide sets, ordered in the order presented in lecture:
 	- [Stuxnet](stuxnet.html#/)
 - Digital Forensics
 	- [Digital Forensics](forensics.html#/)
+- Miscellaneous Topics
+    - [Rootkits](rootkits.html#/)
 
 
 Slide sets to be created or added as the semester progresses:
