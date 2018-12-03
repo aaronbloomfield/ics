@@ -50,15 +50,19 @@ as well as some command-line commands.
 ### Details
 
 You can get a copy of the hard drive image by going to
-[https://libra.cs.virginia.edu/forensics/](https://libra.cs.virginia.edu/forensics/).
-**You can not use somebody else's disk image!**
+[https://libra.cs.virginia.edu/forensics/](https://libra.cs.virginia.edu/forensics/)
+-- you will have to use Netbadge to log in.  **You can not use
+somebody else's disk image!** If it says that your image is not yet
+ready, try again in an hour or so.  The image was compressed with gzip
+-- if your operating system does not natively support it, then you can
+use [7-zip](https://www.7-zip.org/) to extract it.  The compressed .gz
+file is 3.7 Gb in size, and the uncompressed image is 9.0 Gb in size.
 
 This image was designed using Linux (it's an ext4 file system).
-However, you can do this homework on any host OS.
-
-This can also be done on the VirtualBox Linux image provided for the
-class. Due to the size of the image file for this homework, you will
-either need to increase the disk size (see the bottom of
+However, you can do this homework on any host OS.  This can also be
+done on the VirtualBox Linux image provided for the class. Due to the
+size of the image file for this homework, you will either need to
+increase the disk size (see the bottom of
 [here](https://uva-cs.github.io/pdr/tutorials/01-intro-unix/vb-image-details.html)
 for how to do that) or mount a shared folder through VirtualBox, which
 will allow the guest OS (Linux in the VirtualBox image) to access the
@@ -110,10 +114,10 @@ The deliverable is a PDF report, named mst3k.pdf (change 'mst3k' to
 your userid).
 
 The report will be divided into a number of parts.  So that we can
-easily figure out what you found out, please label each part with the
-part numbers listed below.
+easily figure out what you found out, please make it clear which part
+of your report are for which part.
 
-Part 1 is the two questions to answer:
+Part 1 is the two questions of Laila's to answer:
 
 - Where did Mae go?
 - Who can Laila speak to, locally, to find out more?
