@@ -66,6 +66,9 @@ system][162].
 Lecture progress
 ----------------
 
+- Mon, Dec 3: Finished [Rootkits](../slides/rootkits.html#/)
+- Fri, Nov 30: Finished [Digital forensics](../slides/forensics.html#/), [Rootkits](../slides/rootkits.html#/) through the kernel/application rootkit type slides
+- Wed, Nov 28: [Digital forensics](../slides/forensics.html#/) through ...
 - Mon, Nov 26: [Digital forensics](../slides/forensics.html#/) through the "Foregone Conclusion Doctrine" slide (slide 5.5)
 - Fri, Nov 23: Thanksgiving break
 - Wed, Nov 21: Thanksgiving break

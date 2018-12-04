@@ -100,7 +100,9 @@ searching contents of files for text, etc.
 assignment,** beyond the standard OS commands installed by default
 when the OS is installed (and Autopsy / SleuthKit, of course).  You
 are to use your knowledge of forensics, the [forensics slide
-set](../slides/forensics.html#/), and the existing OS commands. We
+set](../slides/forensics.html#/), and the existing OS commands. In
+particular, the "Techniques" section of that slide set has the
+necessary techniques to find what can be found on this disk image.  We
 recommend learning a few commands: `strings` and `grep` are going to
 be particularly useful for Linux.  You can Google for equivalents in
 other OSes.  Note that some of the information on the disk image was
