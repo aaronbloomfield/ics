@@ -32,6 +32,7 @@ Slide sets, ordered in the order presented in lecture:
 	- [Digital Forensics](forensics.html#/)
 - Miscellaneous Topics
     - [Rootkits](rootkits.html#/)
+	- [Virtual Machines](vms.html#/)
 
 
 Slide sets to be created or added as the semester progresses:
