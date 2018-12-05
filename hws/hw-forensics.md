@@ -33,7 +33,7 @@ out.  You took an image of the hard drive, which uses Linux, and you
 have that to work from.
 
 Laila would like you to help her find out (1) where Mae went, and (2)
-who she can contact locally about Mae's sudden departure.
+who she can contact about Mae's sudden departure.
 
 But you have no idea what to look for...
 
