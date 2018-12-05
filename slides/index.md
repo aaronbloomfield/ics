@@ -33,9 +33,4 @@ Slide sets, ordered in the order presented in lecture:
 - Miscellaneous Topics
     - [Rootkits](rootkits.html#/)
 	- [Virtual Machines](vms.html#/)
-
-
-Slide sets to be created or added as the semester progresses:
-
-- CVEs and Exploits
 - Course Summary
