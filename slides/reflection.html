@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ICS: Course Reflection</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/ics.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+<section data-markdown id="cover"><script type="text/template">
+# CS 3501
+&nbsp;
+### Introduction to Cybersecurity
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/ics](http://github.com/aaronbloomfield/ics) / [&uarr;](index.html) / <a href="?print-pdf"><img class="print" width="20" src="images/print-icon.png" alt="print icon"></a></small></center>
+&nbsp;
+## Course Reflection
+</script></section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section data-markdown>
+  <textarea data-template>
+# Contents
+&nbsp;  
+[Cybersecurity in a Modern Context](#/today)  
+[Course Reflection](#/reflection)  
+	</textarea></section>
+
+	<section>
+      
+	  <section data-markdown class="center" id="today"><textarea data-template>
+# Cybersecurity in a Modern Context
+A series of (mostly unrelated) topics relating to computing security
+	  </textarea></section>
+	  
+	  <section data-markdown data-separator="^\n$"><textarea data-template>
+## Privacy and the 4th amendment
+- "The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no warrants shall issue, but upon probable cause, supported by oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized."
+
+
+## Privacy and the 4th amendment
+- 1967: Katz v. United States created a two-part test:
+  - Gov't can't contravene someone's subjective expectation of privacy without a warrant
+  - That expectation of privacy must be what society recognizes as reasonable
+- In today's information age, what is a "reasonable" expectation of privacy?
+  - For Facebook?  For financial data?  
+  - What about email: gmail's content-driven ads?
+  - What about with the (well-known) warrant-less wiretapping by the NSA?
+
+
+## Reasonable privacy
+- Would you like a camera in your bedroom controlled by a for-profit data-mining company?
+- Enter Amazon's [Echo look](https://www.amazon.com/gp/product/B0186JAEWK) and the [Echo show](https://www.amazon.com/dp/B01J24C0TI)
+  - It's always on
+  - It has a microphone that's always on also...
+  - Like anything else on the 'net, it's hackable
+- Some have opined that Amazon wants you to start getting comfortable with such a camera in your bedroom
+- Sources [vice.com](https://motherboard.vice.com/en_us/article/ez3qzk/amazon-echo-look-bedroom-camera), [popularmechanices.com](http://www.popularmechanics.com/technology/gadgets/news/a26223/amazon-echo-look-announcement/), [theverge.com](https://www.theverge.com/2017/7/6/15924120/amazon-echo-look-review-camera-clothes-style)
+
+
+## [SOPA](https://en.wikipedia.org/wiki/Stop_Online_Piracy_Act) & [PIPA](https://en.wikipedia.org/wiki/PROTECT_IP_Act)
+- They were House and Senate bills, respectively, in 2012 that focused on digital security
+- Crated by people who didn't understand computers, they would have:
+  - Made sites responsible for *user content* (reviews, postings, etc.)
+	- Just the existence of such content would allow the gov't to revoke the *domain* by updating the DNS
+	- This would prevent secure DNS encryption, which would allow easy spoofing of *any* domain
+
+
+## [CISPA](https://en.wikipedia.org/wiki/Cyber_Intelligence_Sharing_and_Protection_Act): SOPA take 2
+- Wary of what happened to SOPA, lawmakers are treading much more carefully
+  - It has gone through multiple revisions prior
+- This bill allows sharing (between the gov't and security companies) of personal information
+- But what is "personal information" is vague
+  - Which means the gov't can interpret it to mean just about anything
+- It is supported by a number of tech titans (MS, Facebook, IBM, etc.)
+  - But roundly criticized by privacy advocates
+
+
+## [CISPA](https://en.wikipedia.org/wiki/Cyber_Intelligence_Sharing_and_Protection_Act): SOPA take 2
+- Status:
+  - Passed in the house in 2012, but not passed in the Senate
+  - Reintroduced in the house in 2013, and passed; not voted upon in the Senate
+  - In 2014, a similar bill (CISA) was introduced in the Senate, but not passed
+  - Reintroduced yet again in January 2015, and referred to committee
+  - Hidden (and passed!) in the federal budget passed in December 2015
+
+
+## [Compliance with Court Orders Act of 2016](https://techcrunch.com/2016/04/13/burr-feinstein-encryption-bill-is-officially-here-in-all-its-scary-glory/)
+- They are still at it...
+- Only a bill, and (currently) not expected to go anywhere
+- It would require all "communications services" to put back doors in their software
+- Because what could go wrong with that?
+
+
+## The 2018 version
+- In the fall of 2018, various media companies tried to ressurect some aspects of SOPA & PIPA
+  - Recall that SOPA & PIPA tried "site blocking", which was fiercly resisted by just about everybody
+  - But site-blocking has become much more common outside of the US
+  - Now the music industry is asking for it to be reconsidered in the US
+  - Sources: [slashdot article from 11/28](https://tech.slashdot.org/story/18/11/28/0339254/music-industry-asks-us-government-to-reconsider-website-blocking), [torrentfreak article](https://torrentfreak.com/music-industry-asks-us-govt-to-reconsider-website-blocking-181127/)
+
+
+## Malware as model pandemics
+- Consider a virtual outbreak
+  - Either malware or biological
+  - How does it spread?  How fast?  With what vector?
+- Such studies can be used to model real pandemics (such as swine flu)
+- Consider the [Corrupted Blood incident](https://en.wikipedia.org/wiki/Corrupted_Blood_incident) on World of Warcraft
+  - Can this reliably be replicated?
+
+
+## Blaming the victim
+- Good security is, quite frankly, often beyond the knowledge or willingness of the 'typical' computer user
+  - Different passwords, understanding malware, phishing attacks, knowing about e-mail attachment issues - the list goes on and on
+- Yet the defense that software companies always make is the same
+  - "The systems were not patched"
+  - Blaming the victim!
+- This is an unhelpful way to think of security
+
+
+## Blaming the victim
+- Many things are often beyond the knowledge or willingness of the 'typical' user
+  - Remembering annual appointments (postcards!)
+  - Regular oil changes (the post-it with the mileage)
+  - Regular smoke alarm battery changes (beeping)
+- Goal: assume the user is clueless, and do the security properly anyway
+  - MS's automated patch install
+  - Regular backups (Time Machine)
+
+
+## BitArmor guarantee
+- BitArmor sells encryption and data management technologies
+- "If your company has to publicly report a breach while your data is protected by BitArmor, we'll refund the purchase price of your software. It's that simple. No gimmicks, no hassles."
+- Translation: if your data gets breached, and you suffer public humiliation, we'll give you your money back
+
+
+## Storm worm profit estimates
+- Researchers infiltrated and monitored the [Storm worm](https://en.wikipedia.org/wiki/Storm_Worm) in 2007
+  - After 26 days, and 350M e-mails, only 28 sales resulted (mostly for male enhancement)
+    - Average price: $100
+  - Profits were estimated at $2,731.88
+	- Just over $100 per day
+  - This was with 1.5% of the Storm botnet
+  - Extrapolating, that's about $7,000 per day with the entire Storm botnet, if you could utilize all that capacity
+
+
+## CAPTCHA
+- A contrived acronym for "Completely Automated Public Turing test to tell Computers and Humans Apart"
+- The idea: a "simple" test for humans, but "impossible" for automated scripts
+- Solutions:
+  - Botnets!
+  - Human bank of CAPTCHA operators
+  - [Have a lot of people solve it in another context](http://www.pcmag.com/article2/0,2704,2210674,00.asp)
+
+
+## ReCAPTCHA
+- Used to digitize books!
+- The same creators created a system to tag all of Google's images
+- And the creators of DuoLingo
+
+
+## [USB Pineapple](https://hakshop.com/products/wifi-pineapple)
+<!-- .slide: class="right-float-img-800" -->
+![usb pineapple](https://cdn.shopify.com/s/files/1/0068/2142/products/nano1_1bb4f835-cdc1-424b-9d4f-3a03863fde71_1024x1024.jpg)
+- A $100 WiFi device
+- Allows a MITM
+- Can view other WiFi data
+  - Even if *encrypted* (with<br>DLL-level encryption,<br>such as WEP or WPA(2))
+
+
+## How it works
+- It connects to a WiFi network, and then scans the WiFi signals sent from local computers
+- Your computer has "saved" networks that you have used before
+  - To see if one of them is present, it has to broadcast that SSID
+  - The Pineapple sees this, then presents that SSID
+  - Your password is automatically accepted
+- It will now do a man-in-the-middle attack for all your data
+  - Although this won't defeat https
+
+
+## CVEs
+- CVE = Common Vulnerabilities and Exposures
+- A list of known vulnerabilities in all modern software
+- Maintained by [Mitre](https://cve.mitre.org/), a non-profit organization
+  - Also found at [cvedetails.com](https://www.cvedetails.com/)
+
+
+## CVE details
+- Rated as per [CVSS](https://nvd.nist.gov/vuln-metrics/cvss), the Common Vulnerability Scoring System, as defined by [NIST](https://www.nist.gov/)
+  - There is an [online calculator](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?name=CVE-2016-0051) to help find the rating...
+
+| Severity | Base score range |
+|----------|------------------|
+| None | 0.0 |
+| Low | 0.1-3.9 |
+| Medium | 4.0-6.9 |
+| High | 7.0-8.9 |
+| Critical | 9.0-10.0 |
+
+
+## CVE details
+- As of December 6, 2018, there were 110,362 vulnerabilities reported
+  - Since 1999
+![cve diagram](images/reflection/cves-2018-12-06.png)
+
+
+## Reporting vulnerabilities
+- The accepted "best practice" is to notify the vendor / creator of the software about the vulnerability, and let them publish the patch
+  - Then it is publicized and the "finders" can claim credit
+- It doesn't always happen that way...
+  - Some want to embarass a company
+  - Companies don't patch it in reasonable amount of time: [Google discloses Microsoft Edge security flaw before a patch is ready](https://www.theverge.com/2018/2/19/17027138/google-microsoft-edge-security-flaw-disclosure)
+    - Microsoft had 90 days notice, but didn't patch it
+
+
+## US-CERT
+- The US Computer Emergency Readiness Team
+- They send out notices of critical vulnerabilities and attacks
+- Subscribe at https://www.us-cert.gov
+
+
+## US-CERT email from Dec 3, '18
+![cert email](images/reflection/cert-email.png)
+[https://www.us-cert.gov/ncas/alerts/TA18-331A](https://www.us-cert.gov/ncas/alerts/TA18-331A)
+</textarea></section>
+
+	</section>
+	
+	<section>
+      
+	  <section data-markdown class="center" id="reflection"><textarea data-template>
+# Course Reflection
+	  </textarea></section>
+	  
+	  <section data-markdown data-separator="^\n$"><textarea data-template>
+## Overall course goal
+- To create a single introduction course for all cybersecurity electives
+  - This course will eventually be a pre-req for all other cybersecurity electives
+    - Possibly as early as fall 2019
+  - This will prevent each if those electives from having to go over RSA, terminology, etc.
+
+
+## Course Objectives
+- Understand the ethical and policy context for cybersecurity in today's society
+- Understand how to better safeguard one's personal computer
+- Understand the basics of advanced topics in cybersecurity including encryption, digital forensics, binary exploits, and networks
+- Understand the modern concepts in cybersecurity attacks and prevention
+
+
+## What was new this semester
+- Just about everything!
+- Some content was from previous Dark Arts offerings
+  - The majority of lecture content was created for this fall
+- All homeworks were new
+
+
+## Homework thoughts
+- HW 11: Forensics
+- HW 10: Cryptocurrency
+- HW 9: Celebrity visit
+- HW 8: SQL, XSS, and CSRF
+- HW 7: Buffer overflow
+- HW 6: Hashing
+- HW 5: Movie Night
+- HW 4: RSA
+- HW 3: Ethics
+- HW 2: Policy
+- HW 1: Rational Paranoia
+
+
+## What didn't work well
+- Grading was a bit slow (sorry!)
+- Homework difficulty was not as even as I would have liked
+- Last minute lecture prep meant tyops in the slide sets
+
+
+## What did work well
+- The homeworks, even those that were bumpy
+  - Even RSA
+- The submission system
+- The generation of the new content
+
+
+## Changes in the future
+- This course is being taught next semester, and possibly every semester moving forward
+- It's going to get a new course number: CS 3710
+- A few homework changes
+  - More story line to the forensics HW
+  - Updates to RSA to make grading easier
+  - One more homework in there somewhere
+- A few lecture changes
+- More readings throughout the semester
+- Twice as many students!
+
+
+## Let me know your comments!
+- Please send me your feedback!
+- Either by e-mail or anonymously or on the course surveys
+- And please fill out the course surveys!
+	</textarea></section>
+
+	<section>
+<h2>Have a great winter break!</h2>
+<img class="stretch" src="http://www.adamfishercox.com/calvinandhobbes/pageimages/laststrip.png" alt="calvin and hobbes" style="width:100%;background-color:white">
+</section>
+	  
+      </section>
+      
+    </div>
+  </div>
+  <script src="reveal.js/lib/js/head.min.js"></script> 
+  <script src="reveal.js/js/reveal.js"></script>
+  <script src="settings.js"></script> 
+</body>
+</html>

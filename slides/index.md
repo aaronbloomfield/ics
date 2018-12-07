@@ -33,4 +33,4 @@ Slide sets, ordered in the order presented in lecture:
 - Miscellaneous Topics
     - [Rootkits](rootkits.html#/)
 	- [Virtual Machines](vms.html#/)
-- Course Summary
+- [Course Reflection](reflection.html#/)
