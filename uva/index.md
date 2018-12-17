@@ -50,6 +50,7 @@ are discussed in the [homework policies page](hw-policies.html)
 ([md](hw-policies.md)).  Submission is through the [online submission
 system][162].
 
+- [HW 11: Forensics](../hws/hw-forensics.html) ([md](../hws/hw-forensics.md)) is due Friday, December 7th
 - [HW 10: Cryptocurrency](../hws/hw-cryptocurrency.html) ([md](../hws/hw-cryptocurrency.md)) is due Thursday, November 29th
 - [HW 9: Celebrity visit](../hws/hw-celebrity-visit.html) ([md](../hws/hw-celebrity-visit.md)) is due Tuesday, November 27th -- there is NO LATE SUBMISSIONS ACCEPTED ON THIS ASSIGNMENT
 - [HW 8: SQL, XSS, and CSRF](../hws/hw-sql-xss-csrf.html) ([md](../hws/hw-sql-xss-csrf.md)) is due Monday, November 12th
@@ -66,7 +67,9 @@ system][162].
 Lecture progress
 ----------------
 
-- Mon, Dec 3: Finished [Rootkits](../slides/rootkits.html#/)
+- Fri, Dec 7: Started and finished [course reflection](../slides/reflection.html#/)
+- Wed, Dec 5: Started and finished [VMs](../slides/vms.html#/)
+- Mon, Dec 3: Started and finished [Rootkits](../slides/rootkits.html#/)
 - Fri, Nov 30: Finished [Digital forensics](../slides/forensics.html#/), [Rootkits](../slides/rootkits.html#/) through the kernel/application rootkit type slides
 - Wed, Nov 28: [Digital forensics](../slides/forensics.html#/) through ...
 - Mon, Nov 26: [Digital forensics](../slides/forensics.html#/) through the "Foregone Conclusion Doctrine" slide (slide 5.5)

@@ -37,6 +37,11 @@ who she can contact about Mae's sudden departure.
 
 But you have no idea what to look for...
 
+(Note: in the real world, you might get into legal trouble for doing
+this type of search, since the owner of the computer did not give you
+permission.  But this is an assignment, and FAKE, so there is no legal
+trouble to get into for this assignment.)
+
 ### Assignment
 
 Find out what's "up".
@@ -122,7 +127,7 @@ of your report are for which part.
 Part 1 is the two questions of Laila's to answer:
 
 - Where did Mae go?
-- Who can Laila speak to, locally, to find out more?
+- Who can Laila contact to find out more?
 
 The second part of this report should contain as much information as
 you can determine about where Mae is, and as much of the story as you
