@@ -1,0 +1,1464 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 3501: daily announcements slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../../slides/ics.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../slides/reveal.js/css/print/pdf.css' : '../../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="../../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+    <style>
+.reveal li {
+font-size:75%;
+line-height:120%;
+}
+    </style>
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# CS 3501
+&nbsp;
+### Introduction to Cybersecurity
+### Fall 2018
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~aaron) / [aaron@virginia.edu](mailto:aaron@virginia.edu)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/ics](http://github.com/aaronbloomfield/ics) / [&uarr;](index.html) / <a href="daily-announcements.html?print-pdf"><img class="print" width="20" src="../../slides/images/print-icon.png"></a></small></center>
+&nbsp;
+&nbsp;
+## Daily Announcements
+	</script></section>
+
+<!-- xkcd template for cut-and-paste (first two lines are the date and title)
+
+<h2></h2>
+<h4 class="xkcd"></h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/.png" title="" alt="">
+<p class="center"><a href="http://xkcd.com/2040/">xkcd # 2040</a></p>
+
+-->
+	  
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Middle Latitudes</h2>
+    <img class="stretch" src="http://imgs.xkcd.com/comics/middle_latitudes.png" title="Snowy blizzards are fun, but so are warm sunny beaches, so we split the difference by having lots of icy wet slush!" alt="Middle Latitudes" srcset="http://imgs.xkcd.com/comics/middle_latitudes_2x.png 2x">
+    <p class="center"><a href="http://xkcd.com/2081/">xkcd # 2081</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## The End
+- Grading is moving along:
+  - Midterm 2 has been returned
+	- Average was 44.1/60 (73.4%) with a stdev of 7.5 (12.5%)
+	- Grading guidelines are on Collab, and regrades will be open for two weeks (until Dec 3)
+    - The regrade link is now working, and will be open through next Monday
+  - Grades through HW 9 have been returned
+    - HWs through 9 have been returned
+	- Regrades are open for only 7 days (not 10!)
+   - HWs 10 and 11 are about to go out to be graded
+  - RSA HW
+    - Some of the issues are being caused by a difference in how people create blocks, whereas other issues are valid
+	- So this is still being worked on...
+- My office hours are M/W 1:00-2:30
+  - Helen has hers from 10:00-noon in Olsson 018
+  - They will end at the end of this week
+- Final exam is next Friday, December 14th, from 2 p.m. to 5 p.m. in the lecture classroom
+- Stuff that is due:
+  - [HW 11: Forensics](../../hws/hw-forensics.html) is out, and due Friday
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will talk about the [course reflection](../../slides/reflection.html#/)
+</textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Cohort and Age Effects</h2>
+    <img class="stretch" src="http://imgs.xkcd.com/comics/cohort_and_age_effects.png" title="Younger people get very few joint replacements, yet they&#39;re also getting more than older people did at the same age. This means you can choose between &#39;Why are millennials getting so (many/few) joint replacements?&#39; depending on which trend fits your current argument better." alt="Cohort and Age Effects" srcset="http://imgs.xkcd.com/comics/cohort_and_age_effects_2x.png 2x">
+    <p class="center"><a href="http://xkcd.com/2080/">xkcd # 2080</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Wednesday, December 5
+- Grading is moving along:
+  - Midterm 2 has been returned
+	- Average was 44.1/60 (73.4%) with a stdev of 7.5 (12.5%)
+	- Grading guidelines are on Collab, and regrades will be open for two weeks (until Dec 3)
+    - The regrade link is now working, and will be open through next Monday
+  - Grades through HW 9 have been returned
+    - HWs 7 (buffer overflow), HW 8 (SQL/XSS/CSRF), and 9 (Celebrity Visit) were returned last night
+	- Regrades are open for only 7 days (not 10!)
+   - HW 10 is about to go out to be graded
+  - RSA HW
+    - Some of the issues are being caused by a difference in how people create blocks, whereas other issues are valid
+	- So this is still being worked on...
+- My office hours are M/W 1:00-2:30
+  - Helen has hers from 10:00-noon in Olsson 018
+  - They will end at the end of this week
+- Final exam is next Friday, December 14th, from 2 p.m. to 5 p.m. in the lecture classroom
+- Stuff that is due:
+  - [HW 11: Forensics](../../hws/hw-forensics.html) is out, and due Friday
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will talk about [Virtual Machines](../../slides/vms.html#/)
+</textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Alpha Centauri</h2>
+    <img class="stretch" src="http://imgs.xkcd.com/comics/alpha_centauri.png" title="And let&#39;s be honest, it&#39;s more like two and a half stars. Proxima is barely a star and barely bound to the system." alt="Alpha Centauri" srcset="http://imgs.xkcd.com/comics/alpha_centauri_2x.png 2x">
+    <p class="center"><a href="http://xkcd.com/2079/">xkcd # 2079</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Monday, December 3
+- Grading is moving along:
+  - Midterm 2 has been returned
+	- Average was 44.1/60 (73.4%) with a stdev of 7.5 (12.5%)
+	- Grading guidelines are on Collab, and regrades will be open for two weeks (until Dec 3)
+    - The regrade link is now working
+  - Grades through HW 6 have been returned
+    - HWs 7 (buffer overflow) and HW 8 (SQL/XSS/CSRF) are out to be graded
+    - I'll have HWs 7 & 9 back today (I hope); HW 8 later this week
+  - There are requests to regrade RSA HW
+    - I want to figure out a way to do this in a fair and efficient manner -- more on this by Wednesday
+- My office hours are M/W 1:00-2:30
+  - Helen has hers from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - [HW 11: Forensics](../../hws/hw-forensics.html) is out, and due Friday
+    - The assignment is ready, but I have to get the disk images distributed...
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will finish [Digital Forensics](../../slides/forensics.html#/) and start on [Rootkits](../../slides/rootkits.html#/)
+</textarea></section>
+
+
+<section data-markdown><textarea data-template>
+## Bitcoin Miner Woes
+We discussed [this slashdot article](https://news.slashdot.org/story/18/12/01/0414201/bitcoin-miners-bail-while-cryptocurrency-capitalization-drops-83-since-january).
+
+Supporting links: 
+
+- [The article that claimed the AntMiner S9 would generate 0.3603 BTC per month](https://www.bitcoinmining.com/bitcoin-mining-hardware/)
+- The [Amazon price for the S9](https://www.amazon.com/dp/B07FF4F6P6) ($465 when the [cryptocurrency lecture](cryptocurrency.html#/) was presented, $369 today)
+</textarea></section>
+
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Popper</h2>
+    <img class="stretch" src="http://imgs.xkcd.com/comics/popper.png" title="At least, I don&#39;t think there&#39;s evidence. My claim that there&#39;s no evidence hasn&#39;t been falsified. At least, not that I know of." alt="Popper" srcset="http://imgs.xkcd.com/comics/popper_2x.png 2x">
+    <p class="center"><a href="http://xkcd.com/2078/">xkcd # 2078</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Friday, November 30
+- It's [National Computer Security Day](http://csd.ncb.mu/English/Pages/Home.aspx) today!
+- How did we all like Jason Belford's talk on Wednesday?
+- Grading is moving along:
+  - Midterm 2 has been returned
+	- Average was 44.1/60 (73.4%) with a stdev of 7.5 (12.5%)
+	- Grading guidelines are on Collab, and regrades will be open for two weeks (until Dec 3)
+    - The regrade link is not working from the gradebook, so go to tpegs.cs.virginia.edu and submit a regrade that way
+  - Grades through HW 6 have been returned
+    - HWs 7 (buffer overflow) and HW 8 (SQL/XSS/CSRF) are out to be graded
+    - I'll have HWs 7 & 9 back by Monday; HW 8 later that week
+  - There are requests to regrade RSA HW
+    - I want to figure out a way to do this in a fair and efficient manner -- more on this next week
+- My office hours are M/W 1:00-2:30
+  - Helen has hers from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - HW 11 will be on digital forensics, and due next Friday
+    - The assignment is ready, but I have to get the disk images set; they should be ready late this weekend
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will finish [Digital Forensics](../../slides/forensics.html#/) and start on [Rootkits](../../slides/rootkits.html#/)
+</textarea></section>
+
+<section data-markdown><textarea data-template>
+## A few current events
+
+- Remeber [SOPA & PIPA](../../slides/policy.html#/sopapipa)?
+  - They tried "site blocking", which was fiercly resisted by just about everybody
+  - But site-blocking has become much more common outside of the US
+  - Now the music industry is asking for it to be reconsidered in the US
+  - Sources: [slashdot article from 11/28](https://tech.slashdot.org/story/18/11/28/0339254/music-industry-asks-us-government-to-reconsider-website-blocking), [torrentfreak article](https://torrentfreak.com/music-industry-asks-us-govt-to-reconsider-website-blocking-181127/)
+- And about [Stuxnet](../../slides/stuxnet.html#/)...
+  - In early November, it was reported that Iran was hit by a virus similar to Stuxnet but "more violent, more advanced and more sophisticated"
+  - Isreal is not commenting on this
+  - Little additional information is available; a [Google News search](https://news.google.com/search?q=iran stuxnet) has no news articles in the last few weeks
+  - Sources: [slashdot article on 11/2](https://it.slashdot.org/story/18/11/01/2339252/iran-allegedly-hit-by-computer-virus-more-violent-than-stuxnet), [Times of Israel article](https://www.timesofisrael.com/tv-report-israel-silent-as-iran-hit-by-computer-virus-more-violent-than-stuxnet/)
+- The [Starwood hotel database hack](https://yro.slashdot.org/story/18/11/30/1425213/marriott-says-500-million-starwood-guest-records-stolen-in-massive-data-breach)
+  - 500 million *records* of 327 million *customers* -- and the second largest ever
+  - Too early for detailed technical information...
+  - How did they get in?  SQL inejection? Phishing attack?  Buffer overflow?  Poor password selection?
+  - How long will the CISO (or equivalent) remain with the company?
+</textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section data-markdown><textarea data-template>
+## Wednesday, November 28
+Today was a guest lecture by Jason Belford, CISO of UVa
+</textarea></section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Horror Movies 2</h2>
+    <img class="stretch" src="http://imgs.xkcd.com/comics/horror_movies_2.png" title="When I was a kid, someone told me the end of The Giver was ambiguous, which surprised me. I had just assumed Jonah died--because the book had a medal on the cover, and I knew grown-ups liked stories where sad stuff happens at the end for no reason." alt="Horror Movies 2" srcset="http://imgs.xkcd.com/comics/horror_movies_2_2x.png 2x">
+    <p class="center"><a href="http://xkcd.com/2076/">xkcd # 2076</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Monday, November 26
+- Grading is moving along:
+  - Midterm 2 has been returned
+	- Average was 44.1/60 (73.4%) with a stdev of 7.5 (12.5%)
+	- Grading guidelines are on Collab, and regrades will be open for two weeks (until Dec 3)
+  - Grades through HW 6 have been returned
+  - HWs 7 (buffer overflow) and HW 8 (SQL/XSS/CSRF) are out to be graded
+- My office hours are M/W 1:00-2:30
+  - Helen has hers from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - [HW 9: Celebrity Visit](../../hws/hw-celebrity-visit.html) is to write two good questions for UVa's CISO, and is due the Tuesday after Thanksgiving break (thus *before* HW 9 is due)
+    - Submissions are open now
+    - Late submissions will not be accepted on this one!
+    - FYI, attendance will be taken on that day (Nov 30), and it will count as a quiz
+  - [HW 10: Cryptocurrency](../../hws/hw-cryptocurrency.html) is out, and is due the Thursday after Thanksgiving (Nov 29th)
+    - We are missing one part of the Python instructions...
+  - HW 11 will be on digital forensics, and will be out later this week
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will finish (?) [Stuxnet](../../slides/stuxnet.html#/) and start on [Digital Forensics](../../slides/forensics.html#/)
+</textarea></section>
+
+<section data-markdown><textarea data-template>
+## Bitcoin's volatility
+- When I presented the [Cryptocurrency lecture](../../slides/cryptocurrency.html#/), it was $6,400 per BTC
+- As of early this morning it was about $3,824 per BTC: a 40% decrease
+- This means that the profit from mining has also decreased 40%
+![btc price, latest](../../slides/images/cryptocurrency/btc-price-11-26-18.png)
+</textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Kilogram</h2>
+    <img class="stretch" src="http://imgs.xkcd.com/comics/kilogram.png" title="I&#39;m glad to hear they&#39;re finally redefining the meter to be exactly three feet." alt="Kilogram" srcset="http://imgs.xkcd.com/comics/kilogram_2x.png 2x">
+    <p class="center"><a href="http://xkcd.com/2073/">xkcd # 2073</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Monday, November 19
+- Grading is moving along:
+  - Midterm 2 has been returned
+	- Average was 44.1/60 (73.4%) with a stdev of 7.5 (12.5%)
+	- Grading guidelines are on Collab, and regrades will be open for two weeks (until Dec 3)
+  - Grades through HW 6 have been returned
+  - HWs 7 (buffer overflow) and HW 8 (SQL/XSS/CSRF) are out to be graded
+- My office hours are M/W 1:00-2:30
+  - Helen (the ugrad TA) has hers from 10:00-noon in Olsson 018
+  - We won't have them this Wednesday
+- Stuff that is due:
+  - [HW 9: Celebrity Visit](../../hws/hw-celebrity-visit.html) is to write two good questions for UVa's CISO, and is due the Tuesday after Thanksgiving break (thus *before* HW 9 is due)
+    - Submissions are open now
+    - Late submissions will not be accepted on this one!
+    - FYI, attendance will be taken on that day (Nov 30), and it will count as a quiz
+  - [HW 10: Cryptocurrency](../../hws/hw-cryptocurrency.html) is out, and is due the Thursday after Thanksgiving (Nov 29th)
+    - We are missing one part of the Python instructions...
+  - HW 11 will be on digital forensics, and will be out after Thanksgiving break
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will start on [Stuxnet](../../slides/stuxnet.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Evaluating Tech Things</h2>
+    <img class="stretch" src="http://imgs.xkcd.com/comics/evaluating_tech_things.png" title="Also known as the Black Mirror-Mythbusters scale." alt="Evaluating Tech Things" srcset="http://imgs.xkcd.com/comics/evaluating_tech_things_2x.png 2x">
+    <p class="center"><a href="http://xkcd.com/2072/">xkcd # 2072</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Friday, November 16
+- Grading is moving along:
+  - Midterm 2 is out being graded
+    - We are aiming to have the exam graded by the end of this week (i.e., today)
+  - Grades for HW 4 (RSA) will be out later today, maybe?
+  - HW 7 (buffer overflow) is in queue after the exam
+- My office hours are M/W 1:00-2:30
+  - Helen (the ugrad TA) has hers from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - [HW 9: Celebrity Visit](../../hws/hw-celebrity-visit.html) is to write two good questions for UVa's CISO, and is due the Tuesday after Thanksgiving break (thus *before* HW 9 is due)
+    - Submissions are open now
+    - Late submissions will not be accepted on this one!
+    - FYI, attendance will be taken on that day (Nov 30), and it will count as a quiz
+  - [HW 10: Cryptocurrency](../../hws/hw-cryptocurrency.html) is out, and is due after Thanksgiving (when?)
+    - We are missing one part of the Python instructions...
+  - HW 11 will be on digital forensics, and will be out after Thanksgiving break
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will continue with (and possibly finish) [Cryptocurrency](../../slides/cryptocurrency.html#/)
+  - Next up is [Stuxnet](../../slides/stuxnet.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Indirect Detection</h2>
+    <img class="stretch" src="http://imgs.xkcd.com/comics/indirect_detection.png" title="I&#39;m like a prisoner in Plato&#39;s Cave, seeing only the shade you throw on the wall." alt="Indirect Detection" srcset="http://imgs.xkcd.com/comics/indirect_detection_2x.png 2x"
+    <p class="center"><a href="http://xkcd.com/2071/">xkcd # 2071</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Wednesday, November 14
+- Grading is moving along:
+  - Midterm 2 is out being graded
+    - We are aiming to have the exam graded by the end of this week
+  - Grades for HW 4 (RSA) will be out later today, maybe?
+  - HW 7 (buffer overflow) is in queue after the exam
+- My office hours are M/W 1:00-2:30
+  - But I'm cancelling them today
+  - Helen (the ugrad TA) has hers from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - [HW 9](../../slides/hw-celebrity-visit.html) is to write two good questions for UVa's CISO, and is due the Tuesday after Thanksgiving break (thus *before* HW 9 is due)
+    - Submissions are open now
+    - Late submissions will not be accepted on this one!
+    - FYI, attendance will be taken on that day (Nov 30), and it will count as a quiz
+  - HW 10 is on cryptocurrency, and will be out late this week; it's due after Thanksgiving
+  - HW 11 will be on digital forensics, and will be out after Thanksgiving break
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will finish with [Anonymity](../../slides/anonymity.html#/) and start on [Cryptocurrency](../../slides/cryptocurrency.html#/)
+  - Next up is [Stuxnet](../../slides/stuxnet.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Trig Identities</h2>
+    <img class="stretch" src="http://imgs.xkcd.com/comics/trig_identities.png" title="ARCTANGENT THETA = ENCHANT AT TARGET" alt="Trig Identities" srcset="http://imgs.xkcd.com/comics/trig_identities_2x.png 2x">
+    <p class="center"><a href="http://xkcd.com/2070/">xkcd # 2070</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Monday, November 12
+- Grading is moving along:
+  - Grades for quizzes 2&3, and HWs 5 (movie night) and 6 (hashing) have been returned; regrades open for 10 days
+  - Midterm 2 is out being graded
+  - Grades for HW 4 (RSA) will be out later today, maybe?
+  - We are aiming to have the exam graded by the end of this week
+  - HW 7 (buffer overflow) is in queue after the exam
+  - I am working on getting the grading guidelines posted to Collab as well
+- My office hours are M/W 1:00-2:30
+  - Helen (the ugrad TA) has hers from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - HW 8 is due today
+  - HW 9 ...
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will finish with [Anonymity](../../slides/anonymity.html#/) and start on [Stuxnet](../../slides/stuxnet.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Bluetooth</h2>
+    <img class="stretch" src="http://imgs.xkcd.com/comics/bluetooth.png" title="Bluetooth is actually named for the tenth-century Viking king Harald &quot;Bluetooth&quot; Gormsson, but the protocol developed by Harald was a wireless charging standard unrelated to the modern Bluetooth except by name." alt="Bluetooth" srcset="http://imgs.xkcd.com/comics/bluetooth_2x.png 2x">
+    <p class="center"><a href="http://xkcd.com/2055/">xkcd # 2055</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Friday, November 9
+- Grading is moving along:
+  - Grades for quizzes 2&3, and HWs 5 (movie night) and 6 (hashing) have been returned; regrades open for 10 days
+  - Midterm 2 is out being graded
+  - Grades for HW 4 (RSA) will be out later today, maybe?
+  - We are aiming to have the exam graded by next week
+  - HW 7 (buffer overflow) is in queue after the exam
+  - I am working on getting the grading guidelines posted to Collab as well
+- My office hours are M/W 1:00-2:30
+  - Helen (the ugrad TA) has hers from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - HW 8 is due Monday
+  - HW 9 will be due early the following week
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will finish with [SQL, XSS, and CSRF](../../slides/sql-xss-csrf.html#/), and start on [Anonymity](../../slides/anonymity.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Wishlist</h2>
+    <img class="stretch" src="http://imgs.xkcd.com/comics/wishlist.png" title="Disappointed that they caved to fan pressure and went with Ruth Bader Ginsburg over Elena Kagan." alt="Wishlist" srcset="http://imgs.xkcd.com/comics/wishlist_2x.png 2x">
+    <p class="center"><a href="http://xkcd.com/2069/">xkcd # 2069</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Wednesday, November 7
+- So that exam wasn't all that popular...
+  - I got some really nasty anonymous feedback about it
+- Grading is moving along:
+  - Grades for quizzes 2&3, and HWs 5 (movie night) and 6 (hashing) have been returned; regrades open for 10 days
+  - Grades for HW 4 (RSA) will be out later today
+  - We are aiming to have the exam graded by next week
+  - HW 7 (buffer overflow) is in queue after the exam
+  - I am working on getting the grading guidelines posted to Collab as well
+- My office hours are M/W 1:00-2:30
+  - Helen (the ugrad TA) has hers from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - HW 8 is due next Monday
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will finish with [SQL, XSS, and CSRF](../../slides/sql-xss-csrf.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Ballot Selfies</h2>
+    <img class="stretch" src="http://imgs.xkcd.com/comics/ballot_selfies.png" title="There were actually some good reasons for those laws, but IMO they now do more harm than good. Which raises a question: If there&#39;s a ballot measure to strike them down, how can I resist the urge to take a picture of my &quot;yes&quot; vote?" alt="Ballot Selfies" srcset="http://imgs.xkcd.com/comics/ballot_selfies_2x.png 2x">
+    <p class="center"><a href="http://xkcd.com/2066/">xkcd # 2066</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Friday, November 2
+- Grading is moving along...
+- The second midterm is on Monday!
+- My office hours are M/W 1:00-2:30
+  - Helen (the ugrad TA) has hers from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - Due to the temporal poximity of the second midterm, homework 8 will be out out *after* it
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will finish with [web security](../../slides/web-security.html#/) and start on [SQL, XSS, and CSRF](../../slides/sql-xss-csrf.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Who Sends the First Text?</h2>
+    <img class="stretch" src="http://imgs.xkcd.com/comics/who_sends_the_first_text.png" title="I sort of wish my texting app showed the percentage next to each person, but also sort of don&#39;t want to know." alt="Who Sends the First Text?" srcset="http://imgs.xkcd.com/comics/who_sends_the_first_text_2x.png 2x">
+    <p class="center"><a href="http://xkcd.com/2065/">xkcd # 2065</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Halloween!
+- Grading is moving along...
+- The second midterm is now Monday, November 5th
+- My office hours are M/W 1:00-2:30
+  - Helen (the ugrad TA) has hers from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - Due to the temporal poximity of the second midterm, homework 8 will be out out *after* it
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will continue with [web security](../../slides/web-security.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">I'm a Car</h2>
+    <img class="stretch" src="http://imgs.xkcd.com/comics/im_a_car.png" title="I&#39;m the proud parent of an honor student, and the person driving me is proud, too!" alt="I&#39;m a Car" srcset="http://imgs.xkcd.com/comics/im_a_car_2x.png 2x">
+    <p class="center"><a href="http://xkcd.com/2064/">xkcd # 2064</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Lecture 26: Mon, October 29th
+- Grading is moving along...
+- The second midterm is now Monday, November 5th
+- My office hours are M/W 1:00-2:30
+  - Helen (the ugrad TA) has hers from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - Homework 7, on buffer overflows, is due this Friday
+    - You will need VirtualBox for this; the image can be downloaded from https://tinyurl.com/y8jxyav6
+	- `make` was not installed (whoops!); run `sudo apt-get update; sudo apt-get install make` to install it
+    - There is only a 10% late penalty for today, but 50% starting tomorrow
+  - Homework 8 will be out on Monday (today) since HW 7 was due last night
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- I want to show a slide that I added to the [encryption slide set](../../slides/encryption.html#/)
+- Today we will continue with [web security](../../slides/web-security.html#/)
+  </textarea></section>
+
+	  <section>
+	    <h2>Re-using a one-time pad</h2>
+<table class="transparent">
+  <tr><td>Use an OTP:&nbsp;</td><td><img alt="re-using OTP" style="vertical-align:middle;display:initial" src="../../slides/images/encryption/otp-1.png"> &oplus;
+  <img alt="re-using OTP" style="vertical-align:middle;display:initial" src="../../slides/images/encryption/otp.png"> =
+  <img alt="re-using OTP" style="vertical-align:middle;display:initial;border:2px solid red" src="../../slides/images/encryption/otp-1e.png"></td></tr>
+  <tr class="fragment"><td>Re-use the<br>same OTP:&nbsp;</td><td><img alt="re-using OTP" style="vertical-align:middle;display:initial" src="../../slides/images/encryption/otp-2.png"> &oplus;
+  <img alt="re-using OTP" style="vertical-align:middle;display:initial" src="../../slides/images/encryption/otp.png"> =
+  <img alt="re-using OTP" style="vertical-align:middle;display:initial;border:2px solid blue" src="../../slides/images/encryption/otp-2e.png"></td></tr>
+<tr class="fragment"><td>Extract<br>the images:&nbsp;</td><td><img alt="re-using OTP" style="vertical-align:middle;display:initial;border:2px solid red" src="../../slides/images/encryption/otp-1e.png"> &oplus;
+  <img alt="re-using OTP" style="vertical-align:middle;display:initial;border:2px solid blue" src="../../slides/images/encryption/otp-2e.png"> =
+  <img alt="re-using OTP" style="vertical-align:middle;display:initial" src="../../slides/images/encryption/otp-ans.png"></td></tr>
+</table>
+<p>This example from <a href="https://crypto.stackexchange.com/questions/59/taking-advantage-of-one-time-pad-key-reuse">StackExchange</a></p>
+	    </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Carnot Cycle</h2>
+    <img class="stretch" src="http://imgs.xkcd.com/comics/carnot_cycle.png" title="The Carnot cycle is more properly known by its full title, the &quot;Carnot-Tolkien-Wagner Ring Cycle.&quot;" alt="Carnot Cycle" srcset="http://imgs.xkcd.com/comics/carnot_cycle_2x.png 2x">
+        <p class="center"><a href="http://xkcd.com/2063/">xkcd # 2063</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Lecture 25: Fri, October 26th
+- Grading is moving along...
+- The second midterm is now Monday, November 5th
+- My office hours are M/W 1:00-2:30
+  - Helen (the ugrad TA) has hers from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - Homework 7, on buffer overflows, is due this Friday
+    - You will need VirtualBox for this; the image can be downloaded from https://tinyurl.com/y8jxyav6
+	- `make` was not installed (whoops!); run `sudo apt-get update; sudo apt-get install make` to install it
+  - Homework 8 will be out on Monday since HW 7 is now due on Sunday
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will finish on [networks](../../slides/networks.html#/) and start on [web security](../../slides/web-security.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Barnard's Star</h2>
+    <img class="stretch" src="http://imgs.xkcd.com/comics/barnards_star.png" title="&quot;Ok, team. We have a little under 10,000 years before closest approach to figure out how to destroy Barnard&#39;s Star.&quot; &quot;Why, does it pose a threat to the Solar System?&quot; &quot;No. It&#39;s just an asshole.&quot;" alt="Barnard&#39;s Star" srcset="http://imgs.xkcd.com/comics/barnards_star_2x.png 2x">
+        <p class="center"><a href="http://xkcd.com/2062/">xkcd # 2062</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Lecture 24: Wed, October 24th
+- Exam 1 has been returned
+  - Average was 47.4/60 (79.0%), with a standard deviation fo 6.9 (11.5%)
+  - Grading guidelines are on Collab, and regrades are open until the end of this week
+    - I don't want to have to institute a frivolous regrade penalty, like in CS 2150, so please don't abuse the regrade opportunity
+- Grading is moving along...
+- The second midterm is now Monday, November 5th
+- My office hours are M/W 1:00-2:30
+  - Helen (the ugrad TA) has hers from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - Homework 7, on buffer overflows, is due this Friday
+    - You will need VirtualBox for this; the image can be downloaded from https://tinyurl.com/y8jxyav6
+	- `make` was not installed (whoops!); run `sudo apt-get update; sudo apt-get install make` to install it
+  - Homework 8 will be due the following Friday
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will finish on [networks](../../slides/networks.html#/) and start on [web security](../../slides/web-security.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Tectonics Game</h2>
+    <img class="stretch" src="http://imgs.xkcd.com/comics/tectonics_game.png" title="They&#39;re limiting the playtesters to type A3 V stars, so the games will all end before the Sun consumes the Earth." alt="Tectonics Game" srcset="http://imgs.xkcd.com/comics/tectonics_game_2x.png 2x">
+        <p class="center"><a href="http://xkcd.com/2061/">xkcd # 2061</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Lecture 23: Mon, October 22nd
+- Exam 1 has been returned
+  - Average was 47.4/60 (79.0%), with a standard deviation fo 6.9 (11.5%)
+  - Grading guidelines are on Collab, and regrades are open for 10 days
+    - I don't want to have to institute a frivolous regrade penalty, like in CS 2150, so please don't abuse the regrade opportunity
+- Grading is moving along...
+- The second midterm is now Monday, November 5th
+- My office hours are M/W 1:00-2:30
+  - Helen (the ugrad TA) has hers from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - Homework 7, on buffer overflows, is due this Friday
+    - You will need VirtualBox for this; the image can be downloaded from https://tinyurl.com/y8jxyav6
+	- `make` was not installed (whoops!); run `sudo apt-get update; sudo apt-get install make` to install it
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will start on [networks](../../slides/networks.html#/)
+  </textarea></section>
+
+<!-- <section class="center"><h2>What Professors do for fun...</h2></section>
+    <section><img class="stretch" src="../../../../../../ren-faire-pic-1.jpg"></section>
+    <section><img class="stretch" src="../../../../../../ren-faire-pic-2.jpg"></section> -->
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Hygrometer</h2>
+    <img class="stretch" src="http://imgs.xkcd.com/comics/hygrometer.png" title="I&#39;m working on assembling a combination declinometer, sclerometer, viscometer, aleurometer, stalagmometer, and hypsometer. I&#39;m making good progress according to my ometerometer, a device which shows the rate at which I&#39;m acquiring measurement devices." alt="Hygrometer" srcset="http://imgs.xkcd.com/comics/hygrometer_2x.png 2x">
+        <p class="center"><a href="http://xkcd.com/2060/">xkcd # 2060</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Lecture 22: Fri, October 19th
+- Exam 1 has been returned
+  - Average was 47.4/60 (79.0%), with a standard deviation fo 6.9 (11.5%)
+  - Grading guidelines are on Collab, and regrades are open for 10 days
+    - I don't want to have to institute a frivolous regrade penalty, like in CS 2150, so please don't abuse the regrade opportunity
+- More grading status on the next->next slide
+- Ethics honor pledges
+  - If you didn't sign it, I emailed you last week -- please get me a signed copy by the end of this week
+- My office hours are M/W 1:00-2:30
+  - Helen (the ugrad TA) has hers from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - Homework 7, on buffer overflows, is due next Friday
+    - You will need VirtualBox for this; the image can be downloaded from https://tinyurl.com/y8jxyav6
+	- `make` was not installed (whoops!); run `sudo apt-get update; sudo apt-get install make` to install it
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will finish [binary exploits](../../slides/binary-exploits.html#/) today
+  </textarea></section>
+
+<section data-markdown><textarea data-template>
+## Midterm 2
+- I'd like to move the date of the second midterm
+  - From: Wednesday, October 31st
+  - To: Monday, November 5th
+- Because this was stated in the syllabus, I don't feel right in just changing it without all y'all's input
+- Why?
+  - I screwed up in picking the date -- it should have been later in the semester
+  - It will allow us to get through the next module (networks) in its entirety before the exam
+  - It is currently a bit to close to midterm 1, so with not as much new material, it will focus on a very small number of lectures
+- Thoughts?
+- If you are OPPOSED to this, please let me know by Sunday night
+  - I emailed the class about this as well
+</textarea></section>
+
+<section data-markdown><textarea data-template>
+## Grading status
+- Homeworks
+  - HW 1: rational paranoia: graded and returned
+  - HW 2: ethics: graded and returned
+  - HW 3: policy: graded and returned
+  - HW 4: RSA: out to be graded (and almost done)
+  - HW 5: movie night: soon to go out to be graded
+  - HW 6: hashing: we have to wait to grade it...
+- Exams
+  - Midterm 1: all graded!  Yay!
+- Quizzes:
+  - Quiz 1: graded and returned
+  - Quiz 2: out to be graded
+  - Quiz 3: out to be graded
+</textarea></section>
+  
+  
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Modified Bayes' Theorem</h2>
+    <img src="http://imgs.xkcd.com/comics/modified_bayes_theorem.png" title="Don&#39;t forget to add another term for &quot;probability that the Modified Bayes&#39; Theorem is correct.&quot;" alt="Modified Bayes&#39; Theorem" srcset="http://imgs.xkcd.com/comics/modified_bayes_theorem_2x.png 2x">
+        <p class="center"><a href="http://xkcd.com/2059/">xkcd # 2059</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Lecture 21: Wed, October 17th
+- Exam 1 has been returned
+  - Average was 47.4/60 (79.0%), with a standard deviation fo 6.9 (11.5%)
+  - Grading guidelines are on Collab, and regrades are open for 10 days
+    - I don't want to have to institute a frivolous regrade penalty, like in CS 2150, so please don't abuse the regrade opportunity
+- More grading status on the next->next slide
+- Ethics honor pledges
+  - If you didn't sign it, I emailed you last week -- please get me a signed copy by the end of this week
+- My office hours are M/W 1:00-2:30
+  - Helen (the ugrad TA) has hers from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - Homework 6 is due Wednesday, October 17th
+  - Homework 7, on buffer overflows, will be out soon
+- Just as an FYI, for an upcoming homework (in November), you will need VirtualBox installed on your computer
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will work through [binary exploits](../../slides/binary-exploits.html#/) today
+  </textarea></section>
+
+<section data-markdown><textarea data-template>
+## Midterm 2
+- I'd like to move the date of the second midterm
+  - From: Wednesday, October 31st
+  - To: Monday, November 5th
+- Because this was stated in the syllabus, I don't feel right in just changing it without all y'all's input
+- Why?
+  - I screwed up in picking the date -- it should have been later in the semester
+  - It will allow us to get through the next module (networks) in its entirety before the exam
+  - It is currently a bit to close to midterm 1, so with not as much new material, it will focus on a very small number of lectures
+- Thoughts?
+- If you are OPPOSED to this, please let me know by the end of this week
+  - I am going to email the class about this as well
+</textarea></section>
+
+<section data-markdown><textarea data-template>
+## Grading status
+- Homeworks
+  - HW 1: rational paranoia: graded and returned
+  - HW 2: ethics: graded and returned
+  - HW 3: policy: graded and returned
+  - HW 4: RSA: out to be graded (and almost done)
+  - HW 5: movie night: soon to go out to be graded
+- Exams
+  - Midterm 1: all graded!  Yay!
+- Quizzes:
+  - Quiz 1: graded and returned
+  - Quiz 2: out to be graded
+  - Quiz 3: soon to go out to be graded
+</textarea></section>
+  
+  
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Rock Wall</h2>
+<img src="http://imgs.xkcd.com/comics/rock_wall.png" title="I don&#39;t trust mantle/core geologists because I suspect that, if they ever get a chance to peel away the Earth&#39;s crust, they&#39;ll do it in a heartbeat." alt="Rock Wall" srcset="http://imgs.xkcd.com/comics/rock_wall_2x.png 2x">
+    <p class="center"><a href="http://xkcd.com/2058/">xkcd # 2058</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Lecture 20: Mon, October 15th
+- Exam 1 was returned last night
+  - Average was 47.4/60 (79.0%), with a standard deviation fo 6.9 (11.5%)
+  - Grading guidelines are on Collab, and regrades are open for 10 days
+    - I don't want to have to institute a frivolous regrade penalty, like in CS 2150, so please don't abuse the regrade opportunity
+- More grading status on the next slide
+- Ethics honor pledges
+  - If you didn't sign it, I emailed you last week -- please get me a signed copy by the end of this week
+- My office hours are M/W 1:00-2:30
+  - Helen (the ugrad TA) has hers from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - Homework 6 is due Monday, October 15th
+    - Do we want a delay?  I'm fine with that, but I don't want it to delay HW 7...
+  - Homework 7, on buffer overflows, will be out soon
+- Just as an FYI, for an upcoming homework (in November), you will need VirtualBox installed on your computer
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will continue with [buffer overflows](../../slides/buffer-overflows.html#/)
+  </textarea></section>
+
+<section data-markdown><textarea data-template>
+## Grading status
+- Homeworks
+  - HW 1: rational paranoia: graded and returned
+  - HW 2: ethics: graded and returned
+  - HW 3: policy: graded and returned
+  - HW 4: RSA: out to be graded (and almost done)
+  - HW 5: movie night: soon to go out to be graded
+- Exams
+  - Midterm 1: all graded!  Yay!
+- Quizzes:
+  - Quiz 1: graded and returned
+  - Quiz 2: out to be graded
+  - Quiz 3: soon to go out to be graded
+</textarea></section>
+  
+  
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Horror Movies</h2>
+    <img class="stretch" src="http://imgs.xkcd.com/comics/horror_movies.png" title="&quot;Isn&#39;t the original Jurassic Park your favorite movie of all time?&quot; &quot;Yes, but that&#39;s because I like dinosaurs and I WANT there to be an island full of them. If John Hammond&#39;s lab had been breeding serial killers in creepy masks, I wouldn&#39;t have watched!&quot; &quot;Wait, are you sure? That could actually be good.&quot; &quot;Ok, I WOULD watch the scenes where Jeff Goldblum tries to convince a bunch of executives that the park is a bad idea.&quot;" alt="Horror Movies" srcset="http://imgs.xkcd.com/comics/horror_movies_2x.png 2x">
+    <p class="center"><a href="http://xkcd.com/2056/">xkcd # 2056</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Lecture 19: Fri, October 12th
+- Exam and homework grading status...
+- Grades for HWs [1](../../hws/hw-paranoia.html) and [2](../../hws/hw-policy.html) returned -- sorry for the delay!
+  - Regrades open for 10 days
+- Ethics honor pledges
+  - If you didn't sign it, I emailed you last night -- please sign it today (I have copies with me)
+- My office hours are M/W 1:00-2:30
+  - Helen (the ugrad TA) has hers from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - Homework 6 is due Monday, October 15th
+    - Is that sufficient time for office hours?
+  - Homework 7, on buffer overflows, will be due the next week (when?)
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will finish [viruses](../../slides/viruses.html#/) and start on [buffer overflows](../../slides/buffer-overflows.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Internal Monologues</h2>
+    <img class="stretch" src="http://imgs.xkcd.com/comics/internal_monologues.png" title="Haha, just kidding, everyone&#39;s already been hacked. I wonder if today&#39;s the day we find out about it." alt="Internal Monologues" srcset="http://imgs.xkcd.com/comics/internal_monologues_2x.png 2x">
+    <p class="center"><a href="http://xkcd.com/2057/">xkcd # 2057</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Lecture 18: Wed, October 10th
+- Exam and homework grading status...
+- Grades for HWs [1](../../hws/hw-paranoia.html) and [2](../../hws/hw-policy.html) returned -- sorry for the delay!
+  - Regrades open for 10 days
+- My office hours are M/W 1:00-2:30
+  - Helen (the ugrad TA) has hers from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - Reading is now due this Friday, 10/12: Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf)
+  - Homework 6 was just released, and is due Monday, October 15th
+- Upcoming schedule: see next slide
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will finish [viruses](../../slides/viruses.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section data-markdown><textarea data-template>
+## Monday, October 8th
+- This was UVa's fall break, so no classes
+</textarea></section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section data-markdown><textarea data-template>
+## Lecture 17: Friday, October 5th
+- I was out of town, so we did not have class today
+</textarea></section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Incoming Calls</h2>
+    <img class="stretch" src="https://imgs.xkcd.com/comics/incoming_calls.png" title="I wonder if that friendly lady ever fixed the problem she was having with her headset." alt="Incoming Calls" srcset="https://imgs.xkcd.com/comics/incoming_calls_2x.png 2x">
+    <p class="center"><a href="http://xkcd.com/2053/">xkcd # 2053</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Lecture 16: Wed, October 3rd
+- How was [the exam](../../exams/exam1-f18.pdf)?
+- "Final" enrollment of 82/100
+  - I'm still pondering how to deal with quiz 1 for late enrollers...
+- Grades for HWs [1](../../hws/hw-paranoia.html) and [2](../../hws/hw-policy.html) returned -- sorry for the delay!
+  - Regrades open for 10 days
+- We hope to have the exams graded by the end of fall break
+- My office hours are M/W 1:00-2:30
+  - But I will not have mine today
+  - And neither of us will have them next Monday
+  - Helen (the ugrad TA) has hers from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - [Homework 5: Movie Night](../../hws/hw-movie-night.html) now due Sunday, 10/7
+  - Reading due Monday, 10/8: Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf)
+  - Homework 6 will be due Thursday, October 11th, and will be out later this week
+- Upcoming schedule: see next slide
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will start on [viruses](../../slides/viruses.html#/)
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+## No class on Friday!
+- I'm out of town...
+- Sorry!  :-(
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Upcoming schedule
+- ~~Thu, Sep 20: [HW 3: Ethics](../../hws/hw-ethics.html) due~~
+- ~~Thu, Sep 27: [HW 4: RSA](../../hws/hw-rsa.html) due~~
+- ~~Mon, Oct 1: first midterm, in lecture~~
+- Wed, Oct 3: we'll start the third module (binary exploitation) in lecture, as the encryption module should be finished by then
+- Fri, Oct 5: I'll be out of town; no class that day
+- Sun, Oct 7: [HW 5: Movie Night](../../hws/hw-movie-night.html) due
+- Mon, Oct 8: UVa reading days, so no class or office hours
+- Thu, Oct 11: HW 6 will be due
+  </textarea></section>
+  
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section data-markdown><textarea data-template>
+## Lecture 15: Monday, October 1st
+- Today was [midterm 1](../../exams/exam1-f18.pdf), so there were no announcements today
+</textarea></section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class="xkcd">Bad Opinions</h2>
+<img class="stretch" src="https://imgs.xkcd.com/comics/bad_opinions.png" title="I thought of another bad opinion! I couldn&#39;t find anyone who expressed it specifically, but still, the fact that I can so easily imagine it is infuriating! I&#39;m gonna tell everyone about it!" alt="Bad Opinions" srcset="https://imgs.xkcd.com/comics/bad_opinions_2x.png 2x">
+<p class="center"><a href="http://xkcd.com/2051/">xkcd # 2051</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Lecture 14: Friday, September 28th
+- "Final" enrollment of 82/100
+  - I'm still pondering how to deal with quiz 1 for late enrollers...
+- My office hours are M/W 1:00-2:30
+  - TA office are 10:00-noon in Olsson 018
+- How did [Homework 4: RSA](../../hws/hw-rsa.html) go?
+- Stuff that is due:
+  - [Homework 5: Movie Night](../../hws/hw-movie-night.html) now due Sunday, 10/7
+  - Reading due Monday, 10/8: Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf)
+  - Homework 6 will be due Thursday, October 11th
+- About my posting of the lecture recordings...
+- Upcoming schedule: see next slide
+- Grading
+  - HWs [1](../../hws/hw-paranoia.html) and [2](../../hws/hw-policy.html) are graded and will be returned shortly
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will continue with [encryption](../../slides/encryption.html#/)
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Upcoming schedule
+- ~~Thu, Sep 20: [HW 3: Ethics](../../hws/hw-ethics.html) due~~
+- ~~Thu, Sep 27: [HW 4: RSA](../../hws/hw-rsa.html) due~~
+- Mon, Oct 1: first midterm, in lecture
+  - It will focus on the two modules covered so far: ethics & policy and encryption (plus the one or two intro slide sets)
+- Wed, Oct 3: we'll start the third module (binary exploitation) in lecture, as the encryption module should be finished by then
+- Fri, Oct 5: I'll be out of town; no class that day
+- Fri, Oct 5: [HW 5: Movie Night](../../hws/hw-movie-night.html) due
+- Mon, Oct 8: UVa reading days, so no class
+- Thu, Oct 11: HW 6 will be due
+  </textarea></section>
+
+  <section data-markdown id="metactf"><textarea data-template>
+## Meta CTF
+- A Capture the Flag (CTF) Competition that will involve technical skills such as reconnaissance, cryptography, binary and web exploitation, reverse engineering, and forensics, as well as legal and business skills such as risk management and incident response.
+  - No experience necessary - meant to be a learning competition.
+- When: October 20th
+- Where: UVA Inn at Darden Conference and Event Center
+  - Free garage parking and Northline bus stop right out front
+- Who: high school, college, and grad students
+  - From any school, so invite your friends
+- Participants will compete in teams of 4
+  - If you don't have a team, we will match participants into teams of four at the competition
+  - Registration is free and includes breakfast, lunch, and a t-shirt.
+- To register, make an account with MetaCTF and then register for the MetaCTF UVA event (https://metactf.com/uva)
+  </textarea></section>
+  
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class="xkcd">6/6 Time</h2>
+<img class="stretch" src="https://imgs.xkcd.com/comics/6_6_time.png" title="You know how Einstein figured out that the speed of light was constant, and everything else had to change for consistency? My theory is like his, except not smart or good." alt="6/6 Time" srcset="https://imgs.xkcd.com/comics/6_6_time_2x.png 2x"></a>
+<p class="center"><a href="http://xkcd.com/2050/">xkcd # 2050</a></p>
+  </section>
+
+<section data-markdown><textarea data-template>
+## Lecture 13: Wednesday, September 26th
+- "Final" enrollment of 82/100
+  - I'm still pondering how to deal with quiz 1 for late enrollers...
+- My office hours are M/W 1:00-2:30
+  - TA office are 10:00-noon in Olsson 018
+- Stuff that is due:
+  - [Homework 4: RSA](../../hws/hw-rsa.html) due Thursday 9/27
+    - You should not be modifying your ASCII codes!
+  - [Homework 5: Movie Night](../../hws/hw-movie-night.html) now due Sunday, 10/7
+  - Reading due Monday, 10/8: Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf)
+  - Homework 6 will be due Thursday, October 11th
+- About my posting of the lecture recordings...
+- Upcoming schedule: see next slide
+- Grading
+  - HWs [1](../../hws/hw-paranoia.html) and [2](../../hws/hw-policy.html) are being graded, and should be back "soon"
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will continue with [encryption](../../slides/encryption.html#/)
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Upcoming schedule
+- ~~Thu, Sep 20: [HW 3: Ethics](../../hws/hw-ethics.html) due~~
+- Thu, Sep 27: [HW 4: RSA](../../hws/hw-rsa.html) due
+- Mon, Oct 1: first midterm, in lecture
+  - It will focus on the two modules covered so far: ethics & policy and encryption (plus the one or two intro slide sets)
+- Wed, Oct 3: we'll start the third module (binary exploitation) in lecture, as the encryption module should be finished by then
+- Fri, Oct 5: I'll be out of town; no class that day
+- Fri, Oct 5: [HW 5: Movie Night](../../hws/hw-movie-night.html) due
+- Mon, Oct 8: UVa reading days, so no class
+- Thu, Oct 11: HW 6 will be due
+  </textarea></section>
+  
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+    <h2 class="xkcd">Curve-Fitting</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/curve_fitting.png" title="Cauchy-Lorentz: &quot;Something alarmingly mathematical is happening, and you should probably pause to Google my name and check what field I originally worked in.&quot;" alt="Curve-Fitting" srcset="http://imgs.xkcd.com/comics/curve_fitting_2x.png 2x">
+<p class="center"><a href="http://xkcd.com/2048/">xkcd # 2048</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 12: Monday, September 24th
+- "Final" enrollment of 82/100
+  - I'm still pondering how to deal with quiz 1 for late enrollers...
+- My office hours are M/W 1:00-2:30
+  - TA office are 10:00-noon in Olsson 018
+- Stuff that is due:
+  - [Homework 4: RSA](../../hws/hw-rsa.html) due Thursday 9/27
+  - [Homework 5: Movie Night](../../hws/hw-movie-night.html) due Friday, 10/5
+  - Reading due Monday, 10/8: Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf)
+- Upcoming schedule: see next slide
+- Grading
+  - HWs [1](../../hws/hw-paranoia.html) and [2](../../hws/hw-policy.html) are being graded, and should be back "soon"
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will continue with [encryption](../../slides/encryption.html#/)
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Upcoming schedule
+- ~~Thu, Sep 20: [HW 3: Ethics](../../hws/hw-ethics.html) due~~
+- Thu, Sep 27: [HW 4: RSA](../../hws/hw-rsa.html) due
+- Mon, Oct 1: first midterm, in lecture
+  - It will focus on the two modules covered so far: ethics & policy and encryption (plus the one or two intro slide sets)
+- Wed, Oct 3: we'll start the third module (binary exploitation) in lecture, as the encryption module should be finished by then
+- Fri, Oct 5: I'll be out of town; likely no class that day
+- Fri, Oct 5: [HW 5: Movie Night](../../hws/hw-movie-night.html) due
+- Mon, Oct 8: UVa reading days, so no class
+- Thu, Oct 11: HW 6 will be due
+  </textarea></section>
+  
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class="xkcd">Code Talkers</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/code_talkers.png" title="As far as I can tell, Navajo doesn&#39;t have a common word for &#39;zero&#39;.  do-neh-lini means &#39;neutral&#39;." alt="Code Talkers">
+<p class="center"><a href="http://xkcd.com/257/">xkcd # 257</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 11: Friday, September 21st
+- "Final" enrollment of 82/100
+  - I'm still pondering how to deal with quiz 1 for late enrollers...
+- My office hours are M/W 1:00-2:30
+  - TA office are 10:00-noon in Olsson 018
+- Stuff that is due:
+  - [Homework 4: RSA](../../hws/hw-rsa.html) due Thursday 9/27
+- Upcoming schedule: see next slide
+- Grading
+  - HWs [1](../../hws/hw-paranoia.html) and [2](../../hws/hw-policy.html) are being graded, and should be back "soon"
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will continue with [encryption](../../slides/encryption.html#/)
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Upcoming schedule
+- ~~Thu, Sep 20: [HW 3: Ethics](../../hws/hw-ethics.html) due~~
+- Thu, Sep 27: [HW 4: RSA](../../hws/hw-rsa.html) due
+  - That HW will be out in a few days...
+- Mon, Oct 1: first midterm, in lecture
+  - It will focus on the two modules covered so far: ethics & policy and encryption (plus the one or two intro slide sets)
+- Wed, Oct 3: we'll start the third module (binary exploitation) in lecture, as the encryption module should be finished by then
+- Fri, Oct 5: I'll be out of town; not sure what will happen to class that day
+- Mon, Oct 8: UVa reading days, so no class
+- Thu, Oct 11: HW 5 will be due
+  </textarea></section>
+  
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class="xkcd">Beverages</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/beverages.png" title="If I wait a while, it&#39;s not so bad, because then it&#39;s just shaped like me, plus some pipes and tanks and probably eventually all of Earth&#39;s oceans." alt="Beverages" srcset="http://imgs.xkcd.com/comics/beverages_2x.png 2x">
+<p class="center"><a href="http://xkcd.com/2047/">xkcd # 2047</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## International Talk Like A Pirate Day!!!
+
+- "Final" enrollment o' 82/100
+  - I be still ponderin' how t' deal wit' quiz 1 fer late enrollers...
+- Me cabin hours are M/W 1:00-2:30
+  - TA cabin hours began today: from 10:00-noon in Olsson 018
+- Stuff that be due:
+  - Homework 3 due Thursday 9/20: [HW 3: Ethics](../../hws/hw-ethics.html)
+    - Did ye all read th' 'submission' part o' [HW 3](../../hws/hw-ethics.html)??
+- Upcomin' schedule: see next slide
+- Gradin'
+  - HWs [1](../../hws/hw-paranoia.html) 'n [2](../../hws/hw-policy.html) are bein' graded, 'n best be back "soon"
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)! 'tis through Collab
+- Today we shall continue wit' [encryption](../../slides/encryption.html#/), which will loot us into next week
+
+
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Upcoming schedule
+- Thu, Sep 20: [HW 3: Ethics](../../hws/hw-ethics.html) due
+- Thu, Sep 27: HW 4, on encryption (RSA), will be due
+  - That HW will be out in a few days...
+- Mon, Oct 1: first midterm, in lecture
+  - It will focus on the two modules covered so far: ethics & policy and encryption (plus the one or two intro slide sets)
+- Wed, Oct 3: we'll start the third module (unclear which one) in lecture, as the encryption module should be finished by then
+- Fri, Oct 5: I'll be out of town; not sure what will happen to class that day
+- Mon, Oct 8: UVa reading days, so no class
+- Thu, Oct 11: HW 5 will be due
+  </textarea></section>
+  
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class="xkcd">Trum-</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/trum.png" title="Excited to vote for future presidents Bill Eisenhamper, Amy Forb, Ethan Obample, and Abigail Washingtoast." alt="Trum-" srcset="http://imgs.xkcd.com/comics/trum_2x.png 2x">
+<p class="center"><a href="http://xkcd.com/2046/">xkcd # 2046</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 9: Monday, September 17th
+- "Final" enrollment of 82/100
+  - I'm still pondering how to deal with quiz 1 for late enrollers...
+- My office hours are M/W 1:00-2:30
+  - TA office hours began today: from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - Homework 3 due Thursday 9/20: [HW 3: Ethics](../../hws/hw-ethics.html)
+    - Did you all read the 'submission' part of [HW 3](../../hws/hw-ethics.html)?
+- Upcoming schedule: see next slide
+- Grading
+  - HWs [1](../../hws/hw-paranoia.html) and [2](../../hws/hw-policy.html) are being graded, and should be back "soon"
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will finish with [ethics](../../slides/ethics.html#/) and start on [encryption](../../slides/encryption.html#/)
+  - We have complted the policy & ethics module, and are starting the cryptography module
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Upcoming schedule
+- Thu, Sep 20: [HW 3: Ethics](../../hws/hw-ethics.html) due
+- Thu, Sep 27: HW 4, on encryption (RSA), will be due
+  - That HW will be out in a few days...
+- Mon, Oct 1: first midterm, in lecture
+  - It will focus on the two modules covered so far: ethics & policy and encryption (plus the one or two intro slide sets)
+- Wed, Oct 3: we'll start the third module (unclear which one) in lecture, as the encryption module should be finished by then
+- Fri, Oct 5: I'll be out of town; not sure what will happen to class that day
+- Mon, Oct 8: UVa reading days, so no class
+- Thu, Oct 11: HW 5 will be due
+  </textarea></section>
+  
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class="xkcd">Social Media Announcement</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/social_media_announcement.png" title="Why I&#39;m Moving Most of My Social Activity to Slack, Then Creating a Second Slack to Avoid the People in the First One, Then Giving Up on Social Interaction Completely, Then Going Back to Texting" alt="Social Media Announcement" srcset="http://imgs.xkcd.com/comics/social_media_announcement_2x.png 2x"/>
+<p class="center"><a href="http://xkcd.com/2045/">xkcd # 2045</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 8: Friday, September 14th
+- "Final" enrollment of 82/100
+  - I'm pondering how to deal with quiz 1 for late enrollers...
+- My office hours are M/W 1:00-2:30
+  - TA office hours will begin next Monday: from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - Homework 3 due Thursday 9/20: [HW 3: Ethics](../../hws/hw-ethics.html)
+- Did you all read the 'submission' part of [HW 2](../../hws/hw-policy.html)?
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will continue with the [Cybersecurity ethics slide set](../../slides/ethics.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class="xkcd">Boathouses and Houseboats</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/boathouses_and_houseboats.png" title="The &lt;x&gt; that is held by &lt;y&gt; is also a &lt;y&gt;&lt;x&gt;, so if you go to a food truck, the stuff you buy is truck food. A phone that&#39;s in your car is a carphone, and a car equipped with a phone is a phonecar. When you play a mobile racing game, you&#39;re in your phonecar using your carphone to drive a different phonecar. I&#39;m still not sure about bananaphones." alt="Boathouses and Houseboats" srcset="http://imgs.xkcd.com/comics/boathouses_and_houseboats_2x.png 2x"/>
+<p class="center"><a href="http://xkcd.com/2043/">xkcd # 2043</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 7: Wednesday, September 12th
+- "Final" enrollment of 84/100
+  - I'm pondering how to deal with quiz 1 for late enrollers...
+- My office hours are M/W 1:00-2:30
+  - TA office hours will begin next Monday: from 10:00-noon in Olsson 018
+- Stuff that is due:
+  - Reading now due this Fri (9/14): [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf)
+    - You can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages.
+  - Homework 2 due Thursday 9/13: [HW 2: Cybersecurity Policy](../../hws/hw-policy.html)
+  - Homework 3 due Thursday 9/20: [HW 3: Ethics](../../hws/hw-ethics.html)
+- An [addendum to the policy slide set](../../slides/policy.html#/ettueu) that is happening today (Wed, 9/12)
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will start on the [Cybersecurity ethics slide set](../../slides/ethics.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class="xkcd">Sandboxing Cycle</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/sandboxing_cycle.png" title="All I want is a secure system where it&#39;s easy to do anything I want. Is that so much to ask?" alt="Sandboxing Cycle" srcset="http://imgs.xkcd.com/comics/sandboxing_cycle_2x.png 2x"/>
+<p class="center"><a href="http://xkcd.com/2044/">xkcd # 2044</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 6: Monday, September 10th
+- Enrollment: 81/100 enrolled as of last night
+  - I'm pondering how to deal with quiz 1 for late enrollers...
+- My office hours are M/W 1:00-2:30
+  - TA office hours will begin Wednesday
+    - We are waiting on a room...
+- Stuff that is due:
+  - Reading due this Wed (9/12): [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf)
+    - You can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages.
+	- Do we want it due on Friday?
+  - Homework 2 due Thursday 9/13: [HW 2: Cybersecurity Policy](../../hws/hw-policy.html)
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will continue with [US cybersecurity policy slide set](../../slides/policy.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class="xkcd">Rolle's Theorem</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/rolles_theorem.png" title="I mean, if it&#39;s that easy to get a theorem named for you ... &quot;a straight line that passes through the center of a coplanar circle always divides the circle into two equal halves.&quot; Can I have that one? Wait, can I auction off the naming rights? It can be the Red Bull Theorem or the Quicken Loans Theorem, depending who wants it more." alt="Rolle&#39;s Theorem" srcset="http://imgs.xkcd.com/comics/rolles_theorem_2x.png 2x">
+<p class="center"><a href="http://xkcd.com/2042/">xkcd # 2042</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 5: Friday, September 7th
+- Enrollment: 85/100 enrolled as of last night
+  - I can now let non-majors into the course
+- My office hours are M/W 1:00-2:30
+  - TA office hours will begin next week
+- Stuff that is due:
+  - Reading due next Wed (9/12): [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf)
+    - You can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages.
+  - How did Homework 1 go?
+  - Homework 2 due Thursday 9/13: [HW 2: Cybersecurity Policy](../../hws/hw-policy.html)
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will continue with [US cybersecurity policy slide set](../../slides/policy.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class="xkcd">Frontiers</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/frontiers.png" title="Star Trek V is a small part of the space frontier, but it&#39;s been a while since that movie came out so I assume we&#39;ve finished exploring it by now." alt="Frontiers" srcset="http://imgs.xkcd.com/comics/frontiers_2x.png 2x">
+<p class="center"><a href="http://xkcd.com/2041/">xkcd # 2041</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 4: Wednesday, September 5th
+- New room!  THN E303 has capacity for 100 students, 20 more than Olsson 005
+  - That means the course cap has now increased to 100; enrollment was 90 as of last night
+- My office hours are M/W 1:00-2:30
+  - But not today, as I have a conflict
+  - TA office hours will begin next week
+- Stuff that is due:
+  - Reading due next Wed (9/12): [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf)
+    - You can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages.
+  - Homework 1 due Thursday 9/6: [HW 1: Rational Paranoia](../../hws/hw-paranoia.html)
+  - Homework 2 due Thursday 9/13: [HW 2: Cybersecurity Policy](../../hws/hw-policy.html)
+- The submission system (including support tickets) is now open
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will finish the [the security mindset slide set](../../slides/security-mindset.html#/) and start on the [US cybersecurity policy slide set](../../slides/policy.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class="xkcd">Sibling-in-Law</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/sibling_in_law.png" title="FYI, it turns out &quot;...because I haven&#39;t figured out whether he would be my brother-in-law or not&quot; does NOT qualify as a &quot;reason why these two should not be wed.&quot;" alt="Sibling-in-Law" srcset="http://imgs.xkcd.com/comics/sibling_in_law_2x.png 2x">
+<p class="center"><a href="http://xkcd.com/2040/">xkcd # 2040</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 3: Monday, September 3rd
+- New room!  THN E303 has capacity for 100 students, 20 more than Olsson 005
+  - But this room feels like an airplane...
+  - That means the course cap will shortly be set to 100
+- My office hours are M/W 1:00-2:30
+  - TA office hours will begin later this week or next week
+- Stuff that is due:
+  - Readings due today: [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), and [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+  - Homework due Thursday: [HW 1: Rational Paranoia](../../hws/hw-paranoia.html)
+    - You will likely want to wait until the [security mindset slide set](../../slides/security-mindset.html#/) has been gone over in lecture
+- We are going to do encryption next, instead of ethics & policy
+  - The reason is for the upcoming homeworks...
+- The submission system (including support tickets) is now open
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will start the [the security mindset slide set](../../slides/security-mindset.html#/) slide set
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class="xkcd">Begging the Question</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/begging_the_question.png" title="At least we can all agree on the enormity of this usage." alt="Begging the Question" srcset="//imgs.xkcd.com/comics/begging_the_question_2x.png 2x">
+<p class="center"><a href="http://xkcd.com/2040/">xkcd # 2040</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 2: Friday, August 31st
+- New room!  THN E303 has capacity for 100 students, 20 more than Olsson 005
+  - But this room feels like an airplane...
+  - That means the course cap will shortly be set to 100
+- Stuff that is due:
+  - Readings due Monday: [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), and [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+  - Homework due Thursday: [HW 1: Rational Paranoia](../../hws/hw-paranoia.html)
+    - You will likely want to wait until the [security mindset slide set](../../slides/security-mindset.html#/) has been gone over in lecture
+- The submission system (including support tickets) will open up this weekend
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58)!  It's through Collab
+- Today we will likely finish the [terminology](../../slides/terminology.html#/) slide set and start on [the security mindset slide set](../../slides/security-mindset.html#/)
+  </textarea></section>
+
+</section>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+      </div>
+
+    </div>
+
+    <script src="../../slides/reveal.js/lib/js/head.min.js"></script>
+    <script src="../../slides/reveal.js/js/reveal.js"></script>
+    <!-- You cannot, apparently, include this from another directory, hence why settings.js is reproduced here in full -->
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controlsTutorial: false,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      slideNumber: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: '../../slides/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: '../../slides/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '../../slides/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '../../slides/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: '../../slides/reveal.js/plugin/zoom-js/zoom.js', async: true },
+      { src: '../../slides/reveal.js/plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+
+  </body>
+</html>

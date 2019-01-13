@@ -59,7 +59,7 @@ either.  We were all college students once, and we know all those
 tricks too...
 
 
-## Essays
+### Essays
 
 Some written assignments will be essays.  These will have a
 ***strict*** word limit, such as 500 words.  Each assignment will

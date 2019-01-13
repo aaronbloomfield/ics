@@ -1,21 +1,21 @@
 CS 3501: Introduction to Cybersecurity
 ======================================
 
-[Go up to the ICS UVa page](index.html) ([md](index.md))
+[Go up to the CS 3501 page][1] ([md][2])
 
-## Spring 2019
+## Fall 2018
 
 ### Course Staff ###
 
-- [Aaron Bloomfield][3] / [aaron@virginia.edu][4].  Office: Rice Hall, room 403.  Office hours are M/W 1:00-2:30 (but start the second week of classes)
+- [Aaron Bloomfield][3] / [aaron@virginia.edu][4].  Office: Rice Hall, room 403.  Office hours are M/W 1:00-2:30
 - Multiple TAs, both graduate and undergraduate
 
 ### Course Info ###
 
-- Lecture: M/W/F 12:00-12:50, Olsson Hall, room 120
+- Lecture: M/W/F 12:00-12:50, Olsson Hall, room 005
 - Email: none; fill out a [support request][6] instead
 - Announcements will be done through the [daily announcements slide set](daily-announcements.html#/)
-- TAs and their office hours will be posted on the Collab course main page; all office hours start the second week of classes
+- TAs and their office hours will be posted on the Collab course main page; all office hours start the Monday after classes start
 
 **Reading:** Due to the rapidly changing nature of this topic, there is no assigned textbook -- the best textbook on the topic is already 5-10 years out of date. Readings will consist of handouts, online materials, and articles (both media and scholarly). Much of the background for this course depends on completing the readings. Thus, occasional pop quizzes will happen to ensure that everybody is doing the reading (and to ensure that people are showing up to class!).
 
@@ -35,10 +35,10 @@ CS 3501: Introduction to Cybersecurity
 
 **Grades:** Grades will be calculated by the following formula:
 
-- Programming and written assignments (45%)
+- Programming and written assignments (35%)
 - Two midterms (15% each)
-- Final exam (20%)
-- Class participation, pop quizzes (5%)
+- Final exam (25%)
+- Class participation, pop quizzes (10%)
 
 I expect that grades will follow the standard decade curve: 90 and above is an A of some sort (A-, A, or A+), 80 and above is some sort of a B, etc.  **Note:** I reserve the right to modify the weighting (changing the curve, adding pop quizzes, etc.), especially if attendance drops off significantly.  If this does happen, it will be clearly announced in lecture (and on the [daily announcements slide set](daily-announcements.html#/)).
 
@@ -52,9 +52,9 @@ I expect that grades will follow the standard decade curve: 90 and above is an A
 
 **Exams:** There will be two midterm exams (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date.
 
-- Midterm Exam 1: Friday, March 1st, during lecture
-- Midterm Exam 2: Friday, March 29th, during lecture
-- Final Exam: Friday, May 3rd, from 2pm to 5pm
+- Midterm Exam 1: Monday, October 1st, during lecture
+- Midterm Exam 2: Monday, November 5th, during lecture
+- Final Exam: Friday, December 14th, from 2 pm to 5 pm
 
 Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  Since there are no other exams scheduled during that time, it is unlikely that you will have a conflict.
 
@@ -83,13 +83,36 @@ If you or someone you know is struggling with gender, sexual, or domestic violen
 
 **Topic coverage:** This course will be split into six different topic areas, which are meant to be a introduction to a follow-on course that is available (or will soon be available) to take.  Each topic area is expected to take 2 weeks to cover, and will have two homeworks.  The topic areas are listed below.  Note that the content and the order they are covered may change as the semester progresses.
 
-- Introduction (3.5 lectures); topics: course introduction and motivation, terminology, security mindset
-- Ethics & Policy (5 lectures); topics: ethics, policy
-- Encryption (5.5 lectures); topics: encryption, hashes
-- Binary manipulation (6 lectures); topics: viruses, buffer overflows, binary exploits
-- Networks (6 lectures); topics: networks, web security
-- Modern topics (9 lectures); topics: SQL/XSS/CSRF, anonymity, cryptocurrency, stuxnet, rootkits, VMs
-- Digital forensics (3 lectures); topics: forensics
+- Introduction (2 lectures)
+    - Course introduction and motivation
+    - Terminology
+	- The Security Mindset
+- Ethics & Policy topic area (follow-on course: STS 25xx/35xx by Tolu Odumosu) (6 lectures)
+    - Cybersecurity ethics, which will largely follow [this module](https://www.scu.edu/ethics/focus-areas/technology-ethics/resources/an-introduction-to-cybersecurity-ethics/)
+    - Cybersecurity policy: mostly US-based, but international policy as well
+- Encryption (follow-on course: CS 4501, Topics on Cryptography, and similar courses) (6 lectures)
+    - Encryption, hashes, and randomness
+    - Case studies
+- *Midterm 1: Monday, October 1st, in lecture*
+- Binary manipulation (follow-on course: CS 4630, Defense Against the Dark Arts) (6 lectures)
+    - Virtual machines
+    - Viruses and binary-modification malware
+    - Buffer overflows and other exploits
+    - Root kits
+- Network security (follow-on course: CS 4760, Network Security) (6 lectures)
+    - Networking overview: TCP/IP, Wifi
+    - Security mechanisms: firewalls, encryption of existing TCP/IP stack, etc.
+    - Malware: worms, password cracking, etc.
+- *Midterm 2: Wednesday, October 31st, in lecture*
+- Digital forensics (no follow-on course just yet, but one is being planned) (6 lectures)
+    - Topics to be announced
+- Modern threats (6 lectures)
+    - SQL & XSS
+    - Modern malware such as Stuxnet, NotPetya, etc.
+    - CVEs and their exploits
+    - Case studies from the NSA, CIA, and others including: Snowden, NSA tools breach, etc.
+- Course conclusion (1 lecture)
+- *Final exam: Friday, December 14th, from 2 pm to 5 pm*
 
 
 [1]: ../readme.html
@@ -99,5 +122,5 @@ If you or someone you know is struggling with gender, sexual, or domestic violen
 [5]: https://libra.cs.virginia.edu/~pedagogy/
 [6]: https://libra.cs.virginia.edu/~pedagogy/support.php
 [7]: http://twitter.com/UVaCS3501
-[8]: https://collab.its.virginia.edu/portal/site/bbcd086f-9d6d-405b-81e0-339d9cc53a08/tool/1453de85-6853-45de-9972-615ade259377/main
+[8]: https://collab.its.virginia.edu/portal/site/2461b270-0d49-4478-adb0-7dbaa77074e8/tool-reset/4e78ec1e-13b4-4b23-b479-9d1ceb0c6f58
 [9]: https://www.virtualbox.org/

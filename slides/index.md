@@ -7,11 +7,11 @@ You may want to see the [daily announcements slide set](../uva/daily-announcemen
 
 Slide sets, ordered in the order presented in lecture:
 
-- Introduction (2 lectures)
+- Introduction
     - [Course Introduction](introduction.html#/)
     - [Terminology](terminology.html#/)
     - [The Security Mindset](security-mindset.html#/)
-- Ethics & Policy (6.5 lectures)
+- Ethics & Policy
     - [US Cybersecurity Policy](policy.html#/)
     - [Ethics](ethics.html#/)
 - Crytpography
@@ -28,9 +28,8 @@ Slide sets, ordered in the order presented in lecture:
 	- [Anonymity](anonymity.html#/)
 	- [Crytocurrency](cryptocurrency.html#/)
 	- [Stuxnet](stuxnet.html#/)
-- Digital Forensics
-	- [Digital Forensics](forensics.html#/)
-- Miscellaneous Topics
     - [Rootkits](rootkits.html#/)
 	- [Virtual Machines](vms.html#/)
+- Digital Forensics
+	- [Digital Forensics](forensics.html#/)
 - [Course Reflection](reflection.html#/)
