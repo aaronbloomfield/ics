@@ -33,6 +33,10 @@ Readings
 
 All scholarly articles (such as from the ACM digital library) can be obtained from free from any UVa wireless network.  Some of htem you will *NOT* be able to get it for free from your home Internet provider such as Comcast (unless you live in a UVa dorm, of course).  All readings are due by the lecture that day.
 
+- Due Friday, January 25th:
+	- [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
+    - [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210)
+	- [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
 
 
 Homeworks
@@ -47,7 +51,7 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
-- Mon, Jan 14: [course introduction](../slides/introduction.html#/), though ...
+- Mon, Jan 14: [course introduction](../slides/introduction.html#/), the entire slide set
 
 
 

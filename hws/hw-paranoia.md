@@ -23,7 +23,10 @@ questions:
 Answer each of the above in the form of a bulleted list, with brief
 justifications or explanations as necessary. State any critical
 assumptions you decide to make. Your grade will be based on the
-thoroughness, realism, and thoughtfulness of your analysis.
+thoroughness, realism, and thoughtfulness of your analysis.  We are
+more interested in quality than quantity.  But if you want a length
+estimate, then one or two sentences for each "brief_explanation", below, is
+reasonable.
 
 Pick two of the following scenarios. (If you answer more, we'll
 ignore the last one(s))
