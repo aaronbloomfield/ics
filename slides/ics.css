@@ -198,6 +198,13 @@ p.blankline { height:1em; }
     margin-left:20px !important;
 }
 
+.right-float-img-500 img {
+    float:right;
+    max-width:500px;
+    max-height:250px;
+    margin-left:20px !important;
+}
+
 .left-float-img-800 img {
     float:left;
     max-width:800px;

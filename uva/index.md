@@ -25,7 +25,6 @@ The parts of this course that are in this repo are:
 - [Daily announcements](daily-announcements.html#/)
 - [Homework policies page](hw-policies.html) ([md](hw-policies.md))
 - [Course grades](grades.html) ([md](grades.md))
-- [Old course material](old/index.html) ([md](old/index.md))
 
 
 Readings
