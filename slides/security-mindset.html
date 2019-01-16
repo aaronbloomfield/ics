@@ -49,6 +49,7 @@
 &nbsp;  
 [Motivation](#/motivation)  
 [Security overview](#/overview)  
+[How to pick a lock](#/lock)  
 [Case Study: C'ville's Unite the Right rally](#/casestudies)  
   </textarea>
 </section>
@@ -96,7 +97,7 @@ from [Wikipedia](https://en.wikipedia.org/wiki/Security)
 - Consider the 128 bit MD5 hash
   - One can brute force it!
   - There are $2^{128}=3.4*10^{38}$ possible hashes
-  - So the chance of somebody guessing it is $100-\frac{1}{3.4*10^{38}}$ = 99.999999....% (a total of 42 9's)
+  - So the chance of somebody guessing it is $100-\frac{1}{2^{128}}$ = 99.999999....% (a total of 42 9's)
 - That seems secure until you use a fast computer to brute force it in an hour or so...
   - (there are mathematical weaknesses in MD5 that allow one to crack it in a minute or less)
 
@@ -104,7 +105,7 @@ from [Wikipedia](https://en.wikipedia.org/wiki/Security)
 
 ## Consider (only) 1024 bit RSA
 - There are approximately $1.88*10^{302}$ possible primes to brute force
-  - And there are only an estimated $10^{80}$ particles in the universe
+  - And there are only an estimated [$10^{80}$ particles in the known universe](https://en.wikipedia.org/wiki/Elementary_particle#Common_elementary_particles)
 - Let's assume that each particle could compute one prime each millisecond
   - That would take you $5.95*10^{211}$ years
   - And the universe is only about $13.75*10^{9}$ years old...
@@ -272,6 +273,96 @@ from [Wikipedia](https://en.wikipedia.org/wiki/Security)
 
 </section>
 	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="lock" class="center">
+  <textarea data-template>
+# How to pick a lock
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
+## A pin tumbler lock
+![](images/security-mindset/Pin_tumbler_no_key.svg)
+
+
+
+<!-- .slide: class="right-float-img-600" -->
+## A pin tumbler lock
+![](images/security-mindset/Pin_tumbler_no_key.svg)
+- The purple & red rods are<br>the metal *pins*
+  - Purple are the *driver pins*,<br>red are the *key pins*
+- The 'breaks' between them<br>must all align with the top<br>of the *plug* (yellow in the<br>diagram) to allow it to rotate<br>in the 
+  - This opens the lock
+
+
+
+## With a wrong key
+![](images/security-mindset/Pin_tumbler_bad_key.svg)
+Note that the plug can not rotate in the cylinder
+
+
+
+## With the right key
+![](images/security-mindset/Pin_tumbler_with_key.svg)
+Note that the 'breaks' between the pins are lined up
+
+
+
+## Unlocked lock
+![](images/security-mindset/Pin_tumbler_unlocked.svg)
+
+
+
+## How to pick a lock
+- First, get a set of lockpicks ($15 for a decent pair on Amazon)
+- And maybe some [practice locks](https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=transparent+lock) which run as low as $9 on Amazon
+
+
+
+## How to pick a lock
+<iframe width="720" height="540" src="http://www.youtube.com/embed/Mz5IOFK38nU?rel=0" frameborder="0" allowfullscreen></iframe>
+
+
+
+## Pop Quiz
+- Now that you know how easy it is to pick a cylinder lock, are you:
+  1. Less comfortable with the security of cylinder locks?
+  2. Equally as comfortable?
+  3. More comfortable?
+
+
+
+## Locks are no longer secure!
+- What are we ever going to do?
+- Keep in mind that no security is full-proof
+  - Not even RSA
+- Many lock companies provide higher quality locks for a higher price
+  - They are much harder to pick, but not impossible
+
+
+
+## How to break into this house?
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/California_Bungalow.jpg/1280px-California_Bungalow.jpg)
+
+
+
+## Locks and security
+- A lock doesn't have to be full proof
+  - But it does have to be difficult enough that one will try another avenue
+    - Means of entry, another house, etc.
+- Security is determined by the *weakest link*
+  - Such as the window in the picture on the last slide
+  </textarea>
+</section>
+
+</section>
+
+
+
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 <section>
