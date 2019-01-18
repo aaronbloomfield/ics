@@ -50,6 +50,7 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Fri, Jan 18: [security mindset](../slides/security-mindset.html#/) though the end of the lockpicking slides
 - Wed, Jan 16: [terminology](../slides/terminology.html#/), the entire slide set
 - Mon, Jan 14: [course introduction](../slides/introduction.html#/), the entire slide set
 
