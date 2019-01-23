@@ -50,6 +50,8 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Wed, Jan 23: the rest of [security mindset](../slides/security-mindset.html#/), [policy](../slides/policy.html#/) through the first 9 challenges (did not really get through challenge #9 fully)
+- Mon, Jan 21: MLK day, so no classes
 - Fri, Jan 18: [security mindset](../slides/security-mindset.html#/) though the end of the lockpicking slides
 - Wed, Jan 16: [terminology](../slides/terminology.html#/), the entire slide set
 - Mon, Jan 14: [course introduction](../slides/introduction.html#/), the entire slide set
