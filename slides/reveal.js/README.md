@@ -8,6 +8,10 @@ reveal.js comes with a broad range of features including [nested slides](https:/
 ## Table of contents
 
 - [Online Editor](#online-editor)
+- [Installation](#installation)
+  - [Basic setup](#basic-setup)
+  - [Full setup](#full-setup)
+  - [Folder Structure](#folder-structure)
 - [Instructions](#instructions)
   - [Markup](#markup)
   - [Markdown](#markdown)
@@ -48,10 +52,6 @@ reveal.js comes with a broad range of features including [nested slides](https:/
   - [Client presentation](#client-presentation)
   - [Socket.io server](#socketio-server)
 - [MathJax](#mathjax)
-- [Installation](#installation)
-  - [Basic setup](#basic-setup)
-  - [Full setup](#full-setup)
-  - [Folder Structure](#folder-structure)
 - [License](#license)
 
 #### More reading
@@ -65,6 +65,56 @@ reveal.js comes with a broad range of features including [nested slides](https:/
 ## Online Editor
 
 Presentations are written using HTML or Markdown but there's also an online editor for those of you who prefer a graphical interface. Give it a try at [https://slides.com](https://slides.com?ref=github).
+
+
+## Installation
+
+The **basic setup** is for authoring presentations only. The **full setup** gives you access to all reveal.js features and plugins such as speaker notes as well as the development tasks needed to make changes to the source.
+
+### Basic setup
+
+The core of reveal.js is very easy to install. You'll simply need to download a copy of this repository and open the index.html file directly in your browser.
+
+1. Download the latest version of reveal.js from <https://github.com/hakimel/reveal.js/releases>
+2. Unzip and replace the example contents in index.html with your own
+3. Open index.html in a browser to view it
+
+### Full setup
+
+Some reveal.js features, like external Markdown and speaker notes, require that presentations run from a local web server. The following instructions will set up such a server as well as all of the development tasks needed to make edits to the reveal.js source code.
+
+1. Install [Node.js](http://nodejs.org/) (4.0.0 or later)
+
+1. Clone the reveal.js repository
+   ```sh
+   $ git clone https://github.com/hakimel/reveal.js.git
+   ```
+
+1. Navigate to the reveal.js folder
+   ```sh
+   $ cd reveal.js
+   ```
+
+1. Install dependencies
+   ```sh
+   $ npm install
+   ```
+
+1. Serve the presentation and monitor source files for changes
+   ```sh
+   $ npm start
+   ```
+
+1. Open <http://localhost:8000> to view your presentation
+
+   You can change the port by using `npm start -- --port=8001`.
+
+### Folder Structure
+
+- **css/** Core styles without which the project does not function
+- **js/** Like above but for JavaScript
+- **plugin/** Components that have been developed as extensions to reveal.js
+- **lib/** All other third party assets (JavaScript, CSS, fonts)
 
 
 ## Instructions
@@ -1049,7 +1099,7 @@ This will only display in the notes window.
 
 Notes are only visible to the speaker inside of the speaker view. If you wish to share your notes with others you can initialize reveal.js with the `showNotes` configuration value set to `true`. Notes will appear along the bottom of the presentations.
 
-When `showNotes` is enabled notes are also included when you [export to PDF](https://github.com/hakimel/reveal.js#pdf-export). By default, notes are printed in a semi-transparent box on top of the slide. If you'd rather print them on a separate page after the slide, set `showNotes: "separate-page"`.
+When `showNotes` is enabled notes are also included when you [export to PDF](https://github.com/hakimel/reveal.js#pdf-export). By default, notes are printed in a box on top of the slide. If you'd rather print them on a separate page, after the slide, set `showNotes: "separate-page"`.
 
 #### Speaker notes clock and timers
 
@@ -1251,56 +1301,12 @@ Reveal.initialize({
 
 Read MathJax's documentation if you need [HTTPS delivery](http://docs.mathjax.org/en/latest/start.html#secure-access-to-the-cdn) or serving of [specific versions](http://docs.mathjax.org/en/latest/configuration.html#loading-mathjax-from-the-cdn) for stability.
 
+#### MathJax in Markdown
+If you want to include math inside of a presentation written in Markdown you need to wrap the forumla in backticks. This prevents syntax conflicts between LaTeX and Markdown. For example:
 
-## Installation
-
-The **basic setup** is for authoring presentations only. The **full setup** gives you access to all reveal.js features and plugins such as speaker notes as well as the development tasks needed to make changes to the source.
-
-### Basic setup
-
-The core of reveal.js is very easy to install. You'll simply need to download a copy of this repository and open the index.html file directly in your browser.
-
-1. Download the latest version of reveal.js from <https://github.com/hakimel/reveal.js/releases>
-2. Unzip and replace the example contents in index.html with your own
-3. Open index.html in a browser to view it
-
-### Full setup
-
-Some reveal.js features, like external Markdown and speaker notes, require that presentations run from a local web server. The following instructions will set up such a server as well as all of the development tasks needed to make edits to the reveal.js source code.
-
-1. Install [Node.js](http://nodejs.org/) (4.0.0 or later)
-
-1. Clone the reveal.js repository
-   ```sh
-   $ git clone https://github.com/hakimel/reveal.js.git
-   ```
-
-1. Navigate to the reveal.js folder
-   ```sh
-   $ cd reveal.js
-   ```
-
-1. Install dependencies
-   ```sh
-   $ npm install
-   ```
-
-1. Serve the presentation and monitor source files for changes
-   ```sh
-   $ npm start
-   ```
-
-1. Open <http://localhost:8000> to view your presentation
-
-   You can change the port by using `npm start -- --port=8001`.
-
-### Folder Structure
-
-- **css/** Core styles without which the project does not function
-- **js/** Like above but for JavaScript
-- **plugin/** Components that have been developed as extensions to reveal.js
-- **lib/** All other third party assets (JavaScript, CSS, fonts)
-
+```
+`$$ J(\theta_0,\theta_1) = \sum_{i=0} $$`
+```
 
 ## License
 

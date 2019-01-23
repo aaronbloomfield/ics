@@ -32,11 +32,12 @@ but they need to be accessible to us for the grading) or explanation
 of how/why your proposal will have an effect.
 
 The essay must be 500 words or less.  That's about 1 page worth of
-content.  Note that any header information (name, title, date, class,
-etc.) do not count toward the word limit.  References, if you use any,
-also do not count against this limit.  ***If it is over 500 words,
-then we will not grade it and give you a zero!*** The
-[HW policies page](../uva/hw-policies.html)
+content.  We are more interested in quality rather than quantity, so
+we aren't going to grade it based on length.  Note that any header
+information (name, title, date, class, etc.) do not count toward the
+word limit.  References, if you use any, also do not count against
+this limit.  ***If it is over 500 words, then we will not grade it and
+give you a zero!*** The [HW policies page](../uva/hw-policies.html)
 ([md](../uva/hw-policies.md)) discusses this in a bit more detail.
 
 In addition to the viable assumptions from above, we are looking for a
