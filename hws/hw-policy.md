@@ -16,7 +16,7 @@ You will need to be familiar with the content of the
 
 For this assignment, you are to write a essay on the following topic:
 
-> What would suggest to do to improve US cybersecurity policy?
+> What would you suggest to do to improve US cybersecurity policy?
 
 You may make any assumptions that are viable.  Examples include
 actions that are taken by the president, a member of congress, etc.
