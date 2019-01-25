@@ -32,6 +32,9 @@ Readings
 
 All scholarly articles (such as from the ACM digital library) can be obtained from free from any UVa wireless network.  Some of htem you will *NOT* be able to get it for free from your home Internet provider such as Comcast (unless you live in a UVa dorm, of course).  All readings are due by the lecture that day.
 
+- Due Friday, February 1st:
+    - [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf)
+	    - You can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages.
 - Due Friday, January 25th:
 	- [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
     - [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210)
@@ -51,7 +54,8 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
-- Wed, Jan 23: the rest of [security mindset](../slides/security-mindset.html#/), [policy](../slides/policy.html#/) through the first 9 challenges (did not really get through challenge #9 fully)
+- Fri, Jan 25: [policy](../slides/policy.html#/) through the 1990's page in the History column
+- Wed, Jan 23: the rest of [security mindset](../slides/security-mindset.html#/); [policy](../slides/policy.html#/) through the first 9 challenges (did not really get through challenge #9 fully)
 - Mon, Jan 21: MLK day, so no classes
 - Fri, Jan 18: [security mindset](../slides/security-mindset.html#/) though the end of the lockpicking slides
 - Wed, Jan 16: [terminology](../slides/terminology.html#/), the entire slide set
