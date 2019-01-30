@@ -14,19 +14,19 @@ due dates are listed on the [UVa course page](../uva/index.html)
 You will need to be familiar with the content of the
 [Ethics slide set](../slides/ethics.html#/), as well as the
 [An Introduction to Cybersecurity Ethics][1] PDF.  Specifically, you
-will have want to have *read* that PDF.
+will want to have *read* that PDF.
 
-For this assignment, you are to write a essay on *one* of the
-cybersecurity challenges listed in part 2 of the
-[An Introduction to Cybersecurity Ethics][1] PDF.  (A challenge is one
-single paragraph, typically 4-5 lines, with the first sentence
-bolded.)  However, it must be one for which there are arguments on
-both sides (or all sides, if there are more than 2 sides) as to which
-path is the correct one ethically.
+For this assignment, you are to write an essay on *one* of the
+cybersecurity challenges listed in part 2 of the [An Introduction to
+Cybersecurity Ethics][1] PDF.  A challenge is one single paragraph,
+typically 4-5 lines, with the first sentence bolded.  However, it must
+be one for which there are arguments on both sides (or all sides, if
+there are more than 2 sides) as to which path is the correct one
+ethically.
 
-Which one to choose?  That's up to you.  However, please copy and
-paste the challenge scenario into the top of your document (this does
-not count against your 500 word limit).
+The challenge you write about is left for you to decide.  However,
+please copy and paste the challenge scenario into the top of your
+document (this does not count against your 500 word limit).
 
 Your essay should discuss the pros and cons of each of the sides.  It
 must conclude with a decision that you make.  We aren't going to judge
@@ -37,9 +37,9 @@ The essay must be 500 words or less.  That's about 1 page worth of
 content.  Note that any header information (name, title, date, class,
 etc.) do not count toward the word limit.  References, if you use any,
 also do not count against this limit.  ***If it is over 500 words,
-then we will not grade it and give you a zero!*** The
-[HW policies page](../uva/hw-policies.html)
-([md](../uva/hw-policies.md)) discusses this in a bit more detail.
+then we will not grade it and give you a zero!*** The [HW policies
+page](../uva/hw-policies.html) ([md](../uva/hw-policies.md)) discusses
+this in a bit more detail.
 
 We are looking for a well thought out ethical argument. So stating
 that something is bad without explaining why is not what we are

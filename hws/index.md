@@ -13,5 +13,6 @@ You will be bound by the requirements on the [Homeworks policies page](../uva/hw
 
 ### Written homeworks
 
+- [Written homework: Ethics](hw-ethics.html) ([md](hw-ethics.html))
 - [Written homework: Policy](hw-policy.html) ([md](hw-policy.html))
 - [Written homework: Rational Paranoia](hw-paranoia.html) ([md](hw-paranoia.html))
