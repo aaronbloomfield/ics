@@ -54,6 +54,7 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Wed, Jan 30: [ethics](../slides/ethics.html#/) through the officespace video clip in the public obligations column
 - Mon, Jan 28: the remainder of the [policy](../slides/policy.html#/) slide set, and the start of the [ethics](../slides/ethics.html#/) slide set (through the first of the ethical questions)
 - Fri, Jan 25: [policy](../slides/policy.html#/) through the 1990's page in the History column
 - Wed, Jan 23: the rest of [security mindset](../slides/security-mindset.html#/); [policy](../slides/policy.html#/) through the first 9 challenges (did not really get through challenge #9 fully)
