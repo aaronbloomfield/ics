@@ -54,6 +54,7 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Mon, Feb 3: [encryption](../slides/encryption.html#/) thorough the end of the one-time pad section
 - Fri, Feb 1: the rest of [ethics](../slides/ethics.html#/)
 - Wed, Jan 30: [ethics](../slides/ethics.html#/) through the officespace video clip in the public obligations column
 - Mon, Jan 28: the remainder of the [policy](../slides/policy.html#/) slide set, and the start of the [ethics](../slides/ethics.html#/) slide set (through the first of the ethical questions)
