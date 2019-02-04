@@ -34,9 +34,11 @@ These links are all described below, but are included here, all in one place.
   [CipherText](rsa/html/classCipherText.html),
   [RSAKey](rsa/html/classRSAKey.html), and
   [RSA](rsa/html/classRSA.html) classes
-- [Command line parameter usage](rsa/html/cmdparam.html)
+- [Command line parameter usage](rsa/html/cmdparam.html) -- note that
+  the provided RSA.java file calls the correct functions based on the
+  parameters passed
 - [The encryption lecture](../slides/encryption.html#/rsa), and the
-  [Wikipedia article on RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)))
+  [Wikipedia article on RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
 - [Java SDK documentation](https://docs.oracle.com/javase/8/docs/api/),
   including the
   [java.math.BigInteger](https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html)
@@ -48,7 +50,7 @@ These links are all described below, but are included here, all in one place.
 
 ### Prerequisites to Review 
 
-You should be familiar with both how the RSA algorithm works, from the
+You should be familiar with how the RSA algorithm works from the
 [the encryption lecture](../slides/encryption.html#/rsa).  More
 details are available online (see the
 [Wikipedia article on RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem))). Keep
@@ -76,13 +78,14 @@ to the Doxygen documentation for that class.
 - [RSAKey](rsa/html/classRSAKey.html): a class to hold a public or
   private (or both) key
 - [RSA](rsa/html/classRSA.html): the main class that implements RSA.
-  There are six methods within that need to be completed for this
-  assignment: `generateKeys()`, `encrypt()`, `decrypt()`, `crack()`,
-  `sign()`, `checkSign()`.
+  There are eight methods within that need to be completed for this
+  assignment: `convertToASCII()`, `convertFromASCII()`,
+  `generateKeys()`, `encrypt()`, `decrypt()`, `crack()`, `sign()`,
+  `checkSign()`.
 
 ### Assignment Details 
 
-For this assignment, you must implement six methods in the RSA
+For this assignment, you must implement eight methods in the RSA
 algorithm. They are the ones that state "requires completion" in the
 comments.  This assignment is to be done in Java, as you will need to
 use the BigInteger and MessageDigest classes.
@@ -95,6 +98,14 @@ easily test your code.  Furthermore, we are going to *EXPLICITLY* call
 individual methods from your code, so if they are not named exactly as
 they are therein, your code will fail those tests.
 
+***WARNING!!!*** The `convertToASCII()` and `convertFromASCII()`
+methods will be used to test your code.  If they don't work properly,
+then NONE of your other methods will work.  Our unit tests, which we
+use to evaluate your code, will call these to convert back and
+forth. So if they arent't working properly, then you will likely end
+up with a zero on the assignment.  Thus, please implement them first,
+and test them to make sure they work properly.
+
 You may add any other methods or fields that you would like to add.
 The following is required for our testing harness to work properly on
 your code:
@@ -102,8 +113,8 @@ your code:
 - The `main()` method exactly as provided, as we want to make sure the
   command line parameters are interpreted the way we expect them to be
   interpreted
-- The six methods that you are to implement should not have their
-  signatures changed (return type, visibility, static-ness, name,
+- The eight methods that you are to implement should not have their
+  signatures changed (return type, visibility, static-ness, name, or
   parameter types).  All these methods have `throws Exception` in case
   your implementation decides to throw an exception.
 - The two utility classes (`RSAKey` and `CipherText`) should not be
@@ -115,13 +126,15 @@ your code:
 - As mentioned above, you may add any other methods or fields that you
   would like to add.
 
-These requirements are meant to allow for easy for interoperability.
+These requirements are meant to allow for easy for interoperability,
+and to ensure that your code works with our test cases.
 
-You must implement six methods within the [RSA.java](rsa/RSA.java)
+You must implement eight methods within the [RSA.java](rsa/RSA.java)
 ([HTML version](rsa/RSA.java.html)) file.  Those methods are:
-`generateKeys()`, `encrypt()`, `decrypt()`, `crack()`, `sign()`,
-`checkSign()`.  Details for how they should work can be found in the
-[the encryption lecture](../slides/encryption.html#/) as well as
+`convertToASCII()`, `convertFromASCII()`, `generateKeys()`,
+`encrypt()`, `decrypt()`, `crack()`, `sign()`, `checkSign()`.  Details
+for how they should work can be found in the [the encryption
+lecture](../slides/encryption.html#/) as well as
 [online](http://en.wikipedia.org/wiki/RSA).
 
 The documentation contained in the comments in the skeleton code
@@ -133,15 +146,17 @@ results are: [CipherText](rsa/html/classCipherText.html),
 
 ### Command line parameters 
 
-The `main()` method should not need to be modified.  It will call the
-appropriate methods as indicated by the command line parameters, which
-are described [here](rsa/html/cmdparam.html). In almost all cases,
-output (progress, status messages, etc.) should ONLY be printed to the
-standard output if the `-verbose` option is set, and should be enough
-that we can understand what is happening.  The *only* time output
-should be printed to the terminal is when (1) a signature does not
-match, and (2) an error condition is encountered (which, in theory,
-should not happen with our tests on properly implemented code).
+The `main()` method should not need to be modified for the final
+submission (feel free to modify it any way you want to test your
+code).  It will call the appropriate methods as indicated by the
+command line parameters, which are described
+[here](rsa/html/cmdparam.html). In almost all cases, output (progress,
+status messages, etc.) should ONLY be printed to the standard output
+if the `-verbose` option is set, and should be enough that we can
+understand what is happening.  The *only* time output should be
+printed to the terminal is when (1) a signature does not match, and
+(2) an error condition is encountered (which, in theory, should not
+happen with our tests on properly implemented code).
 
 Note that the command-line parameters are parsed __in order__ - this
 means that if you call `java RSA -keygen 10 -verbose`, you will not

@@ -287,6 +287,45 @@ http://www.gnu.org/software/src-highlite">
         <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">new</font></b> <b><font color="#000000">String</font></b><font color="#990000">(</font>chash<font color="#990000">);</font>
     <font color="#FF0000">}</font>
 
+    <i><font color="#9A1900">/** Converting a block to a BigInteger; requires completion.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * This method will convert a block of ASCII text into a</font></i>
+<i><font color="#9A1900">     * BigInteger; that BigInteger will be used as the plaintext for</font></i>
+<i><font color="#9A1900">     * the various routines in this code.  It must be able to be</font></i>
+<i><font color="#9A1900">     * completely reversed with the corresponding conertToASCII()</font></i>
+<i><font color="#9A1900">     * method.  Note that this method converts the ENTIRE passed block</font></i>
+<i><font color="#9A1900">     * to a BigInteger -- if the input text is to be split into</font></i>
+<i><font color="#9A1900">     * multiple blocks, then that is to be done BEFORE calling this</font></i>
+<i><font color="#9A1900">     * method.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> text The ASCII text to convert into a BigInteger.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@return</font><i><font color="#9A1900"> A BigInteger that represents the passed in text.</font></i>
+<i><font color="#9A1900">     */</font></i>
+    <b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#008080">BigInteger</font> <b><font color="#000000">convertFromASCII</font></b><font color="#990000">(</font><font color="#008080">String</font> text<font color="#990000">)</font> <font color="#FF0000">{</font>
+        <i><font color="#9A1900">// your code here; a dummy return statement is put below to allow this to compile</font></i>
+        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">null</font></b><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">/** Converting a block to ASCII; requires completion.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * This method will convert a BigInteger block, used in the</font></i>
+<i><font color="#9A1900">     * encryption routines in this code, into the corresponding ASCII</font></i>
+<i><font color="#9A1900">     * text.  It must be able to be completely reversed with the</font></i>
+<i><font color="#9A1900">     * corresponding conertFromASCII() method.  Note that this method</font></i>
+<i><font color="#9A1900">     * converts the ENTIRE passed block from a BigInteger -- it is</font></i>
+<i><font color="#9A1900">     * assumed that the BigInteger represents the entire block.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> plainText The BigInteger block to convert into ASCII.</font></i>
+<i><font color="#9A1900">     *</font></i>
+<i><font color="#9A1900">     * </font></i><font color="#009900">@return</font><i><font color="#9A1900"> A String that is the ASCII representation of the</font></i>
+<i><font color="#9A1900">     * BigInteger parameter.</font></i>
+<i><font color="#9A1900">     */</font></i>
+    <b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#008080">String</font> <b><font color="#000000">convertToASCII</font></b><font color="#990000">(</font><font color="#008080">BigInteger</font> plainText<font color="#990000">)</font> <font color="#FF0000">{</font>
+        <i><font color="#9A1900">// your code here; a dummy return statement is put below to allow this to compile</font></i>
+        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">null</font></b><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+
     <i><font color="#9A1900">/** RSA key generation; requires completion.</font></i>
 <i><font color="#9A1900">     *</font></i>
 <i><font color="#9A1900">     * This method will generate (and return) a pair of keys based on</font></i>

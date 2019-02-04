@@ -276,6 +276,45 @@ public class RSA {
         return new String(chash);
     }
 
+    /** Converting a block to a BigInteger; requires completion.
+     *
+     * This method will convert a block of ASCII text into a
+     * BigInteger; that BigInteger will be used as the plaintext for
+     * the various routines in this code.  It must be able to be
+     * completely reversed with the corresponding conertToASCII()
+     * method.  Note that this method converts the ENTIRE passed block
+     * to a BigInteger -- if the input text is to be split into
+     * multiple blocks, then that is to be done BEFORE calling this
+     * method.
+     *
+     * @param text The ASCII text to convert into a BigInteger.
+     *
+     * @return A BigInteger that represents the passed in text.
+     */
+    public static BigInteger convertFromASCII(String text) {
+        // your code here; a dummy return statement is put below to allow this to compile
+        return null;
+    }
+
+    /** Converting a block to ASCII; requires completion.
+     *
+     * This method will convert a BigInteger block, used in the
+     * encryption routines in this code, into the corresponding ASCII
+     * text.  It must be able to be completely reversed with the
+     * corresponding conertFromASCII() method.  Note that this method
+     * converts the ENTIRE passed block from a BigInteger -- it is
+     * assumed that the BigInteger represents the entire block.
+     *
+     * @param plainText The BigInteger block to convert into ASCII.
+     *
+     * @return A String that is the ASCII representation of the
+     * BigInteger parameter.
+     */
+    public static String convertToASCII(BigInteger plainText) {
+        // your code here; a dummy return statement is put below to allow this to compile
+        return null;
+    }
+
     /** RSA key generation; requires completion.
      *
      * This method will generate (and return) a pair of keys based on
