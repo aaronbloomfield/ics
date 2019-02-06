@@ -281,7 +281,7 @@ public class RSA {
      * This method will convert a block of ASCII text into a
      * BigInteger; that BigInteger will be used as the plaintext for
      * the various routines in this code.  It must be able to be
-     * completely reversed with the corresponding conertToASCII()
+     * completely reversed with the corresponding convertToASCII()
      * method.  Note that this method converts the ENTIRE passed block
      * to a BigInteger -- if the input text is to be split into
      * multiple blocks, then that is to be done BEFORE calling this
@@ -301,16 +301,16 @@ public class RSA {
      * This method will convert a BigInteger block, used in the
      * encryption routines in this code, into the corresponding ASCII
      * text.  It must be able to be completely reversed with the
-     * corresponding conertFromASCII() method.  Note that this method
+     * corresponding convertFromASCII() method.  Note that this method
      * converts the ENTIRE passed block from a BigInteger -- it is
      * assumed that the BigInteger represents the entire block.
      *
-     * @param plainText The BigInteger block to convert into ASCII.
+     * @param block The BigInteger block to convert into ASCII.
      *
      * @return A String that is the ASCII representation of the
      * BigInteger parameter.
      */
-    public static String convertToASCII(BigInteger plainText) {
+    public static String convertToASCII(BigInteger block) {
         // your code here; a dummy return statement is put below to allow this to compile
         return null;
     }

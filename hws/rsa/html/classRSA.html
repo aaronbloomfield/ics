@@ -51,8 +51,8 @@ $(function() {
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a789dbbc9d9698f6290595e6aedb167d1"><td class="memItemLeft" align="right" valign="top">static BigInteger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRSA.html#a789dbbc9d9698f6290595e6aedb167d1">convertFromASCII</a> (String text)</td></tr>
 <tr class="separator:a789dbbc9d9698f6290595e6aedb167d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c886423d05ac2b8b5ff0fb8dc62a344"><td class="memItemLeft" align="right" valign="top">static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRSA.html#a2c886423d05ac2b8b5ff0fb8dc62a344">convertToASCII</a> (BigInteger plainText)</td></tr>
-<tr class="separator:a2c886423d05ac2b8b5ff0fb8dc62a344"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a979a9d200fbf8fbbe13ca7fe06e9ec7d"><td class="memItemLeft" align="right" valign="top">static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRSA.html#a979a9d200fbf8fbbe13ca7fe06e9ec7d">convertToASCII</a> (BigInteger block)</td></tr>
+<tr class="separator:a979a9d200fbf8fbbe13ca7fe06e9ec7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33aea693c161ab3cb4a6fbc06cf2bf64"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classRSAKey.html">RSAKey</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRSA.html#a33aea693c161ab3cb4a6fbc06cf2bf64">generateKeys</a> (int bitLength, int seed)  throws Exception </td></tr>
 <tr class="separator:a33aea693c161ab3cb4a6fbc06cf2bf64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00a64bc2e72253cb7a57f8e53bc0b9b3"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCipherText.html">CipherText</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRSA.html#a00a64bc2e72253cb7a57f8e53bc0b9b3">encrypt</a> (<a class="el" href="classRSAKey.html">RSAKey</a> key, String plainText)  throws Exception </td></tr>
@@ -179,7 +179,7 @@ Static Package Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Converting a block to a BigInteger; requires completion.</p>
-<p>This method will convert a block of ASCII text into a BigInteger; that BigInteger will be used as the plaintext for the various routines in this code. It must be able to be completely reversed with the corresponding conertToASCII() method. Note that this method converts the ENTIRE passed block to a BigInteger &ndash; if the input text is to be split into multiple blocks, then that is to be done BEFORE calling this method.</p>
+<p>This method will convert a block of ASCII text into a BigInteger; that BigInteger will be used as the plaintext for the various routines in this code. It must be able to be completely reversed with the corresponding <a class="el" href="classRSA.html#a979a9d200fbf8fbbe13ca7fe06e9ec7d">convertToASCII()</a> method. Note that this method converts the ENTIRE passed block to a BigInteger &ndash; if the input text is to be split into multiple blocks, then that is to be done BEFORE calling this method.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">text</td><td>The ASCII text to convert into a BigInteger.</td></tr>
@@ -225,8 +225,8 @@ Static Package Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a2c886423d05ac2b8b5ff0fb8dc62a344"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c886423d05ac2b8b5ff0fb8dc62a344">&#9670;&nbsp;</a></span>convertToASCII()</h2>
+<a id="a979a9d200fbf8fbbe13ca7fe06e9ec7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a979a9d200fbf8fbbe13ca7fe06e9ec7d">&#9670;&nbsp;</a></span>convertToASCII()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -238,7 +238,7 @@ Static Package Attributes</h2></td></tr>
           <td class="memname">static String RSA.convertToASCII </td>
           <td>(</td>
           <td class="paramtype">BigInteger&#160;</td>
-          <td class="paramname"><em>plainText</em></td><td>)</td>
+          <td class="paramname"><em>block</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -249,10 +249,10 @@ Static Package Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Converting a block to ASCII; requires completion.</p>
-<p>This method will convert a BigInteger block, used in the encryption routines in this code, into the corresponding ASCII text. It must be able to be completely reversed with the corresponding conertFromASCII() method. Note that this method converts the ENTIRE passed block from a BigInteger &ndash; it is assumed that the BigInteger represents the entire block.</p>
+<p>This method will convert a BigInteger block, used in the encryption routines in this code, into the corresponding ASCII text. It must be able to be completely reversed with the corresponding <a class="el" href="classRSA.html#a789dbbc9d9698f6290595e6aedb167d1">convertFromASCII()</a> method. Note that this method converts the ENTIRE passed block from a BigInteger &ndash; it is assumed that the BigInteger represents the entire block.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">plainText</td><td>The BigInteger block to convert into ASCII.</td></tr>
+    <tr><td class="paramname">block</td><td>The BigInteger block to convert into ASCII.</td></tr>
   </table>
   </dd>
 </dl>
