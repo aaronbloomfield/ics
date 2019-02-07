@@ -104,7 +104,8 @@ then NONE of your other methods will work.  Our unit tests, which we
 use to evaluate your code, will call these to convert back and
 forth. So if they arent't working properly, then you will likely end
 up with a zero on the assignment.  Thus, please implement them first,
-and test them to make sure they work properly.
+and test them to make sure they work properly.  And you should use
+them in your `encrypt()` and `decrypt()` methods, of course.
 
 You may add any other methods or fields that you would like to add.
 The following is required for our testing harness to work properly on
@@ -265,12 +266,13 @@ appended to the block.  Obviously, your number will need to be in a
 __Block size determination:__ To figure out your block size (which
 we'll call *b*) -- which is the number of characters you can encode in
 one block -- let *x* be the number of bits in *n* (found via the
-BigInteger `bitLength() method)`.  Divide *x-1* by 8 (the minus one is
-important here to prevent rounding issues).  The 8 is equivalent to
-log<sub>2</sub>*n*/8, which is equivalent to
-log<sub>2</sub>*n*/log<sub>2</sub>256, the latter of which is what was
-mentioned in class.  As mentioned below, you can assume that we will
-always use keys that support a block size of at least 2.
+BigInteger `bitLength()` method).  Divide *x-1* by 8 (the minus one is
+important here to prevent rounding issues).  As mentioned below, you
+can assume that we will always use keys that support a block size of
+at least 2.  This is for *encryption* only.  For decryption, the block
+size will be indicated in the ciphertext file which, when read in by
+the provided `readCipherTextFromFile()` method, will be in the
+`blockLength` field of the returned `CipherText` object.
 
 __Block size minimum:__ Each block will be a whole number of 8-bit
 characters, so we will not be splitting characters between blocks.
