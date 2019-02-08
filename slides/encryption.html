@@ -466,6 +466,44 @@ return probably prime
 ![google billboard](https://statisticallyinsignificant.files.wordpress.com/2011/05/google.jpg)
 
 
+## How to compute $a^e\text{ mod }n$ ?
+- We can't compute $a^e$ directly
+  - If they are 1200 digit numbers, then $a^e$ will be well over a million digits
+  - Regardless of the memory usage, that will take quite some time to compute
+- Answer: we compute it in steps, and take the mod after each step
+  - This keeps the overall value down (below $n$) since we are mod'ing each time
+
+
+## Compute $a^{1652} \mod n$
+- Note $1652 = 2^{10} + 2^9 + 2^6 + 2^5 + 2^4 + 2^2$
+- Parts:
+  - Compute $a^2 \mod n$, which is one multiplication ($a \cdot a$) and one modulus
+  - Compute $a^4 \mod n$, which is a mult (of $a^2 \cdot a^2$) and a mod
+  - Compute $a^8 \mod n$, which is a mult and a mod
+  - ...
+  - Compute $a^{1024} \mod n$, which is a mult (of $a^{512} \cdot a^{512}$) and a mod
+
+
+## Compute $a^{1652} \mod n$
+- Then $a^{1652} = a^{1024} \cdot a^{512} \cdot a^{64} \cdot a^{32} \cdot a^{16} \cdot a^{4}$
+- This will require:
+  - 10 multiplications and 10 mods to list of the powers
+  - Up to 10 more to compute the final product
+- The result is $\log_2(e)$ operations where $e$ is the exponent
+  - With 1200 digit numbers, that's about 4,000 steps
+  - Memory usage is (relatively) minimal, as we keep mod'ing each time
+
+
+## Running the Fermat primality test
+- We can now compute $a^e \mod n$
+- To run the test, we repeat:
+  - Pick a random (odd) number of the correct bit size
+  - Is it prime as per the Fermat primality test?
+  - If prime, break
+  - If not prime, then continue
+- We will see Java code to do all this in a moment...
+
+
 ## Primarily test conclusions
 - If it says "composite" just once, it's definitely composite
 - Otherwise, it just says "probably prime"
@@ -476,9 +514,20 @@ return probably prime
   - We will use existing libraries to compute this
 
 
+## Bit size
+- A 100 bit integer is about 30 decimal digits
+  - You divide the number of bits by $\log_2(x)/\log_2(x) \approx 3.32$
+- Thus, a 32 bit integer is about 9.6 digits (4 billion is just over 9 digits)
+- A 2048-bit number is 616 decimal digits
+  - A typical length for an RSA key
+- A 4096-bit number is 1,233 decimal digits
+  - A very secure RSA key
+- These are the sizes of numbers we are dealing with...
+
+
 ## The prime number theorem
-- The number of prime numbers less than $x$ is approximately $x/\text{ln}(x)$ [reference](http://en.wikipedia.org/wiki/Prime_number_theorem)
-  - Rephrased: the chance of an number $x$ being a prime number is  $1 / \text{ln}(x)$
+- The number of prime numbers less than $x$ is approximately $x/\text{ln}(x)$ ([reference](http://en.wikipedia.org/wiki/Prime_number_theorem))
+  - Rephrased: the chance of an number $x$ being a prime number is roughly $1 / \text{ln}(x)$
 - Consider 200 digit prime numbers
   - $\text{ln} (10^{200}) \approx 460$
   - The chance of a random 200 digit number being prime is thus 1/460
@@ -521,6 +570,8 @@ BigInteger prime = new BigInteger
           (numBits, certainty, random);
 ```
 - Yes, it's that easy
+- That constructor runs the Fermat primailty theorem
+  - And handles the $a^e \mod n$ computations necessary
 
 
 ## Key generation, step 1
@@ -630,6 +681,7 @@ public class FindD {
 m.modPow (e, n)
 ```
 	- Yes, it's that easy
+	  - Although we saw how to do that earlier...
 	- Where the object $m$ is the BigInteger to encrypt
 
 
@@ -752,6 +804,14 @@ Formula is $c = m^e\text{ mod }n$
   4. The hash is then verified against the message
 
 
+## Signing a message
+- You are encrypting the *HASH* of the message
+  - And doing so with your *PRIVATE* key
+- The message itself is not being encrypted at all
+- Anybody can decrypt the encrypted hash by using your *public* key
+  - And verify that it matches, as they can compute the hash themselves
+
+
 ## PGP and GnuPG
 - Two applications which implement the RSA algorithm
 - PGP was written in 1991 by Phil Zimmerman
@@ -773,14 +833,14 @@ Formula is $c = m^e\text{ mod }n$
 
 
 ## Why RSA is considered secure
-- RSA security is based on two factors:
+- RSA security is based on two principles:
   - Factoring large composites into their prime factors is hard
 	- In 2005, a 193-digit number was factored using 12.5 CPU years on a 2.2 GHz Operon CPU (actually 5 months on 30 CPUs)
 	- The best algorithm for factoring large numbers (general number field sieve) is $O(e^n)$
 
 
 ## Why RSA is considered secure
-- RSA security is based on two factors:
+- RSA security is based on two principles:
   - The "RSA problem": finding the $e^{th}$ roots modulo a composite number $N$ is hard
 	- Specifically, given $c = p^e\text{ mod } n$,  and knowing $c$, $e$, and $n$, finding $p$ is hard
 	- Considered as hard as integer factorization
@@ -829,9 +889,11 @@ Formula is $c = m^e\text{ mod }n$
 
 
 ## Man-in-the-middle attack
-- An attacker ("Eve") makes intercepts the communications between two participants, and relays messages between them
+- An attacker ("Eve") intercepts the communications between two participants, and relays messages between them
   - Perhaps Eve has access to a router that the messages pass through
   - Obviously, the participants ("Alice" and "Bob") are unaware that Eve is relaying the messages
+- Specifically, we assume that Eve can *MODIFY* the messages being sent
+  - Not just listen to them
 </textarea></section>
 
 	  <section class='rsa-anim'>
@@ -1034,7 +1096,7 @@ Formula is $c = m^e\text{ mod }n$
 - Those that are [computationally indistinguishable](https://en.wikipedia.org/wiki/Computational_indistinguishability) from true random numbers are considered suitable for cryptography
   - These is what defines a [cryptographically secure pseudorandom number generator](https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator)
 - But how to get the initial seed?
-  - When computers produce the same output on the same input?
+  - Especially when computers produce the same output on the same input?
 
 
 ## More randomness
@@ -1048,8 +1110,11 @@ Formula is $c = m^e\text{ mod }n$
   - The 10th and 11th bit of the floating point value read in from the CPU temperature sensor
   - Or the hash of that entire temperature value (use a good hash, as described later in this slide set)
   - Or any other sensor that the computer has available
-  - Or [lava lamps](https://it.slashdot.org/story/17/11/07/1927239/how-cloudflare-uses-lava-lamps-to-encrypt-the-internet)
   - Or many other methods
+
+
+## Cloudflare uses a wall of lava lamps ([source](https://it.slashdot.org/story/17/11/07/1927239/how-cloudflare-uses-lava-lamps-to-encrypt-the-internet))
+![](http://blog.cloudflare.com/content/images/2017/11/lava-lamps.jpg)
 
 
 ## Determining randomness
