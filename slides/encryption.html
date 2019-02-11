@@ -859,9 +859,9 @@ Formula is $c = m^e\text{ mod }n$
 - There are standards for doing this ([PKCS#1](https://en.wikipedia.org/wiki/PKCS_1))
 
 
-## How to "crack" PGP
+## How to "crack" RSA
 - Factoring $n$ is not feasible
-- Thus, "cracking" PGP is done by other means
+- Thus, "cracking" RSA is done by other means
 - Intercepting the private key
   - "Hacking" into the computer, stealing the computer, etc.
   - Man-in-the-middle attack (next 2 slides)
@@ -889,10 +889,10 @@ Formula is $c = m^e\text{ mod }n$
 
 
 ## Man-in-the-middle attack
-- An attacker ("Eve") intercepts the communications between two participants, and relays messages between them
-  - Perhaps Eve has access to a router that the messages pass through
-  - Obviously, the participants ("Alice" and "Bob") are unaware that Eve is relaying the messages
-- Specifically, we assume that Eve can *MODIFY* the messages being sent
+- An attacker ("Mallory") intercepts the communications between two participants, and relays messages between them
+  - Perhaps Mallory has access to a router that the messages pass through
+  - Obviously, the participants ("Alice" and "Bob") are unaware that Mallory is relaying the messages
+- Specifically, we assume that Mallory can *MODIFY* the messages being sent
   - Not just listen to them
 </textarea></section>
 
