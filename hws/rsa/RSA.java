@@ -455,7 +455,7 @@ public class RSA {
      */
     public static boolean checkSign (RSAKey key, String plainText, CipherText signature) throws Exception {
         // your code here; a dummy return statement is put below to allow this to compile
-        return null;
+        return false;
     }
 
     /** Parses the parameters and allows program execution.
