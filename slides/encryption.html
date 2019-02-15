@@ -516,7 +516,8 @@ return probably prime
 
 ## Bit size
 - A 100 bit integer is about 30 decimal digits
-  - You divide the number of bits by $\log_2(x)/\log_{10}(x) \approx 3.32$
+  - You divide the number of bits by $\log_2(x) / \log_d (x) \approx 3.32$
+  - Here, $\log_d(x)$ is log base 10
 - Thus, a 32 bit integer is about 9.6 digits (4 billion is just over 9 digits)
 - A 2048-bit number is 616 decimal digits
   - A typical length for an RSA key
@@ -1201,6 +1202,29 @@ Formula is $c = m^e\text{ mod }n$
 - Being able to create two "random" files that match the same hash indicates a weakness, but is not yet a vulnerability
 
 
+## Hashes are one-way!
+- Consider the following two files:
+  - (from [here](https://stackoverflow.com/questions/26217076/example-of-hash-collision-printable-strings), as it may not render properly on the slides)
+```
+1i=\/ʵF~@X>U4 䈃%qAZQ%ɟ7<[؂>1V4[m6Sⴇ9cH͠3BW~Tp
+Ƙ!e+o*p
+```
+```
+1i=\/ʵF~@X>U4    䈃%AZQ%ɟr7<[؂>1V4[m6S49cH͠3BW~Tp(
+Ƙ!eo*p
+```
+- The both have the same MD5 hash of 79054025255fb1a26e4bc422aef54eb4
+- So given the MD5 hash, how do we know which one it came from?
+
+
+## Pidgeonhole principle
+- An MD5 hash is 128 bits; SHA hashes go up to 512 bits
+- There are more files possibilites of 129 bits (or 513 bits) than there are possible hashes
+- Thus, as per the pidgeonhole principle, there will be multiple inputs for a given hash
+- So how do you know how to go *back* from a hash?
+  - Answer: you don't
+
+
 ## Collision resistant hashes
 - A *collision resistant hash* means that it is "hard" to find two inputs that hash to the same value
   - Harder than, say, brute force
@@ -1282,7 +1306,39 @@ afe68f753a65f773a591bcf6f9ce3c63  message1.txt
   - So if the SHA-1 vulnerability exists in SHA-2, it thus will not affect SHA-3
 - NIST (National Institute for Standards and Technology) had an open solicitation / compettion for the algorithm
   - The particular one selected was [Keccak](https://en.wikipedia.org/wiki/SHA-3)
-	</textarea></section>
+
+
+## Storing passwords
+- No (secure) system stores user passwords in plaintext
+- Instead it stores a *hash* of those passwords
+  - On login, it hashes your attempt, and then compares the hashes
+  - Thus, there could be *multiple* passwords that would log you in
+- This leads to vulnerabilities...
+
+
+## Dictionary attacks
+- To perform a [dictionary attack](https://en.wikipedia.org/wiki/Dictionary_attack):
+  - Take every hashed password for a given system
+  - Take every word in the English language, and hash it
+  - Find the intersection of those, and you have a bunch of passwords
+
+
+## Rainbow tables
+- A [rainbow table](https://en.wikipedia.org/wiki/Rainbow_table) is a pre-computed list of all hashed passwords
+  - [Here](https://md5hashing.net/hash/md5/5f4dcc3b5aa765d61d8327deb882cf99) is the one for 'password'
+- They are searchable (by hash) via Google
+
+
+## Password Salting
+- To prevent dictionary attacks, and limit the usefulness of rainbow tables, passwords are *salted*
+- Each password is given a random number, or salt, which is added to the hash
+
+
+## Password Salting Example
+- Normally, 'password' has MD5 hash of 5f4dcc3b5aa765d61d8327deb882cf99
+- Adding a random salt: 'password935723798539' has MD5 hash of 80d2b285e1d5e9b3078383a2e96074bf
+  - With a reasonable size salt, rainbow talbes and dictionary attacks are of less use due to the search space size
+	  </textarea></section>
 
 	</section>
 
