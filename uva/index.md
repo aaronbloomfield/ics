@@ -55,6 +55,7 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Fri, Feb 15: Finished [encryption](../slides/encryption.html#/)
 - Wed, Feb 13: [encryption](../slides/encryption.html#/) through the first "hash vulnerabilities" slide
 - Mon, Feb 11: [encryption](../slides/encryption.html#/) through the end of the RSA column of slides
 - Fri, Feb 8: [encryption](../slides/encryption.html#/) through the end of RSA cracking
