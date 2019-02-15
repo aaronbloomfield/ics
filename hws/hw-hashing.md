@@ -15,7 +15,7 @@ The reference platform for this assignment will be 64-bit Ubuntu Linux, version 
 
 In this assignment, you will be examining some of the issues surrounding hashes and their security applications.
 
-There are four separate tasks for this assignment, as described below.  Please note that task 2 is computationally intensive and requires **_several_** hours to run.  Extensions will not be granted because you waited until the last minute to start this assignment.
+There are four separate tasks for this assignment, as described below.  Please note that task 2 is computationally intensive and will require **_several_** hours to run.  Extensions will not be granted because you waited until the last minute to start this assignment.
 
 
 ## Task 1: CRC insecurity
@@ -24,7 +24,7 @@ Your job is to write a C/C++ program (necessary for speed reasons) that, when gi
 
 ### Set-up
 
-For this task, you will need functions from the Boost C++ library.  This is already installed on the VirtualBox image.  Alternatively, you can download the three necessary files directly: [crc.hpp](http://www.boost.org/doc/libs/1_68_0/boost/crc.hpp), [cstdint.hpp](http://www.boost.org/doc/libs/1_68_0/boost/cstdint.hpp), and [config.hpp](http://www.boost.org/doc/libs/1_68_0/boost/config.hpp).
+For this task, you will need functions from the Boost C++ library, as they will perform the CRC hash computation.  This is already installed on the VirtualBox image.  Alternatively, you can download the three necessary files directly: [crc.hpp](http://www.boost.org/doc/libs/1_68_0/boost/crc.hpp), [cstdint.hpp](http://www.boost.org/doc/libs/1_68_0/boost/cstdint.hpp), and [config.hpp](http://www.boost.org/doc/libs/1_68_0/boost/config.hpp).
 
 Your program should include the files as follows:
 
@@ -33,9 +33,9 @@ Your program should include the files as follows:
 #include <boost/cstdint.hpp>
 ```
 
-If you didn't install the library, use `#include "crc.hpp"` for development, and replace with the above lines before submission.
+If you didn't install the library, use `#include "crc.hpp"` for development, but replace with the above lines before submission.
 
-Optionally, you may want to use the `crc32` binary in Ubuntu -- this, also, is already installed on the VirtualBox image. Now if you run `crc32 file_name` in a terminal, you will get the CRC32 value for that file. 
+Optionally, you may want to use the `crc32` binary in Ubuntu -- this, also, is already installed on the VirtualBox image. If you run `crc32 file_name` in a terminal, you will get the CRC32 value for that file. 
 
  
 ### Resources 
@@ -78,7 +78,7 @@ The program should write its output to a file named `output.txt`, which should c
 ### Additional Hints
 
 - You need to create a new `crc_16_type` result EACH time you compute the CRC value; you can't re-use it very easily.
-- Your program will be given 60 seconds to run when we grade it.  This should be enough time for CRC16, but you may want to include the `-O2` compilation flag
+- Your program will be given 60 seconds to run when we grade it.  This should be enough time for CRC16, but you may want to include the `-O2` compilation flag.
 - During development, it may be easier to compute the CRC32 value because of the convenient `crc32` utility in Ubuntu (described above).  Once you verify that your program is computing the hash properly, change it over to CRC16.  (Note you need to change over to CRC16 *before* you search for collisions, or you will be searching a *long* time.)
 
 
@@ -86,18 +86,18 @@ The program should write its output to a file named `output.txt`, which should c
 
 How easy is it to create a malicious program with a specific MD5 hash?  In this part we'll find out.  
 
-For this task, we are going to follow these online [instructions](http://www.mscs.dal.ca/~selinger/md5collision/).  This code is released under the Modified BSD and/or the GPL license, so I am allowed to use it here, as long as I don't claim credit for it (I'm not), and I include the license in the source code (it's included there).
+For this task, we are going to follow [these online instructions](http://www.mscs.dal.ca/~selinger/md5collision/).  This code is released under the Modified BSD and/or the GPL license, so I am allowed to use it here, as long as I don't claim credit for it (I'm not), and I include the license in the source code (it's included there).
 
 ### Set-up
 
-**Platform:** You will likely want to use the Linux VirtualBox for this task. For one, we can make no guarantees about the safety of the program, although when we ran it on our own computer, and the world didn't end.  Additionally, you will be creating binary executables, which must be *Linux* binary executables (elf), **not** MacOS (Mach-O) or Windows (exe). We will be running them on a 64 bit Linux system, but 32 or 64 bit elf executables are fine.
+**Platform:** You will likely want to use the Linux VirtualBox for this task. *Note that we can make no guarantees about the safety of the program*, although when we ran it on our own computer, and the world didn't end.  Additionally, you will be creating binary executables, which must be *Linux* binary executables (elf), **not** MacOS (Mach-O) and not Windows (exe). We will be running them on a 64 bit Linux system, but 32 or 64 bit elf executables are fine.
 
-You can download the source code from the [instructions website](http://www.mscs.dal.ca/~selinger/md5collision/) or from Collab; the file is called `evilize-0.2.tar.gz` or `evilize-0.2.zip` (you only need one).
+You can download the source code from the [the online instructions website](http://www.mscs.dal.ca/~selinger/md5collision/) or from Collab's Resources page; the file is called `evilize-0.2.tar.gz` or `evilize-0.2.zip` (you only need one).
 
 
 ### Assignment
 
-Your task is to create two binary executables, `good` and `evil`, that have the same MD5 hash ([instructions](http://www.mscs.dal.ca/~selinger/md5collision/)).  Those executables should print something relevant (i.e., something "good" and something "evil") - it can be interesting quotations, good/evil instructions, etc.  __IT SHOULD NOT DO ANYTHING MALICIOUS__, as that would be a violation of your [Ethics honor pledge](../uva/ethics-pledge.pdf).  **ONLY** print something.  Find some interesting quotations to entertain us!
+Your task is to create two binary executables, `good` and `evil`, that have the same MD5 hash ([see the instructions](http://www.mscs.dal.ca/~selinger/md5collision/)).  Those executables should print something relevant (i.e., something "good" and something "evil") - it can be interesting quotations, good/evil instructions, etc.  __IT SHOULD NOT DO ANYTHING MALICIOUS__, as that would be a violation of your [Ethics honor pledge](../uva/ethics-pledge.pdf).  **ONLY** print something.  Find some interesting quotations to entertain us!
 
 This process took 90 minutes on my home computer (3.4 Ghz machine) to run; your mileage may vary.  And since the program only runs on one core, multi-core machines do not get much of a boost.  When complete, check the MD5 checksums of "good" and "evil" - they should match.  You should also run both programs to ensure they exhibit the behaviors you programmed in the `main_good()` and `main_evil()` functions.
 
@@ -105,7 +105,7 @@ Additionally, you should answer the following question in a file called `md5.pdf
 
 For this part, you should submit four files:
 
-- `good` and `evil` binary executables
+- The `good` and `evil` binary executables
 - `multiple_personalities.c`, the source code file that contains `main_good()` and `main_evil()`, the `main()` functions from the `good` and `evil` executables -- we aren't going to compile this, we just want to look over the source code
 - `md5.pdf`
 
@@ -128,7 +128,7 @@ daniel 80edd055513bbdd360e48c089755659a
 
 The hashes shown are MD5 hashes (because MD5 is super-secure, right?).  Those passwords are used are shown in the execution run, below.
 
-The dictionary file we will use is  /usr/share/dict/words (it's on the VirtualBox image), which contains about 100,000 words, and can be found online [here](https://gist.githubusercontent.com/wchargin/8927565/raw/d9783627c731268fb2935a731a618aa8e95cf465/words).  That file has one word per line, with no whitespace.  
+The dictionary file we will use is  /usr/share/dict/words (it's on the VirtualBox image), which contains about 100,000 words, and can be found online [here](https://gist.githubusercontent.com/wchargin/8927565/raw/d9783627c731268fb2935a731a618aa8e95cf465/words) as well as on the Collab Resources page.  That file has one word per line, with no whitespace.
 
 You are welcome to create your own versions of these files.  If you want to find the MD5 password for a string, try running: `echo -n apple | md5sum`.  Note that the `-n` part is important -- it ensures that there is no return (`\n`) put at the end of the string that you are taking the MD5 hash of.
 
@@ -136,7 +136,7 @@ You are welcome to create your own versions of these files.  If you want to find
 
 Your program must find any and all passwords matches in the password file by hashing each of the words in the dictionary file.  Your program will be provided with two command-line parameters: the password file name and the dictionary file name.
 
-For speed reasons, this program is to be developed in C++, and should be named dictionary.cpp.  It will be compiled by the Makefile (see below) into an executable named `dictionary`.  We will run this program providing only the password file and the dictionary file, in that order, as the command line parameters.  Note that you will have to pass the `-lcrypto` flag to the compilation line. If you are working on this homework on the VirtualBox image, you will likely have to install the `libssl-dev` package if you want to include the `openssl/md5.h` file.
+For speed reasons, this program is to be developed in C++, and should be named `dictionary.cpp`.  It will be compiled by the Makefile (see below) into an executable named `dictionary`.  We will run this program providing only the password file and the dictionary file, in that order, as the command line parameters.  Note that you will have to pass the `-lcrypto` flag to the compilation line. If you are working on this homework on the VirtualBox image, you will likely have to install the `libssl-dev` package if you want to include the `openssl/md5.h` file.
 
 You can look [here](https://stackoverflow.com/questions/1220046/how-to-get-the-md5-hash-of-a-file-in-c) for how to generate a MD5 hash in C++ -- you are welcome to copy that code directly (but state that you are doing such in your code comments).
 

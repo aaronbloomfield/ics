@@ -8,6 +8,7 @@ You will be bound by the requirements on the [Homeworks policies page](../uva/hw
 
 ### Programing homeworks
 
+- [Programming homework: Hashing](hw-hashing.html) ([md](hw-hashing.md))
 - [Programming homework: RSA](hw-rsa.html) ([md](hw-rsa.md))
 
 
