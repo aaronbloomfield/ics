@@ -56,6 +56,7 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Mon, Feb 18: [viruses](../slides/viruses.html#/) through the Basic Virus Stealth -> Viruses must be stealthy slide
 - Fri, Feb 15: Finished [encryption](../slides/encryption.html#/)
 - Wed, Feb 13: [encryption](../slides/encryption.html#/) through the first "hash vulnerabilities" slide
 - Mon, Feb 11: [encryption](../slides/encryption.html#/) through the end of the RSA column of slides
