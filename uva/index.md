@@ -32,6 +32,8 @@ Readings
 
 All scholarly articles (such as from the ACM digital library) can be obtained from free from any UVa wireless network.  Some of htem you will *NOT* be able to get it for free from your home Internet provider such as Comcast (unless you live in a UVa dorm, of course).  All readings are due by the lecture that day.
 
+- Due Wednesday, February 29th
+    - Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf)
 - Due Friday, February 1st:
     - [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
 - Due Friday, January 25th:
