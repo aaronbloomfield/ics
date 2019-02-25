@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>Makefile</title>
+</head>
+<body bgcolor="white">
+<pre><tt><font color="#009900">CC=</font>clang
+<font color="#009900">CFLAGS =</font>-m<font color="#993399">64</font> -fno-stack-protector -fomit-frame-pointer -Wno-unused-result
+<font color="#009900">DASFLAGS=</font>-S -masm<font color="#990000">=</font>intel
+<font color="#009900">ASFLAGS=</font>-mllvm --x<font color="#993399">86</font>-asm-syntax<font color="#990000">=</font>intel -S
+
+<font color="#990000">main:</font>
+	<font color="#009900">$(CC)</font> <font color="#009900">$(CFLAGS)</font> -ggdb -o overflow.exe overflow.c
+	<font color="#009900">$(CC)</font> <font color="#009900">$(CFLAGS)</font> <font color="#009900">$(ASFLAGS)</font> -o overflow.s overflow.c
+	source-highlight -d <font color="#990000">*</font>.c <font color="#990000">*</font>.s Makefile
+	objdump -d overflow.exe <font color="#990000">&gt;</font> overflow.exe.objdump.txt
+</tt></pre>
+</body>
+</html>
