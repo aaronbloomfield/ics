@@ -58,6 +58,7 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Mon, Feb 25: finished [viruses](../slides/viruses.html#/); [buffer overflows](../slides/buffer-overflows.html) through the third "Stack for vulnerable()" slide
 - Fri, Feb 22: [viruses](../slides/viruses.html#/) through the "Oligomorphic viruses" slide
 - Wed, Feb 20: UVa had a snow day
 - Mon, Feb 18: [viruses](../slides/viruses.html#/) through the "Basic Virus Stealth -> Viruses must be stealthy" slide
