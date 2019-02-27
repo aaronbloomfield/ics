@@ -112,25 +112,22 @@ $
 
 ## Debugger examination
 ```
-$ gdb ./overflow.exe
-GNU gdb (Ubuntu 7.11.1-0ubuntu1~16.5) 7.11.1
-...
+$ gdb ./overflow.exe 
+GNU gdb (Ubuntu 8.1-0ubuntu3) 8.1.0.20180409-git
 Reading symbols from ./overflow.exe...done.
-(gdb) run < 1000-as.txt 
-Starting program: /path/to/overflow.exe < 1000-as.txt
+(gdb) run < 1000-as.txt
+Starting program: ./overflow.exe < 1000-as.txt
 
 Program received signal SIGSEGV, Segmentation fault.
-0x00000000004005f8 in vulnerable () at overflow.c:14
-10      }
+0x000000000040059c in vulnerable () at overflow.c:14
+14      }
 (gdb) bt
-#0  0x00000000004005f8 in vulnerable () at overflow.c:14
+#0  0x000000000040059c in vulnerable () at overflow.c:14
 #1  0x6161616161616161 in ?? ()
 #2  0x6161616161616161 in ?? ()
 ...
-#110 0x6161616161616161 in ?? ()
-#111 0x0000000000000000 in ?? ()
+#121 0x0000000000000000 in ?? ()
 (gdb) 
-
 ```
 
 
@@ -153,38 +150,43 @@ ret                          ; goodbye!
 
 <!-- .slide: class="small-code" -->
 ## get vulnerable() ret addr
-From `objdump -d overflow.exe`:
+From [`objdump -d overflow.exe`](code/buffer-overflows/overflow.exe.objdump.txt):
 ```
-00000000004005d6 <vulnerable>:
-  4005d6:    48 83 ec 78          sub    $0x78,%rsp
-  4005da:    48 89 e6             mov    %rsp,%rsi
-  4005dd:    bf a4 06 40 00       mov    $0x4006a4,%edi
-  4005e2:    b8 00 00 00 00       mov    $0x0,%eax
-  4005e7:    e8 b4 fe ff ff       callq  4004a0 <__isoc99_scanf@plt>
-  4005ec:    48 89 e7             mov    %rsp,%rdi
-  4005ef:    e8 c2 ff ff ff       callq  4005b6 <do_something_with>
-  4005f4:    48 83 c4 78          add    $0x78,%rsp
-  4005f8:    c3                   retq   
+0000000000400570 <vulnerable>:
+  400570:	48 83 ec 78          	sub    $0x78,%rsp
+  400574:	48 bf 44 06 40 00 00 	movabs $0x400644,%rdi
+  40057b:	00 00 00 
+  40057e:	48 8d 74 24 10       	lea    0x10(%rsp),%rsi
+  400583:	b0 00                	mov    $0x0,%al
+  400585:	e8 b6 fe ff ff       	callq  400440 <__isoc99_scanf@plt>
+  40058a:	48 8d 7c 24 10       	lea    0x10(%rsp),%rdi
+  40058f:	89 44 24 0c          	mov    %eax,0xc(%rsp)
+  400593:	e8 a8 ff ff ff       	callq  400540 <do_something_with>
+  400598:	48 83 c4 78          	add    $0x78,%rsp
+  40059c:	c3                   	retq   
+  40059d:	0f 1f 00             	nopl   (%rax)
 
-00000000004005f9 <main>:
-  4005f9:    48 83 ec 08          sub    $0x8,%rsp
-  4005fd:    b8 00 00 00 00       mov    $0x0,%eax
-  400602:    e8 cf ff ff ff       callq  4005d6 <vulnerable>
-  400607:    b8 00 00 00 00       mov    $0x0,%eax
-  40060c:    48 83 c4 08          add    $0x8,%rsp
-  400610:    c3                   retq   
-  400611:    66 2e 0f 1f 84 00 00 nopw   %cs:0x0(%rax,%rax,1)
-  400618:    00 00 00 
-  40061b:    0f 1f 44 00 00       nopl   0x0(%rax,%rax,1)
+00000000004005a0 <main>:
+  4005a0:	50                   	push   %rax
+  4005a1:	c7 44 24 04 00 00 00 	movl   $0x0,0x4(%rsp)
+  4005a8:	00 
+  4005a9:	e8 c2 ff ff ff       	callq  400570 <vulnerable>
+  4005ae:	31 c0                	xor    %eax,%eax
+  4005b0:	59                   	pop    %rcx
+  4005b1:	c3                   	retq   
+  4005b2:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+  4005b9:	00 00 00 
+  4005bc:	0f 1f 40 00          	nopl   0x0(%rax)
 ```
-The address is 0x400607 (see the [full objdump](code/buffer-overflows/overflow.exe.objdump.txt))
 
 
 ## get vulnerable() ret addr
-- Address is 0x400607
-- In 64-bit assembly, that's 0x0000000000400607
-- In Little Endian, that's 0x0706400000000000
-- Or: 07 06 40 00 00 00 00 00
+- Address is 0x4005ae
+- In 64-bit assembly, that's 0x00000000004005ae
+- In Little Endian, that's 0xae05400000000000
+- Or: ae 05 40 00 00 00 00 00
+
+(You can see the [full objdump](code/buffer-overflows/overflow.exe.objdump.txt))
 
 
 ## Stack for vulnerable()
@@ -209,15 +211,16 @@ The return address (and beyond) has also been overwritten:
 Source from `gcc -S`: [overflow.s](code/buffer-overflows/overflow.s) ([in HTML](code/buffer-overflows/overflow.s.html))
 ```
 vulnerable:
-sub   rsp, 120              ; allocate space for buffer
-mov   rsi, rsp              ; arg 2 to scanf() is buffer
-mov   edi, OFFSET FLAT:.LC0 ; arg 1 to scanf() is "%s"
-mov   eax, 0                ; set eax = 0
-call  __isoc99_scanf        ; call scanf()
-mov   rdi, rsp              ; arg 1 to do_s_w() is buffer
-call  do_something_with     ; call "do_s_w"
-add   rsp, 120              ; deallocate stack space
-ret                         ; goodbye!
+sub    rsp, 120              ; allocate space for buffer
+movabs rdi, offset .L.str.1  ; arg 1 to scanf() is "%s"
+lea    rsi, [rsp + 16]       ; arg 2 to scanf() is buffer
+mov    al, 0                 ; set eax = 0
+call   __isoc99_scanf        ; call scanf()
+lea    rdi, [rsp + 16]       ; arg 1 to do_s_w(): buffer
+mov    dword ptr [rsp + 12], eax ; we can ignore this
+call   do_something_with     ; call "do_s_w"
+add    rsp, 120              ; deallocate stack space
+ret                          ; goodbye!
 ```
 - The `ret` opcode tried to return to 0x6161616161616161, which is not in the memory allocated to the program
   - But what if it *were* a valid address to return to?
@@ -225,23 +228,23 @@ ret                         ; goodbye!
 
 ## Address of `buffer`
 ```
-$ gdb overflow.exe 
-GNU gdb (Ubuntu 7.11.1-0ubuntu1~16.5) 7.11.1
+$ gdb ./overflow.exe 
+GNU gdb (Ubuntu 8.1-0ubuntu3) 8.1.0.20180409-git
 ...
-Reading symbols from overflow.exe...done.
+Reading symbols from ./overflow.exe...done.
 (gdb) break overflow.c:11
-Breakpoint 1 at 0x4005da: file overflow.c, line 11.
+Breakpoint 1 at 0x400583: file overflow.c, line 11.
 (gdb) run
-Starting program: /path/to/overflow.exe 
+Starting program: ./overflow.exe 
 
 Breakpoint 1, vulnerable () at overflow.c:11
 11          scanf("%s", buffer);
 (gdb) print &buffer
-$1 = (char (*)[100]) 0x7fffffffdc90
+$1 = (char (*)[100]) 0x7fffffffdce0
 (gdb) 
 ```
-- Buffer is at 0x7fffffffdc90 == 0x00007fffffffdc90
-  - Little Endian: 90 dc ff ff ff 7f 00 00
+- Buffer is at 0x7fffffffdce0 == 0x00007fffffffdce0
+  - Little Endian: e0 dc ff ff ff 7f 00 00
 
 
 ## Stack for vulnerable()
@@ -624,6 +627,7 @@ setarch -v -LR bash
 - Modern hardware (and OSes) will not allow execution of code on the stack
 - You have to run [mprotect()](http://man7.org/linux/man-pages/man2/mprotect.2.html) to change this
   - You can also set the .text section to writable that way as well
+  - Examples of these mprotect calls are shown in the [buffer overflow homework](../hws/hw-buffer.html)
 
 
 ## Compiler protection
