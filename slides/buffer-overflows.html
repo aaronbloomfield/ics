@@ -316,8 +316,10 @@ We'll eventually convert this to shellcode (of a sort)
    7:   68 e0 04 40 00       push   $0x4004e0
    c:   c3                   ret
 ```
+	  </textarea></section>
 
-
+	  <!-- 
+	  <section data-markdown data-separator="^\n$"><textarea data-template>
 ## 32-bit machine code
 - 8d 3d 00 00 00 00: `lea 0x0, %edi`
   - 8d: opcode for leal
@@ -337,8 +339,10 @@ We'll eventually convert this to shellcode (of a sort)
 - The `leal` instruction becomes a `leaq` by putting byte 0x48 before it:
   - 48 8d 3d 00 00 00 00
 - The other two instructions stay the same
-
-
+	  </textarea></section>
+	  -->
+	  
+	  <section data-markdown data-separator="^\n$"><textarea data-template>
 ## 64-bit machine code
 - Alternatively, edit test.s (change edi to rdi), and compile with the `-f elf64` flag, then run through `objdump -d`. The result:
 ```
@@ -427,6 +431,13 @@ ret
   18:   c3                      retq   
 ```
 Note that nothing is 64-bit (even when compiled with `-f elf64`)
+
+
+## Note about registers
+- `syscall` reads the *entire* 64-bit rax register
+  - So you should really do a `mov rax, 1`, not a `mov eax, 1`
+  - As you want to set the upper 32 bits of the register to zero as well
+- To make the slides easer to read, we'll be using the 32-bit registers
 
 
 ## Problem: crashes after `syscall`

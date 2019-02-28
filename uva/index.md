@@ -47,7 +47,7 @@ Homeworks
 
 Unless otherwise noted, all submissions are due by the end of the day of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the [online submission system][162] -- all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time.
 
-- [HW 5: Hashing](../hws/hw-hashing.html) ([md](../hws/hw-hashing.md))
+- [HW 5: Hashing](../hws/hw-hashing.html) ([md](../hws/hw-hashing.md)) is due Friday, February 22nd
 - [HW 4: RSA](../hws/hw-rsa.html) ([md](../hws/hw-rsa.md)) is due Friday, February 15th
 - [HW 3: Ethics](../hws/hw-ethics.html) ([md](../hws/hw-ethics.md)) is due Wednesday, February 6th
 - [HW 2: Policy](../hws/hw-policy.html) ([md](../hws/hw-policy.md)) is due Wednesday, January 30th
@@ -58,9 +58,11 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Fri, Mar 1: exam 1 today, so no lecture progress
+- Wed, Feb 27: [buffer overflows](../slides/buffer-overflows.html) through the end of the "how to do it" column
 - Mon, Feb 25: finished [viruses](../slides/viruses.html#/); [buffer overflows](../slides/buffer-overflows.html) through the third "Stack for vulnerable()" slide
 - Fri, Feb 22: [viruses](../slides/viruses.html#/) through the "Oligomorphic viruses" slide
-- Wed, Feb 20: UVa had a snow day
+- Wed, Feb 20: UVa had a snow day, so no lecture progress
 - Mon, Feb 18: [viruses](../slides/viruses.html#/) through the "Basic Virus Stealth -> Viruses must be stealthy" slide
 - Fri, Feb 15: Finished [encryption](../slides/encryption.html#/)
 - Wed, Feb 13: [encryption](../slides/encryption.html#/) through the first "hash vulnerabilities" slide
