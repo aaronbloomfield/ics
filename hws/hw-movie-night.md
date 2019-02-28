@@ -36,18 +36,19 @@ Some examples of movies that do not qualify:
   (1996), where a Mac computer uploads a virus to an alien's computer,
   does not qualify based on (3)
 - [The Matrix](https://en.wikipedia.org/wiki/The_Matrix) (1999) does
-  not meet (3), since it's set in the far future (well, mostly)
+  not meet (3), since it's set in the far future (whoops!  spoiler...)
 
 
 Below are some possible selections.  Note that we may not have seen
 each of these movies, so if it violates the time period requirement,
-then that movie will be an invalid choice.  *We are not stating that
-these movies are necessarily good movies!* So check the review for
-yourself first.  We are only stating that these movies fulfill the
-requirements set above.  After each movie name is the year of release,
-the rating on [Rotten Tomatoes](https://www.rottentomatoes.com/), and
-the "tag", which will be needed for submission.  The movies are sorted
-by the year of their release.
+then that movie will be an invalid choice (let us know if that's the
+case).  *We are not stating that these movies are necessarily good
+movies!* So check the review for yourself first.  We are only stating
+that these movies fulfill the requirements set above.  After each
+movie name is the year of release, the rating on [Rotten
+Tomatoes](https://www.rottentomatoes.com/) (as of the fall of 2018),
+and the "tag", which will be needed for submission.  The movies are
+sorted by the year of their release.
 
 - [WarGames](https://en.wikipedia.org/wiki/WarGames) (1983): [93%](https://www.rottentomatoes.com/m/wargames); tag: `wargames`
 - [Sneakers](https://en.wikipedia.org/wiki/Sneakers_(1992_film)) (1992): [80%](https://www.rottentomatoes.com/m/sneakers); tag: `sneakers`
@@ -79,7 +80,7 @@ whatever you would like.
 ### Task 2: Write the Honor Pledge
 
 You must pledge, on your honor as a student, that you really watched
-the movie in it's entirety, within the *two weeks* prior to the
+the movie in it's entirety, within the *three weeks* prior to the
 assignment being due.  This should be the first sentence / paragraph
 of the assignment.  *If this is not present, your assignment will
 receive a zero!*
@@ -91,14 +92,16 @@ movie that were unrealistic.  For those parts, you need to briefly
 explain what about it is unrealistic.  Also list how they could have
 made it more realistic while preserving the movie flow -- it could be
 that it's not possible to do this, especially if a major plot point
-depends on one if these unrealisms.  If there are many such issues,
+depends on one if these "unrealisms".  If there are many such issues,
 then quickly list them all, and explain the most egregious ones.
 
 Ideally this will be prose, but if you have a long list, a bulleted
 list (but only for the "quickly" listed errors) is acceptable.
 
 Under no circumstances can it be more than 500 words.  I expect the
-majority of the responses to be far less.
+majority of the responses to be far less.  Have I mentioned how much I
+hate fluff in essays?  See [here](../uva/hw-policies.html)
+([md](../uva/hw-policies.md)) for details.
 
 ### Task 4: Submission Requirements
 
@@ -107,5 +110,6 @@ assignment.  Whatever word processor you use, it can export to .docx
 and .pdf.
 
 Your assignment ***MUST** be named \<tag>-\<userid>.docx and
-\<tag>-\<userid>.pdf, where \<tag> is the tag mentioned in the movie list
-above, and \<userid> is your userid.
+\<tag>-\<userid>.pdf, where \<tag> is the tag mentioned in the movie
+list above, and \<userid> is your userid.  (Don't put in the less-than
+and greater-than symbols in the file names, of course).

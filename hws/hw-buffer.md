@@ -14,12 +14,24 @@ due dates are listed on the [UVa course page](../uva/index.html)
 
 This assignment will have you implement a shellcode-based buffer
 overflow attack against a program executable.  You will need to be
-familiar with the content in the
-[buffer overflow slide set](../slides/buffer-overflows.html#/).
+familiar with the content in the [buffer overflow slide
+set](../slides/buffer-overflows.html#/).  That and the lecture
+recordings will guide you through many of the steps of this
+assignment.
 
-This assignment has five parts (or tasks), where tasks 2, 3, and 4
-are parts to a full buffer overflow attack, and thus are typically
-done in order.
+This assignment has six parts (or tasks), and are meant to be done in
+order, as that will help guide you through the assignment.  In any
+case, be sure to do task 6 -- a brief write-up -- as that will help us
+tell how far you got in the assignment.
+
+### Getting stuck?
+
+There are many parts of this assignment where it is easy to get stuck.
+You can look at the troubleshooting section, and the end of this page,
+for some hints.  We provide a *lot* of details in each section -- try
+reading through those again.  We know it's a lot to read (and to read
+repeatedly), but one can easily miss something the first time (or two)
+through it.
 
 
 ### Reference platform
@@ -32,8 +44,8 @@ provided to the class.
 
 These links are all described below, but are included here, all in one place.
 
-- The [buffer overflow slide set](../slides/buffer-overflows.html#/)
-- The CS 2150 [Makefile tutorial](https://uva-cs.github.io/pdr/tutorials/05-make/index.html),
+- The [buffer overflow slide set](../slides/buffer-overflows.html#/), specifically the [how to do it](../slides/buffer-overflows.html#/how2doit) column of slides
+- The CS 2150 [Makefile tutorial](https://uva-cs.github.io/pdr/tutorials/05-make/index.html)
 - CS 2150 assembly references:
   [slides](https://uva-cs.github.io/pdr/slides/08-assembly-64bit.html#/),
   labs ([1](https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html)
@@ -43,6 +55,7 @@ These links are all described below, but are included here, all in one place.
   [2](https://uva-cs.github.io/pdr/book/x86-64bit-ccc-chapter.pdf)),
   and/or
   [recommended online document](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf)
+    - Note that the first assembly lab has the vecsum example, which will properly compile (via `make`) a C++ / assembly program
 - The source code (grade.c) for the executable to be attacked:
   [HTML version](buffer/grade.c.html), [C version](buffer/grade.c)
 - [Linux 64-bit syscall reference](http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)
@@ -63,18 +76,22 @@ Aaron Bloomfield, your grade on this assignment is a F
 $
 ```
 
-Note that the first instance of the name is what the user input, and
-the second is what the program printed back.
+Note that the first instance of the name in the output above is what
+the user input, and the second is what the program printed back.
 
 The grade reported by this program is the grade you will receive on
 (part of) this assignment.
 
 The source code for this program is available:
 [HTML version](buffer/grade.c.html), [C version](buffer/grade.c).  It
-MUST be compiled with the following command: `gcc -g
--fno-stack-protector -m64 -fomit-frame-pointer -o grade grade.c`.  You
-are welcome to add the `-g` option to help with debugging, but when we
-test your program, we will not add the `-g` option.
+MUST be compiled with the following command: 
+
+```
+gcc -fno-stack-protector -m64 -fomit-frame-pointer -o grade grade.c
+```
+
+You are welcome to add the `-g` option to help with debugging, but
+when we test your program, we will not add the `-g` option.
 
 Your job is to create a shellcode-based buffer overflow attack that
 will assign you a different grade.  For example:
@@ -94,14 +111,18 @@ The contents of input.txt are output by a program that you will write in tasks 3
 Not much to do here yet, but we are going to call `make` to compile
 your code.  All of your compilation lines must be in that Makefile,
 and all under one target.  If you forget how to write a Makefile, you
-can see the
-[Makefile tutorial from CS 2150](https://uva-cs.github.io/pdr/tutorials/05-make/index.html),
-or any other reference online.
+can see the [Makefile tutorial from CS
+2150](https://uva-cs.github.io/pdr/tutorials/05-make/index.html), the
+vecsum example from the [first CS 2150 x86
+lab](https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html), or any
+other reference online.
 
 Most of the following steps will have you add some lines to the
 Makefile.  A collection of all the compilation commands is at the end
 of this document (in the Submission section).
 
+You may want to put the grade.c compilation line, from above, into
+your Makefile.
 
 ### Step 2: Create the shellcode
 
@@ -116,12 +137,15 @@ over how to do this.
 
 To test that your code works, you will need a `main()` function to
 call your shellcode; this will go into a `shellcode_test.c` file.
-Here is an example such file:
+Here is an example such file (you are welcome to use this as-is or
+modify it):
 
 ```
 #include <stdio.h>
 #include <sys/mman.h>
+
 extern void shellcode();
+
 void main() {
   int on_stack;
   mprotect((char *)((long)&on_stack & -0x1000), 1, PROT_READ | PROT_WRITE | PROT_EXEC);
@@ -156,7 +180,7 @@ Some notes and hints for developing this shellcode:
 - You can use `objdump -d shellcode.o` to see the machine language
   that your assembly opcodes compiled into.
 - The system calls for 32-bit x86 are DIFFERENT than those for 64-bit
-  x86.  In particular, syscall 1 is exit in 32-bit and sys_write in
+  x86.  In particular, syscall 1 is exit in 32-bit but is sys_write in
   64-bit.  We want this to be a 64-bit program, so be sure to use the
   syscalls that are listed
   [here](http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/).
@@ -165,7 +189,7 @@ Some notes and hints for developing this shellcode:
 - When invoking `syscall` in assembly, it looks at the *entire*
   register rax for the syscall function.  So if you only set the value
   in the lower 32 bits (i.e., `mov eax, 1`), then the overall value in
-  rax may not be 1 if any of the upper 32 bits were set previously
+  `rax` may not be 1 if any of the upper 32 bits were set previously
   (which is likely), and you will not get the syscall you expect.  So
   be sure to zero out the 64-bit versions of all the registers that
   syscall is using.
@@ -181,8 +205,9 @@ Some notes and hints for developing this shellcode:
 Some VERY important notes for compilation:
 
 - We are using C, not C++, so you will have to use the `gcc` compiler.
-- We are doing this as a 64-bit program, so you will have to pass `-f
-  elf64` to nasm, and `-m64` to BOTH of the gcc compilation commands.
+- We are doing this as a 64-bit program, so you will have to pass
+  `-f elf64` to nasm, and `-m64` to BOTH of the gcc compilation
+  commands.
 - You will have to add the `-no-pie` flag to the final link line.  (If
   you are interested, the default for the current version of gcc is to
   create a position independent executable (PIE), which means the
@@ -194,26 +219,56 @@ Some VERY important notes for compilation:
 - Your final binary should be called `shellcode_test` -- we are going
   to execute it, so please name it correctly.
 
+Your final compilation lines for this part might look like:
+
+```
+...
+```
+
+Where to start?  
+
+- First, get the C++ code (from above) properly compiling with some
+  assembly code -- you can adapt the vecsum example from the [first
+  x86 lab in CS
+  2150](https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html) for
+  this.
+- Make sure your Makefile can compile the code
+- Review the [buffer overflow
+  slides](../slides/buffer-overflows.html#/), specifically the [how to
+  do it](../slides/buffer-overflows.html#/how2doit) column
+- Change the assembly code to print out a string (via a `syscall`)
+- Add more assembly code to gracefully exit (also via a `syscall`)
+- View the machine code (via `objdump -d`), and work on removing
+  all the invalid characters (mostly 0x00 bytes).
+- As a sanity check, make sure that none of the other invalid bytes
+  are present in the machine code other than 0x00: newlines (0x0a),
+  carriage returns (0x0d), tabs (0x09), vertical tab (0x0b), and
+  spaces (0x20).
 
 ### Task 3: perform the overflow
 
 This is what we are all here for: the buffer overflow itself.
 Presumably, from task 2, you have shell code that does not contain any
-0x00 bytes (or newlines or carriage returns), prints out the
-grade you want, and then exits.
+0x00 bytes (or any of the other token-ending characters), prints out
+the grade you want, and then exits.
 
 In this part, you are going to create a C program called
 `attack_shellcode.c` that will write the carefully constructed data to
 stdout.  You can run your program as follows (this is how we will do
-it to test):
+it to test it):
 
 ```
 $ ./attack_shellcode > input.txt
 ```
 
+As your program will be writing binary data, the input.txt will be
+binary.  You can use `hexdump -C` to view the contents of that file --
+but make sure you put the `-C` parameter in there!
+
 Needless to say, be sure to name your executable `attack_shellcode`.
 You will then be able to run the buffer overflow via `./grade <
-input.txt`, as shown above.
+input.txt`, as shown above.  Recall that the `grade` executable was
+compiled from the grade.c source code, as shown above.
 
 The [buffer overflow slide set](../slides/buffer-overflows.html#/)
 will be a useful reference for this.  The output of your
@@ -259,8 +314,8 @@ Some other notes and tips:
 
 - We are not, at this time, expecting a newline to be printed at the
   end of your desired grade -- that's the next task.
-- Nothing here will work unless you have run `setarch x86_64 -v -LR
-  bash` first, as described in the
+- Nothing here will work unless you have run `setarch x86_64 -v -LR bash`
+  first, as described in the
   [buffer overflow slide set](../slides/buffer-overflows.html#/).
 - The address of the `name` buffer in `vulnerable()` MUST be specified
   as described below, otherwise your program will not work and you
@@ -270,8 +325,8 @@ Some other notes and tips:
   grade.c to find out; just be sure to change it back).
 - You can look at your created file via `hexdump -C input.txt`.  With
   the `-C` parameter, hexdump will display it in big Endian (different
-  parameters to hexdump will show it in different Endian-nesses).
-- You may be tempted to use
+  parameters to hexdump will show it in different Endian-ness).
+- In your `attack_shellcode` program, you may be tempted to use
   [puts()](http://www.cplusplus.com/reference/cstdio/puts/) to write
   your data to standard output.  However, `puts()` will write a
   newline character ('\\n', hex value 0x0a) after the data it prints.
@@ -284,16 +339,16 @@ Your Makefile will need to compile your program into an executable
 named `attack_shellcode`.
 
 Note that you will not be able to get credit for this part without
-also completing part 4.
+also completing task 4.
 
 
 ### Task 4: a variable buffer address
 
 The address of the buffer on the stack will vary based on many
 factors.  In an effort to make this assignment viable, you will need
-to create a file named `buffer_addr.h`, which you will include in your
-`attack_shellcode.c` file.  The .h file will specify the address of
-the buffer, and will have three lines:
+to create a file named `buffer_addr.h`, which you will `#include` in
+your `attack_shellcode.c` file.  The .h file will specify the address
+of the buffer, and will have three lines:
 
 ```
 #define BUFFER_ADDR 0x00007fffffffde10
@@ -302,8 +357,9 @@ the buffer, and will have three lines:
 ```
 
 These lines define the address of the buffer in three different
-formats; use whichever format you would like.  You can use the middle
-one as follows: `unsigned char buffer_addr[] = BUFFER_ADDR_ARRAY;`.
+formats; use whichever format you would like -- you are welcome to
+ignore the other two.  You can use the middle one as follows:
+`unsigned char buffer_addr[] = BUFFER_ADDR_ARRAY;`.
 
 When we are testing your code, we will create a `buffer_addr.h` file
 with the correct address of the buffer, and then recompile your code
@@ -312,14 +368,20 @@ files, delete the attack_shellcode executable, and then run `make`).
 
 You will need to submit a copy of the buffer_addr.h file when you
 submit your program so that it compiles.  You can have any values in
-that file, since we will provide our own during testing.
+that file, since we will overwrite it with our own during testing.
+
+Just to be clear: you need to write one that is the address of the
+buffer, and use that in your attack_shellcode program.  You will have
+to submit that file so that everything compiles.  When we are testing
+your code, we will overwrite your `buffer_addr.h` file with our own,
+and recompile your program.
 
 
 ### Task 5: add a newline
 
 ***BACK UP YOUR CODE FIRST!!!*** You are about to modify your program,
 and if things go poorly, then you want to be able to revert back to
-the code that successfully completes task 3.
+the code that successfully completes tasks 3 and 4.
 
 If you have made it this far, then your code, when run, looks
 something like:
@@ -347,8 +409,9 @@ shellcode_test.c allows for modification of the .text section, so such
 a modification will work in `shellcode_test`.
 
 This is just a modification of the attack_shellcode.c file, so your
-modifications for task 4 can overwrite parts of your task 3 (if you
-did task 4, then you obviously did task 3).
+modifications for this task can overwrite parts from the last two
+tasks.  For grading purposes, if you did this task, then you obviously
+did the previous two tasks.
 
 ### Task 6: brief write-up
 
@@ -369,12 +432,14 @@ We are not looking for any significant length here, just candid answers.
 You are going to submit a number of files:
 
 - Makefile: this calls four compilation lines (three from task 2, and
-  one from task 3; the line for task 3 will also apply to task 4).
+  one from task 3; the line for task 3 will also apply to tasks 4 and 5).
     - Make sure that things are compiled to the right names!
       shellcode.s should compile to shellcode.o, all of task 2 should
       compile into the `shellcode_test` executable, and the code from
       tasks 3 and 4 should compile into the `attack_shellcode`
       executable.
+	- You can also include the compilation line for grade.c or not --
+      we will provide it during testing regardless.
 - shellcode.s and shellcode_test.c from task 2
 - attack_shellcode.c from task 3 & 5 (if you completed task 5, just
   submit that, as that shows you also completed task 3)
@@ -386,7 +451,7 @@ You are going to submit a number of files:
 
 ### Troubleshooting
 
-You are likely to run into prolems, which will probably be
+You are likely to run into problems, which will probably be
 segmentation faults.  Here are some ideas about how to solve that.
 
 Recall that g++ often leaves some extra space between the buffer and
@@ -422,7 +487,7 @@ the exact address of the `name` buffer.  If not, then your program is
 going to seg fault.
 
 If you are sure the return address is set correctly, the next step is
-to trace the injected assembly.  Set a breakkpoint for the end of the
+to trace the injected assembly.  Set a break point for the end of the
 `vulnerable()` function.  If you set it *before* the last function
 call (the `strncpy()` call), hit `n` to step over that function.  You
 will then start using `stepi` to single-step through the assembly

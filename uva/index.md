@@ -47,6 +47,8 @@ Homeworks
 
 Unless otherwise noted, all submissions are due by the end of the day of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the [online submission system][162] -- all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time.
 
+- [HW 7: Movie Night](../hws/hw-movie-night.html) ([md](../hws/hw-movie-night.md)) is due Friday, March 22nd
+- [HW 6: Buffer Overflow](../hws/hw-buffer.html) ([md](../hws/hw-buffer.md)) is due Friday, March 8th
 - [HW 5: Hashing](../hws/hw-hashing.html) ([md](../hws/hw-hashing.md)) is due Friday, February 22nd
 - [HW 4: RSA](../hws/hw-rsa.html) ([md](../hws/hw-rsa.md)) is due Friday, February 15th
 - [HW 3: Ethics](../hws/hw-ethics.html) ([md](../hws/hw-ethics.md)) is due Wednesday, February 6th

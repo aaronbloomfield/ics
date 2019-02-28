@@ -8,12 +8,14 @@ You will be bound by the requirements on the [Homeworks policies page](../uva/hw
 
 ### Programing homeworks
 
+- [Programming homework: Buffer Overflow](hw-buffer.html) ([md](hw-buffer.md))
 - [Programming homework: Hashing](hw-hashing.html) ([md](hw-hashing.md))
 - [Programming homework: RSA](hw-rsa.html) ([md](hw-rsa.md))
 
 
 ### Written homeworks
 
+- [Written homework: Movie Night](hw-movie-night.html) ([md](hw-movie-night.md))
 - [Written homework: Ethics](hw-ethics.html) ([md](hw-ethics.md))
 - [Written homework: Policy](hw-policy.html) ([md](hw-policy.md))
 - [Written homework: Rational Paranoia](hw-paranoia.html) ([md](hw-paranoia.md))
