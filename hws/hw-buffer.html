@@ -90,8 +90,10 @@ void main() {
 <li>Your compiled shellcode.s file should be named <code>shellcode.o</code> -- we are going to run a disassembler on that file, so please name it correctly.</li>
 <li>Your final binary should be called <code>shellcode_test</code> -- we are going to execute it, so please name it correctly.</li>
 </ul>
-<p>Your final compilation lines for this part might look like:</p>
-<pre><code>...</code></pre>
+<p>Your final compilation lines for this part might look like the following. This would go into your Makefile (remember to indent each line of a target).</p>
+<pre><code>nasm -g -f elf64 -o shellcode.o shellcode.s
+gcc -g -m64 -c shellcode_test.c
+gcc -g -no-pie -m64 -o shellcode_test shellcode.o shellcode_test.o</code></pre>
 <p>Where to start?</p>
 <ul>
 <li>First, get the C++ code (from above) properly compiling with some assembly code -- you can adapt the vecsum example from the <a href="https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html">first x86 lab in CS 2150</a> for this.</li>
@@ -133,7 +135,8 @@ void main() {
 <li>You can look at your created file via <code>hexdump -C input.txt</code>. With the <code>-C</code> parameter, hexdump will display it in big Endian (different parameters to hexdump will show it in different Endian-ness).</li>
 <li>In your <code>attack_shellcode</code> program, you may be tempted to use <a href="http://www.cplusplus.com/reference/cstdio/puts/">puts()</a> to write your data to standard output. However, <code>puts()</code> will write a newline character ('\n', hex value 0x0a) after the data it prints. You can use <a href="http://www.cplusplus.com/reference/cstdio/fputs/">fputs()</a> instead (use <code>stdout</code> as the file descriptor) -- this will print to standard output without the trailing newline.</li>
 </ul>
-<p>Your Makefile will need to compile your program into an executable named <code>attack_shellcode</code>.</p>
+<p>Your Makefile will need to compile your program into an executable named <code>attack_shellcode</code>. A possible compilation line might look like the following -- this would also go into your Makefile.</p>
+<pre><code>gcc -o attack_shellcode attack_shellcode.c</code></pre>
 <p>Note that you will not be able to get credit for this part without also completing task 4.</p>
 <h3 id="task-4-a-variable-buffer-address">Task 4: a variable buffer address</h3>
 <p>The address of the buffer on the stack will vary based on many factors. In an effort to make this assignment viable, you will need to create a file named <code>buffer_addr.h</code>, which you will <code>#include</code> in your <code>attack_shellcode.c</code> file. The .h file will specify the address of the buffer, and will have three lines:</p>

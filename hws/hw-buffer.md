@@ -219,13 +219,17 @@ Some VERY important notes for compilation:
 - Your final binary should be called `shellcode_test` -- we are going
   to execute it, so please name it correctly.
 
-Your final compilation lines for this part might look like:
+Your final compilation lines for this part might look like the
+following.  This would go into your Makefile (remember to indent each
+line of a target).
 
 ```
-...
+nasm -g -f elf64 -o shellcode.o shellcode.s
+gcc -g -m64 -c shellcode_test.c
+gcc -g -no-pie -m64 -o shellcode_test shellcode.o shellcode_test.o
 ```
 
-Where to start?  
+Where to start?
 
 - First, get the C++ code (from above) properly compiling with some
   assembly code -- you can adapt the vecsum example from the [first
@@ -336,7 +340,12 @@ Some other notes and tips:
   output without the trailing newline.
 
 Your Makefile will need to compile your program into an executable
-named `attack_shellcode`.
+named `attack_shellcode`.  A possible compilation line might look like
+the following -- this would also go into your Makefile.
+
+```
+gcc -o attack_shellcode attack_shellcode.c
+```
 
 Note that you will not be able to get credit for this part without
 also completing task 4.
