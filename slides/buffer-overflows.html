@@ -628,7 +628,7 @@ We put all that together, and we get:
 ## setarch
 - To disable the two previous OS protections, you run:
 ```
-setarch -v -LR bash
+setarch x86_64 -v -LR bash
 ```
 - You can run any program, but `bash` is the shell, and you don't have to run the `setarch` command each time you want to run a program
 - Recall that `-R` disables ASLR, and `-L` allows execution on the stack

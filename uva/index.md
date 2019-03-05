@@ -60,6 +60,7 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Mon, Mar 4: finished [buffer overflows](../slides/buffer-overflows.html); [binary exploits](../slides/binary-exploits.html) through the third "Format String Attack Example" slide
 - Fri, Mar 1: exam 1 today, so no lecture progress
 - Wed, Feb 27: [buffer overflows](../slides/buffer-overflows.html) through the end of the "how to do it" column
 - Mon, Feb 25: finished [viruses](../slides/viruses.html#/); [buffer overflows](../slides/buffer-overflows.html) through the third "Stack for vulnerable()" slide
