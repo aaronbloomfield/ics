@@ -129,4 +129,4 @@ Honor pledge details: you are given permission to search the tcpdump.txt file to
 
 ### Submission
 
-You should submit a file called `mst3k-websecurity.pdf`, where mst3k is your userid.  Answers to all the above questions should be in that file.  So that it is viable for us to read, please clearly label the various sections of the file.
+You should submit a file called `mst3k-networks.pdf`, where mst3k is your userid.  Answers to all the above questions should be in that file.  So that it is viable for us to read, please clearly label the various sections of the file.
