@@ -61,6 +61,7 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Mon, Mar 18: [networks](../slides/networks.html#/) through the end of the basic network security column
 - Fri, Mar 8: finished [binary exploits](../slides/binary-exploits.html); [networks](../slides/networks.html#/) through the "More about TCP/IP" slide
 - Wed, Mar 6: [binary exploits](../slides/binary-exploits.html) through the "stack canary operation" slide
 - Mon, Mar 4: finished [buffer overflows](../slides/buffer-overflows.html); [binary exploits](../slides/binary-exploits.html) through the third "Format String Attack Example" slide

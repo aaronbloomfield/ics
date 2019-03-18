@@ -280,7 +280,18 @@
 ## WEP weaknesses
 - It uses a stream (aka character) cipher RC4 to encrypt each packet
 - RC4 is (essentially) secure, but one weakness is that repeated keys can allow an RC4 encoded message to be cracked
-  - There is one RC4 key, and many different initialization vectors or IV; one IV for each packet
+  - There is one RC4 key, and many different initialization vectors or IVs; one IV for each packet
+
+
+
+## Encryption without IVs
+[![](images/networks/ECB_encryption.svg)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation)
+
+
+
+## Encryption with IVs
+(at least what should happen)
+[![](images/networks/CBC_encryption.svg)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation)
 
 
 
@@ -305,7 +316,7 @@
 - Password cracking due to weak passwords
   - Look-up tables exist for a million different WPA/WPA2 passwords
 - Brute force attacks can crack moderate passwords
-  - A truly random password of 13 character (from the 95 available) can prevent brute-force attacks
+  - A truly random password of 13 characters (from the 95 available) can prevent brute-force attacks
   </textarea>
 </section>
 
