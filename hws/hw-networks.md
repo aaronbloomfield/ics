@@ -20,27 +20,33 @@ In addition, you will have to have a working SSL configuration for part 1 on the
 
 ### Part 1: Apache SSL configuration
 
-(this part will be filled in within the next few days -- ideally by Monday, March 11th)
+This part will not be due at this time.
 
 
 ### Part 2: Break WEP
 
-In this part you will need to break into a [WEP](https://en.wikipedia.org/wiki/Wired_Equivalent_Privacy) protected wireless network.
+It turns out that some network cards are not compatible, so this part will not be due at this time.
 
-The WEP protected network is accessible from the upper floors of Rice Hall on the west side of the building (the west side is the side with the main front door onto Engineer's Way).  The router itself is located in the 5th floor glass enclosed machine room in Rice Hall; how far away it is visible will depend on your particular machine.  The network SSID is `CS_ICS_wireless`.  Note that this SSID is ***not broadcasted***, so you will have enter the SSID directly (and exactly as specified) in order to connect to it.  There is a range extender for this network on the 4th floor of Rice Hall; the SSID for this is `CS_ICS_wireless_ext`.  Both have the same configuration, and you should pick the one to use based on the floor you are on.  Neither has their SSID broadcasted.
+If you already completed it, then please include what you did and what you found.
 
-Students in this class (and *ONLY* students in this class) are given permission to break into this network for this homework assignment (and for this assignment *ONLY*).
 
-There are many online tools that will allow you to do this.  One option is Aircrack-ng at [http://www.aircrack-ng.org/](http://www.aircrack-ng.org/).
+~~In this part you will need to break into a [WEP](https://en.wikipedia.org/wiki/Wired_Equivalent_Privacy) protected wireless network.~~
 
-Once you have accessed the network, you will need to scan for machines connected to that network, see what port(s) are open on those machines, and try to access those port(s).  You can do this through the `nmap` command, as described [here](https://itsfoss.com/how-to-find-what-devices-are-connected-to-network-in-ubuntu/).  If nmap is not on the VirtualBox image, you can install it via `sudo apt-get update` and `sudo apt-get install nmap` -- you are on your own for the other operating systems.  Once you have a port number, nmap should tell you what the protocol for that port is -- if not, you can look in the `/etc/services` file.
+~~The WEP protected network is accessible from the upper floors of Rice Hall on the west side of the building (the west side is the side with the main front door onto Engineer's Way).  The router itself is located in the 5th floor glass enclosed machine room in Rice Hall; how far away it is visible will depend on your particular machine.  The network SSID is `CS_ICS_wireless`.  Note that this SSID is ***not broadcasted***, so you will have enter the SSID directly (and exactly as specified) in order to connect to it.  There is a range extender for this network on the 4th floor of Rice Hall; the SSID for this is `CS_ICS_wireless_ext`.  Both have the same configuration, and you should pick the one to use based on the floor you are on.  Neither has their SSID broadcasted.~~
 
-In the report, you should include:
+~~Students in this class (and *ONLY* students in this class) are given permission to break into this network for this homework assignment (and for this assignment *ONLY*).~~
 
-- The WEP password for that network
-- The internal network IP address your computer was assigned
-- The IP address(es) and port(s) of the computer on the network that you are to access
-- What you found at those IP address(es) and port(s)
+~~There are many online tools that will allow you to do this.  One option is Aircrack-ng at [http://www.aircrack-ng.org/](http://www.aircrack-ng.org/).~~
+
+~~Once you have accessed the network, you will need to scan for machines connected to that network, see what port(s) are open on those machines, and try to access those port(s).  You can do this through the `nmap` command, as described [here](https://itsfoss.com/how-to-find-what-devices-are-connected-to-network-in-ubuntu/).  If nmap is not on the VirtualBox image, you can install it via `sudo apt-get update` and `sudo apt-get install nmap` -- you are on your own for the other operating systems.  Once you have a port number, nmap should tell you what the protocol for that port is -- if not, you can look in the `/etc/services` file.~~
+
+~~In the report, you should include:~~
+
+- ~~The WEP password for that network~~
+- ~~The internal network IP address your computer was assigned~~
+- ~~The IP address(es) and port(s) of the computer on the network that you are to access~~
+- ~~What you found at those IP address(es) and port(s)~~
+
 
 ### Part 3: Explore Tor
 
