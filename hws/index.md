@@ -8,6 +8,7 @@ You will be bound by the requirements on the [Homeworks policies page](../uva/hw
 
 ### Programing homeworks
 
+- [Programming homework: SQL, XSS, & CSRF](hw-sql-xss-csrf.html) ([md](hw-sql-xss-csrf.md))
 - [Programming homework: Networks](hw-networks.html) ([md](hw-networks.md))
 - [Programming homework: Buffer Overflow](hw-buffer.html) ([md](hw-buffer.md))
 - [Programming homework: Hashing](hw-hashing.html) ([md](hw-hashing.md))
