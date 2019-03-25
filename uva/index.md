@@ -61,6 +61,7 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Fri, Mar 22: Finished [SQL, XSS & CSRF](../slides/sql-xss-csrf.html#/)
 - Wed, Mar 20: Finished [networks](../slides/networks.html#/); [SQL, XSS & CSRF](../slides/sql-xss-csrf.html#/) through the car SQL injection attack slide
 - Mon, Mar 18: [networks](../slides/networks.html#/) through the end of the basic network security column
 - Fri, Mar 8: finished [binary exploits](../slides/binary-exploits.html); [networks](../slides/networks.html#/) through the "More about TCP/IP" slide
