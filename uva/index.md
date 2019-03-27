@@ -61,6 +61,7 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Mon, Mar 25: [Web security](../slides/web-security.html#/) through the bit TLS protocol image slide
 - Fri, Mar 22: Finished [SQL, XSS & CSRF](../slides/sql-xss-csrf.html#/)
 - Wed, Mar 20: Finished [networks](../slides/networks.html#/); [SQL, XSS & CSRF](../slides/sql-xss-csrf.html#/) through the car SQL injection attack slide
 - Mon, Mar 18: [networks](../slides/networks.html#/) through the end of the basic network security column
