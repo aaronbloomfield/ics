@@ -61,6 +61,8 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Fri, Mar 29: Exam 2, so no lecture
+- Wed, Mar 27: [Web security](../slides/web-security.html#/) through the end of the "Attacking HTTPS" slide column
 - Mon, Mar 25: [Web security](../slides/web-security.html#/) through the bit TLS protocol image slide
 - Fri, Mar 22: Finished [SQL, XSS & CSRF](../slides/sql-xss-csrf.html#/)
 - Wed, Mar 20: Finished [networks](../slides/networks.html#/); [SQL, XSS & CSRF](../slides/sql-xss-csrf.html#/) through the car SQL injection attack slide
