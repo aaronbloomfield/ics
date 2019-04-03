@@ -18,6 +18,7 @@ You will be bound by the requirements on the [Homeworks policies page](../uva/hw
 
 ### Written homeworks
 
+- [Written homework: Celebrity Visit](hw-celebrity-visit.html) ([md](hw-celebrity-visit.md))
 - [Written homework: Movie Night](hw-movie-night.html) ([md](hw-movie-night.md))
 - [Written homework: Ethics](hw-ethics.html) ([md](hw-ethics.md))
 - [Written homework: Policy](hw-policy.html) ([md](hw-policy.md))

@@ -47,6 +47,7 @@ Homeworks
 
 Unless otherwise noted, all submissions are due by the end of the day of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the [online submission system][162] -- all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time.
 
+- [HW 11: Celebrity Visit](../hws/hw-celebrity-visit.html) ([md](../hws/hw-celebrity-visit.md)) is due Tuesday, April 16th and there is NO LATE SUBMISSION on this one
 - [HW 10: Cryptocurrency](../hws/hw-cryptocurrency.html) ([md](../hws/hw-cryptocurrency.md)) is due Friday, April 12th
 - [HW 9: SQL, XSS, & CSRF](../hws/hw-sql-xss-csrf.html) ([md](../hws/hw-sql-xss-csrf.md)) is due Wednesday, April 3rd
 - [HW 8: Networks](../hws/hw-networks.html) ([md](hw-networks.md)) is due Friday, March 22nd
