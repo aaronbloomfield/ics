@@ -63,6 +63,7 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Wed, Apr 3: [Cryptocurrency](../slides/cryptocurrency.html#/) through the second Mining -> Why So Hard? slide
 - Mon, Apr 1: Finished [Web security](../slides/web-security.html#/); [cryptocurrency](../slides/cryptocurrency.html#/) through the Bitcoin Basics -> Wallet slide
 - Fri, Mar 29: Exam 2, so no lecture
 - Wed, Mar 27: [Web security](../slides/web-security.html#/) through the end of the "Attacking HTTPS" slide column
