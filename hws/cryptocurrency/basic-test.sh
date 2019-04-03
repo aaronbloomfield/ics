@@ -19,5 +19,6 @@ echo bob.wallet.txt wallet signature: $bob
 cat ledger.txt
 ./cryptomoney.sh balance $alice
 ./cryptomoney.sh balance $bob
-./cryptomoney.sh createblock
+./cryptomoney.sh mine 2
+sha256sum block_1.txt
 ./cryptomoney.sh validate

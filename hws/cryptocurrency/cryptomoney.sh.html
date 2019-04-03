@@ -1,7 +1,14 @@
-<!-- Generator: GNU source-highlight 3.1.8
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
-http://www.gnu.org/software/src-highlite -->
+http://www.gnu.org/software/src-highlite">
+<title>cryptomoney.sh</title>
+</head>
+<body bgcolor="white">
 <pre><tt><i><font color="#9A1900">#!/bin/bash</font></i>
 
 <i><font color="#9A1900"># the first command-line parameter is in $1, the second in $2, etc.</font></i>
@@ -44,8 +51,8 @@ http://www.gnu.org/software/src-highlite -->
 	    <i><font color="#9A1900"># transaction file name</font></i>
 	    <font color="#990000">;;</font>
 
-    createblock<font color="#990000">)</font> java CMoney createblock
-		 <i><font color="#9A1900"># additional parameters provided: (none)</font></i>
+    mine<font color="#990000">)</font> java CMoney mine <font color="#009900">$2</font>
+		 <i><font color="#9A1900"># additional parameters provided: difficulty</font></i>
 		 <font color="#990000">;;</font>
     
     validate<font color="#990000">)</font> java CMoney validate
@@ -57,3 +64,5 @@ http://www.gnu.org/software/src-highlite -->
 
 <b><font color="#0000FF">esac</font></b>
 </tt></pre>
+</body>
+</html>

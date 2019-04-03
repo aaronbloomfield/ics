@@ -40,8 +40,8 @@ case "$1" in
 	    # transaction file name
 	    ;;
 
-    createblock) java CMoney createblock
-		 # additional parameters provided: (none)
+    mine) java CMoney mine $2
+		 # additional parameters provided: difficulty
 		 ;;
     
     validate) java CMoney validate
