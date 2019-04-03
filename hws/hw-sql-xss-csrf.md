@@ -70,7 +70,7 @@ Honor pledge details: you are given permission to execute XSS attacks against th
 
 ### Part 3 Cross-site Request Forgery (CSRF) Attack
 
-View the page at [https://libra.cs.virginia.edu/~insecure/csrf.php](https://libra.cs.virginia.edu/~insecure/csrf.php) - again, you will have to log in via Netbadge to view that page.  From this page, you will need to execute multiple CSS attacks, described below.
+View the page at [https://libra.cs.virginia.edu/~insecure/csrf.php](https://libra.cs.virginia.edu/~insecure/csrf.php) - again, you will have to log in via Netbadge to view that page.  From this page, you will need to execute multiple CSRF attacks, described below.
 
 Your goal is to transfer $200 to 'mallory' via that URL.  This must be done two ways: 
 
