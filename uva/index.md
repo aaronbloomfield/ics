@@ -63,8 +63,9 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Fri, Apr 5: Finished [Cryptocurrency](../slides/cryptocurrency.html#/); Started [Anonymity](../slides/anonymity.html#/) through the first of the Sender Anonymity -> Anonymity Theory slide
 - Wed, Apr 3: [Cryptocurrency](../slides/cryptocurrency.html#/) through the second Mining -> Why So Hard? slide
-- Mon, Apr 1: Finished [Web security](../slides/web-security.html#/); [cryptocurrency](../slides/cryptocurrency.html#/) through the Bitcoin Basics -> Wallet slide
+- Mon, Apr 1: Finished [Web security](../slides/web-security.html#/); [Cryptocurrency](../slides/cryptocurrency.html#/) through the Bitcoin Basics -> Wallet slide
 - Fri, Mar 29: Exam 2, so no lecture
 - Wed, Mar 27: [Web security](../slides/web-security.html#/) through the end of the "Attacking HTTPS" slide column
 - Mon, Mar 25: [Web security](../slides/web-security.html#/) through the bit TLS protocol image slide
