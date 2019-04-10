@@ -68,7 +68,7 @@
 
 ## Rootkits
 - A *rootkit* is an exploit that permits an attacker to execute commands with root privileges
-  - i.e. Administrator privileges on a Windows system
+  - i.e. as root on Linux or as Administrator on Windows
   - It does this *while hiding the activity to avoid detection* by system administrators
 - To hide from a system administrator on a Unix system, the attacker would want to suppress displays of attacker processes, attacker files, attacker logins, etc.
 
@@ -81,9 +81,8 @@
 
 ## Rootkit Varieties
 - Because a rootkit can hide files and processes, there is great variety to rootkit attacks:
-  - Hiding backdoors that permit remote access
-  - Hiding a keylogger process that steals passwords and other sensitive data
-  - Hiding a spamming program or a denial of service attack program
+  - Hiding backdoors, keyloggers, spam, or DOS programs
+  - Allowing zombie use of the computer
   - Hiding a program that copies chat sessions out, relaying private info back to the attacker
 - All of these, and more, have occurred with rootkit attacks, e.g. the [FU rootkit](http://www.rootkit.com/board_project_fused.php?did=proj12)
 
@@ -106,16 +105,9 @@
   - Need scanners similar to antivirus scanners
 
 
-## Detecting Rootkits cont.
-- A common functionality within anti-virus software is *stealth detection*
-- Recall the problem of the interrupt hooking virus, which could conceal viruses by hooking the disk interrupts used by the DIR command and printing the original file sizes, etc.
-  - We studied tunneling in the interrupt chain, and AV monitors that can detect the tunneling
-  - Another AV method is to use a *stealth detector*
-- The stealth detector module bypasses the virus by making direct BIOS calls to read the disk
-
-
-## Stealth Detection cont.
-- If file and directory sizes are different when the BIOS call results are compared to the normal usage of the system interrupts, the stealth detector raises the alarm and tries to find the hooking virus
+## Stealth Detection
+- To bypass a (potentially) compromised OS, an AV software will directly call the BIOS to access the disk
+- If the results differ, then the *stealth detector* raises the alarm and tries to find the malware
 
 
 ## Stealth Detection cont.
@@ -127,9 +119,9 @@
 
 
 ## Rootkit Countermeasures
-- Recent rootkits have included a simple counter-measure: When they detect a scanner's presence, they stop hiding things
-  - Root kit designers know the names of scanner processes and can detect them
-  - If they stop hiding files, then the file listings from the OS and the BIOS match; they both show the rootkit files, but the stealth detector does not find any differences, so it raises no alarm!
+- Simple rootkit counter-measure: when they detect a scanner's presence, they stop hiding things
+  - Scanner process names are well known and can be detected
+  - If they stop hiding files, then the stealth detector does not sense anything wrong
   - When the stealth detector process ends, the rootkit starts hiding files again
 
 
@@ -165,23 +157,35 @@
 	  
 	  <section data-markdown data-separator="^\n$"><textarea data-template>
 ## The Sony CD Fiasco of 2005
-- In late October, 2005, Mark Russinovich (operator of the SysInternals blog) tested the latest version of RootkitRevealer (RKR)
-- Russinovich practiced very safe computing, and even wrote an article on detecting rootkits for the June, 2005, edition of Windows IT Pro
+- In late October 2005, Mark Russinovich (operator of the SysInternals blog) tested the latest version of RootkitRevealer (RKR)
+  - Russinovich practiced very safe computing, and even wrote an article on detecting rootkits for the June, 2005, edition of Windows IT Pro
 - Much to his surprise, RKR revealed a large number of hidden system files on his PC, an obvious symptom of a rootkit infection
 - His [blog entry](http://blogs.technet.com/markrussinovich/archive/2005/10/31/sony-rootkits-and-digital-rights-management-gone-too-far.aspx)
+
+
+## What RKR revealed
+(from Mark Russinovich's [blog entry](http://blogs.technet.com/markrussinovich/archive/2005/10/31/sony-rootkits-and-digital-rights-management-gone-too-far.aspx))
+![image](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/prod.evol.blogs.technet.com/telligent.evolution.components.attachments/13/5247/00/00/00/48/24/08/rootkit1.gif)
+Note that these files were hidden (last column) and many started with $\$$sys$\$$
 
 
 ## Sony CD Fiasco cont.
 - To confirm that he had detected a rootkit, Russinovich analyzed the system with his own tool, LiveKd (Live Kernel Debugger)
 - LiveKd detected that the system services table (a table of function pointers) had function pointers patched into it that were obviously not in the address range of the kernel
-  - See 2nd screen shot in his [blog entry](http://blogs.technet.com/markrussinovich/archive/2005/10/31/sony-rootkits-and-digital-rights-management-gone-too-far.aspx)
+  - See 2nd screen shot in his [blog entry](http://blogs.technet.com/markrussinovich/archive/2005/10/31/sony-rootkits-and-digital-rights-management-gone-too-far.aspx) (next slide)
 - Disassembling one of these functions showed it was from the aries.sys device driver, which was one of the hidden files detected by RKR
+
+
+## What RKR revealed
+(from Mark Russinovich's [blog entry](http://blogs.technet.com/markrussinovich/archive/2005/10/31/sony-rootkits-and-digital-rights-management-gone-too-far.aspx))
+![image](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/prod.evol.blogs.technet.com/telligent.evolution.components.attachments/13/5247/00/00/00/48/24/10/rootkit2.gif)
+The circled function pointers are clearly different than the others
 
 
 ## Sony CD Fiasco cont.
 - While the directory was hidden, once he knew of its existence from RKR, he could open a command prompt window and change directory (CD command) directly into it
-- Sure enough, there were the rootkit device drivers and other files
-  - See 4th screen shot in his [blog entry](http://blogs.technet.com/markrussinovich/archive/2005/10/31/sony-rootkits-and-digital-rights-management-gone-too-far.aspx)
+- Sure enough, there were the rootkit device drivers and other files:
+![image](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/prod.evol.blogs.technet.com/telligent.evolution.components.attachments/13/5247/00/00/00/48/24/13/rootkit4.gif)
 
 
 ## Sony CD Fiasco cont.
@@ -203,12 +207,13 @@
 
 ## Sony Fiasco: The Plot Thickens
 - Russinovich recalled having just recently bought and played a Sony/BMG CD (ironically, entitled *Get Right with the Man*) that required you to install its media player in order to play it on a PC
+![image](https://m.media-amazon.com/images/I/81GEYZrDJBL._SS500_.jpg)
 
 
 ## Sony Fiasco: The Plot Thickens
 - When he played the CD again, there was an increase in CPU usage by process $\$$sys$\$$DRMServer.exe
-- The Services tab of Process Explorer identified the app as "Plug and Play Device Manager," which is an obvious attempt to mislead the user into thinking that this is a core Windows service, which it is not
-  - See 9th screen shot of the [blog entry](http://blogs.technet.com/markrussinovich/archive/2005/10/31/sony-rootkits-and-digital-rights-management-gone-too-far.aspx)
+- The Services tab of Process Explorer identified the app as "Plug and Play Device Manager," which is an obvious attempt to mislead the user into thinking that this is a core Windows service, which it is not:
+![image](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/prod.evol.blogs.technet.com/telligent.evolution.components.attachments/13/5247/00/00/00/48/24/18/rootkit9.gif)
 
 
 ## Sony Fiasco: The Plot Thickens
@@ -217,12 +222,13 @@
   - So he removed the files and their associated registry keys manually and rebooted
 
 
-## Sony Rootkit: Cannot Uninstall
-- Manual installation led to a major problem, as is often the case with rootkits: the CD drive had now disappeared from the system's view
+## Sony Rootkit: Can't Uninstall
+- Manual installation led to a major problem, as is often the case with rootkits:
+  - The CD drive had now disappeared from the system's view
 - Windows permits a form of device driver chaining called device filtering, and XCP had installed a device filter called Crater.sys (another ironic name) that had cratered his system by tunneling into the device driver chain for the CD drive
 
 
-## Sony Rootkit: Cannot Uninstall
+## Sony Rootkit: Can't Uninstall
 - When he tried to delete the registry entries that accomplish the chaining, he got an "access denied" error
 - Luckily, he was expert enough to work around that and delete the chained drivers for both the CD drive and the IDE channel for the CD drive (Cor.sys)
 
@@ -255,8 +261,9 @@ by Thomas Hesse, President, Global Digital Business, Sony/BMG
 ## The Sony Patch
 - Sony got First 4 Internet to provide a patch to update the rootkit
 - The 3.5MB "patch" included a whole new version of the DRM software
-- Immediately after installing it, Russinovich noticed a new entry called MediaJam in the Add/Remove Programs list
-- See screen shot in the [second blog entry](http://blogs.technet.com/markrussinovich/archive/2005/11/04/more-on-sony-dangerous-decloaking-patch-eulas-and-phoning-home.aspx)
+- Immediately after installing it, Russinovich noticed a new entry called MediaJam in the Add/Remove Programs list:
+![image](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/prod.evol.blogs.technet.com/telligent.evolution.components.attachments/13/5247/00/00/00/48/24/35/sony-patch4.gif)
+(from his [second blog entry](http://blogs.technet.com/markrussinovich/archive/2005/11/04/more-on-sony-dangerous-decloaking-patch-eulas-and-phoning-home.aspx))
 
 
 ## The Sony Patch cont.
@@ -295,7 +302,7 @@ by Thomas Hesse, President, Global Digital Business, Sony/BMG
 
 ## Security Exploits cont.
 - Anti-virus software vendors were reluctant to target the DRM software at first, perhaps because Sony might sue them
-- After the exploits were reported, they all began to update their scanners to disable or remove the Sony/BMG rootkit:
+- After the exploits were reported, they all began to update their scanners to disable or remove the Sony/BMG rootkit
 - [CNET article](https://www.cnet.com/news/microsoft-will-wipe-sonys-rootkit/)
 
 
@@ -330,8 +337,10 @@ by Thomas Hesse, President, Global Digital Business, Sony/BMG
 
 
 ## Sony Fiasco: Final Ironies
-- Hackers have disassembled and reverse engineered the DRM code and found software that was released under the GPL (GNU Public License) and is therefore being used in violation of copyright law
-- The author of the stolen code? "DVD Jon" Johansen, the Norwegian infamous for writing the "DeCSS" code that cracked the copy protection software once used on DVDs
+- Hackers disassembled and reverse engineered the rootkit code
+  - It was GPL software and is therefore being used in violation of copyright law
+- The author of the stolen code? 
+  - "DVD Jon" Johansen, the Norwegian infamous for writing the "DeCSS" code that cracked the copy protection software once used on DVDs
   - [Slashdot article](https://yro.slashdot.org/story/05/11/17/1350209/dvd-jons-code-in-sony-rootkit)
   - He was prosecuted but acquitted in the DeCSS case
 	  </textarea></section>

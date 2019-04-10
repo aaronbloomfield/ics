@@ -25,10 +25,10 @@ Slide sets, ordered in the order presented in lecture:
 	- [Web Security](web-security.html#/)
 - Modern Topics
 	- [SQL, XSS, and CSRF](sql-xss-csrf.html#/)
-	- [Anonymity](anonymity.html#/)
 	- [Crytocurrency](cryptocurrency.html#/)
-	- [Stuxnet](stuxnet.html#/)
+	- [Anonymity](anonymity.html#/)
     - [Rootkits](rootkits.html#/)
+	- [Stuxnet](stuxnet.html#/)
 	- [Virtual Machines](vms.html#/)
 - Digital Forensics
 	- [Digital Forensics](forensics.html#/)
