@@ -66,7 +66,7 @@ public class Sample {
 
     // This will get the SHA-256 hash of a file, and is the same as
     // calling the `sha256sum` command line program
-    static String getSignatureOfFile(String filename) throws Exception {
+    static String getHashOfFile(String filename) throws Exception {
 	byte[] filebytes = Files.readAllBytes(Paths.get(filename));
 	MessageDigest digest = MessageDigest.getInstance("SHA-256");
 	byte[] encodedHash = digest.digest(filebytes);
