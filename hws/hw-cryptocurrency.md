@@ -37,7 +37,9 @@ with new ideas will get you more points on the assignment.
 
 As mentioned above, you may use any programming language for this, but
 if you want to use a language other than C, C++, Java, or Python,
-please check with us first.
+please check with us first.  We support Go (version 1.10), but we do
+not have any additional information available for it in terms of links
+or supplied functions.
 
 For Java and Python, we provide you with the code to convert a hex
 string to an array of bytes, to convert an array of bytes to a hex

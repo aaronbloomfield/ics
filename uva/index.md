@@ -63,6 +63,7 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Mon, Apr 8: [Anonymity](../slides/anonymity.html#/) through the end of the Tor column of slides
 - Fri, Apr 5: Finished [Cryptocurrency](../slides/cryptocurrency.html#/); Started [Anonymity](../slides/anonymity.html#/) through the first of the Sender Anonymity -> Anonymity Theory slide
 - Wed, Apr 3: [Cryptocurrency](../slides/cryptocurrency.html#/) through the second Mining -> Why So Hard? slide
 - Mon, Apr 1: Finished [Web security](../slides/web-security.html#/); [Cryptocurrency](../slides/cryptocurrency.html#/) through the Bitcoin Basics -> Wallet slide
