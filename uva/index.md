@@ -64,6 +64,8 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Mon, Apr 15: Started and finished [Stuxnet](../slides/stuxnet.html#/)
+- Fri, Apr 12: Finished [rootkits](../slides/rootkits.html#/)
 - Wed, Apr 10: Finished [anonymity](../slides/anonymity.html#/); [rootkits](../slides/rootkits.html#/) through the end of the Rootkits column of slides
 - Mon, Apr 8: [Anonymity](../slides/anonymity.html#/) through the end of the Tor column of slides
 - Fri, Apr 5: Finished [Cryptocurrency](../slides/cryptocurrency.html#/); Started [Anonymity](../slides/anonymity.html#/) through the first of the Sender Anonymity -> Anonymity Theory slide
