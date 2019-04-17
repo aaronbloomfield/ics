@@ -8,6 +8,7 @@ You will be bound by the requirements on the [Homeworks policies page](../uva/hw
 
 ### Programing homeworks
 
+- [Programming homework: Rootkits](hw-rootkits.html) ([md](hw-rootkits.md))
 - [Programming homework: Cryptocurrency](hw-cryptocurrency.html) ([md](hw-cryptocurrency.md))
 - [Programming homework: SQL, XSS, & CSRF](hw-sql-xss-csrf.html) ([md](hw-sql-xss-csrf.md))
 - [Programming homework: Networks](hw-networks.html) ([md](hw-networks.md))
