@@ -115,6 +115,21 @@ specifically designed to NOT be able to be (easily) found with Autopsy
 / SleuthKit.
 
 
+### Autopsy installation directions on Linux
+
+- Do ***NOT*** install autopsy via apt-get (or any other Ubuntu package manager -- the version that is installed that way is 2.2, and the current version is 4.10.  These instructions will install 4.10.
+- Note that his will increase your disk size by about 1 Gb.
+- These directions were summarized from [here](https://www.sleuthkit.org/autopsy/download.php) and [here](https://github.com/sleuthkit/autopsy/blob/develop/Running_Linux_OSX.txt) -- some of these steps have already been followed on the VirtualBox image.
+- First, make *sure* you start with the more recent of the two VirtualBox images that was released this semester, as that one was set up to allow this install to work smoothly.  To see which one you have, you can run `dpkg -l | grep sleuth`.  If you see nothing listed, or you see `sleuthkit` listed, then it's the first version of the image.  If you see `sleuthkit-java` listed, then it's the second version.
+- To ensure that you have the latest version of the dependent software packages, run `apt-get update` followed by `apt-get dist-upgrade`.  If one (or both) complains that it is "unable to acquire the dpkg frontend lock, is another process using it?", then it is installing critical updates in the background.  Wait 10 minutes or so, and try again.  If a blue window pops up asking you about where to put the GRUB boot loader, select /dev/sda, and click OK.
+- Download the Autopsy .zip file from [here](https://github.com/sleuthkit/autopsy/releases/download/autopsy-4.10.0/autopsy-4.10.0.zip).  Unzip it.
+- From that directory, enter the following commands:
+  ```
+export JAVA_HOME=/usr/lib/jvm/default-java/
+bash unix_setup.sh
+```
+
+
 ### Deliverable
 
 The deliverable is a PDF report, named mst3k.pdf (change 'mst3k' to
