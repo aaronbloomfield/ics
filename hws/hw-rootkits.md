@@ -52,6 +52,13 @@ submission.  You will want to review the [rootkit
 slides](../slides/rootkits.html#/).
 
 
+### Working as root
+
+Some of these commands will require to to execute them as the root
+user.  You can do this by prepending `sudo` in front of the command.
+For example, to insert a module called `root.ko`, you would call `sudo
+insmod root.ko` -- this executes the `insmod root.ko` command as root.
+
 ## Kernel level rootkit
 
 Recall that a Linux kernel level rootkit installs a loadable kernel
@@ -160,9 +167,10 @@ program, we are going to rename our `/usr/bin/sha224sum` to
 `/usr/bin/sha224sum.original`, so if you use a different name, your
 submission will not work.
 
-You are going to write a wrapper program that you will compile to
-/usr/bin/sha224sum (overwriting the binary that is there).  It will
-need to do the following:
+You are going to write a wrapper program that you will name
+`sha224sum`, and put it in `/usr/bin/` -- thus, when you normally call
+`sha224sum`, it will call your wrapper file.  Your wrapper file will
+then call the renamed (and original) `sha224sum.original`.
 
 - Whenever run, it will print out a one-line witty quote
 - If the `--be-evil` flag is passed (note the two leading dashes!), it
@@ -189,7 +197,8 @@ You can do this in any language that you want:
   function, which is in the `<unistd.h>` library.
 - We can't use Java -- we need the executable name to be `sha224sum`,
   not `sha224sum.class`
-- Python 3 is fine
+- Python 3 is fine -- be sure to put `#!/usr/bin/python3` and run
+  `chmod 755 <scriptfilename>` on the file
 - We also support Go (version 1.10)!
 
 For this assignment, you should name your source code file
@@ -272,11 +281,22 @@ the text sent back is:
 NoLSBmodulesareavailable.DistributorID:UbuntuDescription:Ubuntu18.04.2LTSRelease:18.04Codename:bionic
 ```
 
-We are less focused on text formatting and more on the obtaining and
-transmission of the information.
+You can even replace all spaces with underscores, if you wish.  We are
+less focused on text formatting and more on the obtaining and
+transmission of the information.  And if your system does not print
+the first line ("No LSB modules are available."), that's fine as well.
 
-You will need to execute a command-line program and capture the output
--- see the code
+From the C code, you will need to execute a command-line program and
+capture the output.  There are a few ways to do this:
+
+- You can do this as series of command-line arguments that create a
+  file, and then read in that file.  For example, `system("command >
+  filename.txt");` will create the file, and then you can look into
+  file I/O to read in that file (see the
+  [fileio.cpp](https://uva-cs.github.io/pdr/labs/lab10/fileio.cpp.html)
+  program from CS 2150's Huffman coding lab as an example)
+- You can call the command directly (without redirecting it to a file)
+from C -- see the code
 [here](https://stackoverflow.com/questions/7292642/grabbing-output-from-exec)
 for how to do this (you can copy the code at that link for this
 assignment).

