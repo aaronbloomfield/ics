@@ -47,6 +47,7 @@ Homeworks
 
 Unless otherwise noted, all submissions are due by the end of the day of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the [online submission system][162] -- all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time.
 
+- [HW 13: Forensics](../hws/hw-forensics.html) ([md](../hws/hw-forensics.md))
 - [HW 12: Rootkits](../hws/hw-rootkits.html) ([md](../hws/hw-rootkits.md)) is due Friday, April 19th
 - [HW 11: Celebrity Visit](../hws/hw-celebrity-visit.html) ([md](../hws/hw-celebrity-visit.md)) is due Tuesday, April 16th and there is NO LATE SUBMISSION on this one
 - [HW 10: Cryptocurrency](../hws/hw-cryptocurrency.html) ([md](../hws/hw-cryptocurrency.md)) is due Friday, April 12th
@@ -64,6 +65,7 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Wed, Apr 17: Jason Belford, UVa's CISO, gave a guest lecture
 - Mon, Apr 15: Started and finished [Stuxnet](../slides/stuxnet.html#/)
 - Fri, Apr 12: Finished [rootkits](../slides/rootkits.html#/)
 - Wed, Apr 10: Finished [anonymity](../slides/anonymity.html#/); [rootkits](../slides/rootkits.html#/) through the end of the Rootkits column of slides

@@ -11,35 +11,37 @@ due dates are listed on the [UVa course page](../uva/index.html)
 
 ### Introduction
 
-Mae Cartly led a very secluded life.  You knew little about her, or
-what she did.  She rented an apartment across from you, and you saw
-her occasionally -- but probably spoke a total of 5 words to her in
-the two years that you lived across from each other.
+Emma Turner led a very secluded life. You knew little about her, or
+what she did. She rented an apartment down the hall from you, and you
+saw her occasionally -- but probably spoke a total of 5 words to her
+in the two years that you lived across from each other.
 
-Suddenly, though, she disappeared.  You could tell that something was
-up as the lights in her apartment no longer went on at night.  The
-police were called, but the could find no indication of foul play, so
-they closed the criminal part of the case and listed her as a missing
-person.
+About a month ago, though, she disappeared. You could tell that
+something was up as the lights in her apartment no longer went on at
+night. The police were called, but the could find no indication of
+foul play, so they closed the criminal part of the case and listed her
+as a missing person.
 
-Her sister Laila showed up a few weeks later, and struck up a
-conversation with you.  Laila worried that something was "up" with
-Mae's disappearance, although she had no idea what it was.  She
-searched the apartment, but to no avail.  The only thing that Laila
-was not able to properly search was Mae's computer.
+Her brother, Joss, showed up a few weeks later.  You've known Joss for
+a while, and have done some (paid) off-the-books work for him in the
+past.  Joss is worried that something was "up" with Emma's
+disappearance, although he had no idea what it was. And he has no idea
+where she is.  He searched the apartment, but to no avail. The only
+thing that Joss was not able to properly search was Emma's computer.
+He stated that he has no idea what could have happened to her.
 
-Laila has asked you to look into her computer to see what you can find
-out.  You took an image of the hard drive, which uses Linux, and you
-have that to work from.
+Joss has asked you to look into Emma's computer to see what you can
+find out. You took an image of the hard drive, which uses Linux, and
+you have that to work from.
 
-Laila would like you to help her find out (1) where Mae went, and (2)
-who she can contact about Mae's sudden departure.
+Joss would like you to help him find out (1) where Emma went, and (2)
+who he can contact about Emma's sudden disappearance.
 
 But you have no idea what to look for...
 
 (Note: in the real world, you might get into legal trouble for doing
 this type of search, since the owner of the computer did not give you
-permission.  But this is an assignment, and FAKE, so there is no legal
+permission. But this is an assignment, and FAKE, so there is no legal
 trouble to get into for this assignment.)
 
 ### Assignment
@@ -50,7 +52,8 @@ Spoiler: there is obviously a story that this disk image can tell,
 otherwise there wouldn't be this assignment.
 
 The intent is for you to use Autopsy / SleuthKit for this assignment,
-as well as some command-line commands.
+as well as some command-line tools.  You will also want to be familiar
+with the [digital forensics slide set](../slides/forensics.html#/).
 
 ### Details
 
@@ -61,50 +64,27 @@ somebody else's disk image!** If it says that your image is not yet
 ready, try again in an hour or so.  The image was compressed with gzip
 -- if your operating system does not natively support it, then you can
 use [7-zip](https://www.7-zip.org/) to extract it.  The compressed .gz
-file is 3.7 Gb in size, and the uncompressed image is 9.0 Gb in size.
+file is 4 Gb in size, and the uncompressed image is 10 Gb in size.
 
 This image was designed using Linux (it's an ext4 file system).
-However, you can do this homework on any host OS.  This can also be
-done on the VirtualBox Linux image provided for the class. Due to the
-size of the image file for this homework, you will either need to
-increase the disk size (see the bottom of
-[here](https://uva-cs.github.io/pdr/tutorials/01-intro-unix/vb-image-details.html)
-for how to do that) or mount a shared folder through VirtualBox, which
-will allow the guest OS (Linux in the VirtualBox image) to access the
-file on your host OS.
+However, you can do this homework on any host OS.  Due to installation
+issues, you can not install autopsy on the VirtualBox image.
 
 ### Tools allowed
 
 The intent of this assignment is for you to use
 [Autopsy](https://en.wikipedia.org/wiki/Autopsy_(software%29)) /
-[SleuthKit](https://en.wikipedia.org/wiki/The_Sleuth_Kit).  You can
-install them on your VirtualBox image via:
-
-```
-sudo apt-get install autopsy sleuthkit
-```
-
-You then have to run autopsy as root:
-
-```
-sudo autopsy
-```
-
-You can then view the UI via
-[http://localhost:9999/autopsy](http://localhost:9999/autopsy).
-
-You can install it on other OSes (Windows, Mac, etc.) by viewing the
-details at [Autopsy's
-website](https://en.wikipedia.org/wiki/Autopsy_(software%29)).
-
-In addition to Autopsy and SleuthKit, you can use the standard tools
-that come with an operating system -- in particular, file explorers,
-searching contents of files for text, etc.
+[SleuthKit](https://en.wikipedia.org/wiki/The_Sleuth_Kit).  In
+addition to Autopsy and SleuthKit, you can use the standard tools that
+come with an operating system -- in particular, file explorers,
+searching contents of files for text, etc.  You can use any of the
+utilities discussed in the [digital forensics slide
+set](../slides/forensics.html#/).  You can use differently named
+equivalents in differing operating systems.
 
 **You may NOT use any OTHER existing digital forensic tools for this
-assignment,** beyond the standard OS commands installed by default
-when the OS is installed (and Autopsy / SleuthKit, of course).  You
-are to use your knowledge of forensics, the [forensics slide
+assignment,** beyond the what is mentioned in the previous paragraph.
+You are to use your knowledge of forensics, the [forensics slide
 set](../slides/forensics.html#/), and the existing OS commands. In
 particular, the "Techniques" section of that slide set has the
 necessary techniques to find what can be found on this disk image.  We
@@ -114,20 +94,9 @@ other OSes.  Note that some of the information on the disk image was
 specifically designed to NOT be able to be (easily) found with Autopsy
 / SleuthKit.
 
-
-### Autopsy installation directions on Linux
-
-- Do ***NOT*** install autopsy via apt-get (or any other Ubuntu package manager -- the version that is installed that way is 2.2, and the current version is 4.10.  These instructions will install 4.10.
-- Note that his will increase your disk size by about 1 Gb.
-- These directions were summarized from [here](https://www.sleuthkit.org/autopsy/download.php) and [here](https://github.com/sleuthkit/autopsy/blob/develop/Running_Linux_OSX.txt) -- some of these steps have already been followed on the VirtualBox image.
-- First, make *sure* you start with the more recent of the two VirtualBox images that was released this semester, as that one was set up to allow this install to work smoothly.  To see which one you have, you can run `dpkg -l | grep sleuth`.  If you see nothing listed, or you see `sleuthkit` listed, then it's the first version of the image.  If you see `sleuthkit-java` listed, then it's the second version.
-- To ensure that you have the latest version of the dependent software packages, run `apt-get update` followed by `apt-get dist-upgrade`.  If one (or both) complains that it is "unable to acquire the dpkg frontend lock, is another process using it?", then it is installing critical updates in the background.  Wait 10 minutes or so, and try again.  If a blue window pops up asking you about where to put the GRUB boot loader, select /dev/sda, and click OK.
-- Download the Autopsy .zip file from [here](https://github.com/sleuthkit/autopsy/releases/download/autopsy-4.10.0/autopsy-4.10.0.zip).  Unzip it.
-- From that directory, enter the following commands:
-  ```
-export JAVA_HOME=/usr/lib/jvm/default-java/
-bash unix_setup.sh
-```
+You can install Autopsy by viewing the details at [Autopsy's
+website](https://en.wikipedia.org/wiki/Autopsy_(software%29)).  The
+current version is 4.10 -- make sure you are using that version.
 
 
 ### Deliverable
@@ -139,24 +108,23 @@ The report will be divided into a number of parts.  So that we can
 easily figure out what you found out, please make it clear which part
 of your report are for which part.
 
-Part 1 is the two questions of Laila's to answer:
+Part 1 is the two questions of Joss' to answer:
 
-- Where did Mae go?
-- Who can Laila contact to find out more?
+- Where is our missing person?
+- What parts of the story can you put together?
 
-The second part of this report should contain as much information as
-you can determine about where Mae is, and as much of the story as you
+This part of this report should contain as much of the story as you
 can determine.  Note that you will be able to get partial credit based
 on what you find, even if you don't find everything.
 
-The third part of this report should contain the information that you
+The second part of this report should contain the information that you
 found, and how you found it.  The how-you-found-it is is important, as
 there are a multiple ways to find each piece of information.  Please
 be brief, but concise -- we have to read through all of these, and we
 don't want to read through pages and pages of content when it can be
 summarized in a much shorter amount.
 
-The fourth part is to comment on this assignment:
+The third part is to comment on this assignment:
 
 - What did you think of it?  We are looking for an honest answer here,
   not a sycophantic one.
