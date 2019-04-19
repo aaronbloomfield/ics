@@ -48,6 +48,7 @@
 # Contents
 &nbsp;  
 [Introduction](#/introduction)  
+[Background](#/background)  
 [Techniques](#/techniques)  
 [Barriers](#/barriers)  
 [System Analysis and Tools](#/analysis)  
@@ -76,12 +77,104 @@
 
 
 
+## What is a forensic science?
+- It is any science that can be applied to the *analysis* of an accident or crime scene
+  - Formally, it is any science applied to criminal and civil laws
+- (some of the examples on the following slides are from [here](https://www.pdsd.org/cms/lib6/PA01000989/Centricity/ModuleInstance/1582/Chapter_1.ppt))
+
+
+
+<!-- .slide: class="right-float-img-600" -->
+## Forensic science: Pathology
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/13-11-12-rechtsmedizin-berlin-charite-by-RalfR-20.jpg/800px-13-11-12-rechtsmedizin-berlin-charite-by-RalfR-20.jpg)](https://commons.wikimedia.org/wiki/File:13-11-12-rechtsmedizin-berlin-charite-by-RalfR-20.jpg)
+- How did the<br>person die?
+- This includes:
+  - cause of death
+  - drugs, poisons,<br>alcohol in blood
+  - manner of death
+  - performing an<br>autopsy
+
+
+
+<!-- .slide: class="right-float-img-600" -->
+## Forensic science: Anthropology
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Exhumed_skeletal_remains_of_victims_of_the_Isaaq_genocide.jpg/800px-Exhumed_skeletal_remains_of_victims_of_the_Isaaq_genocide.jpg)](https://commons.wikimedia.org/wiki/File:Exhumed_skeletal_remains_of_victims_of_the_Isaaq_genocide.jpg)
+- For skeletal remains:
+  - are they human?
+  - if so, what is the<br>age, sex, race?
+  - any injuries to the<br>bones?
+  - facial reconstruction<br>based on the skull
+
+
+
+<!-- .slide: class="right-float-img-800" -->
+## Forensic science: Odontology
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Dental_X-ray_70.JPG/400px-Dental_X-ray_70.JPG)](https://commons.wikimedia.org/wiki/File:Dental_X-ray_70.JPG)
+- Odontology == dentistry
+- Identify remains based<br>on dental records
+- Match a suspect to a<br>bite mark injury
+
+
+
+<!-- .slide: class="right-float-img-600" -->
+## Forensic science: Engineering
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/1994%EC%84%B1%EC%88%98%EB%8C%80%EA%B5%90_%EB%B6%95%EA%B4%B4_%EC%82%AC%EA%B3%A017.jpg/800px-1994%EC%84%B1%EC%88%98%EB%8C%80%EA%B5%90_%EB%B6%95%EA%B4%B4_%EC%82%AC%EA%B3%A017.jpg)](https://commons.wikimedia.org/wiki/File:1994%EC%84%B1%EC%88%98%EB%8C%80%EA%B5%90_%EB%B6%95%EA%B4%B4_%EC%82%AC%EA%B3%A017.jpg)
+- Typically for mechanical<br>or structural issues<br>or accidents
+  - Why did it fail?
+- For traffic accidents,<br>reconstruction of the<br>accident
+
+
+
+<!-- .slide: class="right-float-img-800" -->
+## Forensic science: Entomology
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Anastrepha_ludens_1322088.jpg/400px-Anastrepha_ludens_1322088.jpg)](https://commons.wikimedia.org/wiki/File:Anastrepha_ludens_1322088.jpg)
+- Entomology is the study<br>of insects
+- Many insects lay eggs in<br>decaying flesh
+- But different insects do<br>this at different times
+- By studying the insect eggs<br>in a corpse, the time since<br>death can be estimated
+
+
+
+<!-- .slide: class="right-float-img-600" -->
+## Forensic science: Biology
+[![](https://upload.wikimedia.org/wikipedia/commons/b/b9/A-B-Z-DNA_Side_View.png)](https://commons.wikimedia.org/wiki/File:A-B-Z-DNA_Side_View.png)
+- DNA tests, typically of<br>DNA-based evidence
+  - Blood on the victim,<br>or semen in the case<br>of rapes
+  - Even flesh under the<br>fingernails of a victim
+
+
+
+## And many other fields
+- Art history: to determine art forgeries
+- Chemistry: illegal drug analysis
+- Geology: evidence in soils, etc.
+- And, of course, computer science
+- See a full list on Wikipedia's [Forensic science page](https://en.wikipedia.org/wiki/Forensic_science)
+</textarea>
+</section>
+
+</section>
+
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section data-markdown id="background" class="center">
+  <textarea data-template>
+# Background
+  </textarea>
+</section>
+    
+<section data-markdown data-separator="^\n\n\n">
+  <textarea data-template>
 <!-- .slide: class="right-float-img-600" -->
 ## Stages
 [![write-blocker](images/forensics/640px-Portable_forensic_tableau.jpg)](https://commons.wikimedia.org/wiki/File:Portable_forensic_tableau.JPG)
 1. Acquisition of evidence
   - Imaging a hard drive<br>or USB key, often via<br>a "write-blocker"
-  - [One is $359 on Amazon](https://www.amazon.com/dp/B00Q76XG5W)
+  - [One is $389 on Amazon](https://www.amazon.com/dp/B00Q76XG5W)
   - And others...
 2. Analysis
   - The real work here...
@@ -156,13 +249,13 @@
   - If the blocks have not been overwritten, then the file can be successfully restored
 - Some times only parts can be recovered
 - Secure delete programs can (often) solve this
-- Under Linux, [you can use debugfs](https://unix.stackexchange.com/questions/80270/unix-linux-undelete-recover-deleted-files)
+- Under Linux, [you can use debugfs](https://unix.stackexchange.com/questions/80270/unix-linux-undelete-recover-deleted-files) or [testdisk](https://www.cgsecurity.org/wiki/TestDisk)
 
 
 
 ## Password protected files
 - Various password crackers exist for many means of password protecting files
-  - Example: the .zip password cracker used in the [SQL, CSRF, and XSS HW](../hws/hw-sql-xss-csrf.html)
+  - Example: the .zip password cracker used in the [Networks HW](../hws/hw-networks.html)
 
 
 
@@ -441,9 +534,6 @@
 - Regardless, the Geek Squad looked at the movies, which were child porn
   - He was arrested and served 10 years in jail
 - [Source](https://resources.infosecinstitute.com/category/computerforensics/introduction/notable-computer-forensics-cases/#gref)
-
-
-
 </textarea>
 </section>
 
