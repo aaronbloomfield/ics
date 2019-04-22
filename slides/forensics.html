@@ -344,7 +344,7 @@
 
 
 
-## Encrypted Hard Drives
+## Encrypted Drives
 - If you have an encrypted hard drive, and the gov't has a (valid) search warrant...
   - You can't refuse on 1st amendment (free speech) grounds 
   - Analogy: you can't refuse to unlock a door on your house if the police have a (valid) search warrant based on free speech grounds
@@ -352,7 +352,7 @@
 
 
 
-## Encrypted Hard Drives
+## Encrypted Drives
 - What about the 5th amendment (can't force self-incrimination)?
   - This *sometimes* can work
   - That amendment only applies to *testimonials*, not actions
@@ -468,6 +468,21 @@
 
 
 
+## Basic UNIX commands: find
+- Find files in sub-directories based on specific criteria, such as filename:
+  ```
+  find / -name "*.foo"
+  ```
+  - That searches the root directory (`/`)
+- or by file contents:
+  ```
+  find . -type f -exec grep "example" '{}' \; -print
+  ```
+  - Finds files (`-type f`) and runs `grep` on them to search for `example` within
+  - That searches the current directory (`.`)
+
+
+
 ## Modern Forensics Tools
 - There are lots of them out there
   - A [Google search for "top digital forensics tools](https://www.google.com/search?q=top+digital+forensics+tools) returns a lot of hits
@@ -479,18 +494,26 @@
 ## Autopsy / Sleuth Kit
 - The tool is [Sleuth Kit](https://en.wikipedia.org/wiki/The_Sleuth_Kit), the GUI is [Autopsy](https://en.wikipedia.org/wiki/Autopsy_(software%29)
 - They are both open source
-- To install under Linux:
-  ```
-  sudo apt-get install sleuthkit autopsy
-  ```
-  - The websites have information for installation on other platforms
-- It provides a web interface for the tools in Sleuth Kit
+- Due to Java incompatabilities, and software rot, it does not seem to install properly under Linux
 
 
 
 ## Autopsy / Sleuth Kit
 ![autopsy screen shot](images/forensics/autopsy.png)
 
+
+
+## Autopsy / Sleuth Kit
+- More recent versions have a Java GUI
+[![autopsy screen shot](images/forensics/autopsy-v4.png)](https://github.com/sleuthkit/autopsy/issues/2855)
+
+
+
+## Other tools
+- To find deleted files, try [debugfs](https://unix.stackexchange.com/questions/80270/unix-linux-undelete-recover-deleted-files) or [testdisk](https://www.cgsecurity.org/wiki/TestDisk)
+  - I like the latter better, but your mileage may vary
+  - Sometimes they can recover files that autopsy cannot
+- You can use equivalent undelete programs on other operating systems for the [forensics HW](../hws/hw-forensics.html)
 </textarea>
 </section>
 
@@ -511,8 +534,7 @@
 ## Some we've seen (or will see)
 - The analysis of [Stuxnet](../slides/stuxnet.html#/)
 - The [FBI-Apple encryption dispute](https://en.wikipedia.org/wiki/FBI%E2%80%93Apple_encryption_dispute)
-- The [Sony BMG rootkit fiasco](https://en.wikipedia.org/wiki/Sony_BMG_copy_protection_rootkit_scandal)
-  - Coming up in the [rootkits](../slides/rootkits.html#/) slide set
+- The [Sony BMG rootkit fiasco](https://en.wikipedia.org/wiki/Sony_BMG_copy_protection_rootkit_scandal) from the [rootkits](../slides/rootkits.html#/) slide set
 
 
 
@@ -534,6 +556,20 @@
 - Regardless, the Geek Squad looked at the movies, which were child porn
   - He was arrested and served 10 years in jail
 - [Source](https://resources.infosecinstitute.com/category/computerforensics/introduction/notable-computer-forensics-cases/#gref)
+
+
+
+## Ownership of Facebook (2010)
+- Paul Ceglia sued Mark Zuckerberg, claiming that Paul hired Mark to develop "The Page Book" -- which became facebook -- and thus owned 50%
+- The court allowed facebook to do forensic testing on Ceglia's computer
+- The findings:
+  - An original file of the contract had no mention of "The Page Book"
+  - An apparently forged .tif document of the contract was found
+- The case was dismissed and Ceglia was arrested
+
+
+- [source](https://www.digital-strata.com/articles/two-famous-cases-where-digital-evidence-was-key/)
+
 </textarea>
 </section>
 
