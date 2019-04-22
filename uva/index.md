@@ -65,6 +65,7 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Mon, Apr 21: Finished [forensics](../slides/forensics.html#/); [VMs](../slides/vms.html#/) through the "Language VM" slide
 - Fri, Apr 19: [Forensics](../slides/forensics.html#/) through the third "Encrypted Drives" slide in the "Barriers" column
 - Wed, Apr 17: Jason Belford, UVa's CISO, gave a guest lecture
 - Mon, Apr 15: Started and finished [Stuxnet](../slides/stuxnet.html#/)
