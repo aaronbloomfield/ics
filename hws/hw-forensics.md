@@ -125,9 +125,8 @@ along with the JavaFX add-on.
       column (likely /dev/sda1)
 	- In the "Used" column, it should have enough space
 	- If you don't have enough space, you can either (1) get a fresh
-      VB image from
-      [here](https://virginia.box.com/s/lrlrokq3hul8lr5hgdymio3ppw9to60b)
-      (that's the link for the spring 2019 version 2 image), or (2)
+      VB image (you can see the link on the [main UVa
+      page](../uva/index.html) ([md](../uva/index.md)), or (2)
       increase your disk size as per
       [here](https://uva-cs.github.io/pdr/tutorials/01-intro-unix/vb-image-details.html)
       (see the "increasing the disk size" section)

@@ -18,6 +18,11 @@ There are a number of links and other parts of this course that are **NOT** incl
 - Email list archive, which is a Collab tool ([here][170] is the direct link, although Collab login is required)
 - The [Piazza forum for this course][152]; Collab can log you in directly -- the Collab tool link is [here][173] (again, Collab login required)
 - [Anonymous feedback][174], which is through Collab
+- The [VirtualBox
+  image](https://virginia.box.com/s/lrlrokq3hul8lr5hgdymio3ppw9to60b)
+  used for this course.  This is version 2, which was released about
+  half-way into the semester.  For how to install it, see
+  [here](https://uva-cs.github.io/pdr/tutorials/01-intro-unix/virtual-box.html).
 
 The parts of this course that are in this repo are:
 
@@ -65,6 +70,7 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Wed, Apr 23: Finished [VMs](../slides/vms.html#/)
 - Mon, Apr 21: Finished [forensics](../slides/forensics.html#/); [VMs](../slides/vms.html#/) through the "Language VM" slide
 - Fri, Apr 19: [Forensics](../slides/forensics.html#/) through the third "Encrypted Drives" slide in the "Barriers" column
 - Wed, Apr 17: Jason Belford, UVa's CISO, gave a guest lecture
