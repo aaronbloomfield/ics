@@ -14,14 +14,79 @@
 <ul>
 <li>Programming and written assignments (45%)</li>
 <li>Two midterms (15% each)</li>
-<li>Final exam (25%)</li>
+<li>Final exam (20%)</li>
 <li>Class participation, pop quizzes (5%)</li>
 </ul>
-<h2 id="the-process-of-grade-determination">The Process of Grade Determination</h2>
-<div class="figure">
-<img src="images/magic-8-ball.png" />
-
-</div>
-<p>Essays are graded via the <a href="http://www.cch.ca/newsletters/LawStudent/April2012/Article3.htm">staircase grading method</a></p>
+<h3 id="participation-quizzes-and-attendance">Participation, quizzes, and attendance</h3>
+<p>I did not give as many quizzes -- or take attendance -- as many times as I would have liked. There were only two quizzes, and only one attendance day, and having so few would cause missing any one (or doing poorly on any one) to have a particularly large impact. However, the low number of quizzes was factored into the final course curve (below). Also, this was worth a relatively small percentage of the course grade (only 5%). I realize this does not necessarily capture all the ways that people could have participated in the course.</p>
+<h3 id="exam-2-curve">Exam 2 curve</h3>
+<p>I overdid it with exam 2, and I said there would be a 20 percentage point curve. Since exam 2 was worth 15% of the final grade, 20% of that is 3%. So everybody gets 3 points added to their final course average because of exam 2.</p>
+<h3 id="rounding">Rounding</h3>
+<p>Yes, we round grades. Note that <code>round(x) == floor(x+0.5)</code>. So we added 0.5 points to everybody's curve to take into account rounding. Note that this means rounding is already taken care of, so if you get an 89.9999999999999999999, it's still a B+, no matter how many times you ask - you don't get to round a second time (in reality, it was an 89.49 before rounding).</p>
+<h3 id="course-curve">Course curve</h3>
+<p>The course curve so far was 3.0 points for exam 2. Taking into account factors such as the grades on the final exam, as well as the participation from above, I added another 1.5 points to the overall course curve. This was also to make up for some harder than intended grading on the homeworks, and to bring the average of the course up a bit. Thus, the course curve was 4.5 points. With rounding, as discussed above, that yields a bonus of 5.0 points to one's average.</p>
+<h3 id="course-grades">Course grades</h3>
+<p><strong>The overall course got a curve of 4.5 points.</strong> With rounding, that is an additional <strong>5.0 points</strong> to add to your final course average. Thus, add 4.5 to your course average from the <a href="https://libra.cs.virginia.edu/~pedagogy/gradebook.php">course gradebook</a>, and that round that up if necessary. Or add 5.0 to your course average, and don't round it.</p>
+<p>Rather than add this to everybody's average, I instead lowered the course threshold. Whereas the A- threshold is 90.0 (89.5 with rounding), it was lowered to 85.0 (84.5 with rounding). This is mathematically equivalent, but far easier to implement.</p>
+<p>We followed the standard decade curve, as shown in the table below. Note that this table does <em>NOT</em> include the course curve of 4.5 (or 5.0) points -- it's just the standard decade table of grades.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Minimum course average</th>
+<th>Letter grade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>60</td>
+<td>D-</td>
+</tr>
+<tr class="even">
+<td>63</td>
+<td>D</td>
+</tr>
+<tr class="odd">
+<td>67</td>
+<td>D+</td>
+</tr>
+<tr class="even">
+<td>70</td>
+<td>C-</td>
+</tr>
+<tr class="odd">
+<td>73</td>
+<td>C</td>
+</tr>
+<tr class="even">
+<td>77</td>
+<td>C+</td>
+</tr>
+<tr class="odd">
+<td>80</td>
+<td>B-</td>
+</tr>
+<tr class="even">
+<td>83</td>
+<td>B</td>
+</tr>
+<tr class="odd">
+<td>87</td>
+<td>B+</td>
+</tr>
+<tr class="even">
+<td>90</td>
+<td>A-</td>
+</tr>
+<tr class="odd">
+<td>93</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td>98</td>
+<td>A+</td>
+</tr>
+</tbody>
+</table>
+<p>Note that the A+ range range follows a slightly different pattern -- it is the top few students in the class by average, and ended up being 93.0 (98.0 with the course curve) this semester.</p>
 </body>
 </html>
