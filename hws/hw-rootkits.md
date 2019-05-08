@@ -360,7 +360,7 @@ The following files will need to be submitted:
 
 - `root.c` from task 1
 - `kernel-rootkits.pdf` from tasks 1 and 2
-- `sha224-sum-fake.?` from task 3 (replace '?' with the appropriate
+- `sha224sum-fake.?` from task 3 (replace '?' with the appropriate
   file extension)
 - `md5sum.c` from task 4
 - A `Makefile` -- see below
