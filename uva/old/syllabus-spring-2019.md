@@ -1,25 +1,23 @@
-CS 3710: Introduction to Cybersecurity
+CS 3501: Introduction to Cybersecurity
 ======================================
 
 [Go up to the ICS UVa page](index.html) ([md](index.md))
 
-## Fall 2019
+## Spring 2019
 
 ### Course Staff ###
 
-- [Aaron Bloomfield][3] / [aaron@virginia.edu][4].  Office: Rice Hall, room 402.  Office hours TBA
+- [Aaron Bloomfield][3] / [aaron@virginia.edu][4].  Office: Rice Hall, room 403.  Office hours are M/W 1:00-2:30 (but start the second week of classes)
 - Multiple TAs, both graduate and undergraduate
 
 ### Course Info ###
 
-- Lecture: M/W/F 1:00-1:50, Olsson Hall, room 120
+- Lecture: M/W/F 12:00-12:50, Olsson Hall, room 120
 - Email: none; fill out a [support request][6] instead
 - Announcements will be done through the [daily announcements slide set](daily-announcements.html#/)
 - TAs and their office hours will be posted on the Collab course main page; all office hours start the second week of classes
 
 **Reading:** Due to the rapidly changing nature of this topic, there is no assigned textbook -- the best textbook on the topic is already 5-10 years out of date. Readings will consist of handouts, online materials, and articles (both media and scholarly). Much of the background for this course depends on completing the readings. Thus, occasional pop quizzes will happen to ensure that everybody is doing the reading (and to ensure that people are showing up to class!).
-
-**Purchases:** As mentioned above, no textbook is required for this course.  However, you will have to have a network card that is compatible with Aircrack-ng ([https://www.aircrack-ng.org/](https://www.aircrack-ng.org/)) for one of the homeworks.  If yours is not compatible (and many are not), you can buy one that is for about $20 via Amazon.  Information on this will be provided part-way through the semester, in time for the appropriate homework.
 
 **Course Description:** This course is meant as a general introduction to cybersecurity.  It will prepare students to take any of the follow-on cybersecurity courses within the curriculum.
 
@@ -54,9 +52,9 @@ I expect that grades will follow the standard decade curve: 90 and above is an A
 
 **Exams:** There will be two midterm exams (combined worth 30% of the final grade) and one final exam (worth 25% of the final grade). Note that we hope (but do not guarantee!) to have the first exam returned before the SEAS drop date.
 
-- Midterm exam 1: Friday, October 4th, during lecture
-- Midterm exam 2: Friday, November 8th, during lecture
-- Final exam: Wednesday, December 12, from 2pm to 5pm
+- Midterm Exam 1: Friday, March 1st, during lecture
+- Midterm Exam 2: Friday, March 29th, during lecture
+- Final Exam: Friday, May 3rd, from 2pm to 5pm
 
 Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  Since there are no other exams scheduled during that time, it is unlikely that you will have a conflict.
 
@@ -99,5 +97,6 @@ If you or someone you know is struggling with gender, sexual, or domestic violen
 [4]: mailto:aaron@virginia.edu
 [5]: https://libra.cs.virginia.edu/~pedagogy/
 [6]: https://libra.cs.virginia.edu/~pedagogy/support.php
-[8]: https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main
+[7]: http://twitter.com/UVaCS3501
+[8]: https://collab.its.virginia.edu/portal/site/bbcd086f-9d6d-405b-81e0-339d9cc53a08/tool/1453de85-6853-45de-9972-615ade259377/main
 [9]: https://www.virtualbox.org/
