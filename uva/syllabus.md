@@ -56,7 +56,7 @@ I expect that grades will follow the standard decade curve: 90 and above is an A
 
 - Midterm exam 1: Friday, October 4th, during lecture
 - Midterm exam 2: Friday, November 8th, during lecture
-- Final exam: Wednesday, December 12, from 2pm to 5pm
+- Final exam: Friday, December 13, from 2pm to 5pm
 
 Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  Since there are no other exams scheduled during that time, it is unlikely that you will have a conflict.
 
