@@ -7,7 +7,7 @@ CS 3710: Introduction to Cybersecurity
 
 ### Course Staff ###
 
-- [Aaron Bloomfield][3] / [aaron@virginia.edu][4].  Office: Rice Hall, room 402.  Office hours TBA
+- [Aaron Bloomfield][3] / [aaron@virginia.edu][4].  Office: Rice Hall, room 402.  Office hours W 10-1
 - Multiple TAs, both graduate and undergraduate
 
 ### Course Info ###
