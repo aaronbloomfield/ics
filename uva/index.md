@@ -49,7 +49,7 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
-- Wed, Aug 28: [course introduction](../slides/introduction.html#/)
+- Wed, Aug 28: [course introduction](../slides/introduction.html#/) through slide 5.5
 
 
 
