@@ -9,8 +9,8 @@ Slide sets, ordered in the order presented in lecture:
 
 - Introduction
     - [Course Introduction](introduction.html#/)
-    - [Terminology](terminology.html#/)
     - [The Security Mindset](security-mindset.html#/)
+    - [Terminology](terminology.html#/)
 - Ethics & Policy
     - [US Cybersecurity Policy](policy.html#/)
     - [Ethics](ethics.html#/)

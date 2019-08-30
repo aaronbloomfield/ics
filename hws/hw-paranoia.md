@@ -33,12 +33,11 @@ longer.
 Pick two of the following scenarios. (If you answer more, we'll
 only grade the first two)
 
-- You are in charge of the security of the nation’s power plants.
-- You are in charge of designing the new TSA airport checking process.
-- You are in charge of the security of a world renowned tech conference.
-- You are developing an Internet enabled automobile, and want to keep
-  it secure from malware.
-- You are the in charge of security for your local high school.
+- You are in charge of protecting the water supply to a town or city, which is sourced from a reservoir that is publicly usable.
+- A huge political rally will be held on Grounds, and you are in charge of ensuring it's security (no politicians will be present, though).
+- You are asked to design the security for the goods crossing the English Channel after the currently stated Brexit deadline of October 31st.
+- You are tasked with creating a policy to ensure the secure voting in the 2020 presidential election.
+- You are asked to design a means to prevent private drones (the types that you can buy on Amazon for very little) from flying near airplanes -- a concern is if they were used to attack an airplane by being injested into an engine.
 
 In addition, choose another scenario from everyday life that we
 haven't discussed in class.  Your choice can be directly related to
