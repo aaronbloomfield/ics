@@ -26,51 +26,15 @@
 <p>The intent is for you to use Autopsy / SleuthKit for this assignment, as well as some command-line tools. You will also want to be familiar with the <a href="../slides/forensics.html#/">digital forensics slide set</a>.</p>
 <h3 id="details">Details</h3>
 <p>You can get a copy of the hard drive image by going to <a href="https://libra.cs.virginia.edu/forensics/" class="uri">https://libra.cs.virginia.edu/forensics/</a> -- you will have to use Netbadge to log in. <strong>You can not use somebody else's disk image!</strong> If it says that your image is not yet ready, try again in an hour or so. The image was compressed with gzip -- if your operating system does not natively support it, then you can use <a href="https://www.7-zip.org/">7-zip</a> to extract it. The compressed .gz file is 4 Gb in size, and the uncompressed image is 10 Gb in size.</p>
-<p>This image was designed using Linux (it's an ext4 file system). However, you can do this homework on any host OS. Due to installation issues, you can not install autopsy on the VirtualBox image.</p>
+<p>This image was designed using Linux (it's an ext4 file system). However, you can do this homework on any host OS. The VirtualBox image is configured to run Autopsy.</p>
 <h3 id="tools-allowed">Tools allowed</h3>
 <p>The intent of this assignment is for you to use <a href="https://en.wikipedia.org/wiki/Autopsy_(software%29)">Autopsy</a> / <a href="https://en.wikipedia.org/wiki/The_Sleuth_Kit">SleuthKit</a>. In addition to Autopsy and SleuthKit, you can use the standard tools that come with an operating system -- in particular, file explorers, searching contents of files for text, etc. You can use any of the utilities discussed in the <a href="../slides/forensics.html#/">digital forensics slide set</a>. You can use differently named equivalents in differing operating systems.</p>
 <p><strong>You may NOT use any OTHER existing digital forensic tools for this assignment,</strong> beyond the what is mentioned in the previous paragraph. You are to use your knowledge of forensics, the <a href="../slides/forensics.html#/">forensics slide set</a>, and the existing OS commands. In particular, the &quot;Techniques&quot; section of that slide set has the necessary techniques to find what can be found on this disk image. We recommend learning a few commands: <code>strings</code> and <code>grep</code> are going to be particularly useful for Linux. You can Google for equivalents in other OSes. Note that some of the information on the disk image was specifically designed to NOT be able to be (easily) found with Autopsy / SleuthKit.</p>
 <p>You can install Autopsy by viewing the <a href="https://www.sleuthkit.org/autopsy/download.php">details at Autopsy's website</a>. The current version is 4.10 -- make sure you are using that version (or a more recent one if available).</p>
-<h3 id="installation-on-the-virtualbox-image">Installation on the VirtualBox image</h3>
-<p>Autopsy uses Java, but requires a very specific version of Java. Specifically, it needs Oracle's version of Java 8 (not more recent!), along with the JavaFX add-on.</p>
-<ul>
-<li>First, make <em>sure</em> you start with the more recent of the two VirtualBox images that was released this semester, as that one was set up to allow this install to work smoothly.
-<ul>
-<li>To see which one you have, you can run <code>dpkg -l | grep sleuth</code>.</li>
-<li>If you see nothing listed, or you see <code>sleuthkit</code> listed, then it's the first version of the image.</li>
-<li>If you see <code>sleuthkit-java</code> listed, then it's the second version.</li>
-</ul></li>
-<li>Make sure you have enough space for all of this
-<ul>
-<li>How much space will you need? For the download and installation of Autopsy and Java, you'll need 2 Gb. For the uncompressed disk image, 10 Gb. For the compressed disk image, 4 Gb.
-<ul>
-<li>If you download the disk image first, and then decompress it, you can do all of this in 15 Gb of free space</li>
-<li>If you install autopsy and Java first, you'll need 17 Gb of free space</li>
-</ul></li>
-<li>Run <code>df -h</code>, and find the line that has <code>/</code> in the &quot;Mounted on&quot; column (likely /dev/sda1)</li>
-<li>In the &quot;Used&quot; column, it should have enough space</li>
-<li>If you don't have enough space, you can either (1) get a fresh VB image (you can see the link on the <a href="../uva/index.html">main UVa page</a> (<a href="../uva/index.md">md</a>), or (2) increase your disk size as per <a href="https://uva-cs.github.io/pdr/tutorials/01-intro-unix/vb-image-details.html">here</a> (see the &quot;increasing the disk size&quot; section)</li>
-</ul></li>
-<li>Download the Oracle version of Java 8 from <a href="https://www.java.com/en/download/linux_manual.jsp" class="uri">https://www.java.com/en/download/linux_manual.jsp</a> -- you want the &quot;Linux x64&quot; version, and the downloaded file is about 84 Gb in size
-<ul>
-<li>Once downloaded, extract that file: <code>tar xfz jre-8u211-linux-x64.tar.gz</code> -- that will create a jre1.8.0_211 directory</li>
-<li>cd into that directory, and then run <code>pwd</code> -- this will print out the full path of the directory you are in, and you will need that directory path -- we'll assume it's <code>/home/student/jre1.8.0_211</code> in these instructions</li>
-</ul></li>
-<li>Download Autopsy: from the <a href="https://www.sleuthkit.org/autopsy/download.php">autopsy download page</a>, you want the &quot;Autopsy ZIP file&quot; link. The current version is 4.10, and that .zip file is 579 Mb.
-<ul>
-<li>Unzip that file</li>
-</ul></li>
-<li>Configure autopsy:
-<ul>
-<li>cd into the autopsy directory, and run: <code>JAVA_HOME=/home/student/jre1.8.0_211 bash unix_setup.sh</code></li>
-<li>Change the directory to the location of the Oracle JRE that you installed above</li>
-<li>It should report &quot;Autopsy is now configured&quot;</li>
-</ul></li>
-<li>To run autopsy, you have to tell it the path to Oracle's version of Java -- from the autopsy-4.10.0 directory (that was created when you unzipp'ed autopsy), run <code>bin/autopsy --jdkhome /home/student/jre1.8.0_211</code>
-<ul>
-<li>If you don't do the jdkhome part, it will use the default installed version of Java, which WILL NOT WORK</li>
-</ul></li>
-</ul>
+<h3 id="running-on-the-virtualbox-image">Running on the VirtualBox image</h3>
+<p>To run Autopsy on the VirtualBox image, you must use the following command:</p>
+<pre><code>/usr/local/autopsy-4.11.0/bin/autopsy --jdkhome /usr/local/jre1.8.0_221/</code></pre>
+<p>This should be aliased to <code>autopsy</code>...</p>
 <h3 id="deliverable">Deliverable</h3>
 <p>The deliverable is a PDF report, named mst3k.pdf (change 'mst3k' to your userid).</p>
 <p>The report will be divided into a number of parts. So that we can easily figure out what you found out, please make it clear which part of your report are for which part.</p>

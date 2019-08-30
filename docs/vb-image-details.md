@@ -135,16 +135,16 @@ alias xemacs='emacs'
 		- It should complete with no errors and print "Autopsy is now configured. You can execute bin/autopsy to start it"
 	- More autopsy configuration
 		- Run `sudo chmod 755 /usr/local/autopsy-4.11.0/bin/autopsy` to allow non-root to run autopsy
-		- Run `sudo ln -s /usr/local/autopsy-4.11.0/bin/autopsy /usr/local/bin/autopsy` to make it easy to run autopsy
+	- Put in an alias in ~/.bashrc: `alias autopsy='/usr/local/autopsy-4.11.0/bin/autopsy --jdkhome /usr/local/jre1.8.0_221/'`
 
 ### Service Learning Practicum configuration section
 
-These sections are no longer included here, but can be found in [the latest version of the aaronbloomfield/slp repo](https://github.com/aaronbloomfield/slp/blob/master/docs/virtualbox-image-details.md#development-installation).  There were two sections for this: "LAMP configuration (with both PHP and Python 3)" and "Ruby on Rails configuration".  Note that that repo, and the linked instructions, were last updated in August of 2017.  All the versions stated therein are outdated, and many (all?) of those instructions may need tweaking to work properly again.
+These sections are no longer included here, nor used in the images currently distributed, but can be found in [the latest version of the aaronbloomfield/slp repo](https://github.com/aaronbloomfield/slp/blob/master/docs/virtualbox-image-details.md#development-installation).  There were two sections for this: "LAMP configuration (with both PHP and Python 3)" and "Ruby on Rails configuration".  Note that that repo, and the linked instructions, were last updated in August of 2017.  All the versions stated therein are outdated, and many (all?) of those instructions may need tweaking to work properly again.
 
 
 ### Programming Contest configuration section
 
-This section is no longer included here, but can be found in [an old version of the PDR repo](https://github.com/uva-cs/pdr/blob/2019-spring/tutorials/01-intro-unix/vb-image-details.md#programming-contest-configuration-sections).  That version was last updated in the spring of 2018.
+This section is no longer included here, nor used in the images currently distributed, but can be found in [an old version of the PDR repo](https://github.com/uva-cs/pdr/blob/2019-spring/tutorials/01-intro-unix/vb-image-details.md#programming-contest-configuration-sections).  That version was last updated in the spring of 2018.
 
 # Image completion
 
