@@ -18,7 +18,7 @@ Repository Contents
 - [Exams](exams/index.html) ([md](exams/index.md)): the exams from the current and previous semesters
 - [UVa](uva/index.html) ([md](uva/index.md)): material specific to the current course instance at UVa (fall 2018)
 - [Homeworks](hws/index.html) ([md](hws/index.md))
-
+- [Documents](docs/index.html) ([md](docs/index.md))
 
 License
 -------
