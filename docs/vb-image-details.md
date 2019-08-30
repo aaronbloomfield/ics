@@ -22,7 +22,7 @@ Newer versions of the above may have since come out, but at the time of the last
 
 **Notes**
 
-- The guest hard drive reported 27 Gb of space available, prior to distribution of the image.  The disk image itself was, after compaction, 10 Gb.  When compressed via zip, it was 3.9 Gb in size.
+- The guest hard drive reported 27 Gb of space available, prior to distribution of the image.  The disk image itself was, after compaction, 10 Gb.  When compressed via zip, it was 4.3 Gb in size.
 - You will likely need to use a different unzip program to extract the image; the ones that come bundled with most operating systems can not handle archives of that size.  We have used [7-zip](http://www.7-zip.org/) with success.
 - Video and sound (via youtube) worked fine with both Chrome and Firefox (although it may a bit slow depending on your computer's speed)
 - The VM may capture the mouse - to uncapture it, you press the "host key", (which is the right Control key on Linux and Windows hosts, and the left Command key on Mac hosts).  To have it warn you about what this is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up
