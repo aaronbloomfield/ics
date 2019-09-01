@@ -52,6 +52,7 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
+- Fri, Aug 30: the rest of the [course introduction](../slides/introduction.html#/); [security mindset](../slides/security-mindset.html) through the end of the the "how to pick a lock" column
 - Wed, Aug 28: [course introduction](../slides/introduction.html#/) through slide 5.5
 
 
