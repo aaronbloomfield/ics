@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>ICS: Programming HW: Hashes</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+  <link rel="stylesheet" href="../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="ics-programming-hw-hashes">ICS: Programming HW: Hashes</h1>
@@ -37,14 +40,14 @@
 </ul>
 <h3 id="assignment">Assignment</h3>
 <p>Your program should be called <code>crc.cpp</code> and compile into an executable called <code>crc</code> (see the Makefile, below). It will be run with two command-line parameters:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>the input file name to read from</li>
 <li>the desired CRC value (in hex) - this will be 4 hexadecimal characters, such as 'abcd' (we will leave out the leading '0x')</li>
 </ol>
 <p>A sample execution:</p>
 <pre><code>./crc input.txt abcd</code></pre>
 <p>The program should write its output to a file named <code>output.txt</code>, which should contain the following:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>The contents of the original file in its entirety (it will consist only of printable ASCII characters, as well as newlines)</li>
 <li>A message of your own, which demonstrates that you <em>could</em> modify the original message, possibly maliciously, if desired. (Do not actually modify the original message -- just add your message after the original.)</li>
 <li>A reasonable amount of PRINTABLE ASCII characters (decimal values 32 - 127) to the end of the input file (reasonable means 10 or fewer), such that the new output file has the same CRC as the desired CRC value (the second command-line parameter). The only purpose of these characters is to affect the CRC value, as changing the input <em>almost</em> always results in a different output (in this task, you are looking for the exceptions to that rule).</li>
@@ -52,7 +55,7 @@
 <h3 id="important-notes">Important Notes</h3>
 <p><strong>CRC16:</strong> We will be using the CRC16 algorithm, NOT the CRC32 algorithm, to allow the program to run in a reasonably short time frame. Boost can do both, so be careful.</p>
 <p><strong>Newlines:</strong> There are two things to be watch out for with newlines:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>There are differences between Linux and Windows platforms (see <a href="http://en.wikipedia.org/wiki/Newline">Wikipedia</a> for details). Your program will be run (and graded) in a Linux environment.</li>
 <li>Trailing newlines (<code>\n</code>) affect the CRC16 value of a file, but are often overlooked. Be careful not to unintentionally add any extra newlines that would change the CRC value of <code>output.txt</code>. For example, the CRC16 for &quot;hello world&quot; with no trailing newline is 0x39c1 on a UNIX system, but with a trailing newline it is 0x9778.</li>
 </ol>

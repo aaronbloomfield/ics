@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>ICS: Programming Homework: Cryptocurrency</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+  <link rel="stylesheet" href="../markdown.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="ics-programming-homework-cryptocurrency">ICS: Programming Homework: Cryptocurrency</h1>
@@ -66,7 +69,7 @@ Date: Tue Apr 02 23:09:13 EDT 2019
 <p>Since this can be done in any programming language, you will have to write a shell script (described below) so that we can call your code. While the shell script is described below, the particular function to be implemented is <code>shown like this</code> in the requirements below. That function will be the first command line parameter provided to the program, and any additional command line parameters are specified below. For example, to generate a wallet, you would call <code>java CMoney wallet.txt</code> or <code>python3 cmoney.py wallet.txt</code>. Note that these actual calls are in the shell script, described below.</p>
 <p><strong>Output:</strong> Each command below should print out EXACTLY ONE LINE to standard output indicating the success (or failure) of the command. It will make your life much easier if this one line is from the source code.</p>
 <p>The requirements are:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Print the name of the cryptocurrency (<code>name</code>). This is the name from the Overview section, above. There are no additional command line parameters to this function.</li>
 <li>Create the genesis block (<code>genesis</code>): this is the initial block in the block chain, and the block should always be the same. Come up with a fun quote! It should be written to a <code>block_0.txt</code> file. There are no additional command line parameters to this function.</li>
 <li>Generate a wallet (<code>generate</code>): this will create RSA public/private key set (1024 bit keys is appropriate for this assignment). The resulting wallet file MUST BE TEXT -- you will have to convert any binary data to text to save it (and convert it in the other direction when loading). You can see the provided helper functions, above, to help with this. The file name to save the wallet to will be provided as an additional command line parameter.</li>
