@@ -16,10 +16,6 @@ Slide sets, ordered in the order presented in lecture:
     - [Ethics](ethics.html#/)
 - Crytpography
 	- [Encryption](encryption.html#/)
-- Binary Exploits
-	- [Viruses](viruses.html#/)
-	- [Buffer Overflows](buffer-overflows.html#/)
-	- [Binary Exploits](binary-exploits.html#/)
 - Networks
 	- [Networking Overview](networks.html#/)
 	- [Web Security](web-security.html#/)
@@ -30,6 +26,11 @@ Slide sets, ordered in the order presented in lecture:
     - [Rootkits](rootkits.html#/)
 	- [Stuxnet](stuxnet.html#/)
 	- [Virtual Machines](vms.html#/)
+	- Privacy
+- Binary Exploits
+	- [Viruses](viruses.html#/)
+	- [Buffer Overflows](buffer-overflows.html#/)
+	- [Binary Exploits](binary-exploits.html#/)
 - Digital Forensics
 	- [Digital Forensics](forensics.html#/)
 - [Course Reflection](reflection.html#/)

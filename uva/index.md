@@ -52,8 +52,11 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 Lecture progress
 ----------------
 
-- Fri, Aug 30: the rest of the [course introduction](../slides/introduction.html#/); [security mindset](../slides/security-mindset.html) through the end of the the "how to pick a lock" column
-- Wed, Aug 28: [course introduction](../slides/introduction.html#/) through slide 5.5
+Lecture recordings can be found in the Panopto tool link in the Collab workspace
+
+- Mon, Sep 2: finished [security mindset](../slides/security-mindset.html), [terminology](../slides/terminology.html) through slide 5.4
+- Fri, Aug 30: the rest of the [course introduction](../slides/introduction.html#/); [security mindset](../slides/security-mindset.html) through the end of the the "how to pick a lock" column (no lecture recording from this day)
+- Wed, Aug 28: [course introduction](../slides/introduction.html#/) through slide 5.5 (no lecture recording from this day)
 
 
 
