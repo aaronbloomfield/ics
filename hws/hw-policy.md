@@ -31,7 +31,7 @@ make some positive change.  This can be references (online or other,
 but they need to be accessible to us for the grading) or explanation
 of how/why your proposal will have an effect.
 
-The essay must be 500 words or less.  That's about 1 page worth of
+The essay must be 500 words **_or less_**.  That's about 1 page worth of
 content.  We are more interested in quality rather than quantity, so
 we aren't going to grade it based on length.  Note that any header
 information (name, title, date, class, etc.) do not count toward the
@@ -60,7 +60,7 @@ time and also a waste of our time.
 
 Please ensure that you follow *all* four of these requirements:
 
-1. You will submit *both* a PDF and a .docx file of your essay.  If
+1. You will submit *both* a PDF **_and a .docx file_** of your essay.  If
    you are not using Microsoft Word, then just export your final copy
    to a Word file (.docx format) -- all modern word processors can do
    this.

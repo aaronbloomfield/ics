@@ -35,6 +35,8 @@ Readings
 
 All scholarly articles (such as from the ACM digital library) can be obtained from free from any UVa wireless network.  Some of htem you will *NOT* be able to get it for free from your home Internet provider such as Comcast (unless you live in a UVa dorm, of course) without using a UVa VPN.  All readings are due by the start of lecture that day.
 
+- Due Friday, September 13th:
+    - [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
 - Due Wednesday, September 4th:
 	- [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
     - [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210)
@@ -46,6 +48,7 @@ Homeworks
 
 Unless otherwise noted, all submissions are due by the end of the day of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the [online submission system][162] -- all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time.
 
+- [HW 2: Policy](../hws/hw-policy.html) ([md](../hws/hw-policy.md)) is due Friday, September 13th
 - [HW 1: Rational Paranoia](../hws/hw-paranoia.html) ([md](../hws/hw-paranoia.md)) is due Friday, September 6th
 
 
