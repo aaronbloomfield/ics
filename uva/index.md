@@ -33,7 +33,7 @@ The parts of this course that are in this repo are:
 Readings
 --------
 
-All scholarly articles (such as from the ACM digital library) can be obtained from free from any UVa wireless network.  Some of htem you will *NOT* be able to get it for free from your home Internet provider such as Comcast (unless you live in a UVa dorm, of course) without using a UVa VPN.  All readings are due by the start of lecture that day.
+All scholarly articles (such as from the ACM digital library) can be obtained from free from any UVa wireless network.  Some of them you will *NOT* be able to get it for free from your home Internet provider such as Comcast (unless you live in a UVa dorm, of course) without using a UVa VPN.  All readings are due by the start of lecture that day.
 
 - Due Friday, September 13th:
     - [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
@@ -57,6 +57,7 @@ Lecture progress
 
 Lecture recordings can be found in the Panopto tool link in the Collab workspace
 
+- Wed, Sep 4: finished [terminology](../slides/terminology.html); [policy](../slides/policy.html) through slide 3.18
 - Mon, Sep 2: finished [security mindset](../slides/security-mindset.html), [terminology](../slides/terminology.html) through slide 5.4
 - Fri, Aug 30: the rest of the [course introduction](../slides/introduction.html#/); [security mindset](../slides/security-mindset.html) through the end of the the "how to pick a lock" column (no lecture recording from this day)
 - Wed, Aug 28: [course introduction](../slides/introduction.html#/) through slide 5.5 (no lecture recording from this day)
