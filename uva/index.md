@@ -58,6 +58,7 @@ Lecture progress
 
 Lecture recordings can be found in the Panopto tool link in the Collab workspace
 
+- Mon, Sep 9: Finished [policy](../slides/policy.html)
 - Fri, Sep 6: [policy](../slides/policy.html) through slide 6.7
 - Wed, Sep 4: finished [terminology](../slides/terminology.html); [policy](../slides/policy.html) through slide 3.18
 - Mon, Sep 2: finished [security mindset](../slides/security-mindset.html), [terminology](../slides/terminology.html) through slide 5.4
