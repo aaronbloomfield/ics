@@ -3,7 +3,7 @@ ICS: Licensing Details
 
 [Go up to the main ICS README file](readme.html) ([md](readme.md))
 
-This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/) License. Copyright (c) 2018 by Aaron Bloomfield.
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/) License. Copyright (c) 2018-2019 by Aaron Bloomfield.
 
 ### Content
 

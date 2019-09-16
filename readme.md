@@ -25,6 +25,6 @@ License
 
 The material in this repository is released under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA).
 
-Copyright (c) 2018 by Aaron Bloomfield.
+Copyright (c) 2018-2019 by Aaron Bloomfield.
 
 Some parts of this repository are taken, with permission, from other sources.  The full details are in the [License](license.html) ([md](license.md)) file. In particular, some parts of this repository that were obtained elsewhere may not be allowed to be used for commercial purposes.
