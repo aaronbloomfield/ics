@@ -48,6 +48,7 @@ Homeworks
 
 Unless otherwise noted, all submissions are due by the end of the day of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the [online submission system][162] -- all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time.
 
+- [HW 4: RSA](../hws/hw-rsa.html) ([md](../hws/hw-rsa.md)) is due Friday, September 27th
 - [HW 3: Ethics](../hws/hw-ethics.html) ([md](../hws/hw-ethics.md)) is due Friday, September 20th
 - [HW 2: Policy](../hws/hw-policy.html) ([md](../hws/hw-policy.md)) is due Friday, September 13th
 - [HW 1: Rational Paranoia](../hws/hw-paranoia.html) ([md](../hws/hw-paranoia.md)) is due Friday, September 6th
@@ -58,6 +59,8 @@ Lecture progress
 
 Lecture recordings can be found in the Panopto tool link in the Collab workspace
 
+- Mon, Sep 16: [Encryption](../slides/encryption.html#/) through slide 4.20 (Navaho Code Talkers)
+- Fri, Sep 13: Finished [ethics](../slides/ethics.html#/)
 - Wed, Sep 11: [Ethics](../slides/ethics.html#/) through the end of the "public obligations" column
 - Mon, Sep 9: Finished [policy](../slides/policy.html)
 - Fri, Sep 6: [policy](../slides/policy.html) through slide 6.7
