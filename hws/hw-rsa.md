@@ -13,7 +13,7 @@ due dates are listed on the [UVa course page](../uva/index.html)
 
 This assignment will focus on the implementation of the RSA
 algorithm. Specifically, you will have to implement key generation,
-encryption and decryption, singing and signature checking, and
+encryption and decryption, signing and signature checking, and
 cracking of RSA messages.
 
 The intent is to implement this in Java, since the JDK provides the
@@ -276,8 +276,8 @@ the provided `readCipherTextFromFile()` method, will be in the
 
 __Block size minimum:__ Each block will be a whole number of 8-bit
 characters, so we will not be splitting characters between blocks.
-Thus, if your keys can hold up to 31 bits per block (if 2^^31^^ > *n*
-> 2^^32^^), we will only encode 24 bits (3 characters) in that block,
+Thus, if your keys can hold up to 31 bits per block (if 2^^31^^ < *n*
+< 2^^32^^), we will only encode 24 bits (3 characters) in that block,
 not 31 bits.  That being said, you can assume that all blocks we will
 use will allow for at least 2 characters per block.  Note that the
 number passed in via `-keygen` is the bit size for *p* and *q*; *n* is

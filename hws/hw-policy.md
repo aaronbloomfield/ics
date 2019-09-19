@@ -14,7 +14,7 @@ due dates are listed on the [UVa course page](../uva/index.html)
 You will need to be familiar with the content of the
 [US Cybersecurity Policy slide set](../slides/policy.html#/).
 
-For this assignment, you are to write a essay on the following topic:
+For this assignment, you are to write an essay on the following topic:
 
 > What would you suggest to do to improve US cybersecurity policy?
 
