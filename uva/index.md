@@ -59,6 +59,7 @@ Lecture progress
 
 Lecture recordings can be found in the Panopto tool link in the Collab workspace
 
+- Wed, Sep 18: [Encryption](../slides/encryption.html#/) through slide 6.19 (RSA key generation steps)
 - Mon, Sep 16: [Encryption](../slides/encryption.html#/) through slide 4.20 (Navaho Code Talkers)
 - Fri, Sep 13: Finished [ethics](../slides/ethics.html#/)
 - Wed, Sep 11: [Ethics](../slides/ethics.html#/) through the end of the "public obligations" column
