@@ -799,7 +799,7 @@ Formula is $c = m^e\text{ mod }n$
 
 ## Signing a message
 - To "sign" a message:
-  1. Write a message, and determine the MD5 hash
+  1. Write a message, and determine the SHA2 (or similar) hash
   2. Encrypt the hash with your private (encryption) key
   3. Anybody can verify that you created the message because ONLY the public (encryption) key can decrypt the hash
   4. The hash is then verified against the message
@@ -811,6 +811,24 @@ Formula is $c = m^e\text{ mod }n$
 - The message itself is not being encrypted at all
 - Anybody can decrypt the encrypted hash by using your *public* key
   - And verify that it matches, as they can compute the hash themselves
+
+
+## Signing a message: detail
+- Write out a plaintext *p*
+- Take the SHA2 (or similar) hash of the plaintext *p* to get hash value *h*
+- Encrypt *h* with your private key *(n,d)* to get *c*
+  - This is your *private* key that is being used for encryption here
+- The message you send is *m = p* $\cdot$ *c*
+  - That's concatenation
+
+
+## Checking a message signature: detail
+- You receive message *m = p* $\cdot$ *c* from somebody with public key *(n,e)*
+- You separate *m* into it's constituent parts *p* and *c*
+- You decrypt *c* using public key *(n,e)* to get *h<sub>1</sub>*
+  - That's the *public* key being used for decryption here
+- You take the SHA2 (or similar) hash of *p* to get *h<sub>2</sub>*
+- If *h<sub>1</sub>* and *h<sub>2</sub>* match, then it was signed by the person with the private key that matches public key *(n,e)*
 
 
 ## PGP and GnuPG
@@ -835,14 +853,14 @@ Formula is $c = m^e\text{ mod }n$
 
 ## Why RSA is considered secure
 - RSA security is based on two principles:
-  - Factoring large composites into their prime factors is hard
+  - First: factoring large composites into their prime factors is hard
 	- In 2005, a 193-digit number was factored using 12.5 CPU years on a 2.2 GHz Operon CPU (actually 5 months on 30 CPUs)
 	- The best algorithm for factoring large numbers (general number field sieve) is $O(e^n)$
 
 
 ## Why RSA is considered secure
 - RSA security is based on two principles:
-  - The "RSA problem": finding the $e^{th}$ roots modulo a composite number $N$ is hard
+  - Second: the "RSA problem": finding the $e^{th}$ roots modulo a composite number $N$ is hard
 	- Specifically, given $c = p^e\text{ mod } n$,  and knowing $c$, $e$, and $n$, finding $p$ is hard
 	- Considered as hard as integer factorization
 
@@ -865,7 +883,7 @@ Formula is $c = m^e\text{ mod }n$
 - Thus, "cracking" RSA is done by other means
 - Intercepting the private key
   - "Hacking" into the computer, stealing the computer, etc.
-  - Man-in-the-middle attack (next 2 slides)
+  - Man-in-the-middle attack (next few slides)
   - Etc.
 
 
