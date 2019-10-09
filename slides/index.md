@@ -19,8 +19,8 @@ Slide sets, ordered in the order presented in lecture:
 - Networks
 	- [Networking Overview](networks.html#/)
 	- [Web Security](web-security.html#/)
-- Modern Topics
 	- [SQL, XSS, and CSRF](sql-xss-csrf.html#/)
+- Modern Topics
 	- [Crytocurrency](cryptocurrency.html#/)
 	- [Anonymity](anonymity.html#/)
     - [Rootkits](rootkits.html#/)
