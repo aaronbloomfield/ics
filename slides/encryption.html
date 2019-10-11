@@ -287,7 +287,7 @@ W . . . E . . . C . . . R . . . L . . . T . . . E
 
 
 ## WW2 Navajo Code Talkers
-- Used during the American strategy of island-hoping in the Pacific during WW2
+- Used during the American strategy of island-hopping in the Pacific during WW2
 - Native Navajo speakers (which were only in the US!) were used to send messages back and forth over radio frequencies that could be spied on
 - The 'encryption' or cipher was the language
   - There were no written documents or dictionaries in existence
@@ -528,7 +528,7 @@ return probably prime
 
 ## The prime number theorem
 - The number of prime numbers less than $x$ is approximately $x/\text{ln}(x)$ ([reference](http://en.wikipedia.org/wiki/Prime_number_theorem))
-  - Rephrased: the chance of an number $x$ being a prime number is roughly $1 / \text{ln}(x)$
+  - Rephrased: the chance of a number $x$ being a prime number is roughly $1 / \text{ln}(x)$
 - Consider 200 digit prime numbers
   - $\text{ln} (10^{200}) \approx 460$
   - The chance of a random 200 digit number being prime is thus 1/460
@@ -688,7 +688,7 @@ m.modPow (e, n)
 
 ## Encrypting RSA messages
 Formula is $c = m^e\text{ mod }n$
-![RSA license plage](images/encryption/license-plate.jpg)
+![RSA license plate](images/encryption/license-plate.jpg)
 
 
 ## Encrypting messages example
@@ -770,7 +770,7 @@ Formula is $c = m^e\text{ mod }n$
 
 
 ## Cracking a message
-- Thus, we must factor the composite $n$ into it's component primes
+- Thus, we must factor the composite $n$ into its component primes
   - There is no efficient way to do this!
   - We can, very easily, tell that $n$ is composite, but we can't tell what its factors are
 - Once $n$ is factored into $p$ and $q$, we compute $d$ as above
@@ -800,7 +800,7 @@ Formula is $c = m^e\text{ mod }n$
 ## Signing a message
 - To "sign" a message:
   1. Write a message, and determine the MD5 hash
-  2. Encrypt the hash with your private (encryption) key
+  2. Encrypt the hash with your private (decryption) key
   3. Anybody can verify that you created the message because ONLY the public (encryption) key can decrypt the hash
   4. The hash is then verified against the message
 
@@ -817,7 +817,7 @@ Formula is $c = m^e\text{ mod }n$
 - Two applications which implement the RSA algorithm
 - PGP was written in 1991 by Phil Zimmerman
   - The US government didn't like PGP...
-- Gnu Privacy Guard (GnuPG) Is open-source (thus it's free) implementation of PGP, written in 1999
+- Gnu Privacy Guard (GnuPG) is open-source (thus it's free) implementation of PGP, written in 1999
 - Both follow the OpenPGP Message Format
   - Specified in RFC 4880: http://tools.ietf.org/html/rfc4880 
 
@@ -1040,7 +1040,7 @@ Formula is $c = m^e\text{ mod }n$
 - Let $m=9$, $a=4$, $c=7$
  - This will cycle through all the values, as shown on the last slide
 - $X_{n+1}=(a*X_n+c) \text{ mod } m$
-  - $X_0$ = 1
+  - $X_0 = 1$
   - $X_1 = (4*1+7) \text{ mod } 9 = 2$
   - $X_2 = (4*2+7) \text{ mod } 9 = 6$
   - $X_2 = (4*6+7) \text{ mod } 9 = 4$
@@ -1217,10 +1217,10 @@ Formula is $c = m^e\text{ mod }n$
 - So given the MD5 hash, how do we know which one it came from?
 
 
-## Pidgeonhole principle
+## Pigeonhole principle
 - An MD5 hash is 128 bits; SHA hashes go up to 512 bits
 - There are more files possibilites of 129 bits (or 513 bits) than there are possible hashes
-- Thus, as per the pidgeonhole principle, there will be multiple inputs for a given hash
+- Thus, as per the pigeonhole principle, there will be multiple inputs for a given hash
 - So how do you know how to go *back* from a hash?
   - Answer: you don't
 
@@ -1255,10 +1255,10 @@ Formula is $c = m^e\text{ mod }n$
 
 
 ## MD5: Message Digest 5
-- Produces a 128-bit value ($3.4 x 10^{38}$ possible values)
+- Produces a 128-bit value ($3.4 * 10^{38}$ possible values)
   - Expressed as a 32-digit hex number
 - Probably the most widely used algorithm
-- Designed in 1991 when research indicated it's predecessor (MD4) was insecure
+- Designed in 1991 when research indicated its predecessor (MD4) was insecure
 - Printed in hex:
 ```
 $ md5sum message1.txt 
