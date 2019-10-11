@@ -48,6 +48,9 @@ Homeworks
 
 Unless otherwise noted, all submissions are due by the end of the day of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the [online submission system][162] -- all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time.
 
+
+- [HW 6: SQL, XSS, & CSRF](../hws/hw-sql-xss-csrf.html) ([md](../hws/hw-sql-xss-csrf.md)) is due Friday, October 18th
+- [HW 5: Hashing](../hws/hw-hashing.html) ([md](../hws/hw-hashing.md)) is due Friday, October 4th
 - [HW 4: RSA](../hws/hw-rsa.html) ([md](../hws/hw-rsa.md)) is due Friday, September 27th
 - [HW 3: Ethics](../hws/hw-ethics.html) ([md](../hws/hw-ethics.md)) is due Friday, September 20th
 - [HW 2: Policy](../hws/hw-policy.html) ([md](../hws/hw-policy.md)) is due Friday, September 13th
@@ -59,6 +62,10 @@ Lecture progress
 
 Lecture recordings can be found in the Panopto tool link in the Collab workspace
 
+- Wed, Sep 25: [Encryption](../slides/encryption.html#/) through the end of the randomness slides
+- Mon, Sep 23: [Encryption](../slides/encryption.html#/) through the end of the RSA slides
+- Fri, Sep 20: [Encryption](../slides/encryption.html#/) to the start of the RSA message signing slide
+- Wed, Sep 18: [Encryption](../slides/encryption.html#/) through slide 6.19 (RSA key generation steps)
 - Mon, Sep 16: [Encryption](../slides/encryption.html#/) through slide 4.20 (Navaho Code Talkers)
 - Fri, Sep 13: Finished [ethics](../slides/ethics.html#/)
 - Wed, Sep 11: [Ethics](../slides/ethics.html#/) through the end of the "public obligations" column

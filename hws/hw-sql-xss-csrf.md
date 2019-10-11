@@ -20,6 +20,8 @@ View the page at [https://libra.cs.virginia.edu/~insecure/sqlinjection.php](http
 
 Your task is to execute at least two SQL injection attacks using this page.  The first is a read-only attack, and from it you must obtain a piece of hidden information that is not otherwise displayed from the script.  For the second, you must make a modification to **your entry** in the table.  What modification you make is up to you.  However, the grade listed in the DB after this assignment is completed will be the grade you receive on this part of the assignment.
 
+A note about comments: the slides stated that `-- ` (dash-dash-space) was how you start a comment in SQL, analogous to `//` in C++.  If that doesn't work (it varies by SQL version), try just `--` (dash-dash).
+
 In your report, you should list the following:
 
 - The exact 'userid' that you entered for each of the attacks
@@ -54,7 +56,7 @@ There are six XSS attacks that you must do against this page.  While it seems li
 In your report, you should list the following:
 
 - The data used in your XSS attack, and whether it was a GET or POST attack
-- The 'secret' information that you obtained for the last two attacks
+- The 'secret' information that you obtained for the last two attacks (this is additional information in the database itself, and was RANDOMLLY generated)
 - The **exact** time stamp for each of the attacks.  This allows us to verify it against the log file.  The time stamp is listed at the bottom of the page, and is the time stamp of the page that was served in response to your attack.
 
 A few notes:
