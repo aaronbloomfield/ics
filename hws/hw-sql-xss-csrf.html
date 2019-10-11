@@ -21,6 +21,7 @@
 <p>First, you should be familiar with SQL and SQL injection attacks. For review, look at the first half of the <a href="../slides/sql-xss-csrf.html#/">SQL, XSS, and CSRF slide set</a>.</p>
 <p>View the page at <a href="https://libra.cs.virginia.edu/~insecure/sqlinjection.php" class="uri">https://libra.cs.virginia.edu/~insecure/sqlinjection.php</a> - note that you will have to log in via Netbadge to view this page. From this page, you will need to execute an SQL injection attack. Note that the only confidential data in that database is the names and userids of the participants, and all of that information is considered &quot;public&quot; knowledge to the participants of the course (FERPA allows release of names; all students in this course are in the <a href="http://www.virginia.edu/cgi-local/ldapweb?asb2t">UVa LDAP server</a>, and the ID numbers were randomly generated).</p>
 <p>Your task is to execute at least two SQL injection attacks using this page. The first is a read-only attack, and from it you must obtain a piece of hidden information that is not otherwise displayed from the script. For the second, you must make a modification to <strong>your entry</strong> in the table. What modification you make is up to you. However, the grade listed in the DB after this assignment is completed will be the grade you receive on this part of the assignment.</p>
+<p>A note about comments: the slides stated that <code>--</code> (dash-dash-space) was how you start a comment in SQL, analogous to <code>//</code> in C++. If that doesn't work (it varies by SQL version), try just <code>--</code> (dash-dash).</p>
 <p>In your report, you should list the following:</p>
 <ul>
 <li>The exact 'userid' that you entered for each of the attacks</li>
@@ -47,7 +48,7 @@
 <p>In your report, you should list the following:</p>
 <ul>
 <li>The data used in your XSS attack, and whether it was a GET or POST attack</li>
-<li>The 'secret' information that you obtained for the last two attacks</li>
+<li>The 'secret' information that you obtained for the last two attacks (this is additional information in the database itself, and was RANDOMLLY generated)</li>
 <li>The <strong>exact</strong> time stamp for each of the attacks. This allows us to verify it against the log file. The time stamp is listed at the bottom of the page, and is the time stamp of the page that was served in response to your attack.</li>
 </ul>
 <p>A few notes:</p>
