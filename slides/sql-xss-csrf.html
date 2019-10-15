@@ -306,7 +306,7 @@ select * from course where
 
 <section>
   <h2>A clever hacker tries to clear his/her record...</h2>
-  <p><img class="stretch" src="https://hackadaycom.files.wordpress.com/2014/04/18mpenleoksq8jpg.jpg?w=800&zoom=2"></p>
+  <p><img class="stretch" src="https://hackaday.com/wp-content/uploads/2014/04/18mpenleoksq8jpg.jpg"></p>
 <p>From <a href="https://hackaday.com/2014/04/04/sql-injection-fools-speed-traps-and-clears-your-record/">hackaday.com</a></p>
 </section>
 
@@ -424,7 +424,7 @@ End of the HTML text
 We've all seen HTML forms:
 ```
  <form action="/action_page.php">
-  First name: <input type="text"><br>
+  First name: <input type="text" name="firstname"><br>
   Last name: <input type="text" name="lastname"><br>
   <input type="submit" value="Submit">
 </form> 
@@ -485,14 +485,15 @@ There are also *hidden* input fields:
 <html>
   <head>
     <title>Basic web page</title>
-<script> <!-- newly added code -->
+<script>
 var balance=1;
 </script>
   </head>
   <body>
     <p>Hello Aaron!</p> <!-- name from user input -->
     <p>Your account balance is 
-<script> <!-- newly added code -->
+<!-- newly added code follows -->
+<script>
 document.write(balance);
 </script>
     </p>
@@ -581,7 +582,7 @@ Output: Hello Aaron! Your account balance is 1000000
 - Download the HTML page, and save it locally
 - Enter the script manually, and make sure it works
 - *Then*, encode the script using URL-encoded text
-  - There are online utilities to do this, such as the one at http://www.xav.com/encode.pl
+  - There are online utilities to do this, such as the one at https://meyerweb.com/eric/tools/dencoder/
 - Pass that to the script
 - Note that trying to edit the Javascript code through the URL-encoded text won't work!
 
@@ -590,7 +591,7 @@ Output: Hello Aaron! Your account balance is 1000000
 - An XSS exploit can be a URL link that somebody clicks on (perhaps via e-mail) that goes to bankofamerica.com, and...
   - Reads the account number and/or balance into Javascript variable(s)
   - Sends that data to a remote server
-    - This can be done via XMLHttpRequst(), which is the function used for Web 2.0 functionality
+    - This can be done via XMLHttpRequest(), which is the function used for Web 2.0 functionality
 - Alternately, it can be used to steal cookies, which can allow an attacker to impersonate a victim
 
 
@@ -657,7 +658,7 @@ Output: Hello Aaron! Your account balance is 1000000
 This is based on the form from the [HTML and Javascript primer](#/htmljs) section:
 ```
  <form action="/action_page.php">
-  First name: <input type="text"><br>
+  First name: <input type="text" name="firstname"><br>
   Last name: <input type="text" name="lastname"><br>
   <input type="hidden" name="csrf_token" 
          value="5AEF1xArSLLcoQQJrNkuaRs9tsSb8C8aFm">
