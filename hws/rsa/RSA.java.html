@@ -98,7 +98,7 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900">     * If the passed key is either public or private, then the method</font></i>
 <i><font color="#9A1900">     * will write only one key file.  If *both* d and e are set in the</font></i>
 <i><font color="#9A1900">     * passed in RSAKey, then the method will write both files (this</font></i>
-<i><font color="#9A1900">     * is tyipcally only done after key generation).</font></i>
+<i><font color="#9A1900">     * is typically only done after key generation).</font></i>
 <i><font color="#9A1900">     *</font></i>
 <i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> key The {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSAKey} to write to the file</font></i>
 <i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> keyName The base of the file name.  If the base is</font></i>
@@ -165,7 +165,7 @@ http://www.gnu.org/software/src-highlite">
 
     <i><font color="#9A1900">/** Read in cipher text from the provided file.</font></i>
 <i><font color="#9A1900">     *</font></i>
-<i><font color="#9A1900">     * This method is provided to encorce the correct format for</font></i>
+<i><font color="#9A1900">     * This method is provided to enforce the correct format for</font></i>
 <i><font color="#9A1900">     * cipher text files.  Cipher text files are ASCII text files that</font></i>
 <i><font color="#9A1900">     * contain the following:</font></i>
 <i><font color="#9A1900">     *</font></i>
@@ -199,7 +199,7 @@ http://www.gnu.org/software/src-highlite">
 
     <i><font color="#9A1900">/** Write cipher text to a file.</font></i>
 <i><font color="#9A1900">     *</font></i>
-<i><font color="#9A1900">     * This method is provided to encorce the correct format for</font></i>
+<i><font color="#9A1900">     * This method is provided to enforce the correct format for</font></i>
 <i><font color="#9A1900">     * cipher text files.  Cipher text files are ASCII text files that</font></i>
 <i><font color="#9A1900">     * contain the following:</font></i>
 <i><font color="#9A1900">     *</font></i>
@@ -266,7 +266,7 @@ http://www.gnu.org/software/src-highlite">
         <b><font color="#0000FF">try</font></b> <font color="#FF0000">{</font>
             hashSize <font color="#990000">=</font> MessageDigest<font color="#990000">.</font><b><font color="#000000">getInstance</font></b><font color="#990000">(</font>hashAlgorithm<font color="#990000">).</font><b><font color="#000000">getDigestLength</font></b><font color="#990000">()</font> <font color="#990000">*</font> <font color="#993399">2</font><font color="#990000">;</font>
         <font color="#FF0000">}</font> <b><font color="#0000FF">catch</font></b> <font color="#990000">(</font><font color="#008080">Exception</font> e<font color="#990000">)</font> <font color="#FF0000">{</font>
-            System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b> <font color="#990000">(</font><font color="#FF0000">"Your Java installation does not suport the '"</font> <font color="#990000">+</font> hashAlgorithm <font color="#990000">+</font>
+            System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b> <font color="#990000">(</font><font color="#FF0000">"Your Java installation does not support the '"</font> <font color="#990000">+</font> hashAlgorithm <font color="#990000">+</font>
                                 <font color="#FF0000">"' hashing method; change that in RSA.java to continue."</font><font color="#990000">);</font>
             System<font color="#990000">.</font><b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">);</font>
         <font color="#FF0000">}</font>
@@ -345,7 +345,7 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900">     *</font></i>
 <i><font color="#9A1900">     * </font></i><font color="#009900">@throws</font><i><font color="#9A1900"> Exception It is not expected that this method will</font></i>
 <i><font color="#9A1900">     * throw an exception, but this is included in case a future</font></i>
-<i><font color="#9A1900">     * implemention does choose to do so.</font></i>
+<i><font color="#9A1900">     * implementation does choose to do so.</font></i>
 <i><font color="#9A1900">     */</font></i>
     <b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#008080">RSAKey</font> <b><font color="#000000">generateKeys</font></b> <font color="#990000">(</font><font color="#009900">int</font> bitLength<font color="#990000">,</font> <font color="#009900">int</font> seed<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
         <i><font color="#9A1900">// random number generation -- don't modify this part!</font></i>
@@ -373,7 +373,7 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900">     *</font></i>
 <i><font color="#9A1900">     * </font></i><font color="#009900">@throws</font><i><font color="#9A1900"> Exception It is not expected that this method will</font></i>
 <i><font color="#9A1900">     * throw an exception, but this is included in case a future</font></i>
-<i><font color="#9A1900">     * implemention does choose to do so.</font></i>
+<i><font color="#9A1900">     * implementation does choose to do so.</font></i>
 <i><font color="#9A1900">     */</font></i>
     <b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#008080">CipherText</font> <b><font color="#000000">encrypt</font></b> <font color="#990000">(</font><font color="#008080">RSAKey</font> key<font color="#990000">,</font> <font color="#008080">String</font> plainText<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
         <i><font color="#9A1900">// your code here; a dummy return statement is put below to allow this to compile</font></i>
@@ -393,7 +393,7 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900">     *</font></i>
 <i><font color="#9A1900">     * </font></i><font color="#009900">@throws</font><i><font color="#9A1900"> Exception It is not expected that this method will</font></i>
 <i><font color="#9A1900">     * throw an exception, but this is included in case a future</font></i>
-<i><font color="#9A1900">     * implemention does choose to do so.</font></i>
+<i><font color="#9A1900">     * implementation does choose to do so.</font></i>
 <i><font color="#9A1900">     */</font></i>
     <b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#008080">String</font> <b><font color="#000000">decrypt</font></b> <font color="#990000">(</font><font color="#008080">RSAKey</font> key<font color="#990000">,</font> <font color="#008080">CipherText</font> cipherText<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
         <i><font color="#9A1900">// your code here; a dummy return statement is put below to allow this to compile</font></i>
@@ -413,7 +413,7 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900">     *</font></i>
 <i><font color="#9A1900">     * </font></i><font color="#009900">@throws</font><i><font color="#9A1900"> Exception It is not expected that this method will</font></i>
 <i><font color="#9A1900">     * throw an exception, but this is included in case a future</font></i>
-<i><font color="#9A1900">     * implemention does choose to do so.</font></i>
+<i><font color="#9A1900">     * implementation does choose to do so.</font></i>
 <i><font color="#9A1900">     */</font></i>
     <b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#008080">RSAKey</font> <b><font color="#000000">crack</font></b> <font color="#990000">(</font><font color="#008080">RSAKey</font> key<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
         <i><font color="#9A1900">// your code here; a dummy return statement is put below to allow this to compile</font></i>

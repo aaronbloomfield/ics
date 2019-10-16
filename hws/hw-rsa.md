@@ -236,7 +236,7 @@ assignment.  If you want to see if a string has the same SHA-256 as a
 file, make sure they are EXACTLY the same.  If the file has a ending
 newline (`\n`) character, and the string does not, then the SHA-256
 sums will not match!  You can find the SHA-256 hash of a file via the
-`sha256sum` command:
+`sha256sum` command (`CertUtil -hashfile message1.txt SHA256` on Windows):
 
 ```
 $ sha256sum message1.txt 

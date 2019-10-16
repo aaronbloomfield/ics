@@ -87,7 +87,7 @@ public class RSA {
      * If the passed key is either public or private, then the method
      * will write only one key file.  If *both* d and e are set in the
      * passed in RSAKey, then the method will write both files (this
-     * is tyipcally only done after key generation).
+     * is typically only done after key generation).
      *
      * @param key The {@link RSAKey} to write to the file
      * @param keyName The base of the file name.  If the base is
@@ -154,7 +154,7 @@ public class RSA {
 
     /** Read in cipher text from the provided file.
      *
-     * This method is provided to encorce the correct format for
+     * This method is provided to enforce the correct format for
      * cipher text files.  Cipher text files are ASCII text files that
      * contain the following:
      *
@@ -188,7 +188,7 @@ public class RSA {
 
     /** Write cipher text to a file.
      *
-     * This method is provided to encorce the correct format for
+     * This method is provided to enforce the correct format for
      * cipher text files.  Cipher text files are ASCII text files that
      * contain the following:
      *
@@ -255,7 +255,7 @@ public class RSA {
         try {
             hashSize = MessageDigest.getInstance(hashAlgorithm).getDigestLength() * 2;
         } catch (Exception e) {
-            System.out.println ("Your Java installation does not suport the '" + hashAlgorithm +
+            System.out.println ("Your Java installation does not support the '" + hashAlgorithm +
                                 "' hashing method; change that in RSA.java to continue.");
             System.exit(1);
         }
@@ -334,7 +334,7 @@ public class RSA {
      *
      * @throws Exception It is not expected that this method will
      * throw an exception, but this is included in case a future
-     * implemention does choose to do so.
+     * implementation does choose to do so.
      */
     public static RSAKey generateKeys (int bitLength, int seed) throws Exception {
         // random number generation -- don't modify this part!
@@ -362,7 +362,7 @@ public class RSA {
      *
      * @throws Exception It is not expected that this method will
      * throw an exception, but this is included in case a future
-     * implemention does choose to do so.
+     * implementation does choose to do so.
      */
     public static CipherText encrypt (RSAKey key, String plainText) throws Exception {
         // your code here; a dummy return statement is put below to allow this to compile
@@ -382,7 +382,7 @@ public class RSA {
      *
      * @throws Exception It is not expected that this method will
      * throw an exception, but this is included in case a future
-     * implemention does choose to do so.
+     * implementation does choose to do so.
      */
     public static String decrypt (RSAKey key, CipherText cipherText) throws Exception {
         // your code here; a dummy return statement is put below to allow this to compile
@@ -402,7 +402,7 @@ public class RSA {
      *
      * @throws Exception It is not expected that this method will
      * throw an exception, but this is included in case a future
-     * implemention does choose to do so.
+     * implementation does choose to do so.
      */
     public static RSAKey crack (RSAKey key) throws Exception {
         // your code here; a dummy return statement is put below to allow this to compile

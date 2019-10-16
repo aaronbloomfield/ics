@@ -47,7 +47,7 @@
   <textarea data-template>
 ## Credit Where Credit is Due
 
-Much of the material in this slide set, including some of the images, were obtained from [EECS 388](https://www.eecs.umich.edu/courses/eecs388/) from the the [CS department at the University of Michigan](https://www.cse.umich.edu/).  That course material was released under a [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0/deed.en_US) license.  Other images are from [Wikipedia](https://en.wikipedia.org), and each of those images are linked to it's source on Wikipedia.
+Much of the material in this slide set, including some of the images, was obtained from [EECS 388](https://www.eecs.umich.edu/courses/eecs388/) from the [CS department at the University of Michigan](https://www.cse.umich.edu/).  That course material was released under a [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0/deed.en_US) license.  Other images are from [Wikipedia](https://en.wikipedia.org), and each of those images is linked to its source on Wikipedia.
   </textarea>
 </section>
   
@@ -89,8 +89,8 @@ Much of the material in this slide set, including some of the images, were obtai
 
 ## DH key exchange
 - Alice and Bob agree on public values *g* (generator) and *p* (prime or modulus)
-- Alice pics a private *a* and sends to Bob $A=g^a \mod p$
-- Bob pics a private *b* and sends to Alice $B=g^b \mod p$
+- Alice picks a private *a* and sends to Bob $A=g^a \mod p$
+- Bob picks a private *b* and sends to Alice $B=g^b \mod p$
 - Because $g^{ab} \mod p = g^{ba} \mod p$, both can compute the secret key
   - Alice received $g^b \mod p$ and computes $(g^b \mod p)^a \mod p = g^{ab} \mod p$
   - Similarly for Bob
@@ -124,7 +124,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchan
 
 
 ## Colors in video
-<iframe width="720" height="540" src="http://www.youtube.com/embed/https://youtu.be/YEBfamv-_do?t=163&rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe width="720" height="540" src="https://www.youtube.com/embed/YEBfamv-_do?t=163&rel=0" frameborder="0" allowfullscreen></iframe>
 
 If that doesn't work, try the [direct Youtube link](http://youtu.be/YEBfamv-_do?t=163), but start at 2:43
 
@@ -195,7 +195,7 @@ If that doesn't work, try the [direct Youtube link](http://youtu.be/YEBfamv-_do?
 
 ## Certificate Chains
 [![certificate chain](images/web-security/Chain_of_trust.svg)](https://commons.wikimedia.org/wiki/File:Chain_of_trust.svg)
-An entity (such as virginia.edu) can hold an *intermediate* certificate, which allows it to sign for entities in it's division (such as news.virginia.edu)
+An entity (such as virginia.edu) can hold an *intermediate* certificate, which allows it to sign for entities in its division (such as news.virginia.edu)
 
 
 
@@ -276,7 +276,7 @@ An entity (such as virginia.edu) can hold an *intermediate* certificate, which a
 ## TLS 1.2 Handshake, part 1
 - Client opens a network connection to server
 - Client sends *hello*, including a random number $R_c$ and supported ciphers
-- Server responds with *hello*, including a random number $R_s$, selection of which client-supported cipher to use, it's certificate, and requests client certificate
+- Server responds with *hello*, including a random number $R_s$, selection of which client-supported cipher to use, its certificate, and requests client certificate
 - Client checks server certificate, and sends it's own cert, and a signature of all previous messages sent
   - Signed with the client certificate's private key
 - Server checks client certificate and signature
@@ -358,7 +358,7 @@ An entity (such as virginia.edu) can hold an *intermediate* certificate, which a
 
 ## HMAC
 - A MAC is a general term for a message authentication code
-- A HMAC uses a hash as it's algorithm
+- A HMAC uses a hash as its algorithm
 - Not all MACs use hashes
   - A CMAC uses a cipher (AES, DES, etc.) to create the code
     - Likely truncating it to the first $x$ bits
@@ -419,7 +419,7 @@ Note that even if the MAC doesn't support encryption (in the first 3 rows), the 
 
 ## Heartbleed
 - [RFC 6520](https://tools.ietf.org/html/rfc6520) allows a client to send a *Heartbeat Request* message -- like a ping -- to the server
-  - It consists of a string and it's size (as a 16-bit int)
+  - It consists of a string and its size (as a 16-bit int)
 - The server sends that message back
 - In OpenSSL, the library did not check the size of the message
   - So if you sent "bird" and 65,536, it would send 64Kb of data back
