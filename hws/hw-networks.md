@@ -20,15 +20,10 @@ In addition, you will have to have a working SSL configuration for part 1 on the
 
 ### Part 1: Apache SSL configuration
 
-This part will not be due at this time.
+This part is not yet ready at this time.
 
 
 ### Part 2: Break WEP
-
-It turns out that some network cards are not compatible, so this part will not be due at this time.
-
-If you already completed it, then please include what you did and what you found.
-
 
 ~~In this part you will need to break into a [WEP](https://en.wikipedia.org/wiki/Wired_Equivalent_Privacy) protected wireless network.~~
 
