@@ -61,7 +61,7 @@
 	  
 	  <section data-markdown data-separator="^\n$"><textarea data-template>
 ## SQL Primer
-- SQL - Standard Query Language - is a formally defined language
+- SQL - Structured Query Language - is a formally defined language
   - ANSI formalized first in 1986
   - Latest version is SQL:2016
 - There are many companies and products that create a database that uses SQL
@@ -170,19 +170,19 @@ delete from course;
 ## Other SQL commands
 - `drop database <db>;`
   - Deletes an entire database (and all the tables in that DB)
-- `show tables`
+- `show tables;`
   - Shows which tables are in the current DB
 - `describe <table>`
   - Gives details about the table columns
-- `create table <table> [...]`
+- `create table <table> [...];`
   - Creates a table
 
 
 ## Other SQL commands
-- `truncate <table>`
+- `truncate <table>;`
   - Erases all the data in the table
   - Almost the same as 'delete from course;'
-- `drop table <table>`
+- `drop table <table>;`
   - Deletes an entire table (and all data!)
 
 
@@ -596,7 +596,7 @@ Output: Hello Aaron! Your account balance is 1000000
 
 
 ## An XSS attack scenario
-- Alice often Bob's website, where sensitive information is stored.
+- Alice often visits Bob's website, where sensitive information is stored.
 - Mallory observes that Bob's website contains a reflected XSS vulnerability.
 - Mallory crafts an exploit URL, sends to Alice, and entices her to click on it
   - This URL is for Bob's website, but contains Mallory's malicious code, which the website will reflect (execute).
@@ -614,7 +614,8 @@ Output: Hello Aaron! Your account balance is 1000000
 ## Defenses
 - Treat data as data, and escape it!
   - Use web frameworks or modern PLs that do this for you
-- There are many minute details to get right; see [here](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet) for details
+- There are many minute details to get right; see [here][1] for details
+[1]: https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet
 </textarea></section>
 
 	</section>

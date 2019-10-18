@@ -50,18 +50,18 @@ There are six XSS attacks that you must do against this page.  While it seems li
 - Perform an XSS attack that will display the account number to the screen.  This must read the Javascript variable and display it, and should be done via a posting to the web form.
 - Perform the same XSS attack as above, but via a GET variable (i.e. via a URL).
 - Perform an XSS attack that will display the account number to the screen.  This must read via a cookie from the web browser, and display it, and should be done via a posting to the web form.
-#- Note that a sophisticated XSS attack would send that account number somewhere over the network - we are just displaying it to the screen
+- Note that a sophisticated XSS attack would send that account number somewhere over the network - we are just displaying it to the screen
 - Perform the same XSS attack as above, but via a GET variable (i.e. via a URL).
 
 In your report, you should list the following:
 
 - The data used in your XSS attack, and whether it was a GET or POST attack
-- The 'secret' information that you obtained for the last two attacks (this is additional information in the database itself, and was RANDOMLLY generated)
+- The 'secret' information that you obtained for the last two attacks (this is additional information in the database itself, and was RANDOMLY generated)
 - The **exact** time stamp for each of the attacks.  This allows us to verify it against the log file.  The time stamp is listed at the bottom of the page, and is the time stamp of the page that was served in response to your attack.
 
 A few notes:
 
-- You can use the script at https://meyerweb.com/eric/tools/dencoder/ to encode your Javascript into URL-encoded text
+- You can use the script at [https://meyerweb.com/eric/tools/dencoder/](https://meyerweb.com/eric/tools/dencoder/) to encode your Javascript into URL-encoded text
 - When submitting an XSS attack via the submission of the form, you should enter `\n` to represent returns.  When submitting it via  GET variable (i.e. in the URL), you should enter '%0a' for a return.  Note that the conversion script (above) may not convert the returns properly - you may have to do that manually
 - To write some text from Javascript to the web page, use 'document.write("foo");'
 - To read a cookie in Javascript, print out the document.cookie variable
