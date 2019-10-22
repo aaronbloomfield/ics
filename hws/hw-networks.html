@@ -19,22 +19,7 @@
 <p>This homework will have you explore a number of topics and security vulnerabilities related to networking.</p>
 <p>There are four parts to this assignment. As part of this assignment, you will have to create a document, called <code>mst3k-networks.pdf</code> (where mst3k is your userid), and submit that file. We aren't looking for any fancy write-up - just an explanation of what you did, and the results you got. That being said, it should be legible. So make sure you indicate what answers are for what questions, etc.</p>
 <p>In addition, you will have to have a working SSL configuration for part 1 on the network -- we will be testing that connection as well.</p>
-<h3 id="part-1-apache-ssl-configuration">Part 1: Apache SSL configuration</h3>
-<p>This part will not be due at this time.</p>
-<h3 id="part-2-break-wep">Part 2: Break WEP</h3>
-<p><del>In this part you will need to break into a <a href="https://en.wikipedia.org/wiki/Wired_Equivalent_Privacy">WEP</a> protected wireless network.</del></p>
-<p><del>The WEP protected network is accessible from the upper floors of Rice Hall on the west side of the building (the west side is the side with the main front door onto Engineer's Way). The router itself is located in the 5th floor glass enclosed machine room in Rice Hall; how far away it is visible will depend on your particular machine. The network SSID is <code>CS_ICS_wireless</code>. Note that this SSID is <strong><em>not broadcasted</em></strong>, so you will have enter the SSID directly (and exactly as specified) in order to connect to it. There is a range extender for this network on the 4th floor of Rice Hall; the SSID for this is <code>CS_ICS_wireless_ext</code>. Both have the same configuration, and you should pick the one to use based on the floor you are on. Neither has their SSID broadcasted.</del></p>
-<p><del>Students in this class (and <em>ONLY</em> students in this class) are given permission to break into this network for this homework assignment (and for this assignment <em>ONLY</em>).</del></p>
-<p><del>There are many online tools that will allow you to do this. One option is Aircrack-ng at <a href="http://www.aircrack-ng.org/" class="uri">http://www.aircrack-ng.org/</a>.</del></p>
-<p><del>Once you have accessed the network, you will need to scan for machines connected to that network, see what port(s) are open on those machines, and try to access those port(s). You can do this through the <code>nmap</code> command, as described <a href="https://itsfoss.com/how-to-find-what-devices-are-connected-to-network-in-ubuntu/">here</a>. If nmap is not on the VirtualBox image, you can install it via <code>sudo apt-get update</code> and <code>sudo apt-get install nmap</code> -- you are on your own for the other operating systems. Once you have a port number, nmap should tell you what the protocol for that port is -- if not, you can look in the <code>/etc/services</code> file.</del></p>
-<p><del>In the report, you should include:</del></p>
-<ul>
-<li><del>The WEP password for that network</del></li>
-<li><del>The internal network IP address your computer was assigned</del></li>
-<li><del>The IP address(es) and port(s) of the computer on the network that you are to access</del></li>
-<li><del>What you found at those IP address(es) and port(s)</del></li>
-</ul>
-<h3 id="part-3-explore-tor">Part 3: Explore Tor</h3>
+<h3 id="part-1-explore-tor">Part 1: Explore Tor</h3>
 <p>Before you start, you should determine your IP address and the route to a given machine. Visit <a href="https://whatismyipaddress.com/" class="uri">https://whatismyipaddress.com/</a> to get your IP address (for reasons we'll see in a bit, this is preferred over Googling for 'what is my ip').</p>
 <p>You will need to install (and, briefly, use) Tor. You can find out out Tor <a href="https://www.torproject.org/">here</a>, and installation -- which is particular to your operating system -- is described <a href="https://www.torproject.org/docs/installguide.html.en">here</a>. Once you install Tor, you will also need to install the <a href="https://www.torproject.org/projects/torbrowser.html.en">Tor browser</a>.</p>
 <p>Load up the Tor browser and visit <a href="https://whatismyipaddress.com/" class="uri">https://whatismyipaddress.com/</a> again to get your IP address. Hit reload a couple of times, and note how the IP address changes each time. These are the IP addresses of the Tor <em>exit nodes</em>.</p>
@@ -47,7 +32,7 @@
 <li>The IP address(es) used when you were using the Tor browser</li>
 <li>What <strong><em>LEGAL</em></strong> hidden service(s) that you visited</li>
 </ul>
-<h3 id="part-4-packet-sniffing">Part 4: Packet Sniffing</h3>
+<h3 id="part-2-packet-sniffing">Part 2: Packet Sniffing</h3>
 <p>For this part, we are going to 'listen' to network traffic, and see what interesting information we can find. We will use a UNIX utility called tcpdump. This utility will print out all the network traffic on a given interface. tcpdump must be run as root; thus, you probably cannot run it on any UVa server. You can download the tcpdump.zip file from Collab's resources -- that file is NOT in this repo due to it's size. This file contains a dump of a tcpdump session. We will be analyzing this file.</p>
 <p>This file contains my password, so I wanted to ensure that it was properly protected, and I used a 6-character ZIP file password on it. It's your job to crack that password. While you can use any ZIP file password cracker that is out there (and there are lots!), we recommend <a href="http://www.ubuntugeek.com/howto-crack-zip-files-password.html">fcrackzip</a>, which you can install on your Linux VirtualBox image via <code>sudo apt-get install fcrackzip</code>. Note that you will need to understand what it does - just running it with very few parameters will just spew out gibberish to the screen.</p>
 <p>A packet sniffing utility would run tcpdump, and parse the contents in real-time. We can do this using something as simple as lex, although more advanced programs (including parsers like yacc or bison) would be more effective. For this assignment, you won't need to write a program, but can instead just search for the data using any text-search mechanism (including opening it up in your favorite editor and searching the data). The data was collected using the following command:</p>
