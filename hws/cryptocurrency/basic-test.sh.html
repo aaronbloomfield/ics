@@ -11,27 +11,40 @@ http://www.gnu.org/software/src-highlite">
 <body bgcolor="white">
 <pre><tt><i><font color="#9A1900">#!/bin/bash</font></i>
 
+echo The name of this cryptocurrency is<font color="#990000">:</font>
 <font color="#990000">.</font>/cryptomoney<font color="#990000">.</font>sh name
+echo Creation of the genesis block
 <font color="#990000">.</font>/cryptomoney<font color="#990000">.</font>sh genesis
+echo Creating a wallet <b><font color="#0000FF">for</font></b> alice into alice<font color="#990000">.</font>wallet<font color="#990000">.</font>txt
 <font color="#990000">.</font>/cryptomoney<font color="#990000">.</font>sh generate alice<font color="#990000">.</font>wallet<font color="#990000">.</font>txt
 <b><font color="#0000FF">export</font></b> <font color="#009900">alice</font><font color="#990000">=</font>`<font color="#990000">.</font>/cryptomoney<font color="#990000">.</font>sh address alice<font color="#990000">.</font>wallet<font color="#990000">.</font>txt`
 echo alice<font color="#990000">.</font>wallet<font color="#990000">.</font>txt wallet signature<font color="#990000">:</font> <font color="#009900">$alice</font>
+echo funding alice wallet with <font color="#993399">100</font>
 <font color="#990000">.</font>/cryptomoney<font color="#990000">.</font>sh fund <font color="#009900">$alice</font> <font color="#993399">100</font> <font color="#993399">01</font>-alice-funding<font color="#990000">.</font>txt
+echo Creating a wallet <b><font color="#0000FF">for</font></b> bob into alice<font color="#990000">.</font>wallet<font color="#990000">.</font>txt
 <font color="#990000">.</font>/cryptomoney<font color="#990000">.</font>sh generate bob<font color="#990000">.</font>wallet<font color="#990000">.</font>txt
 <b><font color="#0000FF">export</font></b> <font color="#009900">bob</font><font color="#990000">=</font>`<font color="#990000">.</font>/cryptomoney<font color="#990000">.</font>sh address bob<font color="#990000">.</font>wallet<font color="#990000">.</font>txt`
 echo bob<font color="#990000">.</font>wallet<font color="#990000">.</font>txt wallet signature<font color="#990000">:</font> <font color="#009900">$bob</font>
+echo funding bob wallet with <font color="#993399">100</font>
 <font color="#990000">.</font>/cryptomoney<font color="#990000">.</font>sh fund <font color="#009900">$bob</font> <font color="#993399">100</font> <font color="#993399">02</font>-bob-funding<font color="#990000">.</font>txt
+echo transfering <font color="#993399">12.5</font> from alice to bob
 <font color="#990000">.</font>/cryptomoney<font color="#990000">.</font>sh transfer alice<font color="#990000">.</font>wallet<font color="#990000">.</font>txt <font color="#009900">$bob</font> <font color="#993399">12.5</font> <font color="#993399">03</font>-alice-to-bob<font color="#990000">.</font>txt
+echo transfering <font color="#993399">2.5</font> from bob to alice
 <font color="#990000">.</font>/cryptomoney<font color="#990000">.</font>sh transfer bob<font color="#990000">.</font>wallet<font color="#990000">.</font>txt <font color="#009900">$alice</font> <font color="#993399">2.5</font> <font color="#993399">04</font>-bob-to-alice<font color="#990000">.</font>txt
+echo verifying the last four transactions
 <font color="#990000">.</font>/cryptomoney<font color="#990000">.</font>sh verify alice<font color="#990000">.</font>wallet<font color="#990000">.</font>txt <font color="#993399">01</font>-alice-funding<font color="#990000">.</font>txt
 <font color="#990000">.</font>/cryptomoney<font color="#990000">.</font>sh verify bob<font color="#990000">.</font>wallet<font color="#990000">.</font>txt <font color="#993399">02</font>-bob-funding<font color="#990000">.</font>txt
 <font color="#990000">.</font>/cryptomoney<font color="#990000">.</font>sh verify alice<font color="#990000">.</font>wallet<font color="#990000">.</font>txt <font color="#993399">03</font>-alice-to-bob<font color="#990000">.</font>txt
 <font color="#990000">.</font>/cryptomoney<font color="#990000">.</font>sh verify bob<font color="#990000">.</font>wallet<font color="#990000">.</font>txt <font color="#993399">04</font>-bob-to-alice<font color="#990000">.</font>txt
+echo displaying the ledger
 cat ledger<font color="#990000">.</font>txt
+echo checking the balance of both alice and bob
 <font color="#990000">.</font>/cryptomoney<font color="#990000">.</font>sh balance <font color="#009900">$alice</font>
 <font color="#990000">.</font>/cryptomoney<font color="#990000">.</font>sh balance <font color="#009900">$bob</font>
+echo mining the block with prefix of <font color="#993399">2</font>
 <font color="#990000">.</font>/cryptomoney<font color="#990000">.</font>sh mine <font color="#993399">2</font>
 sha256sum block_1<font color="#990000">.</font>txt
+echo validating the cryptocurrency chain
 <font color="#990000">.</font>/cryptomoney<font color="#990000">.</font>sh validate
 </tt></pre>
 </body>
