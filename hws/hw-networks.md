@@ -41,7 +41,7 @@ In the report, you should include:
 
 ### Part 2: Packet Sniffing
 
-For this part, we are going to 'listen' to network traffic, and see what interesting information we can find.  We will use a UNIX utility called tcpdump.  This utility will print out all the network traffic on a given interface.  tcpdump must be run as root; thus, you probably cannot run it on any UVa server.  You can download the tcpdump.zip file from Collab's resources -- that file is NOT in this repo due to it's size.  This file contains a dump of a tcpdump session.  We will be analyzing this file.
+For this part, we are going to 'listen' to network traffic, and see what interesting information we can find.  We will use a UNIX utility called tcpdump.  This utility will print out all the network traffic on a given interface.  tcpdump must be run as root; thus, you probably cannot run it on any UVa server.  You can download the tcpdump.zip file from Collab's resources -- that file is NOT in this repo due to its size.  This file contains a dump of a tcpdump session.  We will be analyzing this file.
 
 This file contains my password, so I wanted to ensure that it was properly protected, and I used a 6-character ZIP file password on it.  It's your job to crack that password.  While you can use any ZIP file password cracker that is out there (and there are lots!), we recommend [fcrackzip](http://www.ubuntugeek.com/howto-crack-zip-files-password.html), which you can install on your Linux VirtualBox image via `sudo apt-get install fcrackzip`.  Note that you will need to understand what it does - just running it with very few parameters will just spew out gibberish to the screen.
 
@@ -59,7 +59,7 @@ The command line switches do the following:
 
 Many of the pages returned by tcpdump are compressed to save network bandwidth.  This is particularly relevant for popular sites that send a lot of data, such as Facebook or CNN.  You can see this in the packet by the 'Content-Encoding: gzip' header.  One can easily write the data to file, reverse the base-64 encoding, and the un-gzip it (and there are programs that do just that).  For this assignment, we'll be looking just at the non-compressed data.
 
-You will need to analyze the tcpdump.txt file.  Download the tcpdump.zip file from Collab's resources -- that file is NOT in this repo due to it's size.  In your report, you need to answer the following questions:
+You will need to analyze the tcpdump.txt file.  Download the tcpdump.zip file from Collab's resources -- that file is NOT in this repo due to its size.  In your report, you need to answer the following questions:
 
 - What websites were visited that encoded the data using gzip?  We are looking for the domain names (domain.tld), not the exact URL (foo.bar.baz.domain.tld).
 - What types of files were transferred?  This is encoded in the 'Content-Type' header.
