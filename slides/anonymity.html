@@ -342,7 +342,7 @@ Cypherpunks remailers can be used to send messages to email addresses or to Usen
 - Tor stands for The Onion Router
 - Consdier a path to destination S through a network:
   - Y (client) <-> A <-> B <-> C <-> S (server)
-  - A, B, and C are randommly chosen nodes in the Tor network
+  - A, B, and C are randomly chosen nodes in the Tor network
   - Each node has a public key $pk_A$, $pk_S$, etc.
 - We have two functions we will use:
   - $enc(pk,X)$: encrypt $X$ with public key $pk$
@@ -378,7 +378,7 @@ Cypherpunks remailers can be used to send messages to email addresses or to Usen
 
 
 ## The final message
-- $m = enc(pk_A,sendTo(B,enc(pk_B,$<br>$sendTo($$C,enc(pk_C,$<br>$sendTo(S,enc(pk_S,m)))))))$
+- $m = enc(pk_A,sendTo(B,enc(pk_B,$<br>$sendTo($$C,enc(pk_C,$<br>$sendTo(S,enc(pk_S,p)))))))$
 - Each successive message is encrypted, forming *layers*
   - Layers like an onion, hence the name *onion routing*
 - Note that the final node ($S$) is the final node *inside* Tor
