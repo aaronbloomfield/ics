@@ -66,7 +66,7 @@ example code in the [sample.py](cryptocurrency/sample.py)
 
 
 **Java:** RSA and SHA are already in the standard Java library; you
-can look [here](https://gist.github.com/dmydlarz/32c58f537bb7e0ab9ebf)
+can look [here](https://www.devglan.com/java8/rsa-encryption-decryption-java)
 for how to handle RSA in Java, and see the [MessageDigest
 class](https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html)
 for SHA (and the example
