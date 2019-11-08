@@ -66,7 +66,7 @@ You will need to analyze the tcpdump.txt file.  Download the tcpdump.zip file fr
 - What network ports were accessed?  A network port corresponds to an application-level protocol, such as http and https.  This is encoded as `gemini.http-alt` (here `http-alt` means an alternative to http) - see the example packet explanation, below.  The `http-alt` port is 8080 -- you can find this out by looking in `/etc/services`, which maps port names (such as `http-alt`) to port numbers.  We aren't interested in port numbers above 10,000.
 - What is the username(s) and password(s) were used when logging in?  Where were they used to log in to?  Not surprisingly, all passwords were changed for this file.  (There is only one that can be sniffed)
 - Can you determine my ebay password?  Why or why not?
-- What other network-level and transport-level protocols were used, other than TCP?  TCP is used quite frequently (so much so that TCP packets are not labeled as TCP).  You can find a listing of the protocols at http://www.wildpackets.com/resources/compendium/tcp_ip/overview.
+- What other network-level and transport-level protocols were used, other than TCP?  TCP is used quite frequently (so much so that TCP packets are not labeled as TCP).  You can find a listing of the protocols on [wikipedia](https://en.wikipedia.org/wiki/Internet_protocol_suite) -- specifically in the gray box on the right hand side of that page entitled "Internet protocol suite".
 
 A given packet could look like the following.
 

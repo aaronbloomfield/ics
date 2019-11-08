@@ -61,7 +61,7 @@ In your report, you should list the following:
 
 A few notes:
 
-- You can use the script at https://meyerweb.com/eric/tools/dencoder/ to encode your Javascript into URL-encoded text
+- You can use the script at [https://meyerweb.com/eric/tools/dencoder/](https://meyerweb.com/eric/tools/dencoder/) to encode your Javascript into URL-encoded text
 - When submitting an XSS attack via the submission of the form, you should enter `\n` to represent returns.  When submitting it via  GET variable (i.e. in the URL), you should enter '%0a' for a return.  Note that the conversion script (above) may not convert the returns properly - you may have to do that manually
 - To write some text from Javascript to the web page, use 'document.write("foo");'
 - To read a cookie in Javascript, print out the document.cookie variable
