@@ -343,46 +343,46 @@ select * from course where
 
 
 ## A very basic web page 
-```
+```html
 <!doctype html>
 ```
 Specifies the HTML document version
-```
+```html
 <html>
 ```
 Beginning of the HTML text
-```
+```html
   <head>
 ```
 Beginning of the head section (contains document info, but
 not the document content itself)
-```
+```html
     <title>Basic page</title>
 ```
 The title of the document
 
 
 ## A very basic web page 
-```
+```html
   </head>
 ```
 End of the head section
-```
+```html
   <body>
 ```
 Beginning of the body section (contains the actual document text)
-```
+```html
     <p>Hello world!</p>
 ```
 The (one line of) document text in paragraph tags
 
 
 ## A very basic web page 
-```
+```html
   </body>
 ```
 End of the body section
-```
+```html
   </html>
 ```
 End of the HTML text
@@ -422,7 +422,7 @@ End of the HTML text
 
 ## Forms
 We've all seen HTML forms:
-```
+```html
  <form action="/action_page.php">
   First name: <input type="text" name="firstname"><br>
   Last name: <input type="text" name="lastname"><br>
@@ -448,7 +448,7 @@ Lots of different ones (image from [OpenTechSchool](http://opentechschool.github
 ![input types](images/sql-xss-csrf/sample_web_form.png)
 
 There are also *hidden* input fields:
-```
+```html
 <input type="hidden" name="school" value="uva">
 ```
 </textarea></section>
@@ -657,7 +657,7 @@ Output: Hello Aaron! Your account balance is 1000000
 ## HTML form with a CSRF token
 
 This is based on the form from the [HTML and Javascript primer](#/htmljs) section:
-```
+```html
  <form action="/action_page.php">
   First name: <input type="text" name="firstname"><br>
   Last name: <input type="text" name="lastname"><br>
