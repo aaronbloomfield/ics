@@ -277,7 +277,7 @@ An entity (such as virginia.edu) can hold an *intermediate* certificate, which a
 - Client opens a network connection to server
 - Client sends *hello*, including a random number $R_c$ and supported ciphers
 - Server responds with *hello*, including a random number $R_s$, selection of which client-supported cipher to use, its certificate, and requests client certificate
-- Client checks server certificate, and sends it's own cert, and a signature of all previous messages sent
+- Client checks server certificate, and sends its own cert, and a signature of all previous messages sent
   - Signed with the client certificate's private key
 - Server checks client certificate and signature
 
