@@ -296,7 +296,7 @@ The requirements are:
 10. Validate the blockchain (`validate`): this should go through the
     entire block chain, validating each one.  This means that starting
     with block 1 (the block *after* the genesis block), ensure that
-    the hash listed in that file, which is the has for the *previous*
+    the hash listed in that file, which is the hash for the *previous*
     block file, is correct.  There are no additional command-line
     parameters for this function.
 
