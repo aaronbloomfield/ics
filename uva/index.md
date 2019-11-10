@@ -49,6 +49,7 @@ Homeworks
 Unless otherwise noted, all submissions are due by the end of the day of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the [online submission system][162] -- all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time.
 
 
+- [HW 9: Rootkits](../hws/hw-rootkits.html) ([md](../hws/hw-rootkits.md)) is due Friday, November 15th
 - [HW 8: Cryptocurrency](../hws/hw-cryptocurrency.html) ([md](../hws/hw-cryptocurrency.md)) is due Friday, November 1st
 - [HW 7: Networks](../hws/hw-networks.html) ([md](../hws/hw-networks.md)) is due Friday, October 25th
 - [HW 6: SQL, XSS, & CSRF](../hws/hw-sql-xss-csrf.html) ([md](../hws/hw-sql-xss-csrf.md)) is due Friday, October 18th
