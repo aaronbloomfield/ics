@@ -9,4 +9,6 @@ This homework is to generate two *good* questions that you could (potentially) a
 
 Write your questions in a TEXT FILE, and name it `mst3k.txt` (replace mst3k with your userid).
 
-This must be submitted by the end of the day on Tuesday, April 16th.  Late submissions will not be accepted on this assignment!
+**IF YOU DO NOT NAME IT CORRECTLY, YOU WILL GET A ZERO!!!**
+
+This must be submitted by the end of the day before the visit.  Late submissions will not be accepted on this assignment!
