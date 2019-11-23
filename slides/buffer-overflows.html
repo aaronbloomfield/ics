@@ -111,7 +111,7 @@ $
 
 
 ## Debugger examination
-```
+```console
 $ gdb ./overflow.exe 
 GNU gdb (Ubuntu 8.1-0ubuntu3) 8.1.0.20180409-git
 Reading symbols from ./overflow.exe...done.
@@ -227,7 +227,7 @@ ret                          ; goodbye!
 
 
 ## Address of `buffer`
-```
+```console
 $ gdb ./overflow.exe 
 GNU gdb (Ubuntu 8.1-0ubuntu3) 8.1.0.20180409-git
 ...
@@ -278,7 +278,7 @@ After a successful buffer overflow exploit:
 
 ## Recall: virus code
 - Consider the following shell code that loads a string into %edi, then calls `puts()` via a [tricky jump](viruses.html#/trickyjump):
-```
+```x86asm
       leal string(%rip), %edi
       pushq $0x4004e0 ; address of puts() in 
 	                  ; target executable
@@ -291,7 +291,7 @@ Note that this is in AT&T assembly syntax
 
 ## Recall: virus code
 - The same code, but converted to Intel syntax:
-```
+```x86asm
 section .data
     string db "You have been infected with a virus!", 0x0a
 section .text
@@ -396,7 +396,7 @@ section .text
 
 
 ## Print without puts()
-```
+```x86asm
 global mysyscall
 section .data
   string db "You have been infected with a virus!", 0x0a
@@ -414,7 +414,7 @@ This can be compiled (with `nasm -f elf64`), linked with an appropriate `main()`
 
 ## Print without puts()
 The assembly yields the following machine code
-```
+```x86asm
 mov eax, 1        ; syscall function (sys_write)
 mov edi, 1        ; print to stdout
 lea esi, [string] ; buffer to print
@@ -443,7 +443,7 @@ Note that nothing is 64-bit (even when compiled with `-f elf64`)
 ## Problem: crashes after `syscall`
 - We need to gracefully exit
 - So we use `syscall` to do so:
-```
+```x86asm
 mov eax, 1        ; syscall function (sys_write)
 mov edi, 1        ; print to stdout
 lea esi, [string] ; buffer to print
@@ -493,7 +493,7 @@ How do we use this as input to the program?
 
 
 ## Shellcode without 0x00
-```
+```x86asm
 section .text
 mysyscall:
 	jmp afterString
@@ -554,13 +554,13 @@ Note that the `lea` loads an negative offset, which has no 0x00 bytes
 - You may not be able to determine for sure
 - We can make our shellcode easier for 'guessing'
 - Normal shell code:
-```
+```x86asm
 	xor eax, eax
 	mov al, 1
 	... (rest of shellcode)
 ```
 - More 'guessable' shellcode starts with many nops:
-```
+```x86asm
 	nop
 	nop
 	... (fill the buffer with nops)
