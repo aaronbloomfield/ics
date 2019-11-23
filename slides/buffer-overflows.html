@@ -45,7 +45,7 @@
 
 	<section data-markdown><textarea data-template>
 ## Credit where credit is due
-- Much of the material in this slide set is used, with permission, from similar slides by [Charles Reiss](https://www.cs.virginia.edu/~cr4bd/), specifically from [here](file:///home/multi/old/teaching/cs4630-fall-2017/comparison/cr4bd-spring-2017/slides/20170222-slides-1up-animated.pdf).  His slides were based on the document [Smashing the Stack for Fun and Profit](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf).
+- Much of the material in this slide set is used, with permission, from similar slides by [Charles Reiss](https://www.cs.virginia.edu/~cr4bd/), specifically from [here](https://www.cs.virginia.edu/~cr4bd/4630/S2017/slides/20170222-slides-1up-animated.pdf).  His slides were based on the document [Smashing the Stack for Fun and Profit](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf).
 </textarea></section>
 
 	<section data-markdown><textarea data-template>
@@ -385,7 +385,7 @@ section .text
 ## Relevant `syscall` calls
 - From [the same link as on the last slide](http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)
 - sys_write: rax = 1
-  - rdi is the file descriptior (1 for stdout)
+  - rdi is the file descriptor (1 for stdout)
   - rsi is the pointer to the buffer to print
   - rdx is the size of the buffer
 - sys_exit: rax = 60
@@ -546,7 +546,7 @@ Note that the `lea` loads an negative offset, which has no 0x00 bytes
   - This may not be possible, though, as you may not have the program available
 - Examine target executable disassembly
   - Figure out how much is allocated on the stack below it, and you may know the stack start location to set return address
-- Guess: location of return address and address of maachine code
+- Guess: location of return address and address of machine code
 	  </textarea></section>
 	  
 	  <section data-markdown id="nopsled"><textarea data-template>
