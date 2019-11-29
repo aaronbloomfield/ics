@@ -48,7 +48,7 @@ Homeworks
 
 Unless otherwise noted, all submissions are due by the end of the day of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the [online submission system][162] -- all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time.
 
-- HW 13 will be forensics, but it is not yet ready
+- [HW 13: Forensics](../hws/hw-forensics.html) ([md](../hws/hw-forensics.md)) is due Friday, December 6th
 - [HW 12: Movie Night](../hws/hw-movie-night.html) ([md](../hws/hw-movie-night.md)) is due Wednesday, December 4th
 - [HW 11: Buffer Overflow](../hws/hw-buffer.html) ([md](../hws/hw-buffer.md)) is due Friday, November 22nd
 - [HW 10: Celebrity Visit](../hws/hw-celebrity-visit.html) ([md](../hws/hw-celebrity-visit.md)) is due Thursday, November 21st, and there is all of 12 hours of lateness allowed on this!

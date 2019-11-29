@@ -27,8 +27,9 @@ But you have no idea what to look for...
 
 (Note: in the real world, you might get into legal trouble for doing
 this type of search, since the owner of the computer did not give you
-permission. But this is an assignment, and FAKE, so there is no legal
-trouble to get into for this assignment.)
+permission, and you don't have a search warrant. But this is an
+assignment, and FAKE, so there is no legal trouble to get into for
+this assignment.)
 
 (And yes, Sam is just fine in the real world.)
 
@@ -107,9 +108,9 @@ The report will be divided into a number of parts.  So that we can
 easily figure out what you found out, please make it clear which part
 of your report are for which part.
 
-Part 1 is the two questions of Joss' to answer:
+Part 1 is the primary questions of answer:
 
-- Where is Sam?
+- Where is Sam? (and any other related info, such as why is he gone, who knows about it, etc.)
 - What parts of the story can you put together?
 
 This part of this report should contain as much of the story as you
