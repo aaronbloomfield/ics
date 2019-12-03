@@ -477,13 +477,13 @@ first need to find the return address from `vulnerable()` back to
 vulnerable.  Next, load up the executable in gdb, and set up a break
 point right when you enter into the `vulnerable()` function.  You can
 list the stack with a command such as, `x/100xw $rsp`.  This will
-print out 100 hex values,, each one being 4 bytes.  A typical gdb
+print out 100 hex values, each one being 4 bytes.  A typical gdb
 display will list four 32-bit (4 byte) values per line, which is 16
 bytes per line.  Since you know the size of the buffer (200 bytes),
 the return address is likely to be about 200/16 lines down, or about a
 dozen lines down.  Keep in mind that a return address is 64 bits,
 which will be *two* of the 32-bit values listed in this display.  That
-return address should (mostly) match the value you gleaned from the
+return address should (more or less) match the value you gleaned from the
 objdump command.  Once you have the return address, figure out the
 command to just print out that return address: `x/2xw 0x7fffffffdcc0`
 might work (if the return address were located at 0x7fffffffdcc0).

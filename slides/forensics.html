@@ -250,12 +250,17 @@
 - Some times only parts can be recovered
 - Secure delete programs can (often) solve this
 - Under Linux, [you can use debugfs](https://unix.stackexchange.com/questions/80270/unix-linux-undelete-recover-deleted-files) or [testdisk](https://www.cgsecurity.org/wiki/TestDisk)
+  - Some programs, such as autopsy, cannot properly undelete files
+    - We'll see autopsy shortly...
 
 
 
 ## Password protected files
 - Various password crackers exist for many means of password protecting files
   - Example: the .zip password cracker used in the [Networks HW](../hws/hw-networks.html)
+- One can encrypt / decrypt files with AES as well:
+    - `openssl aes-256-cbc -a -salt -in input.txt -out input.txt.aes`
+    - `openssl aes-256-cbc -d -a -salt -in input.txt.aes -out output.txt`
 
 
 
@@ -265,6 +270,7 @@
 - While programs exist to find images that look like something else, a manual search is likely the most viable
   - One can view a page of thumbnails to quickly search through an image library
 - JPEG images also have EXIF data, which has textual information about the image
+  - exiftool and jhead are tools that can extract EXIF data
 
 
 
@@ -292,7 +298,7 @@
   - Chrome: various [cache viewers exist](https://www.nirsoft.net/utils/chrome_cache_view.html)
   - Similarly for other browsers
 - The files are also on the hard drive
-  - Windows/Chrome example: `C:\Users\User\AppData\Local\Google\Chrome\User Data\Default\Cache`
+  - Windows/Chrome example:  `C:\Users\User\AppData\Local\ Google\Chrome\User Data\Default\Cache`
 
 
 
