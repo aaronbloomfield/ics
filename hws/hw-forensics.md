@@ -86,10 +86,12 @@ other OSes.  Note that some of the information on the disk image was
 specifically designed to NOT be able to be (easily) found with Autopsy
 / SleuthKit.
 
-You can install Autopsy by viewing the [details at Autopsy's
-website](https://www.sleuthkit.org/autopsy/download.php).  The current
-version is 4.10 -- make sure you are using that version (or a more
-recent one if available).
+If you are ***NOT*** using the course VirtualBox image, you can
+install Autopsy by viewing the [details at Autopsy's
+website](https://www.sleuthkit.org/autopsy/download.php).  It's
+already installed on the VirtualBox image.  The current version is
+4.10 -- make sure you are using that version (or a more recent one if
+available).
 
 ### Running on the VirtualBox image
 
