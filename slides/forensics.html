@@ -249,9 +249,16 @@
   - If the blocks have not been overwritten, then the file can be successfully restored
 - Some times only parts can be recovered
 - Secure delete programs can (often) solve this
-- Under Linux, [you can use debugfs](https://unix.stackexchange.com/questions/80270/unix-linux-undelete-recover-deleted-files) or [testdisk](https://www.cgsecurity.org/wiki/TestDisk)
-  - Some programs, such as autopsy, cannot properly undelete files
-    - We'll see autopsy shortly...
+- Linux: see next slide
+
+
+
+## Deleted file recovery (Linux)
+- Under Linux, use testdisk photorec (installed on the VB image)
+  - Some programs, such as autopsy, cannot properly undelete files (we'll see autopsy shortly)
+  - [testdisk](https://www.cgsecurity.org/wiki/TestDisk) will be useful to find the file(s) to be undeleted, but cannot undelete them
+  - Use photorec for the undeletion itself -- note that it undeletes *all* files, so you will need about 11 Gb of free space
+    - Then find the file(s) by their extension
 
 
 
