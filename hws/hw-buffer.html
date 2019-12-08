@@ -99,7 +99,7 @@ gcc -g -m64 -c shellcode_test.c
 gcc -g -no-pie -m64 -o shellcode_test shellcode.o shellcode_test.o</code></pre>
 <p>Where to start?</p>
 <ul>
-<li>First, get the C++ code (from above) properly compiling with some assembly code -- you can adapt the vecsum example from the <a href="https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html">first x86 lab in CS 2150</a> for this.</li>
+<li>First, get the C code (from above) properly compiling with some assembly code -- you can adapt the vecsum example from the <a href="https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html">first x86 lab in CS 2150</a> for this.</li>
 <li>Make sure your Makefile can compile the code</li>
 <li>Review the <a href="../slides/buffer-overflows.html#/">buffer overflow slides</a>, specifically the <a href="../slides/buffer-overflows.html#/how2doit">how to do it</a> column</li>
 <li>Change the assembly code to print out a string (via a <code>syscall</code>)</li>

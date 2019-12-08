@@ -135,23 +135,23 @@ Program received signal SIGSEGV, Segmentation fault.
 Source from `gcc -S`: [overflow.s](code/buffer-overflows/overflow.s) ([in HTML](code/buffer-overflows/overflow.s.html))
 ```
 vulnerable:
-sub    rsp, 120              ; allocate space for buffer
-movabs rdi, offset .L.str.1  ; arg 1 to scanf() is "%s"
-lea    rsi, [rsp + 16]       ; arg 2 to scanf() is buffer
-mov    al, 0                 ; set eax = 0
-call   __isoc99_scanf        ; call scanf()
-lea    rdi, [rsp + 16]       ; arg 1 to do_s_w(): buffer
+sub    rsp, 120                  ; allocate space for buffer
+movabs rdi, offset .L.str.1      ; arg 1 to scanf() is "%s"
+lea    rsi, [rsp + 16]           ; arg 2 to scanf() is buffer
+mov    al, 0                     ; set eax = 0
+call   __isoc99_scanf            ; call scanf()
+lea    rdi, [rsp + 16]           ; arg 1 to do_s_w(): buffer
 mov    dword ptr [rsp + 12], eax ; we can ignore this
-call   do_something_with     ; call "do_s_w"
-add    rsp, 120              ; deallocate stack space
-ret                          ; goodbye!
+call   do_something_with         ; call "do_s_w"
+add    rsp, 120                  ; deallocate stack space
+ret                              ; goodbye!
 ```
 
 
 <!-- .slide: class="small-code" -->
 ## get vulnerable() ret addr
 From [`objdump -d overflow.exe`](code/buffer-overflows/overflow.exe.objdump.txt):
-```
+```plaintext
 0000000000400570 <vulnerable>:
   400570:	48 83 ec 78          	sub    $0x78,%rsp
   400574:	48 bf 44 06 40 00 00 	movabs $0x400644,%rdi
@@ -211,16 +211,16 @@ The return address (and beyond) has also been overwritten:
 Source from `gcc -S`: [overflow.s](code/buffer-overflows/overflow.s) ([in HTML](code/buffer-overflows/overflow.s.html))
 ```
 vulnerable:
-sub    rsp, 120              ; allocate space for buffer
-movabs rdi, offset .L.str.1  ; arg 1 to scanf() is "%s"
-lea    rsi, [rsp + 16]       ; arg 2 to scanf() is buffer
-mov    al, 0                 ; set eax = 0
-call   __isoc99_scanf        ; call scanf()
-lea    rdi, [rsp + 16]       ; arg 1 to do_s_w(): buffer
+sub    rsp, 120                  ; allocate space for buffer
+movabs rdi, offset .L.str.1      ; arg 1 to scanf() is "%s"
+lea    rsi, [rsp + 16]           ; arg 2 to scanf() is buffer
+mov    al, 0                     ; set eax = 0
+call   __isoc99_scanf            ; call scanf()
+lea    rdi, [rsp + 16]           ; arg 1 to do_s_w(): buffer
 mov    dword ptr [rsp + 12], eax ; we can ignore this
-call   do_something_with     ; call "do_s_w"
-add    rsp, 120              ; deallocate stack space
-ret                          ; goodbye!
+call   do_something_with         ; call "do_s_w"
+add    rsp, 120                  ; deallocate stack space
+ret                              ; goodbye!
 ```
 - The `ret` opcode tried to return to 0x6161616161616161, which is not in the memory allocated to the program
   - But what if it *were* a valid address to return to?
@@ -311,7 +311,7 @@ We'll eventually convert this to shellcode (of a sort)
 	- `as -o test.o test.s` (for AT&T syntax)
   - Run `objdump -d a.out`
 - Result:
-```
+```plaintext
    0:   8d 3d 00 00 00 00    lea    0x0, %edi
    7:   68 e0 04 40 00       push   $0x4004e0
    c:   c3                   ret
@@ -345,7 +345,7 @@ We'll eventually convert this to shellcode (of a sort)
 	  <section data-markdown data-separator="^\n$"><textarea data-template>
 ## 64-bit machine code
 - Alternatively, edit test.s (change edi to rdi), and compile with the `-f elf64` flag, then run through `objdump -d`. The result:
-```
+```plaintext
    0:   48 8d 3c 25 00 00 00    lea    0x0,%rdi
    7:   00 
    8:   68 e0 04 40 00          pushq  $0x4004e0
@@ -356,7 +356,7 @@ We'll eventually convert this to shellcode (of a sort)
 
 
 ## 64-bit machine code
-```
+```plaintext
    0:   48 8d 3c 25 00 00 00    lea    0x0,%rdi
    7:   00 
    8:   68 e0 04 40 00          pushq  $0x4004e0
@@ -422,7 +422,7 @@ mov edx, 37       ; size of buffer
 syscall
 ret
 ```
-```
+```plaintext
    0:   b8 01 00 00 00          mov    $0x1,%eax
    5:   bf 01 00 00 00          mov    $0x1,%edi
    a:   8d 34 25 00 00 00 00    lea    0x0,%esi
@@ -437,7 +437,7 @@ Note that nothing is 64-bit (even when compiled with `-f elf64`)
 - `syscall` reads the *entire* 64-bit rax register
   - So you should really do a `mov rax, 1`, not a `mov eax, 1`
   - As you want to set the upper 32 bits of the register to zero as well
-- To make the slides easer to read, we'll be using the 32-bit registers
+- To make the slides easier to read, we'll be using the 32-bit registers
 
 
 ## Problem: crashes after `syscall`
@@ -457,7 +457,7 @@ syscall
 
 ## Calling sys_write & sys_exit
 The machine code:
-```
+```plaintext
    0:   b8 01 00 00 00          mov    $0x1,%eax
    5:   bf 01 00 00 00          mov    $0x1,%edi
    a:   8d 34 25 00 00 00 00    lea    0x0,%esi
@@ -515,7 +515,7 @@ afterString:
 
 ## Shellcode without 0x00
 The assembly on the previous slide results in:
-```
+```plaintext
   26:   31 c0                   xor    %eax,%eax
   28:   b0 01                   mov    $0x1,%al
   2a:   89 c7                   mov    %eax,%edi
@@ -627,7 +627,7 @@ We put all that together, and we get:
 
 ## setarch
 - To disable the two previous OS protections, you run:
-```
+```console
 setarch x86_64 -v -LR bash
 ```
 - You can run any program, but `bash` is the shell, and you don't have to run the `setarch` command each time you want to run a program
