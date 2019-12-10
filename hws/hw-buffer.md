@@ -231,7 +231,7 @@ gcc -g -no-pie -m64 -o shellcode_test shellcode.o shellcode_test.o
 
 Where to start?
 
-- First, get the C++ code (from above) properly compiling with some
+- First, get the C code (from above) properly compiling with some
   assembly code -- you can adapt the vecsum example from the [first
   x86 lab in CS
   2150](https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html) for

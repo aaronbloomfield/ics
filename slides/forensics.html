@@ -198,7 +198,7 @@
 ## History
 - 1980's: specialized groups of individuals who did this type of analysis
 - 1990's: more national groups, growth of the field, initial tools
-- 2000's: better tools, guidlines, related laws and court rulings, training initiatives
+- 2000's: better tools, guidelines, related laws and court rulings, training initiatives
 - 2010's: better AI in tools, use of cloud, better virtualization options
 
 
@@ -287,7 +287,7 @@
 - Others may require indexing the files
   - Mac's spotlight search is a good example of this
   - Linux has baloo which is similar, for indexing
-    - Or grep to find text within files
+    - Or `grep` to find text within files
 - Intelligent OSes & applications can read into .zip files, JPEG EXIF data, etc.
 
 
@@ -427,8 +427,8 @@
 
 ## [FBI-Apple encryption dispute](https://en.wikipedia.org/wiki/FBI%E2%80%93Apple_encryption_dispute)
 - The FBI likely felt they had a weak case
-- Right before the hearing, the delayed
-  - The reason: they found a thrid party that could do this for them
+- Right before the hearing, they delayed
+  - The reason: they found a third party that could do this for them
     - By booting it into "debug mode" via a USB connection
 - Apple fixed this issue in the next release
 - This case never went back to court
@@ -461,7 +461,7 @@
 - Given a binary file, run `strings` on that file to extract all ASCII strings in that file
   - By default, it's all consecutive printable ASCII characters of length 4 or greater
   - The -n option can change this: 
-  ```
+  ```console
   strings -n 10 filename
   ```
 
@@ -469,13 +469,13 @@
 
 ## Basic UNIX commands: grep
 - Searches a file for text
-  ```
+  ```console
   grep foobar filename
   ```
 - Case insensitive by adding -i
 - All files *not* matching the string via -v
 - `egrep` uses regular expressions:
-  ```
+  ```console
   egrep -i 'apple|banana|orange' *
   ```
 
@@ -483,12 +483,12 @@
 
 ## Basic UNIX commands: find
 - Find files in sub-directories based on specific criteria, such as filename:
-  ```
+  ```console
   find / -name "*.foo"
   ```
   - That searches the root directory (`/`)
 - or by file contents:
-  ```
+  ```console
   find . -type f -exec grep "example" '{}' \; -print
   ```
   - Finds files (`-type f`) and runs `grep` on them to search for `example` within
@@ -498,7 +498,7 @@
 
 ## Modern Forensics Tools
 - There are lots of them out there
-  - A [Google search for "top digital forensics tools](https://www.google.com/search?q=top+digital+forensics+tools) returns a lot of hits
+  - A [Google search for "top digital forensics tools"](https://www.google.com/search?q=top+digital+forensics+tools) returns a lot of hits
 - There are [lots of free and open source tools](https://techtalk.gfi.com/top-20-free-digital-forensic-investigation-tools-for-sysadmins/)
 - Wikipedia even has [an article listing many of these tools](https://en.wikipedia.org/wiki/List_of_digital_forensics_tools)
 

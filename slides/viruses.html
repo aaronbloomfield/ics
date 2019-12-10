@@ -161,7 +161,7 @@ Image from [here](http://resources.infosecinstitute.com/2-malware-researchers-ha
 ## Linking a PE file
 ![PE file linking](images/viruses/pe-linking.png)
 - Compiler produces .o files
-- Each .o has it's own sections
+- Each .o has its own sections
 - Linker combines into the PE
 - Linker: the last compiler stage
 
@@ -222,7 +222,7 @@ Image from [here](http://resources.infosecinstitute.com/2-malware-researchers-ha
 
 ## The "tricky jump"
 - The most common technique to transfer control to a virus
-- Recall that the `ret` assembly command pops a address from the stack and then jumps there
+- Recall that the `ret` assembly command pops an address from the stack and then jumps there
 </textarea></section>
 
 <section data-markdown data-separator="^\n\n\n" id="trickyjump">
@@ -268,7 +268,7 @@ Image from [here](http://resources.infosecinstitute.com/2-malware-researchers-ha
 ## Viruses must be stealthy
 - Otherwise you immediately know something is wrong, and you fix it, removing the virus
 - Thus, the virus must:
-  - Quickly execute it's payload (and possible other infections)
+  - Quickly execute its payload (and possible other infections)
   - Jump back to the "expected" behavior when done
 
 
@@ -373,14 +373,14 @@ int  21h        ; Invoke DOS handler
 
 ## Checksums
 - Instead of:
-```
+```c
 for (each prototype in DLL export table) 
     if (0 == strcmp(name,"GetFileHandle(int)"))
         infect(current export table address);
 endfor
 ```
 which has the subroutine name clearly visible, use:
-```
+```c
 int ConstantName = 0x89f7e5b2; // Computed by virus writer
 for (each prototype in DLL export table)
      if (checksum(name) == ConstantName)
@@ -411,7 +411,7 @@ endfor
 
 
 ## Hooking interrupts, cont'd
-- So a virus can put it's code as an *interrupt handler* for either, and then call the interrupt directly
+- So a virus can put its code as an *interrupt handler* for either, and then call the interrupt directly
 	- The virus won't work under a debugger, then!
 
 
@@ -444,7 +444,7 @@ jne DEBUG        ; debugger detected! Go abort!
 
 
 ## Anti-heuristic techniques
-- A heuristic is a algorithm for determining if there is a virus
+- A heuristic is an algorithm for determining if there is a virus
   - Something that can find *if* a virus exists (by a tricky jump, say), if not necessarily the exact virus
 - Techniques:
   - EPO viruses
@@ -531,7 +531,7 @@ jne DEBUG        ; debugger detected! Go abort!
 
 ## The 1260 Virus Decryptor
 - One instance of a decryptor:
-```
+```x86asm
 ; Group 1: Prolog instructions
 	mov ax,0E9Bh    ; set key 1
 	mov di,012Ah    ; offset of virus Start
@@ -671,7 +671,7 @@ Advanced assembly source morphing engine
 
 ## Why we still study viruses today
 - Being as this all happened decades ago
-- The techhniques used in these viruses is present in modern malware
+- The techniques used in these viruses is present in modern malware
   - Among many other techniques...
   </textarea>
 </section>

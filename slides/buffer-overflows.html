@@ -45,7 +45,7 @@
 
 	<section data-markdown><textarea data-template>
 ## Credit where credit is due
-- Much of the material in this slide set is used, with permission, from similar slides by [Charles Reiss](https://www.cs.virginia.edu/~cr4bd/), specifically from [here](file:///home/multi/old/teaching/cs4630-fall-2017/comparison/cr4bd-spring-2017/slides/20170222-slides-1up-animated.pdf).  His slides were based on the document [Smashing the Stack for Fun and Profit](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf).
+- Much of the material in this slide set is used, with permission, from similar slides by [Charles Reiss](https://www.cs.virginia.edu/~cr4bd/), specifically from [here](https://www.cs.virginia.edu/~cr4bd/4630/S2017/slides/20170222-slides-1up-animated.pdf).  His slides were based on the document [Smashing the Stack for Fun and Profit](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf).
 </textarea></section>
 
 	<section data-markdown><textarea data-template>
@@ -111,7 +111,7 @@ $
 
 
 ## Debugger examination
-```
+```console
 $ gdb ./overflow.exe 
 GNU gdb (Ubuntu 8.1-0ubuntu3) 8.1.0.20180409-git
 Reading symbols from ./overflow.exe...done.
@@ -135,23 +135,23 @@ Program received signal SIGSEGV, Segmentation fault.
 Source from `gcc -S`: [overflow.s](code/buffer-overflows/overflow.s) ([in HTML](code/buffer-overflows/overflow.s.html))
 ```
 vulnerable:
-sub    rsp, 120              ; allocate space for buffer
-movabs rdi, offset .L.str.1  ; arg 1 to scanf() is "%s"
-lea    rsi, [rsp + 16]       ; arg 2 to scanf() is buffer
-mov    al, 0                 ; set eax = 0
-call   __isoc99_scanf        ; call scanf()
-lea    rdi, [rsp + 16]       ; arg 1 to do_s_w(): buffer
+sub    rsp, 120                  ; allocate space for buffer
+movabs rdi, offset .L.str.1      ; arg 1 to scanf() is "%s"
+lea    rsi, [rsp + 16]           ; arg 2 to scanf() is buffer
+mov    al, 0                     ; set eax = 0
+call   __isoc99_scanf            ; call scanf()
+lea    rdi, [rsp + 16]           ; arg 1 to do_s_w(): buffer
 mov    dword ptr [rsp + 12], eax ; we can ignore this
-call   do_something_with     ; call "do_s_w"
-add    rsp, 120              ; deallocate stack space
-ret                          ; goodbye!
+call   do_something_with         ; call "do_s_w"
+add    rsp, 120                  ; deallocate stack space
+ret                              ; goodbye!
 ```
 
 
 <!-- .slide: class="small-code" -->
 ## get vulnerable() ret addr
 From [`objdump -d overflow.exe`](code/buffer-overflows/overflow.exe.objdump.txt):
-```
+```plaintext
 0000000000400570 <vulnerable>:
   400570:	48 83 ec 78          	sub    $0x78,%rsp
   400574:	48 bf 44 06 40 00 00 	movabs $0x400644,%rdi
@@ -211,23 +211,23 @@ The return address (and beyond) has also been overwritten:
 Source from `gcc -S`: [overflow.s](code/buffer-overflows/overflow.s) ([in HTML](code/buffer-overflows/overflow.s.html))
 ```
 vulnerable:
-sub    rsp, 120              ; allocate space for buffer
-movabs rdi, offset .L.str.1  ; arg 1 to scanf() is "%s"
-lea    rsi, [rsp + 16]       ; arg 2 to scanf() is buffer
-mov    al, 0                 ; set eax = 0
-call   __isoc99_scanf        ; call scanf()
-lea    rdi, [rsp + 16]       ; arg 1 to do_s_w(): buffer
+sub    rsp, 120                  ; allocate space for buffer
+movabs rdi, offset .L.str.1      ; arg 1 to scanf() is "%s"
+lea    rsi, [rsp + 16]           ; arg 2 to scanf() is buffer
+mov    al, 0                     ; set eax = 0
+call   __isoc99_scanf            ; call scanf()
+lea    rdi, [rsp + 16]           ; arg 1 to do_s_w(): buffer
 mov    dword ptr [rsp + 12], eax ; we can ignore this
-call   do_something_with     ; call "do_s_w"
-add    rsp, 120              ; deallocate stack space
-ret                          ; goodbye!
+call   do_something_with         ; call "do_s_w"
+add    rsp, 120                  ; deallocate stack space
+ret                              ; goodbye!
 ```
 - The `ret` opcode tried to return to 0x6161616161616161, which is not in the memory allocated to the program
   - But what if it *were* a valid address to return to?
 
 
 ## Address of `buffer`
-```
+```console
 $ gdb ./overflow.exe 
 GNU gdb (Ubuntu 8.1-0ubuntu3) 8.1.0.20180409-git
 ...
@@ -249,7 +249,7 @@ $1 = (char (*)[100]) 0x7fffffffdce0
 
 ## Stack for vulnerable()
 <!-- .slide: class="max-image-height-500" -->
-After a successfull buffer overflow exploit:
+After a successful buffer overflow exploit:
 ![stack diagram](images/buffer-overflows/return-to-stack.png)
 </textarea></section>
 
@@ -278,7 +278,7 @@ After a successfull buffer overflow exploit:
 
 ## Recall: virus code
 - Consider the following shell code that loads a string into %edi, then calls `puts()` via a [tricky jump](viruses.html#/trickyjump):
-```
+```x86asm
       leal string(%rip), %edi
       pushq $0x4004e0 ; address of puts() in 
 	                  ; target executable
@@ -291,7 +291,7 @@ Note that this is in AT&T assembly syntax
 
 ## Recall: virus code
 - The same code, but converted to Intel syntax:
-```
+```x86asm
 section .data
     string db "You have been infected with a virus!", 0x0a
 section .text
@@ -311,7 +311,7 @@ We'll eventually convert this to shellcode (of a sort)
 	- `as -o test.o test.s` (for AT&T syntax)
   - Run `objdump -d a.out`
 - Result:
-```
+```plaintext
    0:   8d 3d 00 00 00 00    lea    0x0, %edi
    7:   68 e0 04 40 00       push   $0x4004e0
    c:   c3                   ret
@@ -345,7 +345,7 @@ We'll eventually convert this to shellcode (of a sort)
 	  <section data-markdown data-separator="^\n$"><textarea data-template>
 ## 64-bit machine code
 - Alternatively, edit test.s (change edi to rdi), and compile with the `-f elf64` flag, then run through `objdump -d`. The result:
-```
+```plaintext
    0:   48 8d 3c 25 00 00 00    lea    0x0,%rdi
    7:   00 
    8:   68 e0 04 40 00          pushq  $0x4004e0
@@ -356,7 +356,7 @@ We'll eventually convert this to shellcode (of a sort)
 
 
 ## 64-bit machine code
-```
+```plaintext
    0:   48 8d 3c 25 00 00 00    lea    0x0,%rdi
    7:   00 
    8:   68 e0 04 40 00          pushq  $0x4004e0
@@ -385,7 +385,7 @@ section .text
 ## Relevant `syscall` calls
 - From [the same link as on the last slide](http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)
 - sys_write: rax = 1
-  - rdi is the file descriptior (1 for stdout)
+  - rdi is the file descriptor (1 for stdout)
   - rsi is the pointer to the buffer to print
   - rdx is the size of the buffer
 - sys_exit: rax = 60
@@ -396,7 +396,7 @@ section .text
 
 
 ## Print without puts()
-```
+```x86asm
 global mysyscall
 section .data
   string db "You have been infected with a virus!", 0x0a
@@ -414,7 +414,7 @@ This can be compiled (with `nasm -f elf64`), linked with an appropriate `main()`
 
 ## Print without puts()
 The assembly yields the following machine code
-```
+```x86asm
 mov eax, 1        ; syscall function (sys_write)
 mov edi, 1        ; print to stdout
 lea esi, [string] ; buffer to print
@@ -422,7 +422,7 @@ mov edx, 37       ; size of buffer
 syscall
 ret
 ```
-```
+```plaintext
    0:   b8 01 00 00 00          mov    $0x1,%eax
    5:   bf 01 00 00 00          mov    $0x1,%edi
    a:   8d 34 25 00 00 00 00    lea    0x0,%esi
@@ -437,13 +437,13 @@ Note that nothing is 64-bit (even when compiled with `-f elf64`)
 - `syscall` reads the *entire* 64-bit rax register
   - So you should really do a `mov rax, 1`, not a `mov eax, 1`
   - As you want to set the upper 32 bits of the register to zero as well
-- To make the slides easer to read, we'll be using the 32-bit registers
+- To make the slides easier to read, we'll be using the 32-bit registers
 
 
 ## Problem: crashes after `syscall`
 - We need to gracefully exit
 - So we use `syscall` to do so:
-```
+```x86asm
 mov eax, 1        ; syscall function (sys_write)
 mov edi, 1        ; print to stdout
 lea esi, [string] ; buffer to print
@@ -457,7 +457,7 @@ syscall
 
 ## Calling sys_write & sys_exit
 The machine code:
-```
+```plaintext
    0:   b8 01 00 00 00          mov    $0x1,%eax
    5:   bf 01 00 00 00          mov    $0x1,%edi
    a:   8d 34 25 00 00 00 00    lea    0x0,%esi
@@ -493,7 +493,7 @@ How do we use this as input to the program?
 
 
 ## Shellcode without 0x00
-```
+```x86asm
 section .text
 mysyscall:
 	jmp afterString
@@ -515,7 +515,7 @@ afterString:
 
 ## Shellcode without 0x00
 The assembly on the previous slide results in:
-```
+```plaintext
   26:   31 c0                   xor    %eax,%eax
   28:   b0 01                   mov    $0x1,%al
   2a:   89 c7                   mov    %eax,%edi
@@ -546,7 +546,7 @@ Note that the `lea` loads an negative offset, which has no 0x00 bytes
   - This may not be possible, though, as you may not have the program available
 - Examine target executable disassembly
   - Figure out how much is allocated on the stack below it, and you may know the stack start location to set return address
-- Guess: location of return address and address of maachine code
+- Guess: location of return address and address of machine code
 	  </textarea></section>
 	  
 	  <section data-markdown id="nopsled"><textarea data-template>
@@ -554,13 +554,13 @@ Note that the `lea` loads an negative offset, which has no 0x00 bytes
 - You may not be able to determine for sure
 - We can make our shellcode easier for 'guessing'
 - Normal shell code:
-```
+```x86asm
 	xor eax, eax
 	mov al, 1
 	... (rest of shellcode)
 ```
 - More 'guessable' shellcode starts with many nops:
-```
+```x86asm
 	nop
 	nop
 	... (fill the buffer with nops)
@@ -627,7 +627,7 @@ We put all that together, and we get:
 
 ## setarch
 - To disable the two previous OS protections, you run:
-```
+```console
 setarch x86_64 -v -LR bash
 ```
 - You can run any program, but `bash` is the shell, and you don't have to run the `setarch` command each time you want to run a program
