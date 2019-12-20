@@ -24,6 +24,7 @@ There are a number of links and other parts of this course that are **NOT** incl
 
 The parts of this course that are in this repo are:
 
+- [Final course grade determination](grades.html) ([md](grades.md))
 - [Course syllabus](syllabus.html) ([md](syllabus.md))
 - [Daily announcements](daily-announcements.html#/)
 - [Homework policies page](hw-policies.html) ([md](hw-policies.md))
