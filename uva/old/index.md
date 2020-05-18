@@ -5,6 +5,13 @@ ICS: Old Material
 
 This page contains the relevant pages from the uva/ directory in this repository from previous semester.  While the content of those pages should all be viewable, the links therein are likely to not work properly.
 
+### Fall 2019
+
+- [Main UVa page](index-fall-2019.html) ([md](index-fall-2019.md))
+- [Course syllabus](syllabus-fall-2019.html) ([md](syllabus-fall-2019.md))
+- [Daily announcements](daily-announcements-fall-2019.html)
+- [Final course grading notes](grades-fall-2019.html) ([md](grades-fall-2019.md))
+
 ### Spring 2019
 
 - [Main UVa page](index-spring-2019.html) ([md](index-spring-2019.md))

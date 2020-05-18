@@ -33,11 +33,10 @@ longer.
 Pick two of the following scenarios. (If you answer more, we'll
 only grade the first two)
 
-- You are in charge of protecting the water supply to a town or city, which is sourced from a reservoir that is publicly usable.
-- A huge political rally will be held on Grounds, and you are in charge of ensuring it's security (no politicians will be present, though).
-- You are asked to design the security for the goods crossing the English Channel after the currently stated Brexit deadline of October 31st.
-- You are tasked with creating a policy to ensure the secure voting in the 2020 presidential election.
-- You are asked to design a means to prevent private drones (the types that you can buy on Amazon for very little) from flying near airplanes -- a concern is if they were used to attack an airplane by being injested into an engine.
+- You are supporting an application for which the group that will be using it is not computer savvy at all.  How do you ensure the application's security when they all have full access to edit and delete items in the system?
+- You manage a store during the covid-19 pandemic, and have to ensure the health and security of your employees.
+- People are illegally disposing of chemicals into a recreational lake, and it's killing the fish and tainting the water supply.
+- You are in charge of ensuring that pilots on airplanes are kept safe and healthy during the covid-19 pandemic.  Recall that airplanes circulate their air supply throughout the entire airplane throughout the flight, and SARS-CoV-2 (the virus that causes covid-19) is, apparently, airborne.
 
 In addition, choose another scenario from everyday life that we
 haven't discussed in class.  Your choice can be directly related to

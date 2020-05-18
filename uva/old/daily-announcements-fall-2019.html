@@ -1,0 +1,1657 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 3710: daily announcements slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../../slides/ics.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../slides/reveal.js/css/print/pdf.css' : '../../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="../../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+    <style>
+.reveal li {
+font-size:70%;
+line-height:120%;
+}
+    </style>
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# CS 3710
+&nbsp;
+### Introduction to Cybersecurity
+### Fall 2019
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~aaron) / [aaron@virginia.edu](mailto:aaron@virginia.edu)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/ics](http://github.com/aaronbloomfield/ics) / [&uarr;](index.html) / <a href="daily-announcements.html?print-pdf"><img class="print" width="20" src="../../slides/images/print-icon.png"></a></small></center>
+&nbsp;
+&nbsp;
+## Daily Announcements
+	</script></section>
+
+<!-- xkcd template for cut-and-paste (first two lines are the date and title)
+
+<h2></h2>
+<h4 class="xkcd"></h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/.png" title="" alt="">
+<p class="center"><a href="http://xkcd.com/2040/">xkcd # 2040</a></p>
+
+-->
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>AI Hiring Algorithm</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/ai_hiring_algorithm.png" title="So glad Kate over in R&amp;D pushed for using the AlgoMaxAnalyzer to look into this. Hiring her was a great decisio- waaaait." alt="AI Hiring Algorithm">
+<p class='center'><a href='http://xkcd.com/2237/'>xkcd # 2237</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 41: The End
+- Office hours: all done!
+  - We are going to look into extra office hours next week
+- Exam 2 has been returned: avg 36.1 / 48 (75.2%), stdev 5.42 (11.3%)
+  - GGLs are on the Collab wiki, and regrades are open for ONLY 7 DAYS (until the end of Mon, Dec 9th)
+- Homework that is due (detailed schedule on the next slide):
+  - HW 13: [Forensics](../../hws/hw-forensics.html): is due today (Friday, December 6th)
+    - There is one piece of evidence that, it will become pretty obvious, I forgot to place, and there is a placeholder in its stead -- you can't use this as an answer to "what did we do wrong" question...
+    - And another: Firstname Lastname; you can't mention that one, either
+    - Note that autopsy is *already* installed on the VB image!
+    - On Tuesday (once we are past the late deadline), I'll realease all the info about what we put on the image via Piazza
+- Final exam is 2-5 next Friday (Nov 13) right here in Olsson 120
+  - It's cumulative, but will focus more on the most recent material (since the 2nd midterm)
+  - I won't be here, since I mis-read my final exam schedule, and will be on a flight to Albuquerque
+  - Professor Floryan will drop off the exam and pick it up; Tu (the graduate TA) will be proctoring it
+- Grading status
+  - Grades for homeworks through HW 7 (Networks), plus HW 9 (Rootkits) and HW 10 (Celebrity Visit) have been returned; regrades open for 10 days
+  - Still out to be graded: HW 8 (Cryptocurrency), HW 11 (Buffer Overflow), HW 12 (Movie Night) and shortly HW 13 (Forensics): our goal is to get those all graded by the middle of next week
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Please fill out those course surveys!!!
+- Today is the [course reflection](../../slides/reflection.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Is it Christmas?</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/is_it_christmas.png" title="We&#39;ve tested it on 30 different days and it hasn&#39;t gotten one wrong yet." alt="Is it Christmas?">
+<p class='center'><a href='http://xkcd.com/2236/'>xkcd # 2236</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 40: Wed, Dec 4th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+  - W 9-noon (note the change!) in Rice 402 (Bloomfield)
+  - Office hours will end at the end of this week
+- Exam 2 has been returned
+  - Average was 36.1 / 48 (75.2%) with a stdev of 5.42 (11.3%)
+  - GGLs are on the Collab wiki, and regrades are open for ONLY 7 DAYS (until the end of Mon, Dec 9th)
+- Homeworks that are due (detailed schedule on the next slide):
+  - HW 12: [Movie Night](../../hws/hw-movie-night.html) is due toda (Wednesday, December 4th)
+  - HW 13: [Forensics](../../hws/hw-forensics.html): is due Friday, December 6th
+    - There is one piece of evidence that, it will become pretty obvious, I forgot to place, and there is a placeholder in its stead -- you can't use this as an answer to "what did we do wrong" question...
+    - Note that autopsy is *already* installed on the VB image!
+- Grading status
+  - Grades for homeworks through HW 7 (Networks), plus HW 9 (Rootkits) and HW 10 (Celebrity Visit) have been returned; regrades open for 10 days
+  - Still out to be graded: HW 8 (Cryptocurrency) and HW 11 (Buffer Overflow)
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today is a final exam Q&A period
+  - Friday's lecture will be a course wrap-up
+  - After today there is only 1 lecture left!
+  </textarea></section>
+
+<section data-markdown><textarea data-template>
+## Schedule
+- Major assignments:
+  - ~~[HW 8: cryptocurrency](../../hws/hw-cryptocurrency.html) is due Friday, Nov 1~~
+  - ~~The second midterm is Friday, Nov 8~~
+  - ~~[HW 9: rootkits](../../hws/hw-rootkits.html) is due Friday, Nov 15th~~
+  - ~~[HW 10: celebrity visit](../../hws/hw-celebrity-visit.html) is due Thursday, Nov 21st~~
+    - ~~Only 12 hours allowed for lateness on this!!!~~
+  - ~~Jason Belford, UVa's CISO, will give a guest lecture on Nov 22nd~~
+  - ~~[HW 11: buffer overflow](../../hws/hw-buffer.html) is due Tuesday, Nov 26th~~
+  - ~~Friday, Nov 29th is during Thanksgiving break, so nothing is due then~~
+  - [HW 12: movie night](../../hws/hw-movie-night.html) is due Wednesday, Dec 4th
+  - HW 13: [Forensics](../../hws/hw-forensics.html): is due Friday, December 6th
+- The final exam is *Friday*, December 13th, from 2 pm - 5 pm
+  - I won't be here, since I mis-read my final exam schedule, and will be on a flight to Albuquerque
+  - Professor Floryan will drop off the exam and pick it up; Tu (the graduate TA) will be proctoring it
+</textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Hotel Room Party</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/hotel_room_party.png" title="[proudly greeting the hotel manager at the door] &quot;Did I do a good job?&quot;" alt="Hotel Room Party">
+<p class='center'><a href='http://xkcd.com/2232/'>xkcd # 2232</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 39: Mon, Dec 2nd
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+  - W 9-noon (note the change!) in Rice 402 (Bloomfield)
+  - Office hours will end at the end of this week
+- Exam 2 has been returned
+  - Average was 36.1 / 48 (75.2%) with a stdev of 5.42 (11.3%)
+  - GGLs are on the Collab wiki, and regrades are open for ONLY 7 DAYS
+- Homeworks that are due (detailed schedule on the next slide):
+  - HW 12: [Movie Night](../../hws/hw-movie-night.html) is due Wednesday, December 4th
+  - HW 13: [Forensics](../../hws/hw-forensics.html): is due Friday, December 6th
+- Grading status
+  - Grades for homeworks through HW 7 (Networks), plus HW 9 (Rootkits) and HW 10 (Celebrity Visit) have been returned; regrades open for 10 days
+  - Still out to be graded: HW 8 (Cryptocurrency) and HW 11 (Buffer Overflow)
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will finish [forensics](../../slides/forensics.html#/)
+  - Wednesday's lecture will be a Q&A final exam review session, so bring questions to ask
+  - After today there are only 2 lectures left!
+  </textarea></section>
+
+<section data-markdown><textarea data-template>
+## Schedule
+- Major assignments:
+  - ~~[HW 8: cryptocurrency](../../hws/hw-cryptocurrency.html) is due Friday, Nov 1~~
+  - ~~The second midterm is Friday, Nov 8~~
+  - ~~[HW 9: rootkits](../../hws/hw-rootkits.html) is due Friday, Nov 15th~~
+  - ~~[HW 10: celebrity visit](../../hws/hw-celebrity-visit.html) is due Thursday, Nov 21st~~
+    - ~~Only 12 hours allowed for lateness on this!!!~~
+  - ~~Jason Belford, UVa's CISO, will give a guest lecture on Nov 22nd~~
+  - ~~[HW 11: buffer overflow](../../hws/hw-buffer.html) is due Tuesday, Nov 26th~~
+  - ~~Friday, Nov 29th is during Thanksgiving break, so nothing is due then~~
+  - [HW 12: movie night](../../hws/hw-movie-night.html) is due Wednesday, Dec 4th
+  - HW 13: [Forensics](../../hws/hw-forensics.html): is due Friday, December 6th; however, the disk images are NOT YET READY
+- The final exam is *Friday*, December 13th, from 2 pm - 5 pm
+  - Running that exam is going to be challenging on my part...
+</textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Hotel Room Party</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/hotel_room_party.png" title="[proudly greeting the hotel manager at the door] &quot;Did I do a good job?&quot;" alt="Hotel Room Party">
+<p class='center'><a href='http://xkcd.com/2232/'>xkcd # 2232</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 38: Wed, Nov 20th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+  - W 9-noon (note the change!) in Rice 402 (Bloomfield)
+  - There will not be office hours after today, though
+- Exam 2 has been returned
+  - Average was 36.1 / 48 (75.2%) with a stdev of 5.42 (11.3%)
+  - GGLs will be available soon, at which point regrades will open until the last day of classes (Fri, Dec 6)
+- Homeworks that are due (detailed schedule on the next slide):
+  - HW 11: [Buffer Overflow](../../hws/hw-buffer.html) is now due today (Monday, November 25th)
+    - Having issues? Re-read the "Troubleshooting" section, as the vast majority of the issues people are running into are answered there
+  - HW 12: [Movie Night](../../hws/hw-movie-night.html) is due Wednesday, December 4th
+  - HW 13: [Forensics](../../hws/hw-forensics.html): is due Friday, December 6th; however, the disk images are NOT YET READY
+	- They should be ready by the end of this week
+- Grading status
+  - Grades for homeworks through HW 7 (Networks), plus HW 10 (Celebrity Visit) have been returned; regrades open for 10 days
+- Jason Belford, UVa's CISO: how did you like his talk?
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will start on [forensics](../../slides/forensics.html#/)
+  - After today there are only 3 lectures left!
+  </textarea></section>
+
+<section data-markdown><textarea data-template>
+## Schedule
+- Major assignments:
+  - ~~[HW 8: cryptocurrency](../../hws/hw-cryptocurrency.html) is due Friday, Nov 1~~
+  - ~~The second midterm is Friday, Nov 8~~
+  - ~~[HW 9: rootkits](../../hws/hw-rootkits.html) is due Friday, Nov 15th~~
+  - ~~[HW 10: celebrity visit](../../hws/hw-celebrity-visit.html) is due Thursday, Nov 21st~~
+    - ~~Only 12 hours allowed for lateness on this!!!~~
+  - ~~Jason Belford, UVa's CISO, will give a guest lecture on Nov 22nd~~
+  - [HW 11: buffer overflow](../../hws/hw-buffer.html) is due ~~Friday, Nov 22nd~~ Monday, Nov 25th
+  - Friday, Nov 29th is during Thanksgiving break, so nothing is due then
+  - [HW 12: movie night](../../hws/hw-movie-night.html) is due Wednesday, Dec 4th
+  - HW 13: [Forensics](../../hws/hw-forensics.html): is due Friday, December 6th; however, the disk images are NOT YET READY
+- The final exam is *Friday*, December 13th, from 2 pm - 5 pm
+  - Running that exam is going to be challenging on my part...
+</textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 37: Fri, Nov 22nd
+
+Today was the talk by Jason Belford, UVa's CISO, so no daily announcements were prepared
+	  </script></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Versus Bracket</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/versus_bracket.png" title="Some works didn&#39;t make the cut; in &quot;Ecks vs. Sever&quot; vs. the passage of time, the latter seems to have won pretty decisively." alt="Versus Bracket">
+<p class='center'><a href='http://xkcd.com/2230/'>xkcd # 2230</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 36: Wed, Nov 20th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+  - W 9-noon (note the change!) in Rice 402 (Bloomfield)
+- Exam 2 is being graded, and will hopefully be back Thursday night
+- Homeworks that are due (detailed schedule on the next slide):
+  - HW 10: [Celebrity Visit](../../hws/hw-celebrity-visit.html) is due Thursday, November 21st (only 12 hours late allowed!)
+  - HW 11: [Buffer Overflow](../../hws/hw-buffer.html) is due Friday, November 22nd
+  - HW 12: [Movie Night](../../hws/hw-movie-night.html) is due Wednesday, December 4th
+  - The forensics HW, not yet ready, will be due Friday, December 6th
+- Grading status
+  - Grades for homeworks through HW 7 (Networks) have been returned; regrades open for 10 days
+- Jason Belford, the Chief Information Security Officer here at UVa, will give a guest lecture on Fri, Nov 22nd
+  - Attendance is *required* that day
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will finish [binary exploits](../../slides/binary-exploits.html#/)
+  - Next up: [forensics](../../slides/forensics.html#/)
+  - After today there are only 5 lectures left!
+  </textarea></section>
+
+<section data-markdown><textarea data-template>
+## Schedule
+- Major assignments:
+  - ~~[HW 8: cryptocurrency](../../hws/hw-cryptocurrency.html) is due Friday, Nov 1~~
+  - ~~The second midterm is Friday, Nov 8~~
+  - ~~[HW 9: rootkits](../../hws/hw-rootkits.html) is due Friday, Nov 15th~~
+  - [HW 10: celebrity visit](../../hws/hw-celebrity-visit.html) is due Thursday, Nov 21st
+    - Only 12 hours allowed for lateness on this!!!
+  - Jason Belford, UVa's CISO, will give a guest lecture on Nov 22nd
+  - [HW 11: buffer overflow](../../hws/hw-buffer.html) is due Friday, Nov 22nd
+  - Friday, Nov 29th is during Thanksgiving break, so nothing is due then
+  - [HW 12: movie night](../../hws/hw-movie-night.html) is due Wednesday, Dec 4th
+  - The forensics HW (not yet ready) will be due Friday, Dec 6th (also the last day of class)
+- Minor assignments
+  - There will be two minor assignments due in there: celebrity visit and movie night
+- The final exam is *Friday*, December 13th, from 2 pm - 5 pm
+  - Running that exam is going to be challenging on my part...
+</textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Rey and Kylo</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/rey_and_kylo.png" title="We&#39;re like 10+ movies in and the focus has been almost entirely on the WARS half." alt="Rey and Kylo">
+<p class='center'><a href='http://xkcd.com/2229/'>xkcd # 2229</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 35: Mon, Nov 18th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+  - W 9-noon (note the change!) in Rice 402 (Bloomfield)
+- Exam 2 is being graded, and will hopefully be back tonight
+- Homeworks that are due (detailed schedule on the next slide):
+  - HW 10: [Celebrity Visit](../../hws/hw-celebrity-visit.html) is due Thursday, November 21st (only 12 hours late allowed!)
+  - HW 11: [Buffer Overflow](../../hws/hw-buffer.html) is due Friday, November 22nd
+  - HW 12: [Movie Night](../../hws/hw-movie-night.html) is due Wednesday, December 4th
+  - The forensics HW, not yet ready, will be due Friday, December 6th
+- Grading status
+  - Grades for homeworks through HW 7 (Networks) have been returned; regrades open for 10 days (until Sun, Nov 3rd)
+- Jason Belford, the Chief Information Security Officer here at UVa, will give a guest lecture on Fri, Nov 22nd
+  - Attendance is *required* that day
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will finish [buffer overflows](../../slides/buffer-overflows.html#/); next up: [binary exploits](../../slides/binary-exploits.html#/)
+  - After today there are only 6 lectures left!
+  </textarea></section>
+
+<section data-markdown><textarea data-template>
+## Schedule
+- Major assignments:
+  - ~~[HW 8: cryptocurrency](../../hws/hw-cryptocurrency.html) is due Friday, Nov 1~~
+  - ~~The second midterm is Friday, Nov 8~~
+  - ~~[HW 9: rootkits](../../hws/hw-rootkits.html) is due Friday, Nov 15th~~
+  - [HW 10: celebrity visit](../../hws/hw-celebrity-visit.html) is due Thursday, Nov 21st
+    - Only 12 hours allowed for lateness on this!!!
+  - Jason Belford, UVa's CISO, will give a guest lecture on Nov 22nd
+  - [HW 11: buffer overflow](../../hws/hw-buffer.html) is due Friday, Nov 22nd
+  - Friday, Nov 29th is during Thanksgiving break, so nothing is due then
+  - [HW 12: movie night](../../hws/hw-movie-night.html) is due Wednesday, Dec 4th
+  - The forensics HW (not yet ready) will be due Friday, Dec 6th (also the last day of class)
+- Minor assignments
+  - There will be two minor assignments due in there: celebrity visit and movie night
+- The final exam is *Friday*, December 13th, from 2 pm - 5 pm
+  - Running that exam is going to be challenging on my part...
+</textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Machine Learning Captcha</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/machine_learning_captcha.png" title="More likely: Click on all the pictures of people who appear disloyal to [name of company or government]" alt="Machine Learning Captcha">
+<p class='center'><a href='http://xkcd.com/2228/'>xkcd # 2228</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 34: Fri, Nov 15th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+  - W 9-noon (note the change!) in Rice 402 (Bloomfield)
+- Exam 2 is being graded
+- Homeworks that are due (detailed schedule on the next slide):
+  - HW 9: [Rootkits](../../hws/hw-rootkits.html) is due today (Friday, Nov 11th)
+  - HW 10: [Celebrity Visit](../../hws/hw-celebrity-visit.html) is due Thursday, November 21st
+    - There is all of 12 hours of lateness allowed on this!
+  - HW 11: [Buffer Overflow](../../hws/hw-buffer.html) is due Friday, November 22nd
+  - HW 12: [Movie Night](../../hws/hw-movie-night.html) is due Wednesday, December 4th
+  - The forensics HW, not yet ready, will be due Friday, December 6th
+- Grading status
+  - Grades for homeworks through HW 7 (Networks) have been returned; regrades open for 10 days (until Sun, Nov 3rd)
+- Jason Belford, the Chief Information Security Officer here at UVa, will give a guest lecture on Fri, Nov 22nd
+  - Attendance is *required* that day
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will work through [buffer overflows](../../slides/buffer-overflows.html#/); next up: [binary exploits](../../slides/binary-exploits.html#/)
+  </textarea></section>
+
+<section data-markdown><textarea data-template>
+## Schedule
+- Major assignments:
+  - ~~[HW 8: cryptocurrency](../../hws/hw-cryptocurrency.html) is due Friday, Nov 1~~
+  - ~~The second midterm is Friday, Nov 8~~
+  - [HW 9: rootkits](../../hws/hw-rootkits.html) is due Friday, Nov 15th
+  - [HW 10: celebrity visit](../../hws/hw-celebrity-visit.html) is due Thursday, Nov 21st
+    - Only 12 hours allowed for lateness on this!!!
+  - Jason Belford, UVa's CISO, will give a guest lecture on Nov 22nd
+  - [HW 11: buffer overflow](../../hws/hw-buffer.html) is due Friday, Nov 22nd
+  - Friday, Nov 29th is during Thanksgiving break, so nothing is due then
+  - [HW 12: movie night](../../hws/hw-movie-night.html) is due Wednesday, Dec 4th
+  - The forensics HW (not yet ready) will be due Friday, Dec 6th (also the last day of class)
+- Minor assignments
+  - There will be two minor assignments due in there: celebrity visit and movie night
+- The final exam is *Friday*, December 13th, from 2 pm - 5 pm
+</textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Transit of Mercury</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/transit_of_mercury.png" title="For some reason the water in my pool is green and there&#39;s a weird film on the surface #nofilter" alt="Transit of Mercury">
+<p class='center'><a href='http://xkcd.com/2227/'>xkcd # 2227</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 33: Wed, Nov 13th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+    - Note that Tu's times have changed
+  - W 9-noon (note the change!) in Rice 402 (Bloomfield)
+- Exam 2 last Friday -- how was it?
+  - We hope to have it graded in a week or so
+- Stuff that is due (detailed schedule on the next slide):
+  - The [rootkits HW](../../hws/hw-rootkits.html) is due this Friday, Nov 11th
+  - The buffer overflow HW (not yet ready) will be due the following Friday, Nov 22nd
+- Grading status
+  - Grades for homeworks through HW 7 (Networks) have been returned; regrades open for 10 days (until Sun, Nov 3rd)
+    - Grades on HW 4 (RSA), HW 6 (SQL), and HW 7 (Networks) were just returned
+- Jason Belford, the Chief Information Security Officer here at UVa, will give a guest lecture on Fri, Nov 22nd
+  - Attendance is *required* that day
+  - The Celebrity Visit homework will be due the night before, and will be out early that week
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will finish [viruses](../../slides/viruses.html#/) and start on [buffer overflows](../../slides/buffer-overflows.html#/)
+  </textarea></section>
+
+<section data-markdown><textarea data-template>
+## Schedule
+- Major assignments:
+  - ~~[HW 8: Cryptocurrency](../../hws/hw-cryptocurrency.html) is due Friday, Nov 1~~
+  - ~~The second midterm is Friday, Nov 8~~
+  - The rootkits HW (not yet ready) will be due Friday, Nov 15th
+  - The buffer overflow HW (not yet ready) will be due Friday, Nov 22nd
+  - Jason Belford, UVa's CISO, will give a guest lecture on Nov 22nd
+  - Friday, Nov 29th is during Thanksgiving break, so nothing is due then
+  - The forensics HW (not yet ready) will be due Friday, Dec 6th (also the last day of class)
+  - Thus, there are three more major assignments after cryptocurrency
+- Minor assignments
+  - There will be two minor assignments due in there: celebrity visit and movie night
+- The final exam is *Friday*, December 13th, from 2 pm - 5 pm
+</textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Recombination And Reionization</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/recombination_and_reionization.png" title="These signals seem to be pre-star-formation but post-Malone." alt="Recombination And Reionization">
+<p class='center'><a href='http://xkcd.com/2226/'>xkcd # 2226</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 32: Mon, Nov 11th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+    - Note that Tu's times have changed
+  - W 9-noon (note the change!) in Rice 402 (Bloomfield)
+- Exam 2 last Friday -- how was it?
+  - We hope to have it graded in a week or so
+- Stuff that is due (detailed schedule on the next slide):
+  - The [rootkits HW](../../hws/hw-rootkits.html) is due this Friday, Nov 11th
+  - The buffer overflow HW (not yet ready) will be due the following Friday, Nov 22nd
+- Grading status
+  - Grades for homeworks through HW 7 (Networks) have been returned; regrades open for 10 days (until Sun, Nov 3rd)
+    - Grades on HW 4 (RSA), HW 6 (SQL), and HW 7 (Networks) were returned yesterday
+- Jason Belford, the Chief Information Security Officer here at UVa, will give a guest lecture on Fri, Nov 22nd
+  - Attendance is *required* that day
+  - The Celebrity Visit homework will be due the night before, and will be out early that week
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will continue with [Viruses](../../slides/viruses.html#/)
+  - Next up: [buffer overflows](../../slides/buffer-overflows.html#/)
+  </textarea></section>
+
+<section data-markdown><textarea data-template>
+## Schedule
+- Major assignments:
+  - ~~[HW 8: Cryptocurrency](../../hws/hw-cryptocurrency.html) is due Friday, Nov 1~~
+  - ~~The second midterm is Friday, Nov 8~~
+  - The rootkits HW (not yet ready) will be due Friday, Nov 15th
+  - The buffer overflow HW (not yet ready) will be due Friday, Nov 22nd
+  - Jason Belford, UVa's CISO, will give a guest lecture on Nov 22nd
+  - Friday, Nov 29th is during Thanksgiving break, so nothing is due then
+  - The forensics HW (not yet ready) will be due Friday, Dec 6th (also the last day of class)
+  - Thus, there are three more major assignments after cryptocurrency
+- Minor assignments
+  - There will be two minor assignments due in there: celebrity visit and movie night
+- The final exam is *Friday*, December 13th, from 2 pm - 5 pm
+</textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 31: Fri, Nov 8th
+
+Today was the second midterm, so no daily announcements
+	  </script></section>
+	  
+	  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Software Updates</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/software_updates.png" title="Everything is a cloud application; the ping times just vary a lot." alt="Software Updates">
+<p class='center'><a href='http://xkcd.com/2224/'>xkcd # 2224</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 30: Wed, Nov 6th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+    - Note that Tu's times have changed
+  - W 9-noon (note the change!) in Rice 402 (Bloomfield)
+- Stuff that is due (detailed schedule on the next slide):
+  - This Friday (Nov 8th) is the first midterm, so no homework assigned
+  - The rootkits HW (not yet ready) will be due Fri, Nov 15th
+- Exam 2 is this Friday
+  - Everything up to (but not including) viruses is fair game
+- Grading status
+  - Grades for homeworks through HW 3 (ethics), and HW 5 (hasing) have been returned; regrades open for 10 days (until Sun, Nov 3rd)
+  - Grading is progressing on HW 4 (RSA), HW 6 (SQL), and HW 7 (Networks)
+- Jason Belford, the Chief Information Security Officer here at UVa, will give a guest lecture on Fri, Nov 22nd
+  - Attendance is *required* that day
+  - The Celebrity Visit homework will be due the night before, and will be out early that week
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will continue with [Viruses](../../slides/viruses.html#/)
+  </textarea></section>
+
+<section data-markdown><textarea data-template>
+## Schedule
+- Major assignments:
+  - ~~[HW 8: Cryptocurrency](../../hws/hw-cryptocurrency.html) is due Friday, Nov 1~~
+  - The second midterm is Friday, Nov 8
+  - The rootkits HW (not yet ready) will be due Friday, Nov 15th
+  - The buffer overflow HW (not yet ready) will be due Friday, Nov 22nd
+  - Jason Belford, UVa's CISO, will give a guest lecture on Nov 22nd
+  - Friday, Nov 29th is during Thanksgiving break, so nothing is due then
+  - The forensics HW (not yet ready) will be due Friday, Dec 6th (also the last day of class)
+  - Thus, there are three more major assignments after cryptocurrency
+- Minor assignments
+  - There will be two minor assignments due in there: celebrity visit and movie night
+- The final exam is *Friday*, December 13th, from 2 pm - 5 pm
+</textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Screen Time</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/screen_time.png" title="These new Bluetooth socks are great, but it&#39;s troubling to learn that I average almost 14 hours of Shoe Time a day." alt="Screen Time">
+<p class='center'><a href='http://xkcd.com/2223/'>xkcd # 2223</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 29: Mon, Nov 4th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+    - Note that Tu's times have changed
+  - W 9-noon (note the change!) in Rice 402 (Bloomfield)
+- Stuff that is due:
+  - This Friday (Nov 8th) is the first midterm, so no homework assigned
+  - The rootkits HW (not yet ready) will be due Fri, Nov 15th
+  - Detailed schedule on the next slide
+- Exam 2 is this Friday
+  - Everything up to (but not including) viruses is fair game
+- Grading status
+  - Grades for homeworks through HW 3 (ethics), and HW 5 (hasing) have been returned; regrades open for 10 days (until Sun, Nov 3rd)
+  - Grading is progressing on HW 4 (RSA), HW 6 (SQL), and HW 7 (Networks)
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will finish [Rootkits](../../slides/rootkits.html#/) and start on [Viruses](../../slides/viruses.html#/)
+  </textarea></section>
+
+<section data-markdown><textarea data-template>
+## Schedule
+- Major assignments:
+  - ~~[HW 8: Cryptocurrency](../../hws/hw-cryptocurrency.html) is due Friday, Nov 1~~
+  - The second midterm is Friday, Nov 8
+  - The rootkits HW (not yet ready) will be due Friday, Nov 15th
+  - The buffer overflow HW (not yet ready) will be due Friday, Nov 22nd
+  - Friday, Nov 22nd is during Thanksgiving break, so nothing is due then
+  - The forensics HW (not yet ready) will be due Friday, Dec 6th (also the last day of class)
+  - Thus, there are three more major assignments after cryptocurrency
+- Minor assignments
+  - There will be two minor assignments due in there: celebrity visit and movie night
+- The final exam is *Friday*, December 13th, from 2 pm - 5 pm
+</textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Terminator: Dark Fate</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/terminator_dark_fate.png" title="I was sent here to stop the robot that was sent here to protect the human who was sent here to protect the human who was sent here to destroy the robot that was sent here to vacuum the floor." alt="Terminator: Dark Fate">
+<p class='center'><a href='http://xkcd.com/2222/'>xkcd # 2222</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 28: Fri, Nov 1st
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+    - Note that Tu's times have changed
+  - W 9-noon (note the change!) in Rice 402 (Bloomfield)
+- Exam 1:
+  - Avg was 36.37 / 49 (75.8%) with a stdev of 6.09 (12.7%)
+  - Regrades are open for 10 days (until Nov 3), however we reserve the right to regrade the ENTIRE page, so don't pine for points
+- Stuff that is due:
+  - [HW 8: Cryptocurrency](../../hws/hw-cryptocurrency.html) is out and due today (Fri, Nov 1)
+  - Next week is the first midterm, so no homework assigned for then
+  - Detailed schedule on the next slide
+- Grading status
+  - Grades for homeworks through HW 3 (ethics), and HW 5 (hasing) have been returned; regrades open for 10 days (until Sun, Nov 3rd)
+  - Grading is progressing on HW 4 (RSA), HW 6 (SQL), and HW 7 (Networks)
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will finish [VMs](../../slides/vms.html#/) (starting [here](../../slides/vms.html#/abstraction)) and start on [Rootkits](../../slides/rootkits.html#/)
+  - Rootkits will finish the modern topics module; up next: binary exploits, starting with [viruses](../../slides/viruses.html#/)
+  </textarea></section>
+
+<section data-markdown><textarea data-template>
+## Schedule
+- Major assignments:
+  - [HW 8: Cryptocurrency](../../hws/hw-cryptocurrency.html) is due this Friday, Nov 1
+  - The second midterm is the following Friday (Nov 8)
+  - We will have homeworks due the following two Fridays (Nov 15th and Nov 22nd)
+  - The next Friday is during Thanksgiving break (Nov 29th)
+  - Friday, December 6th is the last day of class, and will have a homework due
+  - Thus, there are three more major assignments after cryptocurrency.  They are: rootkits, forensics, and buffer overflow (but not in that order)
+- Minor assignments
+  - There will be two minor assignments due in there: celebrity visit and movie night
+- The final exam is *Friday*, December 13th, from 2 pm - 5 pm
+</textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Emulation</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/emulation.png" title="I laugh at the software as if I&#39;m 100% confident that it&#39;s 2019." alt="Emulation">
+<p class='center'><a href='http://xkcd.com/2221/'>xkcd # 2221</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 27: Wed, Oct 30th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+    - Note that Tu's times have changed
+  - W 9-noon (note the change!) in Rice 402 (Bloomfield)
+- Exam 1:
+  - Avg was 36.37 / 49 (75.8%) with a stdev of 6.09 (12.7%)
+  - Regrades are open for 10 days (until Nov 3), however we reserve the right to regrade the ENTIRE page, so don't pine for points
+- Stuff that is due:
+  - [HW 8: Cryptocurrency](../../hws/hw-cryptocurrency.html) is out and due this Friday (Nov 1)
+  - Detailed schedule on the next slide
+- Grading status
+  - Grades for homeworks through HW 3 (ethics), and HW 5 (hasing) have been returned; regrades open for 10 days (until Sun, Nov 3rd)
+  - Grading is progressing on HW 4 (RSA), HW 6 (SQL), and HW 7 (Networks)
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will finish [Stuxnet](../../slides/stuxnet.html#/) and start on [VMs](../../slides/vms.html#/)
+  </textarea></section>
+
+<section data-markdown><textarea data-template>
+## Schedule
+- Major assignments:
+  - [HW 8: Cryptocurrency](../../hws/hw-cryptocurrency.html) is out and due this Friday (Nov 1)
+  - The second midterm is the following Friday (Nov 8)
+  - We will have homeworks due the following two Fridays (Nov 15th and Nov 22nd)
+  - The next Friday is during Thanksgiving break (Nov 29th)
+  - Friday, December 6th is the last day of class, and will have a homework due
+  - Thus, there are three more major assignments after cryptocurrency.  They are: rootkits, forensics, and buffer overflow (but not in that order)
+- Minor assignments
+  - There will be two minor assignments due in there: celebrity visit and movie night
+- The final exam is *Friday*, December 13th, from 2 pm - 5 pm
+</textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Imagine Going Back in Time</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/imagine_going_back_in_time.png" title="I wonder what the trendy adults in 2019 who are too cool for Pokemon will be into. Probably Digimon!" alt="Imagine Going Back in Time">
+<p class='center'><a href='http://xkcd.com/2220/'>xkcd # 2220</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 26: Mon, Oct 28th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+    - Note that Tu's times have changed
+  - W 9-noon (note the change!) in Rice 402 (Bloomfield)
+- Exam 1:
+  - Avg was 36.37 / 49 (75.8%) with a stdev of 6.09 (12.7%)
+  - Regrades are open for 10 days, however we reserve the right to regrade the ENTIRE page, so don't pine for points
+- Stuff that is due:
+  - [HW 8: Cryptocurrency](../../hws/hw-cryptocurrency.html) is out and due this Friday (Nov 1)
+  - Detailed schedule on the next slide
+- Grading status
+  - Grades for homeworks through HW 3 (ethics), and HW 5 (hasing) have been returned; regrades open for 10 days (until Sun, Nov 3rd)
+  - Grading is progressing on HW 4 (RSA), HW 6 (SQL), and HW 7 (Networks)
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will quickly finish [Anonymity](../../slides/anonymity.html#/) (starting [here](../../slides/anonymity.html#/6/9)) and start on [Stuxnet](../../slides/stuxnet.html#/)
+  </textarea></section>
+
+<section data-markdown><textarea data-template>
+## Schedule
+- Major assignments:
+  - [HW 8: Cryptocurrency](../../hws/hw-cryptocurrency.html) is out and due this Friday (Nov 1)
+  - The second midterm is the following Friday (Nov 8)
+  - We will have homeworks due the following two Fridays (Nov 15th and Nov 22nd)
+  - The next Friday is during Thanksgiving break (Nov 29th)
+  - Friday, December 6th is the last day of class, and will have a homework due
+  - Thus, there are three more major assignments after cryptocurrency.  They are: rootkits, forensics, and buffer overflow (but not in that order)
+- Minor assignments
+  - There will be two minor assignments due in there: celebrity visit and movie night
+- The final exam is ~~Wednesday, December 11th~~, from 2 pm - 5 pm
+</textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+<section>
+<h2 class='xkcd'>Earthquake Early Warnings</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/earthquake_early_warnings.png" title="I was fired by the National Weather Service five minutes after they hired me for going into their code base and renaming all the tornado warnings to &quot;tornado spoiler alerts.&quot;" alt="Earthquake Early Warnings">
+<p class='center'><a href='http://xkcd.com/2219/'>xkcd # 2219</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 25: Fri, Oct 25th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+    - Note that Tu's times have changed
+  - W 9-noon (note the change!) in Rice 402 (Bloomfield)
+- Exam 1:
+  - Avg was 36.37 / 49 (75.8%) with a stdev of 6.09 (12.7%)
+  - Regrades are open for 10 days, however we reserve the right to regrade the ENTIRE page, so don't pine for points
+- Stuff that is due:
+  - [HW 7: Netowrks](../../hws/hw-networks.html) is out, and due today (Fri, Oct 25)
+  - [HW 8: Cryptocurrency](../../hws/hw-cryptocurrency.html) is out and due *next* Friday (Nov 1)
+- Grading status
+  - Grades for homeworks through HW 3 (ethics), and HW 5 (hasing) have been returned; regrades open for 10 days
+  - Grading is progressing on HW 4 (RSA) and HW 6 (SQL)
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will continue with [Anonymity](../../slides/anonymity.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Wardrobe</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/wardrobe.png" title="If you&#39;d just agree to hold your meetings in here, you&#39;d have PLENTY of time to figure things out before the deadline." alt="Wardrobe">
+<p class='center'><a href='http://xkcd.com/2218/'>xkcd # 2218</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 24: Wed, Oct 23rd
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+    - Note that Tu's times have changed
+  - W 9-noon (note the change!) in Rice 402 (Bloomfield)
+- Exam 1:
+  - Avg was 36.37 / 49 (75.8%) with a stdev of 6.09 (12.7%)
+  - Regrades are open for 10 days, however we reserve the right to regrade the ENTIRE page, so don't pine for points
+- Stuff that is due:
+  - [HW 7: Netowrks](../../hws/hw-networks.html) is out, and due this Friday (Oct 25)
+  - [HW 8: Cryptocurrency](../../hws/hw-cryptocurrency.html) is out and due *next* Friday (Nov 1)
+- Grading status
+  - Grades for homeworks through HW 3 (ethics), and HW 5 (hasing) have been returned; regrades open for 10 days
+  - Grading is progressing on HW 4 (RSA) and HW 6 (SQL)
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will start on [Anonymity](../../slides/anonymity.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>53 Cards</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/53_cards.png" title="Well, there&#39;s one right here at the bottom, where it says &quot;53.&quot;" alt="53 Cards">
+<p class='center'><a href='http://xkcd.com/2217/'>xkcd # 2217</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 23: Mon, Oct 21st
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+    - Note that Tu's times have changed
+  - W 9-noon (note the change!) in Rice 402 (Bloomfield)
+- Stuff that is due:
+  - [HW 7: Netowrks](../../hws/hw-networks.html#) is somewhat ready -- not all the parts are there, but some are
+    - We'll still aim for it being due next FridayA
+  - HW 8 will be on cryptocurrency, and will be out by next Friday
+- Midterm 1: it's being graded, and should be done by, um...
+- Grading status
+  - Grades for homeworks through HW 3 (ethics), and HW 5 (hasing) have been returned; regrades open for 10 days
+  - Grading is progressing on HWs 4 (RSA)
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will continue with [Cryptocurrency](../../slides/cryptocurrency.html#/), starting [here](../../slides/cryptocurrency.html#/mining)
+  - Next up: [Anonymity](../../slides/anonymity.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Percent Milkfat</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/percent_milkfat.png" title="&quot;So what&#39;s dark energy?&quot; &quot;Cosmologists and the FDA are both trying very hard to find out.&quot;" alt="Percent Milkfat">
+<p class='center'><a href='http://xkcd.com/2216/'>xkcd # 2216</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 22: Fri, Oct 18th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+    - Note that Tu's times have changed
+  - W 9-noon (note the change!) in Rice 402 (Bloomfield)
+- Stuff that is due:
+  - [HW 6: SQL, XSS, & CSRF](../../hws/hw-sql-xss-csrf.html) is due this Friday, October 18th
+  - [HW 7: Netowrks](../../hws/hw-networks.html#) is somewhat ready -- not all the parts are there, but some are
+    - We'll still aim for it being due next FridayA
+  - HW 8 will be on cryptocurrency, and will be out by next Friday
+- Midterm 1: it's being graded, and should be done by the end of this week
+- Grading status
+  - Grades for homeworks through HW 3 (ethics), and HW 5 (hasing) have been returned; regrades open for 10 days
+  - Grading is progressing on HWs 4 (RSA)
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- Look into [MetaCTF @ UVa](https://metactf.com/uva)
+  - "A learning cybersecurity capture the flag competition designed to introduce participants to a variety of relevant security topics and test their problem solving skills"
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will continue, and possibly finish, [web security](../../slides/web-security.html#/) (staring [here](../../slides/web-security.html#/7/11))
+  - Next up: the modern topics module, starting with [Cryptocurrency](../../slides/cryptocurrency.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Faculty:Student Ratio</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/faculty_student_ratio.png" title="They managed to briefly hit the top of the rankings when they rejected everyone except one applicant, published 5 billion research papers that just said &quot;Hi,&quot; and hired one of their graduates for $50 trillion/year (then fired them after 10 microseconds.)" alt="Faculty:Student Ratio">
+<p class='center'><a href='http://xkcd.com/2215/'>xkcd # 2215</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 21: Wed, Oct 16th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+    - Note that Tu's times have changed
+  - W 9-noon (note the change!) in Rice 402 (Bloomfield)
+- Stuff that is due:
+  - [HW 6: SQL, XSS, & CSRF](../../hws/hw-sql-xss-csrf.html) is due this Friday, October 18th
+  - The networks homework (not yet ready) will be due the following Friday (Oct 25th)
+- Midterm 1: how was it?
+  - It's being graded, and should be done by the end of the week
+- Grading status
+  - Grades for homeworks through HW 3 (ethics), and HW 5 (hasing) have been returned; regrades open for 10 days
+  - Grading is progressing on HWs 4 (RSA)
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- Look into [MetaCTF @ UVa](https://metactf.com/uva)
+  - "A learning cybersecurity capture the flag competition designed to introduce participants to a variety of relevant security topics and test their problem solving skills"
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will continue, and possibly finish, [web security](../../slides/web-security.html#/) (staring [here](../../slides/web-security.html#/5/12))
+  - Next up: the modern topics module, starting with [Stuxnet](../../slides/stuxnet.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Chemistry Nobel</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/chemistry_nobel.png" title="Most chemists thought the lanthanides and actinides could be inserted in the sixth and seventh rows, but no, they&#39;re just floating down at the bottom with lots more undiscovered elements all around them." alt="Chemistry Nobel">
+<p class='center'><a href='http://xkcd.com/2214/'>xkcd # 2214</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 20: Mon, Oct 14th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+    - Note that Tu's times have changed
+  - W 9-noon (note the change!) in Rice 402 (Bloomfield)
+- Stuff that is due:
+  - [HW 6: SQL, XSS, & CSRF](../../hws/hw-sql-xss-csrf.html) is due this Friday, October 18th
+  - The networks homework (not yet ready) will be due the following Friday (Oct 25th)
+- Midterm 1: how was it?
+  - It's being graded, and should be done by the end of the week
+- Grading status
+  - Grades for homeworks through HW 3 (ethics), and HW 5 (hasing) have been returned; regrades open for 10 days
+  - Grading is progressing on HWs 4 (RSA)
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will continue with [SQL, XSS, & CSRF](../../slides/sql-xss-csrf.html#/cover) (starting [here](../../slides/sql-xss-csrf.html#/5/2)), and then go back to [web security](../../slides/web-security.html#/) (staring [here](../../slides/web-security.html#/5/8))
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section data-markdown><script type="text/template">
+## Lecture 19: Fri, Oct 11th
+
+Today was the first midterm, so no daily announcements
+	  </script></section>
+	  
+	  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Cell Phone Functions</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/cell_phone_functions.png" title="... tazer ... fire extinguisher ... bird feeder ... toilet paper ..." alt="Cell Phone Functions">
+<p class='center'><a href='http://xkcd.com/2212/'>xkcd # 2212</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 18: Wed, Oct 9th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+    - Note that Tu's times have changed
+  - W 9-noon (note the change!) in Rice 402 (Bloomfield)
+- Stuff that is due:
+  - Nothing currently, since the midterm is Friday
+  - The SQL, XSS, and CSRF homework is due next Friday
+  - The networks homework (not yet ready) will be due the following Friday
+- The first midterm is now this Friday, October 11th
+  - Content: all of ethics & policy, encryption, and the networks slide set
+  - The web security slide set may be on there, but at a lighter level
+- Grading status
+  - HW 3 (ethics) grades have been returned; regrades open for 10 days
+  - Grading is progressing on HWs 4 (RSA) and 5 (Hashing)
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - You will likely need it for HW 5 (hashing)
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will take a break from web security and start on [SQL, XSS, & CSRF](../../slides/sql-xss-csrf.html#/cover)
+  - We'll come back to [web security](../../slides/web-security.html#/) (staring [here](../../slides/web-security.html#/5/8)) next week
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section data-markdown><script type="text/template">
+## Mon, Oct 7th
+
+Today was UVa's fall break, so there was no lecture
+	  </script></section>
+	  
+	  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Fresh Pears</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/fresh_pears.png" title="I want to sell apples but I&#39;m still working on getting the machine to do the cutting and grafting." alt="Fresh Pears">
+<p class='center'><a href='http://xkcd.com/2209/'>xkcd # 2209</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 17: Fri, Oct 4th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+    - Note that Tu's times have changed
+  - W 9-noon in Rice 402 (Bloomfield)
+  - None Monday or Tuesday due to fall break
+- Stuff that is due:
+  - [HW 5: Hashing](../../hws/hw-hashing.html) is due today (Fri, Oct 4th)
+- The first midterm is now Friday, October 11th
+    - Recall that scheduling for Fri, Oct 4 caused lots of issues
+- Grading status
+  - Grades for both quizzes and HWs 1 and 2 have been returned; regrades enabled for 10 days for the HWs
+  - Still grading for HWs 3-4
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - You will likely need it for HW 5 (hashing)
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will finish work through [web security](../../slides/web-security.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>College Athletes</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/college_athletes.png" title="Their signature play is the three-point combinator, a recursive offense which is guaranteed not to halt and continues accumulating points until the buzzer." alt="College Athletes">
+<p class='center'><a href='http://xkcd.com/2210/'>xkcd # 2210</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 16: Wed, Oct 2nd
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu 2-4 and Th 3-5 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+    - Note that Tu's times have changed
+  - W 10-1 in Rice 402 (Bloomfield)
+- Stuff that is due:
+  - [HW 5: Hashing](../../hws/hw-hashing.html) is due this Fri, Oct 4th
+- The first midterm is now Friday, October 11th
+    - Recall that scheduling for Fri, Oct 4 caused lots of issues
+- Grading status
+  - Grades for both quizzes and HWs 1 and 2 have been returned; regrades enabled for 10 days for the HWs
+  - Still grading for HWs 3-4
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - You will likely need it for HW 5 (hashing)
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will finish work through [networks](../../slides/networks.html#/)
+  - Next up: [web security](../../slides/web-security.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Drone Fishing</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/drone_fishing.png" title="Today&#39;s consumers who order their drones off the internet don&#39;t know the joy of going out in nature and returning with a drone that you caught yourself, whose angry owners you fought off with your own two hands." alt="Drone Fishing">
+<p class='center'><a href='http://xkcd.com/2208/'>xkcd # 2208</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 15: Mon, Sep 30th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu/Th 2-4 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+  - W 10-1 in Rice 402 (Bloomfield)
+- Stuff that is due:
+  - [HW 5: Hashing](../../hws/hw-hashing.html) is due Fri, Oct 4th
+- The first midterm is now Friday, October 11th
+    - Recall that scheduling for Fri, Oct 4 caused lots of issues
+    - After my class-wide email, nobody complained
+- Grading status
+  - HWs 1-3, and quizzes 1 and 2, are out to be graded (all to different TAs)
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - You will likely need it for HW 5 (hashing)
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will finish with [encryption](../../slides/encryption.html#/) (staring [here](../../slides/encryption.html#/uncracked))
+  - Next up: [networks](../../slides/networks.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Math Work</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/math_work.png" title="I could type this into a solver, which MIGHT help, but would also mean I have to get a lot of parentheses right..." alt="Math Work">
+<p class='center'><a href='http://xkcd.com/2207/'>xkcd # 2207</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 14: Fri, Sep 27th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu/Th 2-4 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+  - W 10-1 in Rice 402 (Bloomfield)
+- Stuff that is due:
+  - [HW 4: RSA](../../hws/hw-rsa.html) today (Fri, Sep 27)
+  - [HW 5: Hashing](../../hws/hw-hashing.html) is due Fri, Oct 4th
+- The first midterm is now Friday, October 11th
+    - Recall that scheduling for Fri, Oct 4 caused lots of issues
+    - After my class-wide email, nobody complained
+- Grading status
+  - HWs 1-3, and quizzes 1 and 2, are out to be graded (all to different TAs)
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - You will likely need it for HW 5 (hashing)
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will likely finish with [encryption](../../slides/encryption.html#/) (staring [here](../../slides/encryption.html#/hashing))
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Mavis Beacon</h2>
+<a href="https:http://www.fonts.com/content/learning/fontology/level-3/numbers/oldstyle-figures"><img class='stretch' src="http://imgs.xkcd.com/comics/mavis_beacon.png" title="There are actually lowercase-like &#39;oldstyle&#39; forms of normal numbers with more pronounced ascenders and descenders, which is why some numbers like &#39;5&#39; in books sometimes dangle below the line. But the true capital numbers remain the domain of number maven Mavis Beacon." alt="Mavis Beacon">
+<p class='center'><a href='http://xkcd.com/2206/'>xkcd # 2206</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 13: Wed, Sep 25th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu/Th 2-4 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+  - W 10-1 in Rice 402 (Bloomfield)
+- Stuff that is due:
+  - [HW 4: RSA](../../hws/hw-rsa.html) is this Fri (Sep 27)
+    - I will be releasing a more better testing harness early this week
+    - So about that promised testing harness...
+  - The 5th homework will be on Hashing, and will be due the following Friday (Oct 4)
+    - It will be ready later today
+- The first midterm is now Friday, October 11th
+    - Recall that scheduling for Fri, Oct 4 caused lots of issues
+    - After my class-wide email, nobody complained
+- Grading status
+  - HWs 1-3, and quizzes 1 and 2, are out to be graded (all to different TAs)
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - You will need it for HW 5 (hashing) in early October
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will continue with [encryption](../../slides/encryption.html#/) (staring [here](../../slides/encryption.html#/random)), which will take us through most of this week
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Types of Approximation</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/types_of_approximation.png" title="It&#39;s not my fault I haven&#39;t had a chance to measure the curvature of this particular universe." alt="Types of Approximation">
+<p class='center'><a href='http://xkcd.com/2205/'>xkcd # 2205</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 12: Mon, Sep 23rd
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu/Th 2-4 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+  - W 10-1 in Rice 402 (Bloomfield)
+- Stuff that is due:
+  - [HW 4: RSA](../../hws/hw-rsa.html) is this Fri (Sep 27)
+    - I will be releasing a more better testing harness early this week
+  - The 5th homework will be on Hashing, and will be due the following Friday (Oct 4)
+    - It will be ready by Wednesday
+- The first midterm is now Friday, October 11th
+    - Recall that scheduling for Fri, Oct 4 caused lots of issues
+    - After my class-wide email, nobody complained
+- Grading status
+  - HWs 1-3, and quizzes 1 and 2, are out to be graded (all to different TAs)
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - You will need it for HW 5 (hashing) in early October
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will continue with [encryption](../../slides/encryption.html#/) (staring [here](../../slides/encryption.html#/5/44)), which will take us through most of this week
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Prescience</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/prescience.png" title="Lots of people called their ships unsinkable before the Titanic. Voicing your hubris doesn&#39;t make failure more likely, just more memorable." alt="Prescience">
+<p class='center'><a href='http://xkcd.com/2203/'>xkcd # 2203</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 11: Fri, Sep 20th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu/Th 2-4 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+  - W 10-1 in Rice 402 (Bloomfield)
+- Stuff that is due:
+  - Homework due today (Sep 20): [HW 3: Ethics](../../hws/hw-ethics.html)
+  - [HW 4: RSA](../../hws/hw-rsa.html) is due Fri, Sep 27
+    - I will be releasing a more better testing harness early next week
+- Proposal: what if we change the midterm from Fri, Oct 4 to Fri, Oct 11?
+    - Scheduling for Fri, Oct 4 is causing lots of issues
+    - How many people would *not* be able to take it on the 11th?
+- Grading status
+  - HWs 1 and 2, and quizzes 1 and 2, are out to be graded (all to different TAs)
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - You will need it for HW 5 (hashing) in early October
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will continue with [encryption](../../slides/encryption.html#/) (staring [here](../../slides/encryption.html#/5/18)), which will take us through most of next week
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Ksp 2</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/ksp_2.png" title="&quot;The committee appreciates that your 2020 launch is on track, but the &#39;human capital/personnel retention&#39; budget includes a lot more unmarked cash payments than usual. What are th--&quot; &quot;Public outreach.&quot;" alt="Ksp 2">
+<p class='center'><a href='http://xkcd.com/2204/'>xkcd # 2204</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 10: Wed, Sep 18th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu/Th 2-4 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+  - W 10-1 in Rice 402 (Bloomfield)
+- Stuff that is due:
+  - Homework due this Friday (Sep 20): [HW 3: Ethics](../../hws/hw-ethics.html)
+    - You will likely want to wait until after we finish the [ethics slide set](../../slides/ethics.html#/) in lecture before you start it
+  - [HW 4: RSA](../../hws/hw-rsa.html) is due Fri, Sep 27
+    - I will be releasing a more better testing harness in a few days
+- Proposal: what if we change the midterm from Fri, Oct 4 to Fri, Oct 11?
+    - Scheduling for Fri, Oct 4 is causing lots of issues
+	- How many people would *not* be able to take it on the 11th?
+- Grading status
+  - HWs 1 and 2, and quizzes 1 and 2, are out to be graded (all to different TAs)
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - You will need it for HW 5 (hashing) in early October
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will continue with [encryption](../../slides/encryption.html#/) (staring [here](../../slides/encryption.html#/3/20)), which will take us through most of next week
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Earth-Like Exoplanet</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/earth_like_exoplanet.png" title="Fire is actually a potential biosignature, since it means something is filling the atmosphere with an unstable gas like oxygen. If we find a planet covered in flames, it might be an indicator that it supports life. Or used to, anyway, before the fire." alt="Earth-Like Exoplanet" >
+<p class='center'><a href='http://xkcd.com/2202/'>xkcd # 2202</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 9: Mon, Sep 16th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu/Th 2-4 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+  - W 10-1 in Rice 402 (Bloomfield)
+- Stuff that is due:
+  - Homework due this Friday (Sep 20): [HW 3: Ethics](../../hws/hw-ethics.html)
+    - You will likely want to wait until after we finish the [ethics slide set](../../slides/ethics.html#/) in lecture before you start it
+  - FYI, the upcoming homeworks are encryption (likely due Friday, Sep 27) followed by hashing (likely due Monday, Oct 7); neither of them are ready yet
+	- And there will be readings interspersed in there...
+- Grading status
+  - HWs 1 and 2, and quizzes 1 and 2, are out to be graded (all to different TAs)
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - You will need it for HW 5 (hashing) in early October
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will start on [encryption](../../slides/encryption.html#/), which will take us through most of next week
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Foucault Pendulum</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/foucault_pendulum.png" title="Trust me, you don&#39;t want to get on the wrong side of the paramilitary enforcement arm of the International Earth Rotation and Reference Systems Service." alt="Foucault Pendulum">
+<p class='center'><a href='http://xkcd.com/2201/'>xkcd # 2201</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 8: Fri, Sep 13th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu/Th 2-4 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+  - W 10-1 in Rice 402 (Bloomfield)
+- Stuff that is due:
+  - Homework due today (Fri, Sep 13): [HW 2: Policy](../../hws/hw-policy.html)
+  - Also due today: reading [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf)
+	- You can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
+  - Homework due next Friday (Sep 20): [HW 3: Ethics](../../hws/hw-ethics.html)
+    - You will likely want to wait until after we finish the [ethics slide set](../../slides/ethics.html#/) in lecture before you start it
+  - FYI, the upcoming homeworks are encryption (likely due Friday, Sep 27) followed by hashing (likely due Monday, Oct 7); neither of them are ready yet
+	- And there will be readings interspersed in there...
+- Grading status
+  - [HW 1: Rational Paranoia](../../hws/hw-paranoia.html) and the first quiz went out today to be graded
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - You won't need it until mid-September, at the earliest
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will likely finish with [ethics](../../slides/ethics.html#/)
+  - Next up: [encryption](../../slides/encryption.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Unreachable State</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/unreachable_state.png" title="ERROR: We&#39;ve reached an unreachable state. Anything is possible. The limits were in our heads all along. Follow your dreams." alt="Unreachable State">
+<p class='center'><a href='http://xkcd.com/2200/'>xkcd # 2200</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 7: Wed, Sep 11th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu/Th 2-4 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+  - W 10-1 in Rice 402 (Bloomfield)
+- Stuff that is due:
+  - Homework due this Friday (Sep 13): [HW 2: Policy](../../hws/hw-policy.html)
+  - Also due Friday, September 13th: reading [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf)
+	- You can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
+  - Homework due next Friday (Sep 20): [HW 3: Ethics](../../hws/hw-ethics.html)
+    - You will likely want to wait until after we finish the [ethics slide set](../../slides/ethics.html#/) in lecture before you start it
+  - FYI, the upcoming homeworks are encryption (likely due Friday, Sep 27) followed by hashing (likely due Monday, Oct 7); neither of them are ready yet
+	- And there will be readings interspersed in there...
+- Grading status
+  - [HW 1: Rational Paranoia](../../hws/hw-paranoia.html) and the first quiz will be going out early this week to be graded
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - You won't need it until mid-September, at the earliest
+  - Note that previous CS 2150 VirtualBox images will NOT work for this course
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will start on [ethics](../../slides/ethics.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Cryptic Wifi Networks</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/cryptic_wifi_networks.png" title="They actually showed up on the first scan by the first WiFi-capable device." alt="Cryptic Wifi Networks">
+<p class='center'><a href='http://xkcd.com/2199/'>xkcd # 2199</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 6: Mon, Sep 9th
+- Office hours:
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman)) (click on the name for the picture)
+  - Tu/Th 2-4 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu)) (click on the name for the picture)
+  - W 10-1 in Rice 402 (Bloomfield)
+- Stuff that is due:
+  - Homework due this Friday (Sep 13): [HW 2: Policy](../../hws/hw-policy.html)
+    - You will likely want to wait until after we finish the [policy slide set](../../slides/policy.html#/) in lecture before you start it
+  - Also due Friday, September 13th: reading [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf)
+	- You can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
+  - FYI, the upcoming homeworks are ethics (due Fri, Sep 20) followed by encryption (due date not yet set); neither of them are ready yet
+	- And there will be readings interspersed in there...
+- Grading status
+  - [HW 1: Rational Paranoia](../../hws/hw-paranoia.html) and the first quiz will be going out early this week to be graded
+- The VirtualBox image is ready at https://tinyurl.com/y5y333tp
+  - You won't need it until mid-September, at the earliest
+  - Note that previous CS 2150 VirtualBox images will NOT work for this class due to necessary software updates
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Enrollment update: there are now 13 spaces in the class
+  - If you added the class late, submit a support request once you get in to get an extension on the homeworks
+- Today we will finish [policy](../../slides/policy.html#/) (starting [here](../../slides/policy.html#/5/6)); next up is [ethics](../../slides/ethics.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>How to Send a File</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/how_to_send_a_file_2x.png" title="Note: How To will teach you lots of cool stuff about technology, data storage, butterfly migration, and more. Also you will never see your files again." alt="How to Send a File">
+<p class='center'><a href='http://xkcd.com/2194/'>xkcd # 2194</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 5: Fri, Sep 6th
+- Office hours have started
+  - M/F noon-2 in Rice 442 ([Vibha](https://github.com/vp3fr)/[Sam](https://github.com/sshankman))
+  - Tu/Th 2-4 in Rice 340 ([Viviana](https://github.com/vkrosas1)/[Tu](https://github.com/lenhattu))
+  - W 10-1 in Rice 402 (Bloomfield)
+  - To help you identify them during office hours, their names above are linked to their github profiles, which have their photo
+- Stuff that is due:
+  - Homework due today (Friday, Sep 6): [HW 1: Rational Paranoia](../../hws/hw-paranoia.html)
+  - Homework due next Friday (Sep 13): [HW 2: Policy](../../hws/hw-policy.html)
+    - You will likely want to wait until after we finish the [policy slide set](../../slides/policy.html#/) in lecture before you start it
+  - Also due Friday, September 13th: reading [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf)
+	- You can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
+  - FYI, the upcoming homeworks are ethics (due Fri, Sep 20) followed by encryption (due date not yet set); neither of them are ready yet
+	- And there will be readings interspersed in there...
+- The submission system is all set up: https://libra.cs.virginia.edu/~pedagogy
+  - Did I mention that the assignment submission will automatically open up 3 days before it is due?
+  - The VirtualBox image is ready, and available at https://tinyurl.com/y5y333tp
+	- You won't need it until mid-September, at the earliest
+	- Note that previous CS 2150 VirtualBox images will NOT work for this class due to necessary software updates
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will continue with [policy](../../slides/policy.html#/) (starting [here](../../slides/policy.html#/2/17)); next up is [ethics](../../slides/ethics.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Game Show</h2>
+<img src="http://imgs.xkcd.com/comics/game_show.png" title="Eventually they agreed to &quot;an auto-retracting dog leash with one end clipped to your house, so you can press the button on the handle and water-ski home.&quot;" alt="Game Show">
+<p class='center'><a href='http://xkcd.com/2197/'>xkcd # 2197</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 4: Wed, Sep 4th
+- Office hours have started
+  - M/F noon-2 in Rice 442 (Vibha/Sam)
+  - Tu/Th 2-4 in Rice 340 (Viviana/Tu)
+  - W 10-1 in Rice 402 (Bloomfield)
+- Stuff that is due:
+  - Readings due today (Sep 4): [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), and [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+  - Homework due this Friday (Sep 6): [HW 1: Rational Paranoia](../../hws/hw-paranoia.html)
+  - Homework due next Friday (Sep 13): [HW 2: Policy](../../hws/hw-policy.html)
+    - You will likely want to wait until after we finish the [policy slide set](../../slides/policy.html#/) in lecture before you start it
+  - Also due Friday, September 13th: [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf)
+	- You can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
+  - FYI, the upcoming homeworks are ethics (due Fri, Sep 20) followed by encryption (due date not yet set); neither of them are ready yet
+	- And there will be readings interspersed in there...
+- The submission system is all set up
+  - The direct URL is https://libra.cs.virginia.edu/~pedagogy
+  - Did I mention that the assignment submission will automatically open up 3 days before it is due?
+  - The VirtualBox image is ready, and available at https://tinyurl.com/y5y333tp
+	- You won't need it until mid-September, at the earliest
+	- Note that previous CS 2150 VirtualBox images will NOT work for this class due to necessary software updates
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will finish the [terminology](../../slides/terminology.html#/) slide set (starting [here](../../slides/terminology.html#/4/3)) and start on [policy](../../slides/policy.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Nice To E-Meet You</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/nice_to_e_meet_you.png" title="I&#39;m inside your head and I hate it. Please let me out." alt="Nice To E-Meet You">
+<p class='center'><a href='http://xkcd.com/2196/'>xkcd # 2196</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 3: Mon, Sep 2nd
+- Office hours begin (began?) today
+  - M/F noon-2 in Rice 442 (Vibha/Sam)
+  - Tu/Th 2-4 in Rice 340 (Viviana/Tu)
+  - W 10-1 in Rice 402 (Bloomfield)
+- Stuff that is due:
+  - Readings due Wednesday (Sep 4): [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), and [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+  - Homework due this Friday (Sep 6): [HW 1: Rational Paranoia](../../hws/hw-paranoia.html)
+    - You will likely want to wait until the [security mindset slide set](../../slides/security-mindset.html#/) has been gone over in lecture
+	- The assignment submission will automatically open up 3 days before it is due
+	- FYI, the following homeworks and their due dates will be: Policy on Fri, Sep 13; Ethics on Fri, Sep 20 (neither of them are ready yet)
+	- And there will be readings interspersed in there...
+- The submission system is all set up
+  - The direct URL is https://libra.cs.virginia.edu/~pedagogy
+  - Did I mention that the assignment submission will automatically open up 3 days before it is due?
+  - The VirtualBox image is ready, and available at https://tinyurl.com/y5y333tp
+	- You won't need it until mid-September, at the earliest
+	- Note that previous CS 2150 VirtualBox images will NOT work for this class due to necessary software updates
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will finish the [security mindset slide set](../../slides/security-mindset.html#/) (starting [here](../../slides/security-mindset.html#/casestudies)), and then start on the [terminology](../../slides/terminology.html) slide set
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Dockless Roombas</h2>
+<img class='stretch' src="http://imgs.xkcd.com/comics/dockless_roombas.png" title="The company started out exploiting a loophole in the law banning scooters. The city was mad at first, but then they noticed how much they were saving on street cleaning." alt="Dockless Roombas">
+<p class='center'><a href='http://xkcd.com/2195/'>xkcd # 2195</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 2: Fri, Aug 30th
+- Office hours will begin this Monday
+  - M/F noon-2 in Rice 442 (Vibha/Sam)
+  - Tu/Th 2-4 in Rice 340 (Viviana/Tu)
+  - W 10-1 in Rice 402 (Bloomfield)
+- Stuff that is due:
+  - Readings due Wednesday (Sep 4): [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), and [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+  - Homework due next Friday (Sep 6): [HW 1: Rational Paranoia](../../hws/hw-paranoia.html)
+    - You will likely want to wait until the [security mindset slide set](../../slides/security-mindset.html#/) has been gone over in lecture
+	- The assignment submission will automatically open up 3 days before it is due
+	- FYI, the following homeworks and their due dates will be: Policy on Fri, Sep 13; Ethics on Fri, Sep 20 (neither of them are ready yet)
+	- And there will be readings interspersed in there...
+- The submission system is all set up
+  - The direct URL is https://libra.cs.virginia.edu/~pedagogy
+  - Did I mention that the assignment submission will automatically open up 3 days before it is due?
+  - The VirtualBox image is ready, and available at https://tinyurl.com/y5y333tp
+	- You won't need it until mid-September, at the earliest
+	- Note that previous CS 2150 VirtualBox images will NOT work for this class due to necessary software updates
+- [Anonymous feedback](https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main)! It's through Collab
+- Today we will finish the [course introduction](../../slides/introduction.html) (starting [here](../../slides/introduction.html#/4/4)) and start on the [security mindset slide set](../../slides/security-mindset.html#/)
+  - Next up: the [terminology slide set](../../slides/terminology.html#/)
+  </textarea></section>
+
+</section>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+      </div>
+
+    </div>
+
+    <script src="../../slides/reveal.js/lib/js/head.min.js"></script>
+    <script src="../../slides/reveal.js/js/reveal.js"></script>
+    <!-- You cannot, apparently, include this from another directory, hence why settings.js is reproduced here in full -->
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controlsTutorial: false,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      slideNumber: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: '../../slides/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: '../../slides/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '../../slides/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '../../slides/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: '../../slides/reveal.js/plugin/zoom-js/zoom.js', async: true },
+      { src: '../../slides/reveal.js/plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+
+  </body>
+</html>
