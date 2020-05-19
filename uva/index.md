@@ -36,9 +36,9 @@ Readings
 
 All scholarly articles (such as from the ACM digital library) can be obtained from free from any UVa wireless network.  Some of them you will *NOT* be able to get it for free from your home Internet provider such as Comcast (unless you live in a UVa dorm, of course) without using a UVa VPN.  All readings are due by the start of lecture that day.
 
-- Due Friday, September 13th:
+- Due Tuesdady, May 25th:
     - [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
-- Due Wednesday, September 4th:
+- Due Thursday, May 21st:
 	- [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
     - [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210)
 	- [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
