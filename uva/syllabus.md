@@ -69,7 +69,7 @@ I expect that grades will follow the standard decade curve: 90 and above is an A
 
 Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  Since there are no other exams scheduled during that time, it is unlikely that you will have a conflict.
 
-**Regrades:** You may submit graded homeworks and exams for regrading within 4 days of when they are returned to you (less time for the final due to the end of the semester); this is done via the [course tools][5].  As long as people submit responsibly, I will not institute a frivolous regrade policy that existed in CS 2150 (if one is instituted, you will be told of this ahead of time).  This 10 day time limit will be strictly enforced.
+**Regrades:** You may submit graded homeworks and exams for regrading within 4 days of when they are returned to you (less time for the final due to the end of the semester); this is done via the [course tools][5].  As long as people submit responsibly, I will not institute a frivolous regrade policy that existed in CS 2150 (if one is instituted, you will be told of this ahead of time).  This time limit will be strictly enforced.
 
 **Computing resources:** There are two specific computer resources needed for this course:
 
