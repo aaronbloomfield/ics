@@ -49,7 +49,9 @@ Homeworks
 
 Unless otherwise noted, all submissions are due by the end of the day of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the [online submission system][162] -- all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time.
 
-- [HW 3: Ethics](../hws/hw-ethics.html) ([md](../hws/hw-ethics.md)) is due Monday, May 25th
+- [HW 5: Hashing](../hws/hw-hashing.html) is due Monday, June 1st
+- [HW 4: RSA](../hws/hw-rsa.html) is due Friday, May 29th
+- [HW 3: Ethics](../hws/hw-ethics.html) ([md](../hws/hw-ethics.md)) is due Tuesday, May 26th
 - [HW 2: Policy](../hws/hw-policy.html) ([md](../hws/hw-policy.md)) is due Friday, May 22nd
 - [HW 1: Rational Paranoia](../hws/hw-paranoia.html) ([md](../hws/hw-paranoia.md)) is due Wednesday, May 20th
 
@@ -59,6 +61,25 @@ Lecture progress
 
 Each day has two lectures.
 
+- Fri, Jun 12: digital forensics, course conclusion
+- Thu, Jun 11: binary exploits, digital forensics
+- Wed, Jun 10: buffer overflow, binary exploits
+- Tue, Jun 9: viruses, buffer overflow
+- Mon, Jun 8: rootkits, viruses
+- Fri, Jun 5: virtual machines, rootkits
+- Thu, Jun 4: anonymity, stuxnet
+- Wed, Jun 3: cryptocurrency, anonymity
+- Tue, Jun 2: web security, cryptocurrency
+- Mon, Jun 1: sql/xss/csrf, web security
+- Fri, May 29: web security (and the first midterm)
+- Thu, May 28: encryption, networking overview, web security
+- Wed, May 27: encryption
+- Tue, May 26: encryption
+- Mon, May 25: (no class due to Memorial Day)
+- Fri, May 22: encryption
+- Thu, May 21: ethics
+- Wed, May 20: terminology, policy
+- Tue, May 19: security mindset, terminology
 - Mon, May 18: course introduction; security mindset
 
 
