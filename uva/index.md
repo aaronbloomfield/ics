@@ -51,6 +51,8 @@ Homeworks
 
 Unless otherwise noted, all submissions are due by the end of the day of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the [online submission system][162] -- all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time.
 
+- [HW 7: Cryptocurrency](../hws/hw-cryptocurrency.html) is due Monday, June 8th
+- [HW 6: SQL/XSS/CSRF](../hws/hw-sql-xss-csrf.html) is due Thursday, June 4th
 - [HW 5: Hashing](../hws/hw-hashing.html) is due Monday, June 1st
 - [HW 4: RSA](../hws/hw-rsa.html) is due Friday, May 29th
 - [HW 3: Ethics](../hws/hw-ethics.html) ([md](../hws/hw-ethics.md)) is due Tuesday, May 26th

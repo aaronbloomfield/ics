@@ -83,7 +83,7 @@ are many great things about C and C++, but we think this will give you
 a real headache if you try to implement it in C or C++.
 
 
-## Files format
+## File format
 
 **Blockchain**
 
