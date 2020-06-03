@@ -307,14 +307,17 @@ Since different programming languages can be used, we are going to
 have you submit a shell script called `cryptomoney.sh` that we will
 use to test your code.  It is basically a big case statement for each
 of the 10 functions listed above.  A sample such shell script is
-available: [cryptomoney.sh](cryptocurrency/cryptomoney.sh)
-([html](cryptocurrency/cryptomoney.sh.html)).  Note that you will have
-to run `chmod 755 cryptomoney.sh` before you can run the shell script.
-This is set up for Java -- for Python, you would replace all
-occurrences of "java CMoney" with "python3 cmoney.py" (or similar).
-Also note that the parameters provided to the shell script are listed
-in that shell script.  It is the shell script interface that we will
-be using to test your code.
+available for Java: [cryptomoney.sh](cryptocurrency/cryptomoney.sh)
+([html](cryptocurrency/cryptomoney.sh.html)) and for Python:
+[cryptomoney2.sh](cryptocurrency/cryptomoney2.sh)
+([html](cryptocurrency/cryptomoney2.sh.html)).  Note that you will
+have to edit them for your specific implementation.  Also note that
+you will have to run `chmod 755 cryptomoney.sh` before you can run the
+shell script.  This is set up for Java -- for Python, you would
+replace all occurrences of "java CMoney" with "python3 cmoney.py" (or
+similar).  Also note that the parameters provided to the shell script
+are listed in that shell script.  It is the shell script interface
+that we will be using to test your code.
 
 We realize that the bash syntax for case statements is pretty horrid,
 which is why we are providing the sample script.  When calling the
