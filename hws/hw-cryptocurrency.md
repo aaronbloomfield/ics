@@ -29,8 +29,7 @@ library, as it still has to run on the submission server.
 
 One option will be to copy how Bitcoin handles these functions, as
 described in the [Cryptocurrency slide
-set](../slides/cryptocurrency.html#/) slide set.  However, coming up
-with new ideas will get you more points on the assignment.
+set](../slides/cryptocurrency.html#/) slide set.
 
 
 ## Languages
@@ -192,6 +191,11 @@ however many lines contain your information).  This is done when
 taking the signature, and the program will need to do the same when
 checking the signature.
 
+Note that the result of a `fund` command, which comes from "bigfoot"
+(or whatever you call your source of funds in your cryptocurrency),
+then there will likely not be a signature line at the bottom of the
+transaction record.
+
 **Wallet address versus wallet file**
 
 A wallet is a public / private key set.  When signing a transaction,
@@ -236,7 +240,7 @@ The requirements are:
    direction when loading).  You can see the provided helper
    functions, above, to help with this.  The file name to save the
    wallet to will be provided as an additional command line parameter.
-4. Get wallet tag (`address`): this will print out the tag the public
+4. Get wallet tag (`address`): this will print out the tag of the public
    key for a given wallet, which is likely the hash of the public key.
    Note that it *only* prints out that tag (no other output).  When
    the other commands talk about naming a wallet, this is what it
