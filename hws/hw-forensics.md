@@ -9,29 +9,36 @@ You will want to see the
 due dates are listed on the [UVa course page](../uva/index.html)
 ([md](../uva/index.md)).
 
-### Where is Sam?
+### Scenario
 
-Our teaching assistant Sam has disappeared!  All the teaching
-assistants, as well as Professor Bloomfield, were at a department
-sponsored TA retreat.  There were some issues getting home, but
-everybody eventually did.  However, nobody can find Sam.  Where could
-he be?
+Where is Mae?
 
-As part of the investigation, the authorities have confiscated a
-computer of the "fifth" teaching assistant (the one who does all the
-grading but doesn't hold office hours).  While they are working on it,
-they thought you could help, and have provided you with a image of the
-hard drive for you to analyze.
+Mae Cartly led a very secluded life. You knew little about her, or
+what she did. She rented an apartment across from you, and you saw her
+occasionally -- but probably spoke a total of 5 words to her in the
+two years that you lived across from each other.
+
+Suddenly, though, she disappeared. You could tell that something was
+up as the lights in her apartment no longer went on at night. The
+police were called, but the could find no indication of foul play, so
+they closed the criminal part of the case and listed her as a missing
+person.
+
+Her sister Laila showed up a few weeks later, and struck up a
+conversation with you. Laila worried that something was "up" with
+Mae's disappearance, although she had no idea what it was. She
+searched the apartment, but to no avail. The only thing that Laila was
+not able to properly search was Mae's computer.
+
+Laila has asked you to look into her computer to see what you can find
+out. You took an image of the hard drive, which uses Linux, and you
+have that to work from.
+
+Laila would like you to help her find out (1) where Mae went, and (2)
+who she can contact locally about Mae's sudden departure.
 
 But you have no idea what to look for...
 
-(Note: in the real world, you might get into legal trouble for doing
-this type of search, since the owner of the computer did not give you
-permission, and you don't have a search warrant. But this is an
-assignment, and FAKE, so there is no legal trouble to get into for
-this assignment.)
-
-(And yes, Sam is just fine in the real world.)
 
 ### Assignment
 
@@ -53,7 +60,7 @@ somebody else's disk image!** You have to wait until you are told the
 images are ready for this semester.  The image was compressed with
 gzip -- if your operating system does not natively support it, then
 you can use [7-zip](https://www.7-zip.org/) to extract it.  The
-compressed .gz file is 4 Gb in size, and the uncompressed image is 10
+compressed .gz file is about 3.5 Gb in size, and the uncompressed image is about 9
 Gb in size.
 
 This image was designed using Linux (it's an ext4 file system).
@@ -74,17 +81,21 @@ utilities discussed in the [digital forensics slide
 set](../slides/forensics.html#/).  You can use differently named
 equivalents in differing operating systems.
 
+Note that, as mentioned in the slides, autopsy does not do a very good
+job undeleting files on an ext4 file system.  You will want to use
+photorec for that (also installed on the VB image).
+
 **You may NOT use any OTHER existing digital forensic tools for this
-assignment,** beyond the what is mentioned in the previous paragraph.
-You are to use your knowledge of forensics, the [forensics slide
-set](../slides/forensics.html#/), and the existing OS commands. In
-particular, the "Techniques" section of that slide set has the
-necessary techniques to find what can be found on this disk image.  We
-recommend learning a few commands: `strings`, `find`, and `grep` may
-be particularly useful for Linux.  You can Google for equivalents in
-other OSes.  Note that some of the information on the disk image was
-specifically designed to NOT be able to be (easily) found with Autopsy
-/ SleuthKit.
+assignment,** beyond the what is mentioned in the previous two
+paragraphs.  You are to use your knowledge of forensics, the
+[forensics slide set](../slides/forensics.html#/), and the existing OS
+commands. In particular, the "Techniques" section of that slide set
+has the necessary techniques to find what can be found on this disk
+image.  We recommend learning a few commands: `strings`, `find`, and
+`grep` may be particularly useful for Linux.  You can Google for
+equivalents in other OSes.  Note that some of the information on the
+disk image was specifically designed to NOT be able to be (easily)
+found with Autopsy / SleuthKit.
 
 If you are ***NOT*** using the course VirtualBox image, you can
 install Autopsy by viewing the [details at Autopsy's
@@ -112,7 +123,7 @@ of your report are for which part.
 
 Part 1 is the primary questions of answer:
 
-- Where is Sam? (and any other related info, such as why is he gone, who knows about it, etc.)
+- Where is our missing person? (and any other related info, such as why they are gone, who knows about it, etc.)
 - What parts of the story can you put together?
 
 This part of this report should contain as much of the story as you

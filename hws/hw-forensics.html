@@ -15,22 +15,25 @@
 <h1 id="ics-programming-homework-forensics">ICS: Programming Homework: Forensics</h1>
 <p><a href="index.html">Go up to the ICS HW page</a> (<a href="index.md">md</a>)</p>
 <p>You will want to see the <a href="../uva/hw-policies.html">homeworks policies page</a> (<a href="../uva/hw-policies.md">md</a>) for formatting and other details. The due dates are listed on the <a href="../uva/index.html">UVa course page</a> (<a href="../uva/index.md">md</a>).</p>
-<h3 id="where-is-sam">Where is Sam?</h3>
-<p>Our teaching assistant Sam has disappeared! All the teaching assistants, as well as Professor Bloomfield, were at a department sponsored TA retreat. There were some issues getting home, but everybody eventually did. However, nobody can find Sam. Where could he be?</p>
-<p>As part of the investigation, the authorities have confiscated a computer of the &quot;fifth&quot; teaching assistant (the one who does all the grading but doesn't hold office hours). While they are working on it, they thought you could help, and have provided you with a image of the hard drive for you to analyze.</p>
+<h3 id="scenario">Scenario</h3>
+<p>Where is Mae?</p>
+<p>Mae Cartly led a very secluded life. You knew little about her, or what she did. She rented an apartment across from you, and you saw her occasionally -- but probably spoke a total of 5 words to her in the two years that you lived across from each other.</p>
+<p>Suddenly, though, she disappeared. You could tell that something was up as the lights in her apartment no longer went on at night. The police were called, but the could find no indication of foul play, so they closed the criminal part of the case and listed her as a missing person.</p>
+<p>Her sister Laila showed up a few weeks later, and struck up a conversation with you. Laila worried that something was &quot;up&quot; with Mae's disappearance, although she had no idea what it was. She searched the apartment, but to no avail. The only thing that Laila was not able to properly search was Mae's computer.</p>
+<p>Laila has asked you to look into her computer to see what you can find out. You took an image of the hard drive, which uses Linux, and you have that to work from.</p>
+<p>Laila would like you to help her find out (1) where Mae went, and (2) who she can contact locally about Mae's sudden departure.</p>
 <p>But you have no idea what to look for...</p>
-<p>(Note: in the real world, you might get into legal trouble for doing this type of search, since the owner of the computer did not give you permission, and you don't have a search warrant. But this is an assignment, and FAKE, so there is no legal trouble to get into for this assignment.)</p>
-<p>(And yes, Sam is just fine in the real world.)</p>
 <h3 id="assignment">Assignment</h3>
 <p>Find out what's &quot;up&quot;.</p>
 <p>Spoiler: there is obviously a story that this disk image can tell, otherwise there wouldn't be this assignment.</p>
 <p>The intent is for you to use Autopsy / SleuthKit for this assignment, as well as some command-line tools. You will also want to be familiar with the <a href="../slides/forensics.html#/">digital forensics slide set</a>.</p>
 <h3 id="details">Details</h3>
-<p>You can get a copy of the hard drive image by going to <a href="https://libra.cs.virginia.edu/forensics/" class="uri">https://libra.cs.virginia.edu/forensics/</a> -- you will have to use Netbadge to log in. <strong>You can not use somebody else's disk image!</strong> You have to wait until you are told the images are ready for this semester. The image was compressed with gzip -- if your operating system does not natively support it, then you can use <a href="https://www.7-zip.org/">7-zip</a> to extract it. The compressed .gz file is 4 Gb in size, and the uncompressed image is 10 Gb in size.</p>
+<p>You can get a copy of the hard drive image by going to <a href="https://libra.cs.virginia.edu/forensics/" class="uri">https://libra.cs.virginia.edu/forensics/</a> -- you will have to use Netbadge to log in. <strong>You can not use somebody else's disk image!</strong> You have to wait until you are told the images are ready for this semester. The image was compressed with gzip -- if your operating system does not natively support it, then you can use <a href="https://www.7-zip.org/">7-zip</a> to extract it. The compressed .gz file is about 3.5 Gb in size, and the uncompressed image is about 9 Gb in size.</p>
 <p>This image was designed using Linux (it's an ext4 file system). However, you can do this homework on any host OS. The course VirtualBox image is configured to run Autopsy. Within that image, you can download your disk image, un-gzip it, and run autopsy right from the command line.</p>
 <h3 id="tools-allowed">Tools allowed</h3>
 <p>The intent of this assignment is for you to use <a href="https://en.wikipedia.org/wiki/Autopsy_(software%29)">Autopsy</a> / <a href="https://en.wikipedia.org/wiki/The_Sleuth_Kit">SleuthKit</a>. In addition to Autopsy and SleuthKit, you can use the standard tools that come with an operating system -- in particular, file explorers, searching contents of files for text, etc. You can use any of the utilities discussed in the <a href="../slides/forensics.html#/">digital forensics slide set</a>. You can use differently named equivalents in differing operating systems.</p>
-<p><strong>You may NOT use any OTHER existing digital forensic tools for this assignment,</strong> beyond the what is mentioned in the previous paragraph. You are to use your knowledge of forensics, the <a href="../slides/forensics.html#/">forensics slide set</a>, and the existing OS commands. In particular, the &quot;Techniques&quot; section of that slide set has the necessary techniques to find what can be found on this disk image. We recommend learning a few commands: <code>strings</code>, <code>find</code>, and <code>grep</code> may be particularly useful for Linux. You can Google for equivalents in other OSes. Note that some of the information on the disk image was specifically designed to NOT be able to be (easily) found with Autopsy / SleuthKit.</p>
+<p>Note that, as mentioned in the slides, autopsy does not do a very good job undeleting files on an ext4 file system. You will want to use photorec for that (also installed on the VB image).</p>
+<p><strong>You may NOT use any OTHER existing digital forensic tools for this assignment,</strong> beyond the what is mentioned in the previous two paragraphs. You are to use your knowledge of forensics, the <a href="../slides/forensics.html#/">forensics slide set</a>, and the existing OS commands. In particular, the &quot;Techniques&quot; section of that slide set has the necessary techniques to find what can be found on this disk image. We recommend learning a few commands: <code>strings</code>, <code>find</code>, and <code>grep</code> may be particularly useful for Linux. You can Google for equivalents in other OSes. Note that some of the information on the disk image was specifically designed to NOT be able to be (easily) found with Autopsy / SleuthKit.</p>
 <p>If you are <strong><em>NOT</em></strong> using the course VirtualBox image, you can install Autopsy by viewing the <a href="https://www.sleuthkit.org/autopsy/download.php">details at Autopsy's website</a>. It's already installed on the VirtualBox image. The current version is 4.10 -- make sure you are using that version (or a more recent one if available).</p>
 <h3 id="running-on-the-virtualbox-image">Running on the VirtualBox image</h3>
 <p>To run Autopsy on the VirtualBox image, just run <code>autopsy</code>.</p>
@@ -40,7 +43,7 @@
 <p>The report will be divided into a number of parts. So that we can easily figure out what you found out, please make it clear which part of your report are for which part.</p>
 <p>Part 1 is the primary questions of answer:</p>
 <ul>
-<li>Where is Sam? (and any other related info, such as why is he gone, who knows about it, etc.)</li>
+<li>Where is our missing person? (and any other related info, such as why they are gone, who knows about it, etc.)</li>
 <li>What parts of the story can you put together?</li>
 </ul>
 <p>This part of this report should contain as much of the story as you can determine. Note that you will be able to get partial credit based on what you find, even if you don't find everything.</p>

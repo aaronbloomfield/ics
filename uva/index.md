@@ -36,6 +36,8 @@ Readings
 
 All scholarly articles (such as from the ACM digital library) can be obtained from free from any UVa wireless network.  Some of them you will *NOT* be able to get it for free from your home Internet provider such as Comcast (unless you live in a UVa dorm, of course) without using a UVa VPN.  All readings are due by the start of lecture that day.
 
+- Due Friday, June 12th
+    - Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf)
 - Due Wednesday, June 3rd
     - [NPR's Planet Monday episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
 - Due Tuesdady, May 25th:
@@ -51,6 +53,7 @@ Homeworks
 
 Unless otherwise noted, all submissions are due by the end of the day of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the [online submission system][162] -- all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time.
 
+- [HW 8: Forensics](../hws/hw-forensics.html) is due Friday, June 12th
 - [HW 7: Cryptocurrency](../hws/hw-cryptocurrency.html) is due Monday, June 8th
 - [HW 6: SQL/XSS/CSRF](../hws/hw-sql-xss-csrf.html) is due Thursday, June 4th
 - [HW 5: Hashing](../hws/hw-hashing.html) is due Monday, June 1st
