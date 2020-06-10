@@ -60,8 +60,8 @@ somebody else's disk image!** You have to wait until you are told the
 images are ready for this semester.  The image was compressed with
 gzip -- if your operating system does not natively support it, then
 you can use [7-zip](https://www.7-zip.org/) to extract it.  The
-compressed .gz file is about 3.5 Gb in size, and the uncompressed image is about 9
-Gb in size.
+compressed .gz file is about 3.5 Gb in size, and the uncompressed
+image is about 9 Gb in size.
 
 This image was designed using Linux (it's an ext4 file system).
 However, you can do this homework on any host OS.  The course
@@ -72,8 +72,8 @@ the command line.
 ### Tools allowed
 
 The intent of this assignment is for you to use
-[Autopsy](https://en.wikipedia.org/wiki/Autopsy_(software%29)) /
-[SleuthKit](https://en.wikipedia.org/wiki/The_Sleuth_Kit).  In
+[Autopsy](https://www.sleuthkit.org/autopsy/) /
+[SleuthKit](https://www.sleuthkit.org/sleuthkit/).  In
 addition to Autopsy and SleuthKit, you can use the standard tools that
 come with an operating system -- in particular, file explorers,
 searching contents of files for text, etc.  You can use any of the
