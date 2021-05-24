@@ -33,10 +33,11 @@ longer.
 Pick two of the following scenarios. (If you answer more, we'll
 only grade the first two)
 
-- You are supporting an application for which the group that will be using it is not computer savvy at all.  How do you ensure the application's security when they all have full access to edit and delete items in the system?
-- You manage a store during the covid-19 pandemic, and have to ensure the health and security of your employees.
-- People are illegally disposing of chemicals into a recreational lake, and it's killing the fish and tainting the water supply.
-- You are in charge of ensuring that pilots on airplanes are kept safe and healthy during the covid-19 pandemic.  Recall that airplanes circulate their air supply throughout the entire airplane throughout the flight, and SARS-CoV-2 (the virus that causes covid-19) is, apparently, airborne.
+- You were hired by the Pilgrim Pipeline Company to ensure their cybersecurity, including against ransomware attacks.  However, the company does not have a culture of secure computer habits.  How do you ensure the security of the company?
+- You manage a store, and mask rules have been relaxed by the CDC.  Those relaxed rules state that a fully vaccinated adult does not need to wear a mask.  However, it's hard to tell who is fully vaccinated, and who is not vaccinated but resistant to wearing a mask.  How do you protect your customers?
+- You are in charge of the security for a home football game here at UVa -- assume that this is after the pandemic is fully over, and strangers can sit next to each other again.
+- State U just won a basketball championship!  Unlike UVa's win in 2019, there is expected to be violence and rioting by the student body.  How do you ensure safety on campus?
+
 
 In addition, choose another scenario from everyday life that we
 haven't discussed in class.  Your choice can be directly related to
