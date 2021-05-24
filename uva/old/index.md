@@ -5,6 +5,12 @@ ICS: Old Material
 
 This page contains the relevant pages from the uva/ directory in this repository from previous semester.  While the content of those pages should all be viewable, the links therein are likely to not work properly.
 
+### Summer 2020
+
+- [Main UVa page](index-summer-2020.html) ([md](index-summer-2020.md))
+- [Course syllabus](syllabus-summer-2020.html) ([md](syllabus-summer-2020.md))
+- [Daily announcements](daily-announcements-summer-2020.html)
+
 ### Fall 2019
 
 - [Main UVa page](index-fall-2019.html) ([md](index-fall-2019.md))

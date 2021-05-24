@@ -4,9 +4,9 @@ CS 3710: Course grades
 As per the [syllabus](syllabus.html) ([md](syllabus.md)), the grades were computed by:
 
 - Programming and written assignments (45%)
-- Two midterms (15% each)
+- Midterms (20%)
 - Final exam (25%)
-- Class participation, pop quizzes (5%)
+- Class participation, pop quizzes (10%)
 
 ## The Process of Grade Determination
 

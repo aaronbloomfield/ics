@@ -3,27 +3,28 @@ CS 3710: Introduction to Cybersecurity (ICS)
 
 [Go up to the ICS UVa page](index.html) ([md](index.md))
 
-## Summer 2021
+## Summer 2020
 
 ### Course Staff ###
 
-- [Aaron Bloomfield][3] / [aaron@virginia.edu][4].  Office: Rice Hall, room 402.  But really everything is going to be online to do the COVID-19 pandemic.
+- [Aaron Bloomfield][3] / [aaron@virginia.edu][4].  Office: Rice Hall, room 402.  But really everything is going to be online to do the covid-19 pandemic.
 - Office hours are M/Tu/W/Th/F 10:00-10:30.  Additional office hours will be scheduled as needed and by appointment.
+- Two undergraduate TAs: Vibha Patil and Vernon Andrade, who will be holding office hours and helping grade homeworks and assignments.  Their office hours are TBA.
 
 ### Course Info ###
 
 - Lecture: M/Tu/W/Th/F 10:30-12:15 via Zoom
 - Email: none; fill out a [support request][6] instead
 - Announcements will be done through the [daily announcements slide set](daily-announcements.html#/)
-<!-- - TAs and their office hours will be posted on the Collab course main page; all office hours start the second day of classes -->
+- TAs and their office hours will be posted on the Collab course main page; all office hours start the second day of classes
 
 
 **Course content:** All the course content is available free online at 
 [http://aaronbloomfield.github.io/ics](http://aaronbloomfield.github.io/ics), which is from a public github repository: [https://github.com/aaronbloomfield/ics](https://github.com/aaronbloomfield/ics).  All the material in that repo is released under a [Creative Commons license](https://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA).  Note that this license and public release does NOT apply to the lecture videos.
 
-**Online:** This class is going to be completely online due to the COVID-19 pandemic.  The speed of summer classes makes them tricky to teach fully online.  Please provide feedback as the summer term progresses so I can get a feel for what works and what does not.  While you can always submit a [support ticket][6], you can also submit [anonymous feedback][8] as well.
+**Online:** This class is going to be completely online due to the covid-19 pandemic.  While we all had to pivot to online classes this past spring semester, this is the first class I have taught that is completely online.  I'm sure some things are not going to work out well.  Please provide feedback as the summer term progresses so I can get a feel for what works and what does not.  While you can always submit a [support ticket][6], you can also submit [anonymous feedback][8] as well.
 
-**Lectures:** They will all be via a Zoom meeting, which you can find in the [Online Meetings tool in the course Collab workspace](https://collab.its.virginia.edu/portal/site/6ec853e6-b6e3-40f7-8c72-0f7f966ffa71/page/f1237135-a40f-40f6-a89d-a2261bf3bf7c).  While that meeting repeats every day, we won't be having office hours or lecture on the weekends or on Memorial Day (May 25th).  Note that you have to be authenticated, via Collab, before you can join -- click on the Online Meetings tab in the Collab workspace.  Lecture attendance is **REQUIRED**.  Office hours are from 10:00-10:30, so the meeting starts at 10:00, if you want to join early.  However, lecture still starts at 10:30.  Most days there will be a short discussion (half hour or so), and two pre-recorded lecture videos to watch on your own time -- the intent is that you can watch them between by the 12:15 end time of class if you so choose. The lectures that will not follow this schedule (just the first half hour being synchronous) are the first one, the last two, and those of the exams.  Note that there will be occasional pop quizzes in lecture, both on the readings and the lecture videos.  Also note that there are two Saturday classes this year -- June 5th and June 12th.  I'm not happy about that, either.
+**Lectures:** They will all be via a Zoom meeting 98953912940 ([https://virginia.zoom.us/j/98953912940](https://virginia.zoom.us/j/98953912940)).  While that meeting repeats every day, we won't be having office hours or lecture on the weekends or on Memorial Day (May 25th).  Note that you have to be authenticated, via Collab, before you can join -- click on the Online Meetings tab in the Collab workspace.  Lecture attendance is **REQUIRED**.  Office hours are from 10:00-10:30, so the meeting starts at 10:00.  However, lecture still starts at 10:30.  Most days there will be a short discussion (half hour or so), and two pre-recorded lecture videos to watch on your own time -- the intent is that you can watch them between by the 12:15 end time of class if you so choose. The lectures that will not follow this schedule (just the first half hour being synchronous) are the first one, the last two, and those of the exams.  Note that there will be occasional pop quizzes in lecture, both on the readings and the lecture videos.
 
 **Reading:** Due to the rapidly changing nature of this topic, there is no assigned textbook -- the best textbook on the topic is already 5-10 years out of date. Readings will consist of handouts, online materials, and articles (both media and scholarly). Much of the background for this course depends on completing the readings. Thus, occasional pop quizzes will happen to ensure that everybody is doing the reading (and to ensure that people are showing up to class!).
 
@@ -45,13 +46,15 @@ CS 3710: Introduction to Cybersecurity (ICS)
 **Grades:** Grades will be calculated by the following formula:
 
 - Programming and written assignments (45%)
-- Midterm (20%)
+- Midterms (20% each)
 - Final exam (25%)
 - Class participation, pop quizzes (10%)
 
-I *expect* that grades will follow the standard decade curve: 90 and above is an A of some sort (A-, A, or A+), 80 and above is some sort of a B, etc.  **Note:** I reserve the right to modify the weighting (changing the curve, adding pop quizzes, etc.), especially if attendance drops off significantly.  In particular, if the grade averages are very high, then you will need higher than a 90 to get an A-.
+Note that grades will be letter grades (A-F), and NOT credit/no-credit grades as was done this past spring semester.
 
-**Assignments:** The course content is split into six "modules".  During a regular (fall or spring) semester, the intent is for each module to have two assignments: a written homework and a programming homework.  During a summer term, there will be less than that.  The written homeworks will be submitted as a PDF, and will consist of writing, math, and short programs.  The programming assignments will have their source code submitted.  You will need to be familiar with the [homework policies](hw-policies.html) ([md](hw-policies.md)), as you will be bound by them on the assignments.
+I expect that grades will follow the standard decade curve: 90 and above is an A of some sort (A-, A, or A+), 80 and above is some sort of a B, etc.  **Note:** I reserve the right to modify the weighting (changing the curve, adding pop quizzes, etc.), especially if attendance drops off significantly.  If this does happen, it will be clearly announced in lecture (and on the [daily announcements slide set](daily-announcements.html#/)).
+
+**Assignments:** The course content is split into six "modules".  The intent is for each module to have two assignments: a written homework and a programming homework.  The written homeworks will be submitted as a PDF, and will consist of writing, math, and short programs.  The programming assignments will have their source code submitted.  You will need to be familiar with the [homework policies](hw-policies.html) ([md](hw-policies.md)), as you will be bound by them on the assignments.
 
 **Course rules:** You are fully responsible for all material presented in class and on the required readings. Exams and due dates are scheduled in advance. A grade of zero will be recorded for missed exams and late assignments unless prior arrangements are made (see below for details) or there are truly extenuating circumstances (which will require appropriate documentation). Assignments turned in after the due date are penalized 25% per day (or fraction thereof) late; this means a maximum of 3 days (i.e. 72 hours) late. In most cases, you are free to develop assignments on any platform/OS you wish. Some assignments may require a specific operating system setup, which will be provided when necessary.  However, you are responsible for porting your code to the system the class is using and ensuring that it runs correctly for us when we grade your assignment. Our reference system will specified for each assignment, but will generally be Ubuntu Linux. Some assignments will be graded by automated unit testing.
 
@@ -59,19 +62,18 @@ I *expect* that grades will follow the standard decade curve: 90 and above is an
 
 **Special Circumstances:** Students with special circumstances (athletics, extra time required on exams, final exam conflicts, SDAC considerations, etc.) need to let me know during the **first week of class**.
 
-**Exams:** There will be one midterm exam (worth 20% of the final grade) and one final exam (worth 25% of the final grade).
+**Exams:** There will be one midterm exams (worth 20% of the final grade) and one final exam (worth 25% of the final grade).
 
-- Midterm exam: Saturday, June 5th, during lecture
-- Final exam: Thursday, Jun 17th, during the normal lecture time
+- Midterm exam: Friday, May 29th, during lecture
+- Final exam: **EITHER** Friday, June 12th during lecture **OR** Saturday, June 13th at time TBA
 
 Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  Since there are no other exams scheduled during that time, it is unlikely that you will have a conflict.
 
-**Regrades:** You may submit graded homeworks and exams for regrading within 4 days of when they are returned to you (less time for the final due to the end of the semester).  Regrades are submitted via a [support request][6].  As long as people submit responsibly, I will not institute a frivolous regrade policy that existed in some semesters of CS 2150 (if one is instituted, you will be told of this ahead of time).  This time limit will be strictly enforced.
+**Regrades:** You may submit graded homeworks and exams for regrading within 4 days of when they are returned to you (less time for the final due to the end of the semester); this is done via the [course tools][5].  As long as people submit responsibly, I will not institute a frivolous regrade policy that existed in CS 2150 (if one is instituted, you will be told of this ahead of time).  This time limit will be strictly enforced.
 
 **Computing resources:** There are two specific computer resources needed for this course:
 
 - You need to have a working computer that can run a recent build of [VirtualBox][9], with enough hard drive space (and memory) to use a course VirtualBox image (about 10 Gb will be needed for the install, and then 6 Gb  will be used once the installation files are deleted).  Any computer made in the last 3 years will suffice for these requirements, and many older ones will as well.  It doesn't matter if it's a desktop or notebook; nor does the speed matter.
-    - If you have an M1 Mac, please let me know, as this will affect what you can run.
 - There are a few documents that you may have to print.  The total printing load will be under 10 pages for the entire semester.  You will need to obtain access to a printer for those pages.
 
 **Honor pledge:** The UVa Honor Code is in effect for this course.  There are two course specific additions.  
@@ -105,6 +107,6 @@ As far as the summer term is considered, each day is considered two "lectures" i
 [3]: http://www.cs.virginia.edu/~asb
 [4]: mailto:aaron@virginia.edu
 [5]: https://libra.cs.virginia.edu/~pedagogy/
-[6]: https://pegasus.cs.virginia.edu/satori/cs3710-su2021/tickets/
-[8]: https://collab.its.virginia.edu/portal/site/6ec853e6-b6e3-40f7-8c72-0f7f966ffa71/tool/f17a5899-fa57-4f82-956f-b24f83d19e6a/main
+[6]: https://libra.cs.virginia.edu/~pedagogy/support.php
+[8]: https://collab.its.virginia.edu/portal/site/02dd0151-e77a-4f8a-adc8-65fcd9ba3ecf/tool/f5f0f583-519f-4d4a-b6e5-57d435bf17ff/main
 [9]: https://www.virtualbox.org/
