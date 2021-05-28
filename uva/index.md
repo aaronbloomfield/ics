@@ -82,8 +82,8 @@ Each day has two lectures to view that day.
 6. Tue, Jun 1: encryption
 7. Wed, Jun 2: encryption
 8. Thu, Jun 3: encryption, networking overview, web security
-9. Fri, Jun 4: web security (and the first midterm)
-10. Sat, Jun 5: sql/xss/csrf, web security
+9. Fri, Jun 4: web security, web security
+10. Sat, Jun 5: sql/xss/csrf (and the first midterm)
 11. Mon, Jun 7: web security, cryptocurrency
 12. Tue, Jun 8: cryptocurrency, anonymity
 13. Wed, Jun 9: anonymity, stuxnet
