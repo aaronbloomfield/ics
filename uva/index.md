@@ -40,7 +40,7 @@ All scholarly articles (such as from the ACM digital library) can be obtained fr
     - Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf)
 -->
 
-- Due Tuesday, June 8th:
+- Due Monday, June 7th:
     - [NPR's Planet Monday episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
 - Due Tuesdady, June 1st:
     - [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
@@ -61,9 +61,9 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 - [HW 7: Cryptocurrency](../hws/hw-cryptocurrency.html) is due Monday, June 14th
 - [HW 6: SQL/XSS/CSRF](../hws/hw-sql-xss-csrf.html) is due Wednesday, June 9th
 - [HW 5: Hashing](../hws/hw-hashing.html) is due Saturday, June 5th
-- [HW 4: RSA](../hws/hw-rsa.html) is due Friday, June 4th
 -->
 
+- [HW 4: RSA](../hws/hw-rsa.html) ([md](../hws/hw-rsa.md)) is due Thursday, June 3rd
 - [HW 3: Ethics](../hws/hw-ethics.html) ([md](../hws/hw-ethics.md)) is due Monday, May 31st
 - [HW 2: Policy](../hws/hw-policy.html) ([md](../hws/hw-policy.md)) is due Friday, May 28th
 - [HW 1: Rational Paranoia](../hws/hw-paranoia.html) ([md](../hws/hw-paranoia.md)) is due Wednesday, May 26th
