@@ -59,10 +59,10 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 <!--
 - [HW 8: Forensics](../hws/hw-forensics.html) is due Wednesday, June 16th
 - [HW 7: Cryptocurrency](../hws/hw-cryptocurrency.html) is due Monday, June 14th
-- [HW 6: SQL/XSS/CSRF](../hws/hw-sql-xss-csrf.html) is due Wednesday, June 9th
 - [HW 5: Hashing](../hws/hw-hashing.html) is due Saturday, June 5th
 -->
 
+- [HW 5: SQL/XSS/CSRF](../hws/hw-sql-xss-csrf.html) is due Tuesday, June 8th
 - [HW 4: RSA](../hws/hw-rsa.html) ([md](../hws/hw-rsa.md)) is due Thursday, June 3rd
 - [HW 3: Ethics](../hws/hw-ethics.html) ([md](../hws/hw-ethics.md)) is due Monday, May 31st
 - [HW 2: Policy](../hws/hw-policy.html) ([md](../hws/hw-policy.md)) is due Friday, May 28th
