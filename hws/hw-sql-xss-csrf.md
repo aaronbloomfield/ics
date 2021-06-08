@@ -45,13 +45,13 @@ View the page at [https://libra.cs.virginia.edu/~insecure/xss.php](https://libra
 
 There are six XSS attacks that you must do against this page.  While it seems like a lot, it's really only three separate XSS attacks, and one of them is exactly from the slide set.  So, really, you just have two XSS attacks to perform.
 
-- Perform an XSS attack that will change the account balance to a sufficient enough quantity to make the purchase.  This should be done via a posting to the web form
-- Perform the same XSS attack as above, but via a GET variable (i.e. via a URL).
-- Perform an XSS attack that will display the account number to the screen.  This must read the Javascript variable and display it, and should be done via a posting to the web form.
-- Perform the same XSS attack as above, but via a GET variable (i.e. via a URL).
-- Perform an XSS attack that will display the account number to the screen.  This must read via a cookie from the web browser, and display it, and should be done via a posting to the web form.
-- Note that a sophisticated XSS attack would send that account number somewhere over the network - we are just displaying it to the screen
-- Perform the same XSS attack as above, but via a GET variable (i.e. via a URL).
+1. Perform an XSS attack that will change the account balance to a sufficient enough quantity to make the purchase.  This should be done via a posting to the web form
+2. Perform the same XSS attack as above, but via a GET variable (i.e. via a URL).
+3. Perform an XSS attack that will display the account number to the screen.  This must read the Javascript variable and display it, and should be done via a posting to the web form.
+4. Perform the same XSS attack as above, but via a GET variable (i.e. via a URL).
+5. Perform an XSS attack that will display the account number to the screen.  This must read via a cookie from the web browser, and display it, and should be done via a posting to the web form.
+    - Note that a sophisticated XSS attack would send that account number somewhere over the network - we are just displaying it to the screen
+6. Perform the same XSS attack as above, but via a GET variable (i.e. via a URL).
 
 In your report, you should list the following:
 
