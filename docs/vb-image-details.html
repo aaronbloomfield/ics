@@ -112,7 +112,7 @@ alias xemacs=&#39;emacs&#39;</code></pre>
 <h3 id="introduction-to-cybersecurity-configuration">Introduction to Cybersecurity configuration</h3>
 <ul>
 <li>Cloned the github repo via <code>git clone https://github.com/aaronbloomfield/ics</code>; note that a <code>git pull</code> will still have to be executed each time to update it</li>
-<li>Ran <code>sudo apt-get install default-jdk libssl-dev fcrackzip libarchive-zip-perl testdisk libboost-dev libboost-doc unzip traceroute strace nmap apache2</code>
+<li>Ran <code>sudo apt-get install default-jdk libssl-dev fcrackzip libarchive-zip-perl testdisk libboost-dev libboost-doc unzip traceroute strace nmap apache2 php libapache2-mod-php imagemagick</code>
 <ul>
 <li>default-jdk: for the Java assignments, such as RSA</li>
 <li>libssl-dev: for the hashing HW (C++ MD5 routines)</li>
@@ -126,6 +126,8 @@ alias xemacs=&#39;emacs&#39;</code></pre>
 <li>strace, for the kernel rootkits tutorial</li>
 <li>nmap, apache2, libapache2-mod-php: for networks</li>
 <li>python3, python3-pip, python-virtualenv, python3-virtualenv, for Python development</li>
+<li>php, libapache2-mod-php: for PHP on apache</li>
+<li>imagemagick: needed for autopsy</li>
 </ul></li>
 <li>Installed the kernel headers, as per <a href="http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/">http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/</a>
 <ul>
@@ -135,43 +137,58 @@ alias xemacs=&#39;emacs&#39;</code></pre>
 <ul>
 <li>enabled the userdir apache2 module (i.e., using ~userid/ for each userid): <code>sudo a2enmod userdir</code></li>
 <li>enabled the URL rewriting apache2 module: <code>sudo a2enmod rewrite</code></li>
-<li>enabled PHP in user directories: edit (via sudo) <code>/etc/apache2/mods-available/php7.2.conf</code>, and change the <code>Off</code> in the <code>php_admin_value engine Off</code> line to <code>On</code></li>
+<li>enabled PHP in user directories: edit (via sudo) <code>/etc/apache2/mods-available/php7.4.conf</code> (the number ‘7.4’ may be different), and change the <code>Off</code> in the <code>php_admin_value engine Off</code> line to <code>On</code></li>
 <li>restart apache: <code>sudo service apache2 restart</code></li>
 <li>the ‘student’ user can already view the apache2 error logs (in /var/log/apache2), but if they couldn’t, then they would have to have been added to the ‘adm’ group (i.e., <code>usermod -a -G adm student</code>, but this requires logging out and logging in for the group change to take effect)</li>
 <li>made a ‘public_html’ directory both in ~student and /etc/skel; the former is chown’ed to student:student</li>
 </ul></li>
 <li>Install autopsy:
 <ul>
-<li>Download the latest version of autopsy and the the sleuthkit_java package from <a href="http://sleuthkit.org/">http://sleuthkit.org/</a>
+<li>Download the latest version of autopsy and the the sleuthkit_java package from <a href="http://sleuthkit.org/">http://sleuthkit.org/</a> (the download page is on the autoposy tab there, not the sleuthkit tab)
 <ul>
-<li>A given version of autopsy is “mated” to a specific version of sleuthkit, and they have to match. For the fall 2019 version, the sleuthkit_java package was not available for the latest version of sleuthkit (4.6.7), which means that the latest version of autopsy (4.12.0) would not work. Thus, sleuthkit version 4.6.6 and autopsy 4.11.0 were used instead.</li>
+<li>A given version of autopsy is “mated” to a specific version of sleuthkit, and they have to match. As of the writing of thus (June 2021), the current downloadable versions (autopsy 4.18.0 and sleuthkit-java 4.10.2) match.</li>
 </ul></li>
 <li>The command to install the package is <code>dpkg -i sleuthkit-java_4.6.6-1_amd64.deb</code> – when that fails due to dependency issues, run <code>apt-get -f install</code>, and it will install the dependent packages and finish the sleuthkit package installation</li>
-<li>This needs the Oracle version of Java 1.8 – download that, and unzip to /usr/local/
+<li>Unzip autopsy to /usr/local – the path will be something like /usr/local/autopsy-4.18.0/
 <ul>
-<li>Only the JRE is needed, not the JDK</li>
-<li>The path will be something like /usr/local/jre1.8.0_221/</li>
+<li>This should be unzipped as root: <code>cd /usr/local; sudo unzip -q /path/to/autopsy-4.18.0.zip</code></li>
 </ul></li>
-<li>Unzip autopsy to /usr/local as well – the path will be something like /usr/local/autopsy-4.11.0/
+<li><p>This needs a specific version of Java (1.8) along with JavaFX; directions for installing this can be found <a href="https://github.com/sleuthkit/autopsy/blob/develop/Running_Linux_OSX.txt">here</a>; they are:</p>
+<pre><code>wget -q -O - https://download.bell-sw.com/pki/GPG-KEY-bellsoft | sudo apt-key add -
+echo &quot;deb [arch=amd64] https://apt.bell-sw.com/ stable main&quot; | sudo tee /etc/apt/sources.list.d/bellsoft.list
+sudo apt-get update
+sudo apt-get install bellsoft-java8-full
+export JAVA_HOME=/usr/lib/jvm/bellsoft-java8-full-amd64</code></pre>
 <ul>
-<li>This should be unzipped as root: <code>cd /usr/local; sudo unzip -q /path/to/autopsy-4.11.0.zip</code></li>
+<li>Put that list line at the end of <code>~student/.bashrc</code></li>
 </ul></li>
-<li>If the /usr/local/autopsy-4.11.0/unix_setup.sh file is Windows text file format, it needs to be converted
+<li>If the /usr/local/autopsy-4.18.0/unix_setup.sh file is Windows text file format, it needs to be converted
 <ul>
-<li>Run <code>file /usr/local/autopsy-4.11.0/unix_setup.sh</code>, and if it says “CRLF line terminators”, it needs to be converted</li>
-<li>Run <code>sudo fromdos /usr/local/autopsy-4.11.0/unix_setup.sh</code></li>
+<li>Run <code>file /usr/local/autopsy-4.18.0/unix_setup.sh</code>, and if it says “CRLF line terminators”, it needs to be converted</li>
+<li>Run <code>sudo fromdos /usr/local/autopsy-4.18.0/unix_setup.sh</code></li>
 <li>Note that it doesn’t hurt to run that <code>fromdos</code> command regardless of the format</li>
 </ul></li>
-<li>Configure autopsy: from the autopsy directory (/usr/local/autopsy-4.11.0/), run <code>sudo JAVA_HOME=/usr/local/jre1.8.0_221/ bash unix_setup.sh</code>
+<li>Configure autopsy: from the autopsy directory (/usr/local/autopsy-4.18.0/), run <code>sudo JAVA_HOME=/usr/lib/jvm/bellsoft-java8-full-amd64 bash ./unix_setup.sh</code>
 <ul>
 <li>Use the actual path of the JRE, not necessarily what is listed in the command above</li>
 <li>It should complete with no errors and print “Autopsy is now configured. You can execute bin/autopsy to start it”</li>
 </ul></li>
 <li>More autopsy configuration
 <ul>
-<li>Run <code>sudo chmod 755 /usr/local/autopsy-4.11.0/bin/autopsy</code> to allow non-root to run autopsy</li>
+<li>Run <code>sudo chmod 755 /usr/local/autopsy-4.18.0/bin/autopsy</code> to allow non-root to run autopsy</li>
 </ul></li>
-<li>Put in an alias in ~/.bashrc: <code>alias autopsy='/usr/local/autopsy-4.11.0/bin/autopsy --jdkhome /usr/local/jre1.8.0_221/'</code></li>
+<li>Put in an alias in ~/.bashrc: <code>alias autopsy='/usr/local/autopsy-4.18.0/bin/autopsy --nosplash --jdkhome /usr/lib/jvm/bellsoft-java8-full-amd64'</code>
+<ul>
+<li>The <code>--nosplash</code> is critical, as there is a <a href="https://github.com/sleuthkit/autopsy/issues/6980">known bug</a> where the spash screen hides the confirmation box, and the confirmation box needs to be checked before one can open up the GUI.</li>
+</ul></li>
+<li>Run autopsy to get it working
+<ul>
+<li>Ensure that the <code>~/.autopsy</code> directory is not present, and that no autopsy processes are running</li>
+<li>The first time, run without the <code>--nosplash</code> option: <code>/usr/local/autopsy-4.18.0/bin/autopsy --nosplash --jdkhome /usr/lib/jvm/bellsoft-java8-full-amd64</code></li>
+<li>That will hang on “starting modules” or “loading module services”</li>
+<li>Kill the process (likely by finding the PID via <code>ps</code>), and then run with the <code>--nosplash</code> option</li>
+<li>This should load properly with the “Welcome” dialog</li>
+</ul></li>
 </ul></li>
 </ul>
 <h3 id="service-learning-practicum-configuration-section">Service Learning Practicum configuration section</h3>

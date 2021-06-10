@@ -14,14 +14,14 @@ Greetings, and welcome to CS 3710! Here are the relevant links you will need thi
 	- There will also be office hours at other times as needed
   - If you want to view the recordings from the lecture sessions, click on the "Lecture Capture" tool, then on the "Cloud Recordings" tab, then the particular one you want to view.  You can view the full recording or the audio only -- when you click on the icon, it will copy the passcode to the clipboard, and you can then paste that in the box when prompted.
 - Everybody has to (digitally) sign the [Cybersecurity Ethics Pledge](https://docs.google.com/forms/d/e/1FAIpQLScLvbH611z9dTpPnAfCTQ4u_aX3SJA30M4EutFDOLkuWeArTg/viewform){target="_blank"}
-- The VirtualBox image will be available soon. <!-- can be found [here](https://virginia.box.com/s/fqm6a91lakfzwh88sef9iv01d71eu14m){target="_blank"}; it's about a 2.7 Gb download.  --> For directions about how to unzip it and install it, see [here](https://uva-cs.github.io/pdr/tutorials/01-intro-unix/virtual-box.html){target="_blank"}.
+- The VirtualBox image can be found [here](https://virginia.box.com/s/qucmutlc8zy9ouymm62miw0da34ted7e){target="_blank"}; it's about a 5.3 Gb download.  For directions about how to unzip it and install it, see [here](https://uva-cs.github.io/pdr/tutorials/01-intro-unix/virtual-box.html){target="_blank"}.
 - Collab tools:
     - Lecture recordings are via the Lecture Capture tool to the left (also called Panopto)
     - Assignments are submitted on Gradescope via the tool to the left
     - Any individual concerns should be done via a [support request](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/tickets/){target="_blank"}
 - Current list of things that are due:
   - Homeworks due (all are due by the end of the day):
-	- [HW 6: Cryptocurrency](https://aaronbloomfield.github.io/ics/hws/hw-cryptocurrency.html){target="_blank"} is due Friday, June 11th: 
+	- [HW 6: Cryptocurrency](https://aaronbloomfield.github.io/ics/hws/hw-cryptocurrency.html){target="_blank"} is due Saturday, June 12th: 
 	- ~~[HW 5: SQL/XSS/CSRF](https://aaronbloomfield.github.io/ics/hws/hw-sql-xss-csrf.html){target="_blank"} is due Tuesday, June 8th~~
 	- ~~[HW 4: RSA](https://aaronbloomfield.github.io/ics/hws/hw-rsa.html){target="_blank"} is due Thursday, June 3rd~~
     - ~~[HW 3: Ethics](https://aaronbloomfield.github.io/ics/hws/hw-ethics.html){target="_blank"} is due Monday, May 31st~~

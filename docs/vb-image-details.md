@@ -94,7 +94,7 @@ alias xemacs='emacs'
 ### Introduction to Cybersecurity configuration
 
 - Cloned the github repo via `git clone https://github.com/aaronbloomfield/ics`; note that a `git pull` will still have to be executed each time to update it
-- Ran `sudo apt-get install default-jdk libssl-dev fcrackzip libarchive-zip-perl testdisk libboost-dev libboost-doc unzip traceroute strace nmap apache2`
+- Ran `sudo apt-get install default-jdk libssl-dev fcrackzip libarchive-zip-perl testdisk libboost-dev libboost-doc unzip traceroute strace nmap apache2 php libapache2-mod-php imagemagick`
 	- default-jdk: for the Java assignments, such as RSA
 	- libssl-dev: for the hashing HW (C++ MD5 routines)
 	- fcrackzip: for the zip cracking program
@@ -107,35 +107,50 @@ alias xemacs='emacs'
 	- strace, for the kernel rootkits tutorial
 	- nmap, apache2, libapache2-mod-php: for networks
 	- python3, python3-pip, python-virtualenv, python3-virtualenv, for Python development
+	- php, libapache2-mod-php: for PHP on apache
+	- imagemagick: needed for autopsy
 - Installed the kernel headers, as per [http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/](http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/)
     - Ran `apt-cache search linux-headers-$(uname -r)`, then installed that package (if not already installed)
 - apache2 configuration
     - enabled the userdir apache2 module (i.e., using ~userid/ for each userid): `sudo a2enmod userdir`
     - enabled the URL rewriting apache2 module: `sudo a2enmod rewrite`
-    - enabled PHP in user directories: edit (via sudo) `/etc/apache2/mods-available/php7.2.conf`, and change the `Off` in the 
+    - enabled PHP in user directories: edit (via sudo) `/etc/apache2/mods-available/php7.4.conf` (the number '7.4' may be different), and change the `Off` in the 
 `php_admin_value engine Off` line to `On`
     - restart apache: `sudo service apache2 restart`
     - the 'student' user can already view the apache2 error logs (in /var/log/apache2), but if they couldn't, then they would have to have been added to the 'adm' group (i.e., `usermod -a -G adm student`, but this requires logging out and logging in for the group change to take effect)
     - made a 'public_html' directory both in ~student and /etc/skel; the former is chown'ed to student:student
 - Install autopsy:
-    - Download the latest version of autopsy and the the sleuthkit_java package from [http://sleuthkit.org/](http://sleuthkit.org/)
-	    - A given version of autopsy is "mated" to a specific version of sleuthkit, and they have to match.  For the fall 2019 version, the sleuthkit_java package was not available for the latest version of sleuthkit (4.6.7), which means that the latest version of autopsy (4.12.0) would not work.  Thus, sleuthkit version 4.6.6 and autopsy 4.11.0 were used instead.
+    - Download the latest version of autopsy and the the sleuthkit_java package from [http://sleuthkit.org/](http://sleuthkit.org/) (the download page is on the autoposy tab there, not the sleuthkit tab)
+	    - A given version of autopsy is "mated" to a specific version of sleuthkit, and they have to match.  As of the writing of thus (June 2021), the current downloadable versions (autopsy 4.18.0 and sleuthkit-java 4.10.2) match.
 	- The command to install the package is `dpkg -i sleuthkit-java_4.6.6-1_amd64.deb` -- when that fails due to dependency issues, run `apt-get -f install`, and it will install the dependent packages and finish the sleuthkit package installation
-	- This needs the Oracle version of Java 1.8 -- download that, and unzip to /usr/local/
-		- Only the JRE is needed, not the JDK
-		- The path will be something like /usr/local/jre1.8.0_221/ 
-	- Unzip autopsy to /usr/local as well -- the path will be something like /usr/local/autopsy-4.11.0/
-	    - This should be unzipped as root: `cd /usr/local; sudo unzip -q /path/to/autopsy-4.11.0.zip`
-	- If the /usr/local/autopsy-4.11.0/unix_setup.sh file is Windows text file format, it needs to be converted
-	    - Run `file /usr/local/autopsy-4.11.0/unix_setup.sh`, and if it says "CRLF line terminators", it needs to be converted
-		- Run `sudo fromdos /usr/local/autopsy-4.11.0/unix_setup.sh`
+	- Unzip autopsy to /usr/local -- the path will be something like /usr/local/autopsy-4.18.0/
+	    - This should be unzipped as root: `cd /usr/local; sudo unzip -q /path/to/autopsy-4.18.0.zip`
+	- This needs a specific version of Java (1.8) along with JavaFX; directions for installing this can be found [here](https://github.com/sleuthkit/autopsy/blob/develop/Running_Linux_OSX.txt); they are:
+      ```
+wget -q -O - https://download.bell-sw.com/pki/GPG-KEY-bellsoft | sudo apt-key add -
+echo "deb [arch=amd64] https://apt.bell-sw.com/ stable main" | sudo tee /etc/apt/sources.list.d/bellsoft.list
+sudo apt-get update
+sudo apt-get install bellsoft-java8-full
+export JAVA_HOME=/usr/lib/jvm/bellsoft-java8-full-amd64
+```
+	    - Put that list line at the end of `~student/.bashrc`
+	- If the /usr/local/autopsy-4.18.0/unix_setup.sh file is Windows text file format, it needs to be converted
+	    - Run `file /usr/local/autopsy-4.18.0/unix_setup.sh`, and if it says "CRLF line terminators", it needs to be converted
+		- Run `sudo fromdos /usr/local/autopsy-4.18.0/unix_setup.sh`
 		- Note that it doesn't hurt to run that `fromdos` command regardless of the format
-	- Configure autopsy: from the autopsy directory (/usr/local/autopsy-4.11.0/), run `sudo JAVA_HOME=/usr/local/jre1.8.0_221/ bash unix_setup.sh`
+	- Configure autopsy: from the autopsy directory (/usr/local/autopsy-4.18.0/), run `sudo JAVA_HOME=/usr/lib/jvm/bellsoft-java8-full-amd64 bash ./unix_setup.sh`
 		- Use the actual path of the JRE, not necessarily what is listed in the command above
 		- It should complete with no errors and print "Autopsy is now configured. You can execute bin/autopsy to start it"
 	- More autopsy configuration
-		- Run `sudo chmod 755 /usr/local/autopsy-4.11.0/bin/autopsy` to allow non-root to run autopsy
-	- Put in an alias in ~/.bashrc: `alias autopsy='/usr/local/autopsy-4.11.0/bin/autopsy --jdkhome /usr/local/jre1.8.0_221/'`
+		- Run `sudo chmod 755 /usr/local/autopsy-4.18.0/bin/autopsy` to allow non-root to run autopsy
+	- Put in an alias in ~/.bashrc: `alias autopsy='/usr/local/autopsy-4.18.0/bin/autopsy --nosplash --jdkhome /usr/lib/jvm/bellsoft-java8-full-amd64'`
+	    - The `--nosplash` is critical, as there is a [known bug](https://github.com/sleuthkit/autopsy/issues/6980) where the spash screen hides the confirmation box, and the confirmation box needs to be checked before one can open up the GUI.
+	- Run autopsy to get it working
+		- Ensure that the `~/.autopsy` directory is not present, and that no autopsy processes are running
+		- The first time, run without the `--nosplash` option: `/usr/local/autopsy-4.18.0/bin/autopsy --nosplash --jdkhome /usr/lib/jvm/bellsoft-java8-full-amd64`
+		- That will hang on "starting modules" or "loading module services"
+		- Kill the process (likely by finding the PID via `ps`), and then run with the `--nosplash` option
+		- This should load properly with the "Welcome" dialog
 
 ### Service Learning Practicum configuration section
 
