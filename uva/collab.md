@@ -21,6 +21,7 @@ Greetings, and welcome to CS 3710! Here are the relevant links you will need thi
     - Any individual concerns should be done via a [support request](https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/tickets/){target="_blank"}
 - Current list of things that are due:
   - Homeworks due (all are due by the end of the day):
+    - HW 7: Forensics will be due Wednesday, June 16th, but is not yet ready
 	- [HW 6: Cryptocurrency](https://aaronbloomfield.github.io/ics/hws/hw-cryptocurrency.html){target="_blank"} is due Saturday, June 12th: 
 	- ~~[HW 5: SQL/XSS/CSRF](https://aaronbloomfield.github.io/ics/hws/hw-sql-xss-csrf.html){target="_blank"} is due Tuesday, June 8th~~
 	- ~~[HW 4: RSA](https://aaronbloomfield.github.io/ics/hws/hw-rsa.html){target="_blank"} is due Thursday, June 3rd~~
