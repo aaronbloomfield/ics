@@ -311,10 +311,10 @@ Since different programming languages can be used, we are going to
 have you submit a shell script called `cryptomoney.sh` that we will
 use to test your code.  It is basically a big case statement for each
 of the 10 functions listed above.  A sample such shell script is
-available for Java: [cryptomoney.sh](cryptocurrency/cryptomoney.sh)
-([html](cryptocurrency/cryptomoney.sh.html)) and for Python:
-[cryptomoney2.sh](cryptocurrency/cryptomoney2.sh)
-([html](cryptocurrency/cryptomoney2.sh.html)).  Note that you will
+available for Java: [cryptomoney.sh](cryptocurrency/java/cryptomoney.sh)
+([html](cryptocurrency/java/cryptomoney.sh.html)) and for Python:
+[cryptomoney.sh](cryptocurrency/python/cryptomoney.sh)
+([html](cryptocurrency/python/cryptomoney.sh.html)).  Note that you will
 have to edit them for your specific implementation.  Also note that
 you will have to run `chmod 755 cryptomoney.sh` before you can run the
 shell script.  This is set up for Java -- for Python, you would
