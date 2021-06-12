@@ -6,7 +6,7 @@
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
-<title>cryptomoney2.sh</title>
+<title>cryptomoney.sh</title>
 </head>
 <body bgcolor="white">
 <pre><tt><i><font color="#9A1900">#!/bin/bash</font></i>
@@ -19,43 +19,43 @@ http://www.gnu.org/software/src-highlite">
 	  <i><font color="#9A1900"># additional parameters provided: (none)</font></i>
 	  <font color="#990000">;;</font>
 
-    genesis<font color="#990000">)</font> python cmoney<font color="#990000">.</font>py genesis block_0<font color="#990000">.</font>txt
+    genesis<font color="#990000">)</font> python3 cmoney<font color="#990000">.</font>py genesis block_0<font color="#990000">.</font>txt
 	     <i><font color="#9A1900"># additional parameters provided: (none)</font></i>
              <font color="#990000">;;</font>
 
-    generate<font color="#990000">)</font> python cmoney<font color="#990000">.</font>py generate <font color="#009900">$2</font>
+    generate<font color="#990000">)</font> python3 cmoney<font color="#990000">.</font>py generate <font color="#009900">$2</font>
 	      <i><font color="#9A1900"># additional parameters provided: the wallet file name</font></i>
               <font color="#990000">;;</font>
 
-    address<font color="#990000">)</font> python cmoney<font color="#990000">.</font>py address <font color="#009900">$2</font>
+    address<font color="#990000">)</font> python3 cmoney<font color="#990000">.</font>py address <font color="#009900">$2</font>
 	     <i><font color="#9A1900"># additional parameters provided: the file name of the wallet</font></i>
 	     <font color="#990000">;;</font>
 
-    fund<font color="#990000">)</font> python cmoney<font color="#990000">.</font>py fund <font color="#009900">$2</font> <font color="#009900">$3</font> <font color="#009900">$4</font>
+    fund<font color="#990000">)</font> python3 cmoney<font color="#990000">.</font>py fund <font color="#009900">$2</font> <font color="#009900">$3</font> <font color="#009900">$4</font>
 	  <i><font color="#9A1900"># additional parameters provided: destination wallet</font></i>
 	  <i><font color="#9A1900"># address, the amount, and the transaction file name</font></i>
           <font color="#990000">;;</font>
 
-    transfer<font color="#990000">)</font> python cmoney<font color="#990000">.</font>py transfer <font color="#009900">$2</font> <font color="#009900">$3</font> <font color="#009900">$4</font> <font color="#009900">$5</font>
+    transfer<font color="#990000">)</font> python3 cmoney<font color="#990000">.</font>py transfer <font color="#009900">$2</font> <font color="#009900">$3</font> <font color="#009900">$4</font> <font color="#009900">$5</font>
 	      <i><font color="#9A1900"># additional parameters provided: source wallet file</font></i>
 	      <i><font color="#9A1900"># name, destination address, amount, and the transaction</font></i>
 	      <i><font color="#9A1900"># file name</font></i>
 	      <font color="#990000">;;</font>
 
-    balance<font color="#990000">)</font> python cmoney<font color="#990000">.</font>py balance <font color="#009900">$2</font>
+    balance<font color="#990000">)</font> python3 cmoney<font color="#990000">.</font>py balance <font color="#009900">$2</font>
 	     <i><font color="#9A1900"># additional parameters provided: wallet address</font></i>
 	     <font color="#990000">;;</font>
 
-    verify<font color="#990000">)</font> python cmoney<font color="#990000">.</font>py verify <font color="#009900">$2</font> <font color="#009900">$3</font>
+    verify<font color="#990000">)</font> python3 cmoney<font color="#990000">.</font>py verify <font color="#009900">$2</font> <font color="#009900">$3</font>
 	    <i><font color="#9A1900"># additional parameters provided: wallet file name,</font></i>
 	    <i><font color="#9A1900"># transaction file name</font></i>
 	    <font color="#990000">;;</font>
 
-    mine<font color="#990000">)</font> python cmoney<font color="#990000">.</font>py mine <font color="#009900">$2</font>
+    mine<font color="#990000">)</font> python3 cmoney<font color="#990000">.</font>py mine <font color="#009900">$2</font>
 		 <i><font color="#9A1900"># additional parameters provided: difficulty</font></i>
 		 <font color="#990000">;;</font>
     
-    validate<font color="#990000">)</font> python cmoney<font color="#990000">.</font>py validate
+    validate<font color="#990000">)</font> python3 cmoney<font color="#990000">.</font>py validate
 	      <i><font color="#9A1900"># additional parameters provided: (none)</font></i>
 	      <font color="#990000">;;</font>
 
