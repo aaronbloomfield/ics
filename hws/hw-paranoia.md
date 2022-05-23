@@ -33,11 +33,48 @@ longer.
 Pick two of the following scenarios. (If you answer more, we'll
 only grade the first two)
 
+- You are a company who handles military contracts with the US government, and as a result of the recent invasion of Ukraine by Russia, you are a target for Russian hackers.  How do you secure your system?
+- Your organization is going to invest in cryptocurrency.  Although you may not know much about it, you know more than the head of the company, so they turn to you for how to keep it secure.
+- UVA data breach!  The 2FA (two factor authentication) that UVA uses is exploitable.  A fix is in the works, but that will take two weeks to implement.  In the mean time, how do you secure UVA's logins?
+- For the upcoming election in the fall, you are the person in charge of security for your candidate.  This involves logins, social media, and email accounts.
+
+<!-- from summer 2021:
 - You were hired by the Pilgrim Pipeline Company to ensure their cybersecurity, including against ransomware attacks.  However, the company does not have a culture of secure computer habits.  How do you ensure the security of the company?
 - You manage a store, and mask rules have been relaxed by the CDC.  Those relaxed rules state that a fully vaccinated adult does not need to wear a mask.  However, it's hard to tell who is fully vaccinated, and who is not vaccinated but resistant to wearing a mask.  How do you protect your customers?
 - You are in charge of the security for a home football game here at UVa -- assume that this is after the pandemic is fully over, and strangers can sit next to each other again.
 - State U just won a basketball championship!  Unlike UVa's win in 2019, there is expected to be violence and rioting by the student body.  How do you ensure safety on campus?
+-->
 
+<!-- from summer 2020:
+- You are supporting an application for which the group that will be using it is not computer savvy at all.  How do you ensure the application's security when they all have full access to edit and delete items in the system?
+- You manage a store during the covid-19 pandemic, and have to ensure the health and security of your employees.
+- People are illegally disposing of chemicals into a recreational lake, and it's killing the fish and tainting the water supply.
+- You are in charge of ensuring that pilots on airplanes are kept safe and healthy during the covid-19 pandemic.  Recall that airplanes circulate their air supply throughout the entire airplane throughout the flight, and SARS-CoV-2 (the virus that causes covid-19) is, apparently, airborne.
+-->
+
+<!-- from fall 2019:
+- You are in charge of protecting the water supply to a town or city, which is sourced from a reservoir that is publicly usable.
+- A huge political rally will be held on Grounds, and you are in charge of ensuring it's security (no politicians will be present, though).
+- You are asked to design the security for the goods crossing the English Channel after the currently stated Brexit deadline of October 31st.
+- You are tasked with creating a policy to ensure the secure voting in the 2020 presidential election.
+- You are asked to design a means to prevent private drones (the types that you can buy on Amazon for very little) from flying near airplanes -- a concern is if they were used to attack an airplane by being injested into an engine.
+-->
+
+<!-- from spring 2019:
+- You are in charge of the security of the nation’s power plants.
+- You are in charge of designing the new TSA airport checking process.
+- You are in charge of the security of a world renowned tech conference.
+- You are developing an Internet enabled automobile, and want to keep it secure from malware.
+- You are the in charge of security for your local high school.
+-->
+
+<!-- from fall 2018:
+- You have to plan for the next anniversary of the [Unite the Right](https://en.wikipedia.org/wiki/Unite_the_Right_rally) rally, again in Charlottesville
+- You are hired by [WillowTree](https://willowtreeapps.com/) to help secure their servers from corporate espionage
+- You are grading homework 1 submissions for a class of 80 students
+- You are in charge of the security for a home football game here at UVa
+- You are in charge of making an election voting system that is both secure and has auditing capabilities
+--> 
 
 In addition, choose another scenario from everyday life that we
 haven't discussed in class.  Your choice can be directly related to

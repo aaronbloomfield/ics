@@ -3,16 +3,16 @@ CS 3710: Introduction to Cybersecurity (ICS)
 
 [Go up to the ICS UVa page](index.html) ([md](index.md))
 
-## Summer 2022
+## Summer 2021
 
 ### Course Staff ###
 
 - [Aaron Bloomfield][3] / [aaron@virginia.edu][4].  Office: Rice Hall, room 402.  But really everything is going to be online to do the COVID-19 pandemic.
-- Office hours are M/Tu/W/Th/F 9:30-10:15.  Additional office hours will be scheduled as needed and by appointment.
+- Office hours are M/Tu/W/Th/F 10:00-10:30.  Additional office hours will be scheduled as needed and by appointment.
 
 ### Course Info ###
 
-- Lecture: M/Tu/W/Th/F 10:30-12:15 in Chemical Engineering Bldg 005
+- Lecture: M/Tu/W/Th/F 10:30-12:15 via Zoom
 - Email: none; fill out a [support request][6] instead
 - Announcements will be done through the [daily announcements slide set](daily-announcements.html#/)
 <!-- - TAs and their office hours will be posted on the Collab course main page; all office hours start the second day of classes -->
@@ -21,7 +21,9 @@ CS 3710: Introduction to Cybersecurity (ICS)
 **Course content:** All the course content is available free online at 
 [http://aaronbloomfield.github.io/ics](http://aaronbloomfield.github.io/ics), which is from a public github repository: [https://github.com/aaronbloomfield/ics](https://github.com/aaronbloomfield/ics).  All the material in that repo is released under a [Creative Commons license](https://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA).  Note that this license and public release does NOT apply to the lecture videos.
 
-**Lectures:** are from 10:30 am to 12:15 pm in Chemical Engineering Bldg 005.  Lecture attendance is **REQUIRED**.  There is no lecture on May 30th (Memorial Day).
+**Online:** This class is going to be completely online due to the COVID-19 pandemic.  The speed of summer classes makes them tricky to teach fully online.  Please provide feedback as the summer term progresses so I can get a feel for what works and what does not.  While you can always submit a [support ticket][6], you can also submit [anonymous feedback][8] as well.
+
+**Lectures:** They will all be via a Zoom meeting, which you can find in the [Online Meetings tool in the course Collab workspace](https://collab.its.virginia.edu/portal/site/6ec853e6-b6e3-40f7-8c72-0f7f966ffa71/page/f1237135-a40f-40f6-a89d-a2261bf3bf7c).  While that meeting repeats every day, we won't be having office hours or lecture on the weekends or on Memorial Day (May 25th).  Note that you have to be authenticated, via Collab, before you can join -- click on the Online Meetings tab in the Collab workspace.  Lecture attendance is **REQUIRED**.  Office hours are from 10:00-10:30, so the meeting starts at 10:00, if you want to join early.  However, lecture still starts at 10:30.  Most days there will be a short discussion (half hour or so), and two pre-recorded lecture videos to watch on your own time -- the intent is that you can watch them between by the 12:15 end time of class if you so choose. The lectures that will not follow this schedule (just the first half hour being synchronous) are the first one, the last two, and those of the exams.  Note that there will be occasional pop quizzes in lecture, both on the readings and the lecture videos.  Also note that there are two Saturday classes this year -- June 5th and June 12th.  I'm not happy about that, either.
 
 **Reading:** Due to the rapidly changing nature of this topic, there is no assigned textbook -- the best textbook on the topic is already 5-10 years out of date. Readings will consist of handouts, online materials, and articles (both media and scholarly). Much of the background for this course depends on completing the readings. Thus, occasional pop quizzes will happen to ensure that everybody is doing the reading (and to ensure that people are showing up to class!).
 
@@ -31,7 +33,7 @@ CS 3710: Introduction to Cybersecurity (ICS)
 
 **Availability:** It is important to me to be available to my students, and to address their concerns. If you cannot meet with me during office hours, e-mail and I will try to find the time to meet. That being said, like everybody else I am quite busy, so it may take a day or more to find a time to meet. And if you have any comments on the course - what is working, what is not working, what can be done better, etc. - I am very interested in hearing about them. There is an [anonymous feedback tool through Collab][8], or you can send me an e-mail (please do NOT email the TAs directly). I tend to get bogged down by e-mail as the semester progresses, so seeing me "in person" (meaning online office hours) is often a good way to get a more immediate response.
 
-**Prerequisites:** CS 2150 (Program and Data Representation) or CS 3100 (DSA2) with a grade of C- or above.  As per departmental policy, this pre-req will be checked, and if it is not met, you will be de-registered from the course.  If you are not a UVa student, then you will need to have: three semesters of programming experience, knowledge of programming in C or C++, and knowledge of programming in assembly.
+**Prerequisites:** CS 2150 (Program and Data Representation) with a grade of C- or above.  As per departmental policy, this pre-req will be checked, and if it is not met, you will be de-registered from the course.  If you are not a UVa student, then you will need to have: three semesters of programming experience, knowledge of programming in C or C++, and knowledge of programming in assembly.
 
 **Course objectives:** Students who complete the course will:
 
@@ -102,7 +104,7 @@ As far as the summer term is considered, each day is considered two "lectures" i
 [2]: ../readme.md
 [3]: http://www.cs.virginia.edu/~asb
 [4]: mailto:aaron@virginia.edu
-[6]: https://andromeda.cs.virginia.edu/satori/tickets/ticket-list/cs-3710-su-2022/
-[808]: next_link_is_anon_feedback
-[8]: https://collab.its.virginia.edu/portal/directtool/b5ab04bb-6932-47ab-a11a-0e37f29389f7/
+[5]: https://libra.cs.virginia.edu/~pedagogy/
+[6]: https://pegasus.cs.virginia.edu/satori/cs3710-su2021/tickets/
+[8]: https://collab.its.virginia.edu/portal/site/6ec853e6-b6e3-40f7-8c72-0f7f966ffa71/tool/f17a5899-fa57-4f82-956f-b24f83d19e6a/main
 [9]: https://www.virtualbox.org/

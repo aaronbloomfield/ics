@@ -1,0 +1,1005 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 3710: daily announcements slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../../slides/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../slides/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../slides/reveal.js/dist/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../../slides/ics.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../../slides/reveal.js/plugin/highlight/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../slides/reveal.js/css/print/pdf.scss' : '../../slides/reveal.js/css/print/paper.scss';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="../../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+    <style>
+.reveal li {
+font-size:68%;
+line-height:115%;
+}
+    </style>
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <div class="slides">
+
+	<section data-markdown><script type="text/template">
+# CS 3710
+&nbsp;
+### Introduction to Cybersecurity
+### Summer 2021
+&nbsp;
+
+<div class="titlesmall">
+
+[Aaron Bloomfield](http://www.cs.virginia.edu/~aaron) / [aaron@virginia.edu](mailto:aaron@virginia.edu)
+<br>Repository: [github.com/aaronbloomfield/ics](http://github.com/aaronbloomfield/ics) / [&uarr;](index.html) / <a href="daily-announcements.html?print-pdf"><img class="print" width="20" src="../../slides/images/print-icon.png"></a>
+
+</div>
+
+&nbsp;
+&nbsp;
+## Daily Announcements
+	</script></section>
+
+<!-- xkcd template for cut-and-paste (first two lines are the date and title)
+
+<h2></h2>
+<h4 class="xkcd"></h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/.png" title="" alt="">
+<p class="center"><a href="http://xkcd.com/2040/">xkcd # 2040</a></p>
+
+-->
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Students</h2>
+<img class='stretch' src="https://imgs.xkcd.com/comics/students.png" title="The same goes for the one where you&#39;re wrestling the Green Ranger in the swimming pool full of Crisco.  You guys all have that dream, right?  It&#39;s not just me.  Right?" alt="Students" >
+<p class='center'><a href='http://xkcd.com/557/'>xkcd # 557</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Day 19: Wednesday, June 16th
+- Please be sure to read through the [course syllabus](syllabus.html)
+- Homeworks due (all are due by the end of the day):
+  - [HW 7: Forensics](../../hws/hw-forensics.html) is due today (Wednesday)
+    - The VirtualBox image is now ready to download [here](https://virginia.box.com/s/qucmutlc8zy9ouymm62miw0da34ted7e) (5.3 Gb download); installation directions [here](https://uva-cs.github.io/pdr/tutorials/01-intro-unix/virtual-box.html)
+    - See the Piazza post from yesterday (Monday) for a summary of the Forensics HW tips and what-not
+    - Unzip command in VB: `gzip -d userid-hdd.img.gz`
+    - Late policy: up to 24 hours late is 5% off, up to 48 hours late is 25% off, up to 72 hours late is 50% off; nothing accepted after 3 days late
+    - I will NOT be available online after the final exam, so please make sure everything works PRIOR to that
+  - Assignment submission is through the Gradescope tool in the Collab workspace
+- Grades!
+  - Homeworks through HW 5 (SQL/XSS/CSRF) are graded, as are the two quizzes and the midterm
+  - HW 6 (Cryptocurrency) and quiz 3 are still to be graded
+  - All grades are in the 'Posted Feedback' tool in Collab, and all HW/quiz grades are out of 10 points
+  - About the grade-related support requests...
+- Final exam info on the next slide
+- Lectures
+  - Yesterday's lectures
+    (34 & 35) finish [buffer overflows](../../slides/buffer-overflows.html#/) and start [binary exploits](../../slides/binary-exploits.html#/) (through slide 5.14)
+  - Today's lectures (to be watched later today)
+    (36) finishes up [binary exploits](../../slides/binary-exploits.html#/)
+  - There will only be one lecture for today (36, which will finish [binary exploits](../../slides/binary-exploits.html#/)), as the other half of class will be the live [course reflection lecture](../../slides/reflection.html#/cover)
+</textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Final Exam Details
+
+- It's tomorrow (Thursday) starting at 10:30 am
+- Note that I will not have office hours tomorrow before the exam
+- Review session is today around 11:30 (once I get through the course conclusion)
+  - It will be recorded
+- Will have a time limit, likely about 60 minutes
+  - This means it will be about 1.5x longer than the midterm, but this is only a guess at this point
+  - SDAC 1.5x extra time accommodations will scale accordingly
+- Will be via Google Forms again
+- It is open notes, but closed Internet and closed other-human
+- Will cover all the topics in full detail
+- Will take a bit of time to grade...
+  </textarea></section>
+
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Dynamic Entropy</h2>
+<img class='stretch' src="https://imgs.xkcd.com/comics/dynamic_entropy.png" title="Despite years of effort by my physics professors to normalize it, deep down I remain convinced that &#39;dynamical&#39; is not really a word." alt="Dynamic Entropy" srcset="https://imgs.xkcd.com/comics/dynamic_entropy_2x.png 2x">
+<p class='center'><a href='http://xkcd.com/2318/'>xkcd # 2318</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Day 18: Tuesday, June 15th
+- Please be sure to read through the [course syllabus](syllabus.html)
+- Homeworks due (all are due by the end of the day):
+  - [HW 7: Forensics](../../hws/hw-forensics.html) is due this Wednesday
+    - The VirtualBox image is now ready to download [here](https://virginia.box.com/s/qucmutlc8zy9ouymm62miw0da34ted7e) (5.3 Gb download); installation directions [here](https://uva-cs.github.io/pdr/tutorials/01-intro-unix/virtual-box.html)
+    - See the Piazza post from yesterday (Monday) for a summary of the Forensics HW tips and what-not
+    - Unzip command in VB: `gzip -d userid-hdd.img.gz`
+    - Late policy: up to 24 hours late is 5% off, up to 48 hours late is 25% off, up to 72 hours late is 50% off; nothing accepted after 3 days late
+    - I will NOT be available online after the final exam, so please make sure everything works PRIOR to that
+  - Assignment submission is through the Gradescope tool in the Collab workspace
+- Readings
+  - Due today (Tuesday, June 15th): Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf) (a copy of the PDF is in Collab's resources as well)
+- Grades!
+  - Homeworks through HW 5 (SQL/XSS/CSRF) are graded, as are the two quizzes and the midterm
+  - HW 6 (Cryptocurrency) is still to be graded
+  - All grades are in the 'Posted Feedback' tool in Collab, and all HW/quiz grades are out of 10 points
+  - About the grade-related support requests...
+- Final exam info on the next slide...
+- Lectures
+  - Yesterday's lectures
+    (32 & 33) finish [viruses](../../slides/viruses.html#/) and start on [buffer overflows](../../slides/buffer-overflows.html#/) (through slide 4.16)
+  - Today's lectures (to be watched later today)
+    (34 & 35) finish [buffer overflows](../../slides/buffer-overflows.html#/) and start [binary exploits](../../slides/binary-exploits.html#/) (through slide 5.14)
+  - Tomorrow's lecture
+    (36) finishes up [binary exploits](../../slides/binary-exploits.html#/)
+  - There will only be one lecture for Wednesday (36, which will finish [binary exploits](../../slides/binary-exploits.html#/)), as the other half of class will be the live course conclusion lecture
+</textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Upcoming Schedule
+
+- Tuesday, June 15th (today): Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf) (a copy of the PDF is in Collab's resources as well)
+- Wednesday, June 16th: [HW 7: Forensics](../../hws/hw-forensics.html) due
+- Thursdsay, June 17th: the final exam!
+
+Notes on the final:
+
+- Review session will be Wednesday afternoon -- what time is best?
+  - It will be recorded
+- There will not be office hours the morning of the final exam
+- Will have a time limit, likely about 60 minutes
+  - This means it will be about 1.5x longer than the midterm, but this is only a guess at this point
+  - SDAC 1.5x extra time accommodations will scale accordingly
+- Will be via Google Forms again
+- It is open notes, but closed Internet and closed other-human
+- Will cover all the topics in full detail
+- Will take a bit of time to grade...
+  </textarea></section>
+
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Hair Growth Rate</h2>
+<img class='stretch' src="https://imgs.xkcd.com/comics/hair_growth_rate.png" title="Hourly haircuts would be annoying, but they&#39;d be easier to do yourself, since you&#39;d have adjacent hairs as a guide. Growing it out would be a huge pain, though." alt="Hair Growth Rate" srcset="https://imgs.xkcd.com/comics/hair_growth_rate_2x.png 2x">
+<p class='center'><a href='http://xkcd.com/2316/'>xkcd # 2316</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Day 17: Monday, June 14th
+- Please be sure to read through the [course syllabus](syllabus.html)
+- Homeworks due (all are due by the end of the day):
+  - [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html), due last Saturday: thoughts and comments?
+  - [HW 7: Forensics](../../hws/hw-forensics.html) is due this Wednesday
+    - The VirtualBox image is now ready to download [here](https://virginia.box.com/s/qucmutlc8zy9ouymm62miw0da34ted7e) (5.3 Gb download); installation directions [here](https://uva-cs.github.io/pdr/tutorials/01-intro-unix/virtual-box.html)
+    - See the Piazza post from yesterday (Friday) for a few hints and things to avoid headaches
+    - Unzip command in VB: `gzip -d userid-hdd.img.gz`
+    - Do we want a (generous) late policy for this homework?
+  - Assignment submission is through the Gradescope tool in the Collab workspace
+- Readings
+  - Due Tuesday, June 15th: Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf) (a copy of the PDF is in Collab's resources as well)
+- Grades!
+  - Homeworks through HW 5 (SQL/XSS/CSRF) are graded, as are the two quizzes and the midterm
+  - HW 6 (Cryptocurrency) is still to be graded
+  - All grades are in the 'Posted Feedback' tool in Collab, and all HW/quiz grades are out of 10 points
+  - About the grade-related support requests...
+- Final exam info on the next slide...
+- Lectures
+  - Yesterday's lectures
+    (30 & 31) finish [rootkits](../../slides/rootkits.html#/) and start on [viruses](../../slides/viruses.html#/) (through slide 7.4)
+  - Today's lectures (to be watched later today)
+    (32 & 33) finish [viruses](../../slides/viruses.html#/) and start on [buffer overflows](../../slides/buffer-overflows.html#/) (through slide 4.16)
+  - Tomorrow's lectures
+    (34 & 35) finish [buffer overflows](../../slides/buffer-overflows.html#/) and start [binary exploits](../../slides/binary-exploits.html#/) (through slide 5.14)
+  - There will only be one lecture for Wednesday (36, which will finish [binary exploits](../../slides/binary-exploits.html#/)), as the other half of class will be the live course conclusion lecture
+</textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Upcoming Schedule
+
+- Tuesday, June 15th: Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf) (a copy of the PDF is in Collab's resources as well)
+- Wednesday, June 16th: [HW 7: Forensics](../../hws/hw-forensics.html) due
+- Thursdsay, June 17th: the final exam!
+
+Notes on the final:
+
+- Still trying to determine the best time for a review session
+- Will have a time limit, likely about 60 minutes
+  - This means it will be about 1.5x longer than the midterm, but this is only a guess at this point
+  - SDAC 1.5x extra time accommodations will scale accordingly
+- Will probably be via Google Forms again
+- It is open notes, but closed Internet and closed other-human
+- Will cover all the topics in full detail
+- Will take a bit of time to grade...
+  </textarea></section>
+
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Pinouts</h2>
+<img class="stretch" src="https://imgs.xkcd.com/comics/pinouts.png" title="The other side of USB-C is rotationally symmetric except that the 3rd pin from the top is designated FIREWIRE TRIBUTE PIN." alt="Pinouts" srcset="//imgs.xkcd.com/comics/pinouts_2x.png 2x"/>
+<p class='center'><a href='http://xkcd.com/2317/'>xkcd # 2317</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Day 16: Saturday, June 12th
+- Class today (Saturday!)
+  - Lecture is not required, but will be Q&A for [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html)
+  - There will still be two lectures posted to be watched today!
+- Please be sure to read through the [course syllabus](syllabus.html)
+- Homeworks due (all are due by the end of the day):
+  - [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html) is now due today (Saturday, June 12th)
+    - If you want to do this in a language other than Python or Java, please speak to me first
+    - It requires submitting a Linux shell script too -- let me know today if you will have trouble running shell scripts
+  - [HW 7: Forensics](../../hws/hw-forensics.html) is out
+    - The VirtualBox image is now ready to download [here](https://virginia.box.com/s/qucmutlc8zy9ouymm62miw0da34ted7e) (5.3 Gb download); installation directions [here](https://uva-cs.github.io/pdr/tutorials/01-intro-unix/virtual-box.html)
+    - See the Piazza post from yesterday (Friday) for a few hints and things to avoid headaches
+  - Assignment submission is through the Gradescope tool in the Collab workspace
+- Readings
+  - Due Tuesday, June 15th: Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf) (a copy of the PDF is in Collab's resources as well)
+- Grades!
+  - HW 1 (Rational Paranoia), HW 2 (policy), Quiz 1, Quiz 2, and the midterm are all graded
+    - We'll talk about the midterm grading today in detail
+  - HW 3 (Ethics) and HW 4 (RSA) are still to be graded
+  - All grades are in the 'Posted Feedback' tool in Collab, and all HW/quiz grades are out of 10 points
+- Lectures
+  - Yesterday's lectures
+    (28 & 29) start and finsih [Digital Forensics](../../slides/forensics.html#/)
+  - Today's lectures (to be watched later today)
+    (30 & 31) finish [rootkits](../../slides/rootkits.html#/) and start on [viruses](../../slides/viruses.html#/) (through slide 7.4)
+  - Tomorrow's lectures
+    (32 & 33) finish [viruses](../../slides/viruses.html#/) and start on [buffer overflows](../../slides/buffer-overflows.html#/) (through slide 4.16)
+
+</textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Upcoming Schedule
+
+- Today, Saturday, June 10th: [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html) due
+- Tuesday, June 15th: Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf) (a copy of the PDF is in Collab's resources as well)
+- Wednesday, June 16th: [HW 7: Forensics](../../hws/hw-forensics.html) due
+- Thursdsay, June 17th: the final exam!
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Digital Data</h2>
+<img src="https://imgs.xkcd.com/comics/digital_data.png" title="â€œIf you can read this, congratulationsâ€”the archive youâ€™re using still knows about the mouseover textâ€!" alt="Digital Data" srcset="//imgs.xkcd.com/comics/digital_data_2x.png 2x">
+<p class='center'><a href='http://xkcd.com/1683/'>xkcd # 1683</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Day 15: Friday, June 11th
+- We have class Saturday of this week!  (ugh)
+  - Lecture is not required, but will be Q&A for [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html); no office hours from 10:00-10:30 that day
+  - There will still be two lectures posted to be watched that day!
+- Please be sure to read through the [course syllabus](syllabus.html)
+- Homeworks due (all are due by the end of the day):
+  - [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html) is now due *Saturday*, June 12th
+	- If you want to do this in a language other than Python or Java, please speak to me first
+    - It requires submitting a Linux shell script too -- let me know today if you will have trouble running shell scripts
+  - The last homework will be on Forensics
+    - The VirtualBox image is now ready to download [here](https://virginia.box.com/s/qucmutlc8zy9ouymm62miw0da34ted7e) (5.3 Gb download); installation directions [here](https://uva-cs.github.io/pdr/tutorials/01-intro-unix/virtual-box.html)
+	- The homework itself will be released in a day or two
+  - Assignment submission is through the Gradescope tool in the Collab workspace
+- Readings
+  - Due Tuesday, June 15th: Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf) (a copy of the PDF is in Collab's resources as well)
+- Grades!
+  - HW 1 (Rational Paranoia), HW 2 (policy), Quiz 1, Quiz 2, and the midterm are all graded
+    - We'll talk about the midterm grading today in detail
+  - HW 3 (Ethics) and HW 4 (RSA) are still to be graded
+  - All grades are in the 'Posted Feedback' tool in Collab, and all HW/quiz grades are out of 10 points
+- Lectures
+  - Yesterday's lectures
+    (26 & 27) start and finish [virtual machines](../../slides/vms.html#/) and start and continue [rootkits](../../slides/rootkits.html#/) (through slide 3.14)
+  - Today's lectures (to be watched later today)
+    (28 & 29) start and finsih [Digital Forensics](../../slides/forensics.html#/)
+  - Tomorrow's lectures
+    (30 & 31) finish [rootkits](../../slides/rootkits.html#/) and start on [viruses](../../slides/viruses.html#/) (through slide 7.4)
+</textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Upcoming Schedule
+
+- Saturday, June 10th: [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html) due
+- Tuesday, June 15th: Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf) (a copy of the PDF is in Collab's resources as well)
+- Wednesday, June 16th: last HW, on Forensics, will be due
+- Thursdsay, June 17th: the final exam!
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Privacy Opinions</h2>
+<img src="https://imgs.xkcd.com/comics/privacy_opinions.png" title="I&#39;m the Philosopher until someone hands me a burrito." alt="Privacy Opinions" srcset="//imgs.xkcd.com/comics/privacy_opinions_2x.png 2x" class="stretch">
+<p class='center'><a href='http://xkcd.com/1269/'>xkcd # 1269</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Day 14: Thursday, June 10th
+- We have class Saturday of this week!  (ugh)
+  - Lecture is not required, but will be Q&A for [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html); no office hours from 10:00-10:30 that day
+  - There will still be two lectures posted to be watched that day!
+- Please be sure to read through the [course syllabus](syllabus.html)
+- Homeworks due (all are due by the end of the day):
+  - [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html) is now due *Saturday*, June 12th
+	- If you want to do this in a language other than Python or Java, please speak to me first
+    - It requires submitting a Linux shell script too -- let me know today if you will have trouble running shell scripts
+  - The last homework will be on Forensics
+    - The VirtualBox image is now ready to download [here](https://virginia.box.com/s/qucmutlc8zy9ouymm62miw0da34ted7e) (5.3 Gb download); installation directions [here](https://uva-cs.github.io/pdr/tutorials/01-intro-unix/virtual-box.html)
+  - Assignment submission is through the Gradescope tool in the Collab workspace
+- Readings
+  - Due Tuesday, June 15th: Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf) (a copy of the PDF is in Collab's resources as well)
+- Grades!
+  - HW 1 (Rational Paranoia), HW 2 (policy), Quiz 1, Quiz 2, and the midterm are all graded
+    - We'll talk about the midterm grading today in detail
+  - HW 3 (Ethics) and HW 4 (RSA) are still to be graded
+  - All grades are in the 'Posted Feedback' tool in Collab, and all HW/quiz grades are out of 10 points
+- Lectures
+  - Yesterday's lectures
+    (24 & 25) finish [anonymity](../../slides/anonymity.html#/) (through slide 5.20) and start and finish [stuxnet](../../slides/stuxnet.html#/)
+  - Today's lectures (to be watched later today)
+    (26 & 27) start and finish [virtual machines](../../slides/vms.html#/) and start and continue [rootkits](../../slides/rootkits.html#/) (through slide 3.14)
+    - About those audio issues...
+  - Tomorrow's lectures
+    (28 & 29) start and finsih [Digital Forensics](../../slides/forensics.html#/)
+
+</textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Upcoming Schedule
+
+- Saturday, June 10th: [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html) due
+- Tuesday, June 15th: Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf) (a copy of the PDF is in Collab's resources as well)
+- Wednesday, June 16th: last HW, on Forensics, will be due
+- Thursdsay, June 17th: the final exam!
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>CIA</h2>
+<img src="https://imgs.xkcd.com/comics/cia.png" title="It was their main recruiting poster, hung nearly ten feet up a wall! This means the hackers have LADDER technology! Are we headed for a future where everyone has to pay $50 for one of those locked plexiglass poster covers? More after the break ..." alt="CIA" class="stretch">
+<p class='center'><a href='http://xkcd.com/932/'>xkcd # 932</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Day 13: Wednesday, June 9th
+- We have class Saturday of this week!  (ugh)
+- Please be sure to read through the [course syllabus](syllabus.html)
+- Homeworks due (all are due by the end of the day):
+  - [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html) is due Friday, June 11th
+    - The lecture recordings over the last two days went over this material
+	- If you want to do this in a language other than Python or Java, please speak to me first
+    - It requires submitting a Linux shell script, and the link to the VirtualBox image is now available on the Collab landing page (along with installation instructions)
+  - The last homework, due next Wednesday, is likely to be on forensics
+    - It will require a new VirtualBox image installation -- details about this will be available tomorrow
+  - Assignment submission is through the Gradescope tool in the Collab workspace
+- Readings
+  - Due Tuesday, June 15th: Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf) (a copy of the PDF is in Collab's resources as well)
+- Grades!
+  - HW 1 (Rational Paranoia), HW 2 (policy), Quiz 1, Quiz 2, and the midterm are all graded
+    - We'll talk about the midterm grading today in detail
+  - HW 3 (Ethics) and HW 4 (RSA) are still to be graded
+  - All grades are in the 'Posted Feedback' tool in Collab, and all HW/quiz grades are out of 10 points
+- Lectures
+  - Yesterday's lectures
+    (22 & 23) finish [cryptocurrency](../../slides/cryptocurrency.html#/) and start [anonymity](../../slides/anonymity.html#/) (through slide 5.20)
+  - Today's lectures (to be watched later today)
+    (24 & 25) finish [anonymity](../../slides/anonymity.html#/) (through slide 5.20) and start and finish [stuxnet](../../slides/stuxnet.html#/)
+  - Tomorrow's lectures
+    (26 & 27) start and finish [virtual machines](../../slides/vms.html#/) and start and continue [rootkits](../../slides/rootkits.html#/) (through slide 3.14)
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Upcoming Schedule
+
+- Friday, June 11th: [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html) due
+- Tuesday, June 15th: Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf) (a copy of the PDF is in Collab's resources as well)
+- Wednesday, June 16th: last HW due
+- Thursdsay, June 17th: the final exam!
+  </textarea></section>
+
+
+  <section data-markdown><textarea data-template>
+## Current bitcoin links
+- [Current price](https://www.coindesk.com/price/bitcoin)
+- [Current target](http://learnmeabitcoin.com/glossary/target)
+- [Current difficulty](https://blockexplorer.com/api/status?q=getDifficulty)
+- [Charlottesville's electric rates](https://www.electricitylocal.com/states/virginia/charlottesville/)
+- [Reward halving date estimator and total block count](https://www.bitcoinblockhalf.com/)
+- [Difficulty graphs](https://www.blockchain.com/en/charts/difficulty)
+- [Blockchain size, in Gb](https://www.blockchain.com/charts/blocks-size)
+</textarea></section>
+  
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>2010 and 2020</h2>
+<img class='stretch' src="https://imgs.xkcd.com/comics/2010_and_2020.png" title="2030: &quot;I just bought a house for one bitcoin. No, it&#39;s the equivalent of a dollar. Houses are often transferred for a nominal fee because the buyer is taking responsibility for containing the holo-banshees in the attic.&quot;" alt="2010 and 2020" srcset="https://imgs.xkcd.com/comics/2010_and_2020_2x.png 2x">
+<p class='center'><a href='http://xkcd.com/2280/'>xkcd # 2280</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Day 12: Tuesday, June 8th
+- We have class Saturday of this week!  (ugh)
+- Please be sure to read through the [course syllabus](syllabus.html)
+- Homeworks due (all are due by the end of the day):
+  - [HW 5: SQL/XSS/CSRF](../../hws/hw-sql-xss-csrf.html) is due today (Tuesday, June 8th)
+  - [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html) is due Friday, June 11th
+    - The lecture recordings on Monday and Tuesday go over this material
+	- If you want to do this in a language other than Python or Java, please speak to me first
+    - It requires submitting a Linux shell script, and the link to the VirtualBox image is now available on the Collab landing page (along with installation instructions)
+  - Assignment submission is through the Gradescope tool in the Collab workspace
+- Readings
+  - There will be one more reading, on binary exploits, due next week
+- Grades!
+  - HW 1 (Rational Paranoia), HW 2 (policy), Quiz 1, and Quiz 2 are all graded
+  - HW 3 (Ethics), HW 4 (RSA), and the midterm still to be graded
+  - All grades are in the 'Posted Feedback' tool in Collab, and all HW/quiz grades are out of 10 points
+- Lectures
+  - Yesterday's lectures
+    (20 & 21) finish [web security](../../slides/web-security.html#/) and start on [cryptocurrency](../../slides/cryptocurrency.html#/) (through slide 5.1)
+  - Today's lectures (to be watched later today)
+    (22 & 23) finish [cryptocurrency](../../slides/cryptocurrency.html#/) and start [anonymity](../../slides/anonymity.html#/) (through slide 5.20)
+  - Tomorrow's lectures
+    (24 & 25) finish [anonymity](../../slides/anonymity.html#/) (through slide 5.20) and start and finish [stuxnet](../../slides/stuxnet.html#/)
+
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Upcoming Schedule
+
+- Tuesday, June 8th: [HW 5: SQL/XSS/CSRF](../../hws/hw-sql-xss-csrf.html) due
+- Friday, June 11th: [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html) due
+
+Looking beyond that, we are expecting to have:
+
+- one more big homework (forensics?)
+- possibly a smaller homeowrk
+- a larger reading on binary stack manipulation
+- the final exam
+  </textarea></section>
+
+</section>
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Exploits of a Mom</h2>
+<img class='stretch' src="https://imgs.xkcd.com/comics/exploits_of_a_mom.png" title="Her daughter is named Help I&#39;m trapped in a driver&#39;s license factory." alt="Exploits of a Mom" >
+<p class='center'><a href='http://xkcd.com/327/'>xkcd # 327</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Day 11: Monday, June 7th
+- Please be sure to read through the [course syllabus](syllabus.html)
+- Homeworks due (all are due by the end of the day):
+  - [HW 5: SQL/XSS/CSRF](../../hws/hw-sql-xss-csrf.html) is due Tuesday, June 8th
+  - [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html) is due Friday, June 11th
+    - The lecture recordings on Monday and Tuesday go over this material
+	- If you want to do this in a language other than Python or Java, please speak to me first
+    - It requires submitting a Linux shell script, and the link to the VirtualBox image is now available on the Collab landing page (along with installation instructions)
+  - Assignment submission is through the Gradescope tool in the Collab workspace
+- Readings
+  - Due today (Monday, June 7th): [NPR's Planet Monday episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot) (it's a 25 minute podcast)
+  - There will be one more reading, on binary exploits, due next week
+- Grades!
+  - HW 1 (Rational Paranoia), HW 2 (policy), Quiz 1, and Quiz 2 are all graded
+  - HW 3 (Ethics), HW 4 (RSA), and the midterm still to be graded
+  - All grades are in the 'Posted Feedback' tool in Collab, and all HW/quiz grades are out of 10 points
+- Lectures
+  - Yesterday's lectures
+    (19) finishes [SQL, XSS, & CSRF](../../slides/sql-xss-csrf.html#/cover) and continues [web security](../../slides/web-security.html#/) (through slide 6.12)
+  - Today's lectures (to be watched later today)
+    (20 & 21) finishes [web security](../../slides/web-security.html#/) and starts on [cryptocurrency](../../slides/cryptocurrency.html#/) (through slide 5.1)
+  - Tomorrow's lectures
+    (22 & 23) finish [cryptocurrency](../../slides/cryptocurrency.html#/) and starts [anonymity](../../slides/anonymity.html#/) (through slide 5.20)
+
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Upcoming Schedule
+
+- Monday, June 7th: [NPR's Planet Monday episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot) "reading" due
+- Tuesday, June 8th: [HW 5: SQL/XSS/CSRF](../../hws/hw-sql-xss-csrf.html) due
+- Friday, June 11th: [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html) due
+
+Looking beyond that, we are expecting to have:
+
+- one more big homework (forensics?)
+- possibly a smaller homeowrk
+- a larger reading on binary stack manipulation
+- the final exam
+  </textarea></section>
+
+</section>
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Security Question</h2>
+<img class='stretch' src="https://imgs.xkcd.com/comics/security_question.png" title="Let&#39;s invite him to a party and play &#39;I never&#39;.  Okay, I never hid any bodies SOUTH of Main Street. ... he&#39;s taking a drink!" alt="Security Question" >
+<p class='center'><a href='http://xkcd.com/565/'>xkcd # 565</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Day 10: Saturday, June 5th
+- Please be sure to read through the [course syllabus](syllabus.html)
+- Homeworks due (all are due by the end of the day):
+  - [HW 5: SQL/XSS/CSRF](../../hws/hw-sql-xss-csrf.html) is due Tuesday, June 8th
+    - The lecture recordings on Friday and Saturday go over this material 
+  - The cryptocurrency HW will be due late next week (likely Friday or Saturday), but is not yet ready
+    - The lecture recordings on Monday and Tuesday go over this material
+  - Assignment submission is through the Gradescope tool in the Collab workspace
+- Readings
+  - Due Monday, June 7th: [NPR's Planet Monday episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot) (it's a 25 minute podcast)
+- Grades!
+  - HW 1 (Rational Paranoia), HW 2 (policy), Quiz 1, and Quiz 2 are all graded
+  - HW 3 (Ethics) and HW 4 (RSA) still to be graded
+  - All grades are in the 'Posted Feedback' tool in Collab, and all HW/quiz grades are out of 10 points
+- Lectures
+  - Yesterday's lectures 
+    (17 & 18) continue [web security](../../slides/web-security.html#/) (through slide 6.9) and start [SQL, XSS, & CSRF](../../slides/sql-xss-csrf.html#/cover) (through slide 6.3)
+  - Today's lecture (only one: 19) (to be watched later today)
+    finishes [SQL, XSS, & CSRF](../../slides/sql-xss-csrf.html#/cover) and continues [web security](../../slides/web-security.html#/) (through slide 6.12)
+  - Tomorrow's (Monday's) lecture (20 & 21)
+    finishes [web security](../../slides/web-security.html#/) and starts on [cryptocurrency](../../slides/cryptocurrency.html#/) (through slide 5.1)
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Upcoming Schedule
+
+- Saturday, June 5th: Midterm
+- Monday, June 7th: [NPR's Planet Monday episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot) "reading" due
+- Tuesday, June 8th: [HW 5: SQL/XSS/CSRF](../../hws/hw-sql-xss-csrf.html) due
+- Friday, June 11th: cryptocurrency HW (not yet ready)
+
+Looking beyond that, we are expecting to have:
+
+- one more big homework (forensics?)
+- possibly a smaller homeowrk
+- a larger reading on binary stack manipulation
+- the final exam
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Today's midterm
+
+- The exam time limit is 40 minutes from when I release the link
+  - SDAC 1.5x accommodations means you have 60 minutes
+- It is your responsiblity to submit it by the due time
+- PLEASE MAKE THE ANSWERS AS BRIEF AS POSSIBLE
+  - The grade is not based on your ability to parrot back long winded phrases or buzzwords, it's based on your ability to explain it BRIEFLY
+- It is open notes, but closed Internet and closed other-human
+  </textarea></section>
+
+</section>
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>mbmbam</h2>
+<img class='stretch' src="https://imgs.xkcd.com/comics/mbmbam.png" title="Hello and welcome to Millibar Millibarn Attometer, an advice show for the Planck era." alt="mbmbam" srcset="https://imgs.xkcd.com/comics/mbmbam_2x.png 2x">
+<p class='center'><a href='http://xkcd.com/2312/'>xkcd # 2312</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Day 9: Friday, June 4th
+- We have class Saturday of this week!  (ugh)
+- Please be sure to read through the [course syllabus](syllabus.html)
+- Homeworks due (all are due by the end of the day):
+  - [HW 5: SQL/XSS/CSRF](../../hws/hw-sql-xss-csrf.html) is due Tuesday, June 8th
+    - The lecture recordings on Friday and Saturday go over this material 
+  - The cryptocurrency HW will be due late next week (likely Friday or Saturday), but is not yet ready
+    - The lecture recordings on Monday and Tuesday go over this material
+  - Assignment submission is through the Gradescope tool in the Collab workspace
+- Readings
+  - Due Monday, June 7th: [NPR's Planet Monday episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot) (it's a 25 minute podcast)
+- Grades!
+  - HW 1 (Rational Paranoia), HW 2 (policy), Quiz 1, and Quiz 2 are all graded
+  - HW 3 (Ethics) still to be graded
+  - All grades are in the 'Posted Feedback' tool in Collab, and all HW/quiz grades are out of 10 points
+- The midterm is this Saturday!  Yay!
+  - Details on a successive slide
+- Lectures
+  - Yesterday's lectures 
+    (15 & 16) finish [encryption](../../slides/encryption.html#/), will start and finish [networking overview](../../slides/networks.html#/), and start on [web security](../../slides/web-security.html#/) (through slide 4.6)
+  - Today's lectures (to be watched later today)
+    (17 & 18) continue [web security](../../slides/web-security.html#/) (through slide 6.9) and start [SQL, XSS, & CSRF](../../slides/sql-xss-csrf.html#/cover) (through slide 6.3)
+  - Tomorrow only has one lecture (19), due to the midterm,
+    which finishes [SQL, XSS, & CSRF](../../slides/sql-xss-csrf.html#/cover) and continues [web security](../../slides/web-security.html#/) (through slide 6.12)
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Tomrrow's midterm
+
+- Remember that we have an [exams](../../exams/index.html) page in the repo
+  - But I don't have answer keys
+- I will NOT be having office hours tomorrow morning
+- I'll start out at 10:30 by quickly going through the daily announcements
+- Which means the exam will likely start around 10:35 am
+- It will be via Google forms
+- There is a time limit on the exam, and you will need to submit it by the time it is due
+  - That time will be made quite clear when it starts -- likely an hour, but that is not yet set
+  - If you have SDAC accommodations for extended time, then you have to submit it by when your extended time runs out
+- It is open notes, but closed Internet and closed other-human
+- Topic coverage is through all of encryption, and the recent slides on web security
+  - But the web security slides will be ligher in terms of coverage
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Upcoming Schedule
+
+- Saturday, June 5th: Midterm
+- Monday, June 7th: [NPR's Planet Monday episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot) "reading" due
+- Tuesday, June 8th: [HW 5: SQL/XSS/CSRF](../../hws/hw-sql-xss-csrf.html) due
+- Friday, June 11th: cryptocurrency HW (not yet ready)
+
+Looking beyond that, we are expecting to have:
+
+- one more big homework (forensics?)
+- possibly a smaller homeowrk
+- a larger reading on binary stack manipulation
+- the final exam
+  </textarea></section>
+
+</section>
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Security Advice</h2>
+<img class='stretch' src="https://imgs.xkcd.com/comics/security_advice.png" title="Never give your password or bank account number to anyone who doesn&#39;t have a blue check mark next to their name." alt="Security Advice" srcset="https://imgs.xkcd.com/comics/security_advice_2x.png 2x" style="image-orientation:none" >
+<p class='center'><a href='http://xkcd.com/1820/'>xkcd # 1820</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Day 7: Wednesday, June 2nd
+- We have class Saturday of this week!  (ugh)
+- Please be sure to read through the [course syllabus](syllabus.html)
+- Homeworks due (all are due by the end of the day):
+  - [HW 4: RSA](../../hws/hw-rsa.html) is be due this Thursday; it must be done in Java
+	- I will hold extra office hours in the evenings as needed, time TBA (do we need it today?)
+  - [HW 5: SQL/XSS/CSRF](../../hws/hw-sql-xss-csrf.html) is due Tuesday, June 8th
+    - The lecture recordings on Friday and Saturday go over this material 
+  - The cryptocurrency HW will be due late next week (likely Friday or Saturday)
+    - The lecture recordings on Monday and Tuesday go over this material
+  - Assignment submission is through the Gradescope tool in the Collab workspace
+- Readings
+  - Due Monday, June 7th: [NPR's Planet Monday episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot) (it's a 25 minute podcast)
+- Grades!
+  - HW 1 (Rational Paranoia) and Quiz 1 are graded
+  - HW 2 (Policy) and/or quiz 2 should be back tomorrow
+  - HW 3 (Ethics) should be back by the end of this week
+  - All grades are in the 'Posted Feedback' tool in Collab, and all HW/quiz grades are out of 10 points
+- The midterm is this Saturday!  Yay!
+- Lectures
+  - Yesterday's lectures (11 & 12) were both on [encryption](../../slides/encryption.html#/) (through slide 6.70)
+  - Today's lectures (to be watched later today) (13 & 14) are (yet again!) both on [encryption](../../slides/encryption.html#/) (through slide 8.22)
+  - Tomorrow's lectures (15 & 16) will finish [encryption](../../slides/encryption.html#/), will start and finish [networking overview](../../slides/networks.html#/), and start on [web security](../../slides/web-security.html#/) (through slide 4.6)
+  </textarea></section>
+
+  <section data-markdown><textarea data-template>
+## Upcoming Schedule
+
+- Thursday, June 3rd: [HW 4: RSA](../../hws/hw-rsa.html) due
+- Saturday, June 5th: Midterm
+- Monday, June 7th: [NPR's Planet Monday episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot) "reading" due
+- Tuesday, June 8th: [HW 5: SQL/XSS/CSRF](../../hws/hw-sql-xss-csrf.html) due
+- Friday, June 11th: cryptocurrency HW (not yet ready)
+
+Looking beyond that, we are expecting to have:
+
+- one more big homework (forensics?)
+- possibly a smaller homeowrk
+- a larger reading on binary stack manipulation
+- the final exam
+  </textarea></section>
+</section>
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Password Strength</h2><img class='stretch' src="https://imgs.xkcd.com/comics/password_strength.png" title="To anyone who understands information theory and security and is in an infuriating argument with someone who does not (possibly involving mixed case), I sincerely apologize." alt="Password Strength"  style="image-orientation:none" ><p class='center'><a href='http://xkcd.com/936/'>xkcd # 936</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Day 6: Tuesday, June 1st
+- We have class Saturday of this week!  (ugh)
+- Please be sure to read through the [course syllabus](syllabus.html)
+- Homeworks due (all are due by the end of the day):
+  - [HW 4: RSA](../../hws/hw-rsa.html) will be due this Thursday
+    - It must be done in Java
+	- I will hold extra office hours in the evenings as needed, time TBA (do we need it today?)
+- Readings
+  - Due today (Tuesday, June 1st): [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
+  - Due Monday, June 7th: [NPR's Planet Monday episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot) (it's a 25 minute podcast)
+- Grades!
+  - HW 1 (Rational Paranoia) and Quiz 1 are graded; HW 2 (Policy) should be back tomorrow
+  - All grades are in the 'Posted Feedback' tool in Collab, and all HW/quiz grades are out of 10 points
+- The midterm is this Saturday
+- Assignment submission is through the Gradescope tool in the Collab workspace
+- Everybody has now (digitally) signed the [Cybersecurity Ethics Pledge](https://docs.google.com/forms/d/e/1FAIpQLScLvbH611z9dTpPnAfCTQ4u_aX3SJA30M4EutFDOLkuWeArTg/viewform)
+- Lectures
+  - Yesterday's (meaning last Friday's) lectures (9 & 10) are both on [encryption](../../slides/encryption.html#/)
+  - Today's lectures (to be watched later today) (11 & 12) are both on [encryption](../../slides/encryption.html#/)
+  - Tomorrow's lectures (13 & 14) are (yet again!) both on [encryption](../../slides/encryption.html#/)
+  </textarea></section>
+
+</section>
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>The Three Laws of Robotics</h2>
+<img class='stretch' src="https://imgs.xkcd.com/comics/the_three_laws_of_robotics.png" title="In ordering #5, self-driving cars will happily drive you around, but if you tell them to drive to a car dealership, they just lock the doors and politely ask how long humans take to starve to death." alt="The Three Laws of Robotics" srcset="https://imgs.xkcd.com/comics/the_three_laws_of_robotics_2x.png 2x">
+<p class='center'><a href='http://xkcd.com/1613/'>xkcd # 1613</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Day 5: Friday, May 28th
+- No class on Monday due to it being Memorial Day
+  - Next week we have class on Saturday (yuck)
+- Please be sure to read through the [course syllabus](syllabus.html)
+- Homeworks due (all are due by the end of the day):
+  - [HW 2: Policy](../../hws/hw-policy.html) is due Friday, May 28th
+  - [HW 3: Ethics](../../hws/hw-ethics.html) is due Monday, May 31st
+  - [HW 4: RSA](../../hws/hw-rsa.html) will be due late next week (Thursday?)
+- Readings
+  - Due Tuesday, June 1st: [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
+- Assignment submission is through the Gradescope tool in the Collab workspace
+- Everybody has to (digitally) sign the [Cybersecurity Ethics Pledge](https://docs.google.com/forms/d/e/1FAIpQLScLvbH611z9dTpPnAfCTQ4u_aX3SJA30M4EutFDOLkuWeArTg/viewform) by the end of the week
+- Lectures
+  - Yesterday's lectures (7 & 8) are both on (and finish) [ethics](../../slides/ethics.html#/)
+  - Today's lectures (9 & 10) are both on [encryption](../../slides/encryption.html#/)
+  - Tomorrow's lectures (meaning for Tuesday) (11 & 12) are both on [encryption](../../slides/encryption.html#/)
+  </textarea></section>
+
+</section>
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>X</h2>
+<img class='stretch' src="https://imgs.xkcd.com/comics/x.png" title="The worst is when you run out of monospaced fonts and have to use variable-width variables." alt="X" srcset="https://imgs.xkcd.com/comics/x_2x.png 2x">
+<p class='center'><a href='http://xkcd.com/2309/'>xkcd # 2309</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Day 4: Thursday, May 27th
+- Please be sure to read through the [course syllabus](syllabus.html)
+- Homeworks due (all are due by the end of the day):
+  - [HW 2: Policy](../../hws/hw-policy.html) is due Friday, May 28th
+  - [HW 3: Ethics](../../hws/hw-ethics.html) is due Monday, May 31st (do we want to change that day?)
+  - [HW 4: RSA](../../hws/hw-rsa.html) will be due late next week, but is not yet ready
+- Readings
+  - Due today (Thursday, May 27th): [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), and the [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+  - Due Tuesday, June 1st: [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
+- Assignment submission is through the Gradescope tool in the Collab workspace
+- Everybody has to (digitally) sign the [Cybersecurity Ethics Pledge](https://docs.google.com/forms/d/e/1FAIpQLScLvbH611z9dTpPnAfCTQ4u_aX3SJA30M4EutFDOLkuWeArTg/viewform) by the end of the week
+- Lectures
+  - Yesterday's lectures (5 & 6) are both on (and finish) [policy](../../slides/policy.html#/)
+  - Today's lectures (7 & 8) are both on (and finish) [ethics](../../slides/ethics.html#/)
+  - Tomorrow's lectures (9 & 10) are both on [encryption](../../slides/encryption.html#/)
+  </textarea></section>
+
+</section>
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Alive or Not</h2>
+<img class='stretch' src="https://imgs.xkcd.com/comics/alive_or_not.png" title="Computer viruses currently fall somewhere between prions and fire." alt="Alive or Not" srcset="https://imgs.xkcd.com/comics/alive_or_not_2x.png 2x">
+<p class='center'><a href='http://xkcd.com/2307/'>xkcd # 2307</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Day 3: Wednesday, May 26th
+- Please be sure to read through the [course syllabus](syllabus.html)
+- Homeworks due (all are due by the end of the day):
+  - [HW 1: Rational Paranoia](../../hws/hw-paranoia.html) is due Wednesday, May 26th
+  - [HW 2: Policy](../../hws/hw-policy.html) is due Friday, May 28th
+  - [HW 3: Ethics](../../hws/hw-ethics.html) is due Monday, May 31st
+    - That's Memorial Day -- should it be due the day before instead?
+- Readings
+  - Due Thursday, May 27th: [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), and the [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+  - Due Tuesday, June 1st: [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
+- Assignment submission is through the Gradescope tool in the Collab workspace
+  - All assignments will open up 48 hours before they are due (but not yet set up)
+  - I think it's set up properly for the Rational Paranoia HW
+- Everybody has to (digitally) sign the [Cybersecurity Ethics Pledge](https://docs.google.com/forms/d/e/1FAIpQLScLvbH611z9dTpPnAfCTQ4u_aX3SJA30M4EutFDOLkuWeArTg/viewform) by the end of the week
+- Lectures
+  - Yesterday's lectures (3 & 4) finished up [the security mindset](../../slides/security-mindset.html#/), went through all of [terminology](../../slides/terminology.html#/), and then started on [policy](../../slides/policy.html#/)
+  - Today's lectures (5 & 6) are both on (and finish) [policy](../../slides/policy.html#/)
+  - Tomorrow's lectures (7 & 8) are both on (and finish) [ethics](../../slides/ethics.html#/)
+  - All lecture recordings are in the Lecture Capture tool in Collab
+
+  </textarea></section>
+
+</section>
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Mount St. Helens</h2>
+<img class='stretch' src="https://imgs.xkcd.com/comics/mount_st_helens.png" title="It&#39;s a good mountain but it really peaked in the 80s." alt="Mount St. Helens" srcset="https://imgs.xkcd.com/comics/mount_st_helens_2x.png 2x">
+<p class='center'><a href='http://xkcd.com/2308/'>xkcd # 2308</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Day 2: Tuesday, May 19th
+- Please be sure to read through the [course syllabus](syllabus.html)
+- Homeworks due (all are due by the end of the day):
+  - [HW 1: Rational Paranoia](../../hws/hw-paranoia.html) is due Wednesday, May 26th
+  - [HW 2: Policy](../../hws/hw-policy.html) is due Friday, May 28th
+  - [HW 3: Ethics](../../hws/hw-ethics.html) is due Monday, May 31st
+    - That's Memorial Day -- should it be due the day before instead?
+- Readings
+  - Due Thursday, May 27th: [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), and the [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+  - Due Tuesday, June 1st: [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
+- Assignment submission is through the Gradescope tool in the Collab workspace
+  - All assignments will open up 48 hours before they are due (but not yet set up)
+  - (it's not set up yet for the Rational Paranoia HW, but will be later today)
+- Everybody has to (digitally) sign the [Cybersecurity Ethics Pledge](https://docs.google.com/forms/d/e/1FAIpQLScLvbH611z9dTpPnAfCTQ4u_aX3SJA30M4EutFDOLkuWeArTg/viewform)
+- Today's lectures finish up [the security mindset](../../slides/security-mindset.html#/), go through all of [terminology](../../slides/terminology.html#/), and then start on [policy](../../slides/policy.html#/)
+  - All lecture recordings are in the Lecture Capture tool in Collab
+
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>It Begins</h2>
+<img class='stretch' src="https://imgs.xkcd.com/comics/it_begins.png" title="You can also try &#39;Yikes.&#39;" alt="It Begins" srcset="https://imgs.xkcd.com/comics/it_begins_2x.png 2x">
+<p class='center'><a href='http://xkcd.com/1656/'>xkcd # 1656</a></p>
+</section>
+
+  <section data-markdown><textarea data-template>
+## Day 1: Monday, May 24th
+- Hello, world!  Class starts today.
+- Please be sure to read through the [course syllabus](syllabus.html)
+- Homeworks due (all are due by the end of the day):
+  - [HW 1: Rational Paranoia](../../hws/hw-paranoia.html) is due Wednesday, May 26th
+  - [HW 2: Policy](../../hws/hw-policy.html) is due Friday, May 28th
+  - [HW 3: Ethics](../../hws/hw-ethics.html) is due Monday, May 31st
+    - That's Memorial Day -- should it be due the day before instead?
+- Readings due (all due by the start of lecture)
+  - Due Thursday, May 27th: [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+- The submission system is through the Gradescope Collab tool
+  - All assignments will open up 48 hours before they are due
+    - Although the first one may be delayed a bit as the summer term starts
+- My office hours will start tomorrow as well
+  - Initially they will be at 10:00 am, but will start at 9:30 am later in the summer term if needed
+- Today's lectures are a synchronous [course introduction](../../slides/introduction.html#/) (not pre-recorded!) followed by an asyncrhonous lecture recording on [the security mindset](../../slides/security-mindset.html#/)
+  - You can watch the security mindset recording on your own time, but it's intended to be able to be finished by the 12:15 class end time
+  - All lecture recordings are in the Lecture Capture tool in Collab
+  </textarea></section>
+
+</section>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+      </div>
+
+    </div>
+
+<script src="../../slides/reveal.js/dist/reveal.js"></script>
+<script src="../../slides/reveal.js/plugin/zoom/zoom.js"></script>
+<script src="../../slides/reveal.js/plugin/notes/notes.js"></script>
+<script src="../../slides/reveal.js/plugin/search/search.js"></script>
+<script src="../../slides/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="../../slides/reveal.js/plugin/highlight/highlight.js"></script>
+<script src="../../slides/reveal.js/plugin/math/math.js"></script>
+    <!-- You cannot, apparently, include this from another directory, hence why settings.js is reproduced here in full -->
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controlsTutorial: false,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      slideNumber: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+    hash: true,
+
+    math: {
+      mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+      config: 'TeX-AMS_HTML-full',
+      // pass other options into `MathJax.Hub.Config()`
+      TeX: { Macros: { RR: "{\\bf R}" } }
+    },
+
+    // Learn about plugins: https://revealjs.com/plugins/
+    plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ],
+
+      });
+    </script>
+
+  </body>
+</html>
