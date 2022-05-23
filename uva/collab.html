@@ -5,11 +5,145 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>CS 3710 Summer 2021 Collab Workspace</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <style>
   body {
@@ -27,7 +161,7 @@
       font-size: 13px;
       padding: 0px 5px;
   }
-  
+
   pre {
       background-color: rgb(248, 248, 248);
       border: 1px solid rgb(221, 221, 221);
@@ -35,59 +169,127 @@
       /* Make the pre box scrollable rather than scrolling the whole page */
       overflow: auto;
   }
-  
+
   pre code {
       border: none;
       padding: 0;
   }
   </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<h2 id="cs-3710-introduction-to-cybersecurity-summer-2021">CS 3710, Introduction to Cybersecurity, summer 2021</h2>
-<p>Greetings, and welcome to CS 3710! Here are the relevant links you will need this semester:</p>
+<h2 id="cs-3710-introduction-to-cybersecurity-summer-2021">CS 3710,
+Introduction to Cybersecurity, summer 2021</h2>
+<p>Greetings, and welcome to CS 3710! Here are the relevant links you
+will need this semester:</p>
 <ul>
-<li>The course material can be found at the course web page: <a href="https://aaronbloomfield.github.io/ics/readme.html" target="_blank">https://aaronbloomfield.github.io/ics/</a>
+<li>The course material can be found at the course web page: <a
+href="https://aaronbloomfield.github.io/ics/readme.html"
+target="_blank">https://aaronbloomfield.github.io/ics/</a>
 <ul>
-<li>This is from the github repo at <a href="https://github.com/aaronbloomfield/ics" target="_blank">https://github.com/aaronbloomfield/ics</a></li>
-<li>The <a href="https://aaronbloomfield.github.io/ics/uva/daily-announcements.html#/" target="_blank">daily announcements</a></li>
+<li>This is from the github repo at <a
+href="https://github.com/aaronbloomfield/ics"
+target="_blank">https://github.com/aaronbloomfield/ics</a></li>
+<li>The <a
+href="https://aaronbloomfield.github.io/ics/uva/daily-announcements.html#/"
+target="_blank">daily announcements</a></li>
 </ul></li>
 <li>Class meetings
 <ul>
-<li>Lecture discussions are generally 10:30-11:00 (or so) via <a href="https://virginia.zoom.us/j/92129121313?pwd=VHFydFdtNjJYTVF1czBPMHlud244Zz09" target="_blank">this Zoom meeting</a> (meeting ID 921 2912 1313, passcode 509755)</li>
-<li>Office hours are from 10:00-10:30 via <a href="https://virginia.zoom.us/j/97411569457?pwd=WlVBNkQvNEdmS2thM3JvZld0M3RBUT09" target="_blank">this Zoom meeting</a> (meeting ID 974 1156 9457, passcode 164832)
+<li>Lecture discussions are generally 10:30-11:00 (or so) via <a
+href="https://virginia.zoom.us/j/92129121313?pwd=VHFydFdtNjJYTVF1czBPMHlud244Zz09"
+target="_blank">this Zoom meeting</a> (meeting ID 921 2912 1313,
+passcode 509755)</li>
+<li>Office hours are from 10:00-10:30 via <a
+href="https://virginia.zoom.us/j/97411569457?pwd=WlVBNkQvNEdmS2thM3JvZld0M3RBUT09"
+target="_blank">this Zoom meeting</a> (meeting ID 974 1156 9457,
+passcode 164832)
 <ul>
-<li>They have to end just before 10:30 so I can start the 10:30 lecture on time</li>
-<li>These office hours will start a bit earlier later in the semester as demand necessitates</li>
+<li>They have to end just before 10:30 so I can start the 10:30 lecture
+on time</li>
+<li>These office hours will start a bit earlier later in the semester as
+demand necessitates</li>
 <li>There will also be office hours at other times as needed</li>
 </ul></li>
-<li>If you want to view the recordings from the lecture sessions, click on the “Lecture Capture” tool, then on the “Cloud Recordings” tab, then the particular one you want to view. You can view the full recording or the audio only – when you click on the icon, it will copy the passcode to the clipboard, and you can then paste that in the box when prompted.</li>
+<li>If you want to view the recordings from the lecture sessions, click
+on the “Lecture Capture” tool, then on the “Cloud Recordings” tab, then
+the particular one you want to view. You can view the full recording or
+the audio only – when you click on the icon, it will copy the passcode
+to the clipboard, and you can then paste that in the box when
+prompted.</li>
 </ul></li>
-<li>Everybody has to (digitally) sign the <a href="https://docs.google.com/forms/d/e/1FAIpQLScLvbH611z9dTpPnAfCTQ4u_aX3SJA30M4EutFDOLkuWeArTg/viewform" target="_blank">Cybersecurity Ethics Pledge</a></li>
-<li>The VirtualBox image can be found <a href="https://virginia.box.com/s/qucmutlc8zy9ouymm62miw0da34ted7e" target="_blank">here</a>; it’s about a 5.3 Gb download. For directions about how to unzip it and install it, see <a href="https://uva-cs.github.io/pdr/tutorials/01-intro-unix/virtual-box.html" target="_blank">here</a>.</li>
+<li>Everybody has to (digitally) sign the <a
+href="https://docs.google.com/forms/d/e/1FAIpQLScLvbH611z9dTpPnAfCTQ4u_aX3SJA30M4EutFDOLkuWeArTg/viewform"
+target="_blank">Cybersecurity Ethics Pledge</a></li>
+<li>The VirtualBox image can be found <a
+href="https://virginia.box.com/s/qucmutlc8zy9ouymm62miw0da34ted7e"
+target="_blank">here</a>; it’s about a 5.3 Gb download. For directions
+about how to unzip it and install it, see <a
+href="https://uva-cs.github.io/pdr/tutorials/01-intro-unix/virtual-box.html"
+target="_blank">here</a>.</li>
 <li>Collab tools:
 <ul>
-<li>Lecture recordings are via the Lecture Capture tool to the left (also called Panopto)</li>
-<li>Assignments are submitted on Gradescope via the tool to the left</li>
-<li>Any individual concerns should be done via a <a href="https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/tickets/" target="_blank">support request</a></li>
+<li>Lecture recordings are via the Lecture Capture tool to the left
+(also called Panopto)</li>
+<li>Assignments are submitted on Gradescope via the tool to the
+left</li>
+<li>Any individual concerns should be done via a <a
+href="https://pegasus.cs.virginia.edu/satori/cs2150-sp2021/tickets/"
+target="_blank">support request</a></li>
 </ul></li>
 <li>Current list of things that are due:
 <ul>
 <li>Homeworks due (all are due by the end of the day):
 <ul>
-<li><a href="https://aaronbloomfield.github.io/ics/hws/hw-forensics.html" target="_blank">HW 7: Forensics</a> is due Wednesday, June 16th</li>
-<li><del><a href="https://aaronbloomfield.github.io/ics/hws/hw-cryptocurrency.html" target="_blank">HW 6: Cryptocurrency</a> is due Saturday, June 12th</del></li>
-<li><del><a href="https://aaronbloomfield.github.io/ics/hws/hw-sql-xss-csrf.html" target="_blank">HW 5: SQL/XSS/CSRF</a> is due Tuesday, June 8th</del></li>
-<li><del><a href="https://aaronbloomfield.github.io/ics/hws/hw-rsa.html" target="_blank">HW 4: RSA</a> is due Thursday, June 3rd</del></li>
-<li><del><a href="https://aaronbloomfield.github.io/ics/hws/hw-ethics.html" target="_blank">HW 3: Ethics</a> is due Monday, May 31st</del></li>
-<li><del><a href="https://aaronbloomfield.github.io/ics/hws/hw-policy.html" target="_blank">HW 2: Policy</a> is due Friday, May 28th</del></li>
-<li><del><a href="https://aaronbloomfield.github.io/ics/hws/hw-paranoia.html" target="_blank">HW 1: Rational Paranoia</a> is due Wednesday, May 26th</del></li>
+<li><a
+href="https://aaronbloomfield.github.io/ics/hws/hw-forensics.html"
+target="_blank">HW 7: Forensics</a> is due Wednesday, June 16th</li>
+<li><del><a
+href="https://aaronbloomfield.github.io/ics/hws/hw-cryptocurrency.html"
+target="_blank">HW 6: Cryptocurrency</a> is due Saturday, June
+12th</del></li>
+<li><del><a
+href="https://aaronbloomfield.github.io/ics/hws/hw-sql-xss-csrf.html"
+target="_blank">HW 5: SQL/XSS/CSRF</a> is due Tuesday, June
+8th</del></li>
+<li><del><a href="https://aaronbloomfield.github.io/ics/hws/hw-rsa.html"
+target="_blank">HW 4: RSA</a> is due Thursday, June 3rd</del></li>
+<li><del><a
+href="https://aaronbloomfield.github.io/ics/hws/hw-ethics.html"
+target="_blank">HW 3: Ethics</a> is due Monday, May 31st</del></li>
+<li><del><a
+href="https://aaronbloomfield.github.io/ics/hws/hw-policy.html"
+target="_blank">HW 2: Policy</a> is due Friday, May 28th</del></li>
+<li><del><a
+href="https://aaronbloomfield.github.io/ics/hws/hw-paranoia.html"
+target="_blank">HW 1: Rational Paranoia</a> is due Wednesday, May
+26th</del></li>
 </ul></li>
 <li>Readings
 <ul>
-<li>Due Tuesday, June 15th: Smashing the Stack for Fun and Profit, available online in <a href="http://phrack.org/issues/49/14.html">HTML</a> and <a href="http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf">PDF</a> (a copy of the PDF is in Collab’s resources as well)</li>
-<li><del>Due Monday, June 7th: <a href="https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot" target="_blank">NPR’s Planet Monday episode 908: I Am Not A Robot</a></del></li>
-<li><del>Due Tuesday, June 1st: <a href="https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf" target="_blank">An Introduction to Cybersecurity Ethics</a>: you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it’s about 35 typed pages</del></li>
-<li><del>Due Thursday, May 27th: <a href="https://www.acm.org/code-of-ethics" target="_blank">ACM Code of Ethics</a>, <a href="https://dl.acm.org/citation.cfm?id=358210" target="_blank">Reflections on Trusting Trust</a>, and the <a href="https://en.wikipedia.org/wiki/Morris_worm" target="_blank">Morris Worm Wikipedia page</a></del></li>
+<li>Due Tuesday, June 15th: Smashing the Stack for Fun and Profit,
+available online in <a
+href="http://phrack.org/issues/49/14.html">HTML</a> and <a
+href="http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf">PDF</a>
+(a copy of the PDF is in Collab’s resources as well)</li>
+<li><del>Due Monday, June 7th: <a
+href="https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot"
+target="_blank">NPR’s Planet Monday episode 908: I Am Not A
+Robot</a></del></li>
+<li><del>Due Tuesday, June 1st: <a
+href="https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf"
+target="_blank">An Introduction to Cybersecurity Ethics</a>: you can
+skip the questions (the blue boxes therein); once you remove those, the
+table of contents, and the appendices, it’s about 35 typed
+pages</del></li>
+<li><del>Due Thursday, May 27th: <a
+href="https://www.acm.org/code-of-ethics" target="_blank">ACM Code of
+Ethics</a>, <a href="https://dl.acm.org/citation.cfm?id=358210"
+target="_blank">Reflections on Trusting Trust</a>, and the <a
+href="https://en.wikipedia.org/wiki/Morris_worm" target="_blank">Morris
+Worm Wikipedia page</a></del></li>
 </ul></li>
 </ul></li>
 </ul>

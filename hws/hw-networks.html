@@ -5,55 +5,158 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>ICS: Programming Homework: Networks</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<h1 id="ics-programming-homework-networks">ICS: Programming Homework: Networks</h1>
-<p><a href="index.html">Go up to the ICS HW page</a> (<a href="index.md">md</a>)</p>
-<p>You will want to see the <a href="../uva/hw-policies.html">homeworks policies page</a> (<a href="../uva/hw-policies.md">md</a>) for formatting and other details. The due dates are listed on the <a href="../uva/index.html">UVa course page</a> (<a href="../uva/index.md">md</a>).</p>
+<h1 id="ics-programming-homework-networks">ICS: Programming Homework:
+Networks</h1>
+<p><a href="index.html">Go up to the ICS HW page</a> (<a
+href="index.md">md</a>)</p>
+<p>You will want to see the <a href="../uva/hw-policies.html">homeworks
+policies page</a> (<a href="../uva/hw-policies.md">md</a>) for
+formatting and other details. The due dates are listed on the <a
+href="../uva/index.html">UVa course page</a> (<a
+href="../uva/index.md">md</a>).</p>
 <h3 id="purpose">Purpose</h3>
-<p>This homework will have you explore a number of topics and security vulnerabilities related to networking.</p>
-<p>There are four parts to this assignment. As part of this assignment, you will have to create a document, called <code>mst3k-networks.pdf</code> (where mst3k is your userid), and submit that file. We aren’t looking for any fancy write-up - just an explanation of what you did, and the results you got. That being said, it should be legible. So make sure you indicate what answers are for what questions, etc.</p>
-<p>In addition, you will have to have a working SSL configuration for part 1 on the network – we will be testing that connection as well.</p>
+<p>This homework will have you explore a number of topics and security
+vulnerabilities related to networking.</p>
+<p>There are four parts to this assignment. As part of this assignment,
+you will have to create a document, called
+<code>mst3k-networks.pdf</code> (where mst3k is your userid), and submit
+that file. We aren’t looking for any fancy write-up - just an
+explanation of what you did, and the results you got. That being said,
+it should be legible. So make sure you indicate what answers are for
+what questions, etc.</p>
+<p>In addition, you will have to have a working SSL configuration for
+part 1 on the network – we will be testing that connection as well.</p>
 <h3 id="part-1-explore-tor">Part 1: Explore Tor</h3>
-<p>Before you start, you should determine your IP address and the route to a given machine. Visit <a href="https://whatismyipaddress.com/">https://whatismyipaddress.com/</a> to get your IP address (for reasons we’ll see in a bit, this is preferred over Googling for ‘what is my ip’).</p>
-<p>You will need to install (and, briefly, use) Tor. You can find out out Tor <a href="https://www.torproject.org/">here</a>, and installation – which is particular to your operating system – is described <a href="https://www.torproject.org/docs/installguide.html.en">here</a>. Once you install Tor, you will also need to install the <a href="https://www.torproject.org/projects/torbrowser.html.en">Tor browser</a>.</p>
-<p>Load up the Tor browser and visit <a href="https://whatismyipaddress.com/">https://whatismyipaddress.com/</a> again to get your IP address. Hit reload a couple of times, and note how the IP address changes each time. These are the IP addresses of the Tor <em>exit nodes</em>.</p>
-<p>Visit a <strong><em>LEGAL</em></strong> Tor hidden service. You can Google for a list of Tor hidden services – their URL will always end in “.onion”. One such site is <a href="https://thehiddenwiki.org/">https://thehiddenwiki.org/</a>. As an example of a <strong><em>LEGAL</em></strong> sites to visit, consider <a href="http://3g2upl4pq6kufc4m.onion/">http://3g2upl4pq6kufc4m.onion/</a>, which is the DuckDuckGo search engine.</p>
-<p>Visit another website that is not a hidden service. Note how much slower it is to view this website. Can you stream a video from Youtube via a Tor connection?</p>
-<p>Note that Tor is a service as well as a web browser. You may (or may not) want to stop the Tor service when you are done. Under Ubuntu Linux, that’s <code>sudo service tor stop</code>. This will stop it for that one time only – and on the next reboot, it will reactivate. To disable it for good, you can run <code>sudo systemctl stop tor</code> (or just uninstall it). You are on your own for other operating systems.</p>
+<p>Before you start, you should determine your IP address and the route
+to a given machine. Visit <a
+href="https://whatismyipaddress.com/">https://whatismyipaddress.com/</a>
+to get your IP address (for reasons we’ll see in a bit, this is
+preferred over Googling for ‘what is my ip’).</p>
+<p>You will need to install (and, briefly, use) Tor. You can find out
+out Tor <a href="https://www.torproject.org/">here</a>, and installation
+– which is particular to your operating system – is described <a
+href="https://www.torproject.org/docs/installguide.html.en">here</a>.
+Once you install Tor, you will also need to install the <a
+href="https://www.torproject.org/projects/torbrowser.html.en">Tor
+browser</a>.</p>
+<p>Load up the Tor browser and visit <a
+href="https://whatismyipaddress.com/">https://whatismyipaddress.com/</a>
+again to get your IP address. Hit reload a couple of times, and note how
+the IP address changes each time. These are the IP addresses of the Tor
+<em>exit nodes</em>.</p>
+<p>Visit a <strong><em>LEGAL</em></strong> Tor hidden service. You can
+Google for a list of Tor hidden services – their URL will always end in
+“.onion”. One such site is <a
+href="https://thehiddenwiki.org/">https://thehiddenwiki.org/</a>. As an
+example of a <strong><em>LEGAL</em></strong> sites to visit, consider <a
+href="http://3g2upl4pq6kufc4m.onion/">http://3g2upl4pq6kufc4m.onion/</a>,
+which is the DuckDuckGo search engine.</p>
+<p>Visit another website that is not a hidden service. Note how much
+slower it is to view this website. Can you stream a video from Youtube
+via a Tor connection?</p>
+<p>Note that Tor is a service as well as a web browser. You may (or may
+not) want to stop the Tor service when you are done. Under Ubuntu Linux,
+that’s <code>sudo service tor stop</code>. This will stop it for that
+one time only – and on the next reboot, it will reactivate. To disable
+it for good, you can run <code>sudo systemctl stop tor</code> (or just
+uninstall it). You are on your own for other operating systems.</p>
 <p>In the report, you should include:</p>
 <ul>
 <li>Your IP address before you were running Tor</li>
 <li>The IP address(es) used when you were using the Tor browser</li>
-<li>What <strong><em>LEGAL</em></strong> hidden service(s) that you visited</li>
+<li>What <strong><em>LEGAL</em></strong> hidden service(s) that you
+visited</li>
 </ul>
 <h3 id="part-2-packet-sniffing">Part 2: Packet Sniffing</h3>
-<p>For this part, we are going to ‘listen’ to network traffic, and see what interesting information we can find. We will use a UNIX utility called tcpdump. This utility will print out all the network traffic on a given interface. tcpdump must be run as root; thus, you probably cannot run it on any UVa server. You can download the tcpdump.zip file from Collab’s resources – that file is NOT in this repo due to its size. This file contains a dump of a tcpdump session. We will be analyzing this file.</p>
-<p>This file contains my password, so I wanted to ensure that it was properly protected, and I used a 6-character ZIP file password on it. It’s your job to crack that password. While you can use any ZIP file password cracker that is out there (and there are lots!), we recommend <a href="http://www.ubuntugeek.com/howto-crack-zip-files-password.html">fcrackzip</a>, which you can install on your Linux VirtualBox image via <code>sudo apt-get install fcrackzip</code>. Note that you will need to understand what it does - just running it with very few parameters will just spew out gibberish to the screen.</p>
-<p>A packet sniffing utility would run tcpdump, and parse the contents in real-time. We can do this using something as simple as lex, although more advanced programs (including parsers like yacc or bison) would be more effective. For this assignment, you won’t need to write a program, but can instead just search for the data using any text-search mechanism (including opening it up in your favorite editor and searching the data). The data was collected using the following command:</p>
+<p>For this part, we are going to ‘listen’ to network traffic, and see
+what interesting information we can find. We will use a UNIX utility
+called tcpdump. This utility will print out all the network traffic on a
+given interface. tcpdump must be run as root; thus, you probably cannot
+run it on any UVa server. You can download the tcpdump.zip file from
+Collab’s resources – that file is NOT in this repo due to its size. This
+file contains a dump of a tcpdump session. We will be analyzing this
+file.</p>
+<p>This file contains my password, so I wanted to ensure that it was
+properly protected, and I used a 6-character ZIP file password on it.
+It’s your job to crack that password. While you can use any ZIP file
+password cracker that is out there (and there are lots!), we recommend
+<a
+href="http://www.ubuntugeek.com/howto-crack-zip-files-password.html">fcrackzip</a>,
+which you can install on your Linux VirtualBox image via <code>sudo
+apt-get install fcrackzip</code>. Note that you will need to understand
+what it does - just running it with very few parameters will just spew
+out gibberish to the screen.</p>
+<p>A packet sniffing utility would run tcpdump, and parse the contents
+in real-time. We can do this using something as simple as lex, although
+more advanced programs (including parsers like yacc or bison) would be
+more effective. For this assignment, you won’t need to write a program,
+but can instead just search for the data using any text-search mechanism
+(including opening it up in your favorite editor and searching the
+data). The data was collected using the following command:</p>
 <pre><code>tcpdump -A -l -s 10000 -i eth0</code></pre>
 <p>The command line switches do the following:</p>
 <ul>
-<li><code>-A</code> causes the packets to be printed in ASCII (as opposed to binary or hex, which are other command-line switches)</li>
-<li><code>-s 10000</code> causes the maximum printed packet to be 10,000 bytes - if not set, it will only print the first 64 bytes of each packet</li>
-<li><code>-i eth0</code> causes it to ‘listen’ to the first (and, in this case, only) Ethernet connection. If you have multiple network connections, this will allow you to monitor only one. You could set this to listen to the wireless connection, or to all connections.</li>
+<li><code>-A</code> causes the packets to be printed in ASCII (as
+opposed to binary or hex, which are other command-line switches)</li>
+<li><code>-s 10000</code> causes the maximum printed packet to be 10,000
+bytes - if not set, it will only print the first 64 bytes of each
+packet</li>
+<li><code>-i eth0</code> causes it to ‘listen’ to the first (and, in
+this case, only) Ethernet connection. If you have multiple network
+connections, this will allow you to monitor only one. You could set this
+to listen to the wireless connection, or to all connections.</li>
 </ul>
-<p>Many of the pages returned by tcpdump are compressed to save network bandwidth. This is particularly relevant for popular sites that send a lot of data, such as Facebook or CNN. You can see this in the packet by the ‘Content-Encoding: gzip’ header. One can easily write the data to file, reverse the base-64 encoding, and the un-gzip it (and there are programs that do just that). For this assignment, we’ll be looking just at the non-compressed data.</p>
-<p>You will need to analyze the tcpdump.txt file. Download the tcpdump.zip file from Collab’s resources – that file is NOT in this repo due to its size. In your report, you need to answer the following questions:</p>
+<p>Many of the pages returned by tcpdump are compressed to save network
+bandwidth. This is particularly relevant for popular sites that send a
+lot of data, such as Facebook or CNN. You can see this in the packet by
+the ‘Content-Encoding: gzip’ header. One can easily write the data to
+file, reverse the base-64 encoding, and the un-gzip it (and there are
+programs that do just that). For this assignment, we’ll be looking just
+at the non-compressed data.</p>
+<p>You will need to analyze the tcpdump.txt file. Download the
+tcpdump.zip file from Collab’s resources – that file is NOT in this repo
+due to its size. In your report, you need to answer the following
+questions:</p>
 <ul>
-<li>What websites were visited that encoded the data using gzip? We are looking for the domain names (domain.tld), not the exact URL (foo.bar.baz.domain.tld).</li>
-<li>What types of files were transferred? This is encoded in the ‘Content-Type’ header.</li>
-<li>What network ports were accessed? A network port corresponds to an application-level protocol, such as http and https. This is encoded as <code>gemini.http-alt</code> (here <code>http-alt</code> means an alternative to http) - see the example packet explanation, below. The <code>http-alt</code> port is 8080 – you can find this out by looking in <code>/etc/services</code>, which maps port names (such as <code>http-alt</code>) to port numbers. We aren’t interested in port numbers above 10,000.</li>
-<li>What is the username(s) and password(s) were used when logging in? Where were they used to log in to? Not surprisingly, all passwords were changed for this file. (There is only one that can be sniffed)</li>
+<li>What websites were visited that encoded the data using gzip? We are
+looking for the domain names (domain.tld), not the exact URL
+(foo.bar.baz.domain.tld).</li>
+<li>What types of files were transferred? This is encoded in the
+‘Content-Type’ header.</li>
+<li>What network ports were accessed? A network port corresponds to an
+application-level protocol, such as http and https. This is encoded as
+<code>gemini.http-alt</code> (here <code>http-alt</code> means an
+alternative to http) - see the example packet explanation, below. The
+<code>http-alt</code> port is 8080 – you can find this out by looking in
+<code>/etc/services</code>, which maps port names (such as
+<code>http-alt</code>) to port numbers. We aren’t interested in port
+numbers above 10,000.</li>
+<li>What is the username(s) and password(s) were used when logging in?
+Where were they used to log in to? Not surprisingly, all passwords were
+changed for this file. (There is only one that can be sniffed)</li>
 <li>Can you determine my ebay password? Why or why not?</li>
-<li>What other network-level and transport-level protocols were used, other than TCP? TCP is used quite frequently (so much so that TCP packets are not labeled as TCP). You can find a listing of the protocols on <a href="https://en.wikipedia.org/wiki/Internet_protocol_suite">Wikipedia</a> – specifically in the gray box on the right hand side of that page entitled “Internet protocol suite”.</li>
+<li>What other network-level and transport-level protocols were used,
+other than TCP? TCP is used quite frequently (so much so that TCP
+packets are not labeled as TCP). You can find a listing of the protocols
+on <a
+href="https://en.wikipedia.org/wiki/Internet_protocol_suite">Wikipedia</a>
+– specifically in the gray box on the right hand side of that page
+entitled “Internet protocol suite”.</li>
 </ul>
 <p>A given packet could look like the following.</p>
 <pre><code>10:31:35.293018 IP gemini.http-alt &gt; pegasus.58878: Flags [P.], seq 4642:4790, ack 2176, win 80, options [nop,nop,TS val 43850520 ecr 38675081], length 148
@@ -65,15 +168,39 @@ E`....@.9.....E..........O.........P.......
 &lt;/form&gt;
 &lt;hr&gt;
 &lt;/html&gt;</code></pre>
-<p>This packet was sent at 10:31:35 from gemini (aka gemini.cs.virginia.edu) to pegasus (my home computer). It was a http connection (the ‘http-alt’ means the alternative http port that gemini uses) - so it was sending data. In fact, this is the last half of the SQL injection attack web page that you used above in part 2.</p>
-<p>The uncompressed tcpdump file is 16 Mb. Thus, it may have problems opening in Notepad. And just doing Notepad-style searches for all the answers to the above questions will not get you very far - you certainly aren’t going to be able to find out all the protocols via searching through Notepad for each packet header (some of the questions may be answered via that type of search, though). The UNIX utility grep will be your friend here. Consider the following, which you type from the UNIX command line.</p>
+<p>This packet was sent at 10:31:35 from gemini (aka
+gemini.cs.virginia.edu) to pegasus (my home computer). It was a http
+connection (the ‘http-alt’ means the alternative http port that gemini
+uses) - so it was sending data. In fact, this is the last half of the
+SQL injection attack web page that you used above in part 2.</p>
+<p>The uncompressed tcpdump file is 16 Mb. Thus, it may have problems
+opening in Notepad. And just doing Notepad-style searches for all the
+answers to the above questions will not get you very far - you certainly
+aren’t going to be able to find out all the protocols via searching
+through Notepad for each packet header (some of the questions may be
+answered via that type of search, though). The UNIX utility grep will be
+your friend here. Consider the following, which you type from the UNIX
+command line.</p>
 <pre><code>grep gemini tcpdump.txt</code></pre>
-<p>This will search the tcpdump.txt file for all occurrences of gemini. While it returns 375 lines, that is still only 8% of the entire length of the tcpdump.txt file. You can also use ‘egrep’, which allows you to enter a regular expression. Consider the following.</p>
+<p>This will search the tcpdump.txt file for all occurrences of gemini.
+While it returns 375 lines, that is still only 8% of the entire length
+of the tcpdump.txt file. You can also use ‘egrep’, which allows you to
+enter a regular expression. Consider the following.</p>
 <pre><code>egrep &quot;\[a-z\]\[4\]\[4\]+&quot; tcpdump.txt</code></pre>
-<p>This takes in the regular expression [a-z][4][4]+, and searches for all occurrences of it in the file (there are 20). Make sure you put your double quotes around the regular expression.</p>
-<p>Lastly, note that ‘sextans’ is the name of one of my routers (all my machines are named after constellations). So when you see data being transfered between sextans and another host, that’s between my computer and said host.</p>
-<p>Honor pledge details: you are given permission to search the tcpdump.txt file to answer the above questions for this assignment. After that, you will need to delete the file.</p>
+<p>This takes in the regular expression [a-z][4][4]+, and searches for
+all occurrences of it in the file (there are 20). Make sure you put your
+double quotes around the regular expression.</p>
+<p>Lastly, note that ‘sextans’ is the name of one of my routers (all my
+machines are named after constellations). So when you see data being
+transfered between sextans and another host, that’s between my computer
+and said host.</p>
+<p>Honor pledge details: you are given permission to search the
+tcpdump.txt file to answer the above questions for this assignment.
+After that, you will need to delete the file.</p>
 <h3 id="submission">Submission</h3>
-<p>You should submit a file called <code>mst3k-networks.pdf</code>, where mst3k is your userid. Answers to all the above questions should be in that file. So that it is viable for us to read, please clearly label the various sections of the file.</p>
+<p>You should submit a file called <code>mst3k-networks.pdf</code>,
+where mst3k is your userid. Answers to all the above questions should be
+in that file. So that it is viable for us to read, please clearly label
+the various sections of the file.</p>
 </body>
 </html>

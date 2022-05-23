@@ -5,82 +5,300 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>ICS: Programming Homework: RSA</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<h1 id="ics-programming-homework-rsa">ICS: Programming Homework: RSA</h1>
-<p><a href="index.html">Go up to the ICS HW page</a> (<a href="index.md">md</a>)</p>
-<p>You will want to see the <a href="../uva/hw-policies.html">homeworks policies page</a> (<a href="../uva/hw-policies.md">md</a>) for formatting and other details. The due dates are listed on the <a href="../uva/index.html">UVa course page</a> (<a href="../uva/index.md">md</a>).</p>
+<h1 id="ics-programming-homework-rsa">ICS: Programming Homework:
+RSA</h1>
+<p><a href="index.html">Go up to the ICS HW page</a> (<a
+href="index.md">md</a>)</p>
+<p>You will want to see the <a href="../uva/hw-policies.html">homeworks
+policies page</a> (<a href="../uva/hw-policies.md">md</a>) for
+formatting and other details. The due dates are listed on the <a
+href="../uva/index.html">UVa course page</a> (<a
+href="../uva/index.md">md</a>).</p>
 <h3 id="purpose">Purpose</h3>
-<p>This assignment will focus on the implementation of the RSA algorithm. Specifically, you will have to implement key generation, encryption and decryption, signing and signature checking, and cracking of RSA messages.</p>
-<p>The intent is to implement this in Java, since the JDK provides the functionality to handle the necessary math. You must speak to me first if you want to use another language!</p>
-<p>As Java is meant to be cross-platform, there is no specific reference platform for this assignment. We will be using Java 1.8 to compile, run, and test your program.</p>
+<p>This assignment will focus on the implementation of the RSA
+algorithm. Specifically, you will have to implement key generation,
+encryption and decryption, signing and signature checking, and cracking
+of RSA messages.</p>
+<p>The intent is to implement this in Java, since the JDK provides the
+functionality to handle the necessary math. You must speak to me first
+if you want to use another language!</p>
+<p>As Java is meant to be cross-platform, there is no specific reference
+platform for this assignment. We will be using Java 1.8 to compile, run,
+and test your program.</p>
 <h3 id="relevant-links">Relevant links</h3>
-<p>These links are all described below, but are included here, all in one place.</p>
+<p>These links are all described below, but are included here, all in
+one place.</p>
 <ul>
-<li><a href="rsa/RSA.java">RSA.java</a> skeleton code, which you <strong><em>MUST</em></strong> use; you can also view an <a href="rsa/RSA.java.html">HTML version</a></li>
-<li>Doxygen documentation for the <a href="rsa/html/classCipherText.html">CipherText</a>, <a href="rsa/html/classRSAKey.html">RSAKey</a>, and <a href="rsa/html/classRSA.html">RSA</a> classes</li>
-<li><a href="rsa/html/cmdparam.html">Command line parameter usage</a> – note that the provided RSA.java file calls the correct functions based on the parameters passed</li>
-<li><a href="../slides/encryption.html#/rsa">The encryption lecture</a>, and the <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">Wikipedia article on RSA</a></li>
-<li><a href="https://docs.oracle.com/javase/8/docs/api/">Java SDK documentation</a>, including the <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">java.math.BigInteger</a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html">java.security.MessageDigest</a> classes</li>
-<li>The <a href="rsa/test-rsa.sh">test-rsa.sh</a> (<a href="rsa/test-rsa.sh.html">HTML version</a>) shell script</li>
+<li><a href="rsa/RSA.java">RSA.java</a> skeleton code, which you
+<strong><em>MUST</em></strong> use; you can also view an <a
+href="rsa/RSA.java.html">HTML version</a></li>
+<li>Doxygen documentation for the <a
+href="rsa/html/classCipherText.html">CipherText</a>, <a
+href="rsa/html/classRSAKey.html">RSAKey</a>, and <a
+href="rsa/html/classRSA.html">RSA</a> classes</li>
+<li><a href="rsa/html/cmdparam.html">Command line parameter usage</a> –
+note that the provided RSA.java file calls the correct functions based
+on the parameters passed</li>
+<li><a href="../slides/encryption.html#/rsa">The encryption lecture</a>,
+and the <a
+href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">Wikipedia
+article on RSA</a></li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/">Java SDK
+documentation</a>, including the <a
+href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">java.math.BigInteger</a>
+and <a
+href="https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html">java.security.MessageDigest</a>
+classes</li>
+<li>The <a href="rsa/test-rsa.sh">test-rsa.sh</a> (<a
+href="rsa/test-rsa.sh.html">HTML version</a>) shell script</li>
 </ul>
 <h3 id="prerequisites-to-review">Prerequisites to Review</h3>
-<p>You should be familiar with how the RSA algorithm works from the <a href="../slides/encryption.html#/rsa">the encryption lecture</a>. More details are available online (see the <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">Wikipedia article on RSA</a>). Keep in mind, however, that the Wikipedia page uses different variable names than what the lecture and slide set used. You will also want to reference the <a href="https://docs.oracle.com/javase/8/docs/api/">Java SDK documentation</a>, specifically the <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">java.math.BigInteger</a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html">java.security.MessageDigest</a> classes.</p>
+<p>You should be familiar with how the RSA algorithm works from the <a
+href="../slides/encryption.html#/rsa">the encryption lecture</a>. More
+details are available online (see the <a
+href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">Wikipedia
+article on RSA</a>). Keep in mind, however, that the Wikipedia page uses
+different variable names than what the lecture and slide set used. You
+will also want to reference the <a
+href="https://docs.oracle.com/javase/8/docs/api/">Java SDK
+documentation</a>, specifically the <a
+href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">java.math.BigInteger</a>
+and <a
+href="https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html">java.security.MessageDigest</a>
+classes.</p>
 <h3 id="skeleton-code">Skeleton Code</h3>
-<p>To simplify the assignment, and to allow easy interoperability between your code and our test cases, we have provided a significant amount of skeleton code in the <a href="rsa/RSA.java">RSA.java</a> file; you can see an HTML version of that code <a href="rsa/RSA.java.html">here</a>. That code is split into three classes, the first two of which are just to hold data and have no methods of their own. Each link in the list below will go to the Doxygen documentation for that class.</p>
+<p>To simplify the assignment, and to allow easy interoperability
+between your code and our test cases, we have provided a significant
+amount of skeleton code in the <a href="rsa/RSA.java">RSA.java</a> file;
+you can see an HTML version of that code <a
+href="rsa/RSA.java.html">here</a>. That code is split into three
+classes, the first two of which are just to hold data and have no
+methods of their own. Each link in the list below will go to the Doxygen
+documentation for that class.</p>
 <ul>
-<li><a href="rsa/html/classCipherText.html">CipherText</a>: a class to hold the cipher text for any RSA encrypted data</li>
-<li><a href="rsa/html/classRSAKey.html">RSAKey</a>: a class to hold a public or private (or both) key</li>
-<li><a href="rsa/html/classRSA.html">RSA</a>: the main class that implements RSA. There are eight methods within that need to be completed for this assignment: <code>convertToASCII()</code>, <code>convertFromASCII()</code>, <code>generateKeys()</code>, <code>encrypt()</code>, <code>decrypt()</code>, <code>crack()</code>, <code>sign()</code>, <code>checkSign()</code>.</li>
+<li><a href="rsa/html/classCipherText.html">CipherText</a>: a class to
+hold the cipher text for any RSA encrypted data</li>
+<li><a href="rsa/html/classRSAKey.html">RSAKey</a>: a class to hold a
+public or private (or both) key</li>
+<li><a href="rsa/html/classRSA.html">RSA</a>: the main class that
+implements RSA. There are eight methods within that need to be completed
+for this assignment: <code>convertToASCII()</code>,
+<code>convertFromASCII()</code>, <code>generateKeys()</code>,
+<code>encrypt()</code>, <code>decrypt()</code>, <code>crack()</code>,
+<code>sign()</code>, <code>checkSign()</code>.</li>
 </ul>
 <h3 id="assignment-details">Assignment Details</h3>
-<p>For this assignment, you must implement eight methods in the RSA algorithm. They are the ones that state “requires completion” in the comments. This assignment is to be done in Java, as you will need to use the BigInteger and MessageDigest classes.</p>
-<p>You must start with the <a href="rsa/RSA.java">RSA.java</a> skeleton code (<a href="rsa/RSA.java.html">HTML version</a>). This code, described more fully below, provides various methods to ensure that the format of the key files and the encrypted files are consistent, so that we may easily test your code. Furthermore, we are going to <em>EXPLICITLY</em> call individual methods from your code, so if they are not named exactly as they are therein, your code will fail those tests.</p>
-<p><strong><em>WARNING!!!</em></strong> The <code>convertToASCII()</code> and <code>convertFromASCII()</code> methods will be used to test your code. If they don’t work properly, then NONE of your other methods will work. Our unit tests, which we use to evaluate your code, will call these to convert back and forth. So if they arent’t working properly, then you will likely end up with a zero on the assignment. Thus, please implement them first, and test them to make sure they work properly. And you should use them in your <code>encrypt()</code> and <code>decrypt()</code> methods, of course.</p>
-<p>You may add any other methods or fields that you would like to add. The following is required for our testing harness to work properly on your code:</p>
+<p>For this assignment, you must implement eight methods in the RSA
+algorithm. They are the ones that state “requires completion” in the
+comments. This assignment is to be done in Java, as you will need to use
+the BigInteger and MessageDigest classes.</p>
+<p>You must start with the <a href="rsa/RSA.java">RSA.java</a> skeleton
+code (<a href="rsa/RSA.java.html">HTML version</a>). This code,
+described more fully below, provides various methods to ensure that the
+format of the key files and the encrypted files are consistent, so that
+we may easily test your code. Furthermore, we are going to
+<em>EXPLICITLY</em> call individual methods from your code, so if they
+are not named exactly as they are therein, your code will fail those
+tests.</p>
+<p><strong><em>WARNING!!!</em></strong> The
+<code>convertToASCII()</code> and <code>convertFromASCII()</code>
+methods will be used to test your code. If they don’t work properly,
+then NONE of your other methods will work. Our unit tests, which we use
+to evaluate your code, will call these to convert back and forth. So if
+they arent’t working properly, then you will likely end up with a zero
+on the assignment. Thus, please implement them first, and test them to
+make sure they work properly. And you should use them in your
+<code>encrypt()</code> and <code>decrypt()</code> methods, of
+course.</p>
+<p>You may add any other methods or fields that you would like to add.
+The following is required for our testing harness to work properly on
+your code:</p>
 <ul>
-<li>The <code>main()</code> method exactly as provided, as we want to make sure the command line parameters are interpreted the way we expect them to be interpreted</li>
-<li>The eight methods that you are to implement should not have their signatures changed (return type, visibility, static-ness, name, or parameter types). All these methods have <code>throws Exception</code> in case your implementation decides to throw an exception.</li>
-<li>The two utility classes (<code>RSAKey</code> and <code>CipherText</code>) should not be modified</li>
-<li>The utility methods, which are the six methods that you <em>don’t</em> have to implement, should not be modified. Those are: <code>writeKeyToFile()</code>, <code>readKeyFromFile()</code>, <code>readCipherTextFromFile()</code>, <code>writeCipherTextToFile()</code>, <code>getFileContents()</code>, and <code>convertHash()</code>.</li>
-<li>As mentioned above, you may add any other methods or fields that you would like to add.</li>
+<li>The <code>main()</code> method exactly as provided, as we want to
+make sure the command line parameters are interpreted the way we expect
+them to be interpreted</li>
+<li>The eight methods that you are to implement should not have their
+signatures changed (return type, visibility, static-ness, name, or
+parameter types). All these methods have <code>throws Exception</code>
+in case your implementation decides to throw an exception.</li>
+<li>The two utility classes (<code>RSAKey</code> and
+<code>CipherText</code>) should not be modified</li>
+<li>The utility methods, which are the six methods that you
+<em>don’t</em> have to implement, should not be modified. Those are:
+<code>writeKeyToFile()</code>, <code>readKeyFromFile()</code>,
+<code>readCipherTextFromFile()</code>,
+<code>writeCipherTextToFile()</code>, <code>getFileContents()</code>,
+and <code>convertHash()</code>.</li>
+<li>As mentioned above, you may add any other methods or fields that you
+would like to add.</li>
 </ul>
-<p>These requirements are meant to allow for easy for interoperability, and to ensure that your code works with our test cases.</p>
-<p>You must implement eight methods within the <a href="rsa/RSA.java">RSA.java</a> (<a href="rsa/RSA.java.html">HTML version</a>) file. Those methods are: <code>convertToASCII()</code>, <code>convertFromASCII()</code>, <code>generateKeys()</code>, <code>encrypt()</code>, <code>decrypt()</code>, <code>crack()</code>, <code>sign()</code>, <code>checkSign()</code>. Details for how they should work can be found in the <a href="../slides/encryption.html#/">the encryption lecture</a> as well as <a href="http://en.wikipedia.org/wiki/RSA">online</a>.</p>
-<p>The documentation contained in the comments in the skeleton code details what the methods and classes do (or should do). That commenting was run through <a href="http://www.doxygen.nl/">Doxygen</a>, and the results are: <a href="rsa/html/classCipherText.html">CipherText</a>, <a href="rsa/html/classRSAKey.html">RSAKey</a>, and <a href="rsa/html/classRSA.html">RSA</a>. <strong><em>You will want to look at this!</em></strong></p>
+<p>These requirements are meant to allow for easy for interoperability,
+and to ensure that your code works with our test cases.</p>
+<p>You must implement eight methods within the <a
+href="rsa/RSA.java">RSA.java</a> (<a href="rsa/RSA.java.html">HTML
+version</a>) file. Those methods are: <code>convertToASCII()</code>,
+<code>convertFromASCII()</code>, <code>generateKeys()</code>,
+<code>encrypt()</code>, <code>decrypt()</code>, <code>crack()</code>,
+<code>sign()</code>, <code>checkSign()</code>. Details for how they
+should work can be found in the <a
+href="../slides/encryption.html#/">the encryption lecture</a> as well as
+<a href="http://en.wikipedia.org/wiki/RSA">online</a>.</p>
+<p>The documentation contained in the comments in the skeleton code
+details what the methods and classes do (or should do). That commenting
+was run through <a href="http://www.doxygen.nl/">Doxygen</a>, and the
+results are: <a href="rsa/html/classCipherText.html">CipherText</a>, <a
+href="rsa/html/classRSAKey.html">RSAKey</a>, and <a
+href="rsa/html/classRSA.html">RSA</a>. <strong><em>You will want to look
+at this!</em></strong></p>
 <h3 id="command-line-parameters">Command line parameters</h3>
-<p>The <code>main()</code> method should not need to be modified for the final submission (feel free to modify it any way you want to test your code). It will call the appropriate methods as indicated by the command line parameters, which are described <a href="rsa/html/cmdparam.html">here</a>. In almost all cases, output (progress, status messages, etc.) should ONLY be printed to the standard output if the <code>-verbose</code> option is set, and should be enough that we can understand what is happening. The <em>only</em> time output should be printed to the terminal is when (1) a signature does not match, and (2) an error condition is encountered (which, in theory, should not happen with our tests on properly implemented code).</p>
-<p>Note that the command-line parameters are parsed <strong>in order</strong> - this means that if you call <code>java RSA -keygen 10 -verbose</code>, you will not get any verbosity, as that parameter was specified <em>after</em> the <code>-keygen</code> parameter was given. We provide a <code>main()</code> method in the <a href="rsa/RSA.java">RSA.java</a> skeleton code, which can handle the parameters and, again, <em>should not be modified</em>.</p>
-<p>Note that normal operation (i.e. without the <code>-verbose</code> flag) is for it to print <em>nothing</em> - the only exception is the <code>-checksign</code> flag.</p>
-<p>Again, the command line parameters are listed <a href="rsa/html/cmdparam.html">here</a>.</p>
-<p>You may assume (and, in fact, should) that you will only receive one of <code>-encrypt</code>, <code>-decrypt</code>, <code>-sign</code>, <code>-checksign</code>, <code>-crack</code>, or <code>-keygen</code>; this specifies what the program is going to do. The program should not output any messages on normal execution (it should output error messages, as appropriate – but we won’t be giving any invalid combination of parameters) other than on <code>-checksign</code>. With the <code>-showpandq</code> option, it will of course output <em>p</em> and <em>q</em>. And with the <code>-verbose</code> option, it can output a lot of informational messages.</p>
-<p>Furthermore, you may assume that we will not give you invalid input, either in the files we provide, or for the command-line parameters.</p>
+<p>The <code>main()</code> method should not need to be modified for the
+final submission (feel free to modify it any way you want to test your
+code). It will call the appropriate methods as indicated by the command
+line parameters, which are described <a
+href="rsa/html/cmdparam.html">here</a>. In almost all cases, output
+(progress, status messages, etc.) should ONLY be printed to the standard
+output if the <code>-verbose</code> option is set, and should be enough
+that we can understand what is happening. The <em>only</em> time output
+should be printed to the terminal is when (1) a signature does not
+match, and (2) an error condition is encountered (which, in theory,
+should not happen with our tests on properly implemented code).</p>
+<p>Note that the command-line parameters are parsed <strong>in
+order</strong> - this means that if you call <code>java RSA -keygen 10
+-verbose</code>, you will not get any verbosity, as that parameter was
+specified <em>after</em> the <code>-keygen</code> parameter was given.
+We provide a <code>main()</code> method in the <a
+href="rsa/RSA.java">RSA.java</a> skeleton code, which can handle the
+parameters and, again, <em>should not be modified</em>.</p>
+<p>Note that normal operation (i.e. without the <code>-verbose</code>
+flag) is for it to print <em>nothing</em> - the only exception is the
+<code>-checksign</code> flag.</p>
+<p>Again, the command line parameters are listed <a
+href="rsa/html/cmdparam.html">here</a>.</p>
+<p>You may assume (and, in fact, should) that you will only receive one
+of <code>-encrypt</code>, <code>-decrypt</code>, <code>-sign</code>,
+<code>-checksign</code>, <code>-crack</code>, or <code>-keygen</code>;
+this specifies what the program is going to do. The program should not
+output any messages on normal execution (it should output error
+messages, as appropriate – but we won’t be giving any invalid
+combination of parameters) other than on <code>-checksign</code>. With
+the <code>-showpandq</code> option, it will of course output <em>p</em>
+and <em>q</em>. And with the <code>-verbose</code> option, it can output
+a lot of informational messages.</p>
+<p>Furthermore, you may assume that we will not give you invalid input,
+either in the files we provide, or for the command-line parameters.</p>
 <h3 id="sample-test-script">Sample test script</h3>
-<p>A sample usage of the program, in which is Alice and Bob are sending messages is available. This code can be found in a shell script named <a href="rsa/test-rsa.sh">test-rsa.sh</a> (<a href="rsa/test-rsa.sh.html">HTML version</a>). If you are on a UNIX environment, run <code>chmod 755 test-rsa.sh</code>, and then run it via <code>./test-rsa.sh</code>. Note that this is not a complete test suite! Just a quick check to see if the basics work. But if your program does not work with this, then it’s incomplete, and will receive a low grade. If you are not on a UNIX system, then you may have to copy-and-paste those commands into a command terminal.</p>
-<p>This file creates two files (message1.txt and message2.txt), and will overwrite those files if they already exist; those two files are deleted by the last line in the script. You are welcome (and encouraged) to use other, longer, message test files – might we suggest some <a href="http://www.historyplace.com/speeches/previous.htm">great speeches</a>? However, make <strong><em>SURE</em></strong> that the text is all ASCII, since your program will likely not be able to handle UTF-8 characters – and when you cut-and-paste, characters like the dash and quotes often do not cut-and-paste into their ASCII equivalents. Run <code>file message1.txt</code> to check if it is ASCII or not (not ASCII is typically reported as ‘UTF-8’).</p>
-<p>Assuming you don’t have any extraneous output (which you shouldn’t), the only command that should output anything is step 12. Again, you can see the test script at <a href="rsa/test-rsa.sh">test-rsa.sh</a> (<a href="rsa/test-rsa.sh.html">HTML version</a>).</p>
-<p>Note that the last line deletes the intermediate files; during development, you may want to comment that line out to see those files.</p>
+<p>A sample usage of the program, in which is Alice and Bob are sending
+messages is available. This code can be found in a shell script named <a
+href="rsa/test-rsa.sh">test-rsa.sh</a> (<a
+href="rsa/test-rsa.sh.html">HTML version</a>). If you are on a UNIX
+environment, run <code>chmod 755 test-rsa.sh</code>, and then run it via
+<code>./test-rsa.sh</code>. Note that this is not a complete test suite!
+Just a quick check to see if the basics work. But if your program does
+not work with this, then it’s incomplete, and will receive a low grade.
+If you are not on a UNIX system, then you may have to copy-and-paste
+those commands into a command terminal.</p>
+<p>This file creates two files (message1.txt and message2.txt), and will
+overwrite those files if they already exist; those two files are deleted
+by the last line in the script. You are welcome (and encouraged) to use
+other, longer, message test files – might we suggest some <a
+href="http://www.historyplace.com/speeches/previous.htm">great
+speeches</a>? However, make <strong><em>SURE</em></strong> that the text
+is all ASCII, since your program will likely not be able to handle UTF-8
+characters – and when you cut-and-paste, characters like the dash and
+quotes often do not cut-and-paste into their ASCII equivalents. Run
+<code>file message1.txt</code> to check if it is ASCII or not (not ASCII
+is typically reported as ‘UTF-8’).</p>
+<p>Assuming you don’t have any extraneous output (which you shouldn’t),
+the only command that should output anything is step 12. Again, you can
+see the test script at <a href="rsa/test-rsa.sh">test-rsa.sh</a> (<a
+href="rsa/test-rsa.sh.html">HTML version</a>).</p>
+<p>Note that the last line deletes the intermediate files; during
+development, you may want to comment that line out to see those
+files.</p>
 <p>The output should be just:</p>
 <pre><code>Signatures do not match!</code></pre>
-<p>While we are not going to try to break your program with strange combinations of command line parameters (trying to decrypt but not specifying a key), we would encourage you to put some sanity error‐checking code in your methods for your own sanity while developing the program.</p>
+<p>While we are not going to try to break your program with strange
+combinations of command line parameters (trying to decrypt but not
+specifying a key), we would encourage you to put some sanity
+error‐checking code in your methods for your own sanity while developing
+the program.</p>
 <h3 id="notes">Notes</h3>
-<p><strong>Determining SHA-256 hashes:</strong> We are using the SHA-256 hash for this assignment. If you want to see if a string has the same SHA-256 as a file, make sure they are EXACTLY the same. If the file has a ending newline (<code>\n</code>) character, and the string does not, then the SHA-256 sums will not match! You can find the SHA-256 hash of a file via the <code>sha256sum</code> command (<code>CertUtil -hashfile message1.txt SHA256</code> on Windows):</p>
+<p><strong>Determining SHA-256 hashes:</strong> We are using the SHA-256
+hash for this assignment. If you want to see if a string has the same
+SHA-256 as a file, make sure they are EXACTLY the same. If the file has
+a ending newline (<code>\n</code>) character, and the string does not,
+then the SHA-256 sums will not match! You can find the SHA-256 hash of a
+file via the <code>sha256sum</code> command (<code>CertUtil -hashfile
+message1.txt SHA256</code> on Windows):</p>
 <pre><code>$ sha256sum message1.txt 
 bdf712419bb34b8c0f0d08126f191ecab5da9c0dbb4d2711d3c8eed6f5d42f2a  message1.txt</code></pre>
-<p>If your system does not have sha256sum, you can switch over to MD5 <strong>but only for development</strong>! To do that, change the value of the <code>hashAlgorithm</code> variable to “MD5”. You can then use the <code>md5</code> or <code>md5sum</code> commands similarly to what is shown above for <code>sha256sum</code>. Be sure to change it back to “SHA-256” before submission!</p>
-<p>Note that, given an input file, your SHA-256 hash computation should print out the <em>exact</em> same result as the <code>sha256sum</code> command on your favorite Unix system. But see the warning, above, about making sure the contents are the exact same.</p>
-<p><strong>Creating the block:</strong> You will have a series of characters to put into a block (or, for decryption, to extract out of the block). There are a few ways you can do this. You can convert it to a byte array (the <code>String getBytes()</code> method does this) – each value in that array is a single (ASCII-encoded) value. You can optionally multiply the current running block by 256, then add the current value to be appended to the block. Obviously, your number will need to be in a <code>BigInteger</code>.</p>
-<p><strong>Block size determination:</strong> To figure out your block size (which we’ll call <em>b</em>) – which is the number of characters you can encode in one block – let <em>x</em> be the number of bits in <em>n</em> (found via the BigInteger <code>bitLength()</code> method). Divide <em>x-1</em> by 8 (the minus one is important here to prevent rounding issues). As mentioned below, you can assume that we will always use keys that support a block size of at least 2. This is for <em>encryption</em> only. For decryption, the block size will be indicated in the ciphertext file which, when read in by the provided <code>readCipherTextFromFile()</code> method, will be in the <code>blockLength</code> field of the returned <code>CipherText</code> object.</p>
-<p><strong>Block size minimum:</strong> Each block will be a whole number of 8-bit characters, so we will not be splitting characters between blocks. Thus, if your keys can hold up to 31 bits per block (if 2^<sup>31</sup>^ &lt; <em>n</em> &lt; 2^<sup>32</sup>^), we will only encode 24 bits (3 characters) in that block, not 31 bits. That being said, you can assume that all blocks we will use will allow for at least 2 characters per block. Note that the number passed in via <code>-keygen</code> is the bit size for <em>p</em> and <em>q</em>; <em>n</em> is roughly twice that size.</p>
-<p><strong>ASCII:</strong> All files (messages, keys, ciphertext, what‐not) will have only printable ASCII characters, so you need not worry about binary files. But there may be whitespace as well: newlines, tabs, linefeeds, etc. Make sure that your code does not have UTF-8 characters in it! Given a file, you can tell what type of characters it has via the <code>file foo.txt</code> command.</p>
+<p>If your system does not have sha256sum, you can switch over to MD5
+<strong>but only for development</strong>! To do that, change the value
+of the <code>hashAlgorithm</code> variable to “MD5”. You can then use
+the <code>md5</code> or <code>md5sum</code> commands similarly to what
+is shown above for <code>sha256sum</code>. Be sure to change it back to
+“SHA-256” before submission!</p>
+<p>Note that, given an input file, your SHA-256 hash computation should
+print out the <em>exact</em> same result as the <code>sha256sum</code>
+command on your favorite Unix system. But see the warning, above, about
+making sure the contents are the exact same.</p>
+<p><strong>Creating the block:</strong> You will have a series of
+characters to put into a block (or, for decryption, to extract out of
+the block). There are a few ways you can do this. You can convert it to
+a byte array (the <code>String getBytes()</code> method does this) –
+each value in that array is a single (ASCII-encoded) value. You can
+optionally multiply the current running block by 256, then add the
+current value to be appended to the block. Obviously, your number will
+need to be in a <code>BigInteger</code>.</p>
+<p><strong>Block size determination:</strong> To figure out your block
+size (which we’ll call <em>b</em>) – which is the number of characters
+you can encode in one block – let <em>x</em> be the number of bits in
+<em>n</em> (found via the BigInteger <code>bitLength()</code> method).
+Divide <em>x-1</em> by 8 (the minus one is important here to prevent
+rounding issues). As mentioned below, you can assume that we will always
+use keys that support a block size of at least 2. This is for
+<em>encryption</em> only. For decryption, the block size will be
+indicated in the ciphertext file which, when read in by the provided
+<code>readCipherTextFromFile()</code> method, will be in the
+<code>blockLength</code> field of the returned <code>CipherText</code>
+object.</p>
+<p><strong>Block size minimum:</strong> Each block will be a whole
+number of 8-bit characters, so we will not be splitting characters
+between blocks. Thus, if your keys can hold up to 31 bits per block (if
+2^<sup>31</sup>^ &lt; <em>n</em> &lt; 2^<sup>32</sup>^), we will only
+encode 24 bits (3 characters) in that block, not 31 bits. That being
+said, you can assume that all blocks we will use will allow for at least
+2 characters per block. Note that the number passed in via
+<code>-keygen</code> is the bit size for <em>p</em> and <em>q</em>;
+<em>n</em> is roughly twice that size.</p>
+<p><strong>ASCII:</strong> All files (messages, keys, ciphertext,
+what‐not) will have only printable ASCII characters, so you need not
+worry about binary files. But there may be whitespace as well: newlines,
+tabs, linefeeds, etc. Make sure that your code does not have UTF-8
+characters in it! Given a file, you can tell what type of characters it
+has via the <code>file foo.txt</code> command.</p>
 <h3 id="submission-requirements">Submission requirements</h3>
-<p>You should submit one file: <code>RSA.java</code>, which contains all your Java code. The compilation command will be <code>javac *.java</code>, so your RSA.java should have only one public class called <code>RSA</code>, and not be in a package. The submission system will expect to see a <code>RSA.class</code> file after compilation, and will complain if it is not present (<code>missing binary executable</code>, or similar).</p>
+<p>You should submit one file: <code>RSA.java</code>, which contains all
+your Java code. The compilation command will be <code>javac
+*.java</code>, so your RSA.java should have only one public class called
+<code>RSA</code>, and not be in a package. The submission system will
+expect to see a <code>RSA.class</code> file after compilation, and will
+complain if it is not present (<code>missing binary executable</code>,
+or similar).</p>
 </body>
 </html>

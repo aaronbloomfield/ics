@@ -5,86 +5,207 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>ICS: Programming HW: Hashes</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="ics-programming-hw-hashes">ICS: Programming HW: Hashes</h1>
-<p><a href="index.html">Go up to the ICS HW page</a> (<a href="index.md">md</a>)</p>
-<p>You will want to see the <a href="../uva/hw-policies.html">homeworks policies page</a> (<a href="../uva/hw-policies.md">md</a>) for formatting and other details. The due dates are listed on the <a href="../uva/index.html">UVa course page</a> (<a href="../uva/index.md">md</a>).</p>
-<p>The reference platform for this assignment will be 64-bit Ubuntu Linux, version 18.04. The VirtualBox image (see the Collab landing page for details) is configured for this.</p>
+<p><a href="index.html">Go up to the ICS HW page</a> (<a
+href="index.md">md</a>)</p>
+<p>You will want to see the <a href="../uva/hw-policies.html">homeworks
+policies page</a> (<a href="../uva/hw-policies.md">md</a>) for
+formatting and other details. The due dates are listed on the <a
+href="../uva/index.html">UVa course page</a> (<a
+href="../uva/index.md">md</a>).</p>
+<p>The reference platform for this assignment will be 64-bit Ubuntu
+Linux, version 18.04. The VirtualBox image (see the Collab landing page
+for details) is configured for this.</p>
 <h3 id="purpose">Purpose</h3>
-<p>In this assignment, you will be examining some of the issues surrounding hashes and their security applications.</p>
-<p>There are four separate tasks for this assignment, as described below. Please note that task 2 is computationally intensive and will require <strong><em>several</em></strong> hours to run. Extensions will not be granted because you waited until the last minute to start this assignment.</p>
+<p>In this assignment, you will be examining some of the issues
+surrounding hashes and their security applications.</p>
+<p>There are four separate tasks for this assignment, as described
+below. Please note that task 2 is computationally intensive and will
+require <strong><em>several</em></strong> hours to run. Extensions will
+not be granted because you waited until the last minute to start this
+assignment.</p>
 <h2 id="task-1-crc-insecurity">Task 1: CRC insecurity</h2>
-<p>Your job is to write a C/C++ program (necessary for speed reasons) that, when given an input file and a CRC checksum, will modify that message, and ensure that the modified version matches the CRC checksum.</p>
+<p>Your job is to write a C/C++ program (necessary for speed reasons)
+that, when given an input file and a CRC checksum, will modify that
+message, and ensure that the modified version matches the CRC
+checksum.</p>
 <h3 id="set-up">Set-up</h3>
-<p>For this task, you will need functions from the Boost C++ library, as they will perform the CRC hash computation. This is already installed on the VirtualBox image. Alternatively, you can download the three necessary files directly: <a href="http://www.boost.org/doc/libs/1_68_0/boost/crc.hpp">crc.hpp</a>, <a href="http://www.boost.org/doc/libs/1_68_0/boost/cstdint.hpp">cstdint.hpp</a>, and <a href="http://www.boost.org/doc/libs/1_68_0/boost/config.hpp">config.hpp</a>.</p>
+<p>For this task, you will need functions from the Boost C++ library, as
+they will perform the CRC hash computation. This is already installed on
+the VirtualBox image. Alternatively, you can download the three
+necessary files directly: <a
+href="http://www.boost.org/doc/libs/1_68_0/boost/crc.hpp">crc.hpp</a>,
+<a
+href="http://www.boost.org/doc/libs/1_68_0/boost/cstdint.hpp">cstdint.hpp</a>,
+and <a
+href="http://www.boost.org/doc/libs/1_68_0/boost/config.hpp">config.hpp</a>.</p>
 <p>Your program should include the files as follows:</p>
 <pre><code>#include &lt;boost/crc.hpp&gt;
 #include &lt;boost/cstdint.hpp&gt;</code></pre>
-<p>If you didn’t install the library, use <code>#include "crc.hpp"</code> for development, but replace with the above lines before submission.</p>
-<p>Optionally, you may want to use the <code>crc32</code> binary in Ubuntu – this, also, is already installed on the VirtualBox image. If you run <code>crc32 file_name</code> in a terminal, you will get the CRC32 value for that file.</p>
+<p>If you didn’t install the library, use <code>#include
+"crc.hpp"</code> for development, but replace with the above lines
+before submission.</p>
+<p>Optionally, you may want to use the <code>crc32</code> binary in
+Ubuntu – this, also, is already installed on the VirtualBox image. If
+you run <code>crc32 file_name</code> in a terminal, you will get the
+CRC32 value for that file.</p>
 <h3 id="resources">Resources</h3>
 <ul>
 <li>Boost libraries:
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Boost_(C++_libraries)">Wikipedia overview</a></li>
-<li><a href="https://www.boost.org/doc/libs/1_68_0/libs/crc/crc.html">Documentation</a></li>
-<li><a href="https://stackoverflow.com/questions/2573726/how-to-use-boostcrc">Example usage of CRC functions</a></li>
+<li><a
+href="https://en.wikipedia.org/wiki/Boost_(C++_libraries)">Wikipedia
+overview</a></li>
+<li><a
+href="https://www.boost.org/doc/libs/1_68_0/libs/crc/crc.html">Documentation</a></li>
+<li><a
+href="https://stackoverflow.com/questions/2573726/how-to-use-boostcrc">Example
+usage of CRC functions</a></li>
 </ul></li>
-<li><a href="https://www.lammertbies.nl/comm/info/crc-calculation.html">Online CRC16 calculator</a> (does not include trailing newlines)</li>
+<li><a
+href="https://www.lammertbies.nl/comm/info/crc-calculation.html">Online
+CRC16 calculator</a> (does not include trailing newlines)</li>
 </ul>
 <h3 id="assignment">Assignment</h3>
-<p>Your program should be called <code>crc.cpp</code> and compile into an executable called <code>crc</code> (see the Makefile, below). It will be run with two command-line parameters:</p>
+<p>Your program should be called <code>crc.cpp</code> and compile into
+an executable called <code>crc</code> (see the Makefile, below). It will
+be run with two command-line parameters:</p>
 <ol type="1">
 <li>the input file name to read from</li>
-<li>the desired CRC value (in hex) - this will be 4 hexadecimal characters, such as ‘abcd’ (we will leave out the leading ‘0x’)</li>
+<li>the desired CRC value (in hex) - this will be 4 hexadecimal
+characters, such as ‘abcd’ (we will leave out the leading ‘0x’)</li>
 </ol>
 <p>A sample execution:</p>
 <pre><code>./crc input.txt abcd</code></pre>
-<p>The program should write its output to a file named <code>output.txt</code>, which should contain the following:</p>
+<p>The program should write its output to a file named
+<code>output.txt</code>, which should contain the following:</p>
 <ol type="1">
-<li>The contents of the original file in its entirety (it will consist only of printable ASCII characters, as well as newlines)</li>
-<li>A message of your own, which demonstrates that you <em>could</em> modify the original message, possibly maliciously, if desired. (Do not actually modify the original message – just add your message after the original.)</li>
-<li>A reasonable amount of PRINTABLE ASCII characters (decimal values 32 - 127) to the end of the input file (reasonable means 10 or fewer), such that the new output file has the same CRC as the desired CRC value (the second command-line parameter). The only purpose of these characters is to affect the CRC value, as changing the input <em>almost</em> always results in a different output (in this task, you are looking for the exceptions to that rule).</li>
+<li>The contents of the original file in its entirety (it will consist
+only of printable ASCII characters, as well as newlines)</li>
+<li>A message of your own, which demonstrates that you <em>could</em>
+modify the original message, possibly maliciously, if desired. (Do not
+actually modify the original message – just add your message after the
+original.)</li>
+<li>A reasonable amount of PRINTABLE ASCII characters (decimal values 32
+- 127) to the end of the input file (reasonable means 10 or fewer), such
+that the new output file has the same CRC as the desired CRC value (the
+second command-line parameter). The only purpose of these characters is
+to affect the CRC value, as changing the input <em>almost</em> always
+results in a different output (in this task, you are looking for the
+exceptions to that rule).</li>
 </ol>
 <h3 id="important-notes">Important Notes</h3>
-<p><strong>CRC16:</strong> We will be using the CRC16 algorithm, NOT the CRC32 algorithm, to allow the program to run in a reasonably short time frame. Boost can do both, so be careful.</p>
-<p><strong>Newlines:</strong> There are two things to be watch out for with newlines:</p>
+<p><strong>CRC16:</strong> We will be using the CRC16 algorithm, NOT the
+CRC32 algorithm, to allow the program to run in a reasonably short time
+frame. Boost can do both, so be careful.</p>
+<p><strong>Newlines:</strong> There are two things to be watch out for
+with newlines:</p>
 <ol type="1">
-<li>There are differences between Linux and Windows platforms (see <a href="http://en.wikipedia.org/wiki/Newline">Wikipedia</a> for details). Your program will be run (and graded) in a Linux environment.</li>
-<li>Trailing newlines (<code>\n</code>) affect the CRC16 value of a file, but are often overlooked. Be careful not to unintentionally add any extra newlines that would change the CRC value of <code>output.txt</code>. For example, the CRC16 for “hello world” with no trailing newline is 0x39c1 on a UNIX system, but with a trailing newline it is 0x9778.</li>
+<li>There are differences between Linux and Windows platforms (see <a
+href="http://en.wikipedia.org/wiki/Newline">Wikipedia</a> for details).
+Your program will be run (and graded) in a Linux environment.</li>
+<li>Trailing newlines (<code>\n</code>) affect the CRC16 value of a
+file, but are often overlooked. Be careful not to unintentionally add
+any extra newlines that would change the CRC value of
+<code>output.txt</code>. For example, the CRC16 for “hello world” with
+no trailing newline is 0x39c1 on a UNIX system, but with a trailing
+newline it is 0x9778.</li>
 </ol>
 <h3 id="additional-hints">Additional Hints</h3>
 <ul>
-<li>You need to create a new <code>crc_16_type</code> result EACH time you compute the CRC value; you can’t re-use it very easily.</li>
-<li>Your program will be given 60 seconds to run when we grade it. This should be enough time for CRC16, but you may want to include the <code>-O2</code> compilation flag.</li>
-<li>During development, it may be easier to compute the CRC32 value because of the convenient <code>crc32</code> utility in Ubuntu (described above). Once you verify that your program is computing the hash properly, change it over to CRC16. (Note you need to change over to CRC16 <em>before</em> you search for collisions, or you will be searching a <em>long</em> time.)</li>
+<li>You need to create a new <code>crc_16_type</code> result EACH time
+you compute the CRC value; you can’t re-use it very easily.</li>
+<li>Your program will be given 60 seconds to run when we grade it. This
+should be enough time for CRC16, but you may want to include the
+<code>-O2</code> compilation flag.</li>
+<li>During development, it may be easier to compute the CRC32 value
+because of the convenient <code>crc32</code> utility in Ubuntu
+(described above). Once you verify that your program is computing the
+hash properly, change it over to CRC16. (Note you need to change over to
+CRC16 <em>before</em> you search for collisions, or you will be
+searching a <em>long</em> time.)</li>
 </ul>
 <h2 id="task-2-md5-collisions">Task 2: MD5 collisions</h2>
-<p>How easy is it to create a malicious program with a specific MD5 hash? In this part we’ll find out.</p>
-<p>For this task, we are going to follow <a href="http://www.mscs.dal.ca/~selinger/md5collision/">these online instructions</a>. This code is released under the Modified BSD and/or the GPL license, so I am allowed to use it here, as long as I don’t claim credit for it (I’m not), and I include the license in the source code (it’s included there).</p>
+<p>How easy is it to create a malicious program with a specific MD5
+hash? In this part we’ll find out.</p>
+<p>For this task, we are going to follow <a
+href="http://www.mscs.dal.ca/~selinger/md5collision/">these online
+instructions</a>. This code is released under the Modified BSD and/or
+the GPL license, so I am allowed to use it here, as long as I don’t
+claim credit for it (I’m not), and I include the license in the source
+code (it’s included there).</p>
 <h3 id="set-up-1">Set-up</h3>
-<p><strong>Platform:</strong> You will likely want to use the Linux VirtualBox for this task. <em>Note that we can make no guarantees about the safety of the program</em>, although when we ran it on our own computer, and the world didn’t end. Additionally, you will be creating binary executables, which must be <em>Linux</em> binary executables (elf), <strong>not</strong> MacOS (Mach-O) and not Windows (exe). We will be running them on a 64 bit Linux system, but 32 or 64 bit elf executables are fine.</p>
-<p>You can download the source code from the <a href="http://www.mscs.dal.ca/~selinger/md5collision/">the online instructions website</a> or from Collab’s Resources page; the file is called <code>evilize-0.2.tar.gz</code> or <code>evilize-0.2.zip</code> (you only need one).</p>
+<p><strong>Platform:</strong> You will likely want to use the Linux
+VirtualBox for this task. <em>Note that we can make no guarantees about
+the safety of the program</em>, although when we ran it on our own
+computer, and the world didn’t end. Additionally, you will be creating
+binary executables, which must be <em>Linux</em> binary executables
+(elf), <strong>not</strong> MacOS (Mach-O) and not Windows (exe). We
+will be running them on a 64 bit Linux system, but 32 or 64 bit elf
+executables are fine.</p>
+<p>You can download the source code from the <a
+href="http://www.mscs.dal.ca/~selinger/md5collision/">the online
+instructions website</a> or from Collab’s Resources page; the file is
+called <code>evilize-0.2.tar.gz</code> or <code>evilize-0.2.zip</code>
+(you only need one).</p>
 <h3 id="assignment-1">Assignment</h3>
-<p>Your task is to create two binary executables, <code>good</code> and <code>evil</code>, that have the same MD5 hash (<a href="http://www.mscs.dal.ca/~selinger/md5collision/">see the instructions</a>). Those executables should print something relevant (i.e., something “good” and something “evil”) - it can be interesting quotations, good/evil instructions, etc. <strong>IT SHOULD NOT DO ANYTHING MALICIOUS</strong>, as that would be a violation of your <a href="../uva/ethics-pledge.pdf">Ethics honor pledge</a>. <strong>ONLY</strong> print something. Find some interesting quotations to entertain us!</p>
-<p>This process took 90 minutes on my home computer (3.4 Ghz machine) to run; your mileage may vary. And since the program only runs on one core, multi-core machines do not get much of a boost. When complete, check the MD5 checksums of “good” and “evil” - they should match. You should also run both programs to ensure they exhibit the behaviors you programmed in the <code>main_good()</code> and <code>main_evil()</code> functions.</p>
-<p>Additionally, you should answer the following question in a file called <code>md5.pdf</code>: how does this whole thing work? We just want an overview of how the entire evilize and md5coll programs work, not an in-depth mathematical analysis of the collision algorithm. You should be able to explain this adequately in around 1/2 page single-spaced, and definitely not more than 1 page.</p>
+<p>Your task is to create two binary executables, <code>good</code> and
+<code>evil</code>, that have the same MD5 hash (<a
+href="http://www.mscs.dal.ca/~selinger/md5collision/">see the
+instructions</a>). Those executables should print something relevant
+(i.e., something “good” and something “evil”) - it can be interesting
+quotations, good/evil instructions, etc. <strong>IT SHOULD NOT DO
+ANYTHING MALICIOUS</strong>, as that would be a violation of your <a
+href="../uva/ethics-pledge.pdf">Ethics honor pledge</a>.
+<strong>ONLY</strong> print something. Find some interesting quotations
+to entertain us!</p>
+<p>This process took 90 minutes on my home computer (3.4 Ghz machine) to
+run; your mileage may vary. And since the program only runs on one core,
+multi-core machines do not get much of a boost. When complete, check the
+MD5 checksums of “good” and “evil” - they should match. You should also
+run both programs to ensure they exhibit the behaviors you programmed in
+the <code>main_good()</code> and <code>main_evil()</code> functions.</p>
+<p>Additionally, you should answer the following question in a file
+called <code>md5.pdf</code>: how does this whole thing work? We just
+want an overview of how the entire evilize and md5coll programs work,
+not an in-depth mathematical analysis of the collision algorithm. You
+should be able to explain this adequately in around 1/2 page
+single-spaced, and definitely not more than 1 page.</p>
 <p>For this part, you should submit four files:</p>
 <ul>
 <li>The <code>good</code> and <code>evil</code> binary executables</li>
-<li><code>multiple_personalities.c</code>, the source code file that contains <code>main_good()</code> and <code>main_evil()</code>, the <code>main()</code> functions from the <code>good</code> and <code>evil</code> executables – we aren’t going to compile this, we just want to look over the source code</li>
+<li><code>multiple_personalities.c</code>, the source code file that
+contains <code>main_good()</code> and <code>main_evil()</code>, the
+<code>main()</code> functions from the <code>good</code> and
+<code>evil</code> executables – we aren’t going to compile this, we just
+want to look over the source code</li>
 <li><code>md5.pdf</code></li>
 </ul>
 <h2 id="task-3-dictionary-attacks">Task 3: Dictionary Attacks</h2>
-<p>Modern computer systems do not store the password in plain text, but instead store a hash of that password. When a user logs in, a hash is taken of the password the user enters, and that hash is compared to the saved one – if they match, then the login is successful. Since hashes are one-way functions, we cannot determine a password based solely on the hash. Instead, we perform a <a href="https://en.wikipedia.org/wiki/Dictionary_attack">dictionary attack</a>: we take every word in the dictionary, hash each one, and then compare the hashes.</p>
+<p>Modern computer systems do not store the password in plain text, but
+instead store a hash of that password. When a user logs in, a hash is
+taken of the password the user enters, and that hash is compared to the
+saved one – if they match, then the login is successful. Since hashes
+are one-way functions, we cannot determine a password based solely on
+the hash. Instead, we perform a <a
+href="https://en.wikipedia.org/wiki/Dictionary_attack">dictionary
+attack</a>: we take every word in the dictionary, hash each one, and
+then compare the hashes.</p>
 <h3 id="set-up-2">Set-up</h3>
 <p>A password file will be provided in the following format:</p>
 <pre><code>aaron 34388d7a0c8eb31b74c40d6415676379
@@ -92,14 +213,41 @@ sam 642b58ba419517c47a6b94c3905aaa88
 felix 6c43c0a88fbf0f44ba944d00524e45c3
 helen ca6ad39adfc023f2c32e1e9afd062386
 daniel 80edd055513bbdd360e48c089755659a</code></pre>
-<p>The hashes shown are MD5 hashes (because MD5 is super-secure, right?). Those passwords are used are shown in the execution run, below.</p>
-<p>The dictionary file we will use is /usr/share/dict/words (it’s on the VirtualBox image), which contains about 100,000 words, and can be found online <a href="https://gist.githubusercontent.com/wchargin/8927565/raw/d9783627c731268fb2935a731a618aa8e95cf465/words">here</a> as well as on the Collab Resources page. That file has one word per line, with no whitespace.</p>
-<p>You are welcome to create your own versions of these files. If you want to find the MD5 password for a string, try running: <code>echo -n apple | md5sum</code>. Note that the <code>-n</code> part is important – it ensures that there is no return (<code>\n</code>) put at the end of the string that you are taking the MD5 hash of.</p>
+<p>The hashes shown are MD5 hashes (because MD5 is super-secure,
+right?). Those passwords are used are shown in the execution run,
+below.</p>
+<p>The dictionary file we will use is /usr/share/dict/words (it’s on the
+VirtualBox image), which contains about 100,000 words, and can be found
+online <a
+href="https://gist.githubusercontent.com/wchargin/8927565/raw/d9783627c731268fb2935a731a618aa8e95cf465/words">here</a>
+as well as on the Collab Resources page. That file has one word per
+line, with no whitespace.</p>
+<p>You are welcome to create your own versions of these files. If you
+want to find the MD5 password for a string, try running: <code>echo -n
+apple | md5sum</code>. Note that the <code>-n</code> part is important –
+it ensures that there is no return (<code>\n</code>) put at the end of
+the string that you are taking the MD5 hash of.</p>
 <h3 id="assignment-2">Assignment</h3>
-<p>Your program must find any and all passwords matches in the password file by hashing each of the words in the dictionary file. Your program will be provided with two command-line parameters: the password file name and the dictionary file name.</p>
-<p>For speed reasons, this program is to be developed in C++, and should be named <code>dictionary.cpp</code>. It will be compiled by the Makefile (see below) into an executable named <code>dictionary</code>. We will run this program providing only the password file and the dictionary file, in that order, as the command line parameters. Note that you will have to pass the <code>-lcrypto</code> flag to the compilation line. If you are working on this homework on the VirtualBox image, you will likely have to install the <code>libssl-dev</code> package if you want to include the <code>openssl/md5.h</code> file.</p>
-<p>You can look <a href="https://stackoverflow.com/questions/1220046/how-to-get-the-md5-hash-of-a-file-in-c">here</a> for how to generate a MD5 hash in C++ – you are welcome to copy that code directly (but state that you are doing such in your code comments).</p>
-<p>Your program should print out one line for the passwords that it finds. A format such as the following is reasonable:</p>
+<p>Your program must find any and all passwords matches in the password
+file by hashing each of the words in the dictionary file. Your program
+will be provided with two command-line parameters: the password file
+name and the dictionary file name.</p>
+<p>For speed reasons, this program is to be developed in C++, and should
+be named <code>dictionary.cpp</code>. It will be compiled by the
+Makefile (see below) into an executable named <code>dictionary</code>.
+We will run this program providing only the password file and the
+dictionary file, in that order, as the command line parameters. Note
+that you will have to pass the <code>-lcrypto</code> flag to the
+compilation line. If you are working on this homework on the VirtualBox
+image, you will likely have to install the <code>libssl-dev</code>
+package if you want to include the <code>openssl/md5.h</code> file.</p>
+<p>You can look <a
+href="https://stackoverflow.com/questions/1220046/how-to-get-the-md5-hash-of-a-file-in-c">here</a>
+for how to generate a MD5 hash in C++ – you are welcome to copy that
+code directly (but state that you are doing such in your code
+comments).</p>
+<p>Your program should print out one line for the passwords that it
+finds. A format such as the following is reasonable:</p>
 <pre><code>$ ./dictionary passwords.txt /usr/share/dict/words
 password for sam is: evenly
 password for daniel is: inherits
@@ -107,23 +255,38 @@ password for felix is: pet
 password for helen is: rhetorical
 password for aaron is: stockpiles
 $</code></pre>
-<p>Note that a human will be grading this, so feel free to modify that format, as long as it’s clear which username / password pairs have been found. Please don’t print out any extra output, else we will not be able to find your answers therein.</p>
-<h2 id="task-4-miscellaneous-write-up">Task 4: Miscellaneous write-up</h2>
-<p>There are a few questions to answer, and they should be in a <code>misc.pdf</code> file. Each one can reasonably be answered in 4 lines or less, so please be brief.</p>
+<p>Note that a human will be grading this, so feel free to modify that
+format, as long as it’s clear which username / password pairs have been
+found. Please don’t print out any extra output, else we will not be able
+to find your answers therein.</p>
+<h2 id="task-4-miscellaneous-write-up">Task 4: Miscellaneous
+write-up</h2>
+<p>There are a few questions to answer, and they should be in a
+<code>misc.pdf</code> file. Each one can reasonably be answered in 4
+lines or less, so please be brief.</p>
 <ul>
-<li>What is the string that has the MD5 hash of abc20d7bde1df257f890e152af2e3470? How did you determine this?</li>
+<li>What is the string that has the MD5 hash of
+abc20d7bde1df257f890e152af2e3470? How did you determine this?</li>
 <li>What is password salting? Why would we use it?</li>
 </ul>
 <h2 id="submission">Submission</h2>
 <p>There are <strong>eight</strong> files to submit:</p>
 <ul>
 <li><code>crc.cpp</code> (from task 1)</li>
-<li><code>good</code>, <code>evil</code>, <code>multiple_personalities.c</code>, and <code>md5.pdf</code> (from task 2); note that <code>good</code> and <code>evil</code> are binary executables</li>
+<li><code>good</code>, <code>evil</code>,
+<code>multiple_personalities.c</code>, and <code>md5.pdf</code> (from
+task 2); note that <code>good</code> and <code>evil</code> are binary
+executables</li>
 <li><code>dictionary.cpp</code> (from task 3)</li>
 <li><code>misc.pdf</code> (from task 4)</li>
 <li><code>Makefile</code> (described below)</li>
 </ul>
-<p>The Makefile needs to compile <code>crc.cpp</code> (from task 1) into a binary executable called <code>crc</code>. It also needs to compile <code>dictionary.cpp</code> (from task 3) into a binary called <code>dictionary</code>. It does not need to do anything for tasks 2 and 4. Below is a sample Makefile. Recall that with Makefiles, you must replace the leading 5 spaces on each target task with a single tab.</p>
+<p>The Makefile needs to compile <code>crc.cpp</code> (from task 1) into
+a binary executable called <code>crc</code>. It also needs to compile
+<code>dictionary.cpp</code> (from task 3) into a binary called
+<code>dictionary</code>. It does not need to do anything for tasks 2 and
+4. Below is a sample Makefile. Recall that with Makefiles, you must
+replace the leading 5 spaces on each target task with a single tab.</p>
 <pre><code>main:
      g++ -O2 -o crc crc.cpp
      g++ -O2 -o dictionary dictionary.cpp -lcrypto</code></pre>

@@ -5,87 +5,181 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>ICS: UVa specific material, fall 2019</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../../markdown.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<h1 id="ics-uva-specific-material-fall-2019">ICS: UVa specific material, fall 2019</h1>
-<p><a href="../readme.html">Go up to the main ICS readme</a> (<a href="../readme.md">md</a>)</p>
-<p>Much of the rest of this git repo is meant to be generic to anybody who has a class such as this one. But this page contains details specific to the specific version of the course at the University of Virginia.</p>
+<h1 id="ics-uva-specific-material-fall-2019">ICS: UVa specific material,
+fall 2019</h1>
+<p><a href="../readme.html">Go up to the main ICS readme</a> (<a
+href="../readme.md">md</a>)</p>
+<p>Much of the rest of this git repo is meant to be generic to anybody
+who has a class such as this one. But this page contains details
+specific to the specific version of the course at the University of
+Virginia.</p>
 <hr />
 <h2 id="links">Links</h2>
-<p>There are a number of links and other parts of this course that are <strong>NOT</strong> included in this repository. They are:</p>
+<p>There are a number of links and other parts of this course that are
+<strong>NOT</strong> included in this repository. They are:</p>
 <ul>
-<li>The set of online tools, which can be accessed through Collab or <a href="https://libra.cs.virginia.edu/~pedagogy/">here</a>.
+<li>The set of online tools, which can be accessed through Collab or <a
+href="https://libra.cs.virginia.edu/~pedagogy/">here</a>.
 <ul>
-<li>These tools are: <a href="https://libra.cs.virginia.edu/~pedagogy/support.php">support requests</a>, <a href="https://libra.cs.virginia.edu/~pedagogy/submit.php">submission</a>, <a href="https://libra.cs.virginia.edu/~pedagogy/regrades.php">regrades</a>, <a href="https://libra.cs.virginia.edu/~pedagogy/gradebook.php">gradebook</a>, <a href="https://libra.cs.virginia.edu/~pedagogy/labextension.php">lab extensions</a>, and the <a href="https://libra.cs.virginia.edu/~pedagogy/queue.php">office hours queue</a></li>
+<li>These tools are: <a
+href="https://libra.cs.virginia.edu/~pedagogy/support.php">support
+requests</a>, <a
+href="https://libra.cs.virginia.edu/~pedagogy/submit.php">submission</a>,
+<a
+href="https://libra.cs.virginia.edu/~pedagogy/regrades.php">regrades</a>,
+<a
+href="https://libra.cs.virginia.edu/~pedagogy/gradebook.php">gradebook</a>,
+<a href="https://libra.cs.virginia.edu/~pedagogy/labextension.php">lab
+extensions</a>, and the <a
+href="https://libra.cs.virginia.edu/~pedagogy/queue.php">office hours
+queue</a></li>
 </ul></li>
-<li>Grading guidelines, which are available in the Collab wiki (<a href="https://collab.its.virginia.edu/portal/site/a0075759-cb61-4fc7-82bc-9ef856bac64a/tool/56e26eb0-be53-435a-8fd5-7057246402db">here</a> is the direct link, although Collab login is required)</li>
-<li>Email list archive, which is a Collab tool (<a href="https://collab.its.virginia.edu/portal/site/a0075759-cb61-4fc7-82bc-9ef856bac64a/tool/d7acfefb-7690-4676-aded-3f20bad0aa8e">here</a> is the direct link, although Collab login is required)</li>
-<li>The <a href="https://piazza.com/class/jlbqx6s57xq3we">Piazza forum for this course</a>; Collab can log you in directly – the Collab tool link is <a href="https://collab.its.virginia.edu/portal/site/a0075759-cb61-4fc7-82bc-9ef856bac64a/page/9aa1caa3-e963-4aef-b7a4-d437693eea80">here</a> (again, Collab login required)</li>
-<li><a href="https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main">Anonymous feedback</a>, which is through Collab</li>
-<li>The VirtualBox image (not yet ready) used for this course. For how to install it, see <a href="https://uva-cs.github.io/pdr/tutorials/01-intro-unix/virtual-box.html">here</a>.</li>
+<li>Grading guidelines, which are available in the Collab wiki (<a
+href="https://collab.its.virginia.edu/portal/site/a0075759-cb61-4fc7-82bc-9ef856bac64a/tool/56e26eb0-be53-435a-8fd5-7057246402db">here</a>
+is the direct link, although Collab login is required)</li>
+<li>Email list archive, which is a Collab tool (<a
+href="https://collab.its.virginia.edu/portal/site/a0075759-cb61-4fc7-82bc-9ef856bac64a/tool/d7acfefb-7690-4676-aded-3f20bad0aa8e">here</a>
+is the direct link, although Collab login is required)</li>
+<li>The <a href="https://piazza.com/class/jlbqx6s57xq3we">Piazza forum
+for this course</a>; Collab can log you in directly – the Collab tool
+link is <a
+href="https://collab.its.virginia.edu/portal/site/a0075759-cb61-4fc7-82bc-9ef856bac64a/page/9aa1caa3-e963-4aef-b7a4-d437693eea80">here</a>
+(again, Collab login required)</li>
+<li><a
+href="https://collab.its.virginia.edu/portal/site/eb965f29-11d0-4069-9140-6b4eb0f44444/tool/495df88d-2624-46bf-872f-db154dd6048e/main">Anonymous
+feedback</a>, which is through Collab</li>
+<li>The VirtualBox image (not yet ready) used for this course. For how
+to install it, see <a
+href="https://uva-cs.github.io/pdr/tutorials/01-intro-unix/virtual-box.html">here</a>.</li>
 </ul>
 <p>The parts of this course that are in this repo are:</p>
 <ul>
-<li><a href="grades.html">Final course grade determination</a> (<a href="grades.md">md</a>)</li>
-<li><a href="syllabus.html">Course syllabus</a> (<a href="syllabus.md">md</a>)</li>
+<li><a href="grades.html">Final course grade determination</a> (<a
+href="grades.md">md</a>)</li>
+<li><a href="syllabus.html">Course syllabus</a> (<a
+href="syllabus.md">md</a>)</li>
 <li><a href="daily-announcements.html#/">Daily announcements</a></li>
-<li><a href="hw-policies.html">Homework policies page</a> (<a href="hw-policies.md">md</a>)</li>
-<li><a href="grades.html">Course grades</a> (<a href="grades.md">md</a>)</li>
+<li><a href="hw-policies.html">Homework policies page</a> (<a
+href="hw-policies.md">md</a>)</li>
+<li><a href="grades.html">Course grades</a> (<a
+href="grades.md">md</a>)</li>
 </ul>
 <h2 id="readings">Readings</h2>
-<p>All scholarly articles (such as from the ACM digital library) can be obtained from free from any UVa wireless network. Some of them you will <em>NOT</em> be able to get it for free from your home Internet provider such as Comcast (unless you live in a UVa dorm, of course) without using a UVa VPN. All readings are due by the start of lecture that day.</p>
+<p>All scholarly articles (such as from the ACM digital library) can be
+obtained from free from any UVa wireless network. Some of them you will
+<em>NOT</em> be able to get it for free from your home Internet provider
+such as Comcast (unless you live in a UVa dorm, of course) without using
+a UVa VPN. All readings are due by the start of lecture that day.</p>
 <ul>
 <li>Due Friday, September 13th:
 <ul>
-<li><a href="https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf">An Introduction to Cybersecurity Ethics</a>: you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it’s about 35 typed pages</li>
+<li><a
+href="https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf">An
+Introduction to Cybersecurity Ethics</a>: you can skip the questions
+(the blue boxes therein); once you remove those, the table of contents,
+and the appendices, it’s about 35 typed pages</li>
 </ul></li>
 <li>Due Wednesday, September 4th:
 <ul>
-<li><a href="https://www.acm.org/code-of-ethics">ACM Code of Ethics</a></li>
-<li><a href="https://dl.acm.org/citation.cfm?id=358210">Reflections on Trusting Trust</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Morris_worm">Morris Worm Wikipedia page</a></li>
+<li><a href="https://www.acm.org/code-of-ethics">ACM Code of
+Ethics</a></li>
+<li><a href="https://dl.acm.org/citation.cfm?id=358210">Reflections on
+Trusting Trust</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Morris_worm">Morris Worm
+Wikipedia page</a></li>
 </ul></li>
 </ul>
 <h2 id="homeworks">Homeworks</h2>
-<p>Unless otherwise noted, all submissions are due by the end of the day of the due date given – this means by 11:59:59 pm. The late policies are discussed in the <a href="hw-policies.html">homework policies page</a> (<a href="hw-policies.md">md</a>). Submission is through the <a href="https://libra.cs.virginia.edu/~pedagogy/submit.php">online submission system</a> – all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time.</p>
+<p>Unless otherwise noted, all submissions are due by the end of the day
+of the due date given – this means by 11:59:59 pm. The late policies are
+discussed in the <a href="hw-policies.html">homework policies page</a>
+(<a href="hw-policies.md">md</a>). Submission is through the <a
+href="https://libra.cs.virginia.edu/~pedagogy/submit.php">online
+submission system</a> – all submissions should open up 3 days (i.e., 72
+hours) prior to the due date/time.</p>
 <ul>
-<li><a href="../hws/hw-forensics.html">HW 13: Forensics</a> (<a href="../hws/hw-forensics.md">md</a>) is due Friday, December 6th</li>
-<li><a href="../hws/hw-movie-night.html">HW 12: Movie Night</a> (<a href="../hws/hw-movie-night.md">md</a>) is due Wednesday, December 4th</li>
-<li><a href="../hws/hw-buffer.html">HW 11: Buffer Overflow</a> (<a href="../hws/hw-buffer.md">md</a>) is due Friday, November 22nd</li>
-<li><a href="../hws/hw-celebrity-visit.html">HW 10: Celebrity Visit</a> (<a href="../hws/hw-celebrity-visit.md">md</a>) is due Thursday, November 21st, and there is all of 12 hours of lateness allowed on this!</li>
-<li><a href="../hws/hw-rootkits.html">HW 9: Rootkits</a> (<a href="../hws/hw-rootkits.md">md</a>) is due Friday, November 15th</li>
-<li><a href="../hws/hw-cryptocurrency.html">HW 8: Cryptocurrency</a> (<a href="../hws/hw-cryptocurrency.md">md</a>) is due Friday, November 1st</li>
-<li><a href="../hws/hw-networks.html">HW 7: Networks</a> (<a href="../hws/hw-networks.md">md</a>) is due Friday, October 25th</li>
-<li><a href="../hws/hw-sql-xss-csrf.html">HW 6: SQL, XSS, &amp; CSRF</a> (<a href="../hws/hw-sql-xss-csrf.md">md</a>) is due Friday, October 18th</li>
-<li><a href="../hws/hw-hashing.html">HW 5: Hashing</a> (<a href="../hws/hw-hashing.md">md</a>) is due Friday, October 4th</li>
-<li><a href="../hws/hw-rsa.html">HW 4: RSA</a> (<a href="../hws/hw-rsa.md">md</a>) is due Friday, September 27th</li>
-<li><a href="../hws/hw-ethics.html">HW 3: Ethics</a> (<a href="../hws/hw-ethics.md">md</a>) is due Friday, September 20th</li>
-<li><a href="../hws/hw-policy.html">HW 2: Policy</a> (<a href="../hws/hw-policy.md">md</a>) is due Friday, September 13th</li>
-<li><a href="../hws/hw-paranoia.html">HW 1: Rational Paranoia</a> (<a href="../hws/hw-paranoia.md">md</a>) is due Friday, September 6th</li>
+<li><a href="../hws/hw-forensics.html">HW 13: Forensics</a> (<a
+href="../hws/hw-forensics.md">md</a>) is due Friday, December 6th</li>
+<li><a href="../hws/hw-movie-night.html">HW 12: Movie Night</a> (<a
+href="../hws/hw-movie-night.md">md</a>) is due Wednesday, December
+4th</li>
+<li><a href="../hws/hw-buffer.html">HW 11: Buffer Overflow</a> (<a
+href="../hws/hw-buffer.md">md</a>) is due Friday, November 22nd</li>
+<li><a href="../hws/hw-celebrity-visit.html">HW 10: Celebrity Visit</a>
+(<a href="../hws/hw-celebrity-visit.md">md</a>) is due Thursday,
+November 21st, and there is all of 12 hours of lateness allowed on
+this!</li>
+<li><a href="../hws/hw-rootkits.html">HW 9: Rootkits</a> (<a
+href="../hws/hw-rootkits.md">md</a>) is due Friday, November 15th</li>
+<li><a href="../hws/hw-cryptocurrency.html">HW 8: Cryptocurrency</a> (<a
+href="../hws/hw-cryptocurrency.md">md</a>) is due Friday, November
+1st</li>
+<li><a href="../hws/hw-networks.html">HW 7: Networks</a> (<a
+href="../hws/hw-networks.md">md</a>) is due Friday, October 25th</li>
+<li><a href="../hws/hw-sql-xss-csrf.html">HW 6: SQL, XSS, &amp; CSRF</a>
+(<a href="../hws/hw-sql-xss-csrf.md">md</a>) is due Friday, October
+18th</li>
+<li><a href="../hws/hw-hashing.html">HW 5: Hashing</a> (<a
+href="../hws/hw-hashing.md">md</a>) is due Friday, October 4th</li>
+<li><a href="../hws/hw-rsa.html">HW 4: RSA</a> (<a
+href="../hws/hw-rsa.md">md</a>) is due Friday, September 27th</li>
+<li><a href="../hws/hw-ethics.html">HW 3: Ethics</a> (<a
+href="../hws/hw-ethics.md">md</a>) is due Friday, September 20th</li>
+<li><a href="../hws/hw-policy.html">HW 2: Policy</a> (<a
+href="../hws/hw-policy.md">md</a>) is due Friday, September 13th</li>
+<li><a href="../hws/hw-paranoia.html">HW 1: Rational Paranoia</a> (<a
+href="../hws/hw-paranoia.md">md</a>) is due Friday, September 6th</li>
 </ul>
 <h2 id="lecture-progress">Lecture progress</h2>
-<p>Lecture recordings can be found in the Panopto tool link in the Collab workspace</p>
+<p>Lecture recordings can be found in the Panopto tool link in the
+Collab workspace</p>
 <ul>
-<li>Wed, Sep 25: <a href="../slides/encryption.html#/">Encryption</a> through the end of the randomness slides</li>
-<li>Mon, Sep 23: <a href="../slides/encryption.html#/">Encryption</a> through the end of the RSA slides</li>
-<li>Fri, Sep 20: <a href="../slides/encryption.html#/">Encryption</a> to the start of the RSA message signing slide</li>
-<li>Wed, Sep 18: <a href="../slides/encryption.html#/">Encryption</a> through slide 6.19 (RSA key generation steps)</li>
-<li>Mon, Sep 16: <a href="../slides/encryption.html#/">Encryption</a> through slide 4.20 (Navaho Code Talkers)</li>
-<li>Fri, Sep 13: Finished <a href="../slides/ethics.html#/">ethics</a></li>
-<li>Wed, Sep 11: <a href="../slides/ethics.html#/">Ethics</a> through the end of the “public obligations” column</li>
+<li>Wed, Sep 25: <a href="../slides/encryption.html#/">Encryption</a>
+through the end of the randomness slides</li>
+<li>Mon, Sep 23: <a href="../slides/encryption.html#/">Encryption</a>
+through the end of the RSA slides</li>
+<li>Fri, Sep 20: <a href="../slides/encryption.html#/">Encryption</a> to
+the start of the RSA message signing slide</li>
+<li>Wed, Sep 18: <a href="../slides/encryption.html#/">Encryption</a>
+through slide 6.19 (RSA key generation steps)</li>
+<li>Mon, Sep 16: <a href="../slides/encryption.html#/">Encryption</a>
+through slide 4.20 (Navaho Code Talkers)</li>
+<li>Fri, Sep 13: Finished <a
+href="../slides/ethics.html#/">ethics</a></li>
+<li>Wed, Sep 11: <a href="../slides/ethics.html#/">Ethics</a> through
+the end of the “public obligations” column</li>
 <li>Mon, Sep 9: Finished <a href="../slides/policy.html">policy</a></li>
-<li>Fri, Sep 6: <a href="../slides/policy.html">policy</a> through slide 6.7</li>
-<li>Wed, Sep 4: finished <a href="../slides/terminology.html">terminology</a>; <a href="../slides/policy.html">policy</a> through slide 3.18</li>
-<li>Mon, Sep 2: finished <a href="../slides/security-mindset.html">security mindset</a>, <a href="../slides/terminology.html">terminology</a> through slide 5.4</li>
-<li>Fri, Aug 30: the rest of the <a href="../slides/introduction.html#/">course introduction</a>; <a href="../slides/security-mindset.html">security mindset</a> through the end of the the “how to pick a lock” column (no lecture recording from this day)</li>
-<li>Wed, Aug 28: <a href="../slides/introduction.html#/">course introduction</a> through slide 5.5 (no lecture recording from this day)</li>
+<li>Fri, Sep 6: <a href="../slides/policy.html">policy</a> through slide
+6.7</li>
+<li>Wed, Sep 4: finished <a
+href="../slides/terminology.html">terminology</a>; <a
+href="../slides/policy.html">policy</a> through slide 3.18</li>
+<li>Mon, Sep 2: finished <a
+href="../slides/security-mindset.html">security mindset</a>, <a
+href="../slides/terminology.html">terminology</a> through slide 5.4</li>
+<li>Fri, Aug 30: the rest of the <a
+href="../slides/introduction.html#/">course introduction</a>; <a
+href="../slides/security-mindset.html">security mindset</a> through the
+end of the the “how to pick a lock” column (no lecture recording from
+this day)</li>
+<li>Wed, Aug 28: <a href="../slides/introduction.html#/">course
+introduction</a> through slide 5.5 (no lecture recording from this
+day)</li>
 </ul>
 </body>
 </html>
