@@ -314,3 +314,8 @@ div.titlesmall p {
 img {
   border-radius: 10px;
 }
+
+.reveal blockquote {
+  padding-left: 20px;
+  padding-right: 20px;
+}
