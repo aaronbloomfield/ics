@@ -955,7 +955,7 @@ Formula is $c = m^e\text{ mod }n$
   - Cracking the message should be "hard" (i.e. exponential time)
 - Other ideas:
   - Discrete logarithms (next slide)
-  - Elliptic curves
+  - Elliptic curves (next->next slide)
 
 
 ## Discrete logarithms
@@ -967,6 +967,11 @@ Formula is $c = m^e\text{ mod }n$
   - Or ${\log}_3  13 = 4$
 - Exponentiation is "easy", but finding a logarithm is "hard"
 - [Reference](http://en.wikipedia.org/wiki/Discrete_logarithm_problem)
+
+
+## Elliptic curves
+- A curve of the form $y^2=x^3+a\cdot x+b$
+![](images/encryption/secp256k1-a.svg)
 
 
 ## History
@@ -1320,7 +1325,7 @@ afe68f753a65f773a591bcf6f9ce3c63  message1.txt
 ## [SHA-2](http://en.wikipedia.org/wiki/SHA-2)
 - Designed in 2001 to address the flaw discovered in SHA-1
   - There are 4 variants, depending on the length of key desired: SHA-224, SHA-256, SHA-384, SHA-512
-- SHA-2 is mathematically similar (but not identical!) to SHA-1
+- SHA-2 is mathematically similar (but not identical!) to SHA-1 ([source code](https://github.com/B-Con/crypto-algorithms/blob/master/sha256.c))
   - So if there are vulnerabilities in SHA-1, do they exist in SHA-2?
   - Nobody knows, but this lead to the development of SHA-3
 - Most US gov't applications require a SHA-2 hash
