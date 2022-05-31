@@ -102,7 +102,7 @@ they are therein, your code will fail those tests.
 methods will be used to test your code.  If they don't work properly,
 then NONE of your other methods will work.  Our unit tests, which we
 use to evaluate your code, will call these to convert back and
-forth. So if they arent't working properly, then you will likely end
+forth. So if they are not working properly, then you will likely end
 up with a zero on the assignment.  Thus, please implement them first,
 and test them to make sure they work properly.  And you should use
 them in your `encrypt()` and `decrypt()` methods, of course.
@@ -144,6 +144,39 @@ commenting was run through [Doxygen](http://www.doxygen.nl/), and the
 results are: [CipherText](rsa/html/classCipherText.html),
 [RSAKey](rsa/html/classRSAKey.html), and
 [RSA](rsa/html/classRSA.html).  ***You will want to look at this!***
+
+### Converting ASCII
+
+In order to make our code interoperable, we need a common way to convert an ASCII string into an integer.  In both of these cases, this is converting the *entire* string into an integer, which will likely be (much) larger than your $n$ value.  Also, in both of these cases, the intermediate steps are shown, but it can be combined into a single step if desired.
+
+<!--
+
+Here is how we can encode and decode that in Python:
+
+```
+s = "Hello world"
+d = int(s.encode('ascii').hex(),16)
+print(d)
+s2 = bytes.fromhex(hex(d)[2:]).decode('ascii')
+print(s2)
+```
+
+Note that the decoding part removes the leading `0x` via the `[2:]` part of that line.
+
+-->
+
+Here is how we can encode and encode in Java (you have to `import java.math.BigInteger;`):
+
+```
+String s = "Hello World";
+BigInteger d = new BigInteger(s.getBytes());
+System.out.println(d);
+String s2 = new String(d.toByteArray());
+System.out.println(s2);
+```
+
+The integer representation of the string is: 87521618088882671231069284.  Note that your default character set has to be ASCII for this to work the same for you.
+
 
 ### Command line parameters 
 

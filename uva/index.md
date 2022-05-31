@@ -35,8 +35,8 @@ All scholarly articles (such as from the ACM digital library) can be obtained fr
 <!--
 - Due Tuesday, June 14th: Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf) (a copy of the PDF is in Collab's resources as well)
 - Due Monday, June 6th: [NPR's Planet Monday episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
-- Due Tuesday, May 31st: [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
 -->
+- Due Tuesday, May 31st: [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
 - Due Thursday, May 26th:
 	- [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
     - [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210)
@@ -44,7 +44,7 @@ All scholarly articles (such as from the ACM digital library) can be obtained fr
 
 
 Homeworks
------------
+---------
 
 Unless otherwise noted, all submissions are due by the end of the day of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the Gradescope Collab tool -- all submissions should open up 2 days (i.e., 48 hours) prior to the due date/time.
 
@@ -52,15 +52,15 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 - [HW 7: Forensics](../hws/hw-forensics.html) is due Wednesday, June 15th
 - [HW 6: Cryptocurrency](../hws/hw-cryptocurrency.html) is due Friday, June 10th
 - [HW 5: SQL/XSS/CSRF](../hws/hw-sql-xss-csrf.html) is due Tuesday, June 7th
-- [HW 4: RSA](../hws/hw-rsa.html) ([md](../hws/hw-rsa.md)) is due Thursday, June 2nd
-- [HW 3: Ethics](../hws/hw-ethics.html) ([md](../hws/hw-ethics.md)) is due Monday, May 30th
 -->
+- [HW 4: RSA](../hws/hw-rsa.html) ([md](../hws/hw-rsa.md)) is due Friday, June 3rd
+- [HW 3: Ethics](../hws/hw-ethics.html) ([md](../hws/hw-ethics.md)) is due Monday, May 30th
 - [HW 2: Policy](../hws/hw-policy.html) ([md](../hws/hw-policy.md)) is due Friday, May 27th
 - [HW 1: Rational Paranoia](../hws/hw-paranoia.html) ([md](../hws/hw-paranoia.md)) is due Wednesday, May 25th
 
 
 Expected lecture progress
---------------------------
+-------------------------
 
 The links to the specific slides sets can be found on the [slides page](../slides/index.html) ([md](../slides/index.md)).
 
