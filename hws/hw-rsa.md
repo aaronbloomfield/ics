@@ -175,7 +175,7 @@ String s2 = new String(d.toByteArray());
 System.out.println(s2);
 ```
 
-The integer representation of the string is: 87521618088882671231069284.  Note that your default character set has to be ASCII for this to work the same for you.
+The integer representation of the string is: 87521618088882533792115812.  Note that your default character set has to be ASCII for this to work the same for you.
 
 
 ### Command line parameters 

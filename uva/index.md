@@ -51,8 +51,8 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 <!--
 - [HW 7: Forensics](../hws/hw-forensics.html) is due Wednesday, June 15th
 - [HW 6: Cryptocurrency](../hws/hw-cryptocurrency.html) is due Friday, June 10th
-- [HW 5: SQL/XSS/CSRF](../hws/hw-sql-xss-csrf.html) is due Tuesday, June 7th
 -->
+- [HW 5: SQL/XSS/CSRF](../hws/hw-sql-xss-csrf.html) is due Tuesday, June 7th
 - [HW 4: RSA](../hws/hw-rsa.html) ([md](../hws/hw-rsa.md)) is due Friday, June 3rd
 - [HW 3: Ethics](../hws/hw-ethics.html) ([md](../hws/hw-ethics.md)) is due Monday, May 30th
 - [HW 2: Policy](../hws/hw-policy.html) ([md](../hws/hw-policy.md)) is due Friday, May 27th
@@ -72,9 +72,9 @@ The links to the specific slides sets can be found on the [slides page](../slide
 6. Tue, May 31: encryption
 7. Wed, Jun 1: encryption
 8. Thu, Jun 2: encryption, networking overview, web security
-9. Fri, Jun 3: web security, web security
-10. Mon, Jun 6: sql/xss/csrf (and the first midterm)
-11. Tue, Jun 7: web security, cryptocurrency
+9. Fri, Jun 3: web security (and the midterm)
+10. Mon, Jun 6: web security, sql/xss/csrf
+11. Tue, Jun 7: cryptocurrency
 12. Wed, Jun 8: cryptocurrency, anonymity
 13. Thu, Jun 9: anonymity, stuxnet
 14. Fri, Jun 10: virtual machines, rootkits
