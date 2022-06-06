@@ -126,23 +126,23 @@ nonce: 120
 The details about each line, as well as the 'bigfoot' concept, are
 explained below.
 
-**Ledger**
+**Mempool**
 
 The blocks described above represent transactions that have been
 completed.  Pending transaction records are to be placed in the
-ledger, which we will appropriately call `ledger.txt`.  One of the
+mempool, which we will appropriately call `mempool.txt`.  One of the
 functionalities that you have to implement is the transfer of the
-transaction records in the ledger into a block in the block chain
+transaction records in the mempool into a block in the block chain
 through mining.
 
-Each line will be of the the same form as the lines in the ledger (`S
+Each line will be of the the same form as the lines in the mempool (`S
 transferred x to D on w`).  You are welcome to use present tense as
 well (transfers instead of transferred).  You can have additional
 information after the required text, but it must all be on the same
-line.  This is important -- each transaction record in the ledger must
+line.  This is important -- each transaction record in the mempool must
 be exactly one line!
 
-Below is an example of a line from the ledger.  This line is a
+Below is an example of a line from the mempool.  This line is a
 *transaction record*, which is described next.
 
 ```
@@ -158,15 +158,15 @@ A transaction *statement* is a multi-line text file that contains the
 sender, the recipient, the amount, and ends with a digital signature.
 Each transaction statement will be in its own file; one is shown below.
 
-A transaction *record* is a single line in a ledger (and, later, in a
+A transaction *record* is a single line in a mempool (and, later, in a
 block in the blockchain) that contains similar information, but on a
-single line.  The one-line example above, in the ledger section, is a
+single line.  The one-line example above, in the mempool section, is a
 transaction record.
 
 Another of the functionalities that you will have to implement is the
 verification of a transaction statement (checking it's signature and
 that there is enough money), which will then insert a single
-transaction record for that transaction into the ledger.
+transaction record for that transaction into the mempool.
 
 As an example, below is one of the transaction statements that was
 generated from the script provided (specifically the `./cryptomoney.sh
@@ -174,7 +174,7 @@ transfer alice.wallet.txt $bob 12.5 03-alice-to-bob.txt` line).  Note
 that you don't have to have the same format!  This is just what we
 used.  However, it must contain the same five pieces of information:
 from, to, amount, date, and the signature.  The one-line entry from
-the ledger, above, is the corresponding transaction record for this
+the mempool, above, is the corresponding transaction record for this
 transaction statement.
 
 ```
@@ -270,23 +270,23 @@ The requirements are:
    readable by a human.  Recall that it must have five pieces of
    information, described above in the "Transaction statement versus
    transaction record" section.  Note that this command does *NOT* add
-   anything to the ledger.
+   anything to the mempool.
 7. Check a balance (`balance`): based on the transactions in the block
-   chain AND ALSO in the ledger, compute the balance for the provided
+   chain AND ALSO in the mempool, compute the balance for the provided
    wallet.  This does not look at transaction *statements*, only the
-   transaction *records* in the blocks and the ledger.  The wallet
+   transaction *records* in the blocks and the mempool.  The wallet
    address to compute the balance for is provided as an additional
    command line parameter.
 8. Verify a transaction (`verify`): verify that a given transaction
    statement is valid, which will require checking the signature
    **and** the availability of funds.  Once verified, it should be
-   added to the ledger as a transaction record.  This is the only way
-   that items are added to the ledger.  The wallet file name
+   added to the mempool as a transaction record.  This is the only way
+   that items are added to the mempool.  The wallet file name
    (whichever wallet created the transaction) and the transaction
    statement being verified are the additional command line
    parameters.
 9. Create, mine, and sign block (`mine`): this will form another block
-   in the blockchain.  The ledger will be emptied of transaction
+   in the blockchain.  The mempool will be emptied of transaction
    records, as they will all go into the current block being computed.
    A nonce will have to be computed to ensure the hash is below a
    given value.  Recall that the first line in any block is the
@@ -378,14 +378,14 @@ Transferred 12.5 from alice.wallet.txt to d96b71971fbeec39 and the statement to 
 $ ./cryptomoney.sh transfer bob.wallet.txt $alice 2.5 04-bob-to-alice.txt
 Transferred 2.5 from bob.wallet.txt to e1f3ec14abcb45da and the statement to '04-bob-to-alice.txt' on Tue Apr 02 23:09:01 EDT 2019
 $ ./cryptomoney.sh verify alice.wallet.txt 01-alice-funding.txt
-Any funding request (i.e., from bigfoot) is considered valid; written to the ledger
+Any funding request (i.e., from bigfoot) is considered valid; written to the mempool
 $ ./cryptomoney.sh verify bob.wallet.txt 02-bob-funding.txt
-Any funding request (i.e., from bigfoot) is considered valid; written to the ledger
+Any funding request (i.e., from bigfoot) is considered valid; written to the mempool
 $ ./cryptomoney.sh verify alice.wallet.txt 03-alice-to-bob.txt
-The transaction in file '03-alice-to-bob.txt' with wallet 'alice.wallet.txt' is valid, and was written to the ledger
+The transaction in file '03-alice-to-bob.txt' with wallet 'alice.wallet.txt' is valid, and was written to the mempool
 $ ./cryptomoney.sh verify bob.wallet.txt 04-bob-to-alice.txt
-The transaction in file '04-bob-to-alice.txt' with wallet 'bob.wallet.txt' is valid, and was written to the ledger
-$ cat ledger.txt
+The transaction in file '04-bob-to-alice.txt' with wallet 'bob.wallet.txt' is valid, and was written to the mempool
+$ cat mempool.txt
 bigfoot transferred 100.0 to e1f3ec14abcb45da on Tue Apr 02 23:09:01 EDT 2019
 bigfoot transferred 100.0 to d96b71971fbeec39 on Tue Apr 02 23:09:01 EDT 2019
 e1f3ec14abcb45da transferred 12.5 to d96b71971fbeec39 on Tue Apr 02 23:09:02 EDT 2019
@@ -395,7 +395,7 @@ The balance for wallet e1f3ec14abcb45da is: 90.0
 $ ./cryptomoney.sh balance $bob
 The balance for wallet d96b71971fbeec39 is: 110.0
 $ ./cryptomoney.sh mine 2
-Ledger transactions moved to block_1.txt and mined with difficulty 2 and nonce 1029
+Mempool transactions moved to block_1.txt and mined with difficulty 2 and nonce 1029
 $ sha256sum block_1.txt
 00cc159f08e9e833d2cc85e8dce788020603346829e86f623e6f3c7e36e34b6c  block_1.txt
 $ ./cryptomoney.sh validate
@@ -413,7 +413,7 @@ There are a number of assumptions you can make for your code:
 - The block_?.txt files will be consecutive -- so there won't be a
   block_3.txt missing when there is a block_4.txt.
 - The block_0.txt file will exist before any calls to verify,
-  validate, or balance; however, the ledger.txt file may not yet
+  validate, or balance; however, the mempool.txt file may not yet
   exist.
 
 

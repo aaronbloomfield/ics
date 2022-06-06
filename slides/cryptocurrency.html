@@ -132,11 +132,11 @@ According to Jan Lansky ([source](http://si-journal.org/index.php/JSI/article/vi
 
 
 ## Cryptocurrencies
-- There are 2,810 currently, as per [investing.com](https://www.investing.com/crypto/currencies) (as of October 2019)
+- There are 10,861 currently, as per [investing.com](https://www.investing.com/crypto/currencies) (as of June 2022)
 <!-- change each semester -->
 - Some are [Ponzi schemes](https://en.wikipedia.org/wiki/Ponzi_scheme), some are [pyramid schemes](https://en.wikipedia.org/wiki/Ponzi_scheme), and some are worthwhile
 - Their value comes in if they are widely accepted, and very few are
-  - You can see a [list of the 10 most popular](https://www.telegraph.co.uk/technology/digital-money/top-10-popular-cryptocurrencies-2018/) (from 2018)
+  - You can see a [list of the 10 with the highest market cap](https://coinmarketcap.com)
 - Bitcoin was the first, the most widely accepted, and the most stable, so it will be focused on in this slide set
   </textarea>
 </section>
@@ -156,7 +156,7 @@ According to Jan Lansky ([source](http://si-journal.org/index.php/JSI/article/vi
 <section data-markdown data-separator="^\n\n\n">
   <textarea data-template>
 ## A note about numbers...
-- The data in this slide set was all updated for the current semester (on October 18, 2019)
+- The data in this slide set was all updated for the current semester (on June 5, 2022)
 - Bitcoin is highly volatile (the value changes so fast) that it is likely to be quite different in a day or two
   - Indeed, the value of a Bitcoin changed *during* the updating of the numbers!
     - So you will see (slightly) different values for the price, for example
@@ -174,8 +174,8 @@ According to Jan Lansky ([source](http://si-journal.org/index.php/JSI/article/vi
 
 
 ## Bitcoin price from [blockchain.com](https://blockchain.com)
-BTC peaked at $19,290 on Dec 16, 2017 ([source](https://www.blockchain.com/charts/market-price?timespan=all))
-![BTC price](images/cryptocurrency/btc-price-2019-10-18.png)
+BTC peaked at $68,789 in November 2021 ([source](https://www.blockchain.com/charts/market-price?timespan=all))
+![BTC price](images/cryptocurrency/btc-price-2022-06-05.webp)
 <!-- change each semester -->
 
 
@@ -221,8 +221,8 @@ BTC peaked at $19,290 on Dec 16, 2017 ([source](https://www.blockchain.com/chart
 
 
 
-## The ledger
-- All transactions are stored in a *ledger*, which is public
+## The mempool
+- All transactions are stored in a *mempool* (memory pool), which is public
   - Maintained by a network of "equally privileged miners"
 - Every 10 minutes or so, all the transactions are combined into a single *block*
   - That block eventually becomes part of the *blockchain* (through mining)
@@ -233,7 +233,7 @@ BTC peaked at $19,290 on Dec 16, 2017 ([source](https://www.blockchain.com/chart
 - The first block was the "genesis block"
 - Each successive block includes the SHA-256 hash of the previous block
   - Thus, you can't make a change to a previous block without changing all future blocks
-- The current blockchain (as of October 2019) is  599,942 blocks ([source](https://bitinfocharts.com/)) and about 245 Gb in size ([source](https://www.blockchain.com/charts/blocks-size))
+- The current blockchain (as of June 2022) is  739,442 blocks ([source](https://bitinfocharts.com/)) and about 409 Gb in size ([source](https://www.blockchain.com/charts/blocks-size))
 <!-- change each semester -->
 </textarea>
 </section>
@@ -285,19 +285,19 @@ BTC peaked at $19,290 on Dec 16, 2017 ([source](https://www.blockchain.com/chart
 
 ## Difficulty
 - First target ($ft$): 00000000ffff00000000000000 00000000000000000000000000000000000000
-- The current target ($ct$) is 00000000000000000015a35c00000000 00000000000000000000000000000000
-  - As of October 2019 and can be found [here](http://learnmeabitcoin.com/glossary/target)
+- The current target ($ct$) is 000000000000000000096a2000000000 00000000000000000000000000000000
+  - As of June 2022 and can be found [here](http://learnmeabitcoin.com/glossary/target)
   <!-- change each semester -->
-  - The new target is harder than the old: specifically $ft/ct$ = 13,008,091,666,971 times harder (that's 13 *trillion*)
-- This number is the bitcoin *difficulty*, and the latest value can be found [here](https://blockexplorer.com/api/status?q=getDifficulty)
+  - The new target is harder than the old: specifically $ft/ct$ = 29,897,409,688,833 times harder (that's about 30 *trillion*)
+- This number is the bitcoin *difficulty*, and the latest value can be found [here](https://www.coinwarz.com/mining/bitcoin/difficulty-chart)
 
 
 
 ## Current hash difficulty
 - For the first target, a random nonce had a 1 in 4.3 billion chance of success
-- The current target is 13 trillion times harder
+- The current target is about 30 trillion times harder
   <!-- change each semester -->
-  - A random nonce now has a 1 in $5.6 \times 10^{22}$ chance of success
+  - A random nonce now has a 1 in $7.6 \times 10^{22}$ chance of success <!-- formula in bc (ibase & obase = 10): 2^(256-log2(ct)) -->
 
 
 
@@ -305,18 +305,19 @@ BTC peaked at $19,290 on Dec 16, 2017 ([source](https://www.blockchain.com/chart
 - A typical CPU can do maybe 10 Mhash/sec (million hashes per second)
   - A very fast CPU today could do about 25 Mhash/sec
   - A [$900 video card](https://www.amazon.com/gp/product/B07GHXQTGZ/) today could do about 800 Mhash/sec (estimate based on [this](https://en.bitcoin.it/wiki/Non-specialized_hardware_comparison#Nvidia) and [this](https://gpu.userbenchmark.com/Compare/Nvidia-RTX-2080-vs-Nvidia-GeForce-GTX-590-SLI-Disabled/4026vsm8041))
-- Consider a 1 in $5.6 \times 10^{22}$ chance of success
-- To generate $5.6 \times 10^{22}$ hashes at 800 million (8 Mhash) per second on a fast graphics card, this will take 2.2 *million years*
+- Consider a 1 in $7.6 \times 10^{22}$ chance of success
+- To generate $7.6 \times 10^{22}$ hashes at 800 million (8 Mhash) per second on a fast graphics card, this will take about 3 *million years*
   <!-- change each semester -->
 
 
 
 ## Electricity usage
-- A graphics card uses about 100 W (watts) (estimated from [here](https://en.bitcoin.it/wiki/Non-specialized_hardware_comparison#Nvidia))
+- A graphics card uses about 200 W (watts) (estimated from [here](https://en.bitcoin.it/wiki/Non-specialized_hardware_comparison#Nvidia))
 - Electricity in Charlottesville costs 11.04 cents per kW/h (as per [here](https://www.electricitylocal.com/states/virginia/charlottesville/))
-- So 2.2 million years is $9.0*10^{10}$ hours
+- So 2.2 million years is $1.2*10^{11}$ hours
   <!-- change each semester -->
-- Which will cost 2.1 *billion* dollars
+- Which will cost 5.7 *billion* dollars
+- With 1 BTC going for about `$`30k, your reward is less than `$`200k
 
 
 
@@ -339,13 +340,13 @@ BTC peaked at $19,290 on Dec 16, 2017 ([source](https://www.blockchain.com/chart
 
 
 ## All-time difficulty graph from [blockchain.com](https://www.blockchain.com/en/charts/difficulty)
-![BTC difficulty, all time](images/cryptocurrency/btc-difficulty-all-time-2019-10-18.png)
+![BTC difficulty, all time](images/cryptocurrency/btc-difficulty-all-time-2022-06-05.webp)
 <!-- change each semester -->
 
 
 
-## Last 2 years difficulty graph from [blockchain.com](https://www.blockchain.com/en/charts/difficulty)
-![BTC difficulty, last 2 years](images/cryptocurrency/btc-difficulty-last-2-years-2019-10-18.png)
+## Last 3 years difficulty graph from [blockchain.com](https://www.blockchain.com/en/charts/difficulty)
+![BTC difficulty, last 3 years](images/cryptocurrency/btc-difficulty-last-3-years-2022-06-05.webp)
 <!-- change each semester -->
 
 
@@ -360,11 +361,11 @@ BTC peaked at $19,290 on Dec 16, 2017 ([source](https://www.blockchain.com/chart
 
 
 ## Reward per block
-- The current reward (as of October 2019) is 12.5 BTC
+- The current reward (as of June 2022) is 6.25 BTC
   <!-- change each semester -->
-  - The estimated date when it drops to 6.25 is May 2020 ([source](https://www.bitcoinblockhalf.com/))
-- At a price of $7,917 per block ([source](https://www.coindesk.com/price/bitcoin)), that's about $98,962 for a properly signed block!
-  - But if it costs $2.1 billion in electricity, perhaps it's not all that worth it
+  - The estimated date when it drops to 6.25 is May 2024 ([source](https://www.bitcoinblockhalf.com/))
+- At a price of about `$`30k per BTC ([source](https://www.coindesk.com/price/bitcoin)), that's about `$`187,500 for a properly signed block!
+  - But if it costs $5.7 billion in electricity, perhaps it's not all that worth it
   - Unless you use somebody else's electricity...
 
 
@@ -388,14 +389,14 @@ BTC peaked at $19,290 on Dec 16, 2017 ([source](https://www.blockchain.com/chart
 ## Hashes per second from [blockchain.com](https://www.blockchain.com/charts/hash-rate)
 For the entire Bitcoin network; E = exa = $10^{18}$
 <!-- change each semester -->
-![hashes per second](images/cryptocurrency/btc-hashes-per-sec-2019-10-18.png)
+![hashes per second](images/cryptocurrency/btc-hashes-per-sec-2022-06-05.webp)
 
 
 
 ## Mining hardware
 - A whole industry has sprung up: you can find the hardware online (such as [here](https://www.bitcoinmining.com/bitcoin-mining-hardware/))
 - These devices are much faster and use much less electricity
-- Consider the [DragonX AntMinder S9](https://www.amazon.com/dp/B07WV6TPN7), which costs $517
+- Consider the [DragonX AntMinder S9](https://www.amazon.com/dp/B07WV6TPN7), which costs $599
   <!-- change each semester -->
   - It can compute 14 Thash/sec (tera), or $14*10^{12}$ hash/sec
   - I don't believe their numbers that they post at that link, though
@@ -413,26 +414,25 @@ For the entire Bitcoin network; E = exa = $10^{18}$
 ## [DragonX AntMinder S9](https://www.amazon.com/dp/B07WV6TPN7) analysis
 <!-- change each semester -->
 - We know that:
-  - The current hash rate is 99.4 EH/s
+  - The current hash rate is 212.5 EH/s
   - Blocks take about 10 minutes to process (actually about 8m 47s right now ([source](https://bitinfocharts.com/)))
   - The [DragonX AntMinder S9](https://www.amazon.com/dp/B07WV6TPN7) claims to hash 14 TH/s
-- 99.4 exa / 14 tera = $99.4 \cdot 10^{18} / 14 \cdot 10^{12} = 7.1 \cdot 10^{6}$ or 7.1 million
-- Thus, you would expect to get one 7-millionth of a block's reward in a pooled setup
-- At $99,350 per block, that's 1.4 *cents* per block
+- 212.5 exa / 14 tera = $212.5 \cdot 10^{18} / 14 \cdot 10^{12} = 1.5 \cdot 10^{7}$ or 15.2 million
+- Thus, you would expect to get one 15-millionth of a block's reward in a pooled setup
+- At $187,500 per block, that's 1.25 *cents* per block
 - (And we aren't counting electricity here)
 
 
 
 ## [DragonX AntMinder S9](https://www.amazon.com/dp/B07WV6TPN7) analysis
 <!-- change each semester -->
-- At $99,350 per block, that's 1.4 *cents* per block
-  - Which is $2.01 per day
-    - This assumes 10 minute blocks; it's $2.29 with 8m47s blocks
-  - You will make back your initial investment of $517 in 225 (or 257) days
-    - That's 7.5 (or 8.5) months
+- At $187,500 per block, that's 1.25 *cents* per block
+  - Which is $1.80 per day
+    - This assumes 10 minute blocks; it's maybe $2 with more frequent blocks
+  - You will make back your initial investment of $600 in 300 days (10 months)
 - This assumes that the numbers don't change!
-  - And we know the reward per block will go down in May of 2020...
-- There is also [one available](https://www.amazon.com/dp/B07YVMS7CY/) that mines 3 times as fast but costs 5 times as much!
+  - And we know the reward per block will go down in May of 2024...
+- There is also [one available](https://www.amazon.com/dp/B07YVMS7CY/) that mines 3 times as fast but costs twice as much
 
 
 

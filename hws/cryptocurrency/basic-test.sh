@@ -25,8 +25,8 @@ echo verifying the last four transactions
 ./cryptomoney.sh verify bob.wallet.txt 02-bob-funding.txt
 ./cryptomoney.sh verify alice.wallet.txt 03-alice-to-bob.txt
 ./cryptomoney.sh verify bob.wallet.txt 04-bob-to-alice.txt
-echo displaying the ledger
-cat ledger.txt
+echo displaying the mempool
+cat mempool.txt
 echo checking the balance of both alice and bob
 ./cryptomoney.sh balance $alice
 ./cryptomoney.sh balance $bob
