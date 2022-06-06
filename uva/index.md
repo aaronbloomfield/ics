@@ -32,11 +32,9 @@ Readings
 
 All scholarly articles (such as from the ACM digital library) can be obtained from free from any UVa wireless network.  Some of them you will *NOT* be able to get it for free from your home Internet provider such as Comcast (unless you live in a UVa dorm, of course) without using a UVa VPN.  All readings are due by the start of lecture that day.
 
-<!--
-- Due Tuesday, June 14th: Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf) (a copy of the PDF is in Collab's resources as well)
--->
+- Due sometime during the week of June 13th: Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf) (a copy of the PDF is in Collab's resources as well)
 - Due Monday, June 6th: [NPR's Planet Monday episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
-- Due Tuesday, May 31st: [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
+- Due Tuesday, May 31st: [An Introduction to Cybersecurity Ethics](http://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
 - Due Thursday, May 26th:
 	- [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
     - [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210)
@@ -50,8 +48,8 @@ Unless otherwise noted, all submissions are due by the end of the day of the due
 
 <!--
 - [HW 7: Forensics](../hws/hw-forensics.html) is due Wednesday, June 15th
-- [HW 6: Cryptocurrency](../hws/hw-cryptocurrency.html) is due Friday, June 10th
 -->
+- [HW 6: Cryptocurrency](../hws/hw-cryptocurrency.html) is due Friday, June 10th
 - [HW 5: SQL/XSS/CSRF](../hws/hw-sql-xss-csrf.html) is due Tuesday, June 7th
 - [HW 4: RSA](../hws/hw-rsa.html) ([md](../hws/hw-rsa.md)) is due Friday, June 3rd
 - [HW 3: Ethics](../hws/hw-ethics.html) ([md](../hws/hw-ethics.md)) is due Monday, May 30th
