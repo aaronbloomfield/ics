@@ -167,37 +167,38 @@
 - In late October 2005, Mark Russinovich (operator of the SysInternals blog) tested the latest version of RootkitRevealer (RKR)
   - Russinovich practiced very safe computing, and even wrote an article on detecting rootkits for the June, 2005, edition of Windows IT Pro
 - Much to his surprise, RKR revealed a large number of hidden system files on his PC, an obvious symptom of a rootkit infection
-- His [blog entry](http://blogs.technet.com/markrussinovich/archive/2005/10/31/sony-rootkits-and-digital-rights-management-gone-too-far.aspx)
+<!-- - His [blog entry](http://blogs.technet.com/markrussinovich/archive/2005/10/31/sony-rootkits-and-digital-rights-management-gone-too-far.aspx) -->
+- His [blog entry](https://techcommunity.microsoft.com/t5/windows-blog-archive/sony-rootkits-and-digital-rights-management-gone-too-far/ba-p/723442)
 
 
 ## What RKR revealed
-(from Mark Russinovich's [blog entry](http://blogs.technet.com/markrussinovich/archive/2005/10/31/sony-rootkits-and-digital-rights-management-gone-too-far.aspx))
-![image](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/prod.evol.blogs.technet.com/telligent.evolution.components.attachments/13/5247/00/00/00/48/24/08/rootkit1.gif)
-Note that these files were hidden (last column) and many started with $\$$sys$\$$
+(from Mark Russinovich's [blog entry](https://techcommunity.microsoft.com/t5/windows-blog-archive/sony-rootkits-and-digital-rights-management-gone-too-far/ba-p/723442))
+![image](https://techcommunity.microsoft.com/t5/image/serverpage/image-id/120874iADC4E49896E0D0DA)
+Note that these files were hidden (last column) and many started with `$`sys`$`
 
 
 ## Sony CD Fiasco cont.
 - To confirm that he had detected a rootkit, Russinovich analyzed the system with his own tool, LiveKd (Live Kernel Debugger)
 - LiveKd detected that the system services table (a table of function pointers) had function pointers patched into it that were obviously not in the address range of the kernel
-  - See 2nd screen shot in his [blog entry](http://blogs.technet.com/markrussinovich/archive/2005/10/31/sony-rootkits-and-digital-rights-management-gone-too-far.aspx) (next slide)
+  - See 2nd screen shot in his [blog entry](https://techcommunity.microsoft.com/t5/windows-blog-archive/sony-rootkits-and-digital-rights-management-gone-too-far/ba-p/723442) (next slide)
 - Disassembling one of these functions showed it was from the aries.sys device driver, which was one of the hidden files detected by RKR
 
 
 ## What RKR revealed
-(from Mark Russinovich's [blog entry](http://blogs.technet.com/markrussinovich/archive/2005/10/31/sony-rootkits-and-digital-rights-management-gone-too-far.aspx))
-![image](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/prod.evol.blogs.technet.com/telligent.evolution.components.attachments/13/5247/00/00/00/48/24/10/rootkit2.gif)
+(from Mark Russinovich's [blog entry](https://techcommunity.microsoft.com/t5/windows-blog-archive/sony-rootkits-and-digital-rights-management-gone-too-far/ba-p/723442))
+![image](https://techcommunity.microsoft.com/t5/image/serverpage/image-id/120875i356D5B86892D50CA)
 The circled function pointers are clearly different than the others
 
 
 ## Sony CD Fiasco cont.
 - While the directory was hidden, once he knew of its existence from RKR, he could open a command prompt window and change directory (CD command) directly into it
 - Sure enough, there were the rootkit device drivers and other files:
-![image](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/prod.evol.blogs.technet.com/telligent.evolution.components.attachments/13/5247/00/00/00/48/24/13/rootkit4.gif)
+![image](https://techcommunity.microsoft.com/t5/image/serverpage/image-id/120877iF162AA11C8819F51)
 
 
 ## Sony CD Fiasco cont.
-- Using IDA Pro to disassemble the entire driver, Russinovich discovered that it hooked enough system services to hide "every file, directory, Registry key or process whose name begins with $\$$sys$\$$
-- To confirm, he made a copy of notepad.exe called $\$$sys$\$$notepad.exe, and it disappeared from view!
+- Using IDA Pro to disassemble the entire driver, Russinovich discovered that it hooked enough system services to hide "every file, directory, Registry key or process whose name begins with `$`sys`$`
+- To confirm, he made a copy of notepad.exe called `$`sys`$`notepad.exe, and it disappeared from view!
 
 
 ## Sony CD Fiasco cont.
@@ -218,9 +219,9 @@ The circled function pointers are clearly different than the others
 
 
 ## Sony Fiasco: The Plot Thickens
-- When he played the CD again, there was an increase in CPU usage by process $\$$sys$\$$DRMServer.exe
+- When he played the CD again, there was an increase in CPU usage by process `$`sys`$`DRMServer.exe
 - The Services tab of Process Explorer identified the app as "Plug and Play Device Manager," which is an obvious attempt to mislead the user into thinking that this is a core Windows service, which it is not:
-![image](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/prod.evol.blogs.technet.com/telligent.evolution.components.attachments/13/5247/00/00/00/48/24/18/rootkit9.gif)
+![image](https://techcommunity.microsoft.com/t5/image/serverpage/image-id/120882iB7E2EE5C2ABE9DA1)
 
 
 ## Sony Fiasco: The Plot Thickens
@@ -247,11 +248,11 @@ The circled function pointers are clearly different than the others
 
 ## Sony Rootkit Problems
 - A legal problem: Philips owns the trademark to the "CD" symbol, and forbids its use on any non-pure audio CD
-- Any intruder now could install files that begin with $\$$sys$\$$ and piggyback onto the XCP rootkit, getting his files hidden for free!
+- Any intruder now could install files that begin with `$`sys`$` and piggyback onto the XCP rootkit, getting his files hidden for free!
 
 
 ## The Fiasco Hits the Fan
-- The October 31, 2005 [blog entry](http://blogs.technet.com/markrussinovich/archive/2005/10/31/sony-rootkits-and-digital-rights-management-gone-too-far.aspx) led to major media coverage
+- The October 31, 2005 [blog entry](https://techcommunity.microsoft.com/t5/windows-blog-archive/sony-rootkits-and-digital-rights-management-gone-too-far/ba-p/723442) led to major media coverage
 - Sony at first said that the EULA warned about the software, and that the EULA told how to uninstall it
   - Later admitted this was not true, started providing uninstall instructions
 - Business Week article revealed Sony was warned on October 4 (!) by F-Secure, an AV vendor
@@ -269,8 +270,9 @@ by Thomas Hesse, President, Global Digital Business, Sony/BMG
 - Sony got First 4 Internet to provide a patch to update the rootkit
 - The 3.5MB "patch" included a whole new version of the DRM software
 - Immediately after installing it, Russinovich noticed a new entry called MediaJam in the Add/Remove Programs list:
-![image](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/prod.evol.blogs.technet.com/telligent.evolution.components.attachments/13/5247/00/00/00/48/24/35/sony-patch4.gif)
-(from his [second blog entry](http://blogs.technet.com/markrussinovich/archive/2005/11/04/more-on-sony-dangerous-decloaking-patch-eulas-and-phoning-home.aspx))
+![image](https://techcommunity.microsoft.com/t5/image/serverpage/image-id/120890i6BD0152633D058EB)
+(from his [second blog entry](https://techcommunity.microsoft.com/t5/windows-blog-archive/more-on-sony-dangerous-decloaking-patch-eulas-and-phoning-home/ba-p/723452))
+<!-- (from his [second blog entry](http://blogs.technet.com/markrussinovich/archive/2005/11/04/more-on-sony-dangerous-decloaking-patch-eulas-and-phoning-home.aspx)) -->
 
 
 ## The Sony Patch cont.
@@ -297,13 +299,13 @@ by Thomas Hesse, President, Global Digital Business, Sony/BMG
 
 
 ## Security Exploits
-- As predicted, the hiding of all files beginning with $\$$sys$\$$ was a vulnerability waiting to be exploited, and it has now been exploited by [at least three viruses](http://news.bbc.co.uk/2/hi/technology/4427606.stm)
-  - Security firm Sophos reported that spam emails, subject "Photo Approval Deadline," were using the $\$$sys$\$$ prefix to install the [Stinx-E Trojan Horse](https://www.sophos.com/zh-tw/press-office/press-releases/2005/11/stinxe.aspx) (backdoor software)
+- As predicted, the hiding of all files beginning with `$`sys`$` was a vulnerability waiting to be exploited, and it has now been exploited by [at least three viruses](http://news.bbc.co.uk/2/hi/technology/4427606.stm)
+  - Security firm Sophos reported that spam emails, subject "Photo Approval Deadline," were using the `$`sys`$` prefix to install the [Stinx-E Trojan Horse](https://www.zdnet.com/article/trojan-horses-targeting-sony-drm-rootkit-found/) (backdoor software)
 
 
 ## Security Exploits cont.
 - The World of Warcraft online multiplayer game has an anti-cheating system that scans running processes for cheats
-  - Cheat processes are now being created with the $\$$sys$\$$ prefix, escaping detection for any cheater who first buys a Sony CD and plays it on their PC
+  - Cheat processes are now being created with the `$`sys`$` prefix, escaping detection for any cheater who first buys a Sony CD and plays it on their PC
   - [Article from The Register](http://www.theregister.co.uk/2005/11/04/secfocus_wow_bot/)
 
 
@@ -331,16 +333,16 @@ by Thomas Hesse, President, Global Digital Business, Sony/BMG
 
 ## Bypassing the Protection
 - Users who understand the implementation have already reported that they can disable the entire DRM scheme by using a Sharpie marker to cover the outer track
-  - [Article from Tech Register](http://articles.techrepublic.com/5100-1009-5985845-2.html)
+  - ~~[Article from Tech Register](http://articles.techrepublic.com/5100-1009-5985845-2.html)~~
 - According to the DMCA, any technology used to bypass copy protection is illegal!
 - A little Scotch tape that just covers some of the outer track also makes the PC treat it as a pure audio CD
 
 
 ## Sony Fiasco: The Aftermath
 - [Sony sued](http://news.bbc.co.uk/1/hi/technology/4424254.stm): in California (class action suit), by Texas attorney general, another class action suit expected in New York
-- [Sony recalls the CDs that use the DRM scheme](http://news.com.com/2100-7349_3-5954154.html)
-- [Security Expert Bruce Schneier summarizes the case and the disturbing implications](http://www.schneier.com/blog/ archives/2005/11/sonys_drm_rootk.html)
-- [Sony settles class action lawsuit with CD buyers](http://news.com.com/Sony+settles+rootkit+class+action+lawsuit/2100-1002_3-6012173.html)
+- [Sony DRM Forces Recall of CD's](https://netmix.com/sony-drm-forces-recall-of-cds/)
+- [Security Expert Bruce Schneier summarizes the case and the disturbing implications](http://www.schneier.com/blog/archives/2005/11/sonys_drm_rootk.html)
+- [Settlement ends Sony rootkit case](https://www.computerworld.com/article/2821897/settlement-ends-sony-rootkit-case.html)
 
 
 ## Sony Fiasco: Final Ironies
