@@ -32,7 +32,7 @@ Readings
 
 All scholarly articles (such as from the ACM digital library) can be obtained from free from any UVa wireless network.  Some of them you will *NOT* be able to get it for free from your home Internet provider such as Comcast (unless you live in a UVa dorm, of course) without using a UVa VPN.  All readings are due by the start of lecture that day.
 
-- Due sometime during the week of June 13th: Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf) (a copy of the PDF is in Collab's resources as well)
+- Due Monday, June 13th: Smashing the Stack for Fun and Profit, available online in [HTML](http://phrack.org/issues/49/14.html ) and [PDF](http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf) (a copy of the PDF is in Collab's resources as well)
 - Due Monday, June 6th: [NPR's Planet Monday episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
 - Due Tuesday, May 31st: [An Introduction to Cybersecurity Ethics](http://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
 - Due Thursday, May 26th:
@@ -46,9 +46,8 @@ Homeworks
 
 Unless otherwise noted, all submissions are due by the end of the day of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the Gradescope Collab tool -- all submissions should open up 2 days (i.e., 48 hours) prior to the due date/time.
 
-<!--
-- [HW 7: Forensics](../hws/hw-forensics.html) is due Wednesday, June 15th
--->
+
+- [HW 7: Forensics](../hws/hw-forensics.html) is due Thursday, June 16th
 - [HW 6: Cryptocurrency](../hws/hw-cryptocurrency.html) is due Friday, June 10th
 - [HW 5: SQL/XSS/CSRF](../hws/hw-sql-xss-csrf.html) is due Tuesday, June 7th
 - [HW 4: RSA](../hws/hw-rsa.html) ([md](../hws/hw-rsa.md)) is due Friday, June 3rd
