@@ -29,6 +29,7 @@ code {
     font-size: 13px;
     line-height: 19px;
     padding: 0px 5px;
+    white-space: initial;
 }
 
 pre code {
