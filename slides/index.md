@@ -26,7 +26,6 @@ Slide sets, ordered in the order presented in lecture:
     - [Rootkits](rootkits.html#/)
 	- [Stuxnet](stuxnet.html#/)
 	- [Virtual Machines](vms.html#/)
-	- Privacy
 - Binary Exploits
 	- [Viruses](viruses.html#/)
 	- [Buffer Overflows](buffer-overflows.html#/)
