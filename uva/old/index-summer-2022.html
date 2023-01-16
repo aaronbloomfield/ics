@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ICS: UVa specific material, summer 2022</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../markdown.css" />
+  <script>
+  function openTab(evt, tabName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  </script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="ics-uva-specific-material-summer-2022">ICS: UVa specific material, summer 2022</h1>
+<p><a href="../readme.html">Go up to the main ICS readme</a> (<a href="../readme.md">md</a>)</p>
+<p>Much of the rest of this git repo is meant to be generic to anybody who has a class such as this one. But this page contains details specific to the specific version of the course at the University of Virginia.</p>
+<hr />
+<h2 id="links">Links</h2>
+<p>There are a number of links and other parts of this course that are <strong>NOT</strong> included in this repository. They are:</p>
+<ul>
+<li>Any concerns you have should be handled via a <a href="https://andromeda.cs.virginia.edu/satori/tickets/ticket-list/cs-3710-su-2022/">support request</a> (Netbadge login required)</li>
+<li>Assignment submission is through the Gradescope tool in Collab; Gradescope will contain the grading guidelines as well when appropriate</li>
+<li>Email list archive, which is a Collab tool (<a href="https://collab.its.virginia.edu/portal/directtool/ac4c6d19-afa8-4da8-b2e1-125219014851/">here</a> is the direct link; Collab login is required)</li>
+<li>The <a href="https://piazza.com/class/l3i1ss70t0ngr">Piazza forum for this course</a>; Collab can log you in directly – the Collab tool link is <a href="https://collab.its.virginia.edu/portal/site/a0075759-cb61-4fc7-82bc-9ef856bac64a/page/9aa1caa3-e963-4aef-b7a4-d437693eea80">here</a> (again, Collab login required)</li>
+<li><a href="https://collab.its.virginia.edu/portal/directtool/b5ab04bb-6932-47ab-a11a-0e37f29389f7/">Anonymous feedback</a>, which is through Collab</li>
+<li>The VirtualBox image (not yet ready) used for this course. For how to install it, see <a href="https://uva-cs.github.io/pdr/tutorials/01-intro-unix/virtual-box.html">here</a>.</li>
+</ul>
+<p>The parts of this course that are in this repo are:</p>
+<ul>
+<li><a href="syllabus.html">Course syllabus</a> (<a href="syllabus.md">md</a>)</li>
+<li><a href="daily-announcements.html#/">Daily announcements</a></li>
+<li><a href="hw-policies.html">Homework policies page</a> (<a href="hw-policies.md">md</a>)</li>
+<li><a href="grades.html">Final course grade determination</a> (<a href="grades.md">md</a>)</li>
+</ul>
+<h2 id="readings">Readings</h2>
+<p>All scholarly articles (such as from the ACM digital library) can be obtained from free from any UVa wireless network. Some of them you will <em>NOT</em> be able to get it for free from your home Internet provider such as Comcast (unless you live in a UVa dorm, of course) without using a UVa VPN. All readings are due by the start of lecture that day.</p>
+<ul>
+<li>Due Monday, June 13th: Smashing the Stack for Fun and Profit, available online in <a href="http://phrack.org/issues/49/14.html">HTML</a> and <a href="http://www-inst.eecs.berkeley.edu/~cs161/fa08/papers/stack_smashing.pdf">PDF</a> (a copy of the PDF is in Collab’s resources as well)</li>
+<li>Due Monday, June 6th: <a href="https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot">NPR’s Planet Monday episode 908: I Am Not A Robot</a></li>
+<li>Due Tuesday, May 31st: <a href="http://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf">An Introduction to Cybersecurity Ethics</a>: you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it’s about 35 typed pages</li>
+<li>Due Thursday, May 26th:
+<ul>
+<li><a href="https://www.acm.org/code-of-ethics">ACM Code of Ethics</a></li>
+<li><a href="https://dl.acm.org/citation.cfm?id=358210">Reflections on Trusting Trust</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Morris_worm">Morris Worm Wikipedia page</a></li>
+</ul></li>
+</ul>
+<h2 id="homeworks">Homeworks</h2>
+<p>Unless otherwise noted, all submissions are due by the end of the day of the due date given – this means by 11:59:59 pm. The late policies are discussed in the <a href="hw-policies.html">homework policies page</a> (<a href="hw-policies.md">md</a>). Submission is through the Gradescope Collab tool – all submissions should open up 2 days (i.e., 48 hours) prior to the due date/time.</p>
+<ul>
+<li><a href="../hws/hw-forensics.html">HW 7: Forensics</a> is due Thursday, June 16th</li>
+<li><a href="../hws/hw-cryptocurrency.html">HW 6: Cryptocurrency</a> is due Friday, June 10th</li>
+<li><a href="../hws/hw-sql-xss-csrf.html">HW 5: SQL/XSS/CSRF</a> is due Tuesday, June 7th</li>
+<li><a href="../hws/hw-rsa.html">HW 4: RSA</a> (<a href="../hws/hw-rsa.md">md</a>) is due Friday, June 3rd</li>
+<li><a href="../hws/hw-ethics.html">HW 3: Ethics</a> (<a href="../hws/hw-ethics.md">md</a>) is due Monday, May 30th</li>
+<li><a href="../hws/hw-policy.html">HW 2: Policy</a> (<a href="../hws/hw-policy.md">md</a>) is due Friday, May 27th</li>
+<li><a href="../hws/hw-paranoia.html">HW 1: Rational Paranoia</a> (<a href="../hws/hw-paranoia.md">md</a>) is due Wednesday, May 25th</li>
+</ul>
+<h2 id="expected-lecture-progress">Expected lecture progress</h2>
+<p>The links to the specific slides sets can be found on the <a href="../slides/index.html">slides page</a> (<a href="../slides/index.md">md</a>).</p>
+<ol type="1">
+<li>Mon, May 23: course introduction; security mindset</li>
+<li>Tue, May 24: security mindset, terminology</li>
+<li>Wed, May 25: terminology, policy</li>
+<li>Thu, May 26: ethics</li>
+<li>Fri, May 27: encryption</li>
+<li>Tue, May 31: encryption</li>
+<li>Wed, Jun 1: encryption</li>
+<li>Thu, Jun 2: encryption, networking overview, web security</li>
+<li>Fri, Jun 3: web security (and the midterm)</li>
+<li>Mon, Jun 6: web security, sql/xss/csrf</li>
+<li>Tue, Jun 7: cryptocurrency</li>
+<li>Wed, Jun 8: cryptocurrency, anonymity</li>
+<li>Thu, Jun 9: anonymity, stuxnet</li>
+<li>Fri, Jun 10: virtual machines, rootkits</li>
+<li>Mon, Jun 13: rootkits, viruses</li>
+<li>Tue, Jun 14: viruses, buffer overflow</li>
+<li>Wed, Jun 15: buffer overflow, binary exploits</li>
+<li>Thu, Jun 16: binary exploits, digital forensics</li>
+<li>Fri, Jun 17: digital forensics, course conclusion</li>
+</ol>
+</body>
+</html>
