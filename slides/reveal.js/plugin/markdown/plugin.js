@@ -4,7 +4,7 @@
  * of external markdown documents.
  */
 
-import marked from 'marked'
+import { marked } from 'marked';
 
 const DEFAULT_SLIDE_SEPARATOR = '\r?\n---\r?\n',
 	  DEFAULT_NOTES_SEPARATOR = 'notes?:',
@@ -206,7 +206,7 @@ const Plugin = () => {
 
 			var externalPromises = [];
 
-			[].slice.call( scope.querySelectorAll( '[data-markdown]:not([data-markdown-parsed])') ).forEach( function( section, i ) {
+			[].slice.call( scope.querySelectorAll( 'section[data-markdown]:not([data-markdown-parsed])') ).forEach( function( section, i ) {
 
 				if( section.getAttribute( 'data-markdown' ).length ) {
 
