@@ -14,22 +14,22 @@ Slide sets, ordered in the order presented in lecture:
 - Ethics & Policy
     - [US Cybersecurity Policy](policy.html#/)
     - [Ethics](ethics.html#/)
-- Crytpography
+- Cryptography
 	- [Encryption](encryption.html#/)
 - Networks
 	- [Networking Overview](networks.html#/)
 	- [Web Security](web-security.html#/)
 	- [SQL, XSS, and CSRF](sql-xss-csrf.html#/)
-- Modern Topics
-	- [Crytocurrency](cryptocurrency.html#/)
-	- [Anonymity](anonymity.html#/)
-    - [Rootkits](rootkits.html#/)
-	- [Stuxnet](stuxnet.html#/)
-	- [Virtual Machines](vms.html#/)
 - Binary Exploits
 	- [Viruses](viruses.html#/)
 	- [Buffer Overflows](buffer-overflows.html#/)
 	- [Binary Exploits](binary-exploits.html#/)
+- Modern Topics
+	- [Cryptocurrency](cryptocurrency.html#/)
+	- [Anonymity](anonymity.html#/)
+    - [Rootkits](rootkits.html#/)
+	- [Stuxnet](stuxnet.html#/)
+	- [Virtual Machines](vms.html#/)
 - Digital Forensics
 	- [Digital Forensics](forensics.html#/)
 - [Course Reflection](reflection.html#/)

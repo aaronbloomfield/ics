@@ -15,17 +15,36 @@
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
+  <script>
+  function openTab(evt, tabName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  </script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
 <h1 id="ics-slides">ICS: Slides</h1>
-<p><a href="../readme.html">Go up to the main ICS readme</a> (<a
-href="../readme.md">md</a>)</p>
-<p>You may want to see the <a
-href="../uva/daily-announcements.html#/">daily announcements slide
-set</a> for the current semester.</p>
+<p><a href="../readme.html">Go up to the main ICS readme</a> (<a href="../readme.md">md</a>)</p>
+<p>You may want to see the <a href="../uva/daily-announcements.html#/">daily announcements slide set</a> for the current semester.</p>
 <p>Slide sets, ordered in the order presented in lecture:</p>
 <ul>
 <li>Introduction
@@ -39,7 +58,7 @@ set</a> for the current semester.</p>
 <li><a href="policy.html#/">US Cybersecurity Policy</a></li>
 <li><a href="ethics.html#/">Ethics</a></li>
 </ul></li>
-<li>Crytpography
+<li>Cryptography
 <ul>
 <li><a href="encryption.html#/">Encryption</a></li>
 </ul></li>
@@ -49,19 +68,19 @@ set</a> for the current semester.</p>
 <li><a href="web-security.html#/">Web Security</a></li>
 <li><a href="sql-xss-csrf.html#/">SQL, XSS, and CSRF</a></li>
 </ul></li>
-<li>Modern Topics
-<ul>
-<li><a href="cryptocurrency.html#/">Crytocurrency</a></li>
-<li><a href="anonymity.html#/">Anonymity</a></li>
-<li><a href="rootkits.html#/">Rootkits</a></li>
-<li><a href="stuxnet.html#/">Stuxnet</a></li>
-<li><a href="vms.html#/">Virtual Machines</a></li>
-</ul></li>
 <li>Binary Exploits
 <ul>
 <li><a href="viruses.html#/">Viruses</a></li>
 <li><a href="buffer-overflows.html#/">Buffer Overflows</a></li>
 <li><a href="binary-exploits.html#/">Binary Exploits</a></li>
+</ul></li>
+<li>Modern Topics
+<ul>
+<li><a href="cryptocurrency.html#/">Cryptocurrency</a></li>
+<li><a href="anonymity.html#/">Anonymity</a></li>
+<li><a href="rootkits.html#/">Rootkits</a></li>
+<li><a href="stuxnet.html#/">Stuxnet</a></li>
+<li><a href="vms.html#/">Virtual Machines</a></li>
 </ul></li>
 <li>Digital Forensics
 <ul>
