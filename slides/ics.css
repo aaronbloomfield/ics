@@ -1,4 +1,4 @@
-/* This file is part of the http://github.com/aaronbloomfield/pdr
+/* This file is part of the http://github.com/aaronbloomfield/ics
  * repo, and has the same license as the rest of the repo (CC BY-SA)
  */
 
@@ -129,6 +129,7 @@ tr.bordercfifty td {
 .reveal table.transparent td { 
   border-bottom: 0px;
   background-color: transparent;
+  vertical-align: top;
 }
 .reveal table.transparent th { 
   text-decoration:underline;
@@ -156,7 +157,9 @@ ul.small {
     position:initial;
   display:inline;
   top:-11px;
-  left:3px
+  left:3px;
+  padding:0;
+  border-radius:0;
 }
 
 .reveal sub { 
@@ -179,6 +182,14 @@ span.yellow { color:yellow; }
 
 p.blankline { height:1em; }
 
+.right-float-img img {
+    float:right;
+    max-width: 50%;
+    margin-left:20px !important;
+    max-height: 600px;
+    margin-top: 12px;
+}
+
 .right-float-img-200 img {
     float:right;
     max-width:200px;
@@ -186,9 +197,15 @@ p.blankline { height:1em; }
     margin-left:20px !important;
 }
 
-.right-float-img img {
+.right-float-img-nb-300 img {
     float:right;
+    max-width: 50%;
     margin-left:20px !important;
+    max-height: 600px;
+    margin-top: 12px;
+    padding: 0;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 .right-float-img-400 img {
@@ -198,17 +215,21 @@ p.blankline { height:1em; }
     margin-left:20px !important;
 }
 
+.right-float-img-nb-400 img {
+    float:right;
+    max-width: 50%;
+    margin-left:20px !important;
+    max-height: 600px;
+    margin-top: 12px;
+    padding: 0;
+    max-width: 400px;
+    max-height: 400px;
+}
+
 .right-float-img-500 img {
     float:right;
     max-width:500px;
     max-height:250px;
-    margin-left:20px !important;
-}
-
-.left-float-img-800 img {
-    float:left;
-    max-width:800px;
-    max-height:400px;
     margin-left:20px !important;
 }
 
@@ -233,6 +254,29 @@ p.blankline { height:1em; }
     margin-left:20px !important;
 }
 
+.left-float-img img {
+    float:left;
+    max-width: 50%;
+    margin-left:20px !important;
+    max-height: 600px;
+    margin-top: 12px;
+}
+
+.left-float-img-800 img {
+    float:left;
+    max-width:800px;
+    max-height:400px;
+    margin-left:20px !important;
+}
+
+.img-max-height-500 img {
+    max-height: 500px;
+}
+
+.big-table-small table {
+  font-size: smaller;
+}
+
 .max-pre-400 pre code {
     max-height:400px;
 }
@@ -241,19 +285,9 @@ p.blankline { height:1em; }
     background:white
 }
 
-span.red { color:red; }
-span.skyblue { color:skyblue; }
-span.pink { color:pink; }
-span.hotpink { color:hotpink; }
-span.blue { color:blue; }
-span.green { color:green; }
-span.lightgreen { color:lightgreen; }
-span.orange { color:orange; }
-span.yellow { color:yellow; }
-
 section.small-code pre {
-font-size:45%;
-line-height:110%;
+  font-size:45%;
+  line-height:110%;
 }
 
 .max-image-height-200 img {
@@ -302,6 +336,8 @@ section.no-white-img-background img {
 .reveal blockquote {
     border-radius:20px;
     box-shadow: 10px 10px 2px rgba(0, 0, 0, 0.2);
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 div.titlesmall p {
@@ -311,11 +347,180 @@ div.titlesmall p {
     margin-bottom:0;
 }
 
+p.titlep {
+    margin:0;
+}
+
 img {
-  border-radius: 10px;
+  padding:10px;
+  border-radius:10px;
+}
+
+img.nopad {
+  padding:0;
+  border-radius:0;
+}
+
+.reveal li {
+  font-size:90%;
+  line-height:120%;
+
+}
+
+code.small {
+  /*scale: 80%;*/
+  transform: scale(0.8,0.8);
+  width: 115%;
+  margin-left: -50px;
+  height: 400px;
+  font-size: smaller;
+  transform-origin: top;
+}
+
+code.longcode {
+  /*scale: 80%;*/
+  transform: scale(0.8,0.8);
+  width: 100%;
+  margin-left: auto;
+  height:auto;
+  font-size:50%;
+  line-height:normal;
+}
+
+/* list left alignment, from https://stackoverflow.com/questions/37652514/left-align-lists-in-reveal-presentations */
+.reveal ol,
+.reveal dl,
+.reveal ul {
+  display: block;
+  text-align: left;
+  margin: 0 0 0 1em;
+}
+
+table.compact {
+  transform-origin:left;
+}
+
+table.compact tr td {
+  font-size: 0.5em;
+  padding: 4px;
+}
+
+/* for when it is going as the start of the <li> bullet point */
+img.cclogo, img[src$='#cclogo'], .cclogo-slide a img {
+  width: 50px;
+  max-height: 50px;
+  /* float: left; */
+  vertical-align:  middle;
+  display: inline !important;
+  float: none;
+  padding-right: 0;
+  background-color: transparent !important;
+  margin-right: 10px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* In a slide, but bigger than the previous one */
+img.cclogolarge {
+  width: 100px;
+  max-height: 100px;
+  float: left;
+  background-color: transparent !important;
+  margin-right: 10px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* In a slide, but smaller than the previous one */
+img.cclogomed, div.cclogomed img, img[src$='#cclogomed'] {
+  width: 90px;
+  max-height: 90px;
+  float: left;
+  background-color: transparent !important;
+  margin-right: 10px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* on a slide column heading page, it appears above the <h1> title and very large */
+img.cclogotitle {
+  width: 200px;
+  background-color: transparent !important;
+  margin-top: auto;
+}
+
+/* on a slide column heading page, it appears below the <h1> title and small */
+img.cclogosubtitle {
+  width: 50px;
+  background-color: transparent !important;
+  margin-top: auto;
+  display: inline !important;
+  text-align: center;
+}
+
+/* on a regular slide, it appears at the start of the <h2> slide title */
+img.cclogoheader, .cclogo-slide h2 a img {
+  width: 70px !important;
+  height: 70px !important;
+  max-height: 70px;
+  max-width: 70px;
+  background-color: transparent !important;
+  margin-top: auto;
+  display: inline !important;
+  text-align: center;
+  vertical-align:  middle;
+}
+
+.normal-slide-size li {
+  font-size:90% !important;
+  line-height:120% !important;
+}
+
+code.notworking {
+  background-color: #292929;
+  border-radius: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
+  border: 1px solid black;
+  box-shadow: 2px 2px 2px black;
+}
+
+pre.code-wrapper {
+  box-shadow: none;
+}
+
+.reveal pre {
+  box-shadow: none
 }
 
 .reveal blockquote {
   padding-left: 20px;
   padding-right: 20px;
+}
+
+img.flag {
+  width: 90px;
+  max-height: 70px;
+  float: left;
+  border-radius: 0;
+  padding: 0;
+  border: 0;
+  margin: 5px;
+  margin-right: 10px !important;
+}
+
+pre.nobottom {
+  margin-bottom: -40px;
+}
+
+div.twitter-tweet {
+  margin-left: auto;
+  margin-right: auto;
+  scale: 170%;
+  margin-top: 120px !important;
+  margin-bottom: 140px !important;
+}
+
+.nopad img {
+  padding: 0 !important;
 }
