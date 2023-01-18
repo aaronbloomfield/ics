@@ -1,5 +1,6 @@
-/* This file is part of the http://github.com/aaronbloomfield/ics
- * repo, and has the same license as the rest of the repo (CC BY-SA)
+/* This file is part of both the http://github.com/aaronbloomfield/ccc and
+   http://github.com/aaronbloomfield/ics repositories, and has the same
+   license as the rest of those repos (CC BY-SA)
  */
 
 /* Fixing some slide formatting to my tastes */
@@ -70,7 +71,7 @@ p.center {
     max-height: 700px;
     background-color:dimgray;
     border-radius:7px;
-    box-shadow: 5px 5px 5px black;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
 }
 
 /* add spacing below the slide title */
@@ -182,6 +183,14 @@ span.yellow { color:yellow; }
 
 p.blankline { height:1em; }
 
+.norad img {
+    border-radius:0;
+}
+
+.noboxshadow img {
+  box-shadow: none !important;
+}
+
 .right-float-img img {
     float:right;
     max-width: 50%;
@@ -282,7 +291,12 @@ p.blankline { height:1em; }
 }
 
 .reveal section img {
-    background:white
+  background:white;
+  box-shadow: 10px 10px 5px rgba(0,0,0,0.2);
+}
+
+.reveal img.print {
+  box-shadow:none;
 }
 
 section.small-code pre {
@@ -314,7 +328,7 @@ section.no-white-img-background img {
     max-height: 700px;
     background-color:dimgray;
     border-radius:7px;
-    box-shadow: 5px 5px 5px black;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
     font-family: monospace;
     padding: 5px;
     overflow: auto;
@@ -326,7 +340,7 @@ section.no-white-img-background img {
     max-height: 700px;
     background-color:dimgray;
     border-radius:7px;
-    box-shadow: 5px 5px 5px black;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
     font-family: monospace;
     padding: 5px;
     overflow: auto;
@@ -335,7 +349,7 @@ section.no-white-img-background img {
 
 .reveal blockquote {
     border-radius:20px;
-    box-shadow: 10px 10px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 10px 2px rgba(0,0,0,0.2);
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -418,6 +432,7 @@ img.cclogo, img[src$='#cclogo'], .cclogo-slide a img {
   margin-right: 10px !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+  box-shadow: none !important;
 }
 
 /* In a slide, but bigger than the previous one */
@@ -429,6 +444,7 @@ img.cclogolarge {
   margin-right: 10px !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+  box-shadow: none !important;
 }
 
 /* In a slide, but smaller than the previous one */
@@ -440,6 +456,7 @@ img.cclogomed, div.cclogomed img, img[src$='#cclogomed'] {
   margin-right: 10px !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+  box-shadow: none !important;
 }
 
 /* on a slide column heading page, it appears above the <h1> title and very large */
@@ -447,6 +464,7 @@ img.cclogotitle {
   width: 200px;
   background-color: transparent !important;
   margin-top: auto;
+  box-shadow: none !important;
 }
 
 /* on a slide column heading page, it appears below the <h1> title and small */
@@ -456,6 +474,7 @@ img.cclogosubtitle {
   margin-top: auto;
   display: inline !important;
   text-align: center;
+  box-shadow: none !important;
 }
 
 /* on a regular slide, it appears at the start of the <h2> slide title */
@@ -469,6 +488,7 @@ img.cclogoheader, .cclogo-slide h2 a img {
   display: inline !important;
   text-align: center;
   vertical-align:  middle;
+  box-shadow: none !important;
 }
 
 .normal-slide-size li {
@@ -482,7 +502,7 @@ code.notworking {
   padding-left: 3px;
   padding-right: 3px;
   border: 1px solid black;
-  box-shadow: 2px 2px 2px black;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 }
 
 pre.code-wrapper {
