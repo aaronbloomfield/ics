@@ -1,4 +1,4 @@
-/* This file is part of the http://github.com/aaronbloomfield/pdr
+/* This file is part of the http://github.com/uva-cs/pdr
  * repo, and has the same license as the rest of the repo (CC BY-SA)
  *
  * The formatting is loosely based on that of github.com's README.md
@@ -10,7 +10,7 @@ body {
 }
 
 a {
-    text-decoration: none;
+    /* text-decoration: none; */
 }
 
 h1 {
@@ -24,22 +24,41 @@ h2 {
 }
 
 code {
-    background-color: rgb(248, 248, 248);
+    background: rgb(240,240,240);
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
     border: 1px solid rgb(221, 221, 221);
+    border-radius: 4px;
     font-size: 13px;
-    line-height: 19px;
-    padding: 0px 5px;
-    white-space: initial;
-}
-
-pre code {
-    border: 0px solid;
+    white-space: inherit;
 }
 
 pre {
-    background-color: rgb(248, 248, 248);
+    background-color: rgb(240, 240, 240);
     border: 1px solid rgb(221, 221, 221);
+    border-radius: 4px;
     padding: 6px 10px;
+    /* Make the pre box scrollable rather than scrolling the whole page */
+    overflow: auto;
+}
+
+pre code {
+    border: none;
+    padding: 0;
+}
+
+img {
+    /* Prevent image from scrolling off the page on mobile */
+    max-width: 100%;
+}
+
+blockquote {
+    background: #f9f9f9;
+    border-left: 5px solid #cccccc;
+    margin: 1em 10px;
+    padding: 0.25em 10px;
 }
 
 /* table formatting */
@@ -83,4 +102,83 @@ table td {
 
 table tr:nth-child(2n){
     background-color:#f8f8f8;
+}
+
+td.wrap {
+    word-break: break-all;
+}
+
+
+code.also {
+    white-space: normal;
+    background: rgb(240,240,240);
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border: 1px solid darkgray;
+    border-radius: 4px;
+}
+
+img.icon {
+    max-width: 25px;
+    max-height: 25px;
+    vertical-align: middle;
+}
+
+img.formula {
+    vertical-align: middle;
+    max-height:20px;
+}
+
+img.formulabig {
+    vertical-align: middle;
+    max-height:40px;
+}
+
+/* Tab content, adapted from https://www.w3schools.com/howto/howto_js_tabs.asp */
+
+ /* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  border:  1px solid lightgray;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+} 
+
+div.cclogos img {
+  width: 50px;
+  max-height: 50px;
+
 }
