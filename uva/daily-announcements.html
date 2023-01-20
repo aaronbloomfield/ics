@@ -1,10 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <base target="_blank">
-    <meta charset="utf-8">
-    <title>ICS: Daily Announcements</title>
-    <meta name="description" content="A set of slides for a course on Cryptocurrency">
+    <meta charset="utf-8"><base target="_blank">
+    <title>CS 3710: daily announcements slide set</title>
+    <meta name="description" content="A set of slides for an Introduction to Cybersecurity course">
     <meta name="author" content="Aaron Bloomfield">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -24,27 +23,26 @@
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
-	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
-	<![endif]-->
+  <script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
     <style>
 .reveal li {
-font-size:70%;
-line-height:115%;
+font-size:80%;
+line-height:110%;
 }
-.reveal li ul li {
-font-size:90%;
-line-height:115%;
+img {
+  padding: 10px;
 }
     </style>
   </head>
+
   <body>
 
-		<div class="reveal">
+    <div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
+      <div class="slides">
 
-	<section data-markdown><textarea>
+  <section data-markdown><script type="text/template">
 # CS 3710
 &nbsp;
 ### Introduction to Cybersecurity
@@ -59,56 +57,91 @@ line-height:115%;
 ## Daily Announcements
 
 ## Spring 2023
-	</textarea></section>
+  </script></section>
 
+<!-- xkcd template for cut-and-paste (first two lines are the date and title)
 
-<!-- ============================================================ -->
+<h2></h2>
+<h4 class="xkcd"></h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/.png" title="" alt="">
+<p class="center"><a href="http://xkcd.com/2040/">xkcd # 2040</a></p>
+
+-->
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
 
   <section>
-
-<section>...</section>
-
-    <section data-markdown data-separator="^\n\n\n"><textarea>
-## Lecture 2: Fri, Jan 20th
-- ...
-</textarea></section>
-
+<h2 class='xkcd'>Security Question</h2>
+<img class='stretch' src="https://imgs.xkcd.com/comics/security_question.png" title="Let&#39;s invite him to a party and play &#39;I never&#39;.  Okay, I never hid any bodies SOUTH of Main Street. ... he&#39;s taking a drink!" alt="Security Question" >
+<p class='center'><a href='http://xkcd.com/565/'>xkcd # 565</a></p>
   </section>
 
-<!-- ============================================================ -->
-	
+  <section data-markdown><textarea data-template>
+## Lecture 2: Fri, Jan 20th
+- Office hours start next week
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are TBA
+  - This all will be on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Homeworks
+  - Homework due next Thursday (Jan 26th) by midnight: [HW 1: Rational Paranoia](../hws/hw-paranoia.html)
+    - Not yet ready!
+    - You will likely want to wait until the [security mindset slide set](../slides/security-mindset.html#/) has been gone over in lecture
+  - The assignment submission will automatically open up 3 days before it is due
+  - The second homework will be on Policy, then one on Ethics
+  - And there will be readings interspersed in there...
+- Readings
+  - Due Wednesday, January 25th:
+    - [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
+    - [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210)
+    - [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+- Today we will start on the [security mindset slide set](../../slides/security-mindset.html#/)
+  - Next up: the [terminology slide set](../../slides/terminology.html#/)
+  </textarea></section>
+
+</section>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
       </div>
 
     </div>
 
-    <script src='../slides/reveal.js/dist/reveal.js'></script><script src='../slides/reveal.js/plugin/zoom/zoom.js'></script><script src='../slides/reveal.js/plugin/notes/notes.js'></script><script src='../slides/reveal.js/plugin/search/search.js'></script><script src='../slides/reveal.js/plugin/markdown/markdown.js'></script><script src='../slides/reveal.js/plugin/highlight/highlight.js'></script><script src='../slides/reveal.js/plugin/math/math.js'></script>
-    <script src="../slides/settings.js"></script>
-
+<script src="../slides/reveal.js/dist/reveal.js"></script>
+<script src="../slides/reveal.js/plugin/zoom/zoom.js"></script>
+<script src="../slides/reveal.js/plugin/notes/notes.js"></script>
+<script src="../slides/reveal.js/plugin/search/search.js"></script>
+<script src="../slides/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="../slides/reveal.js/plugin/highlight/highlight.js"></script>
+<script src="../slides/reveal.js/plugin/math/math.js"></script>
+    <!-- You cannot, apparently, include this from another directory, hence why settings.js is reproduced here in full -->
     <script>
-      var vals = new Array();
-      
-      // often changed variables
-      vals['btc_price'] = 65000;
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controlsTutorial: false,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      slideNumber: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-      // rarely changed variables
-      vals['btc_reward_btc'] = 6.25;
+    hash: true,
 
-      // computations; not changed
-      vals['btc_reward_usd'] = vals['btc_price'] * vals['btc_reward_btc'];
+    math: {
+      mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+      config: 'TeX-AMS_HTML-full',
+      // pass other options into `MathJax.Hub.Config()`
+      TeX: { Macros: { RR: "{\\bf R}" } }
+    },
 
-      Reveal.addEventListener( 'update', function() { myupdate(); } );
+    // Learn about plugins: https://revealjs.com/plugins/
+    plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ],
 
-      function myupdate() {
-	  for (var k in vals) {
-	      if ( document.getElementById(k) ) {
-		  document.getElementById(k).innerHTML = vals[k].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-	      }
-	  }
-      }
-      
+      });
     </script>
 
-
-    
   </body>
 </html>

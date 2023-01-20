@@ -79,7 +79,7 @@ Course calendar
 
 | Week # | Week of Monday | Lecture days | HWs due | Topics | Progress |
 |----|----|----|----|----|----|
-| 1  | Jan 16 | W,F    |        | [Course introduction](../slides/introduction.html#/), [The Security Mindset](../slides/security-mindset.html#/) | |
+| 1  | Jan 16 | W,F    |        | [Course introduction](../slides/introduction.html#/), [The Security Mindset](../slides/security-mindset.html#/) | Wed: finished course intro |
 | 2  | Jan 23 | M,W,F  |        | [The Security Mindset](../slides/security-mindset.html#/), [Terminology](../slides/terminology.html#/), [US Cybersecurity Policy](../slides/policy.html#/) | |
 | 3  | Jan 30 | M,W,F  |        | [US Cybersecurity Policy](../slides/policy.html#/), [Ethics](../slides/ethics.html#/) | |
 | 4  | Feb 6  | M,W,F  |        | [Encryption](../slides/encryption.html#/) | |
