@@ -23,6 +23,7 @@ Pick two of the following scenarios.
 - After the recent [downtime of the NOTAM system by the FAA](https://en.wikipedia.org/wiki/2023_FAA_system_outage), which turned out to be caused by a contractor mistakenly deleting files, you are tasked with preventing this system's downtime in the future.
 - The [US Securities and Exchange Commission (SEC)](https://en.wikipedia.org/wiki/U.S._Securities_and_Exchange_Commission) is in charge of enforcing law against market manipulation.  While the SEC does not (yet) have jurisdiction over cryptocurrencies, they still want to ensure some sort of legality with cryptocurrency scams, especially after the recent and very public [FTX cryptocurrency exchange collapse](https://en.wikipedia.org/wiki/Bankruptcy_of_FTX).  You can do this on either hacks (computerized attacks against cryptocurrency systems) or scams ([rug pulls](https://en.wikipedia.org/wiki/Exit_scam), bad investments, etc.), but not both; and you can't do the other one for your second case, either.
 - A professor at State University wants to perform classified research for the US government.  In addition to having to handle international students performing the research, one has to ensure the security of the information as well.  Describe how you would ensure such confidentiality.
+- You have to manage a large university whose primary means of (physical access) security is [pin tumbler locks](../slides/security-mindset.html#/lock).  How do you ensure the most secure environment possible?
 
 
 <!-- from summer 2022:
