@@ -78,21 +78,21 @@ Course calendar
 
 | Week # | Week of Monday | Lecture days | HWs due | Topics | Progress |
 |----|----|----|----|----|----|
-| 1  | Jan 16 | W,F    |        | [Course introduction](../slides/introduction.html#/), [The Security Mindset](../slides/security-mindset.html#/) | Wed: finished course intro; Fri: security mindset to 6.13 |
-| 2  | Jan 23 | M,W,F  |        | [The Security Mindset](../slides/security-mindset.html#/), [Terminology](../slides/terminology.html#/), [US Cybersecurity Policy](../slides/policy.html#/) | Mon: finished security mindset, terminology to 4.13; Wed: finished terminology, policy to 3.18 |
-| 3  | Jan 30 | M,W,F  |        | [US Cybersecurity Policy](../slides/policy.html#/), [Ethics](../slides/ethics.html#/) | |
-| 4  | Feb 6  | M,W,F  |        | [Encryption](../slides/encryption.html#/) | |
-| 5  | Feb 13 | M,W,F  |        | [Encryption](../slides/encryption.html#/) | |
-| 6  | Feb 20 | M,W,F  |        | [Networking Overview](../slides/networks.html#/), [Web Security](../slides/web-security.html#/) | |
-| 7  | Feb 27 | M,W,F  |        | [Web Security](../slides/web-security.html#/), midterm | |
-|    | Mar 6  | (none) | (none) | (spring break)  | |
-| 8  | Mar 13 | M,W,F  |        | [Viruses](../slides/viruses.html#/)| |
-| 9  | Mar 20 | M,W,F  |        | [Buffer Overflows](../slides/buffer-overflows.html#/) | |
-| 10 | Mar 27 | M,W,F  |        | [Binary Exploits](../slides/binary-exploits.html#/), [SQL, XSS, and CSRF](../slides/sql-xss-csrf.html#/) |
-| 11 | Apr 3  | M,W,F  |        | [Cryptocurrency](../slides/cryptocurrency.html#/), [Anonymity](../slides/anonymity.html#/) | |
-| 12 | Apr 10 | M,W,F  |        | [Rootkits](../slides/rootkits.html#/), [Stuxnet](../slides/stuxnet.html#/) | |
-| 13 | Apr 17 | M,W,F  |        | (guest lecture, catch-up lectures) | |
-| 14 | Apr 24 | M,W,F  |        | [Digital Forensics](../slides/forensics.html#/), [Virtual Machines](../slides/vms.html#/) | |
-| 15 | May 1  | M      |        | [Course reflection](../slides/reflection.html#/) | |
+| 1  | Jan 16 | W,F    |                   | [Course introduction](../slides/introduction.html#/), [The Security Mindset](../slides/security-mindset.html#/) | Wed: finished course intro; Fri: security mindset to 6.13 |
+| 2  | Jan 23 | M,W,F  | Rational Paranoia | [The Security Mindset](../slides/security-mindset.html#/), [Terminology](../slides/terminology.html#/), [US Cybersecurity Policy](../slides/policy.html#/) | Mon: finished security mindset, terminology to 4.13; Wed: finished terminology, policy to 3.18 |
+| 3  | Jan 30 | M,W,F  | Policy            | [US Cybersecurity Policy](../slides/policy.html#/), [Ethics](../slides/ethics.html#/) | |
+| 4  | Feb 6  | M,W,F  | Ethics            | [Encryption](../slides/encryption.html#/) | |
+| 5  | Feb 13 | M,W,F  | RSA               | [Encryption](../slides/encryption.html#/) | |
+| 6  | Feb 20 | M,W,F  | Hashing           | [Networking Overview](../slides/networks.html#/), [Web Security](../slides/web-security.html#/) | |
+| 7  | Feb 27 | M,W,F  | (midterm week)    | [Web Security](../slides/web-security.html#/), midterm | |
+|    | Mar 6  | (none) | (none)            | (spring break)  | |
+| 8  | Mar 13 | M,W,F  | Networks          | [Viruses](../slides/viruses.html#/)| |
+| 9  | Mar 20 | M,W,F  | (new virus HW)    | [Buffer Overflows](../slides/buffer-overflows.html#/) | |
+| 10 | Mar 27 | M,W,F  | Buffer overflow   | [Binary Exploits](../slides/binary-exploits.html#/), [SQL, XSS, and CSRF](../slides/sql-xss-csrf.html#/) |
+| 11 | Apr 3  | M,W,F  | SQL/XSS/CSRF      | [Cryptocurrency](../slides/cryptocurrency.html#/), [Anonymity](../slides/anonymity.html#/) | |
+| 12 | Apr 10 | M,W,F  | Cryptocurrency    | [Rootkits](../slides/rootkits.html#/), [Stuxnet](../slides/stuxnet.html#/) | |
+| 13 | Apr 17 | M,W,F  | Rootkits          | (guest lecture, catch-up lectures) | |
+| 14 | Apr 24 | M,W,F  | (new ??? HW)      | [Digital Forensics](../slides/forensics.html#/), [Virtual Machines](../slides/vms.html#/) | |
+| 15 | May 1  | M      | Digital forensics | [Course reflection](../slides/reflection.html#/) | |
 
 [1]: https://canvas.its.virginia.edu/courses/59093
