@@ -59,10 +59,7 @@ time and also a waste of our time.
 
 Please ensure that you follow *all* of these requirements:
 
-1. You will submit *both* a PDF and a .docx file of your essay.  If
-   you are not using Microsoft Word, then just export your final copy
-   to a Word file (.docx format) -- all modern word processors can do
-   this.
+1. You will submit a PDF file of your essay.
 2. Please put your word count at the top of your essay.  As mentioned
    above, any header info (name, class, date, title, etc.), as well as
    references, do not count toward this word count.  And the required
@@ -72,8 +69,7 @@ Please ensure that you follow *all* of these requirements:
    zero!
 4. Please copy and paste the challenge scenario, as listed in the PDF,
    into your answer (this does not count against your 500 word limit).
-4. You ***MUST*** name your files `userid.pdf` and `userid.docx` where
-   'userid' is your UVa userid.
+4. You ***MUST*** name your file userid.pdf where 'userid' is your UVa userid.
 
 [1]: https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf
 

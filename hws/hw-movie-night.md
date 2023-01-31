@@ -105,11 +105,9 @@ hate fluff in essays?  See [here](../uva/hw-policies.html)
 
 ### Task 4: Submission Requirements
 
-You have to submit ***both*** .docx versions and .pdf versions of your
-assignment.  Whatever word processor you use, it can export to .docx
-and .pdf.
+You have to submit a .pdf version of your assignment.
 
-Your assignment ***MUST** be named \<tag>-\<userid>.docx and
+Your assignment ***MUST** be named
 \<tag>-\<userid>.pdf, where \<tag> is the tag mentioned in the movie
 list above, and \<userid> is your userid.  (Don't put in the less-than
 and greater-than symbols in the file names, of course).

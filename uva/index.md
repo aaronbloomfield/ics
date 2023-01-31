@@ -80,7 +80,7 @@ Course calendar
 |----|----|----|----|----|----|
 | 1  | Jan 16 | W,F    |                   | [Course introduction](../slides/introduction.html#/), [The Security Mindset](../slides/security-mindset.html#/) | Wed: finished course intro; Fri: security mindset to 6.13 |
 | 2  | Jan 23 | M,W,F  | Rational Paranoia | [The Security Mindset](../slides/security-mindset.html#/), [Terminology](../slides/terminology.html#/), [US Cybersecurity Policy](../slides/policy.html#/) | Mon: finished security mindset, terminology to 4.13; Wed: finished terminology, policy to 3.18; Fri: policy to 6.11 |
-| 3  | Jan 30 | M,W,F  | Policy            | [US Cybersecurity Policy](../slides/policy.html#/), [Ethics](../slides/ethics.html#/) | |
+| 3  | Jan 30 | M,W,F  | Policy            | [US Cybersecurity Policy](../slides/policy.html#/), [Ethics](../slides/ethics.html#/) | Mon: finished policy |
 | 4  | Feb 6  | M,W,F  | Ethics            | [Encryption](../slides/encryption.html#/) | |
 | 5  | Feb 13 | M,W,F  | RSA               | [Encryption](../slides/encryption.html#/) | |
 | 6  | Feb 20 | M,W,F  | Hashing           | [Networking Overview](../slides/networks.html#/), [Web Security](../slides/web-security.html#/) | |
