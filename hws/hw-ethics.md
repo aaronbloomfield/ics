@@ -42,6 +42,8 @@ Typing in the bolded title doesn't get us very far, so we entered in the first n
 
 Save all the prompts that you use -- both the original prompt and the "modification" prompts.
 
+Your ChatGPT response must be reasonable!!!  While it's fun to phrase it as if it were from Dr. Seuss, that would not be accepted as a reasonable answer to such an essay prompt.  Likewise, you have to ensure that the prompts sincerely try to elicit a correct response, and that the answer is correctly to the limit of ChatGPT's ability.
+
 Keep in mind that you can re-generate a previous response, or make modifications.  There are a few strict requirements about the final ChatGPT response that you are going to use:
 
 - Each of the cases (or situations or ethical framekworks) must have a discussion about both sides (pros and cons, etc.) of the issue
