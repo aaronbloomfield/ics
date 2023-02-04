@@ -11,68 +11,62 @@ due dates are listed on the [UVa course page](../uva/index.html)
 
 ### Assignment
 
-You will need to be familiar with the content of the
-[Ethics slide set](../slides/ethics.html#/), as well as the
-[An Introduction to Cybersecurity Ethics][1] PDF.  Specifically, you
-will want to have *read* that PDF.
+You will need to be familiar with the content of the [Ethics slide set](../slides/ethics.html#/).
 
-For this assignment, you are to write an essay on *one* of the
-cybersecurity challenges listed in part 2 of the [An Introduction to
-Cybersecurity Ethics][1] PDF.  A challenge is one single paragraph,
-typically 4-5 lines, with the first sentence bolded.  However, it must
-be one for which there are arguments on both sides (or all sides, if
-there are more than 2 sides) as to which path is the correct one
-ethically.
+For this assignment, you are to present an AI-generated argument about one of the cybersecurity challenges listed in part 2 of the [An Introduction to Cybersecurity Ethics PDF](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf), and then a discussion about that argument.  A challenge is one single paragraph, typically 4-5 lines, with the first sentence bolded; they are all listed in part 2 of the document (pages 15-21).  However, it must be one for which there are arguments on both sides (or all sides, if there are more than 2 sides) as to which path is the correct one ethically.
 
-The challenge you write about is left for you to decide.  However,
-please copy and paste the challenge scenario into the top of your
-document (this does not count against your 500 word limit).
+The challenge you write about is left for you to decide, although you cannot choose the one in the example below.  You will need to copy and paste the challenge scenario into the top of your document; this is described in the formatting section, below.
 
-Your essay should discuss the pros and cons of each of the sides.  It
-must conclude with a decision that you make.  We aren't going to judge
-you on *which* decision you make, as long as said decision is based on
-the pros and cons stated in the essay.
 
-The essay must be 500 words or less.  That's about 1 page worth of
-content.  Note that any header information (name, title, date, class,
-etc.) do not count toward the word limit.  References, if you use any,
-also do not count against this limit.  ***If it is over 500 words,
-then we will not grade it and give you a zero!*** The [HW policies
-page](../uva/hw-policies.html) ([md](../uva/hw-policies.md)) discusses
-this in a bit more detail.
+### Part 1: Create a ChatGPT account
 
-We are looking for a well thought out ethical argument. So stating
-that something is bad without explaining why is not what we are
-looking for.  Thus, "it's bad because I was taught that way" does not
-explain *why* it's bad, only that it *is* bad.  We can tell if you are
-just giving us a load of [BS](https://en.wikipedia.org/wiki/Bullshit),
-and we will give you a zero if you do that.
+We are going to use the ChatGPT generative AI tool for this assignment.  You can create an account at [https://chat.openai.com/](https://chat.openai.com/).
 
-Did you read the section about fluff in the
-[homeworks policies page](../uva/hw-policies.html)
-([md](../uva/hw-policies.md))?  When one is grading dozens of these
-assignments, one becomes a great fluff detector, and will mark your
-assignment down -- or give you a zero -- for it.  It's a waste of your
-time and also a waste of our time.
+Play around a bit with ChatGPT to get the hang of how it works.  Give it a prompt, or use one of the prompts they provide.  In particular, once it generates a response, you can then modify that response ("make the answer longer" or "phrase that answer in the style of dr. suess", "phrase that answer in iambic pentameter", etc.).
+
+
+### Part 2: Choose a challenge
+
+Pick one of the challenges in the [An Introduction to Cybersecurity Ethics PDF](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf) document.  For the example herein, we will select the "How will we respond to ransomware attacks affecting our network or users" challenge.  **YOU MAY NOT USE THAT ONE!**  Pick any other one.
+
+You will need to clearly state the challenge in your document (see the formatting section, below).
+
+
+### Part 3: Have ChatGPT generate a response to the challenge
+
+You have to phrase the ethical dilemma in a way that ChatGPT can generate a response to.  The particular one we have chosen is phrased as such in the document (this is the very bottom of page 16):
+
+> **How will we respond to ransomware attacks affecting our network or users?** When, if ever, is it ethically right to pay ransoms to attackers to restore system functionality or access? How much burden should be put on users/clients to protect and consistently backup their own data on other devices, as a way of limiting ransomware vulnerability?
+
+Typing in the bolded title doesn't get us very far, so we entered in the first non-bolded sentence.  We needed to make a few modifications to have ChatGPT rework the response.  A useful modification or this assignment is: "rephrase that answer using virtue ethics, consequentalist ethics, and deontological ethics".  (Utilitarian ethics and consequentialist ethics are considered by some to be the same, which is why we only included those three).
+
+Save all the prompts that you use -- both the original prompt and the "modification" prompts.
+
+Keep in mind that you can re-generate a previous response, or make modifications.  There are a few strict requirements about the final ChatGPT response that you are going to use:
+
+- Each of the cases (or situations or ethical framekworks) must have a discussion about both sides (pros and cons, etc.) of the issue
+- The generated response must be 500 words or less; too longer and we won't grade it.  This is about 1 page worth of content.  Any word processor can count the words (usually in the Tools menu, or similar).
+
+The entire ChatGPT response is to be included in the final document (see formatting, below).
+
+
+### Part 4: Tell us why it is wrong
+
+Explain how the ChatGPT answer is wrong.  Where did it mess up the argument?  Where did it not take into account some other factors?  Where did it not take into account some issues on one (or both) of the sides?  What nuances of the argument did it miss?  The list of things it could get wrong is endless; these are only some examples.
+
+Your analysis must be 500 words or less.
+
+
+### Formatting
+
+To make this sane for us to grade, your submission must be exactly three pages in length:
+
+- Page 1 should have: your name, userid, the challenge you are studying, and the ChatGPT prompts (with any "modification" prompts).  Any formatting is fine as long as it's reasonable formatting and it is easy to figure out what is what.
+- Page 2 should have ChatGPT's response in full (no more than 500 words!).  Include the word count at the top of the page (the word count, and your name/userid -- if there, but it's not necessary -- do not count toward the 500 word limit).
+- Page 3 should have your analysis about the response (no more than 500 words!). Include the word count at the top of the page (the word count, and your name/userid -- if there, but it's not necessary -- do not count toward the 500 word limit).
+
+Did you read the section about fluff in the [homeworks policies page](../uva/hw-policies.html) ([md](../uva/hw-policies.md))?  When one is grading dozens of these assignments, one becomes a great fluff detector, and will mark your assignment down -- or give you a zero -- for it.  It's a waste of your time and also a waste of our time.
 
 ### Submission
 
-Please ensure that you follow *all* of these requirements:
-
-1. You will submit a PDF file of your essay.
-2. Please put your word count at the top of your essay.  As mentioned
-   above, any header info (name, class, date, title, etc.), as well as
-   references, do not count toward this word count.  And the required
-   text "499 words" doesn't count, either, of course (replace 499 with
-   your actual word count).
-3. Is your essay it 500 words or less?  If not, you are going to get a
-   zero!
-4. Please copy and paste the challenge scenario, as listed in the PDF,
-   into your answer (this does not count against your 500 word limit).
-4. You ***MUST*** name your file userid.pdf where 'userid' is your UVa userid.
-
-[1]: https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf
-
-
-
-
+Submit the completed file as a PDF.
