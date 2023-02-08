@@ -15,7 +15,7 @@ You will be bound by the requirements on the [Homeworks policies page](../uva/hw
 - [Programming homework: Networks](hw-networks.html) ([md](hw-networks.md))
 - [Programming homework: Buffer Overflow](hw-buffer.html) ([md](hw-buffer.md))
 - [Programming homework: Hashing](hw-hashing.html) ([md](hw-hashing.md))
-- [Programming homework: RSA](hw-rsa.html) ([md](hw-rsa.md))
+- [Programming homework: RSA](hw-rsa-tabbed.html) ([one-page version](hw-rsa.html), [md](hw-rsa.md))
 
 
 ### Written homeworks

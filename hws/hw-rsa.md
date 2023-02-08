@@ -3,13 +3,7 @@ ICS: Programming Homework: RSA
 
 [Go up to the ICS HW page](index.html) ([md](index.md))
 
-You will want to see the
-[homeworks policies page](../uva/hw-policies.html)
-([md](../uva/hw-policies.md)) for formatting and other details.  The
-due dates are listed on the [UVa course page](../uva/index.html)
-([md](../uva/index.md)).
-
-### Purpose 
+### Overview 
 
 This assignment will focus on the implementation of the RSA
 algorithm. Specifically, you will have to implement key generation,
@@ -24,7 +18,27 @@ As Java is meant to be cross-platform, there is no specific reference
 platform for this assignment.  We will be using Java 1.8 to compile,
 run, and test your program.
 
-### Relevant links
+You will want to see the [homeworks policies page](../uva/hw-policies.html) ([md](../uva/hw-policies.md)) for formatting and other details.  The due dates are listed on the [UVa course page](../uva/index.html) ([md](../uva/index.md)).
+
+You should be familiar with how the RSA algorithm works from the
+[the encryption lecture](../slides/encryption.html#/rsa).  More
+details are available online (see the
+[Wikipedia article on RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem))). Keep
+in mind, however, that the Wikipedia page uses different variable
+names than what the lecture and slide set used. You will also want to
+reference the
+[Java SDK documentation](https://docs.oracle.com/javase/8/docs/api/),
+specifically the
+[java.math.BigInteger](https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html)
+and
+[java.security.MessageDigest](https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html) classes.
+
+### Changelog
+
+Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
+
+
+### Links
 
 These links are all described below, but are included here, all in one place.
 
@@ -48,22 +62,7 @@ These links are all described below, but are included here, all in one place.
 - The [test-rsa.sh](rsa/test-rsa.sh)
   ([HTML version](rsa/test-rsa.sh.html)) shell script
 
-### Prerequisites to Review 
-
-You should be familiar with how the RSA algorithm works from the
-[the encryption lecture](../slides/encryption.html#/rsa).  More
-details are available online (see the
-[Wikipedia article on RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem))). Keep
-in mind, however, that the Wikipedia page uses different variable
-names than what the lecture and slide set used. You will also want to
-reference the
-[Java SDK documentation](https://docs.oracle.com/javase/8/docs/api/),
-specifically the
-[java.math.BigInteger](https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html)
-and
-[java.security.MessageDigest](https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html) classes.
-
-### Skeleton Code
+### Code
 
 To simplify the assignment, and to allow easy interoperability between
 your code and our test cases, we have provided a significant amount of
@@ -83,7 +82,7 @@ to the Doxygen documentation for that class.
   `generateKeys()`, `encrypt()`, `decrypt()`, `crack()`, `sign()`,
   `checkSign()`.
 
-### Assignment Details 
+### Details 
 
 For this assignment, you must implement eight methods in the RSA
 algorithm. They are the ones that state "requires completion" in the
@@ -145,7 +144,7 @@ results are: [CipherText](rsa/html/classCipherText.html),
 [RSAKey](rsa/html/classRSAKey.html), and
 [RSA](rsa/html/classRSA.html).  ***You will want to look at this!***
 
-### Converting ASCII
+### ASCII
 
 In order to make our code interoperable, we need a common way to convert an ASCII string into an integer.  In both of these cases, this is converting the *entire* string into an integer, which will likely be (much) larger than your $n$ value.  Also, in both of these cases, the intermediate steps are shown, but it can be combined into a single step if desired.
 
@@ -178,7 +177,7 @@ System.out.println(s2);
 The integer representation of the string is: 87521618088882533792115812.  Note that your default character set has to be ASCII for this to work the same for you.
 
 
-### Command line parameters 
+### Parameters 
 
 The `main()` method should not need to be modified for the final
 submission (feel free to modify it any way you want to test your
@@ -216,7 +215,7 @@ the `-verbose` option, it can output a lot of informational messages.
 Furthermore, you may assume that we will not give you invalid input,
 either in the files we provide, or for the command-line parameters.
 
-### Sample test script
+### Testing
 
 A sample usage of the program, in which is Alice and Bob are sending
 messages is available.  This code can be found in a shell script named
@@ -323,11 +322,11 @@ linefeeds, etc.  Make sure that your code does not have UTF-8
 characters in it!  Given a file, you can tell what type of characters
 it has via the `file foo.txt` command.
 
-### Submission requirements
+### Submission
 
 You should submit one file: `RSA.java`, which contains all your Java
 code.  The compilation command will be `javac *.java`, so your
 RSA.java should have only one public class called `RSA`, and not be in
 a package.  The submission system will expect to see a `RSA.class`
 file after compilation, and will complain if it is not present
-(`missing binary executable`, or similar).
+(`missing binary executable`, or similar).  It's fine if there are additional .class files as well.
