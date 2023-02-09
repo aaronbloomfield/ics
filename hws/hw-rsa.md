@@ -10,13 +10,7 @@ algorithm. Specifically, you will have to implement key generation,
 encryption and decryption, signing and signature checking, and
 cracking of RSA messages.
 
-The intent is to implement this in Java, since the JDK provides the
-functionality to handle the necessary math.  You must speak to me
-first if you want to use another language!
-
-As Java is meant to be cross-platform, there is no specific reference
-platform for this assignment.  We will be using Java 1.8 to compile,
-run, and test your program.
+The intent is to implement this in either Java (since the JDK provides the functionality to handle the necessary math) or Python (similar).  The installed versions are Java 1.11 and Python 3.10.  You must speak to me first if you want to use another language!
 
 You will want to see the [homeworks policies page](../uva/hw-policies.html) ([md](../uva/hw-policies.md)) for formatting and other details.  The due dates are listed on the [UVa course page](../uva/index.html) ([md](../uva/index.md)).
 
@@ -27,11 +21,11 @@ details are available online (see the
 in mind, however, that the Wikipedia page uses different variable
 names than what the lecture and slide set used. You will also want to
 reference the
-[Java SDK documentation](https://docs.oracle.com/javase/8/docs/api/),
+[Java SDK documentation](https://docs.oracle.com/javase/11/docs/api/),
 specifically the
-[java.math.BigInteger](https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html)
+[java.math.BigInteger](https://docs.oracle.com/javase/11/docs/api/java/math/BigInteger.html)
 and
-[java.security.MessageDigest](https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html) classes.
+[java.security.MessageDigest](https://docs.oracle.com/javase/11/docs/api/java/security/MessageDigest.html) classes.  The Python code does not use anything beyond the [standard Python library](https://docs.python.org/3/library/).
 
 ### Changelog
 
@@ -59,14 +53,65 @@ These links are all described below, but are included here, all in one place.
   and
   [java.security.MessageDigest](https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html)
   classes
+- [Python3 standard library](https://docs.python.org/3/library/).
 - The [test-rsa.sh](rsa/test-rsa.sh)
   ([HTML version](rsa/test-rsa.sh.html)) shell script
+
+### Other files
+
+#### Shell script
+
+Since different programming languages can be used, and you may name your file differently, we are going to have you submit a shell script called `rsa.sh` that we will use to test your code.  All it does is pass the command-line parameters on to your program.  If you are using Python, then your shell script would look like the following:
+
+```
+#!/bin/bash
+python3 rsa.py $@
+```
+
+Be sure to call `python3`, not `python` in your shell script!  Otherwise it will not work.  And change `rsa.py` to the name of your program file.
+
+If you are using Java, then your shell script would look like the following:
+
+```
+#!/bin/bash
+java RSA $@
+```
+
+Change `RSA` to the name of your `public` Java class.
+
+Save the two lines above to a text file called `rsa.sh`; change the name of the file as appropriate to your code.  Then run `chmod 755 rsa.sh`.  You should then be able to run your program through the shell script.  Examples of how to call the shell script are given below, but it uses the same command line parameters described above.
+
+#### Makefile
+
+Separately from the shell script, you will also need a Makefile.  This will allow your program to be compiled prior to execution (if your program needs compilation).  For languages that do not need compilation (such as Python), just put in a single `echo` statement so that `make` still runs properly.
+
+If you are using Python, your Makefile will look like the following:
+
+```
+main:
+     echo hello world
+```
+
+Note that the indentation is a tab, not spaces!  Makefiles are very strict on that.
+
+If you are using Java, your Makefile will look like the following:
+
+```
+main:
+     javac RSA.java
+```
+
+Note that the indentation is a tab, not spaces!  Makefiles are very strict on that.  And change the Java file name as appropriate for your source code.
 
 ### Code
 
 To simplify the assignment, and to allow easy interoperability between
 your code and our test cases, we have provided a significant amount of
-skeleton code in the [RSA.java](rsa/RSA.java) file; you can see an
+skeleton code.
+
+#### Java
+
+The skeleton code is in the [RSA.java](rsa/RSA.java) file; you can see an
 HTML version of that code [here](rsa/RSA.java.html).  That code is
 split into three classes, the first two of which are just to hold data
 and have no methods of their own.  Each link in the list below will go
@@ -81,6 +126,12 @@ to the Doxygen documentation for that class.
   assignment: `convertToASCII()`, `convertFromASCII()`,
   `generateKeys()`, `encrypt()`, `decrypt()`, `crack()`, `sign()`,
   `checkSign()`.
+
+#### Python
+
+The skeleton code is in the [rsa.py](rsa/rsa.py) file; you can see an
+HTML version of that code [here](rsa/rsa.py.html).
+
 
 ### Details 
 
@@ -324,9 +375,4 @@ it has via the `file foo.txt` command.
 
 ### Submission
 
-You should submit one file: `RSA.java`, which contains all your Java
-code.  The compilation command will be `javac *.java`, so your
-RSA.java should have only one public class called `RSA`, and not be in
-a package.  The submission system will expect to see a `RSA.class`
-file after compilation, and will complain if it is not present
-(`missing binary executable`, or similar).  It's fine if there are additional .class files as well.
+You should submit three files: your source code, `Makefile`, and `rsa.py`.

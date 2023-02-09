@@ -276,7 +276,7 @@ public class RSA {
         return new String(chash);
     }
 
-    /** Converting a block to a BigInteger; requires completion.
+    /** Converting a block to a BigInteger
      *
      * This method will convert a block of ASCII text into a
      * BigInteger; that BigInteger will be used as the plaintext for
@@ -292,11 +292,16 @@ public class RSA {
      * @return A BigInteger that represents the passed in text.
      */
     public static BigInteger convertFromASCII(String text) {
+        BigInteger ret = BigInteger.ZERO, ff = new BigInteger("256");
+        for ( int i = 0; i < text.length(); i++ ) {
+            ret = ret.multiply(ff);
+            ret = ret.add(new BigInteger(Integer.toString((int)text.charAt(i))));
+        }            
         // your code here; a dummy return statement is put below to allow this to compile
-        return null;
+        return ret;
     }
 
-    /** Converting a block to ASCII; requires completion.
+    /** Converting a block to ASCII
      *
      * This method will convert a BigInteger block, used in the
      * encryption routines in this code, into the corresponding ASCII
@@ -311,8 +316,14 @@ public class RSA {
      * BigInteger parameter.
      */
     public static String convertToASCII(BigInteger block) {
+        BigInteger ff = new BigInteger("256");
+        String ret = "";
+        while ( block.compareTo(BigInteger.ZERO) == 1 ) {
+            ret = (char) block.mod(ff).intValue() + ret;
+            block = block.divide(ff);
+        }
         // your code here; a dummy return statement is put below to allow this to compile
-        return null;
+        return ret;
     }
 
     /** RSA key generation; requires completion.

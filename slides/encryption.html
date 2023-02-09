@@ -506,7 +506,7 @@ return probably prime
   - Is it prime as per the Fermat primality test?
   - If prime, break
   - If not prime, then continue
-- We will see Java code to do all this in a moment...
+- We will see Java and Python code to do all this in a moment...
 
 
 ## Primarily test conclusions
@@ -575,9 +575,10 @@ return probably prime
 BigInteger prime = new BigInteger
           (numBits, certainty, random);
 ```
-- Yes, it's that easy
-- That constructor runs the Fermat primality theorem
-  - And handles the $a^e \mod n$ computations necessary
+  - Yes, it's that easy
+  - That constructor runs the Fermat primality theorem
+    - And handles the $a^e \mod n$ computations necessary
+- Python code: see two slides down
 
 
 ## Key generation, step 1
@@ -601,8 +602,31 @@ public class BigPrime {
 
 
 ## Key generation, step 1
+- Full Python code to find a big prime number:
+```
+def fermat_test(n, k):
+    # adapted from https://gist.github.com/Ayrx/5884802
+    for i in range(k):
+      a = random.randint(1, n-1)
+      if pow(a, n-1) % n != 1:
+        return False
+    return True
+```
+- Usage:
+```
+>>> import random
+>>> # define fermat_test() as above
+>>> fermat_test(101,20)
+True
+>>> fermat_test(10101,20)
+False
+>>> 
+```
+
+
+## Key generation, step 1
 - How long does this take?
-  - On a modern (3.4 Ghz) machine, it took between 1/2 and 3 seconds
+  - On a modern (3.4 Ghz) machine, the Java version took between 1/2 and 3 seconds
 	- Different runs require a different number of random number generations
   - And this is Java -- it would be faster in C or C++
 
@@ -656,7 +680,15 @@ public class FindD {
     }
 }
 ```
-- Result: 4669
+  - Result: 4669
+- Python code to find d:
+```
+>>> pq=10176
+>>> e=85
+>>> pow(e,-1,pq)
+4669
+>>> 
+```
 
 
 ## Key generation, step 4
@@ -689,6 +721,10 @@ m.modPow (e, n)
 	- Yes, it's that easy
 	  - Although we saw how to do that earlier...
 	- Where the object $m$ is the BigInteger to encrypt
+- Python code to do the last step:
+```
+m**e % n
+```
 
 
 ## Encrypting RSA messages
@@ -756,6 +792,7 @@ Formula is $c = m^e\text{ mod }n$
   - Java: use the `BigInteger.modPow()` method
   - Perl: use the `bmodpow()` function in the BigInt library
   - C++: Use the `bigint` class (http://sourceforge.net/projects/cpp-bigint/) 
+  - Python: just use regular operators
   - Etc...
 
 
