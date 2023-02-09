@@ -608,7 +608,7 @@ def fermat_test(n, k):
     # adapted from https://gist.github.com/Ayrx/5884802
     for i in range(k):
       a = random.randint(1, n-1)
-      if pow(a, n-1) % n != 1:
+      if pow(a, n-1, n) != 1:
         return False
     return True
 ```
@@ -718,13 +718,12 @@ public class FindD {
 ```
 m.modPow (e, n)
 ```
-	- Yes, it's that easy
-	  - Although we saw how to do that earlier...
 	- Where the object $m$ is the BigInteger to encrypt
 - Python code to do the last step:
 ```
-m**e % n
+pow(m,e,n)
 ```
+- Don't use `m ** e % n` in Python, as it's too slow
 
 
 ## Encrypting RSA messages

@@ -1,0 +1,249 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>rsa.py</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">#!/usr/bin/python3</font></i>
+<i><font color="#9A1900"># RSA skeleton code from the https://aaronbloomfield.github.io/ics/hws/hw-rsa.html assignment</font></i>
+
+<b><font color="#000080">import</font></b> sys<font color="#990000">,</font> random<font color="#990000">,</font> math<font color="#990000">,</font> hashlib
+
+<i><font color="#9A1900"># An RSA key, either public (if d is None), private (if e is None), or both</font></i>
+<i><font color="#9A1900"># (if neither are None)</font></i>
+<b><font color="#0000FF">class</font></b> rsakey<font color="#990000">:</font>
+	l <font color="#990000">=</font> None <i><font color="#9A1900"># the bit length</font></i>
+	e <font color="#990000">=</font> None <i><font color="#9A1900"># the public key (or None if it's just a private key)</font></i>
+	d <font color="#990000">=</font> None <i><font color="#9A1900"># the private key (or None if it's just a public key)</font></i>
+	n <font color="#990000">=</font> None <i><font color="#9A1900"># the modulus (n=p*q)</font></i>
+
+	<b><font color="#0000FF">def</font></b> <b><font color="#000000">__init__</font></b><font color="#990000">(</font>self<font color="#990000">,</font>_l<font color="#990000">,</font>_e<font color="#990000">,</font>_d<font color="#990000">,</font>_n<font color="#990000">):</font>
+		<font color="#990000">(</font>self<font color="#990000">.</font>l<font color="#990000">,</font>self<font color="#990000">.</font>e<font color="#990000">,</font>self<font color="#990000">.</font>d<font color="#990000">,</font>self<font color="#990000">.</font>n<font color="#990000">)</font> <font color="#990000">=</font> <font color="#990000">(</font>_l<font color="#990000">,</font>_e<font color="#990000">,</font>_d<font color="#990000">,</font>_n<font color="#990000">)</font>
+
+
+<i><font color="#9A1900"># Ciphertext class</font></i>
+<b><font color="#0000FF">class</font></b> ciphertext<font color="#990000">:</font>
+	c <font color="#990000">=</font> <font color="#990000">[]</font>   <i><font color="#9A1900"># the list of the encrypted blocks</font></i>
+	l <font color="#990000">=</font> None <i><font color="#9A1900"># the length of the original plaintext file or string in bytes</font></i>
+	b <font color="#990000">=</font> None <i><font color="#9A1900"># the length of each block in bytes</font></i>
+
+	<b><font color="#0000FF">def</font></b> <b><font color="#000000">__init__</font></b><font color="#990000">(</font>self<font color="#990000">,</font>_c<font color="#990000">,</font>_l<font color="#990000">,</font>_b<font color="#990000">):</font>
+		<font color="#990000">(</font>self<font color="#990000">.</font>c<font color="#990000">,</font>self<font color="#990000">.</font>l<font color="#990000">,</font>self<font color="#990000">.</font>b<font color="#990000">)</font> <font color="#990000">=</font> <font color="#990000">(</font>_c<font color="#990000">,</font>_l<font color="#990000">,</font>_b<font color="#990000">)</font>
+
+
+<i><font color="#9A1900"># Whether to print verbose messages.  This is useful for debugging, as it will</font></i>
+<i><font color="#9A1900"># never be set to true (via the -verbose flag) during grading.</font></i>
+verbose <font color="#990000">=</font> False
+
+<i><font color="#9A1900"># Whether the values of p and q are displayed during key generation.  This is</font></i>
+<i><font color="#9A1900"># useful for debugging, and it *is* something that we will test during grading.</font></i>
+showPandQ <font color="#990000">=</font> False
+
+<i><font color="#9A1900"># This will write an RSA key to a file (or files) in the standard format used</font></i>
+<i><font color="#9A1900"># for this assignment.  If the key contains both d and e, then two files</font></i>
+<i><font color="#9A1900"># (one private, one public) are written.  Given the file basename of</font></i>
+<i><font color="#9A1900"># &lt;filebasename&gt;, the key files are &lt;filebasename&gt;-public.key and</font></i>
+<i><font color="#9A1900"># &lt;filebasename&gt;-private.key.</font></i>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">writeKeyToFile</font></b><font color="#990000">(</font>key<font color="#990000">,</font> filebasename<font color="#990000">):</font>
+	<b><font color="#0000FF">if</font></b> key<font color="#990000">.</font>e <b><font color="#0000FF">is</font></b> <b><font color="#0000FF">not</font></b> None<font color="#990000">:</font> <i><font color="#9A1900"># it's a public key</font></i>
+		with <b><font color="#000000">open</font></b><font color="#990000">(</font>filebasename <font color="#990000">+</font> <font color="#FF0000">"-public.key"</font><font color="#990000">,</font><font color="#FF0000">"w"</font><font color="#990000">)</font> as f<font color="#990000">:</font>
+			<b><font color="#0000FF">print</font></b><font color="#990000">(</font><font color="#FF0000">"public\n"</font> <font color="#990000">+</font> <b><font color="#000000">str</font></b><font color="#990000">(</font>key<font color="#990000">.</font>l<font color="#990000">)</font> <font color="#990000">+</font> <font color="#FF0000">"\n"</font> <font color="#990000">+</font> <b><font color="#000000">str</font></b><font color="#990000">(</font>key<font color="#990000">.</font>e<font color="#990000">)</font> <font color="#990000">+</font> <font color="#FF0000">"\n"</font> <font color="#990000">+</font> <b><font color="#000000">str</font></b><font color="#990000">(</font>key<font color="#990000">.</font>n<font color="#990000">)</font> <font color="#990000">+</font> <font color="#FF0000">"\n"</font><font color="#990000">,</font>file<font color="#990000">=</font>f<font color="#990000">)</font>
+	<b><font color="#0000FF">if</font></b> key<font color="#990000">.</font>d <b><font color="#0000FF">is</font></b> <b><font color="#0000FF">not</font></b> None<font color="#990000">:</font> <i><font color="#9A1900"># it's a private key</font></i>
+		with <b><font color="#000000">open</font></b><font color="#990000">(</font>filebasename <font color="#990000">+</font> <font color="#FF0000">"-private.key"</font><font color="#990000">,</font><font color="#FF0000">"w"</font><font color="#990000">)</font> as f<font color="#990000">:</font>
+			<b><font color="#0000FF">print</font></b><font color="#990000">(</font><font color="#FF0000">"private\n"</font> <font color="#990000">+</font> <b><font color="#000000">str</font></b><font color="#990000">(</font>key<font color="#990000">.</font>l<font color="#990000">)</font> <font color="#990000">+</font> <font color="#FF0000">"\n"</font> <font color="#990000">+</font> <b><font color="#000000">str</font></b><font color="#990000">(</font>key<font color="#990000">.</font>d<font color="#990000">)</font> <font color="#990000">+</font> <font color="#FF0000">"\n"</font> <font color="#990000">+</font> <b><font color="#000000">str</font></b><font color="#990000">(</font>key<font color="#990000">.</font>n<font color="#990000">)</font> <font color="#990000">+</font> <font color="#FF0000">"\n"</font><font color="#990000">,</font>file<font color="#990000">=</font>f<font color="#990000">)</font>
+
+<i><font color="#9A1900"># This will read an RSA key from a file in the standard format used for this</font></i>
+<i><font color="#9A1900"># assignment</font></i>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">readKeyFromFile</font></b><font color="#990000">(</font>filename<font color="#990000">):</font>
+	with <b><font color="#000000">open</font></b><font color="#990000">(</font>filename<font color="#990000">)</font> as f<font color="#990000">:</font>
+		<b><font color="#0000FF">if</font></b> f<font color="#990000">.</font><b><font color="#000000">readline</font></b><font color="#990000">().</font><b><font color="#000000">strip</font></b><font color="#990000">()</font> <font color="#990000">==</font> <font color="#FF0000">"public"</font><font color="#990000">:</font>
+			<b><font color="#0000FF">return</font></b> <b><font color="#000000">rsakey</font></b><font color="#990000">(</font><b><font color="#000000">int</font></b><font color="#990000">(</font>f<font color="#990000">.</font><b><font color="#000000">readline</font></b><font color="#990000">().</font><b><font color="#000000">strip</font></b><font color="#990000">()),</font><b><font color="#000000">int</font></b><font color="#990000">(</font>f<font color="#990000">.</font><b><font color="#000000">readline</font></b><font color="#990000">().</font><b><font color="#000000">strip</font></b><font color="#990000">()),</font>None<font color="#990000">,</font><b><font color="#000000">int</font></b><font color="#990000">(</font>f<font color="#990000">.</font><b><font color="#000000">readline</font></b><font color="#990000">().</font><b><font color="#000000">strip</font></b><font color="#990000">()))</font>
+		<b><font color="#0000FF">else</font></b><font color="#990000">:</font>
+			<b><font color="#0000FF">return</font></b> <b><font color="#000000">rsakey</font></b><font color="#990000">(</font><b><font color="#000000">int</font></b><font color="#990000">(</font>f<font color="#990000">.</font><b><font color="#000000">readline</font></b><font color="#990000">().</font><b><font color="#000000">strip</font></b><font color="#990000">()),</font>None<font color="#990000">,</font><b><font color="#000000">int</font></b><font color="#990000">(</font>f<font color="#990000">.</font><b><font color="#000000">readline</font></b><font color="#990000">().</font><b><font color="#000000">strip</font></b><font color="#990000">()),</font><b><font color="#000000">int</font></b><font color="#990000">(</font>f<font color="#990000">.</font><b><font color="#000000">readline</font></b><font color="#990000">().</font><b><font color="#000000">strip</font></b><font color="#990000">()))</font>
+
+<i><font color="#9A1900"># This will read cipher text from a file in the standard format used for this</font></i>
+<i><font color="#9A1900"># assignment</font></i>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">readCipherTextFromFile</font></b><font color="#990000">(</font>inputFileName<font color="#990000">):</font>
+	c <font color="#990000">=</font> <font color="#990000">[]</font>
+	with <b><font color="#000000">open</font></b><font color="#990000">(</font>inputFileName<font color="#990000">)</font> as f<font color="#990000">:</font>
+		l <font color="#990000">=</font> f<font color="#990000">.</font><b><font color="#000000">readline</font></b><font color="#990000">().</font><b><font color="#000000">strip</font></b><font color="#990000">().</font><b><font color="#000000">split</font></b><font color="#990000">(</font><font color="#FF0000">" "</font><font color="#990000">)</font>
+		<b><font color="#0000FF">while</font></b> True<font color="#990000">:</font>
+			x <font color="#990000">=</font> f<font color="#990000">.</font><b><font color="#000000">readline</font></b><font color="#990000">().</font><b><font color="#000000">strip</font></b><font color="#990000">()</font>
+			<b><font color="#0000FF">if</font></b> x <font color="#990000">==</font> <font color="#FF0000">''</font><font color="#990000">:</font>
+				<b><font color="#0000FF">break</font></b>
+			c<font color="#990000">.</font><b><font color="#000000">append</font></b><font color="#990000">(</font><b><font color="#000000">int</font></b><font color="#990000">(</font>x<font color="#990000">))</font>
+	<b><font color="#0000FF">return</font></b> <b><font color="#000000">ciphertext</font></b><font color="#990000">(</font>c<font color="#990000">,</font>l<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">],</font>l<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">])</font>
+
+
+<i><font color="#9A1900"># This will write cipher text to a file in the standard format used for this</font></i>
+<i><font color="#9A1900"># assignment</font></i>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">writeCipherTextToFile</font></b><font color="#990000">(</font>outputFileName<font color="#990000">,</font> cipherText<font color="#990000">):</font>
+	with <b><font color="#000000">open</font></b><font color="#990000">(</font>outputFileName<font color="#990000">,</font><font color="#FF0000">"w"</font><font color="#990000">)</font> as f<font color="#990000">:</font>
+		<b><font color="#0000FF">print</font></b><font color="#990000">(</font>cipherText<font color="#990000">.</font>l<font color="#990000">,</font>cipherText<font color="#990000">.</font>b<font color="#990000">,</font>file<font color="#990000">=</font>f<font color="#990000">)</font>
+		<b><font color="#0000FF">for</font></b> c <b><font color="#0000FF">in</font></b> cipherText<font color="#990000">.</font>c<font color="#990000">:</font>
+			<b><font color="#0000FF">print</font></b><font color="#990000">(</font>c<font color="#990000">,</font>file<font color="#990000">=</font>f<font color="#990000">)</font>
+
+<i><font color="#9A1900"># this function is included here because there is a Java version, but it</font></i>
+<i><font color="#9A1900"># is not needed in Python: to convert a SHA-256 hash to hex form, just use:</font></i>
+<i><font color="#9A1900"># hashlib.sha256(bytes(plaintext,'ascii')).hexdigest()</font></i>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">convertHash</font></b><font color="#990000">():</font>
+	<b><font color="#0000FF">assert</font></b> False
+
+<i><font color="#9A1900"># Given an ASCII string, this will convert it to an integer representation</font></i>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">convertFromASCII</font></b><font color="#990000">(</font>text<font color="#990000">):</font>
+	<b><font color="#0000FF">return</font></b> int<font color="#990000">.</font><b><font color="#000000">from_bytes</font></b><font color="#990000">(</font><b><font color="#000000">bytes</font></b><font color="#990000">(</font>text<font color="#990000">,</font><font color="#FF0000">'ascii'</font><font color="#990000">),</font><font color="#FF0000">"big"</font><font color="#990000">)</font>
+
+<i><font color="#9A1900"># Given an integer representation of an ASCII string, this will convert it to</font></i>
+<i><font color="#9A1900"># ASCII</font></i>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">convertToASCII</font></b><font color="#990000">(</font>block<font color="#990000">):</font>
+	<b><font color="#0000FF">return</font></b> bytes<font color="#990000">.</font><b><font color="#000000">fromhex</font></b><font color="#990000">(</font><b><font color="#000000">hex</font></b><font color="#990000">(</font>block<font color="#990000">)[</font><font color="#993399">2</font><font color="#990000">:]).</font><b><font color="#000000">decode</font></b><font color="#990000">(</font><font color="#FF0000">'ascii'</font><font color="#990000">)</font>
+
+<i><font color="#9A1900"># Given a bit size and a certainty, this will generate a (probably) prime</font></i>
+<i><font color="#9A1900"># number of the desired size</font></i>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">generate_prime</font></b><font color="#990000">(</font>bits<font color="#990000">,</font> k<font color="#990000">):</font>
+	count <font color="#990000">=</font> <font color="#993399">0</font>
+	<b><font color="#0000FF">while</font></b> True<font color="#990000">:</font>
+		<i><font color="#9A1900"># generate a number, make sure it's odd</font></i>
+		n <font color="#990000">=</font> random<font color="#990000">.</font><b><font color="#000000">randint</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">,</font><font color="#993399">2</font><font color="#990000">**(</font>bits<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">)-</font><font color="#993399">1</font><font color="#990000">)</font>
+		<b><font color="#0000FF">if</font></b> n <font color="#990000">%</font> <font color="#993399">2</font> <font color="#990000">==</font> <font color="#993399">0</font><font color="#990000">:</font>
+			n <font color="#990000">+=</font> <font color="#993399">1</font>
+		count <font color="#990000">+=</font> <font color="#993399">1</font>
+		<i><font color="#9A1900"># run the Fermat primality test</font></i>
+		iterations <font color="#990000">=</font> <font color="#993399">0</font>
+		<b><font color="#0000FF">for</font></b> _ <b><font color="#0000FF">in</font></b> <b><font color="#000000">range</font></b><font color="#990000">(</font>k<font color="#990000">):</font>
+			a <font color="#990000">=</font> random<font color="#990000">.</font><b><font color="#000000">randint</font></b><font color="#990000">(</font><font color="#993399">1</font><font color="#990000">,</font>n<font color="#990000">-</font><font color="#993399">1</font><font color="#990000">)</font>
+			<b><font color="#0000FF">if</font></b> <b><font color="#000000">pow</font></b><font color="#990000">(</font>a<font color="#990000">,</font>n<font color="#990000">-</font><font color="#993399">1</font><font color="#990000">,</font>n<font color="#990000">)</font> <font color="#990000">!=</font> <font color="#993399">1</font><font color="#990000">:</font> <i><font color="#9A1900"># it's composite</font></i>
+				<b><font color="#0000FF">break</font></b>
+			<b><font color="#0000FF">else</font></b><font color="#990000">:</font> <i><font color="#9A1900"># prime so far</font></i>
+				iterations <font color="#990000">+=</font> <font color="#993399">1</font>
+		<b><font color="#0000FF">if</font></b> iterations <font color="#990000">==</font> k<font color="#990000">:</font>
+			<b><font color="#0000FF">return</font></b> n
+
+
+
+<i><font color="#9A1900">#----------------------------------------</font></i>
+<i><font color="#9A1900"># You have to implement these functions</font></i>
+
+<i><font color="#9A1900"># Given the passed bitlength (int) and the seed (int), it will generate a key.</font></i>
+<i><font color="#9A1900"># One should initialize the random number generator with the passed seed via</font></i>
+<i><font color="#9A1900"># random.seed(). This returns a rsakey object.</font></i>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">generateKeys</font></b><font color="#990000">(</font>bitlength<font color="#990000">,</font> seed<font color="#990000">):</font>
+	<b><font color="#0000FF">pass</font></b>
+
+<i><font color="#9A1900"># Given the passed rsakey object and string, this will perform the RSA</font></i>
+<i><font color="#9A1900"># encryption. It should return a ciphertext object.</font></i>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">encrypt</font></b><font color="#990000">(</font>key<font color="#990000">,</font> plaintext<font color="#990000">):</font>
+	<b><font color="#0000FF">pass</font></b>
+
+<i><font color="#9A1900"># Given the provided rsakey object and ciphertext object plaintext, this will</font></i>
+<i><font color="#9A1900"># perform the RSA decryption. It should return a string.</font></i>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">decrypt</font></b><font color="#990000">(</font>key<font color="#990000">,</font> cipherText<font color="#990000">):</font>
+	<b><font color="#0000FF">pass</font></b>
+
+<i><font color="#9A1900"># Given the passed rsakey, which will not have a private (d) key, it will</font></i>
+<i><font color="#9A1900"># determine the private key by attempting to factor n.  It returns a rsakey</font></i>
+<i><font color="#9A1900"># object.</font></i>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">crack</font></b><font color="#990000">(</font>key<font color="#990000">):</font>
+	<b><font color="#0000FF">pass</font></b>
+
+<i><font color="#9A1900"># Given the passed rsakey object and string, it will return a ciphertext object that</font></i>
+<i><font color="#9A1900"># is the digital signature of the text, signed with the private key.</font></i>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">sign</font></b><font color="#990000">(</font>key<font color="#990000">,</font> plaintext<font color="#990000">):</font>
+	<b><font color="#0000FF">pass</font></b>
+
+<i><font color="#9A1900"># Given the passed rsakey object, string, and ciphertext object, this will</font></i>
+<i><font color="#9A1900"># check the signature; it only returns True (if the signature is valid) or</font></i>
+<i><font color="#9A1900"># False (if not).</font></i>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">checkSign</font></b><font color="#990000">(</font>key<font color="#990000">,</font>plaintext<font color="#990000">,</font>signature<font color="#990000">):</font>
+	<b><font color="#0000FF">pass</font></b>
+
+
+<i><font color="#9A1900">#----------------------------------------</font></i>
+<i><font color="#9A1900"># Don't modify this!  Or, if you do modify this, make sure you submit the</font></i>
+<i><font color="#9A1900"># original version when you submit the assignment.  This is necessary for our</font></i>
+<i><font color="#9A1900"># testing code.</font></i>
+
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">main</font></b><font color="#990000">():</font>
+	<b><font color="#0000FF">global</font></b> verbose<font color="#990000">,</font> showPandQ<font color="#990000">,</font> outputFileName<font color="#990000">,</font> inputFileName
+	outputFileName <font color="#990000">=</font> <font color="#FF0000">"output.txt"</font>
+	inputFileName <font color="#990000">=</font> <font color="#FF0000">"input.txt"</font>
+	keyName <font color="#990000">=</font> <font color="#FF0000">"default"</font>
+	seed <font color="#990000">=</font> <font color="#993399">0</font>
+	
+	i <font color="#990000">=</font> <font color="#993399">1</font>
+	<b><font color="#0000FF">while</font></b> i <font color="#990000">&lt;</font> <b><font color="#000000">len</font></b><font color="#990000">(</font>sys<font color="#990000">.</font>argv<font color="#990000">):</font>
+
+		<b><font color="#0000FF">if</font></b> sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">"-verbose"</font><font color="#990000">:</font>
+			verbose <font color="#990000">=</font> <b><font color="#0000FF">not</font></b> verbose
+
+		<b><font color="#0000FF">elif</font></b> sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">"-output"</font><font color="#990000">:</font>
+			i <font color="#990000">=</font> i <font color="#990000">+</font> <font color="#993399">1</font>
+			outputFileName <font color="#990000">=</font> sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">]</font>
+
+		<b><font color="#0000FF">elif</font></b> sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">"-input"</font><font color="#990000">:</font>
+			i <font color="#990000">=</font> i <font color="#990000">+</font> <font color="#993399">1</font>
+			inputFileName <font color="#990000">=</font> sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">]</font>
+
+		<b><font color="#0000FF">elif</font></b> sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">"-key"</font><font color="#990000">:</font>
+			i <font color="#990000">=</font> i <font color="#990000">+</font> <font color="#993399">1</font>
+			keyName <font color="#990000">=</font> sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">]</font>
+
+		<b><font color="#0000FF">elif</font></b> sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">"-showpandq"</font><font color="#990000">:</font>
+			showPandQ <font color="#990000">=</font> true
+
+		<b><font color="#0000FF">elif</font></b> sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">"-keygen"</font><font color="#990000">:</font>
+			i <font color="#990000">=</font> i <font color="#990000">+</font> <font color="#993399">1</font>
+			bitLength <font color="#990000">=</font> <b><font color="#000000">int</font></b><font color="#990000">(</font>sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">])</font>
+			key <font color="#990000">=</font> <b><font color="#000000">generateKeys</font></b><font color="#990000">(</font>bitLength<font color="#990000">,</font> seed<font color="#990000">)</font>
+			<b><font color="#000000">writeKeyToFile</font></b> <font color="#990000">(</font>key<font color="#990000">,</font>keyName<font color="#990000">)</font>
+
+		<b><font color="#0000FF">elif</font></b> sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">"-encrypt"</font><font color="#990000">:</font>
+			key <font color="#990000">=</font> <b><font color="#000000">readKeyFromFile</font></b> <font color="#990000">(</font>keyName <font color="#990000">+</font> <font color="#FF0000">"-public.key"</font><font color="#990000">)</font>
+			plaintext <font color="#990000">=</font> <b><font color="#000000">open</font></b><font color="#990000">(</font>inputFileName<font color="#990000">).</font><b><font color="#000000">read</font></b><font color="#990000">()</font>
+			cipherText <font color="#990000">=</font> <b><font color="#000000">encrypt</font></b><font color="#990000">(</font>key<font color="#990000">,</font> plaintext<font color="#990000">)</font>
+			<b><font color="#000000">writeCipherTextToFile</font></b><font color="#990000">(</font>outputFileName<font color="#990000">,</font> cipherText<font color="#990000">)</font>
+
+		<b><font color="#0000FF">elif</font></b> sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">"-decrypt"</font><font color="#990000">:</font>
+			key <font color="#990000">=</font> <b><font color="#000000">readKeyFromFile</font></b> <font color="#990000">(</font>keyName <font color="#990000">+</font> <font color="#FF0000">"-private.key"</font><font color="#990000">)</font>
+			cipherText <font color="#990000">=</font> <b><font color="#000000">readCipherTextFromFile</font></b><font color="#990000">(</font>inputFileName<font color="#990000">)</font>
+			plaintext <font color="#990000">=</font> <b><font color="#000000">decrypt</font></b><font color="#990000">(</font>key<font color="#990000">,</font> cipherText<font color="#990000">)</font>
+			with <b><font color="#000000">open</font></b><font color="#990000">(</font>outputFileName<font color="#990000">,</font><font color="#FF0000">"w"</font><font color="#990000">)</font> as f<font color="#990000">:</font>
+				<b><font color="#0000FF">print</font></b><font color="#990000">(</font>plaintext<font color="#990000">,</font>file<font color="#990000">=</font>f<font color="#990000">,</font>end<font color="#990000">=</font><font color="#FF0000">''</font><font color="#990000">)</font>
+
+		<b><font color="#0000FF">elif</font></b> sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">"-sign"</font><font color="#990000">:</font>
+			key <font color="#990000">=</font> <b><font color="#000000">readKeyFromFile</font></b> <font color="#990000">(</font>keyName <font color="#990000">+</font> <font color="#FF0000">"-private.key"</font><font color="#990000">)</font>
+			plaintext <font color="#990000">=</font> <b><font color="#000000">open</font></b><font color="#990000">(</font>inputFileName<font color="#990000">).</font><b><font color="#000000">read</font></b><font color="#990000">()</font>
+			signature <font color="#990000">=</font> <b><font color="#000000">sign</font></b><font color="#990000">(</font>key<font color="#990000">,</font>plaintext<font color="#990000">)</font>
+			<b><font color="#000000">writeCipherTextToFile</font></b><font color="#990000">(</font>inputFileName<font color="#990000">+</font><font color="#FF0000">".sign"</font><font color="#990000">,</font> signature<font color="#990000">)</font>
+
+		<b><font color="#0000FF">elif</font></b> sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">"-checksign"</font><font color="#990000">:</font>
+			key <font color="#990000">=</font> <b><font color="#000000">readKeyFromFile</font></b> <font color="#990000">(</font>keyName <font color="#990000">+</font> <font color="#FF0000">"-public.key"</font><font color="#990000">)</font>
+			plaintext <font color="#990000">=</font> <b><font color="#000000">open</font></b><font color="#990000">(</font>inputFileName<font color="#990000">).</font><b><font color="#000000">read</font></b><font color="#990000">()</font>
+			signature <font color="#990000">=</font> <b><font color="#000000">readCipherTextFromFile</font></b><font color="#990000">(</font>inputFileName<font color="#990000">+</font><font color="#FF0000">".sign"</font><font color="#990000">)</font>
+			result <font color="#990000">=</font> <b><font color="#000000">checkSign</font></b><font color="#990000">(</font>key<font color="#990000">,</font>plaintext<font color="#990000">,</font>signature<font color="#990000">)</font>
+			<b><font color="#0000FF">if</font></b> <b><font color="#0000FF">not</font></b> result<font color="#990000">:</font>
+				<b><font color="#0000FF">print</font></b><font color="#990000">(</font><font color="#FF0000">"Signatures do not match!"</font><font color="#990000">)</font>
+	
+		<b><font color="#0000FF">elif</font></b> sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">"-crack"</font><font color="#990000">:</font>
+			key <font color="#990000">=</font> <b><font color="#000000">readKeyFromFile</font></b> <font color="#990000">(</font>keyName <font color="#990000">+</font> <font color="#FF0000">"-public.key"</font><font color="#990000">)</font>
+			cracked <font color="#990000">=</font> <b><font color="#000000">crack</font></b><font color="#990000">(</font>key<font color="#990000">)</font>
+			<b><font color="#000000">writeKeyToFile</font></b> <font color="#990000">(</font>cracked<font color="#990000">,</font>keyName<font color="#990000">+</font><font color="#FF0000">"-cracked"</font><font color="#990000">)</font>
+
+		<b><font color="#0000FF">elif</font></b> sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">"-seed"</font><font color="#990000">:</font>
+			seed <font color="#990000">=</font> <b><font color="#000000">int</font></b><font color="#990000">(</font>sys<font color="#990000">.</font>argv<font color="#990000">[++</font>i<font color="#990000">])</font>
+
+		<b><font color="#0000FF">else</font></b><font color="#990000">:</font>
+			<b><font color="#0000FF">print</font></b> <font color="#990000">(</font><font color="#FF0000">"Unknown parameter: '"</font> <font color="#990000">+</font> <b><font color="#000000">str</font></b><font color="#990000">(</font>sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">])</font> <font color="#990000">+</font> <font color="#FF0000">"', exiting."</font><font color="#990000">)</font>
+			<b><font color="#000000">exit</font></b><font color="#990000">()</font>
+
+		i <font color="#990000">+=</font> <font color="#993399">1</font>
+
+<b><font color="#000000">main</font></b><font color="#990000">()</font>
+</tt></pre>
+</body>
+</html>
