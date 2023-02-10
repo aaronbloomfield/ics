@@ -791,7 +791,7 @@ Formula is $c = m^e\text{ mod }n$
   - Java: use the `BigInteger.modPow()` method
   - Perl: use the `bmodpow()` function in the BigInt library
   - C++: Use the `bigint` class (http://sourceforge.net/projects/cpp-bigint/) 
-  - Python: just use regular operators
+  - Python: use the 3-parameter version of `pow()`
   - Etc...
 
 
@@ -840,7 +840,7 @@ Formula is $c = m^e\text{ mod }n$
 
 ## Signing a message
 - To "sign" a message:
-  1. Write a message, and determine the SHA2 (or similar) hash
+  1. Write a message, and determine the SHA-256 (or similar) hash
   2. Encrypt the hash with your private (encryption) key
   3. Anybody can verify that you created the message because ONLY the public (encryption) key can decrypt the hash
   4. The hash is then verified against the message
@@ -856,7 +856,7 @@ Formula is $c = m^e\text{ mod }n$
 
 ## Signing a message: detail
 - Write out a plaintext *p*
-- Take the SHA2 (or similar) hash of the plaintext *p* to get hash value *h*
+- Take the SHA-256 (or similar) hash of the plaintext *p* to get hash value *h*
 - Encrypt *h* with your private key *(n,d)* to get *c*
   - This is your *private* key that is being used for encryption here
 - The message you send is *m = p* $\cdot$ *c*
@@ -868,7 +868,7 @@ Formula is $c = m^e\text{ mod }n$
 - You separate *m* into it's constituent parts *p* and *c*
 - You decrypt *c* using public key *(n,e)* to get *h<sub>1</sub>*
   - That's the *public* key being used for decryption here
-- You take the SHA2 (or similar) hash of *p* to get *h<sub>2</sub>*
+- You take the SHA-256 (or similar) hash of *p* to get *h<sub>2</sub>*
 - If *h<sub>1</sub>* and *h<sub>2</sub>* match, then it was signed by the person with the private key that matches public key *(n,e)*
 
 
