@@ -40,4 +40,4 @@ echo hi >> message1.txt
 # 15: is the cracked key the same as the original key?
 diff charlie-cracked-private.key charlie-private.key
 # 16: clean up files (commented out by default)
-/bin/rm -f alice*.key bob*.key charlie*.key message*.sign message?b.txt encrypted?.txt message?.txt
+#/bin/rm -f alice*.key bob*.key charlie*.key message*.sign message?b.txt encrypted?.txt message?.txt

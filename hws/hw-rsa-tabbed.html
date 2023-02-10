@@ -119,14 +119,58 @@ java RSA $@</code></pre>
 <p>You must implement six methods within the <a href='rsa/RSA.java'>RSA.java</a> (<a href='rsa/RSA.java.html'>HTML version</a>) file or within the <a href='rsa/rsa.py'>rsa.py</a> skeleton code (<a href='rsa/rsa.py.html'>HTML version</a>) file. Those methods are: <code>generateKeys()</code>, <code>encrypt()</code>, <code>decrypt()</code>, <code>crack()</code>, <code>sign()</code>, and <code>checkSign()</code>. Details for how they should work can be found in the <a href='../slides/encryption.html#/'>the encryption lecture</a> as well as <a href='http://en.wikipedia.org/wiki/RSA'>online</a>.</p>
 <p>The documentation contained in the comments in the skeleton code details what the methods and classes do (or should do). That commenting was run through <a href='http://www.doxygen.nl/'>Doxygen</a>, and the results are: <a href='rsa/html/classCipherText.html'>CipherText</a>, <a href='rsa/html/classRSAKey.html'>RSAKey</a>, and <a href='rsa/html/classRSA.html'>RSA</a>. <strong><em>You will want to look at this!</em></strong></p>
 </div><div id='tparameters' class='tabcontent'><h3 id='parameters'>Parameters</h3>
-<p>The <code>main()</code> method should not need to be modified for the final submission (feel free to modify it any way you want to test your code). It will call the appropriate methods as indicated by the command line parameters, which are described <a href='rsa/html/cmdparam.html'>here</a>. In almost all cases, output (progress, status messages, etc.) should ONLY be printed to the standard output if the <code>-verbose</code> option is set, and should be enough that we can understand what is happening. The <em>only</em> time output should be printed to the terminal is when (1) a signature does not match, and (2) an error condition is encountered (which, in theory, should not happen with our tests on properly implemented code).</p>
+<p>The <code>main()</code> method should not need to be modified for the final submission (feel free to modify it any way you want to test your code). It will call the appropriate methods as indicated by the command line parameters, which are described <a href='rsa/html/cmdparam.html'>here</a>. That page is from the Java code, but the command line parameters are the same with the Python code as well. In almost all cases, output (progress, status messages, etc.) should ONLY be printed to the standard output if the <code>-verbose</code> option is set, and should be enough that we can understand what is happening. The <em>only</em> time output should be printed to the terminal is when (1) a signature does not match, and (2) an error condition is encountered (which, in theory, should not happen with our tests on properly implemented code).</p>
 <p>Note that the command-line parameters are parsed <strong>in order</strong> - this means that if you call <code>java RSA -keygen 10 -verbose</code> (or <code>python3 rsa.py -keygen 10 -verbose</code>), you will not get any verbosity, as that parameter was specified <em>after</em> the <code>-keygen</code> parameter was given. We provide a <code>main()</code> method in the <a href='rsa/RSA.java'>RSA.java</a> (<a href='rsa/RSA.java.html'>HTML version</a>) and the <a href='rsa/rsa.py'>rsa.py</a> skeleton code (<a href='rsa/rsa.py.html'>HTML version</a>) skeleton code, which can handle the parameters and, again, <em>should not be modified</em>.</p>
 <p>Note that normal operation (i.e. without the <code>-verbose</code> flag) is for it to print <em>nothing</em> - the only exception is the <code>-checksign</code> flag.</p>
-<p>Again, the command line parameters are listed <a href='rsa/html/cmdparam.html'>here</a>.</p>
+<p>Again, the command line parameters are listed <a href='rsa/html/cmdparam.html'>here</a>. That page is from the Java code, but the command line parameters are the same with the Python code as well.</p>
 <p>You may assume (and, in fact, should) that you will only receive one of <code>-encrypt</code>, <code>-decrypt</code>, <code>-sign</code>, <code>-checksign</code>, <code>-crack</code>, or <code>-keygen</code>; this specifies what the program is going to do. The program should not output any messages on normal execution (it should output error messages, as appropriate – but we won’t be giving any invalid combination of parameters) other than on <code>-checksign</code>. With the <code>-showpandq</code> option, it will of course output <em>p</em> and <em>q</em>. And with the <code>-verbose</code> option, it can output a lot of informational messages.</p>
 <p>Furthermore, you may assume that we will not give you invalid input, either in the files we provide, or for the command-line parameters.</p>
 </div><div id='ttesting' class='tabcontent'><h3 id='testing'>Testing</h3>
 <p>A sample usage of the program, in which is Alice and Bob are sending messages is available. This code can be found in a shell script named <a href='rsa/test-rsa.sh'>test-rsa.sh</a> (<a href='rsa/test-rsa.sh.html'>HTML version</a>). If you are on a UNIX environment, run <code>chmod 755 test-rsa.sh</code>, and then run it via <code>./test-rsa.sh</code>. Note that this is not a complete test suite! Just a quick check to see if the basics work. But if your program does not work with this, then it’s incomplete, and will receive a low grade. If you are not on a UNIX system, then you may have to copy-and-paste those commands into a command terminal.</p>
+<p>The script is as follows:</p>
+<pre><code>#!/bin/bash
+# setup: create the message1.txt and message2.txt files
+/bin/rm -f message[12].txt
+echo "Two things are infinite: the universe and human stupidity;" &gt; message1.txt
+echo "and I'm not sure about the the universe." &gt;&gt; message1.txt
+echo "by Albert Einstein" &gt;&gt; message1.txt
+echo "The quick brown fox jumped over the lazy dog." &gt; message2.txt
+# 1: create keys alice-public.key and alice-private.key
+./rsa.sh -key alice -keygen 200
+# 2: create keys bob-public.key and bob-private.key
+./rsa.sh -key bob -keygen 200
+# 3: alice is going to encrypt a message for bob
+./rsa.sh -key bob -input message1.txt -output encrypted1.txt -encrypt
+# 4: bob will decrypt the message
+./rsa.sh -key bob -input encrypted1.txt -output message1b.txt -decrypt
+# 5: are they the same?
+diff message1.txt message1b.txt
+# 6: bob now sends a message to alice
+./rsa.sh -key alice -input message2.txt -output encrypted2.txt -encrypt
+# 7: alice will decrypt the message
+./rsa.sh -key alice -input encrypted2.txt -output message2b.txt -decrypt
+# 8: are they the same?
+diff message2.txt message2b.txt
+# 9: alice signs her message1.txt
+./rsa.sh -key alice -input message1.txt -sign
+# 10: bob checks that sign; they should match
+./rsa.sh -key alice -input message1.txt -checksign
+# 11: modify message1.txt
+/bin/mv -f message1.txt message1.txt.bak
+echo hi &gt;&gt; message1.txt
+# 12: bob checks that sign; they should NOT match
+./rsa.sh -key alice -input message1.txt -checksign
+# 13: restore message1.txt
+/bin/mv -f message1.txt.bak message1.txt
+./rsa.sh -key alice -input message1.txt -checksign
+# 14: charlie generates an easy-to-crack key
+./rsa.sh -key charlie -keygen 10
+# eve tries to crack alice's key
+./rsa.sh -key charlie -crack
+# 15: is the cracked key the same as the original key?
+diff charlie-cracked-private.key charlie-private.key
+# 16: clean up files (commented out by default)
+#/bin/rm -f alice*.key bob*.key charlie*.key message*.sign message?b.txt encrypted?.txt message?.txt</code></pre>
 <p>This file creates two files (message1.txt and message2.txt), and will overwrite those files if they already exist; those two files are deleted by the last line in the script. You are welcome (and encouraged) to use other, longer, message test files – might we suggest some <a href='http://www.historyplace.com/speeches/previous.htm'>great speeches</a>? However, make <strong><em>SURE</em></strong> that the text is all ASCII, since your program will likely not be able to handle UTF-8 characters – and when you cut-and-paste, characters like the dash and quotes often do not cut-and-paste into their ASCII equivalents. Run <code>file message1.txt</code> to check if it is ASCII or not (not ASCII is typically reported as ‘UTF-8’).</p>
 <p>Assuming you don’t have any extraneous output (which you shouldn’t), the only command that should output anything is step 12. Again, you can see the test script at <a href='rsa/test-rsa.sh'>test-rsa.sh</a> (<a href='rsa/test-rsa.sh.html'>HTML version</a>).</p>
 <p>Note that the last line deletes the intermediate files; during development, you may want to comment that line out to see those files.</p>

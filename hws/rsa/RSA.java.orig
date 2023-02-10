@@ -296,7 +296,7 @@ public class RSA {
         for ( int i = 0; i < text.length(); i++ ) {
             ret = ret.multiply(ff);
             ret = ret.add(new BigInteger(Integer.toString((int)text.charAt(i))));
-        }
+        }            
         // your code here; a dummy return statement is put below to allow this to compile
         return ret;
     }
