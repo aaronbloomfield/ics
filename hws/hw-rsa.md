@@ -136,11 +136,13 @@ HTML version of that code [here](rsa/rsa.py.html).
 
 For this assignment, you must implement eight methods in the RSA
 algorithm. They are the ones that state "requires completion" in the
-comments.  This assignment is to be done in Java, as you will need to
-use the BigInteger and MessageDigest classes.
+comments.  This assignment is to be done in either Java (as you will need to
+use the BigInteger and MessageDigest classes) or Python (as you will need the functions in the standard Python library).  You can use another language if you would like, but you need to check with the course staff -- and at least 2 days are needed to ensure that the auto-grader works with that language.
 
 You must start with the [RSA.java](rsa/RSA.java) skeleton code
-([HTML version](rsa/RSA.java.html)).  This code, described more
+([HTML version](rsa/RSA.java.html)) or the [rsa.py](rsa/rsa.py) skeleton code
+([HTML version](rsa/rsa.py.html)).
+This code, described more
 fully below, provides various methods to ensure that the format of the
 key files and the encrypted files are consistent, so that we may
 easily test your code.  Furthermore, we are going to *EXPLICITLY* call
@@ -173,10 +175,12 @@ your code:
 These requirements are meant to allow for easy for interoperability,
 and to ensure that your code works with our test cases.
 
-You must implement eight methods within the [RSA.java](rsa/RSA.java)
-([HTML version](rsa/RSA.java.html)) file.  Those methods are:
-`convertToASCII()`, `convertFromASCII()`, `generateKeys()`,
-`encrypt()`, `decrypt()`, `crack()`, `sign()`, `checkSign()`.  Details
+You must implement six methods within the [RSA.java](rsa/RSA.java)
+([HTML version](rsa/RSA.java.html)) file or within the 
+[rsa.py](rsa/rsa.py) skeleton code
+([HTML version](rsa/rsa.py.html)) file.  Those methods are:
+`generateKeys()`,
+`encrypt()`, `decrypt()`, `crack()`, `sign()`, and `checkSign()`.  Details
 for how they should work can be found in the [the encryption
 lecture](../slides/encryption.html#/) as well as
 [online](http://en.wikipedia.org/wiki/RSA).
@@ -187,38 +191,6 @@ commenting was run through [Doxygen](http://www.doxygen.nl/), and the
 results are: [CipherText](rsa/html/classCipherText.html),
 [RSAKey](rsa/html/classRSAKey.html), and
 [RSA](rsa/html/classRSA.html).  ***You will want to look at this!***
-
-### ASCII
-
-In order to make our code interoperable, we need a common way to convert an ASCII string into an integer.  In both of these cases, this is converting the *entire* string into an integer, which will likely be (much) larger than your $n$ value.  Also, in both of these cases, the intermediate steps are shown, but it can be combined into a single step if desired.
-
-<!--
-
-Here is how we can encode and decode that in Python:
-
-```
-s = "Hello world"
-d = int(s.encode('ascii').hex(),16)
-print(d)
-s2 = bytes.fromhex(hex(d)[2:]).decode('ascii')
-print(s2)
-```
-
-Note that the decoding part removes the leading `0x` via the `[2:]` part of that line.
-
--->
-
-Here is how we can encode and encode in Java (you have to `import java.math.BigInteger;`):
-
-```
-String s = "Hello World";
-BigInteger d = new BigInteger(s.getBytes());
-System.out.println(d);
-String s2 = new String(d.toByteArray());
-System.out.println(s2);
-```
-
-The integer representation of the string is: 87521618088882533792115812.  Note that your default character set has to be ASCII for this to work the same for you.
 
 
 ### Parameters 
@@ -236,10 +208,12 @@ printed to the terminal is when (1) a signature does not match, and
 happen with our tests on properly implemented code).
 
 Note that the command-line parameters are parsed __in order__ - this
-means that if you call `java RSA -keygen 10 -verbose`, you will not
+means that if you call `java RSA -keygen 10 -verbose` (or `python3 rsa.py -keygen 10 -verbose`), you will not
 get any verbosity, as that parameter was specified *after* the
 `-keygen` parameter was given.  We provide a `main()` method in the
-[RSA.java](rsa/RSA.java) skeleton code, which can handle the parameters
+[RSA.java](rsa/RSA.java)
+([HTML version](rsa/RSA.java.html)) and the [rsa.py](rsa/rsa.py) skeleton code
+([HTML version](rsa/rsa.py.html)) skeleton code, which can handle the parameters
 and, again, *should not be modified*.
 
 Note that normal operation (i.e. without the `-verbose` flag) is for
