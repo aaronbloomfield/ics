@@ -3,28 +3,25 @@ ICS: Programming HW: Hashes
 
 [Go up to the ICS HW page](index.html) ([md](index.md))
 
-You will want to see the
-[homeworks policies page](../uva/hw-policies.html)
-([md](../uva/hw-policies.md)) for formatting and other details.  The
-due dates are listed on the [UVa course page](../uva/index.html)
-([md](../uva/index.md)).
-
-The reference platform for this assignment will be 64-bit Ubuntu Linux, version 18.04.  The VirtualBox image (see the Collab landing page for details) is configured for this.
-
-### Purpose
+### Overview 
 
 In this assignment, you will be examining some of the issues surrounding hashes and their security applications.
 
 There are four separate tasks for this assignment, as described below.  Please note that task 2 is computationally intensive and will require **_several_** hours to run.  Extensions will not be granted because you waited until the last minute to start this assignment.
 
 
-## Task 1: CRC insecurity
+### Changelog
+
+Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
+
+
+### Task 1: CRC insecurity
 
 Your job is to write a C/C++ program (necessary for speed reasons) that, when given an input file and a CRC checksum, will modify that message, and ensure that the modified version matches the CRC checksum.
 
-### Set-up
+#### Set-up
 
-For this task, you will need functions from the Boost C++ library, as they will perform the CRC hash computation.  This is already installed on the VirtualBox image.  Alternatively, you can download the three necessary files directly: [crc.hpp](http://www.boost.org/doc/libs/1_68_0/boost/crc.hpp), [cstdint.hpp](http://www.boost.org/doc/libs/1_68_0/boost/cstdint.hpp), and [config.hpp](http://www.boost.org/doc/libs/1_68_0/boost/config.hpp).
+For this task, you will need functions from the Boost C++ library, as they will perform the CRC hash computation.  This is already installed on the VirtualBox image.  Alternatively, you can download the three necessary files directly: [crc.hpp](http://www.boost.org/doc/libs/1_81_0/boost/crc.hpp), [cstdint.hpp](http://www.boost.org/doc/libs/1_81_0/boost/cstdint.hpp), and [config.hpp](http://www.boost.org/doc/libs/1_81_0/boost/config.hpp).
 
 Your program should include the files as follows:
 
@@ -38,15 +35,15 @@ If you didn't install the library, use `#include "crc.hpp"` for development, but
 Optionally, you may want to use the `crc32` binary in Ubuntu -- this, also, is already installed on the VirtualBox image. If you run `crc32 file_name` in a terminal, you will get the CRC32 value for that file. 
 
  
-### Resources 
+#### Resources 
 
 - Boost libraries:
     - [Wikipedia overview](https://en.wikipedia.org/wiki/Boost_(C++_libraries))
-    - [Documentation](https://www.boost.org/doc/libs/1_68_0/libs/crc/crc.html)
+    - [Documentation](https://www.boost.org/doc/libs/1_81_0/libs/crc/crc.html)
     - [Example usage of CRC functions](https://stackoverflow.com/questions/2573726/how-to-use-boostcrc)
 - [Online CRC16 calculator](https://www.lammertbies.nl/comm/info/crc-calculation.html) (does not include trailing newlines)
 
-### Assignment
+#### Assignment
 
 Your program should be called `crc.cpp` and compile into an executable called `crc` (see the Makefile, below).  It will be run with two command-line parameters:
 
@@ -66,36 +63,34 @@ The program should write its output to a file named `output.txt`, which should c
 3. A reasonable amount of PRINTABLE ASCII characters (decimal values 32 - 127) to the end of the input file (reasonable means 10 or fewer), such that the new output file has the same CRC as the desired CRC value (the second command-line parameter).  The only purpose of these characters is to affect the CRC value, as changing the input *almost* always results in a different output (in this task, you are looking for the exceptions to that rule).
 
 
-### Important Notes
+#### Important Notes
 
-**CRC16:** We will be using the CRC16 algorithm, NOT the CRC32 algorithm, to allow the program to run in a reasonably short time frame.  Boost can do both, so be careful.
+- **CRC16:** We will be using the CRC16 algorithm, NOT the CRC32 algorithm, to allow the program to run in a reasonably short time frame.  Boost can do both, so be careful.
+- **Newlines:** There are two things to be watch out for with newlines:
+    1. There are differences between Linux and Windows platforms (see [Wikipedia](http://en.wikipedia.org/wiki/Newline) for details).  Your program will be run (and graded) in a Linux environment.
+    2. Trailing newlines (`\n`) affect the CRC16 value of a file, but are often overlooked. Be careful not to unintentionally add any extra newlines that would change the CRC value of `output.txt`.  For example, the CRC16 for "hello world" with no trailing newline is 0x39c1 on a UNIX system, but with a trailing newline it is 0x9778.  
 
-**Newlines:** There are two things to be watch out for with newlines:
-
-1. There are differences between Linux and Windows platforms (see [Wikipedia](http://en.wikipedia.org/wiki/Newline) for details).  Your program will be run (and graded) in a Linux environment.
-2. Trailing newlines (`\n`) affect the CRC16 value of a file, but are often overlooked. Be careful not to unintentionally add any extra newlines that would change the CRC value of `output.txt`.  For example, the CRC16 for "hello world" with no trailing newline is 0x39c1 on a UNIX system, but with a trailing newline it is 0x9778.  
-
-### Additional Hints
+#### Additional Hints
 
 - You need to create a new `crc_16_type` result EACH time you compute the CRC value; you can't re-use it very easily.
 - Your program will be given 60 seconds to run when we grade it.  This should be enough time for CRC16, but you may want to include the `-O2` compilation flag.
 - During development, it may be easier to compute the CRC32 value because of the convenient `crc32` utility in Ubuntu (described above).  Once you verify that your program is computing the hash properly, change it over to CRC16.  (Note you need to change over to CRC16 *before* you search for collisions, or you will be searching a *long* time.)
 
 
-## Task 2: MD5 collisions
+### Task 2: MD5 collisions
 
 How easy is it to create a malicious program with a specific MD5 hash?  In this part we'll find out.  
 
 For this task, we are going to follow [these online instructions](http://www.mscs.dal.ca/~selinger/md5collision/).  This code is released under the Modified BSD and/or the GPL license, so I am allowed to use it here, as long as I don't claim credit for it (I'm not), and I include the license in the source code (it's included there).
 
-### Set-up
+#### Set-up
 
-**Platform:** You will likely want to use the Linux VirtualBox for this task. *Note that we can make no guarantees about the safety of the program*, although when we ran it on our own computer, and the world didn't end.  Additionally, you will be creating binary executables, which must be *Linux* binary executables (elf), **not** MacOS (Mach-O) and not Windows (exe). We will be running them on a 64 bit Linux system, but 32 or 64 bit elf executables are fine.
+You will likely want to use the Linux VirtualBox for this task. *Note that we can make no guarantees about the safety of the program*, although when we ran it on our own computer, and the world didn't end.  Additionally, you will be creating binary executables, which must be *Linux* binary executables (elf), **not** MacOS (Mach-O) and not Windows (exe). We will be running them on a 64 bit Linux system, but 32 or 64 bit elf executables are fine.
 
 You can download the source code from the [the online instructions website](http://www.mscs.dal.ca/~selinger/md5collision/) or from Collab's Resources page; the file is called `evilize-0.2.tar.gz` or `evilize-0.2.zip` (you only need one).
 
 
-### Assignment
+#### Assignment
 
 Your task is to create two binary executables, `good` and `evil`, that have the same MD5 hash ([see the instructions](http://www.mscs.dal.ca/~selinger/md5collision/)).  Those executables should print something relevant (i.e., something "good" and something "evil") - it can be interesting quotations, good/evil instructions, etc.  __IT SHOULD NOT DO ANYTHING MALICIOUS__, as that would be a violation of your [Ethics honor pledge](../uva/ethics-pledge.pdf).  **ONLY** print something.  Find some interesting quotations to entertain us!
 
@@ -110,29 +105,32 @@ For this part, you should submit four files:
 - `md5.pdf`
 
 
-## Task 3: Dictionary Attacks
+### Task 3: Dictionary Attacks
 
 Modern computer systems do not store the password in plain text, but instead store a hash of that password.  When a user logs in, a hash is taken of the password the user enters, and that hash is compared to the saved one -- if they match, then the login is successful.  Since hashes are one-way functions, we cannot determine a password based solely on the hash.  Instead, we perform a [dictionary attack](https://en.wikipedia.org/wiki/Dictionary_attack): we take every word in the dictionary, hash each one, and then compare the hashes.
 
-### Set-up
+#### Set-up
 
 A password file will be provided in the following format:
 
 ```
 aaron 34388d7a0c8eb31b74c40d6415676379
-sam 642b58ba419517c47a6b94c3905aaa88
-felix 6c43c0a88fbf0f44ba944d00524e45c3
-helen ca6ad39adfc023f2c32e1e9afd062386
-daniel 80edd055513bbdd360e48c089755659a
+alex 642b58ba419517c47a6b94c3905aaa88
+natasha 6c43c0a88fbf0f44ba944d00524e45c3
+taher ca6ad39adfc023f2c32e1e9afd062386
+chase 80edd055513bbdd360e48c089755659a
+sam 80edd055513bbdd360e48c089755659a
 ```
 
-The hashes shown are MD5 hashes (because MD5 is super-secure, right?).  Those passwords are used are shown in the execution run, below.
+The hashes shown are SHA-256 hashes (because SHA-256 is super-secure, right?).  Those passwords are used are shown in the execution run, below.
 
-The dictionary file we will use is  /usr/share/dict/words (it's on the VirtualBox image), which contains about 100,000 words, and can be found online [here](https://gist.githubusercontent.com/wchargin/8927565/raw/d9783627c731268fb2935a731a618aa8e95cf465/words) as well as on the Collab Resources page.  That file has one word per line, with no whitespace.
+The dictionary file we will use is located at /usr/share/dict/words on most Linux systems (assuming that the `wamerican` package has been installed); you can find a copy in Canvas' Files.  It contains about 100,000 words.  The file has one word per line, with no whitespace.
 
-You are welcome to create your own versions of these files.  If you want to find the MD5 password for a string, try running: `echo -n apple | md5sum`.  Note that the `-n` part is important -- it ensures that there is no return (`\n`) put at the end of the string that you are taking the MD5 hash of.
+<!--  and can be found online [here](https://gist.githubusercontent.com/wchargin/8927565/raw/d9783627c731268fb2935a731a618aa8e95cf465/words) as well as on the Collab Resources page.  -->
 
-### Assignment
+You are welcome to create your own versions of these files.  If you want to find the SHA-256 password for a string, try running: `echo -n apple | md5sum`.  Note that the `-n` part is important -- it ensures that there is no return (`\n`) put at the end of the string that you are taking the SHA-256 hash of.
+
+#### Assignment
 
 Your program must find any and all passwords matches in the password file by hashing each of the words in the dictionary file.  Your program will be provided with two command-line parameters: the password file name and the dictionary file name.
 
@@ -155,15 +153,15 @@ $
 Note that a human will be grading this, so feel free to modify that format, as long as it's clear which username / password pairs have been found.  Please don't print out any extra output, else we will not be able to find your answers therein.
 
 
-## Task 4: Miscellaneous write-up
+### Task 4: Miscellaneous
 
 There are a few questions to answer, and they should be in a `misc.pdf` file.  Each one can reasonably be answered in 4 lines or less, so please be brief.
 
-- What is the string that has the MD5 hash of abc20d7bde1df257f890e152af2e3470?  How did you determine this?
+- What is the string that has the SHA-256 hash of abc20d7bde1df257f890e152af2e3470?  How did you determine this?
 - What is password salting?  Why would we use it?
 
 
-## Submission
+### Submission
 
 There are **eight** files to submit:
 
