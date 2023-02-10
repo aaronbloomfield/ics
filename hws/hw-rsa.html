@@ -90,14 +90,14 @@ java RSA $@</code></pre>
 <ul>
 <li><a href="rsa/html/classCipherText.html">CipherText</a>: a class to hold the cipher text for any RSA encrypted data</li>
 <li><a href="rsa/html/classRSAKey.html">RSAKey</a>: a class to hold a public or private (or both) key</li>
-<li><a href="rsa/html/classRSA.html">RSA</a>: the main class that implements RSA. There are eight methods within that need to be completed for this assignment: <code>convertToASCII()</code>, <code>convertFromASCII()</code>, <code>generateKeys()</code>, <code>encrypt()</code>, <code>decrypt()</code>, <code>crack()</code>, <code>sign()</code>, <code>checkSign()</code>.</li>
+<li><a href="rsa/html/classRSA.html">RSA</a>: the main class that implements RSA. There are six methods within that need to be completed for this assignment: <code>generateKeys()</code>, <code>encrypt()</code>, <code>decrypt()</code>, <code>crack()</code>, <code>sign()</code>, <code>checkSign()</code>.</li>
 </ul>
 <h4 id="python">Python</h4>
 <p>The skeleton code is in the <a href="rsa/rsa.py">rsa.py</a> file; you can see an HTML version of that code <a href="rsa/rsa.py.html">here</a>.</p>
 <h3 id="details">Details</h3>
 <p>For this assignment, you must implement eight methods in the RSA algorithm. They are the ones that state “requires completion” in the comments. This assignment is to be done in Java, as you will need to use the BigInteger and MessageDigest classes.</p>
 <p>You must start with the <a href="rsa/RSA.java">RSA.java</a> skeleton code (<a href="rsa/RSA.java.html">HTML version</a>). This code, described more fully below, provides various methods to ensure that the format of the key files and the encrypted files are consistent, so that we may easily test your code. Furthermore, we are going to <em>EXPLICITLY</em> call individual methods from your code, so if they are not named exactly as they are therein, your code will fail those tests.</p>
-<p><strong><em>WARNING!!!</em></strong> The <code>convertToASCII()</code> and <code>convertFromASCII()</code> methods will be used to test your code. If they don’t work properly, then NONE of your other methods will work. Our unit tests, which we use to evaluate your code, will call these to convert back and forth. So if they are not working properly, then you will likely end up with a zero on the assignment. Thus, please implement them first, and test them to make sure they work properly. And you should use them in your <code>encrypt()</code> and <code>decrypt()</code> methods, of course.</p>
+<p>You need to use the provided <code>convertToASCII()</code> and <code>convertFromASCII()</code> methods in your code, specifically to convert the text for encryption and then back for the decryption.</p>
 <p>You may add any other methods or fields that you would like to add. The following is required for our testing harness to work properly on your code:</p>
 <ul>
 <li>The <code>main()</code> method exactly as provided, as we want to make sure the command line parameters are interpreted the way we expect them to be interpreted</li>

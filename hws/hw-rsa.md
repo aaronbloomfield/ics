@@ -122,9 +122,8 @@ to the Doxygen documentation for that class.
 - [RSAKey](rsa/html/classRSAKey.html): a class to hold a public or
   private (or both) key
 - [RSA](rsa/html/classRSA.html): the main class that implements RSA.
-  There are eight methods within that need to be completed for this
-  assignment: `convertToASCII()`, `convertFromASCII()`,
-  `generateKeys()`, `encrypt()`, `decrypt()`, `crack()`, `sign()`,
+  There are six methods within that need to be completed for this
+  assignment: `generateKeys()`, `encrypt()`, `decrypt()`, `crack()`, `sign()`,
   `checkSign()`.
 
 #### Python
@@ -148,14 +147,8 @@ easily test your code.  Furthermore, we are going to *EXPLICITLY* call
 individual methods from your code, so if they are not named exactly as
 they are therein, your code will fail those tests.
 
-***WARNING!!!*** The `convertToASCII()` and `convertFromASCII()`
-methods will be used to test your code.  If they don't work properly,
-then NONE of your other methods will work.  Our unit tests, which we
-use to evaluate your code, will call these to convert back and
-forth. So if they are not working properly, then you will likely end
-up with a zero on the assignment.  Thus, please implement them first,
-and test them to make sure they work properly.  And you should use
-them in your `encrypt()` and `decrypt()` methods, of course.
+You need to use the provided `convertToASCII()` and `convertFromASCII()`
+methods in your code, specifically to convert the text for encryption and then back for the decryption.
 
 You may add any other methods or fields that you would like to add.
 The following is required for our testing harness to work properly on
