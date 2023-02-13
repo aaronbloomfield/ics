@@ -391,4 +391,4 @@ it has via the `file foo.txt` command.
 
 ### Submission
 
-You should submit three files: your source code, `Makefile`, and `rsa.py`.
+You should submit three files: your source code, `Makefile`, and `rsa.sh`.

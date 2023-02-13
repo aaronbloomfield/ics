@@ -188,7 +188,7 @@ bdf712419bb34b8c0f0d08126f191ecab5da9c0dbb4d2711d3c8eed6f5d42f2a  message1.txt</
 <p><strong>Block size minimum:</strong> Each block will be a whole number of 8-bit characters, so we will not be splitting characters between blocks. Thus, if your keys can hold up to 31 bits per block (if 2^<sup>31</sup>^ &lt; <em>n</em> &lt; 2^<sup>32</sup>^), we will only encode 24 bits (3 characters) in that block, not 31 bits. That being said, you can assume that all blocks we will use will allow for at least 2 characters per block. Note that the number passed in via <code>-keygen</code> is the bit size for <em>p</em> and <em>q</em>; <em>n</em> is roughly twice that size.</p>
 <p><strong>ASCII:</strong> All files (messages, keys, ciphertext, what‐not) will have only printable ASCII characters, so you need not worry about binary files. But there may be whitespace as well: newlines, tabs, linefeeds, etc. Make sure that your code does not have UTF-8 characters in it! Given a file, you can tell what type of characters it has via the <code>file foo.txt</code> command.</p>
 </div><div id='tsubmission' class='tabcontent'><h3 id='submission'>Submission</h3>
-<p>You should submit three files: your source code, <code>Makefile</code>, and <code>rsa.py</code>.</p>
+<p>You should submit three files: your source code, <code>Makefile</code>, and <code>rsa.sh</code>.</p>
 </div><script>document.getElementById('defaultOpen').click();</script></body>
 </html>
 
