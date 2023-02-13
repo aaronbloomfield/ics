@@ -7,7 +7,9 @@ ICS: Programming HW: Hashes
 
 In this assignment, you will be examining some of the issues surrounding hashes and their security applications.
 
-There are four separate tasks for this assignment, as described below.  Please note that task 2 is computationally intensive and will require **_several_** hours to run.  Extensions will not be granted because you waited until the last minute to start this assignment.
+There are two separate tasks for this assignment, as described below.
+
+You should be familiar with the [hashing section of the encryption slides](../slides/encryption.html#/hashing).
 
 
 ### Changelog
@@ -17,22 +19,29 @@ Any changes to this page will be put here for easy reference.  Typo fixes and mi
 
 ### Task 1: CRC insecurity
 
-Your job is to write a C/C++ program (necessary for speed reasons) that, when given an input file and a CRC checksum, will modify that message, and ensure that the modified version matches the CRC checksum.
+Your job is to write a C or C++ program (necessary for speed reasons) that, when given an input file and a CRC checksum, will modify that message, and ensure that the modified version matches the CRC checksum.  You can use either C or C++ for this part, it doesn't matter.
+
+[CRC32](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) is used extensively in network transmission -- that podcast that you downloaded used thousands of CRC32 checksums to transfer it over the network.  We are going to use CRC16 -- it's a bit quicker to brute-force a hash, but has the same principles as CRC32.
 
 #### Set-up
 
-For this task, you will need functions from the Boost C++ library, as they will perform the CRC hash computation.  This is already installed on the VirtualBox image.  Alternatively, you can download the three necessary files directly: [crc.hpp](http://www.boost.org/doc/libs/1_81_0/boost/crc.hpp), [cstdint.hpp](http://www.boost.org/doc/libs/1_81_0/boost/cstdint.hpp), and [config.hpp](http://www.boost.org/doc/libs/1_81_0/boost/config.hpp).
-
-Your program should include the files as follows:
+For this task, you will need a few functions from the [Boost C++ library](https://www.boost.org/), as they will perform the CRC hash computation.  Your program should include the library as follows:
 
 ```
 #include <boost/crc.hpp>
-#include <boost/cstdint.hpp>
 ```
 
-If you didn't install the library, use `#include "crc.hpp"` for development, but replace with the above lines before submission.
+To compile it, you first have to get Boost on your computer.  One option is to install it through your operating system's package manager -- and older version of Boost is fine, as the CRC code has not changed much in the last 6 years.  You can also download the Boost library, and uncompress it on your computer.  You can find the latest version (1.81.0) [here](https://www.boost.org/users/history/version_1_81_0.html); the .zip file direct download link is [here](https://boostorg.jfrog.io/artifactory/main/release/1.81.0/source/boost_1_81_0.zip).  You would then want to unzip that file.
 
-Optionally, you may want to use the `crc32` binary in Ubuntu -- this, also, is already installed on the VirtualBox image. If you run `crc32 file_name` in a terminal, you will get the CRC32 value for that file. 
+Once on your computer, your compilation line will be:
+
+```
+clang++ -O2 -I boost_1_81_0/ -o crc16 crc16.cpp
+```
+
+The `-I boost_1_81_0/` parameter tells the compiler to look in that directory, as it needs that to find the `boost/crc.hpp` file from the include line, above.  Change it as appropriate for wherever you unzipped Boost to.  If you installed it through your OS'es package manager, you would not include that flag.
+
+**IMPORTANT NOTE:** When you submit your code to Gradescope, you must ***NOT*** have the `-I boost_1_81_0/` flag present, as Boost will be installed on that autograder image.
 
  
 #### Resources 
@@ -45,7 +54,7 @@ Optionally, you may want to use the `crc32` binary in Ubuntu -- this, also, is a
 
 #### Assignment
 
-Your program should be called `crc.cpp` and compile into an executable called `crc` (see the Makefile, below).  It will be run with two command-line parameters:
+Your program should be called `crc16.cpp`, even if it's a C program; you will provide a Makefile to compile it (described below).  It will be run with two command-line parameters:
 
 1. the input file name to read from
 2. the desired CRC value (in hex) - this will be 4 hexadecimal characters, such as 'abcd' (we will leave out the leading '0x')
@@ -53,19 +62,31 @@ Your program should be called `crc.cpp` and compile into an executable called `c
 A sample execution:
 
 ```
-./crc input.txt abcd
+$ clang++ -O2 -o crc16 crc16.cpp 
+$ cat input.txt 
+Things are going just great!
+$ ./crc16 input.txt abcd
+$ cat output.txt ; /bin/echo
+Things are going just great!
+
+If you think things can't get worse it's probably only because you lack sufficient imagination.
+
+   &No
+$ 
 ```
 
-The program should write its output to a file named `output.txt`, which should contain the following:
+
+The program should write its output to a file named `output.txt`.  Note that the output.txt file above does not have a trailing newline character. That file should contain the following:
 
 1. The contents of the original file in its entirety (it will consist only of printable ASCII characters, as well as newlines)
 2. A message of your own, which demonstrates that you *could* modify the original message, possibly maliciously, if desired. (Do not actually modify the original message -- just add your message after the original.) 
-3. A reasonable amount of PRINTABLE ASCII characters (decimal values 32 - 127) to the end of the input file (reasonable means 10 or fewer), such that the new output file has the same CRC as the desired CRC value (the second command-line parameter).  The only purpose of these characters is to affect the CRC value, as changing the input *almost* always results in a different output (in this task, you are looking for the exceptions to that rule).
+3. A reasonable amount of PRINTABLE ASCII characters (decimal values 32 - 127) to the end of the input file (reasonable means 10 or fewer), such that the new output file has the same CRC as the desired CRC value (the second command-line parameter).  The only purpose of these characters is to affect the CRC value.
 
 
 #### Important Notes
 
 - **CRC16:** We will be using the CRC16 algorithm, NOT the CRC32 algorithm, to allow the program to run in a reasonably short time frame.  Boost can do both, so be careful.
+- **Testing:** As mentioned above, there is an [online CRC16 calculator](https://www.lammertbies.nl/comm/info/crc-calculation.html) to help you ensure that you are generating your CRC-16 hashes correctly.  For testing your CRC16 hashes, you should NOT use a string that has a newline, as that web page can not handle those.
 - **Newlines:** There are two things to be watch out for with newlines:
     1. There are differences between Linux and Windows platforms (see [Wikipedia](http://en.wikipedia.org/wiki/Newline) for details).  Your program will be run (and graded) in a Linux environment.
     2. Trailing newlines (`\n`) affect the CRC16 value of a file, but are often overlooked. Be careful not to unintentionally add any extra newlines that would change the CRC value of `output.txt`.  For example, the CRC16 for "hello world" with no trailing newline is 0x39c1 on a UNIX system, but with a trailing newline it is 0x9778.  
@@ -74,109 +95,110 @@ The program should write its output to a file named `output.txt`, which should c
 
 - You need to create a new `crc_16_type` result EACH time you compute the CRC value; you can't re-use it very easily.
 - Your program will be given 60 seconds to run when we grade it.  This should be enough time for CRC16, but you may want to include the `-O2` compilation flag.
-- During development, it may be easier to compute the CRC32 value because of the convenient `crc32` utility in Ubuntu (described above).  Once you verify that your program is computing the hash properly, change it over to CRC16.  (Note you need to change over to CRC16 *before* you search for collisions, or you will be searching a *long* time.)
 
 
-### Task 2: MD5 collisions
+### Task 2: Dictionary Attacks
 
-How easy is it to create a malicious program with a specific MD5 hash?  In this part we'll find out.  
+Modern computer systems do not store the password in plain text, but instead store a hash of that password.  When a user logs in, a hash is taken of the password the user enters, and that hash is compared to the saved one -- if they match, then the login is successful.  Since hashes are one-way functions, we cannot determine a password based solely on the hash.  Instead, we perform a [dictionary attack](https://en.wikipedia.org/wiki/Dictionary_attack): we take every word in the dictionary, hash each one, and then compare the hashes.  If we had more computing power, we could compute *all* passwords of 8 printable characters, and hash each one of those.
 
-For this task, we are going to follow [these online instructions](http://www.mscs.dal.ca/~selinger/md5collision/).  This code is released under the Modified BSD and/or the GPL license, so I am allowed to use it here, as long as I don't claim credit for it (I'm not), and I include the license in the source code (it's included there).
+If all that was stored was the hash of the password, then it would be easy to figure out one from the other.  For example, an Internet search for the hash 5f0974ee455c4cd57c58dfb04f3d070b1f365d0ed4401dbf28089b308b019a67 yields [this site](https://hashdecryption.com/h/plain/tableau), which tells us that the password is 'tableau'.
 
-#### Set-up
+To prevent a leaked password hash from being easily looked up online, sites will add a *salt*, which is a suffix added to each password.  If the salt is `_abcdefg`, then the password `tableau` would have the string `tableau_abcdefg` hashed (salting is just string concatenation), and the hash of that is stored in the password file.  That hash of `tableau_abcdefg` is 4b9b0b7c0b94c98828d6eac32e0bf081dba5c686e2cae111bdfd5c042ac53e8f, and searching for that does not yield any results.  In practice, salts are long strings -- 50 characters is more typical.  We'll use much smaller salts in this assignment.
 
-You will likely want to use the Linux VirtualBox for this task. *Note that we can make no guarantees about the safety of the program*, although when we ran it on our own computer, and the world didn't end.  Additionally, you will be creating binary executables, which must be *Linux* binary executables (elf), **not** MacOS (Mach-O) and not Windows (exe). We will be running them on a 64 bit Linux system, but 32 or 64 bit elf executables are fine.
-
-You can download the source code from the [the online instructions website](http://www.mscs.dal.ca/~selinger/md5collision/) or from Collab's Resources page; the file is called `evilize-0.2.tar.gz` or `evilize-0.2.zip` (you only need one).
-
-
-#### Assignment
-
-Your task is to create two binary executables, `good` and `evil`, that have the same MD5 hash ([see the instructions](http://www.mscs.dal.ca/~selinger/md5collision/)).  Those executables should print something relevant (i.e., something "good" and something "evil") - it can be interesting quotations, good/evil instructions, etc.  __IT SHOULD NOT DO ANYTHING MALICIOUS__, as that would be a violation of your [Ethics honor pledge](../uva/ethics-pledge.pdf).  **ONLY** print something.  Find some interesting quotations to entertain us!
-
-This process took 90 minutes on my home computer (3.4 Ghz machine) to run; your mileage may vary.  And since the program only runs on one core, multi-core machines do not get much of a boost.  When complete, check the MD5 checksums of "good" and "evil" - they should match.  You should also run both programs to ensure they exhibit the behaviors you programmed in the `main_good()` and `main_evil()` functions.
-
-Additionally, you should answer the following question in a file called `md5.pdf`: how does this whole thing work?  We just want an overview of how the entire evilize and md5coll programs work, not an in-depth mathematical analysis of the collision algorithm.  You should be able to explain this adequately in around 1/2 page single-spaced, and definitely not more than 1 page. 
-
-For this part, you should submit four files:
-
-- The `good` and `evil` binary executables
-- `multiple_personalities.c`, the source code file that contains `main_good()` and `main_evil()`, the `main()` functions from the `good` and `evil` executables -- we aren't going to compile this, we just want to look over the source code
-- `md5.pdf`
-
-
-### Task 3: Dictionary Attacks
-
-Modern computer systems do not store the password in plain text, but instead store a hash of that password.  When a user logs in, a hash is taken of the password the user enters, and that hash is compared to the saved one -- if they match, then the login is successful.  Since hashes are one-way functions, we cannot determine a password based solely on the hash.  Instead, we perform a [dictionary attack](https://en.wikipedia.org/wiki/Dictionary_attack): we take every word in the dictionary, hash each one, and then compare the hashes.
+For this part, we are only using SHA-256 hashes.  This part may be written in any programming language.
 
 #### Set-up
 
 A password file will be provided in the following format:
 
 ```
-aaron 34388d7a0c8eb31b74c40d6415676379
-alex 642b58ba419517c47a6b94c3905aaa88
-natasha 6c43c0a88fbf0f44ba944d00524e45c3
-taher ca6ad39adfc023f2c32e1e9afd062386
-chase 80edd055513bbdd360e48c089755659a
-sam 80edd055513bbdd360e48c089755659a
+aaron 36a095da4e23a3b35db038092aef1b8c3dbd4eb7068d3fdc869af10849476f82
+alex 553c165c0199e45e6c44ea743650d7f48a62c82357d46a03179b86719d670b2a
+chase 83352f28d732fa2a255d6c69d5c332f6b9f421d89bacb2ed334b0841bfce6661
+natasha f9c6b88c040ec9388f78d50a06d2da92362f9d9a219a3180fde59c768da3f366
+sam 1d06b71965f3c7466467c7a89dd1aadfffe9da9f409017c1fa363b49312d70f4
+taher 226f7f2a65158d441748b1ce9543b5027af1a7438314371d3dfccf12fba85edf
 ```
 
-The hashes shown are SHA-256 hashes (because SHA-256 is super-secure, right?).  Those passwords are used are shown in the execution run, below.
+The file is ASCII, and all usernames will be alphanumeric strings.  There is exactly one space between the two tokens on any given line.  The hashes shown are SHA-256 hashes.  The passwords used to generate those hashes are shown in the execution run, below.
 
-The dictionary file we will use is located at /usr/share/dict/words on most Linux systems (assuming that the `wamerican` package has been installed); you can find a copy in Canvas' Files.  It contains about 100,000 words.  The file has one word per line, with no whitespace.
+The dictionary file we will use is located at /usr/share/dict/words on most Linux systems (assuming that the `wamerican` package has been installed); you can find a copy in Canvas' Files.  It contains about 100,000 words.  The file has one word per line, with no whitespace.  We have a version stored on Canvas' Files, and you should use that (the one in /usr/share/dict/words is UTF-8, and we want it to be ASCII; the one on Canvas' Files was converted to ASCII for this assignment).
 
-<!--  and can be found online [here](https://gist.githubusercontent.com/wchargin/8927565/raw/d9783627c731268fb2935a731a618aa8e95cf465/words) as well as on the Collab Resources page.  -->
-
-You are welcome to create your own versions of these files.  If you want to find the SHA-256 password for a string, try running: `echo -n apple | md5sum`.  Note that the `-n` part is important -- it ensures that there is no return (`\n`) put at the end of the string that you are taking the SHA-256 hash of.
+You are welcome to create your own versions of these files -- meaning you can create a file with only 100 (or so) words to use for testing.  If you want to find the SHA-256 password for a string, try running: `echo -n banana | sha256sum` in Linux or Mac OS X.  Note that the `-n` part is important in that echo statement -- it ensures that there is no return (`\n`) put at the end of the string that you are taking the SHA-256 hash of.  You can also use any online SHA-256 generator (the hash of `banana`, by the way, is b493d48364afe44d11c0165cf470a4164d1e2609911ef998be868d46ade3de4e).  
 
 #### Assignment
 
-Your program must find any and all passwords matches in the password file by hashing each of the words in the dictionary file.  Your program will be provided with two command-line parameters: the password file name and the dictionary file name.
+Your program should find any and all passwords matches in the password file by hashing each of the words in the dictionary file.  Your program will be provided with three command-line parameters: the dictionary file, the password file, and the salt, in that order.  For this assignment, the salt will always be an alphanumeric string, and underscores are also allowed.
 
-For speed reasons, this program is to be developed in C++, and should be named `dictionary.cpp`.  It will be compiled by the Makefile (see below) into an executable named `dictionary`.  We will run this program providing only the password file and the dictionary file, in that order, as the command line parameters.  Note that you will have to pass the `-lcrypto` flag to the compilation line. If you are working on this homework on the VirtualBox image, you will likely have to install the `libssl-dev` package if you want to include the `openssl/md5.h` file.
+You may write this in any programming language (although you have to let us know two days ahead of time if you want to use a language that the autograder is not already configured for).  You are expected to use the SHA-256 routines in your language.  Because we do not know the language you are using, you will have to provide a Makefile and a `dictionary.sh` shell script to compile and run the program.
 
-You can look [here](https://stackoverflow.com/questions/1220046/how-to-get-the-md5-hash-of-a-file-in-c) for how to generate a MD5 hash in C++ -- you are welcome to copy that code directly (but state that you are doing such in your code comments).
-
-Your program should print out one line for the passwords that it finds.  A format such as the following is reasonable:
+Your program should print out one line for the passwords that it finds.  Here is a sample execution run for the password file shown above:
 
 ```
-$ ./dictionary passwords.txt /usr/share/dict/words
-password for sam is: evenly
-password for daniel is: inherits
-password for felix is: pet
-password for helen is: rhetorical
-password for aaron is: stockpiles
-$
+$ ./dictionary.sh words passwords.txt _l337_h4x0r
+password for chase is: astound
+password for sam is: flotation
+password for alex is: patois
+password for aaron is: plastic
+password for taher is: reunification
+password for natasha is: spade
+$ 
+
 ```
 
-Note that a human will be grading this, so feel free to modify that format, as long as it's clear which username / password pairs have been found.  Please don't print out any extra output, else we will not be able to find your answers therein.
+The order you print it out does not matter (we are going to sort your output), but the exact text on each line does, as we are going to have it graded by an autograder.  Not all the passwords may be found in the words file.  We will not give you invalid input (meaning files that do not exist, a wrong number of command-line parameters, etc.).  Both the words file and the password file will be ASCII files with at least 1 line in each file.  The salt will only be alphanumeric characters and underscores.
+
+While we do not really care about efficiency, your program must run in a reasonable time.  Basically it -- along with the program in the previous task -- should not time out in Gradescope.
+
+### Other Files
+
+#### Makefile
+
+You will need to submit a `Makefile`.  It will have to compile your CRC-16 code, and (possibly) your dictionary attack code.
+
+If you are using a language for the dictionary attack code that does not need compilation, such as Python, your Makefile will look like the following:
+
+```
+main:
+    clang++ -O2 -o crc16 crc16.cpp
+```
+
+Note that the indentation is a tab, not spaces!  Make is annoying that way.  Also note that we did not use the `-I boost_1_81_0/` flag.
+
+If you are using a language for your dictionary attack code that *does* need compilation, such as Java, your Makefile will look like the following:
 
 
-### Task 4: Miscellaneous
+```
+main:
+    clang++ -O2 -o crc16 crc16.cpp
+    javac Dictionary.java
+```
 
-There are a few questions to answer, and they should be in a `misc.pdf` file.  Each one can reasonably be answered in 4 lines or less, so please be brief.
+Change the name of your source code file as appropriate.  Also note that we did not use the `-I boost_1_81_0/` flag.
 
-- What is the string that has the SHA-256 hash of abc20d7bde1df257f890e152af2e3470?  How did you determine this?
-- What is password salting?  Why would we use it?
+#### Shell script
+
+The CRC code does not need a shell script, since it will be compiled into a `crc16` binary by the Makefile above.  Your dictionary attack will need a shell script, which will likely be one of the following:
+
+```
+#!/bin/bash
+python3 dictionary.py $@
+```
+
+```
+#!/bin/bash
+java Dictionary $@
+```
+
+Change the name of your file and/or class as appropriate for your code.
 
 
 ### Submission
 
-There are **eight** files to submit:
 
-- `crc.cpp` (from task 1)
-- `good`, `evil`, `multiple_personalities.c`, and `md5.pdf` (from task 2); note that `good` and `evil` are binary executables
-- `dictionary.cpp` (from task 3)
-- `misc.pdf` (from task 4)
-- `Makefile` (described below)
+There are four files to submit:
 
-The Makefile needs to compile `crc.cpp` (from task 1) into a binary executable called `crc`.  It also needs to compile `dictionary.cpp` (from task 3) into a binary called `dictionary`.  It does not need to do anything for tasks 2 and 4. Below is a sample Makefile.  Recall that with Makefiles, you must replace the leading 5 spaces on each target task with a single tab.
-
-```
-main:
-     g++ -O2 -o crc crc.cpp
-	 g++ -O2 -o dictionary dictionary.cpp -lcrypto
-```
+- `crc16.cpp` from task 1
+- ` Makefile`, `dictionary.sh` and your source code from task 2
 
 We will be compiling your submission with `make`.
