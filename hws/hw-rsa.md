@@ -29,7 +29,9 @@ and
 
 ### Changelog
 
-Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
+Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  <!-- So far there aren't any significant changes to report. -->
+
+- Mon, Feb 13: Made a change to the Python `convertToASCII()` function to address a bug that only appears when the first character in the ASCII is a newline.
 
 
 ### Links

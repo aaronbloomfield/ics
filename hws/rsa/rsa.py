@@ -90,7 +90,10 @@ def convertFromASCII(text):
 # Given an integer representation of an ASCII string, this will convert it to
 # ASCII
 def convertToASCII(block):
-	return bytes.fromhex(hex(block)[2:]).decode('ascii')
+	h = hex(block)[2:]
+	if len(h) % 2 == 1:
+		h = '0' + h
+	return bytes.fromhex(h).decode('ascii')
 
 # Given a bit size and a certainty, this will generate a (probably) prime
 # number of the desired size

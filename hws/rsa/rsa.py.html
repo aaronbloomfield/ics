@@ -101,7 +101,10 @@ showPandQ <font color="#990000">=</font> False
 <i><font color="#9A1900"># Given an integer representation of an ASCII string, this will convert it to</font></i>
 <i><font color="#9A1900"># ASCII</font></i>
 <b><font color="#0000FF">def</font></b> <b><font color="#000000">convertToASCII</font></b><font color="#990000">(</font>block<font color="#990000">):</font>
-	<b><font color="#0000FF">return</font></b> bytes<font color="#990000">.</font><b><font color="#000000">fromhex</font></b><font color="#990000">(</font><b><font color="#000000">hex</font></b><font color="#990000">(</font>block<font color="#990000">)[</font><font color="#993399">2</font><font color="#990000">:]).</font><b><font color="#000000">decode</font></b><font color="#990000">(</font><font color="#FF0000">'ascii'</font><font color="#990000">)</font>
+	h <font color="#990000">=</font> <b><font color="#000000">hex</font></b><font color="#990000">(</font>block<font color="#990000">)[</font><font color="#993399">2</font><font color="#990000">:]</font>
+	<b><font color="#0000FF">if</font></b> <b><font color="#000000">len</font></b><font color="#990000">(</font>h<font color="#990000">)</font> <font color="#990000">%</font> <font color="#993399">2</font> <font color="#990000">==</font> <font color="#993399">1</font><font color="#990000">:</font>
+		h <font color="#990000">=</font> <font color="#FF0000">'0'</font> <font color="#990000">+</font> h
+	<b><font color="#0000FF">return</font></b> bytes<font color="#990000">.</font><b><font color="#000000">fromhex</font></b><font color="#990000">(</font>h<font color="#990000">).</font><b><font color="#000000">decode</font></b><font color="#990000">(</font><font color="#FF0000">'ascii'</font><font color="#990000">)</font>
 
 <i><font color="#9A1900"># Given a bit size and a certainty, this will generate a (probably) prime</font></i>
 <i><font color="#9A1900"># number of the desired size</font></i>
