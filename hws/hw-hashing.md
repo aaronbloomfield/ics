@@ -1,5 +1,5 @@
-ICS: Programming HW: Hashes
-===========================
+ICS: Programming HW: Hashing
+============================
 
 [Go up to the ICS HW page](index.html) ([md](index.md))
 
