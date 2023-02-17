@@ -81,7 +81,7 @@ Course calendar
 | 2  | Jan 23 | M,W,F  | Rational Paranoia | [The Security Mindset](../slides/security-mindset.html#/), [Terminology](../slides/terminology.html#/), [US Cybersecurity Policy](../slides/policy.html#/) | Mon: finished security mindset, terminology to 4.13; Wed: finished terminology, policy to 3.18; Fri: policy to 6.11 |
 | 3  | Jan 30 | M,W,F  | Policy            | [US Cybersecurity Policy](../slides/policy.html#/), [Ethics](../slides/ethics.html#/) | Mon: finished policy; Wed: ethics to 6.6; Fri: finished ethics, encryption to 3.9 |
 | 4  | Feb 6  | M,W,F  | Ethics            | [Encryption](../slides/encryption.html#/) | Mon: encryption to 6.3; Wed: encryption to 6.38; Fri: encryption to 6.51 |
-| 5  | Feb 13 | M,W,F  | RSA               | [Encryption](../slides/encryption.html#/) | Mon: encryption to 7.14; Wed: encryption to 8.20 |
+| 5  | Feb 13 | M,W,F  | RSA               | [Encryption](../slides/encryption.html#/) | Mon: encryption to 7.14; Wed: encryption to 8.20; Fri: finished encryption, networks to 3.9 |
 | 6  | Feb 20 | M,W,F  | Hashing           | [Networking Overview](../slides/networks.html#/), [Web Security](../slides/web-security.html#/) | |
 | 7  | Feb 27 | M,W,F  | (midterm week)    | [Web Security](../slides/web-security.html#/), midterm | |
 |    | Mar 6  | (none) | (none)            | (spring break)  | |
