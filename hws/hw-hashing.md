@@ -148,6 +148,8 @@ $
 
 The order you print it out does not matter (we are going to sort your output), but the exact text on each line does, as we are going to have it graded by an autograder.  Not all the passwords may be found in the words file.  We will not give you invalid input (meaning files that do not exist, a wrong number of command-line parameters, etc.).  Both the words file and the password file will be ASCII files with at least 1 line in each file.  The salt will only be alphanumeric characters and underscores.
 
+If no passwords are found, then the program should produce no output.
+
 While we do not really care about efficiency, your program must run in a reasonable time.  Basically it -- along with the program in the previous task -- should not time out in Gradescope.
 
 ### Other Files
