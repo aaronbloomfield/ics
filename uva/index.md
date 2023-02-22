@@ -82,7 +82,7 @@ Course calendar
 | 3  | Jan 30 | M,W,F  | Policy            | [US Cybersecurity Policy](../slides/policy.html#/), [Ethics](../slides/ethics.html#/) | Mon: finished policy; Wed: ethics to 6.6; Fri: finished ethics, encryption to 3.9 |
 | 4  | Feb 6  | M,W,F  | Ethics            | [Encryption](../slides/encryption.html#/) | Mon: encryption to 6.3; Wed: encryption to 6.38; Fri: encryption to 6.51 |
 | 5  | Feb 13 | M,W,F  | RSA               | [Encryption](../slides/encryption.html#/) | Mon: encryption to 7.14; Wed: encryption to 8.20; Fri: finished encryption, networks to 3.9 |
-| 6  | Feb 20 | M,W,F  | Hashing           | [Networking Overview](../slides/networks.html#/), [Web Security](../slides/web-security.html#/) | Mon: networks to 4.9 |
+| 6  | Feb 20 | M,W,F  | Hashing           | [Networking Overview](../slides/networks.html#/), [Web Security](../slides/web-security.html#/) | Mon: networks to 4.9; Wed: finished networks, web security to 4.3 |
 | 7  | Feb 27 | M,W,F  | (midterm week)    | [Web Security](../slides/web-security.html#/), midterm | |
 |    | Mar 6  | (none) | (none)            | (spring break)  | |
 | 8  | Mar 13 | M,W,F  | Networks          | [Viruses](../slides/viruses.html#/)| |
