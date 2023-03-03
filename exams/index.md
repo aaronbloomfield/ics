@@ -5,6 +5,7 @@ ICS: Exams
 
 These are all the exams from the current and previous semesters of the course.  No solutions are provided, nor are the grading guidelines.  Currently they are all in PDF format.  They were all developed using LaTeX.
 
+- Spring 2023: [midterm](midterm-s23.pdf)
 - Summer 2022: [midterm](exam1-sum22.pdf), [final exam](final-su22.pdf)
     - Quizzes: [quiz 1](quiz1-sum22.pdf), [quiz 2](quiz2-sum22.pdf)
 - Summer 2021: as this was online due to the COVID-19 pandemic, the exams and quizzes do not reflect the types of questions that would be asked in the future
