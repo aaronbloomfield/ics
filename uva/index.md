@@ -43,6 +43,7 @@ All scholarly articles (such as from the ACM digital library) can be obtained fr
     - [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
 -->
 
+- Due Wednesday, March 22nd: [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
 - Due Friday, January 27th:
 	- [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
     - [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210)
@@ -83,15 +84,15 @@ Course calendar
 | 4  | Feb 6  | M,W,F  | Ethics            | [Encryption](../slides/encryption.html#/) | Mon: encryption to 6.3; Wed: encryption to 6.38; Fri: encryption to 6.51 |
 | 5  | Feb 13 | M,W,F  | RSA               | [Encryption](../slides/encryption.html#/) | Mon: encryption to 7.14; Wed: encryption to 8.20; Fri: finished encryption, networks to 3.9 |
 | 6  | Feb 20 | M,W,F  | Hashing           | [Networking Overview](../slides/networks.html#/), [Web Security](../slides/web-security.html#/) | Mon: networks to 4.9; Wed: finished networks, web security to 4.3; Fri: web security to 6.8 |
-| 7  | Feb 27 | M,W,F  | (midterm week)    | [Web Security](../slides/web-security.html#/), midterm | Mon: web security to 7.11 |
+| 7  | Feb 27 | M,W,F  | (midterm week)    | [Web Security](../slides/web-security.html#/), midterm | Mon: web security to 7.11; Wed: midterm; Fri: finished web security |
 |    | Mar 6  | (none) | (none)            | (spring break)  | |
-| 8  | Mar 13 | M,W,F  | Networks          | [Viruses](../slides/viruses.html#/)| |
-| 9  | Mar 20 | M,W,F  | (new virus HW)    | [Buffer Overflows](../slides/buffer-overflows.html#/) | |
-| 10 | Mar 27 | M,W,F  | Buffer overflow   | [Binary Exploits](../slides/binary-exploits.html#/), [SQL, XSS, and CSRF](../slides/sql-xss-csrf.html#/) |
-| 11 | Apr 3  | M,W,F  | SQL/XSS/CSRF      | [Cryptocurrency](../slides/cryptocurrency.html#/), [Anonymity](../slides/anonymity.html#/) | |
-| 12 | Apr 10 | M,W,F  | Cryptocurrency    | [Rootkits](../slides/rootkits.html#/), [Stuxnet](../slides/stuxnet.html#/) | |
-| 13 | Apr 17 | M,W,F  | Rootkits          | (guest lecture, catch-up lectures) | |
-| 14 | Apr 24 | M,W,F  | (new ??? HW)      | [Digital Forensics](../slides/forensics.html#/), [Virtual Machines](../slides/vms.html#/) | |
+| 8  | Mar 13 | M,W,F  | (none)            | [SQL, XSS, and CSRF](../slides/sql-xss-csrf.html#/), [Cryptocurrency](../slides/cryptocurrency.html#/) | |
+| 9  | Mar 20 | M,W,F  | Network fuzzing   | [Cryptocurrency](../slides/cryptocurrency.html#/), [Anonymity](../slides/anonymity.html#/) | |
+| 10 | Mar 27 | M,W,F  | SQL/XSS/CSRF      | [Rootkits](../slides/rootkits.html#/), [Stuxnet](../slides/stuxnet.html#/) | |
+| 11 | Apr 3  | M,W,F  | Cryptocurrency    | [Viruses](../slides/viruses.html#/)| |
+| 12 | Apr 10 | M,W,F  | (new HW)          | [Buffer Overflows](../slides/buffer-overflows.html#/), guest lecture (Wed) | |
+| 13 | Apr 17 | M,W,F  | Rootkits          | [Binary Exploits](../slides/binary-exploits.html#/) |
+| 14 | Apr 24 | M,W,F  | (new HW)          | [Digital Forensics](../slides/forensics.html#/), [Virtual Machines](../slides/vms.html#/) | |
 | 15 | May 1  | M      | Digital forensics | [Course reflection](../slides/reflection.html#/) | |
 
 [1]: https://canvas.its.virginia.edu/courses/59093

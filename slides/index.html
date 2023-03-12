@@ -15,28 +15,6 @@
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
-  <script>
-  function openTab(evt, tabName) {
-    // Declare all variables
-    var i, tabcontent, tablinks;
-
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
-  </script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -66,21 +44,21 @@
 <ul>
 <li><a href="networks.html#/">Networking Overview</a></li>
 <li><a href="web-security.html#/">Web Security</a></li>
+</ul></li>
+<li>Modern Topics
+<ul>
 <li><a href="sql-xss-csrf.html#/">SQL, XSS, and CSRF</a></li>
+<li><a href="cryptocurrency.html#/">Cryptocurrency</a></li>
+<li><a href="anonymity.html#/">Anonymity</a></li>
+<li><a href="rootkits.html#/">Rootkits</a></li>
+<li><a href="stuxnet.html#/">Stuxnet</a></li>
+<li><a href="vms.html#/">Virtual Machines</a></li>
 </ul></li>
 <li>Binary Exploits
 <ul>
 <li><a href="viruses.html#/">Viruses</a></li>
 <li><a href="buffer-overflows.html#/">Buffer Overflows</a></li>
 <li><a href="binary-exploits.html#/">Binary Exploits</a></li>
-</ul></li>
-<li>Modern Topics
-<ul>
-<li><a href="cryptocurrency.html#/">Cryptocurrency</a></li>
-<li><a href="anonymity.html#/">Anonymity</a></li>
-<li><a href="rootkits.html#/">Rootkits</a></li>
-<li><a href="stuxnet.html#/">Stuxnet</a></li>
-<li><a href="vms.html#/">Virtual Machines</a></li>
 </ul></li>
 <li>Digital Forensics
 <ul>
