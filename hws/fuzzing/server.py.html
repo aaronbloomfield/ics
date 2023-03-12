@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>server.py</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900"># This creates a very basic uvicorn server that will respond with a 200(OK) to</font></i>
+<i><font color="#9A1900"># a small set of URLs, and 404 (not found) to anything else.  It is modified</font></i>
+<i><font color="#9A1900"># from the example code from https://www.uvicorn.org/.</font></i>
+<i><font color="#9A1900">#</font></i>
+<i><font color="#9A1900"># Run as:</font></i>
+<i><font color="#9A1900"># uvicorn server:app --reload --port 5000</font></i>
+
+<i><font color="#9A1900"># The URLs to respond with a 200 to</font></i>
+urls <font color="#990000">=</font> <font color="#990000">[</font> <font color="#FF0000">'/employers'</font><font color="#990000">,</font> <font color="#FF0000">'/.gitignore'</font><font color="#990000">,</font> <font color="#FF0000">'/~admin'</font> <font color="#990000">]</font>
+
+<b><font color="#0000FF">async</font></b> <b><font color="#0000FF">def</font></b> <b><font color="#000000">app</font></b><font color="#990000">(</font>scope<font color="#990000">,</font> receive<font color="#990000">,</font> send<font color="#990000">):</font>
+    <b><font color="#0000FF">assert</font></b> scope<font color="#990000">[</font><font color="#FF0000">'type'</font><font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">'http'</font>
+    <b><font color="#0000FF">await</font></b> <b><font color="#000000">send</font></b><font color="#990000">({</font>
+        <font color="#FF0000">'type'</font><font color="#990000">:</font> <font color="#FF0000">'http.response.start'</font><font color="#990000">,</font>
+        <font color="#FF0000">'status'</font><font color="#990000">:</font> <font color="#993399">200</font> <b><font color="#0000FF">if</font></b> scope<font color="#990000">[</font><font color="#FF0000">'path'</font><font color="#990000">]</font> <b><font color="#0000FF">in</font></b> urls <b><font color="#0000FF">else</font></b> <font color="#993399">404</font><font color="#990000">,</font> <i><font color="#9A1900"># the only line changed from the original</font></i>
+        <font color="#FF0000">'headers'</font><font color="#990000">:</font> <font color="#990000">[</font>
+            <font color="#990000">[</font>b<font color="#FF0000">'content-type'</font><font color="#990000">,</font> b<font color="#FF0000">'text/plain'</font><font color="#990000">],</font>
+        <font color="#990000">],</font>
+    <font color="#990000">})</font>
+    <b><font color="#0000FF">await</font></b> <b><font color="#000000">send</font></b><font color="#990000">({</font>
+        <font color="#FF0000">'type'</font><font color="#990000">:</font> <font color="#FF0000">'http.response.body'</font><font color="#990000">,</font>
+        <font color="#FF0000">'body'</font><font color="#990000">:</font> b<font color="#FF0000">'Hello, world!'</font><font color="#990000">,</font>
+    <font color="#990000">})</font>
+</tt></pre>
+</body>
+</html>
