@@ -162,25 +162,25 @@ delete from course;
 
 
 ## Other SQL commands
-- `use <db>;`
-  - Changes to a different database
 - `show databases;`
   - Shows which databases exist that the user can access
-- `create database <db>;`
-  - Creates a database, which can hold an arbitrary number of tables
-- `grant [...];`
-  - Sets ('grants') permissions on a database to a given user
+- `use <db>;`
+  - Changes to a different database
+- `show tables;`
+  - Shows which tables are in the current DB
+- `describe <table>`
+  - Gives details about the table columns
 
 
 ## Other SQL commands
 - `drop database <db>;`
   - Deletes an entire database (and all the tables in that DB)
-- `show tables;`
-  - Shows which tables are in the current DB
-- `describe <table>`
-  - Gives details about the table columns
 - `create table <table> [...];`
   - Creates a table
+- `create database <db>;`
+  - Creates a database, which can hold an arbitrary number of tables
+- `grant [...];`
+  - Sets ('grants') permissions on a database to a given user
 
 
 ## Other SQL commands
@@ -265,7 +265,7 @@ select * from course where
   - We need to *escape* our input string
 - If our input is the same:
 ```
-'; truncate course;
+'; truncate course; -- 
 ```
 - An escaped input string would result in:
 ```

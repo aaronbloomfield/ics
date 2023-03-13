@@ -544,3 +544,5 @@ div.twitter-tweet {
 .nopad img {
   padding: 0 !important;
 }
+
+span.hotpink { color:hotpink; }
