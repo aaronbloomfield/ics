@@ -34,7 +34,7 @@ You will need a number of files from this repository to work on this assignment:
 
 - [fuzzer.py](fuzzing/fuzzer.py.html) ([src](fuzzing/fuzzer.py)): this is where you will write the code for this assignment, and the only file that will be submitted.
 - [args.py](fuzzing/args.py.html) ([src](fuzzing/args.py)) is supporting code for fuzzer.py that does the command-line argument parsing.  You should not modify this file!
-- [common.txt](fuzzing/common.txt): the word list that we will be using for testing.  The format is one word per line, with no spaces in the words.  If a space is in the URL, then `%20` (the URL representation for a space) will be used instead.
+- [common.txt](fuzzing/common.txt): the word list that we will be using for testing.  The format is one word per line, with no spaces in the words.  If a space is in the URL, then `%20` (the URL representation for a space) will be used instead; you do NOT have to replace `%20` with a space in your code.
 - [server.py](fuzzing/server.py.html) ([src](fuzzing/server.py)) code to run a mini web server on your machine for testing.
 
 
