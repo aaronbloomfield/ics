@@ -41,7 +41,7 @@
 <h1 id="ics-programming-hw-fuzzing">ICS: Programming HW: Fuzzing</h1>
 <p><a href="index.html">Go up to the ICS HW page</a> (<a href="index.md">md</a>) | <a href="hw-fuzzing-tabbed.html">view tabbed version</a></p>
 <h3 id="overview">Overview</h3>
-<p>In this assignment, you will be creating a <em>network fuzzer</em>, which is a program that will try out many different URLs to see if any exist on a web server. Given a base URL, such as <code>http://server.com/FUZZ</code>, and a word list containing many items, it will replace the string <code>FUZZ</code> with each of the words in the word list, and see if that URL exists.</p>
+<p>In this assignment, you will be creating a <em>network fuzzer</em>, which is a program that will try out many different URL variants to see if any exist on a web server. Given a base URL, such as <code>http://server.com/FUZZ</code>, and a word list containing many items, it will replace the string <code>FUZZ</code> with each of the words in the word list, and see if that URL exists.</p>
 <p>Credit: this homework is based heavily on <a href="https://github.com/kernelmethod/xfuzz/">Will Shand’s xfuzz assignment</a>.</p>
 <h4 id="background">Background</h4>
 <ul>
@@ -53,7 +53,8 @@
 <h3 id="changelog">Changelog</h3>
 <p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
 <h3 id="setup">Setup</h3>
-<p>This assignment must be done in a recent version of Python. You will want to create a virtual environment in Python: <code>virtualenv fuzzer</code>. You then enter that virtual environment; on Linux it is <code>source fuzzer/bin/activate</code>; on Windows it’s <code>...</code>. Install all the packages listed in the <a href="fuzzing/requirements.txt">requirements.txt</a> file: <code>pip install -r fuzzing/requirements.txt</code></p>
+<p>This assignment must be done in a recent version of Python. You will want to create a virtual environment in Python: <code>virtualenv fuzzer</code>. You then enter that virtual environment; on Linux it is <code>source fuzzer/bin/activate</code>; on Windows it’s (something similar).</p>
+<p>Next, install all the packages listed in the <a href="fuzzing/requirements.txt">requirements.txt</a> file via <code>pip install -r fuzzing/requirements.txt</code></p>
 <p>You will need a number of files from this repository to work on this assignment:</p>
 <ul>
 <li><a href="fuzzing/fuzzer.py.html">fuzzer.py</a> (<a href="fuzzing/fuzzer.py">src</a>): this is where you will write the code for this assignment, and the only file that will be submitted.</li>
@@ -61,41 +62,62 @@
 <li><a href="fuzzing/common.txt">common.txt</a>: the word list that we will be using for testing.</li>
 <li><a href="fuzzing/server.py.html">server.py</a> (<a href="fuzzing/server.py">src</a>) code to run a mini web server on your machine for testing.</li>
 </ul>
+<h4 id="calling-the-code">Calling the code</h4>
+<p>The provided code in args.py already handles the command line argument parsing. Run <code>python3 fuzzer.py -h</code> to see the various options. You are going to write the <code>fuzz()</code> function in fuzzer.py – the parameter passed into that function contains the parse command line arguments – you can print it to the screen during development to see how they are stored (but be sure to remove that print statement – and any others beyond what is required – before submission).</p>
 <h3 id="task-1-basic-fuzzing">Task 1: Basic fuzzing</h3>
 <p>The first task is to perform basic testing. Given a URL, such as <code>http://server.com/FUZZ</code>, you will replace <code>FUZZ</code> with each word in the word list file, and then try that URL to see if you get a response other than 404 (not found). You will do this by modifying the <code>fuzz()</code> function in the <a href="fuzzing/fuzzer.py.html">fuzzer.py</a> (<a href="fuzzing/fuzzer.py">src</a>) skeleton code. Try printing out the parameter to the function to see how the command-line arguments are passed into the function. You can see in the skeleton code how one might load a URL from a string.</p>
-<p>When you are ready to test this, read the ‘Testing’ section, below, for easy ways to test locally on your computer.</p>
+<p>When you are ready to test this, read the ‘Testing’ section, below, for easy ways to test it locally on your computer.</p>
 <h4 id="output">Output</h4>
-<p>The output for this assignment is very specific. At this point, any URL that does <em>NOT</em> return a 404 should display the output in the following EXACT format. (Note that you will modify what URLs to print later).</p>
+<p>The output for this assignment is very specific. Once you have completed the above task, any URL that does <em>NOT</em> return a 404 should display the output in the following EXACT format. (Note that you will modify what URLs to print later).</p>
+<p>For example, if you were to call the fuzzer as: <code>python3 fuzzer.py -u http://ffuf.me/cd/basic/FUZZ -w common.txt</code>, then the output would be exactly:</p>
 <pre><code>200 http://ffuf.me/cd/basic/class
 200 http://ffuf.me/cd/basic/development.log</code></pre>
-<p>This is the result of calling the fuzzer as: <code>python3 fuzzer.py -u http://ffuf.me/cd/basic/FUZZ -mc 200 -w common.txt</code></p>
-<p>Note that the output is the status number, a single space, and the URL. The order you print it out does not matter.</p>
-<p>This call to your code, with a reduced word list that contains those two values (<code>class</code> and <code>development.log</code>) will be the visible test when you submit your assignment. Other hidden tests will be used to grade your assignment.</p>
+<p>Note that the output is the status number, a single space, and the URL. The order you print it out the lines does not matter, only the content on each line.</p>
+<p>We are going to use this particular call the visible test when you submit your assignment (although we will use a smaller word list to save time, but it will contain both <code>class</code> and <code>development.log</code>). Other hidden tests will be used to grade your assignment.</p>
 <p><strong>DO NOT HAVE ANY OTHER OUTPUT!</strong> We are going to test it by doing a file comparison, so if you have any other output it will report as not the same, and you will fail that test. Again, the order of the lines in your output does not matter.</p>
 <h3 id="task-2-advanced-fuzzing">Task 2: Advanced fuzzing</h3>
 <p>There are a number of command-line parameters that the fuzzer.py file will accept. You have to implement usage of the others. You can find the via <code>python3 fuzzer.py -h</code>. The remaining ones to implement are as follows. Note that these are already parsed for you; you just have to handle when those values are in the <code>args</code> parameter to the <code>fuzz()</code> function.</p>
 <ul>
-<li><code>-e EXTENSIONS</code> or <code>--extension EXTENSIONS</code>: One or more extensions to append (e.g. php, html, etc.). Multiple extensions may be provided. So if <code>-e php</code> and <code>-e html</code> is provided, and the wordlist contains <code>hello</code> and <code>world</code>, then you should be replacing <code>FUZZ</code> with six different values: <code>hello</code>, <code>hello.php</code>, <code>hello.html</code>, <code>world</code>, <code>world.php</code>, and <code>world.html</code>. Note that adding an extension still means you try the base word as well.</li>
-<li><code>-X METHOD</code> or <code>--method METHOD</code>: HTTP method to use (GET, POST, PUT, etc.) (default: GET)</li>
-<li><code>-H HEADERS</code> or <code>--header HEADERS</code>: One or more HTTP headers to add to requests, in the form “HeaderName: HeaderValue” (e.g. “Content-Type: application/json” or “Host: FUZZ.example.com”). May be specified one or more times.</li>
-<li><code>-d DATA</code> or <code>--data DATA</code>: Data to send in the body of the HTTP request.</li>
-<li><code>-mc MATCH_CODES</code>: Match HTTP response codes. May be specified multiple times. If let unspecified, defaults to the following response codes: [200, 301, 302, 401, 403]. Previously you printed out any URLs that did not return 404 (not found). That should now be modified to print out the URLs that return one of the escape codes in this list (which is parsed for you and passed into the <code>fuzz()</code> function).</li>
+<li><code>-e EXTENSIONS</code> or <code>--extension EXTENSIONS</code>: One or more extensions to append (e.g. php, html, etc.). Multiple extensions may be provided. So if <code>-e php</code> and <code>-e html</code> is provided, and the wordlist contains <code>hello</code> and <code>world</code>, then you should be replacing <code>FUZZ</code> with six different values: <code>hello</code>, <code>hello.php</code>, <code>hello.html</code>, <code>world</code>, <code>world.php</code>, and <code>world.html</code>.
+<ul>
+<li>The value to the <code>-e</code> parameter assumes htat it will be prefixed with a period before being added to each word in the word list. So <code>-e html</code> means you will add <code>.html</code> to each word in the word list. However, note that the command line parameter inserts that period for you.</li>
+<li>Note that adding any number of extensions still means you try the base word as well. So adding <code>-e html</code> means your program will try <em>both</em> <code>alert</code> and <code>alert.html</code>.</li>
+</ul></li>
+<li><code>-X METHOD</code> or <code>--method METHOD</code>: HTTP method to use (GET, POST, or PUT) (default: GET)
+<ul>
+<li>Your code should allow both upper-case and lower-case values</li>
+<li>The provided skeleton code in <a href="fuzzing/fuzzer.py.html">fuzzer.py</a> (<a href="fuzzing/fuzzer.py">src</a>) has, as line 10: <code>async with session.get(args.url) as response:</code>. This is a GET call, and there is both a <code>put()</code> and a <code>post()</code> call as well.</li>
+<li>You can also use the <code>request()</code> method described on the <a href="https://docs.aiohttp.org/en/stable/client_reference.html">aiohttp client reference documentation</a>.</li>
+</ul></li>
+<li><code>-H HEADERS</code> or <code>--header HEADERS</code>: One or more HTTP headers to add to requests, in the form “HeaderName: HeaderValue” (e.g. “Content-Type: application/json” or “Host: FUZZ.example.com”). May be specified one or more times.
+<ul>
+<li>To see how to insert one or more headers into the request, look at the <a href="https://docs.aiohttp.org/en/stable/client_reference.html">aiohttp client reference documentation</a>.</li>
+</ul></li>
+<li><code>-d DATA</code> or <code>--data DATA</code>: Data to send in the body of the HTTP request.
+<ul>
+<li>To see how to insert the data into the request, look at the <a href="https://docs.aiohttp.org/en/stable/client_reference.html">aiohttp client reference documentation</a>.</li>
+</ul></li>
+<li><code>-mc MATCH_CODES</code>: Match HTTP response codes. May be specified multiple times. If let unspecified, defaults to the following response codes: [200, 301, 302, 401, 403]. Previously you printed out any URLs that did not return 404 (not found). That should now be modified to print out the URLs that return one of the escape codes in this list (which is parsed for you and passed into the <code>fuzz()</code> function).
+<ul>
+<li>Specifying just one response code via <code>-mc</code> will replace the default list with just that one. So <code>-mc 200</code> will not check for any of the defaults other than 200. Note that the command line argument parsing does this for you.</li>
+</ul></li>
 </ul>
+<p>When we test your code, we will never give it invalid parameters, and there will always be a <code>-u</code> parameter and a <code>-w</code> parameter. So you do not have to error-check the parameters.</p>
 <h3 id="testing">Testing</h3>
-<p>First test it locally, then test it remotely.</p>
+<p>First test it locally, then test it remotely. Both are described below.</p>
 <h4 id="local-testing">Local testing</h4>
-<p>Initially, as you are developing your code, you will want to test it out locally. One of the Python packages installed is uvicorn, which is a small Python-based web server. To run it, you first need to save the <a href="fuzzing/server.py.html">server.py</a> (<a href="fuzzing/server.py">src</a>) file. This file has a <code>urls</code> list that is the set of URLs that it will respond with a 200 (OK) to; everything else it responds with a 404 (not found).</p>
-<p>You are welcome to change the elements in that list during testing – just note that each one has to start with a forward slash. If you are running uvicorn, and you edit the server.py file, it should detect this and reload the contents.</p>
-<p>You will then run your uvicorn server as follows:</p>
+<p>Initially, as you are developing your code, you will want to test it out locally. One of the Python packages you installed is uvicorn, which is a small Python-based web server. To run it, you first need to save the <a href="fuzzing/server.py.html">server.py</a> (<a href="fuzzing/server.py">src</a>) file. This file has a <code>urls</code> list that is the set of URLs that it will respond with a 200 (OK) to; everything else it responds with a 404 (not found).</p>
+<p>You are welcome to, and will eventually have to, change the elements in that list during testing – just note that each USLS part has to start with a forward slash. If you are running uvicorn, and you edit the server.py file, it should detect this and reload the contents so that you don’t have to restart it.</p>
+<p>You will run your uvicorn server as follows:</p>
 <pre><code>uvicorn server:app --reload --port 5000</code></pre>
 <p>This runs the server on port 5000 on your computer. To test against this, you will run your fuzzer as follows:</p>
 <pre><code>python3 fuzzer.py -u http://localhost:5000/FUZZ -w common.txt</code></pre>
-<p>Following the output specifications described above, the output should be exactly as follows. Note that the order does not matter, as long as the format of each line is exact.</p>
+<p>Following the output specifications described above, the output should be exactly as follows. Note that the order of the lines does not matter, as long as the format of each line is exact.</p>
 <pre><code>200 http://localhost:5000/.gitignore
 200 http://localhost:5000/employers
 200 http://localhost:5000/~admin</code></pre>
 <h4 id="uvicorn-server.py-edits">Uvicorn server.py edits</h4>
-<p>The <a href="fuzzing/server.py.html">server.py</a> (<a href="fuzzing/server.py">src</a>) file, which is what configures the uvicorn server, will need to be modified for you to test the additional command line flags. For example, you will want to try reporting 200 (OK) on <code>alert.html</code>, to test that your <code>-e html</code> works. Likewise, you will want to test out different server status values other than 200 to ensure that your <code>-mc</code> flag works.</p>
+<p>The <a href="fuzzing/server.py.html">server.py</a> (<a href="fuzzing/server.py">src</a>) file, which is what configures the uvicorn server, will need to be modified for you to test the additional command line flags. For example, you will may to try reporting 200 (OK) on <code>alert.html</code>, to test that your <code>-e html</code> works. Likewise, you will want to test out different server status values other than 200 to ensure that your <code>-mc</code> flag works.</p>
 <h4 id="remote-testing">Remote testing</h4>
 <p>As a remote test, you can try it with the URL of http://ffuf.me/cd/basic:</p>
 <pre><code>python3 fuzzer.py http://ffuf.me/cd/basic/FUZZ -mc 200 -w common.txt </code></pre>
@@ -106,6 +128,6 @@
 <h4 id="word-lists">Word lists</h4>
 <p>As mentioned above, the word list we are using is the <a href="fuzzing/common.txt">common.txt</a> file that we provide. You can also use word lists in the <a href="https://github.com/danielmiessler/SecLists/">SecLists repository</a> repository; you will probably want to use a word list in the Discovery/Web-Content/ directory. You do not need any word lists beyond the <a href="fuzzing/common.txt">common.txt</a> file for this assignment – the additional ones are just if you are interested.</p>
 <h3 id="submission">Submission</h3>
-<p>You should only submit your fuzzer.py file to Gradescope. The only visible test will be the <code>python3 fuzzer.py http://ffuf.me/cd/basic/FUZZ -w common.txt</code> with a reduced word list (that will still contain <code>class</code> and <code>development.log</code>).</p>
+<p>You should only submit your fuzzer.py file to Gradescope. The only visible test will be the <code>python3 fuzzer.py http://ffuf.me/cd/basic/FUZZ -w common-reduced.txt</code>, where the <code>common-reduced.txt</code> file is a reduced word list (that will still contain both <code>class</code> and <code>development.log</code>).</p>
 </body>
 </html>

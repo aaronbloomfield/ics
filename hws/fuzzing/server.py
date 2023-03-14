@@ -12,7 +12,7 @@ async def app(scope, receive, send):
     assert scope['type'] == 'http'
     await send({
         'type': 'http.response.start',
-        'status': 200 if scope['path'] in urls else 404, # the only line changed from the original
+        'status': 200 if scope['path'] in urls else 404,
         'headers': [
             [b'content-type', b'text/plain'],
         ],
