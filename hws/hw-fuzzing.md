@@ -19,7 +19,9 @@ Credit: this homework is based heavily on [Will Shand's xfuzz assignment](https:
 
 ### Changelog
 
-Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
+Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  <!-- So far there aren't any significant changes to report. -->
+
+- Tue, 3/14: Clarified that there are no spaces in the words in the word list, but `%20` will be used instead.  [common.txt](fuzzing/common.txt) was updated to include all instances of a space with `%20`.
 
 
 ### Setup
@@ -32,7 +34,7 @@ You will need a number of files from this repository to work on this assignment:
 
 - [fuzzer.py](fuzzing/fuzzer.py.html) ([src](fuzzing/fuzzer.py)): this is where you will write the code for this assignment, and the only file that will be submitted.
 - [args.py](fuzzing/args.py.html) ([src](fuzzing/args.py)) is supporting code for fuzzer.py that does the command-line argument parsing.  You should not modify this file!
-- [common.txt](fuzzing/common.txt): the word list that we will be using for testing.
+- [common.txt](fuzzing/common.txt): the word list that we will be using for testing.  The format is one word per line, with no spaces in the words.  If a space is in the URL, then `%20` (the URL representation for a space) will be used instead.
 - [server.py](fuzzing/server.py.html) ([src](fuzzing/server.py)) code to run a mini web server on your machine for testing.
 
 

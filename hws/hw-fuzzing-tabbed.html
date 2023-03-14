@@ -59,7 +59,10 @@
 <li>You should have a recent version of Python, and you will need to be able to install packages, via pip, presumably in a virtual environment</li>
 </ul>
 </div><div id='tchangelog' class='tabcontent'><h3 id='changelog'>Changelog</h3>
-<p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
+<p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. </p>
+<ul>
+<li>Tue, 3/14: Clarified that there are no spaces in the words in the word list, but <code>%20</code> will be used instead. <a href='fuzzing/common.txt'>common.txt</a> was updated to include all instances of a space with <code>%20</code>.</li>
+</ul>
 </div><div id='tsetup' class='tabcontent'><h3 id='setup'>Setup</h3>
 <p>This assignment must be done in a recent version of Python. You will want to create a virtual environment in Python: <code>virtualenv fuzzer</code>. You then enter that virtual environment; on Linux it is <code>source fuzzer/bin/activate</code>; on Windows it’s (something similar).</p>
 <p>Next, install all the packages listed in the <a href='fuzzing/requirements.txt'>requirements.txt</a> file via <code>pip install -r fuzzing/requirements.txt</code></p>
@@ -67,7 +70,7 @@
 <ul>
 <li><a href='fuzzing/fuzzer.py.html'>fuzzer.py</a> (<a href='fuzzing/fuzzer.py'>src</a>): this is where you will write the code for this assignment, and the only file that will be submitted.</li>
 <li><a href='fuzzing/args.py.html'>args.py</a> (<a href='fuzzing/args.py'>src</a>) is supporting code for fuzzer.py that does the command-line argument parsing. You should not modify this file!</li>
-<li><a href='fuzzing/common.txt'>common.txt</a>: the word list that we will be using for testing.</li>
+<li><a href='fuzzing/common.txt'>common.txt</a>: the word list that we will be using for testing. The format is one word per line, with no spaces in the words. If a space is in the URL, then <code>%20</code> (the URL representation for a space) will be used instead.</li>
 <li><a href='fuzzing/server.py.html'>server.py</a> (<a href='fuzzing/server.py'>src</a>) code to run a mini web server on your machine for testing.</li>
 </ul>
 <h4 id='calling-the-code'>Calling the code</h4>
