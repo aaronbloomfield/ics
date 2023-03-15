@@ -131,7 +131,7 @@
 <p>The <a href='fuzzing/server.py.html'>server.py</a> (<a href='fuzzing/server.py'>src</a>) file, which is what configures the uvicorn server, will need to be modified for you to test the additional command line flags. For example, you will may to try reporting 200 (OK) on <code>alert.html</code>, to test that your <code>-e html</code> works. Likewise, you will want to test out different server status values other than 200 to ensure that your <code>-mc</code> flag works.</p>
 <h4 id='remote-testing'>Remote testing</h4>
 <p>As a remote test, you can try it with the URL of http://ffuf.me/cd/basic:</p>
-<pre><code>python3 fuzzer.py http://ffuf.me/cd/basic/FUZZ -mc 200 -w common.txt </code></pre>
+<pre><code>python3 fuzzer.py -u http://ffuf.me/cd/basic/FUZZ -mc 200 -w common.txt </code></pre>
 <p>The output would be:</p>
 <pre><code>200 class
 200 development.log</code></pre>

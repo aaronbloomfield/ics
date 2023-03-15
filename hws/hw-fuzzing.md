@@ -129,7 +129,7 @@ The [server.py](fuzzing/server.py.html) ([src](fuzzing/server.py)) file, which i
 As a remote test, you can try it with the URL of http://ffuf.me/cd/basic:
 
 ```
-python3 fuzzer.py http://ffuf.me/cd/basic/FUZZ -mc 200 -w common.txt 
+python3 fuzzer.py -u http://ffuf.me/cd/basic/FUZZ -mc 200 -w common.txt 
 ```
 
 The output would be:
