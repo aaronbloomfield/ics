@@ -83,6 +83,7 @@ There are a number of command-line parameters that the fuzzer.py file will accep
 	- To see how to insert one or more headers into the request, look at the [aiohttp client reference documentation](https://docs.aiohttp.org/en/stable/client_reference.html).
 - `-d DATA` or `--data DATA`: Data to send in the body of the HTTP request.
 	- To see how to insert the data into the request, look at the [aiohttp client reference documentation](https://docs.aiohttp.org/en/stable/client_reference.html).
+	- To see how to read it from uvicorn, look [here](https://www.uvicorn.org/) -- specifically, look at the `read_body()` function, which is called (in the `app()` function in server.py) as `body = await read_body(receive)`.
 - `-mc MATCH_CODES`: Match HTTP response codes. May be specified multiple times. If let unspecified, defaults to the following response codes: [200, 301, 302, 401, 403].  Previously you printed out any URLs that did not return 404 (not found).  That should now be modified to print out the URLs that return one of the escape codes in this list (which is parsed for you and passed into the `fuzz()` function).
 	- Specifying just one response code via `-mc` will replace the default list with just that one.  So `-mc 200` will not check for any of the defaults other than 200.  Note that the command line argument parsing does this for you.
 
