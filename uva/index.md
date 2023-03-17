@@ -85,8 +85,8 @@ Course calendar
 | 5  | Feb 13 | M,W,F  | RSA               | [Encryption](../slides/encryption.html#/) | Mon: encryption to 7.14; Wed: encryption to 8.20; Fri: finished encryption, networks to 3.9 |
 | 6  | Feb 20 | M,W,F  | Hashing           | [Networking Overview](../slides/networks.html#/), [Web Security](../slides/web-security.html#/) | Mon: networks to 4.9; Wed: finished networks, web security to 4.3; Fri: web security to 6.8 |
 | 7  | Feb 27 | M,W,F  | (midterm week)    | [Web Security](../slides/web-security.html#/), midterm | Mon: web security to 7.11; Wed: midterm; Fri: finished web security |
-|    | Mar 6  | (none) | (none)            | (spring break)  | Mon: sql/xss/csrf to 5.8 |
-| 8  | Mar 13 | M,W,F  | (none)            | [SQL, XSS, and CSRF](../slides/sql-xss-csrf.html#/), [Cryptocurrency](../slides/cryptocurrency.html#/) | |
+|    | Mar 6  | (none) | (none)            | (spring break)  | |
+| 8  | Mar 13 | M,W,F  | (none)            | [SQL, XSS, and CSRF](../slides/sql-xss-csrf.html#/), [Cryptocurrency](../slides/cryptocurrency.html#/) | Mon: sql/xss/csrf to 5.8; Wed: finished sql/xss/csrf (recording); Fri: started and finished virtual machines (recording) |
 | 9  | Mar 20 | M,W,F  | Network fuzzing   | [Cryptocurrency](../slides/cryptocurrency.html#/), [Anonymity](../slides/anonymity.html#/) | |
 | 10 | Mar 27 | M,W,F  | SQL/XSS/CSRF      | [Rootkits](../slides/rootkits.html#/), [Stuxnet](../slides/stuxnet.html#/) | |
 | 11 | Apr 3  | M,W,F  | Cryptocurrency    | [Viruses](../slides/viruses.html#/)| |
