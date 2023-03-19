@@ -136,8 +136,8 @@ python3 fuzzer.py -u http://ffuf.me/cd/basic/FUZZ -mc 200 -w common.txt
 The output would be:
 
 ```
-200 class
-200 development.log
+200 http://ffuf.me/cd/basic/class
+200 http://ffuf.me/cd/basic/development.log
 ```
 
 Please do ***NOT*** try it out against any other machines, as ITS will get very cranky at you for doing so.

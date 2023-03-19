@@ -134,8 +134,8 @@
 <p>As a remote test, you can try it with the URL of http://ffuf.me/cd/basic:</p>
 <pre><code>python3 fuzzer.py -u http://ffuf.me/cd/basic/FUZZ -mc 200 -w common.txt </code></pre>
 <p>The output would be:</p>
-<pre><code>200 class
-200 development.log</code></pre>
+<pre><code>200 http://ffuf.me/cd/basic/class
+200 http://ffuf.me/cd/basic/development.log</code></pre>
 <p>Please do <strong><em>NOT</em></strong> try it out against any other machines, as ITS will get very cranky at you for doing so.</p>
 <h4 id='word-lists'>Word lists</h4>
 <p>As mentioned above, the word list we are using is the <a href='fuzzing/common.txt'>common.txt</a> file that we provide. You can also use word lists in the <a href='https://github.com/danielmiessler/SecLists/'>SecLists repository</a> repository; you will probably want to use a word list in the Discovery/Web-Content/ directory. You do not need any word lists beyond the <a href='fuzzing/common.txt'>common.txt</a> file for this assignment – the additional ones are just if you are interested.</p>
