@@ -8,15 +8,16 @@ ICS: Programming Homework: SQL, CSRF, and XSS
 
 There are three parts to this assignment.  As part of this assignment, you will have to create a document, called `mst3k-websecurity.pdf` (where mst3k is your userid), and submit that file.  We aren't looking for any fancy write-up - just an explanation of what you did, and the results you got.  That being said, it should be legible.  So make sure you indicate what answers are for what questions, etc.
 
-Your final report should be a PDF file.  It need not be long, but it must answer the questions posed below.
+Your final report should be a PDF file.  It need not be long, but it must answer the questions posed below.  However, it must be EXACTLY three pages, which each of the three parts on its own page (SQL on page 1, XSS on page 2, and CSRF on page 3).
 
 
 ### Part 1: SQL Injection Attack
 
 First, you should be familiar with SQL and SQL injection attacks.  For review, look at the first half of the [SQL, XSS, and CSRF slide set](../slides/sql-xss-csrf.html#/).
 
+I've already determined your grades for this part!  And you all got an F.  So sorry!  Those grades have been stored in a database.  Whatever grade is in that database at the end of this assignment is your grade for htis part.
 
-View the page at [https://libra.cs.virginia.edu/~insecure/sqlinjection.php](https://libra.cs.virginia.edu/~insecure/sqlinjection.php) - note that you will have to log in via Netbadge to view this page.  From this page, you will need to execute an SQL injection attack.  Note that the only confidential data in that database is the names and userids of the participants, and all of that information is considered "public" knowledge to the participants of the course (FERPA allows release of names; all students in this course are in the [UVa LDAP server](http://www.virginia.edu/cgi-local/ldapweb?asb2t), and the ID numbers were randomly generated).
+View SQL injection attack web page, the URL of which is shown on the Canvas landing page - note that you will have to log in via Netbadge to view this page.  From this page, you will need to execute an SQL injection attack.  Note that the only confidential data in that database is the names and userids of the participants, and all of that information is considered "public" knowledge to the participants of the course (FERPA allows release of names; all students in this course are in the [UVa LDAP server](http://www.virginia.edu/cgi-local/ldapweb?asb2t), and the ID numbers were randomly generated).
 
 Your task is to execute at least two SQL injection attacks using this page.  The first is a read-only attack, and from it you must obtain a piece of hidden information that is not otherwise displayed from the script.  For the second, you must make a modification to **your entry** in the table.  What modification you make is up to you.  However, the grade listed in the DB after this assignment is completed will be the grade you receive on this part of the assignment.
 
@@ -35,13 +36,13 @@ Honor pledge details: you are given permission to execute an SQL injection attac
 
 Lastly, please note that all entries are logged (and are not logged in the DB!).  Thus, if the DB is later erased, we can verify that you did (or did not!) properly execute the SQL injection attack.
 
-### Part 2: Cross-site Scripting (XSS) Attack
+### Part 2: Cross-site Scripting Attack
 
 **NOTE:** Some modern browsers have anti-XSS capability built in that prevents this type of attack.  So if things are working, try a different browser.  Chrome, in particular, does not work well with this type of attack, but Firefox is fine.
 
 First, you should be familiar with Javascript and cross-site scripting attacks.  For review, look at the the [SQL, XSS, and CSRF slide set](../slides/sql-xss-csrf.html#/) slide set.
 
-View the page at [https://libra.cs.virginia.edu/~insecure/xss.php](https://libra.cs.virginia.edu/~insecure/xss.php) - again, you will have to log in via Netbadge to view that page.  From this page, you will need to execute multiple XSS attacks, described below.  Also note that the the account number (which you will need to obtain) is a randomly set number - it is set the first time you access the page, stored in a cookie, and not changed again.  But if you try it from a different computer, you will see a separate account number.
+View XSS attack web page, the URL of which is shown on the Canvas landing page - again, you will have to log in via Netbadge to view that page.  From this page, you will need to execute multiple XSS attacks, described below.  Also note that the the account number (which you will need to obtain) is a randomly set number - it is set the first time you access the page, stored in a cookie, and not changed again.  But if you try it from a different computer, you will see a separate account number.
 
 There are six XSS attacks that you must do against this page.  While it seems like a lot, it's really only three separate XSS attacks, and one of them is exactly from the slide set.  So, really, you just have two XSS attacks to perform.
 
@@ -70,9 +71,9 @@ A few notes:
 
 Honor pledge details: you are given permission to execute XSS attacks against this particular URL for this assignment.
 
-### Part 3 Cross-site Request Forgery (CSRF) Attack
+### Part 3 Cross-site Request Forgery Attack
 
-View the page at [https://libra.cs.virginia.edu/~insecure/csrf.php](https://libra.cs.virginia.edu/~insecure/csrf.php) - again, you will have to log in via Netbadge to view that page.  From this page, you will need to execute multiple CSRF attacks, described below.
+View CSRF attack web page, the URL of which is shown on the Canvas landing page - again, you will have to log in via Netbadge to view that page.  From this page, you will need to execute multiple CSRF attacks, described below.
 
 Your goal is to transfer $200 to 'mallory' via that URL.  This must be done two ways: 
 
@@ -86,5 +87,7 @@ In your write-up, show the two URLs used (for the two GET attacks), and the two 
 Honor pledge details: you are given permission to execute CSRF attacks against this particular URL for this assignment.
 
 ### Submission
+
+Your assignment PDF must be EXACTLY three pages, which each of the three parts on its own page (SQL on page 1, XSS on page 2, and CSRF on page 3).
 
 You should submit a file called `mst3k-websecurity.pdf`, where mst3k is your userid.  Answers to all the above questions should be in that file.

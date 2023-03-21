@@ -12,7 +12,7 @@ Homeworks that are ~~struck out~~ are not being assigned in the spring of 2023.
 - [Programming homework: Forensics](hw-forensics.html) ([md](hw-forensics.md))
 - [Programming homework: Rootkits](hw-rootkits.html) ([md](hw-rootkits.md))
 - [Programming homework: Cryptocurrency](hw-cryptocurrency.html) ([md](hw-cryptocurrency.md))
-- [Programming homework: SQL, XSS, & CSRF](hw-sql-xss-csrf.html) ([md](hw-sql-xss-csrf.md))
+- [Programming homework: SQL, XSS, & CSRF](hw-sql-xss-csrf-tabbed.html) ([one-page version](hw-sql-xss-csrf.html), [md](hw-sql-xss-csrf.md))
 - [Programming homework: Fuzzing](hw-fuzzing-tabbed.html) ([one-page version](hw-fuzzing.html), [md](hw-fuzzing.md))
 - ~~[Programming homework: Networks](hw-networks.html) ([md](hw-networks.md))~~
 - [Programming homework: Buffer Overflow](hw-buffer.html) ([md](hw-buffer.md))
