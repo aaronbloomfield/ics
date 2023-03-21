@@ -112,6 +112,8 @@ This runs the server on port 5000 on your computer.  To test against this, you w
 python3 fuzzer.py -u http://localhost:5000/FUZZ -w common.txt
 ```
 
+Note: it may be that your computer needs to use `http://127.0.0.1:5000/FUZZ` instead.
+
 Following the output specifications described above, the output should be exactly as follows.  Note that the order of the lines does not matter, as long as the format of each line is exact.
 
 ```

@@ -116,6 +116,7 @@
 <pre><code>uvicorn server:app --reload --port 5000</code></pre>
 <p>This runs the server on port 5000 on your computer. To test against this, you will run your fuzzer as follows:</p>
 <pre><code>python3 fuzzer.py -u http://localhost:5000/FUZZ -w common.txt</code></pre>
+<p>Note: it may be that your computer needs to use <code>http://127.0.0.1:5000/FUZZ</code> instead.</p>
 <p>Following the output specifications described above, the output should be exactly as follows. Note that the order of the lines does not matter, as long as the format of each line is exact.</p>
 <pre><code>200 http://localhost:5000/.gitignore
 200 http://localhost:5000/employers
