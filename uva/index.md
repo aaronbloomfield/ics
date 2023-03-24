@@ -87,7 +87,7 @@ Course calendar
 | 7  | Feb 27 | M,W,F  | (midterm week)    | [Web Security](../slides/web-security.html#/), midterm | Mon: web security to 7.11; Wed: midterm; Fri: finished web security |
 |    | Mar 6  | (none) | (none)            | (spring break)  | |
 | 8  | Mar 13 | M,W,F  | (none)            | [SQL, XSS, and CSRF](../slides/sql-xss-csrf.html#/), [Cryptocurrency](../slides/cryptocurrency.html#/) | Mon: sql/xss/csrf to 5.8; Wed: finished sql/xss/csrf (recording); Fri: started and finished virtual machines (recording) |
-| 9  | Mar 20 | M,W,F  | Network fuzzing   | [Cryptocurrency](../slides/cryptocurrency.html#/), [Anonymity](../slides/anonymity.html#/) | Mon: cryptocurrency to 5.4; Wed: finished cryptocurrency |
+| 9  | Mar 20 | M,W,F  | Network fuzzing   | [Cryptocurrency](../slides/cryptocurrency.html#/), [Anonymity](../slides/anonymity.html#/) | Mon: cryptocurrency to 5.4; Wed: finished cryptocurrency; Fri: anonymity to 6.4 |
 | 10 | Mar 27 | M,W,F  | SQL/XSS/CSRF      | [Rootkits](../slides/rootkits.html#/), [Stuxnet](../slides/stuxnet.html#/) | |
 | 11 | Apr 3  | M,W,F  | Cryptocurrency    | [Viruses](../slides/viruses.html#/)| |
 | 12 | Apr 10 | M,W,F  | (new HW)          | [Buffer Overflows](../slides/buffer-overflows.html#/), guest lecture (Wed) | |
