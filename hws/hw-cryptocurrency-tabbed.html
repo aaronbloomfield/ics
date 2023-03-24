@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns='http://www.w3.org/1999/xhtml' lang='' xml:lang=''>
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta charset='utf-8'></meta>
+  <meta name='generator' content='pandoc'></meta>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=yes'></meta>
   <title>ICS: Programming Homework: Cryptocurrency</title>
   <style>
     code{white-space: pre-wrap;}
@@ -13,7 +13,7 @@
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
   </style>
-  <link rel="stylesheet" href="../markdown.css" />
+  <link rel='stylesheet' href='../markdown.css'></link>
   <script>
   function openTab(evt, tabName) {
     // Declare all variables
@@ -38,28 +38,38 @@
   </script>
 </head>
 <body>
-<h1 id="ics-programming-homework-cryptocurrency">ICS: Programming Homework: Cryptocurrency</h1>
-<p><a href="index.html">Go up to the ICS HW page</a> (<a href="index.md">md</a>) | <a href="hw-cryptocurrency-tabbed.html">view tabbed version</a></p>
-<h3 id="overview">Overview</h3>
+<h1 id='ics-programming-homework-cryptocurrency'>ICS: Programming Homework: Cryptocurrency</h1>
+<p><a href='index.html'>Go up to the ICS HW page</a> (<a href='index.md'>md</a>) | <a href='hw-cryptocurrency.html'>view one-page version</a></p><div class='tab'>
+<button class='tablinks' onclick="openTab(event,'toverview')" id='defaultOpen'>Overview</button>
+<button class='tablinks' onclick="openTab(event,'tchangelog')">Changelog</button>
+<button class='tablinks' onclick="openTab(event,'tlanguages')">Languages</button>
+<button class='tablinks' onclick="openTab(event,'tfile-format')">File Format</button>
+<button class='tablinks' onclick="openTab(event,'trequirements')">Requirements</button>
+<button class='tablinks' onclick="openTab(event,'tother-files')">Other Files</button>
+<button class='tablinks' onclick="openTab(event,'tsample-execution')">Sample Execution</button>
+<button class='tablinks' onclick="openTab(event,'tnotes')">Notes</button>
+<button class='tablinks' onclick="openTab(event,'tsubmission')">Submission</button>
+</div>
+<div id='toverview' class='tabcontent'><h3 id='overview'>Overview</h3>
 <p>You must design and implement your own cryptocurrency! Your implementation must be secure enough that you could actually use it.</p>
-<p>Your cryptocurrency should have a name – ideally, think of a neat name, but make sure it is <a href="https://coinmarketcap.com/">not already taken</a>. It will have to use public/private key encryption to generate the wallets. You do not have to use symmetric encryption (such as AES) to protect the private key in the wallet. You will need to use a good hashing algorithm. In practice, SHA-256 would be the minimum, but you can use a shorter SHA hash for this assignment.</p>
+<p>Your cryptocurrency should have a name – ideally, think of a neat name, but make sure it is <a href='https://coinmarketcap.com/'>not already taken</a>. It will have to use public/private key encryption to generate the wallets. You do not have to use symmetric encryption (such as AES) to protect the private key in the wallet. You will need to use a good hashing algorithm. In practice, SHA-256 would be the minimum, but you can use a shorter SHA hash for this assignment.</p>
 <p>The intent is <strong>not</strong> for you to write the hashing or encryption / decryption routines – use existing libraries for that. In particular, both Java and Python can do that for you. Be careful about requiring an uncommon Python module or Java library, as it has to run on the submission server.</p>
 <p>If you want to use a programming language not already provided in this assignment, please contact the course instructor at least two days before the due date.</p>
-<p>This assignment is based on the material covered in the <a href="../slides/cryptocurrency.html#/">Cryptocurrency</a> slide set; you will need to be familiar with that material to complete this assignment.</p>
-<h3 id="changelog">Changelog</h3>
+<p>This assignment is based on the material covered in the <a href='../slides/cryptocurrency.html#/'>Cryptocurrency</a> slide set; you will need to be familiar with that material to complete this assignment.</p>
+</div><div id='tchangelog' class='tabcontent'><h3 id='changelog'>Changelog</h3>
 <p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
-<h3 id="languages">Languages</h3>
+</div><div id='tlanguages' class='tabcontent'><h3 id='languages'>Languages</h3>
 <p>You may use any programming language for this, but if you want to use a language other than Java or Python, please check with us first so that we can enable it on the submission server. You have to let us know at least two days before the assignment is due so we have time to configure it.</p>
 <p>For Java and Python, we provide you with the code to convert a hex string to an array of bytes, to convert an array of bytes to a hex string, getting the SHA-256 hash of a file, and to read and write RSA keys. For Java, that is in the form of methods that you can use. For Python, it is links to the library functions that performs those tasks.</p>
-<p><strong>Python:</strong> you have to use Python 3 for this. We will install the <a href="https://pypi.org/project/rsa/">rsa</a> package; the documentation for that library, including code examples, is <a href="https://stuvel.eu/rsa">here</a>. Some of these functions will require you to encode your message as ASCII (it gives ‘Unicode-objects must be encoded before hashing’ message otherwise) – just call <code>.encode('ascii')</code> on the string first. Encoding from a byte array to a string is done via the <a href="https://docs.python.org/3/library/binascii.html">binascii</a> library. Hashes in Python are in <a href="https://docs.python.org/3/library/hashlib.html">hashlib</a>, which is part of the Python installation. To take the SHA-256 hash of a file, see <a href="https://stackoverflow.com/a/44873382">this code on stack overflow</a>. You can see some example code in the <a href="sample.py">sample.py</a> (<a href="sample.py.html">html</a>) file we have provided for you to use; you can copy that code as-is into your homework solution, if you want. You can see <a href="https://www.tutorialspoint.com/python/python_command_line_arguments.htm">here</a> for how to use command-line arguments.</p>
-<p><strong>Java:</strong> RSA and SHA are already in the standard Java library; you can look <a href="https://www.devglan.com/java8/rsa-encryption-decryption-java">here</a> for how to handle RSA in Java, and see the <a href="https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html">MessageDigest class</a> for SHA (and the example <a href="https://www.baeldung.com/sha-256-hashing-java">here</a>). An example about how to sign a message can be found <a href="https://niels.nu/blog/2016/java-rsa.html">here</a>. You may use any of the code on those pages for your program. Note that the Java version on the submission server is OpenJDK 1.11. We provide some methods in the <a href="Sample.java">Sample.java</a> (<a href="Sample.java.html">html</a>) file we have provided for you to use; you can copy that code as-is into your homework solution, if you want.</p>
-<!-- **C/C++:** Boost is installed, as well as the openssl library.  There are many great things about C and C++, but be careful if you pursue this langage -- we think this will give you a real headache if you try to implement it in C or C++.  The compiler is `gcc` or `g++`. -->
-<h3 id="file-format">File format</h3>
+<p><strong>Python:</strong> you have to use Python 3 for this. We will install the <a href='https://pypi.org/project/rsa/'>rsa</a> package; the documentation for that library, including code examples, is <a href='https://stuvel.eu/rsa'>here</a>. Some of these functions will require you to encode your message as ASCII (it gives ‘Unicode-objects must be encoded before hashing’ message otherwise) – just call <code>.encode('ascii')</code> on the string first. Encoding from a byte array to a string is done via the <a href='https://docs.python.org/3/library/binascii.html'>binascii</a> library. Hashes in Python are in <a href='https://docs.python.org/3/library/hashlib.html'>hashlib</a>, which is part of the Python installation. To take the SHA-256 hash of a file, see <a href='https://stackoverflow.com/a/44873382'>this code on stack overflow</a>. You can see some example code in the <a href='sample.py'>sample.py</a> (<a href='sample.py.html'>html</a>) file we have provided for you to use; you can copy that code as-is into your homework solution, if you want. You can see <a href='https://www.tutorialspoint.com/python/python_command_line_arguments.htm'>here</a> for how to use command-line arguments.</p>
+<p><strong>Java:</strong> RSA and SHA are already in the standard Java library; you can look <a href='https://www.devglan.com/java8/rsa-encryption-decryption-java'>here</a> for how to handle RSA in Java, and see the <a href='https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html'>MessageDigest class</a> for SHA (and the example <a href='https://www.baeldung.com/sha-256-hashing-java'>here</a>). An example about how to sign a message can be found <a href='https://niels.nu/blog/2016/java-rsa.html'>here</a>. You may use any of the code on those pages for your program. Note that the Java version on the submission server is OpenJDK 1.11. We provide some methods in the <a href='Sample.java'>Sample.java</a> (<a href='Sample.java.html'>html</a>) file we have provided for you to use; you can copy that code as-is into your homework solution, if you want.</p>
+
+</div><div id='tfile-format' class='tabcontent'><h3 id='file-format'>File format</h3>
 <p><strong>Blockchain</strong></p>
 <p>The blockchain will be in files named <code>block_0.txt</code>, <code>block_1.txt</code>, etc. The zeroth block (<code>block_0.txt</code>) will be the genesis block, and will not have any actual transactions in it. Each successive block after the genesis block will be of the following format:</p>
 <ul>
 <li>Line 1 will be the hash of the previous block</li>
-<li>Lines 2 to <span class="math inline"><em>n</em></span>-1 will each hold a transaction line (which is <em>not</em> the same as a transaction statement), one per line; these will be of the form <code>S transferred x to D on w</code>, where <span class="math inline"><em>S</em></span> is the source wallet, <span class="math inline"><em>D</em></span> is the destination wallet, <span class="math inline"><em>x</em></span> is the integer amount to transfer, and <span class="math inline"><em>w</em></span> is the date. The date can be any format you would like, as long as it has the date and time (with seconds), but it must be human readable (so no UNIX timestamps). In Java, <code>new Date()</code> will achieve this; in Python 3, <code>str(datetime.now())</code> will do the same.</li>
+<li>Lines 2 to <span class='math inline'><em>n</em></span>-1 will each hold a transaction line (which is <em>not</em> the same as a transaction statement), one per line; these will be of the form <code>S transferred x to D on w</code>, where <span class='math inline'><em>S</em></span> is the source wallet, <span class='math inline'><em>D</em></span> is the destination wallet, <span class='math inline'><em>x</em></span> is the integer amount to transfer, and <span class='math inline'><em>w</em></span> is the date. The date can be any format you would like, as long as it has the date and time (with seconds), but it must be human readable (so no UNIX timestamps). In Java, <code>new Date()</code> will achieve this; in Python 3, <code>str(datetime.now())</code> will do the same.</li>
 <li>The last line will have the nonce, which is determined when the block is mined</li>
 </ul>
 <p>When generating the next block, you can assume that the previous block file exists. This means that we will generate the genesis block <code>block_0.txt</code> from the <code>genesis</code> command (below) before validating the first block.</p>
@@ -94,12 +104,12 @@ Date: Tue Apr 02 23:09:13 EDT 2019
 <p>Note that the result of a <code>fund</code> command, which comes from “bigfoot” (or whatever you call your source of funds in your cryptocurrency), then there will likely not be a signature line at the bottom of the transaction line. We describe “bigfoot”, and the <code>fund</code> command, below.</p>
 <p><strong>Wallet tag versus wallet file</strong></p>
 <p>A wallet is a public / private key set. When signing a transaction, or checking a signature, then the full wallet file name will have to be provided as a command line parameter. A wallet <em>tag</em> is a shortened version of the hash of the public key from the wallet file. For our purposes, we should take the SHA-256 hash of the public key, and use that. However, that’s a bit long, so we can use only the first 16 characters of that hash for brevity.</p>
-<h3 id="requirements">Requirements</h3>
+</div><div id='trequirements' class='tabcontent'><h3 id='requirements'>Requirements</h3>
 <p>Since this can be done in any programming language, you will have to write a shell script (described below) so that we can call your code. While the shell script is described below, the particular function – called the mode – to be implemented is <code>shown like this</code> in the requirements below. That function will be the first command line parameter provided to the program, and any additional command line parameters are specified below. For example, to generate a wallet, you might call <code>java CMoney generate wallet.txt</code> or <code>python3 cmoney.py generate wallet.txt</code>. We are going to be using the same command-line parameters (here, <code>generate wallet.txt</code>) to both your source code and the shell script.</p>
 <p><strong>Output:</strong> Each command below should print out EXACTLY ONE LINE to standard output indicating the success (or failure) of the command. This assignment is going to be auto-graded, so if you provide more than one line, it will mark your code as wrong even if you perform the function correctly.</p>
 <p>For the examples below, we assume that your code is in a <code>CMoney</code> Java class or a <code>cmoney.py</code> Python file, but you can name it anything you want.</p>
 <p>The requirements are:</p>
-<ol type="1">
+<ol type='1'>
 <li>Print the name of the cryptocurrency (<code>name</code>). This is the name from the Overview section, above. There are no additional command line parameters to this function.
 <ul>
 <li>Example usages: <code>java CMoney name</code> and <code>python3 cmoney.py name</code></li>
@@ -188,8 +198,8 @@ Date: Tue Apr 02 23:09:13 EDT 2019
 <li><code>address</code> outputs only the hash (or part thereof) of the wallet</li>
 </ul>
 <p>All other commands can print any reasonable (one-line) line of output. Note that this output is in separate from any files created.</p>
-<h3 id="other-files">Other files</h3>
-<h4 id="shell-script">Shell script</h4>
+</div><div id='tother-files' class='tabcontent'><h3 id='other-files'>Other files</h3>
+<h4 id='shell-script'>Shell script</h4>
 <p>Since different programming languages can be used, and you may name your file differently, we are going to have you submit a shell script called <code>cryptomoney.sh</code> that we will use to test your code. All it does is pass the command-line parameters on to your program. If you are using Python, then your shell script would look like the following:</p>
 <pre><code>#!/bin/bash
 python3 cmoney.py $@</code></pre>
@@ -199,7 +209,7 @@ python3 cmoney.py $@</code></pre>
 java CMoney $@</code></pre>
 <p>Change <code>CMoney</code> to the name of your <code>public</code> Java class.</p>
 <p>Save the two lines above to a text file called <code>cryptomoney.sh</code>; change the name of the file as appropriate to your code. Then run <code>chmod 755 cryptomoney.sh</code>. You should then be able to run your program through the shell script. Examples of how to call the shell script are given below, but it uses the same command line parameters described above.</p>
-<h4 id="makefile">Makefile</h4>
+<h4 id='makefile'>Makefile</h4>
 <p>Separately from the shell script, you will also need a Makefile. This will allow your program to be compiled prior to execution (if your program needs compilation). For languages that do not need compilation (such as Python), just put in a single <code>echo</code> statement so that <code>make</code> still runs properly.</p>
 <p>If you are using Python, your Makefile will look like the following:</p>
 <pre><code>main:
@@ -209,39 +219,39 @@ java CMoney $@</code></pre>
 <pre><code>main:
      javac CMoney.java</code></pre>
 <p>Note that the indentation is a tab, not spaces! Makefiles are very strict on that. And change the Java file name as appropriate for your source code.</p>
-<h3 id="sample-execution">Sample execution</h3>
-<p>This is just meant to show the syntax – it is not meant to be a full fledged testing suite of your homework. However, it does call each of the commands listed above, and makes the calls via the shell script. Note that the lines with the equals signs are setting shell variables to be used later on. The commands used here are in the <a href="basic-test.sh">basic-test.sh</a> (<a href="basic-test.sh.html">html</a>) script. Note that you will have to run <code>chmod 755 basic-test.sh</code> before you can run the shell script. You would run it as: <code>./basic-test.sh</code>. Also note that this shell script takes the SHA-256 sum of one of the block files via the <code>sha256sum</code> command – if you don’t have this command on your computer, you can remove that line.</p>
-<p><strong><em>NOTE:</em></strong> We provide these commands in the <a href="basic-test.sh">basic-test.sh</a> (<a href="basic-test.sh.html">html</a>) script above! No need to cut-and-paste.</p>
+</div><div id='tsample-execution' class='tabcontent'><h3 id='sample-execution'>Sample execution</h3>
+<p>This is just meant to show the syntax – it is not meant to be a full fledged testing suite of your homework. However, it does call each of the commands listed above, and makes the calls via the shell script. Note that the lines with the equals signs are setting shell variables to be used later on. The commands used here are in the <a href='basic-test.sh'>basic-test.sh</a> (<a href='basic-test.sh.html'>html</a>) script. Note that you will have to run <code>chmod 755 basic-test.sh</code> before you can run the shell script. You would run it as: <code>./basic-test.sh</code>. Also note that this shell script takes the SHA-256 sum of one of the block files via the <code>sha256sum</code> command – if you don’t have this command on your computer, you can remove that line.</p>
+<p><strong><em>NOTE:</em></strong> We provide these commands in the <a href='basic-test.sh'>basic-test.sh</a> (<a href='basic-test.sh.html'>html</a>) script above! No need to cut-and-paste.</p>
 <pre><code>$ ./cryptomoney.sh name
 AaronDollar(TM)
 $ ./cryptomoney.sh genesis
-Genesis block created in &#39;block_0.txt&#39;
+Genesis block created in 'block_0.txt'
 $ ./cryptomoney.sh generate alice.wallet.txt
-New wallet generated in &#39;alice.wallet.txt&#39; with tag e1f3ec14abcb45da
+New wallet generated in 'alice.wallet.txt' with tag e1f3ec14abcb45da
 $ export alice=`./cryptomoney.sh address alice.wallet.txt`
 $ echo alice.wallet.txt wallet tag: $alice
 alice.wallet.txt wallet tag: e1f3ec14abcb45da
 $ ./cryptomoney.sh fund $alice 100 01-alice-funding.txt
 Funded wallet e1f3ec14abcb45da with 100 AaronDollars on Tue Apr 02 23:08:59 EDT 2019
 $ ./cryptomoney.sh generate bob.wallet.txt
-New wallet generated in &#39;bob.wallet.txt&#39; with tag d96b71971fbeec39
+New wallet generated in 'bob.wallet.txt' with tag d96b71971fbeec39
 $ export bob=`./cryptomoney.sh address bob.wallet.txt`
 $ echo bob.wallet.txt wallet tag: $bob
 bob.wallet.txt wallet tag: d96b71971fbeec39
 $ ./cryptomoney.sh fund $bob 100 02-bob-funding.txt
 Funded wallet d96b71971fbeec39 with 100 AaronDollars on Tue Apr 02 23:09:00 EDT 2019
 $ ./cryptomoney.sh transfer alice.wallet.txt $bob 12 03-alice-to-bob.txt
-Transferred 12 from alice.wallet.txt to d96b71971fbeec39 and the statement to &#39;03-alice-to-bob.txt&#39; on Tue Apr 02 23:09:00 EDT 2019
+Transferred 12 from alice.wallet.txt to d96b71971fbeec39 and the statement to '03-alice-to-bob.txt' on Tue Apr 02 23:09:00 EDT 2019
 $ ./cryptomoney.sh transfer bob.wallet.txt $alice 2 04-bob-to-alice.txt
-Transferred 2 from bob.wallet.txt to e1f3ec14abcb45da and the statement to &#39;04-bob-to-alice.txt&#39; on Tue Apr 02 23:09:01 EDT 2019
+Transferred 2 from bob.wallet.txt to e1f3ec14abcb45da and the statement to '04-bob-to-alice.txt' on Tue Apr 02 23:09:01 EDT 2019
 $ ./cryptomoney.sh verify alice.wallet.txt 01-alice-funding.txt
 Any funding request (i.e., from bigfoot) is considered valid; written to the mempool
 $ ./cryptomoney.sh verify bob.wallet.txt 02-bob-funding.txt
 Any funding request (i.e., from bigfoot) is considered valid; written to the mempool
 $ ./cryptomoney.sh verify alice.wallet.txt 03-alice-to-bob.txt
-The transaction in file &#39;03-alice-to-bob.txt&#39; with wallet &#39;alice.wallet.txt&#39; is valid, and was written to the mempool
+The transaction in file '03-alice-to-bob.txt' with wallet 'alice.wallet.txt' is valid, and was written to the mempool
 $ ./cryptomoney.sh verify bob.wallet.txt 04-bob-to-alice.txt
-The transaction in file &#39;04-bob-to-alice.txt&#39; with wallet &#39;bob.wallet.txt&#39; is valid, and was written to the mempool
+The transaction in file '04-bob-to-alice.txt' with wallet 'bob.wallet.txt' is valid, and was written to the mempool
 $ cat mempool.txt
 bigfoot transferred 100 to e1f3ec14abcb45da on Tue Apr 02 23:09:01 EDT 2019
 bigfoot transferred 100 to d96b71971fbeec39 on Tue Apr 02 23:09:01 EDT 2019
@@ -258,7 +268,7 @@ $ sha256sum block_1.txt
 $ ./cryptomoney.sh validate
 True
 $</code></pre>
-<h3 id="notes">Notes</h3>
+</div><div id='tnotes' class='tabcontent'><h3 id='notes'>Notes</h3>
 <p>There are a number of assumptions you can make for your code:</p>
 <ul>
 <li>We will always provide the proper parameters to the shell script – both the number, order, and validity of the parameters can be assumed to be correct.</li>
@@ -266,12 +276,13 @@ $</code></pre>
 <li>The block_0.txt file will exist before any calls to <code>verify</code>, <code>validate</code>, <code>mine</code>, or <code>balance</code>; however, the mempool.txt file may not yet exist.</li>
 <li>All numerical values provided for the cryptocurrency amounts – this is for the <code>balance</code> and <code>fund</code> modes – will only be integers; floating point numbers are not being used in this assignment.</li>
 </ul>
-<h3 id="submission">Submission</h3>
+</div><div id='tsubmission' class='tabcontent'><h3 id='submission'>Submission</h3>
 <p>You will submit exactly three files for this assignment:</p>
-<ol type="1">
+<ol type='1'>
 <li>Your source code file. All your code must be in a single source code file. We realize that a Java file may compile to multiple .class files, which is fine. As mentioned above, if you want to use a language other than Java or Python, please check with us first.</li>
 <li><code>cryptomoney.sh</code>: the shell script, described above.</li>
 <li><code>Makefile</code>: as described above</li>
 </ol>
-</body>
+</div><script>document.getElementById('defaultOpen').click();</script></body>
 </html>
+
