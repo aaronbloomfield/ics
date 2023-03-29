@@ -216,7 +216,7 @@ Note that the indentation is a tab, not spaces!  Makefiles are very strict on th
 
 ### Sample execution
 
-This is just meant to show the syntax -- it is not meant to be a full fledged testing suite of your homework.  However, it does call each of the commands listed above, and makes the calls via the shell script. Note that the lines with the equals signs are setting shell variables to be used later on.  The commands used here are in the [basic-test.sh](basic-test.sh) ([html](basic-test.sh.html)) script.  Note that you will have to run `chmod 755 basic-test.sh` before you can run the shell script.  You would run it as: `./basic-test.sh`.  Also note that this shell script takes the SHA-256 sum of one of the block files via the `sha256sum` command -- if you don't have this command on your computer, you can remove that line.
+This is just meant to show the syntax -- it is not meant to be a full fledged testing suite of your homework.  However, it does call each of the commands listed above, and makes the calls via the shell script. Note that the lines with the equals signs are setting shell variables to be used later on.  The commands used here are in the [basic-test.sh](cryptocurrency/basic-test.sh) ([html](cryptocurrency/basic-test.sh.html)) script.  Note that you will have to run `chmod 755 basic-test.sh` before you can run the shell script.  You would run it as: `./basic-test.sh`.  Also note that this shell script takes the SHA-256 sum of one of the block files via the `sha256sum` command -- if you don't have this command on your computer, you can remove that line.
 
 ***NOTE:*** We provide these commands in the [basic-test.sh](cryptocurrency/basic-test.sh) ([html](cryptocurrency/basic-test.sh.html)) script above!  No need to cut-and-paste.
 
