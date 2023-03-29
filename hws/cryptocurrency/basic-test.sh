@@ -16,10 +16,10 @@ export bob=`./cryptomoney.sh address bob.wallet.txt`
 echo bob.wallet.txt wallet signature: $bob
 echo funding bob wallet with 100
 ./cryptomoney.sh fund $bob 100 02-bob-funding.txt
-echo transfering 12.5 from alice to bob
-./cryptomoney.sh transfer alice.wallet.txt $bob 12.5 03-alice-to-bob.txt
-echo transfering 2.5 from bob to alice
-./cryptomoney.sh transfer bob.wallet.txt $alice 2.5 04-bob-to-alice.txt
+echo transfering 12 from alice to bob
+./cryptomoney.sh transfer alice.wallet.txt $bob 12 03-alice-to-bob.txt
+echo transfering 2 from bob to alice
+./cryptomoney.sh transfer bob.wallet.txt $alice 2 04-bob-to-alice.txt
 echo verifying the last four transactions
 ./cryptomoney.sh verify alice.wallet.txt 01-alice-funding.txt
 ./cryptomoney.sh verify bob.wallet.txt 02-bob-funding.txt
