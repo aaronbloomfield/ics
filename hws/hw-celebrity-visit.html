@@ -15,26 +15,39 @@
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
+  <script>
+  function openTab(evt, tabName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  </script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
-<h1 id="ics-written-hw-celebrity-visit">ICS: Written HW: Celebrity
-Visit</h1>
-<p><a href="index.html">Go up to the ICS HW page</a> (<a
-href="index.md">md</a>)</p>
-<p>Jason Belford, the CISO (Chief Information Security Officer) for UVa,
-will be visiting the class on Wednesday, April 17th, to give a brief
-overview of what he does as CISO, and to answer questions.</p>
-<p>This homework is to generate two <em>good</em> questions that you
-could (potentially) ask him. With the number of students in the class,
-obviously not everybody will be able to ask questions.</p>
-<p>Write your questions in a TEXT FILE, and name it
-<code>mst3k.txt</code> (replace mst3k with your userid).</p>
-<p><strong>IF YOU DO NOT NAME IT CORRECTLY, YOU WILL GET A
-ZERO!!!</strong></p>
-<p>This must be submitted by the end of the day before the visit. Late
-submissions will not be accepted on this assignment!</p>
+<h1 id="ics-written-hw-celebrity-visit">ICS: Written HW: Celebrity Visit</h1>
+<p><a href="index.html">Go up to the ICS HW page</a> (<a href="index.md">md</a>)</p>
+<p>Jason Belford, the CISO (Chief Information Security Officer) for UVa, will be visiting the class on Wednesday, April 17th, to give a brief overview of what he does as CISO, and to answer questions.</p>
+<p>This homework is to generate two <em>good</em> questions that you could (potentially) ask him. With the number of students in the class, obviously not everybody will be able to ask questions.</p>
+<p>Write your questions in a TEXT FILE, and name it <code>mst3k.txt</code> (replace mst3k with your userid).</p>
+<p><strong>IF YOU DO NOT NAME IT CORRECTLY, YOU WILL GET A ZERO!!!</strong></p>
+<p>This must be submitted by the end of the day before the visit. Late submissions will not be accepted on this assignment!</p>
 </body>
 </html>
