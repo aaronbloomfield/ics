@@ -12,7 +12,6 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
   <script>
@@ -37,9 +36,6 @@
     evt.currentTarget.className += " active";
   }
   </script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="ics-programming-homework-cryptocurrency">ICS: Programming Homework: Cryptocurrency</h1>
@@ -169,7 +165,7 @@ Date: Tue Apr 02 23:09:13 EDT 2019
 <li>For this command, also, the exact output does not matter as long as it contains that information on one line</li>
 </ul></li>
 </ul></li>
-<li>Create, mine, and sign block (<code>mine</code>): this will form another block in the blockchain. The mempool will be emptied of transaction lines, as they will all go into the current block being computed. A nonce will have to be computed to ensure the hash is below a given value. Recall that the first line in any block is the SHA-256 of the last block file. The difficulty for the mining will be the additional parameter to this command. For simplicity, the difficulty will be the number of leading zeros to have in the hash value – so a value of 3 would imply that the hash must start with three leading zeros. We will be using very small difficulties here, so a brute-force method for finding the nonce is sufficient (just like in all other proof-of-work cryptocurrencies). A difficulty of 2 is appropriate for our tests. The nonce must be a single unsigned 32 bit (or 64 bit) integer.
+<li>Create and mine the block (<code>mine</code>): this will form another block in the blockchain. The mempool will be emptied of transaction lines, as they will all go into the current block being computed. A nonce will have to be computed to ensure the hash is below a given value. Recall that the first line in any block is the SHA-256 of the last block file. The difficulty for the mining will be the additional parameter to this command. For simplicity, the difficulty will be the number of leading zeros to have in the hash value – so a value of 3 would imply that the hash must start with three leading zeros. We will be using very small difficulties here, so a brute-force method for finding the nonce is sufficient (just like in all other proof-of-work cryptocurrencies). A difficulty of 2 is appropriate for our tests. The nonce must be a single unsigned 32 bit (or 64 bit) integer.
 <ul>
 <li>Example usages: <code>java CMoney mine 2</code> and <code>python3 cmoney.py mine 2</code></li>
 <li>Example output: <code>Mempool transactions moved to block_1.txt and mined with difficulty 2 and nonce 1029</code>
