@@ -89,7 +89,7 @@ Course calendar
 | 8  | Mar 13 | M,W,F  | (none)            | [SQL, XSS, and CSRF](../slides/sql-xss-csrf.html#/), [Cryptocurrency](../slides/cryptocurrency.html#/) | Mon: sql/xss/csrf to 5.8; Wed: finished sql/xss/csrf (recording); Fri: started and finished virtual machines (recording) |
 | 9  | Mar 20 | M,W,F  | Network fuzzing   | [Cryptocurrency](../slides/cryptocurrency.html#/), [Anonymity](../slides/anonymity.html#/) | Mon: cryptocurrency to 5.4; Wed: finished cryptocurrency; Fri: anonymity to 6.4 |
 | 10 | Mar 27 | M,W,F  | SQL/XSS/CSRF      | [Rootkits](../slides/rootkits.html#/), [Stuxnet](../slides/stuxnet.html#/) | Mon: finished anonymity; Wed: rootkits to 4.7; Fri: finished rootkits, stuxnet to 3.7 |
-| 11 | Apr 3  | M,W,F  | Cryptocurrency    | [Viruses](../slides/viruses.html#/)| Mon: finished stuxnet, viruses to 4.4 |
+| 11 | Apr 3  | M,W,F  | Cryptocurrency    | [Viruses](../slides/viruses.html#/)| Mon: finished stuxnet, viruses to 4.4; Wed: viruses to 7.3 |
 | 12 | Apr 10 | M,W,F  | (new HW)          | [Buffer Overflows](../slides/buffer-overflows.html#/), guest lecture (Wed) | |
 | 13 | Apr 17 | M,W,F  | Rootkits          | [Binary Exploits](../slides/binary-exploits.html#/) |
 | 14 | Apr 24 | M,W,F  | (new HW)          | [Digital Forensics](../slides/forensics.html#/), [Virtual Machines](../slides/vms.html#/) | |
