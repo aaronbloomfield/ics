@@ -41,24 +41,30 @@
 </head>
 <body>
 <h1 id='ics-programming-homework-networks'>ICS: Programming Homework: Networks</h1>
-<p><a href='index.html'>Go up to the ICS HW page</a> (<a href='index.md'>md</a>)</p>
-<p>You will want to see the <a href='../uva/hw-policies.html'>homeworks policies page</a> (<a href='../uva/hw-policies.md'>md</a>) for formatting and other details. The due dates are listed on the <a href='../uva/index.html'>UVa course page</a> (<a href='../uva/index.md'>md</a>). | <a href='hw-networks.html'>view one-page version</a></p><div class='tab'>
+<p><a href='index.html'>Go up to the ICS HW page</a> (<a href='index.md'>md</a>) | <a href='hw-networks.html'>view one-page version</a></p><div class='tab'>
 <button class='tablinks' onclick="openTab(event,'tpurpose')" id='defaultOpen'>Purpose</button>
 <button class='tablinks' onclick="openTab(event,'tpart-1-explore-tor')">Explore Tor</button>
 <button class='tablinks' onclick="openTab(event,'tpart-2-packet-sniffing')">Packet Sniffing</button>
+<button class='tablinks' onclick="openTab(event,'tpart-3-keyboard-logger')">Keyboard Logger</button>
 <button class='tablinks' onclick="openTab(event,'tsubmission')">Submission</button>
 </div>
 <div id='tpurpose' class='tabcontent'><h3 id='purpose'>Purpose</h3>
-<p>This homework will have you explore a number of topics and security vulnerabilities related to networking.</p>
-<p>There are four parts to this assignment. As part of this assignment, you will have to create a document, called <code>mst3k-networks.pdf</code> (where mst3k is your userid), and submit that file. We aren’t looking for any fancy write-up - just an explanation of what you did, and the results you got. That being said, it should be legible. So make sure you indicate what answers are for what questions, etc.</p>
-<p>In addition, you will have to have a working SSL configuration for part 1 on the network – we will be testing that connection as well.</p>
+<p>This homework will have you explore a few topics related to security vulnerabilities and networking.</p>
+<p>There are three parts to this assignment. As part of this assignment, you will have to create a document, called <code>mst3k-networks.pdf</code> (where mst3k is your userid), and submit that file. We aren’t looking for any fancy write-up - just an explanation of what you did, and the results you got. That being said, it should be legible. So make sure you indicate what answers are for what questions, etc.</p>
+<p>You will also have to submit one source code file, <code>keylogger.py</code>.</p>
 </div><div id='tpart-1-explore-tor' class='tabcontent'><h3 id='part-1-explore-tor'>Part 1: Explore Tor</h3>
 <p>Before you start, you should determine your IP address and the route to a given machine. Visit <a href='https://whatismyipaddress.com/'>https://whatismyipaddress.com/</a> to get your IP address (for reasons we’ll see in a bit, this is preferred over Googling for ‘what is my ip’).</p>
-<p>You will need to install (and, briefly, use) Tor. You can find out out Tor <a href='https://www.torproject.org/'>here</a>, and installation – which is particular to your operating system – is described <a href='https://www.torproject.org/docs/installguide.html.en'>here</a>. Once you install Tor, you will also need to install the <a href='https://www.torproject.org/projects/torbrowser.html.en'>Tor browser</a>.</p>
+<p>You will need to install (and, briefly, use) Tor. You can find out out Tor <a href='https://www.torproject.org/'>here</a>, and installation – which is particular to your operating system – is described <a href='https://www.torproject.org/download/'>here</a>. If your operating system has another installation method for Tor, you are welcome to use that instead.</p>
 <p>Load up the Tor browser and visit <a href='https://whatismyipaddress.com/'>https://whatismyipaddress.com/</a> again to get your IP address. Hit reload a couple of times, and note how the IP address changes each time. These are the IP addresses of the Tor <em>exit nodes</em>.</p>
 <p>Visit a <strong><em>LEGAL</em></strong> Tor hidden service. You can Google for a list of Tor hidden services – their URL will always end in “.onion”. One such site is <a href='https://thehiddenwiki.org/'>https://thehiddenwiki.org/</a>. As an example of a <strong><em>LEGAL</em></strong> sites to visit, consider <a href='http://3g2upl4pq6kufc4m.onion/'>http://3g2upl4pq6kufc4m.onion/</a>, which is the DuckDuckGo search engine.</p>
 <p>Visit another website that is not a hidden service. Note how much slower it is to view this website. Can you stream a video from Youtube via a Tor connection?</p>
-<p>Note that Tor is a service as well as a web browser. You may (or may not) want to stop the Tor service when you are done. Under Ubuntu Linux, that’s <code>sudo service tor stop</code>. This will stop it for that one time only – and on the next reboot, it will reactivate. To disable it for good, you can run <code>sudo systemctl stop tor</code> (or just uninstall it). You are on your own for other operating systems.</p>
+<p>Note that Tor is a service as well as a web browser. You may (or may not) want to stop the Tor service when you are done.</p>
+<ul>
+<li>Under Ubuntu Linux, that’s <code>sudo service tor stop</code>. This will stop it for that one time only – and on the next reboot, it will reactivate. To disable it for good, you can run <code>sudo systemctl stop tor</code> (or just uninstall it).<br></br>
+</li>
+<li>For Mac OS X: … (to be filled in)</li>
+<li>For Windows: … (to be filled in)</li>
+</ul>
 <p>In the report, you should include:</p>
 <ul>
 <li>Your IP address before you were running Tor</li>
@@ -66,9 +72,17 @@
 <li>What <strong><em>LEGAL</em></strong> hidden service(s) that you visited</li>
 </ul>
 </div><div id='tpart-2-packet-sniffing' class='tabcontent'><h3 id='part-2-packet-sniffing'>Part 2: Packet Sniffing</h3>
-<p>For this part, we are going to ‘listen’ to network traffic, and see what interesting information we can find. We will use a UNIX utility called tcpdump. This utility will print out all the network traffic on a given interface. tcpdump must be run as root; thus, you probably cannot run it on any UVa server. You can download the tcpdump.zip file from Collab’s resources – that file is NOT in this repo due to its size. This file contains a dump of a tcpdump session. We will be analyzing this file.</p>
-<p>This file contains my password, so I wanted to ensure that it was properly protected, and I used a 6-character ZIP file password on it. It’s your job to crack that password. While you can use any ZIP file password cracker that is out there (and there are lots!), we recommend <a href='http://www.ubuntugeek.com/howto-crack-zip-files-password.html'>fcrackzip</a>, which you can install on your Linux VirtualBox image via <code>sudo apt-get install fcrackzip</code>. Note that you will need to understand what it does - just running it with very few parameters will just spew out gibberish to the screen.</p>
-<p>A packet sniffing utility would run tcpdump, and parse the contents in real-time. We can do this using something as simple as lex, although more advanced programs (including parsers like yacc or bison) would be more effective. For this assignment, you won’t need to write a program, but can instead just search for the data using any text-search mechanism (including opening it up in your favorite editor and searching the data). The data was collected using the following command:</p>
+<p>For this part, we are going to ‘listen’ to network traffic, and see what interesting information we can find. We will use a UNIX utility called tcpdump. This utility will print out all the network traffic on a given interface. tcpdump must be run as root; thus, you probably cannot run it on any UVa server. You can download the tcpdump.zip file from Canvas’ Files – that file is NOT in this repo due to its size. This file contains a dump of a tcpdump session. We will be analyzing this file.</p>
+<h4 id='opening-the-file'>Opening the file</h4>
+<p>This file contains my password, so I wanted to ensure that it was properly protected, and I used a 6-character ZIP file password on it. It’s your job to crack that password. While you can use any ZIP file password cracker that is out there (and there are lots!), we recommend fcrackzip.</p>
+<ul>
+<li>Windows: you can download the binaries from the <a href='http://oldhome.schmorp.de/marc/fcrackzip.html'>fcrackzip home page</a></li>
+<li>Mac OS X: you can install it via homebrew or MacPorts. <code>brew install fcrackzip</code> seems to work. Also see <a href='https://macappstore.org/fcrackzip/'>here</a> for another example how to install it.</li>
+<li>Linux: you can install on your Linux VirtualBox image via <code>sudo apt-get install fcrackzip</code></li>
+</ul>
+<p>In all cases, you will need to understand what it does - just running it with very few parameters will just spew out gibberish to the screen.</p>
+<h4 id='tcpdump'>tcpdump</h4>
+<p>A packet sniffing utility would run tcpdump, and parse the contents in real-time. We can write such programs using Python or, for more speed, C or C++. For this assignment, you won’t need to write a program, but can instead just search for the data using any text-search mechanism (including opening it up in your favorite editor and searching the data). The data was collected using the following command:</p>
 <pre><code>tcpdump -A -l -s 10000 -i eth0</code></pre>
 <p>The command line switches do the following:</p>
 <ul>
@@ -77,7 +91,8 @@
 <li><code>-i eth0</code> causes it to ‘listen’ to the first (and, in this case, only) Ethernet connection. If you have multiple network connections, this will allow you to monitor only one. You could set this to listen to the wireless connection, or to all connections.</li>
 </ul>
 <p>Many of the pages returned by tcpdump are compressed to save network bandwidth. This is particularly relevant for popular sites that send a lot of data, such as Facebook or CNN. You can see this in the packet by the ‘Content-Encoding: gzip’ header. One can easily write the data to file, reverse the base-64 encoding, and the un-gzip it (and there are programs that do just that). For this assignment, we’ll be looking just at the non-compressed data.</p>
-<p>You will need to analyze the tcpdump.txt file. Download the tcpdump.zip file from Collab’s resources – that file is NOT in this repo due to its size. In your report, you need to answer the following questions:</p>
+<h4 id='the-tcpdump.txt-file'>The tcpdump.txt file</h4>
+<p>You will need to analyze the tcpdump.txt file. Download the tcpdump.zip file from Canvas’ Files – that file is NOT in this repo due to its size. In your report, you need to answer the following questions:</p>
 <ul>
 <li>What websites were visited that encoded the data using gzip? We are looking for the domain names (domain.tld), not the exact URL (foo.bar.baz.domain.tld).</li>
 <li>What types of files were transferred? This is encoded in the ‘Content-Type’ header.</li>
@@ -86,6 +101,7 @@
 <li>Can you determine my ebay password? Why or why not?</li>
 <li>What other network-level and transport-level protocols were used, other than TCP? TCP is used quite frequently (so much so that TCP packets are not labeled as TCP). You can find a listing of the protocols on <a href='https://en.wikipedia.org/wiki/Internet_protocol_suite'>Wikipedia</a> – specifically in the gray box on the right hand side of that page entitled “Internet protocol suite”.</li>
 </ul>
+<h4 id='packet-representation-in-the-file'>Packet representation in the file</h4>
 <p>A given packet could look like the following.</p>
 <pre><code>10:31:35.293018 IP gemini.http-alt &gt; pegasus.58878: Flags [P.], seq 4642:4790, ack 2176, win 80, options [nop,nop,TS val 43850520 ecr 38675081], length 148
 E`....@.9.....E..........O.........P.......
@@ -104,8 +120,77 @@ E`....@.9.....E..........O.........P.......
 <p>This takes in the regular expression [a-z][4][4]+, and searches for all occurrences of it in the file (there are 20). Make sure you put your double quotes around the regular expression.</p>
 <p>Lastly, note that ‘sextans’ is the name of one of my routers (all my machines are named after constellations). So when you see data being transfered between sextans and another host, that’s between my computer and said host.</p>
 <p>Honor pledge details: you are given permission to search the tcpdump.txt file to answer the above questions for this assignment. After that, you will need to delete the file.</p>
+</div><div id='tpart-3-keyboard-logger' class='tabcontent'><h3 id='part-3-keyboard-logger'>Part 3: Keyboard logger</h3>
+<p>You are going to see how easy it is to build a keyboard logger. We will use the the <a href='https://pypi.org/project/pynput/'>pynput</a> Python package to do so. Your code will be in a <code>keylogger.py</code> file.</p>
+<h4 id='compatibility'>Compatibility</h4>
+<p>This works on the three major platforms:</p>
+<ul>
+<li>Mac OS X: install the package via <code>pip install pynput</code>. When you run the software, it will prompt you to change a setting to allow Terminal to monitor the keyboard. Be sure to change it back once this assignment is done!</li>
+<li>Windows: It should work out of the box. If Windows Defender is blocking it (“operation did not complete successfully because the file contains a virus or potentially unwanted software”), you may have to turn off real-time protection in Windows Defender to complete this part. Be sure to turn it back on once done!</li>
+<li>Linux: It should work out of the box.</li>
+</ul>
+<p>It does not work on a few less common platforms:</p>
+<ul>
+<li>Chrome OS, running Linux in a virtual container, will not work</li>
+</ul>
+<p>(Others will be added here as we find more that do not work)</p>
+<h4 id='getting-started'>Getting started</h4>
+<p>First, start with the code sample code provided on the <a href='https://pypi.org/project/pynput/'>pynput</a> Python package page; look at the “Monitoring the keyboard” section. Enter that code (fixing the three line breaks that Python will complain about).</p>
+<p>When you run it in a terminal, and type <code>hello world</code>, you should see some output like the following:</p>
+<pre><code>$ python3 keylogger.py
+Key.enter released
+alphanumeric key h pressed
+h'h' released
+alphanumeric key e pressed
+e'e' released
+alphanumeric key l pressed
+l'l' released
+alphanumeric key l pressed
+l'l' released
+alphanumeric key o pressed
+o'o' released
+special key Key.space pressed
+ Key.space released
+alphanumeric key w pressed
+w'w' released
+alphanumeric key o pressed
+o'o' released
+alphanumeric key r pressed
+r'r' released
+alphanumeric key l pressed
+l'l' released
+alphanumeric key d pressed
+d'd' released
+special key Key.esc pressed
+^[Key.esc released
+$</code></pre>
+<p>Note that the exact output will be a bit different, as it depends on how quickly you type and release each of the keys.</p>
+<p>If you see output like the following:</p>
+<pre><code>$ python3 keylogger.py
+hello world</code></pre>
+<p>Then the pynput package is NOT working on your system – review the Comparability sub-section, above.</p>
+<h4 id='the-task'>The Task</h4>
+<p>The task is create a keylogger that will monitor the keyboard and, if the userid <code>mst3k</code> is entered, it will print the next 10 characters.</p>
+<p>You need to modify that code so that:</p>
+<ul>
+<li>If the characters <code>mst3k</code> are entered, and ONLY that string (case-sensitive!), then keep track of the next <em>ten</em> characters. Once found, print those to the screen.
+<ul>
+<li>For sanity reasons (if doing this in the same terminal), put curly brackets (<code>{}</code>) around the printed password</li>
+<li>You do not have to capture the space key or any special keys – only letters (both cases), numbers, and punctuation</li>
+</ul></li>
+<li>The escape key should exit the program – this is how it is currently configured in the sample code you copied above</li>
+</ul>
+<p>The output might look like the following:</p>
+<pre><code>{passwordXX}
+{1234567890}</code></pre>
+<h4 id='testing'>Testing</h4>
+<p>The best way to test this is to launch it in one terminal or window, and start typing text in another one.</p>
 </div><div id='tsubmission' class='tabcontent'><h3 id='submission'>Submission</h3>
-<p>You should submit a file called <code>mst3k-networks.pdf</code>, where mst3k is your userid. Answers to all the above questions should be in that file. So that it is viable for us to read, please clearly label the various sections of the file.</p>
+<p>You should submit two files to Gradescope:</p>
+<ul>
+<li><code>mst3k-networks.pdf</code>, where mst3k is your userid, which is your report for parts 1 (Tor) and 2 (packet sniffing). Answers to all the questions in those parts should be in that file. So that it is viable for us to read, please clearly label the various sections of the file.</li>
+<li><code>keylogger.py</code>: from part 3 (packet sniffing)</li>
+</ul>
 </div><script>document.getElementById('defaultOpen').click();</script></body>
 </html>
 

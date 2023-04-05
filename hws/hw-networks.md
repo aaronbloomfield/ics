@@ -3,26 +3,20 @@ ICS: Programming Homework: Networks
 
 [Go up to the ICS HW page](index.html) ([md](index.md))
 
-You will want to see the
-[homeworks policies page](../uva/hw-policies.html)
-([md](../uva/hw-policies.md)) for formatting and other details.  The
-due dates are listed on the [UVa course page](../uva/index.html)
-([md](../uva/index.md)).
-
 ### Purpose
 
-This homework will have you explore a number of topics and security vulnerabilities related to networking.
+This homework will have you explore a few topics related to security vulnerabilities and networking.
 
-There are four parts to this assignment.  As part of this assignment, you will have to create a document, called `mst3k-networks.pdf` (where mst3k is your userid), and submit that file.  We aren't looking for any fancy write-up - just an explanation of what you did, and the results you got.  That being said, it should be legible.  So make sure you indicate what answers are for what questions, etc.
+There are three parts to this assignment.  As part of this assignment, you will have to create a document, called `mst3k-networks.pdf` (where mst3k is your userid), and submit that file.  We aren't looking for any fancy write-up - just an explanation of what you did, and the results you got.  That being said, it should be legible.  So make sure you indicate what answers are for what questions, etc.
 
-In addition, you will have to have a working SSL configuration for part 1 on the network -- we will be testing that connection as well.
+You will also have to submit one source code file, `keylogger.py`.
 
 
 ### Part 1: Explore Tor
 
 Before you start, you should determine your IP address and the route to a given machine.  Visit [https://whatismyipaddress.com/](https://whatismyipaddress.com/) to get your IP address (for reasons we'll see in a bit, this is preferred over Googling for 'what is my ip').
 
-You will need to install (and, briefly, use) Tor.  You can find out out Tor [here](https://www.torproject.org/), and installation -- which is particular to your operating system -- is described [here](https://www.torproject.org/docs/installguide.html.en).  Once you install Tor, you will also need to install the [Tor browser](https://www.torproject.org/projects/torbrowser.html.en).
+You will need to install (and, briefly, use) Tor.  You can find out out Tor [here](https://www.torproject.org/), and installation -- which is particular to your operating system -- is described [here](https://www.torproject.org/download/).  If your operating system has another installation method for Tor, you are welcome to use that instead.
 
 Load up the Tor browser and visit [https://whatismyipaddress.com/](https://whatismyipaddress.com/) again to get your IP address.  Hit reload a couple of times, and note how the IP address changes each time.  These are the IP addresses of the Tor *exit nodes*.
 
@@ -30,7 +24,11 @@ Visit a ***LEGAL*** Tor hidden service.  You can Google for a list of Tor hidden
 
 Visit another website that is not a hidden service.  Note how much slower it is to view this website.  Can you stream a video from Youtube via a Tor connection?
 
-Note that Tor is a service as well as a web browser.  You may (or may not) want to stop the Tor service when you are done.  Under Ubuntu Linux, that's `sudo service tor stop`.  This will stop it for that one time only -- and on the next reboot, it will reactivate.  To disable it for good, you can run `sudo systemctl stop tor` (or just uninstall it).  You are on your own for other operating systems.
+Note that Tor is a service as well as a web browser.  You may (or may not) want to stop the Tor service when you are done.  
+
+- Under Ubuntu Linux, that's `sudo service tor stop`.  This will stop it for that one time only -- and on the next reboot, it will reactivate.  To disable it for good, you can run `sudo systemctl stop tor` (or just uninstall it).  
+- For Mac OS X: ... (to be filled in)
+- For Windows: ... (to be filled in)
 
 In the report, you should include:
 
@@ -41,11 +39,21 @@ In the report, you should include:
 
 ### Part 2: Packet Sniffing
 
-For this part, we are going to 'listen' to network traffic, and see what interesting information we can find.  We will use a UNIX utility called tcpdump.  This utility will print out all the network traffic on a given interface.  tcpdump must be run as root; thus, you probably cannot run it on any UVa server.  You can download the tcpdump.zip file from Collab's resources -- that file is NOT in this repo due to its size.  This file contains a dump of a tcpdump session.  We will be analyzing this file.
+For this part, we are going to 'listen' to network traffic, and see what interesting information we can find.  We will use a UNIX utility called tcpdump.  This utility will print out all the network traffic on a given interface.  tcpdump must be run as root; thus, you probably cannot run it on any UVa server.  You can download the tcpdump.zip file from Canvas' Files -- that file is NOT in this repo due to its size.  This file contains a dump of a tcpdump session.  We will be analyzing this file.
 
-This file contains my password, so I wanted to ensure that it was properly protected, and I used a 6-character ZIP file password on it.  It's your job to crack that password.  While you can use any ZIP file password cracker that is out there (and there are lots!), we recommend [fcrackzip](http://www.ubuntugeek.com/howto-crack-zip-files-password.html), which you can install on your Linux VirtualBox image via `sudo apt-get install fcrackzip`.  Note that you will need to understand what it does - just running it with very few parameters will just spew out gibberish to the screen.
+#### Opening the file
 
-A packet sniffing utility would run tcpdump, and parse the contents in real-time.  We can do this using something as simple as lex, although more advanced programs (including parsers like yacc or bison) would be more effective.  For this assignment, you won't need to write a program, but can instead just search for the data using any text-search mechanism (including opening it up in your favorite editor and searching the data).  The data was collected using the following command:
+This file contains my password, so I wanted to ensure that it was properly protected, and I used a 6-character ZIP file password on it.  It's your job to crack that password.  While you can use any ZIP file password cracker that is out there (and there are lots!), we recommend fcrackzip.
+
+- Windows: you can download the binaries from the [fcrackzip home page](http://oldhome.schmorp.de/marc/fcrackzip.html)
+- Mac OS X: you can install it via homebrew or MacPorts.  `brew install fcrackzip` seems to work.  Also see [here](https://macappstore.org/fcrackzip/) for another example how to install it.
+- Linux: you can install on your Linux VirtualBox image via `sudo apt-get install fcrackzip`
+
+In all cases, you will need to understand what it does - just running it with very few parameters will just spew out gibberish to the screen.
+
+#### tcpdump
+
+A packet sniffing utility would run tcpdump, and parse the contents in real-time.  We can write such programs using Python or, for more speed, C or C++.  For this assignment, you won't need to write a program, but can instead just search for the data using any text-search mechanism (including opening it up in your favorite editor and searching the data).  The data was collected using the following command:
 
 ```
 tcpdump -A -l -s 10000 -i eth0
@@ -59,7 +67,9 @@ The command line switches do the following:
 
 Many of the pages returned by tcpdump are compressed to save network bandwidth.  This is particularly relevant for popular sites that send a lot of data, such as Facebook or CNN.  You can see this in the packet by the 'Content-Encoding: gzip' header.  One can easily write the data to file, reverse the base-64 encoding, and the un-gzip it (and there are programs that do just that).  For this assignment, we'll be looking just at the non-compressed data.
 
-You will need to analyze the tcpdump.txt file.  Download the tcpdump.zip file from Collab's resources -- that file is NOT in this repo due to its size.  In your report, you need to answer the following questions:
+#### The tcpdump.txt file
+
+You will need to analyze the tcpdump.txt file.  Download the tcpdump.zip file from Canvas' Files -- that file is NOT in this repo due to its size.  In your report, you need to answer the following questions:
 
 - What websites were visited that encoded the data using gzip?  We are looking for the domain names (domain.tld), not the exact URL (foo.bar.baz.domain.tld).
 - What types of files were transferred?  This is encoded in the 'Content-Type' header.
@@ -67,6 +77,8 @@ You will need to analyze the tcpdump.txt file.  Download the tcpdump.zip file fr
 - What is the username(s) and password(s) were used when logging in?  Where were they used to log in to?  Not surprisingly, all passwords were changed for this file.  (There is only one that can be sniffed)
 - Can you determine my ebay password?  Why or why not?
 - What other network-level and transport-level protocols were used, other than TCP?  TCP is used quite frequently (so much so that TCP packets are not labeled as TCP).  You can find a listing of the protocols on [Wikipedia](https://en.wikipedia.org/wiki/Internet_protocol_suite) -- specifically in the gray box on the right hand side of that page entitled "Internet protocol suite".
+
+#### Packet representation in the file
 
 A given packet could look like the following.
 
@@ -103,6 +115,98 @@ Lastly, note that 'sextans' is the name of one of my routers (all my machines ar
 Honor pledge details: you are given permission to search the tcpdump.txt file to answer the above questions for this assignment.  After that, you will need to delete the file.
 
 
+### Part 3: Keyboard logger
+
+You are going to see how easy it is to build a keyboard logger.  We will use the the [pynput](https://pypi.org/project/pynput/) Python package to do so.  Your code will be in a `keylogger.py` file.
+
+#### Compatibility
+
+This works on the three major platforms:
+
+- Mac OS X: install the package via `pip install pynput`.  When you run the software, it will prompt you to change a setting to allow Terminal to monitor the keyboard.  Be sure to change it back once this assignment is done!
+- Windows: It should work out of the box.  If Windows Defender is blocking it ("operation did not complete successfully because the file contains a virus or potentially unwanted software"), you may have to turn off real-time protection in Windows Defender to complete this part.  Be sure to turn it back on once done!
+- Linux: It should work out of the box.
+
+It does not work on a few less common platforms:
+
+- Chrome OS, running Linux in a virtual container, will not work
+
+(Others will be added here as we find more that do not work)
+
+#### Getting started
+
+First, start with the code sample code provided on the [pynput](https://pypi.org/project/pynput/) Python package page; look at the "Monitoring the keyboard" section.  Enter that code (fixing the three line breaks that Python will complain about).
+
+When you run it in a terminal, and type `hello world`, you should see some output like the following:
+
+```
+$ python3 keylogger.py
+Key.enter released
+alphanumeric key h pressed
+h'h' released
+alphanumeric key e pressed
+e'e' released
+alphanumeric key l pressed
+l'l' released
+alphanumeric key l pressed
+l'l' released
+alphanumeric key o pressed
+o'o' released
+special key Key.space pressed
+ Key.space released
+alphanumeric key w pressed
+w'w' released
+alphanumeric key o pressed
+o'o' released
+alphanumeric key r pressed
+r'r' released
+alphanumeric key l pressed
+l'l' released
+alphanumeric key d pressed
+d'd' released
+special key Key.esc pressed
+^[Key.esc released
+$
+```
+
+Note that the exact output will be a bit different, as it depends on how quickly you type and release each of the keys.
+
+If you see output like the following:
+
+```
+$ python3 keylogger.py
+hello world
+```
+
+Then the pynput package is NOT working on your system -- review the Comparability sub-section, above.
+
+#### The Task
+
+The task is create a keylogger that will monitor the keyboard and, if the userid `mst3k` is entered, it will print the next 10 characters.
+
+You need to modify that code so that:
+
+- If the characters `mst3k` are entered, and ONLY that string (case-sensitive!), then keep track of the next *ten* characters.  Once found, print those to the screen.
+  - For sanity reasons (if doing this in the same terminal), put curly brackets (`{}`) around the printed password
+  - You do not have to capture the space key or any special keys -- only letters (both cases), numbers, and punctuation
+- The escape key should exit the program -- this is how it is currently configured in the sample code you copied above
+
+The output might look like the following:
+
+```
+{passwordXX}
+{1234567890}
+```
+
+#### Testing
+
+The best way to test this is to launch it in one terminal or window, and start typing text in another one.
+
+
 ### Submission
 
-You should submit a file called `mst3k-networks.pdf`, where mst3k is your userid.  Answers to all the above questions should be in that file.  So that it is viable for us to read, please clearly label the various sections of the file.
+You should submit two files to Gradescope:
+
+- `mst3k-networks.pdf`, where mst3k is your userid, which is your report for parts 1 (Tor) and 2 (packet sniffing).  Answers to all the questions in those parts should be in that file.  So that it is viable for us to read, please clearly label the various sections of the file.
+- `keylogger.py`: from part 3 (packet sniffing)
+
