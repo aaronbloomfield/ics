@@ -12,6 +12,13 @@ There are three parts to this assignment.  As part of this assignment, you will 
 You will also have to submit one source code file, `keylogger.py`.
 
 
+### Changelog
+
+Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  <!-- So far there aren't any significant changes to report. -->
+
+- Sun, 4/9: Updated DuckDuckGo's .onion URL to [https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion](https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion)
+
+
 ### Part 1: Explore Tor
 
 Before you start, you should determine your IP address and the route to a given machine.  Visit [https://whatismyipaddress.com/](https://whatismyipaddress.com/) to get your IP address (for reasons we'll see in a bit, this is preferred over Googling for 'what is my ip').
@@ -20,7 +27,7 @@ You will need to install (and, briefly, use) Tor.  You can find out out Tor [her
 
 Load up the Tor browser and visit [https://whatismyipaddress.com/](https://whatismyipaddress.com/) again to get your IP address.  Hit reload a couple of times, and note how the IP address changes each time.  These are the IP addresses of the Tor *exit nodes*.
 
-Visit a ***LEGAL*** Tor hidden service.  You can Google for a list of Tor hidden services -- their URL will always end in ".onion".  One such site is [https://thehiddenwiki.org/](https://thehiddenwiki.org/).  As an example of a ***LEGAL*** sites to visit, consider [http://3g2upl4pq6kufc4m.onion/](http://3g2upl4pq6kufc4m.onion/), which is the DuckDuckGo search engine.
+Visit a ***LEGAL*** Tor hidden service.  You can Google for a list of Tor hidden services -- their URL will always end in ".onion".  One such site is [https://thehiddenwiki.org/](https://thehiddenwiki.org/).  As an example of a ***LEGAL*** sites to visit, consider [https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/](https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/), which is the DuckDuckGo search engine.
 
 Visit another website that is not a hidden service.  Note how much slower it is to view this website.  Can you stream a video from Youtube via a Tor connection?
 
