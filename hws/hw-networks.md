@@ -7,7 +7,7 @@ ICS: Programming Homework: Networks
 
 This homework will have you explore a few topics related to security vulnerabilities and networking.
 
-There are three parts to this assignment.  As part of this assignment, you will have to create a document, called `mst3k-networks.pdf` (where mst3k is your userid), and submit that file.  We aren't looking for any fancy write-up - just an explanation of what you did, and the results you got.  That being said, it should be legible.  So make sure you indicate what answers are for what questions, etc.
+There are three parts to this assignment.  As part of this assignment, you will have to create a document, called `networks.pdf` (where mst3k is your userid), and submit that file.  We aren't looking for any fancy write-up - just an explanation of what you did, and the results you got.  That being said, it should be legible.  So make sure you indicate what answers are for what questions, etc.
 
 You will also have to submit one source code file, `keylogger.py`.
 
@@ -214,6 +214,6 @@ The best way to test this is to launch it in one terminal or window, and start t
 
 You should submit two files to Gradescope:
 
-- `mst3k-networks.pdf`, where mst3k is your userid, which is your report for parts 1 (Tor) and 2 (packet sniffing).  Answers to all the questions in those parts should be in that file.  So that it is viable for us to read, please clearly label the various sections of the file.
+- `networks.pdf`, where mst3k is your userid, which is your report for parts 1 (Tor) and 2 (packet sniffing).  Answers to all the questions in those parts should be in that file.  So that it is viable for us to read, please clearly label the various sections of the file.
 - `keylogger.py`: from part 3 (packet sniffing)
 
