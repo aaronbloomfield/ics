@@ -49,9 +49,11 @@ Once you have backed up your code for this assignment, if you brick your image, 
 
 We will be using the Virginia Cyber Range at [https://www.virginiacyberrange.org/](https://www.virginiacyberrange.org/). This site basically allows you to run a remote virtual environment; we are using Ubunmtu 22.04.
 
-The course invitation code is Canvas Landing page.
+Go to [https://www.virginiacyberrange.org/](https://www.virginiacyberrange.org/).  Click on "sign up", then "join as a student".  Use the invitation code on the canvas landing page, then sign in (presumably with your Google UVA account).  You will need to accept the agreement to continue.
 
-Once you log in, there will be a list of exercise environments at the bottom of the page -- there should be only one, called "Rootkits HW Environment".  Click on it, then click on the power button on the page that appears (it's in the lower left of the page).  It will take a minute or so to start (boot).  Once it does, hit the play button (the right-arrow that replaced the power button) to attach to a screen in the virtual environment.
+If you already have an account, there is (presumably) a way to add this course via the invitation code...
+
+Once you log in, click on the course.  There will then be a list of exercise environments at the bottom of the page -- there should be only one, called "Rootkits HW Environment".  Click on it, then click on the power button on the page that appears (it's in the lower left of the page).  It will take a minute or so to start (boot).  Once it does, hit the play button (the right-arrow that replaced the power button) to attach to a screen in the virtual environment.
 
 You can load up a terminal via one of the icons on the bottom of the screen.  You will then have to install a bit of the software.  To do so, enter the following two commands:
 

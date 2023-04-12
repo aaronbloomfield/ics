@@ -12,6 +12,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel='stylesheet' href='../markdown.css'></link>
   <script>
@@ -36,6 +37,7 @@
     evt.currentTarget.className += " active";
   }
   </script>
+  
 </head>
 <body>
 <h1 id='ics-programming-homework-rootkits'>ICS: Programming Homework: Rootkits</h1>
@@ -60,8 +62,9 @@
 
 </div><div id='tplatform' class='tabcontent'><h3 id='platform'>Platform</h3>
 <p>We will be using the Virginia Cyber Range at <a href='https://www.virginiacyberrange.org/'>https://www.virginiacyberrange.org/</a>. This site basically allows you to run a remote virtual environment; we are using Ubunmtu 22.04.</p>
-<p>The course invitation code is Canvas Landing page.</p>
-<p>Once you log in, there will be a list of exercise environments at the bottom of the page – there should be only one, called “Rootkits HW Environment”. Click on it, then click on the power button on the page that appears (it’s in the lower left of the page). It will take a minute or so to start (boot). Once it does, hit the play button (the right-arrow that replaced the power button) to attach to a screen in the virtual environment.</p>
+<p>Go to <a href='https://www.virginiacyberrange.org/'>https://www.virginiacyberrange.org/</a>. Click on “sign up”, then “join as a student”. Use the invitation code on the canvas landing page, then sign in (presumably with your Google UVA account). You will need to accept the agreement to continue.</p>
+<p>If you already have an account, there is (presumably) a way to add this course via the invitation code…</p>
+<p>Once you log in, click on the course. There will then be a list of exercise environments at the bottom of the page – there should be only one, called “Rootkits HW Environment”. Click on it, then click on the power button on the page that appears (it’s in the lower left of the page). It will take a minute or so to start (boot). Once it does, hit the play button (the right-arrow that replaced the power button) to attach to a screen in the virtual environment.</p>
 <p>You can load up a terminal via one of the icons on the bottom of the screen. You will then have to install a bit of the software. To do so, enter the following two commands:</p>
 <pre><code>sudo apt update
 sudo apt install -y make g++ emacs</code></pre>
