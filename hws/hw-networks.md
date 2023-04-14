@@ -79,12 +79,12 @@ Many of the pages returned by tcpdump are compressed to save network bandwidth. 
 
 You will need to analyze the tcpdump.txt file.  Download the tcpdump.zip file from Canvas' Files -- that file is NOT in this repo due to its size.  In your report, you need to answer the following questions:
 
-- What websites were visited that encoded the data using gzip?  We are looking for the domain names (domain.tld), not the exact URL (foo.bar.baz.domain.tld).
-- What types of files were transferred?  This is encoded in the 'Content-Type' header.
-- What network ports were accessed?  A network port corresponds to an application-level protocol, such as http and https.  This is encoded as `gemini.http-alt` (here `http-alt` means an alternative to http) - see the example packet explanation, below.  The `http-alt` port is 8080 -- you can find this out by looking in `/etc/services`, which maps port names (such as `http-alt`) to port numbers.  We aren't interested in port numbers above 10,000.
-- What is the username(s) and password(s) were used when logging in?  Where were they used to log in to?  Not surprisingly, all passwords were changed for this file.  (There is only one that can be sniffed)
-- Can you determine my ebay password?  Why or why not?
-- What other network-level and transport-level protocols were used, other than TCP?  TCP is used quite frequently (so much so that TCP packets are not labeled as TCP).  You can find a listing of the protocols on [Wikipedia](https://en.wikipedia.org/wiki/Internet_protocol_suite) -- specifically in the gray box on the right hand side of that page entitled "Internet protocol suite".
+1. What websites were visited that encoded the data using gzip?  We are looking for the domain names (domain.tld), not the exact URL (foo.bar.baz.domain.tld).
+2. What types of files were transferred?  This is encoded in the 'Content-Type' header.
+3. What network ports were accessed?  A network port corresponds to an application-level protocol, such as http and https.  This is encoded as `gemini.http-alt` (here `http-alt` means an alternative to http) - see the example packet explanation, below.  The `http-alt` port is 8080 -- you can find this out by looking in `/etc/services`, which maps port names (such as `http-alt`) to port numbers.  We aren't interested in port numbers above 10,000.
+4. What is the username(s) and password(s) were used when logging in?  Where were they used to log in to?  Not surprisingly, all passwords were changed for this file.  (There is only one that can be sniffed)
+5. Can you determine my ebay password?  Why or why not?
+6. What other network-level and transport-level protocols were used, other than TCP?  TCP is used quite frequently (so much so that TCP packets are not labeled as TCP).  You can find a listing of the protocols on [Wikipedia](https://en.wikipedia.org/wiki/Internet_protocol_suite) -- specifically in the gray box on the right hand side of that page entitled "Internet protocol suite".
 
 #### Packet representation in the file
 
