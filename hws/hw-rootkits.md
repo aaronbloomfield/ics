@@ -134,7 +134,6 @@ You can do this in any language that you want:
 - C/C++ program: if you need a refresher as to how to parse command-line parameters, see [this slide from CS 2150](https://uva-cs.github.io/pdr/slides/04-arrays-bigoh.html#/cmdlineparams) and the source code linked to on that page; to execute another program, you will want to use the [execl()](https://www.systutorials.com/docs/linux/man/3-exec/) C function, which is in the `<unistd.h>` library.
 - We can't use Java -- we need the executable name to be `sha224sum`, not `sha224sum.class`
 - Python 3 is fine -- be sure to put `#!/usr/bin/python3` and run`chmod 755 <scriptfilename>` on the file
-- We also support Go (version 1.10)!
 
 For this assignment, you should name your source code file `sha224sum-fake.?` where the "?" is the appropriate filename extension (use 'sh' for a shell script).
 
@@ -146,7 +145,7 @@ For this task, we will attack the `sha384sum` binary, for similar reasons as the
 
 First, *BACK UP THE PROGRAM*.  For example: `sudo cp /usr/bin/sha384sum /usr/bin/sha384sum.bak`.  This way if you mess up, you can easily restore it.
 
-For this fourth task we are going to modify the source code to insert our compromise into the program itself.  Linux is open source, and all of the core utilities are GNU, so their source code is freely available.  You can download the latest (highest-numbered) version from [https://ftp.gnu.org/gnu/coreutils/](https://ftp.gnu.org/gnu/coreutils/) -- at the time of this writing, it's 8.31.  The coreutils are the basic utilities used by all Linux systems -- ls, cp, mv, etc.  Once you've downloaded it, uncompress it (`tar xfa coreutils-8.31.tar.xz`). Once in that directory, run `./configure` then `make`.  This will work on the VirtualBox image -- you are on your own if you are using your own computer's OS.
+For this task we are going to modify the source code to insert our compromise into the program itself.  Linux is open source, and all of the core utilities are GNU, so their source code is freely available.  You can download the latest (highest-numbered) version from [https://ftp.gnu.org/gnu/coreutils/](https://ftp.gnu.org/gnu/coreutils/) -- at the time of this writing, it's 8.31 (NOTE: later versions do not work as well, so stay with version 8.31).  The coreutils are the basic utilities used by all Linux systems -- ls, cp, mv, etc.  Once you've downloaded it, uncompress it (`tar xfa coreutils-8.31.tar.xz`). Once in that directory, run `./configure` then `make`.  This will work on the VirtualBox image -- you are on your own if you are using your own computer's OS.
 
 The source code for the various files in coreutils is all inter-dependent on each other, and it's not worth our time for this assignment to figure out the details or try to separate it.  So you are going to edit the appropriate files in the coreutils archive and compile it with the Makefile that the archive provides.  The `main()` function for the sha384sum binary is in src/md5sum.c (SHA-1 was originally added as an "extension" of MD5, and it stayed that way as successive SHA versions were created).  Once you modify that file, you can run `make src/sha384sum`.
 
