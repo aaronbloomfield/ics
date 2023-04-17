@@ -12,6 +12,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
   <script>
@@ -36,6 +37,9 @@
     evt.currentTarget.className += " active";
   }
   </script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="ics-programming-homework-buffer-overflow">ICS: Programming Homework: Buffer Overflow</h1>
@@ -87,7 +91,7 @@ $</code></pre>
 <pre><code>#include &lt;stdio.h&gt;
 int main() {
   char buffer[256];
-  printf (&quot;%.8x\n&quot;,buffer);
+  printf (&quot;%.8lx\n&quot;,(unsigned long)buffer);
 }</code></pre>
 <p>All it does is print out the address of a scoped variable, which means the variable is on the stack. We would expect that the variable is at the same position on the stack, relative to the top, for each execution. We compile it (via <code>gcc -o stack-addr stack-addr.c</code>) and run it a number of times:</p>
 <pre><code>$ ./stack-addr 

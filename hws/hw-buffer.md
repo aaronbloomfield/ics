@@ -85,7 +85,7 @@ Address Space Layout Randomization (ASLR) is an operating system defense against
 #include <stdio.h>
 int main() {
   char buffer[256];
-  printf ("%.8x\n",buffer);
+  printf ("%.8lx\n",(unsigned long)buffer);
 }
 ```
 

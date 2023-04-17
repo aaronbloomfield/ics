@@ -24,8 +24,12 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900"> */</font></i>
 
 <b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdio.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdlib.h&gt;</font>
 <b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string.h&gt;</font>
 <b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;sys/mman.h&gt;</font>
+
+<i><font color="#9A1900">// used to indicate if we are printing the buffer address</font></i>
+<font color="#009900">int</font> print_buffer_address <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
 
 <i><font color="#9A1900">// we use this to pass the name back from the vulnerable() function to</font></i>
 <i><font color="#9A1900">// main()</font></i>
@@ -34,12 +38,21 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900">// the vulnerable function</font></i>
 <font color="#009900">void</font> <b><font color="#000000">vulnerable</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
   <font color="#009900">char</font> name<font color="#990000">[</font><font color="#993399">200</font><font color="#990000">];</font>
-  <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"Please enter your name:</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">);</font>
-  <b><font color="#000000">fgets</font></b> <font color="#990000">(</font>name<font color="#990000">,</font> <font color="#993399">1000000</font><font color="#990000">,</font> stdin<font color="#990000">);</font>
-  <b><font color="#000000">strncpy</font></b> <font color="#990000">(</font>global_name<font color="#990000">,</font> name<font color="#990000">,</font> <font color="#993399">199</font><font color="#990000">);</font> <i><font color="#9A1900">// look, ma, no buffer overflow possible here!</font></i>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> print_buffer_address <font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#000000">printf</font></b><font color="#990000">(</font><font color="#FF0000">"%lx</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,(</font><font color="#009900">unsigned</font> <font color="#009900">long</font><font color="#990000">)</font> name<font color="#990000">);</font>
+    <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+  <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+    <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"Please enter your name:</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">);</font>
+    <b><font color="#000000">fgets</font></b> <font color="#990000">(</font>name<font color="#990000">,</font> <font color="#993399">1000000</font><font color="#990000">,</font> stdin<font color="#990000">);</font>
+    <b><font color="#000000">strncpy</font></b> <font color="#990000">(</font>global_name<font color="#990000">,</font> name<font color="#990000">,</font> <font color="#993399">199</font><font color="#990000">);</font> <i><font color="#9A1900">// look, ma, no buffer overflow possible here!</font></i>
+  <font color="#FF0000">}</font>
 <font color="#FF0000">}</font>
 
-<font color="#009900">void</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+
+<font color="#009900">void</font> <b><font color="#000000">main</font></b><font color="#990000">(</font><font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">*</font>argv<font color="#990000">[])</font> <font color="#FF0000">{</font>
+
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>argc <font color="#990000">==</font> <font color="#993399">2</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(!</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">],</font><font color="#FF0000">"--print-buffer-address"</font><font color="#990000">))</font> <font color="#990000">)</font>
+    print_buffer_address <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
 
   <i><font color="#9A1900">// we use this to help find the address of the stack in the next command</font></i>
   <font color="#009900">int</font> on_stack<font color="#990000">;</font>

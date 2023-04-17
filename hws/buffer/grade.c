@@ -13,8 +13,12 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <sys/mman.h>
+
+// used to indicate if we are printing the buffer address
+int print_buffer_address = 0;
 
 // we use this to pass the name back from the vulnerable() function to
 // main()
@@ -23,12 +27,21 @@ char global_name[100];
 // the vulnerable function
 void vulnerable() {
   char name[200];
-  printf ("Please enter your name:\n");
-  fgets (name, 1000000, stdin);
-  strncpy (global_name, name, 199); // look, ma, no buffer overflow possible here!
+  if ( print_buffer_address ) {
+    printf("%lx\n",(unsigned long) name);
+    exit(0);
+  } else {
+    printf ("Please enter your name:\n");
+    fgets (name, 1000000, stdin);
+    strncpy (global_name, name, 199); // look, ma, no buffer overflow possible here!
+  }
 }
 
-void main() {
+
+void main(int argc, char *argv[]) {
+
+  if ( (argc == 2) && (!strcmp(argv[1],"--print-buffer-address")) )
+    print_buffer_address = 1;
 
   // we use this to help find the address of the stack in the next command
   int on_stack;
