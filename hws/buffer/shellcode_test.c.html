@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>shellcode_test.c</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdio.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;sys/mman.h&gt;</font>
+
+<b><font color="#0000FF">extern</font></b> <font color="#009900">void</font> <b><font color="#000000">shellcode</font></b><font color="#990000">();</font>
+
+<font color="#009900">void</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+  <font color="#009900">int</font> on_stack<font color="#990000">;</font>
+  <b><font color="#000000">mprotect</font></b><font color="#990000">((</font><font color="#009900">char</font> <font color="#990000">*)((</font><font color="#009900">long</font><font color="#990000">)&amp;</font>on_stack <font color="#990000">&amp;</font> <font color="#990000">-</font><font color="#993399">0x1000</font><font color="#990000">),</font> <font color="#993399">1</font><font color="#990000">,</font> PROT_READ <font color="#990000">|</font> PROT_WRITE <font color="#990000">|</font> PROT_EXEC<font color="#990000">);</font>
+  <b><font color="#000000">mprotect</font></b><font color="#990000">((</font><font color="#009900">char</font> <font color="#990000">*)((</font><font color="#009900">long</font><font color="#990000">)&amp;</font>main <font color="#990000">&amp;</font> <font color="#990000">-</font><font color="#993399">0x1000</font><font color="#990000">),</font> <font color="#993399">1</font><font color="#990000">,</font> PROT_READ <font color="#990000">|</font> PROT_WRITE <font color="#990000">|</font> PROT_EXEC<font color="#990000">);</font>
+  <b><font color="#000000">shellcode</font></b><font color="#990000">();</font>
+  <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"After shell code is executed.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">);</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

@@ -10,7 +10,8 @@ assert len(sys.argv) == 2
 assert os.path.exists(sys.argv[1])
 
 if sys.argv[1] not in ['hw-rsa.html','hw-hashing.html', 'hw-fuzzing.html', 'hw-networks.html',
-						'hw-sql-xss-csrf.html', 'hw-cryptocurrency.html','hw-rootkits.html']:
+						'hw-sql-xss-csrf.html', 'hw-cryptocurrency.html','hw-rootkits.html',
+						'hw-buffer.html']:
 	exit()
 
 outfilename = sys.argv[1].replace(".html","") + "-tabbed.html"

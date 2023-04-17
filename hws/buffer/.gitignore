@@ -1,0 +1,5 @@
+*.o
+exec
+grade
+shellcode_test
+stack_addr
