@@ -79,7 +79,7 @@ replacements = [ ("Ec","EC"),("Io","I/O"),("Tbtc","tBTC"),("P2Pkh","P2PKH"),("To
 				 ("Igradebook","IGradebook"),("Tc","TC"),("Tokencc","TokenCC"),("Css","CSS"),
 				 ("&","&amp;"),("Dex","DEX"),("Metamask","MetaMask"),
 				 ("Ascii","ASCII"),("Crc","CRC"),("Md5","MD5"),("Sql","SQL"),("Csrf","CSRF"),("Xss","XSS"),
-				 ]
+				 ("Aslr","ASLR")]
 
 parser = MyHTMLParser()
 parser.feed(data)

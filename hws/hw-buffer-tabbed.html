@@ -12,7 +12,6 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel='stylesheet' href='../markdown.css'></link>
   <script>
@@ -37,15 +36,15 @@
     evt.currentTarget.className += " active";
   }
   </script>
-  
 </head>
 <body>
 <h1 id='ics-programming-homework-buffer-overflow'>ICS: Programming Homework: Buffer Overflow</h1>
 <p><a href='index.html'>Go up to the ICS HW page</a> (<a href='index.md'>md</a>) | <a href='hw-buffer.html'>view one-page version</a></p><div class='tab'>
 <button class='tablinks' onclick="openTab(event,'tpurpose')" id='defaultOpen'>Purpose</button>
 <button class='tablinks' onclick="openTab(event,'tchangelog')">Changelog</button>
-<button class='tablinks' onclick="openTab(event,'tlinks')">Links</button>
 <button class='tablinks' onclick="openTab(event,'texecutable')">Executable</button>
+<button class='tablinks' onclick="openTab(event,'taslr')">ASLR</button>
+<button class='tablinks' onclick="openTab(event,'tbuffer-address')">Buffer Address</button>
 <button class='tablinks' onclick="openTab(event,'tstep-1-makefile')">Makefile</button>
 <button class='tablinks' onclick="openTab(event,'tstep-2-shellcode')">Shellcode</button>
 <button class='tablinks' onclick="openTab(event,'ttask-3-overflow')">Overflow</button>
@@ -55,35 +54,22 @@
 <button class='tablinks' onclick="openTab(event,'tsubmission')">Submission</button>
 </div>
 <div id='tpurpose' class='tabcontent'><h3 id='purpose'>Purpose</h3>
-<p>This assignment will have you implement a shellcode-based buffer overflow attack against a program executable. You will need to be familiar with the content in the <a href='../slides/buffer-overflows.html#/'>buffer overflow slide set</a>. That and the lecture recordings will guide you through many of the steps of this assignment.</p>
-<p>This assignment has six parts (or tasks), and are meant to be done in order, as that will help guide you through the assignment. In any case, be sure to do task 6 – a brief write-up – as that will help us tell how far you got in the assignment.</p>
+<p>This assignment will have you implement a shellcode-based buffer overflow attack against a program executable. You will need to be familiar with the content in the <a href='../slides/buffer-overflows.html#/'>buffer overflow slide set</a>, specifically the <a href='../slides/buffer-overflows.html#/how2doit'>how to do it</a> column of slides. That and the lecture recordings will guide you through many of the steps of this assignment.</p>
+<p>This assignment has five parts (or tasks), and are meant to be done in order, as that will help guide you through the assignment. In any case, be sure to do task 5 – a brief write-up – as that will help us tell how far you got in the assignment.</p>
 <h4 id='getting-stuck'>Getting stuck?</h4>
 <p>There are many parts of this assignment where it is easy to get stuck. You can look at the troubleshooting section, and the end of this page, for some hints. We provide a <em>lot</em> of details in each section – try reading through those again. We know it’s a lot to read (and to read repeatedly), but one can easily miss something the first time (or two) through it.</p>
 <h4 id='reference-platform'>Reference platform</h4>
-<p>This program must run on the 64-bit Ubuntu 18.04 VirtualBox image provided to the class.</p>
+<p>This program must run on the Cyber Range account. You are welcome to develop it on your own machine, but make sure it works there before you submit it. And if it isn’t working on your machine, try it on the Cyber Range to see if that allows it to work.</p>
 </div><div id='tchangelog' class='tabcontent'><h3 id='changelog'>Changelog</h3>
 <p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
-</div><div id='tlinks' class='tabcontent'><h3 id='links'>Links</h3>
-<p>These links are all described below, but are included here, all in one place.</p>
-<ul>
-<li>The <a href='../slides/buffer-overflows.html#/'>buffer overflow slide set</a>, specifically the <a href='../slides/buffer-overflows.html#/how2doit'>how to do it</a> column of slides</li>
-<li>The CS 2150 <a href='https://uva-cs.github.io/pdr/tutorials/05-make/index.html'>Makefile tutorial</a></li>
-<li>CS 2150 assembly references: <a href='https://uva-cs.github.io/pdr/slides/08-assembly-64bit.html#/'>slides</a>, labs (<a href='https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html'>1</a> & <a href='https://uva-cs.github.io/pdr/labs/lab09-64bit/index.html'>2</a>), book chapters (<a href='https://uva-cs.github.io/pdr/book/x86-64bit-asm-chapter.pdf'>1</a> & <a href='https://uva-cs.github.io/pdr/book/x86-64bit-ccc-chapter.pdf'>2</a>), and/or <a href='https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf'>recommended online document</a>
-<ul>
-<li>Note that the first assembly lab has the vecsum example, which will properly compile (via <code>make</code>) a C++ / assembly program</li>
-</ul></li>
-<li>The source code (grade.c) for the executable to be attacked: <a href='buffer/grade.c.html'>HTML version</a>, <a href='buffer/grade.c'>C version</a></li>
-<li><a href='http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/'>Linux 64-bit syscall reference</a></li>
-<li>The <a href='https://uva-cs.github.io/pdr/tutorials/02-gdb/index.html'>CS 2150 GDB tutorial</a></li>
-</ul>
 </div><div id='texecutable' class='tabcontent'><h3 id='executable'>Executable</h3>
 <h4 id='grade.c'>grade.c</h4>
 <p>The executable we are attacking is called <code>grade</code>. When run, you enter your name, and it will tell you your grade. An example run of the program:</p>
 <pre><code>$ ./grade
 Please enter your name:
-Aaron Bloomfield
+Albert Einstein
 
-Aaron Bloomfield, your grade on this assignment is a F
+Albert Einstein, your grade on this assignment is a F
 $</code></pre>
 <p>Note that the first instance of the name in the output above is what the user input, and the second is what the program printed back.</p>
 <p>The grade reported by this program is the grade you will receive on (part of) this assignment.</p>
@@ -93,10 +79,11 @@ $</code></pre>
 <p>Your job is to create a shellcode-based buffer overflow attack that will assign you a different grade. For example:</p>
 <pre><code>$ ./grade &lt; input.txt
 Please enter your name:
-Aaron Bloomfield, your grade on this assignment is an A
+Albert Einstein, your grade on this assignment is an A
 $</code></pre>
 <p>The contents of input.txt are output by a program that you will write in tasks 3 & 4.</p>
-<h4 id='address-space-layout-randomization'>Address Space Layout Randomization</h4>
+<p>The <code>--print-buffer-address</code> is described below.</p>
+</div><div id='taslr' class='tabcontent'><h3 id='aslr'>ASLR</h3>
 <p>Address Space Layout Randomization (ASLR) is an operating system defense against buffer overflows. Consider the following program, which is available as <a href='buffer/stack-addr.c.html'>stack-addr.c</a> (<a href='buffer/stack-addr.c'>src</a>):</p>
 <pre><code>#include &lt;stdio.h&gt;
 int main() {
@@ -119,11 +106,56 @@ be185c6c
 $ </code></pre>
 <p>The stack position keeps changing. Actually what is happening is the address where the stack <em>starts</em> keeps changing – <code>buffer</code> is still in the same spot relative to that end of the stack, but the address of that end is what varies each time. This is an operating system defense to make buffer overflows quite difficult, since the address of a buffer keeps changing.</p>
 <p>For this assignment, we need to turn that defense off.</p>
-<p>We are going to run it differently. Try: <code>setarch $(uname -m) -R ./stack-addr</code>. The <code>-R</code> option tells it to turn off ASLR for the program being run. You can execute this command many times, and you will get the exact same stack address each time.</p>
-<p>However, it’s annoying to do that each time, so we can just do it once: <code>setarch $(uname -m) -R /bin/bash</code>. This runs bash – the shell – and any commands run in that shell will not have ASLR turned on. You can now run <code>./stack-addr</code> many times, and get the same address each time.</p>
+<p>We are going to run it differently. Try: <code>setarch $(uname -m) -L -R ./stack-addr</code>. The <code>-R</code> option tells it to turn off ASLR for the program being run. The <code>-L</code> flag tells it to use an older memory model that is more appropriate for our first buffer overflow. You can execute this command many times, and you will get the exact same stack address each time.</p>
+<p>However, it’s annoying to do that each time, so we can just do it once: <code>setarch $(uname -m) -L -R /bin/bash</code>. This runs bash – the shell – and any commands run in that shell will not have ASLR turned on. You can now run <code>./stack-addr</code> many times, and get the same address each time.</p>
 <p>We will use the <code>setarch</code> command when we run grade. So your buffer overflow will run via:</p>
-<p><code>setarch $(uname -m) -R ./stack-addr ./grade &lt; input.txt</code></p>
+<p><code>setarch $(uname -m) -L -R ./stack-addr ./grade &lt; input.txt</code></p>
 <p>The <code>input.txt</code> part is explained below.</p>
+</div><div id='tbuffer-address' class='tabcontent'><h3 id='buffer-address'>Buffer Address</h3>
+<p>As this is a first take at a stack buffer overflow, we are making the project more viable. Specifically, we will provide the address of the buffer that your program can use when determining the buffer contents.</p>
+<p>If you run the <code>grade</code> executable with the <code>--print-buffer-address</code> flag, it will show the address of the buffer:</p>
+<pre><code>$ ./grade --print-buffer-address
+7ffca71f59f0
+$ ./grade --print-buffer-address
+7fff6deb9320
+$ ./grade --print-buffer-address
+7ffe5a3aefb0
+$ ./grade --print-buffer-address
+7ffd3328b150
+$</code></pre>
+<p>Again, we see that the address changes each time. So we can run it with <code>setarch</code> in one of two ways. First, each time we call the program:</p>
+<pre><code>$ setarch $(uname -m) -L -R ./grade --print-buffer-address
+7fffffffe050
+$ setarch $(uname -m) -L -R ./grade --print-buffer-address
+7fffffffe050
+$ setarch $(uname -m) -L -R ./grade --print-buffer-address
+7fffffffe050
+$ setarch $(uname -m) -L -R ./grade --print-buffer-address
+7fffffffe050
+$</code></pre>
+<p>Or just once to run <code>bash</code> and then run the program:</p>
+<pre><code>$ ./grade --print-buffer-address
+7fffffffe030
+$ ./grade --print-buffer-address
+7fffffffe030
+$ ./grade --print-buffer-address
+7fffffffe030
+$ ./grade --print-buffer-address
+7fffffffe030
+$ </code></pre>
+<p>Prior to running your program, there will be an <code>address.txt</code> file that will contain the (hex) address of the buffer. We will generate it as such:</p>
+<pre><code>$ setarch $(uname -m) -L -R ./grade --print-buffer-address &gt; address.txt
+$</code></pre>
+<p>You can then read in that file to determine the address of the buffer. The following C code will do that for you:</p>
+<pre><code>#include &lt;stdio.h&gt;
+void main() {
+  void* buffer;
+  FILE *fp = fopen("address.txt","r");
+  fscanf(fp, "%lx", (unsigned long)&buffer);
+  fclose(fp);
+  printf("Buffer address: %lx\n",buffer);
+}</code></pre>
+<p>You may assume that the <code>address.txt</code> file is present, properly formed, and has the correct buffer address value.</p>
 </div><div id='tstep-1-makefile' class='tabcontent'><h3 id='step-1-makefile'>Step 1: Makefile</h3>
 <p>Not much to do here yet, but we are going to call <code>make</code> to compile your code. All of your compilation lines must be in that Makefile, and all under one target. Most of the following steps will have you add some lines to the Makefile. A collection of all the compilation commands is at the end of this document (in the Submission section).</p>
 <p>If you forget how to write a Makefile, you can see <a href='https://uva-cs.github.io/pdr/tutorials/05-make/index.html'>this Makefile tutorial</a>, and <a href='https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html'>this C/assembly Makefile example</a>, or any other reference online.</p>
@@ -164,6 +196,7 @@ shellcode:
   ; for now, a ret, but you will want to eventually remove it
   ret</code></pre>
 <p>This file is provided in <a href='buffer/shellcode.s.html'>shellcode_test.c</a> (<a href='buffer/shellcode.s'>src</a>).</p>
+<p>Forget assembly? Here are some CS 2150 assembly references: <a href='https://uva-cs.github.io/pdr/slides/08-assembly-64bit.html#/'>slides</a>, labs (<a href='https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html'>1</a> & <a href='https://uva-cs.github.io/pdr/labs/lab09-64bit/index.html'>2</a>), book chapters (<a href='https://uva-cs.github.io/pdr/book/x86-64bit-asm-chapter.pdf'>1</a> & <a href='https://uva-cs.github.io/pdr/book/x86-64bit-ccc-chapter.pdf'>2</a>), and/or <a href='https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf'>recommended online document</a>.</p>
 <h4 id='makefile'>Makefile</h4>
 <p>Your Makefile will need to have three lines to compile this program: one to call nasm to compile shellcode.s, one to compile shellcode_test.c, and one to link them together.</p>
 <p>You will add the following lines to your Makefile (remember that the indents are a single tab, not spaces):</p>
@@ -241,7 +274,7 @@ gcc -g -no-pie -m64 -o shellcode_test shellcode.o shellcode_test.o</code></pre>
 <p>If you have made it this far, then your code, when run, looks something like:</p>
 <pre><code>$ ./grade &lt; input.txt
 Please enter your name:
-Aaron Bloomfield, your grade on this assignment is an A$</code></pre>
+Albert Einstein, your grade on this assignment is an A$</code></pre>
 <p>You will notice that the prompt (the ‘$’) is on the same line as the desired grade because of the lack of a newline character in the string. You obviously can not put a newline in the string itself, as that would indicate end-of-string, and the rest of your carefully constructed data in input.txt would never make it onto the stack – so your buffer overflow attack would never occur.</p>
 <p>For this task, you are to modify your shellcode (in shellcode.s), and your attack_shellcode.c file, to put a newline at the end of the string. You will likely want to compute that value and store it in the string, since you can’t include a newline in the shellcode itself. You should test this out via your <code>shellcode_test</code> program first. Note that one of the <code>mprotect()</code> calls in the provided shellcode_test.c allows for modification of the .text section, so such a modification will work in <code>shellcode_test</code>.</p>
 <p>This is just a modification of the attack_shellcode.c file, so your modifications for this task can overwrite parts from the last two tasks. For grading purposes, if you did this task, then you obviously did the previous two tasks.</p>
@@ -262,17 +295,18 @@ Aaron Bloomfield, your grade on this assignment is an A$</code></pre>
 <p>One issue is to figure out whether you are setting the return address correctly – if not, that would be the cause of the segfault. First, we need to find what the return address should be. To do this, we first need to find the return address from <code>vulnerable()</code> back to <code>main()</code>. Run <code>objdump -d grade</code>, and find the line <em>after</em> the call (in <code>main()</code>) to <code>vulnerable()</code> – that is the return address from vulnerable. Next, load up the executable in gdb, and set up a break point right when you enter into the <code>vulnerable()</code> function. You can list the stack with a command such as, <code>x/100xw $rsp</code>. This will print out 100 hex values, each one being 4 bytes. A typical gdb display will list four 32-bit (4 byte) values per line, which is 16 bytes per line. Since you know the size of the buffer (200 bytes), the return address is likely to be about 200/16 lines down, or about a dozen lines down. Keep in mind that a return address is 64 bits, which will be <em>two</em> of the 32-bit values listed in this display. That return address should (more or less) match the value you gleaned from the objdump command. Once you have the return address, figure out the command to just print out that return address: <code>x/2xw 0x7fffffffdcc0</code> might work (if the return address were located at 0x7fffffffdcc0). Next, set up a break point for the <em>end</em> of the <code>vulnerable()</code> function. Check that return address value again – it should look similar to (but not the exact same value as) the value in the rsp register (<code>print $rsp</code>). When split among two values, it will list like, <code>0xffffde00 0x00007fff</code>. Once you see that value, it should be the exact address of the <code>name</code> buffer. If not, then your program is going to seg fault.</p>
 <p>If you are sure the return address is set correctly, the next step is to trace the injected assembly. Set a break point for the end of the <code>vulnerable()</code> function. If you set it <em>before</em> the last function call (the <code>strncpy()</code> call), hit <code>n</code> to step over that function. You will then start using <code>stepi</code> to single-step through the assembly instructions. Running <code>layout asm</code> will help the trace. You should step through your assembly code to make sure it works – presumably there will be the nop sled, then your injected code. Note that x86 instructions are of a different lengths, so if your jump is off, it may jump to the middle of an instruction, and you will get an illegal instruction error. You can disassemble a region of memory with a command such as <code>disassemble 0x7fffffffdcb0,0x7fffffffdd30</code>. Also note that when you are disassembling the contents of the stack, gdb will attempt to map the string (that you should receive, presumably, an A) to x86 instructions, many of which will be invalid. But if you do a disassembly from the start of your shell code (which is the target of your initial jump), you should see the assembly that you wrote.</p>
 </div><div id='tsubmission' class='tabcontent'><h3 id='submission'>Submission</h3>
-<p>You are going to submit a number of files:</p>
+<p>You are going to submit five files:</p>
 <ul>
-<li>Makefile: this calls four compilation lines (three from task 2, and one from task 3; the line for task 3 will also apply to tasks 4 and 5).
+<li><code>Makefile</code>: this calls four compilation lines (three from task 2, and one from task 3; the line for task 3 will also apply to tasks 4 and 5).
 <ul>
 <li>Make sure that things are compiled to the right names! shellcode.s should compile to shellcode.o, all of task 2 should compile into the <code>shellcode_test</code> executable, and the code from task 3 should compile into the <code>attack_shellcode</code> executable.</li>
 <li>You can also include the compilation line for grade.c or not – we will provide it during testing regardless.</li>
 </ul></li>
-<li>shellcode.s and shellcode_test.c from task 2</li>
-<li>attack_shellcode.c from task 3 & 4 (if you completed task 4, just submit that version, as that shows you also completed task 3)</li>
-<li>buffer.py from task 5</li>
+<li><code>shellcode.s</code> and <code>shellcode_test.c</code> from task 2</li>
+<li><code>attack_shellcode.c</code> from task 3 & 4 (if you completed task 4, just submit that version, as that shows you also completed task 3)</li>
+<li><code>buffer.py</code> from task 5</li>
 </ul>
+<p>If you did not get to a section, you will still have to submit the required files, as the submission will check that all 5 files are present. You can just create an empty file (or a file with <code>hello world</code> in it) if you did not get to that part.</p>
 </div><script>document.getElementById('defaultOpen').click();</script></body>
 </html>
 

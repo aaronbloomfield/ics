@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>read-buffer-address.c</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdio.h&gt;</font>
+<font color="#009900">void</font> <b><font color="#000000">main</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+	<font color="#009900">void</font><font color="#990000">*</font> buffer<font color="#990000">;</font>
+	<font color="#008080">FILE</font> <font color="#990000">*</font>fp <font color="#990000">=</font> <b><font color="#000000">fopen</font></b><font color="#990000">(</font><font color="#FF0000">"address.txt"</font><font color="#990000">,</font><font color="#FF0000">"r"</font><font color="#990000">);</font>
+	<b><font color="#000000">fscanf</font></b><font color="#990000">(</font>fp<font color="#990000">,</font> <font color="#FF0000">"%lx"</font><font color="#990000">,</font> <font color="#990000">(</font><font color="#009900">unsigned</font> <font color="#009900">long</font><font color="#990000">)&amp;</font>buffer<font color="#990000">);</font>
+	<b><font color="#000000">fclose</font></b><font color="#990000">(</font>fp<font color="#990000">);</font>
+	<b><font color="#000000">printf</font></b><font color="#990000">(</font><font color="#FF0000">"Buffer address: %lx</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font>buffer<font color="#990000">);</font>
+<font color="#FF0000">}</font></tt></pre>
+</body>
+</html>

@@ -6,9 +6,9 @@ ICS: Programming Homework: Buffer Overflow
 
 ### Purpose 
 
-This assignment will have you implement a shellcode-based buffer overflow attack against a program executable.  You will need to be familiar with the content in the [buffer overflow slide set](../slides/buffer-overflows.html#/).  That and the lecture recordings will guide you through many of the steps of this assignment.
+This assignment will have you implement a shellcode-based buffer overflow attack against a program executable.  You will need to be familiar with the content in the [buffer overflow slide set](../slides/buffer-overflows.html#/), specifically the [how to do it](../slides/buffer-overflows.html#/how2doit) column of slides.  That and the lecture recordings will guide you through many of the steps of this assignment.
 
-This assignment has six parts (or tasks), and are meant to be done in order, as that will help guide you through the assignment.  In any case, be sure to do task 6 -- a brief write-up -- as that will help us tell how far you got in the assignment.
+This assignment has five parts (or tasks), and are meant to be done in order, as that will help guide you through the assignment.  In any case, be sure to do task 5 -- a brief write-up -- as that will help us tell how far you got in the assignment.
 
 #### Getting stuck?
 
@@ -17,26 +17,13 @@ There are many parts of this assignment where it is easy to get stuck. You can l
 
 #### Reference platform
 
-This program must run on the 64-bit Ubuntu 18.04 VirtualBox image provided to the class.
+This program must run on the Cyber Range account.  You are welcome to develop it on your own machine, but make sure it works there before you submit it.  And if it isn't working on your machine, try it on the Cyber Range to see if that allows it to work.
 
 
 ### Changelog
 
 Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
 
-
-
-### Links
-
-These links are all described below, but are included here, all in one place.
-
-- The [buffer overflow slide set](../slides/buffer-overflows.html#/), specifically the [how to do it](../slides/buffer-overflows.html#/how2doit) column of slides
-- The CS 2150 [Makefile tutorial](https://uva-cs.github.io/pdr/tutorials/05-make/index.html)
-- CS 2150 assembly references: [slides](https://uva-cs.github.io/pdr/slides/08-assembly-64bit.html#/), labs ([1](https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html) & [2](https://uva-cs.github.io/pdr/labs/lab09-64bit/index.html)), book chapters ([1](https://uva-cs.github.io/pdr/book/x86-64bit-asm-chapter.pdf) & [2](https://uva-cs.github.io/pdr/book/x86-64bit-ccc-chapter.pdf)), and/or [recommended online document](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf)
-    - Note that the first assembly lab has the vecsum example, which will properly compile (via `make`) a C++ / assembly program
-- The source code (grade.c) for the executable to be attacked: [HTML version](buffer/grade.c.html), [C version](buffer/grade.c)
-- [Linux 64-bit syscall reference](http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)
-- The [CS 2150 GDB tutorial](https://uva-cs.github.io/pdr/tutorials/02-gdb/index.html)
 
 ### Executable
 
@@ -47,9 +34,9 @@ The executable we are attacking is called `grade`.  When run, you enter your nam
 ```
 $ ./grade
 Please enter your name:
-Aaron Bloomfield
+Albert Einstein
 
-Aaron Bloomfield, your grade on this assignment is a F
+Albert Einstein, your grade on this assignment is a F
 $
 ```
 
@@ -70,14 +57,15 @@ Your job is to create a shellcode-based buffer overflow attack that will assign 
 ```
 $ ./grade < input.txt
 Please enter your name:
-Aaron Bloomfield, your grade on this assignment is an A
+Albert Einstein, your grade on this assignment is an A
 $
 ```
 
 The contents of input.txt are output by a program that you will write in tasks 3 & 4.
 
+The `--print-buffer-address` is described below.
 
-#### Address Space Layout Randomization
+### ASLR
 
 Address Space Layout Randomization (ASLR) is an operating system defense against buffer overflows.  Consider the following program, which is available as [stack-addr.c](buffer/stack-addr.c.html) ([src](buffer/stack-addr.c)):
 
@@ -111,16 +99,84 @@ The stack position keeps changing.  Actually what is happening is the address wh
 
 For this assignment, we need to turn that defense off.
 
-We are going to run it differently.  Try: `setarch $(uname -m) -R ./stack-addr`.  The `-R` option tells it to turn off ASLR for the program being run.  You can execute this command many times, and you will get the exact same stack address each time.
+We are going to run it differently.  Try: `setarch $(uname -m) -L -R ./stack-addr`.  The `-R` option tells it to turn off ASLR for the program being run.  The `-L` flag tells it to use an older memory model that is more appropriate for our first buffer overflow.  You can execute this command many times, and you will get the exact same stack address each time.
 
-However, it's annoying to do that each time, so we can just do it once: `setarch $(uname -m) -R /bin/bash`.  This runs bash -- the shell -- and any commands run in that shell will not have ASLR turned on.  You can now run `./stack-addr` many times, and get the same address each time.
+However, it's annoying to do that each time, so we can just do it once: `setarch $(uname -m) -L -R /bin/bash`.  This runs bash -- the shell -- and any commands run in that shell will not have ASLR turned on.  You can now run `./stack-addr` many times, and get the same address each time.
 
 We will use the `setarch` command when we run grade.  So your buffer overflow will run via:
 
-`setarch $(uname -m) -R ./stack-addr ./grade < input.txt`
+`setarch $(uname -m) -L -R ./stack-addr ./grade < input.txt`
 
 The `input.txt` part is explained below.
 
+
+### Buffer Address
+
+As this is a first take at a stack buffer overflow, we are making the project more viable.  Specifically, we will provide the address of the buffer that your program can use when determining the buffer contents.
+
+If you run the `grade` executable with the `--print-buffer-address` flag, it will show the address of the buffer:
+
+```
+$ ./grade --print-buffer-address
+7ffca71f59f0
+$ ./grade --print-buffer-address
+7fff6deb9320
+$ ./grade --print-buffer-address
+7ffe5a3aefb0
+$ ./grade --print-buffer-address
+7ffd3328b150
+$
+```
+
+Again, we see that the address changes each time.  So we can run it with `setarch` in one of two ways.  First, each time we call the program:
+
+```
+$ setarch $(uname -m) -L -R ./grade --print-buffer-address
+7fffffffe050
+$ setarch $(uname -m) -L -R ./grade --print-buffer-address
+7fffffffe050
+$ setarch $(uname -m) -L -R ./grade --print-buffer-address
+7fffffffe050
+$ setarch $(uname -m) -L -R ./grade --print-buffer-address
+7fffffffe050
+$
+```
+
+Or just once to run `bash` and then run the program:
+
+```
+$ ./grade --print-buffer-address
+7fffffffe030
+$ ./grade --print-buffer-address
+7fffffffe030
+$ ./grade --print-buffer-address
+7fffffffe030
+$ ./grade --print-buffer-address
+7fffffffe030
+$ 
+```
+
+Prior to running your program, there will be an `address.txt` file that will contain the (hex) address of the buffer.  We will generate it as such:
+
+```
+$ setarch $(uname -m) -L -R ./grade --print-buffer-address > address.txt
+$
+```
+
+You can then read in that file to determine the address of the buffer.  The following C code will do that for you:
+
+```
+#include <stdio.h>
+void main() {
+  void* buffer;
+  FILE *fp = fopen("address.txt","r");
+  fscanf(fp, "%lx", (unsigned long)&buffer);
+  fclose(fp);
+  printf("Buffer address: %lx\n",buffer);
+}
+```
+
+You may assume that the `address.txt` file is present, properly formed, and has the correct buffer address value.
 
 ### Step 1: Makefile
 
@@ -185,6 +241,9 @@ shellcode:
 ```
 
 This file is provided in [shellcode_test.c](buffer/shellcode.s.html) ([src](buffer/shellcode.s)).
+
+Forget assembly?  Here are some CS 2150 assembly references: [slides](https://uva-cs.github.io/pdr/slides/08-assembly-64bit.html#/), labs ([1](https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html) & [2](https://uva-cs.github.io/pdr/labs/lab09-64bit/index.html)), book chapters ([1](https://uva-cs.github.io/pdr/book/x86-64bit-asm-chapter.pdf) & [2](https://uva-cs.github.io/pdr/book/x86-64bit-ccc-chapter.pdf)), and/or [recommended online document](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf).
+
 
 #### Makefile
 
@@ -295,7 +354,7 @@ If you have made it this far, then your code, when run, looks something like:
 ```
 $ ./grade < input.txt
 Please enter your name:
-Aaron Bloomfield, your grade on this assignment is an A$
+Albert Einstein, your grade on this assignment is an A$
 ```
 
 You will notice that the prompt (the '$') is on the same line as the desired grade because of the lack of a newline character in the string.  You obviously can not put a newline in the string itself, as that would indicate end-of-string, and the rest of your carefully constructed data in input.txt would never make it onto the stack -- so your buffer overflow attack would never occur.
@@ -331,11 +390,13 @@ If you are sure the return address is set correctly, the next step is to trace t
 
 ### Submission
 
-You are going to submit a number of files:
+You are going to submit five files:
 
-- Makefile: this calls four compilation lines (three from task 2, and one from task 3; the line for task 3 will also apply to tasks 4 and 5).
+- `Makefile`: this calls four compilation lines (three from task 2, and one from task 3; the line for task 3 will also apply to tasks 4 and 5).
     - Make sure that things are compiled to the right names! shellcode.s should compile to shellcode.o, all of task 2 should compile into the `shellcode_test` executable, and the code from task 3 should compile into the `attack_shellcode` executable.
   - You can also include the compilation line for grade.c or not -- we will provide it during testing regardless.
-- shellcode.s and shellcode_test.c from task 2
-- attack_shellcode.c from task 3 & 4 (if you completed task 4, just submit that version, as that shows you also completed task 3)
-- buffer.py from task 5
+- `shellcode.s` and `shellcode_test.c` from task 2
+- `attack_shellcode.c` from task 3 & 4 (if you completed task 4, just submit that version, as that shows you also completed task 3)
+- `buffer.py` from task 5
+
+If you did not get to a section, you will still have to submit the required files, as the submission will check that all 5 files are present.  You can just create an empty file (or a file with `hello world` in it) if you did not get to that part.
