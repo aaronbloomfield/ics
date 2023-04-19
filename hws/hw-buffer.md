@@ -22,7 +22,38 @@ This program must run on the Cyber Range account.  You are welcome to develop it
 
 ### Changelog
 
-Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
+Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here. <!-- So far there aren't any significant changes to report. -->
+
+- Wed, 4/19 @ 5pm: updated grade.c and various instructions throughout (just clarifications to the instructions)
+
+
+### Platform
+
+We will be using the Virginia Cyber Range at [https://www.virginiacyberrange.org/](https://www.virginiacyberrange.org/). This site basically allows you to run a remote virtual environment; we are using Ubunmtu 22.04.
+
+Go to [https://www.virginiacyberrange.org/](https://www.virginiacyberrange.org/).  You should have already signed up for the last assignment; if not, see that one for how to do so.
+
+Once you log in, click on the course.  There will then be a list of exercise environments at the bottom of the page -- there should be only one, called "Buffer Overflow HW Environment".  Click on it, then click on the power button on the page that appears (it's in the lower left of the page).  It will take a minute or so to start (boot).  Once it does, hit the play button (the right-arrow that replaced the power button) to attach to a screen in the virtual environment.
+
+You can load up a terminal via one of the icons on the bottom of the screen.  You will then have to install a bit of the software.  To do so, enter the following two commands:
+
+```
+sudo apt update
+sudo apt install -y make g++ emacs nasm
+```
+
+You are welcome to install any other software that you would like to use.  gedit is already installed, as is python3.
+
+When you are done, you should close that window, and you can stop the virtual machine (the stop button, which is next to the play button that started this whole party).
+
+**WARNING:** This site is free to use for *class purposes* for all students in the course.  Using it for non-class purposes is an honor violation, and will be dealt with as such.  Anything outside the reasonable bounds of an assignment in this course is considered a non-class purpose.
+
+This is a great resource, but it is a *finite* resource.  If you decide to wait to the last minute to start the assignment, and the rest of your class-mates do so as well, it's going to be slooooooow.  You cannot get an extension because you waited until the last minute along with everybody else, and the system was slow as a result.
+
+#### Working as root
+
+Some of these commands will require to to execute them as the root user.  You can do this by prepending `sudo` in front of the command. For example, to insert a module called `root.ko`, you would call `sudo insmod root.ko` -- this executes the `insmod root.ko` command as root.
+
 
 
 ### Executable
@@ -55,13 +86,13 @@ You are welcome to add the `-g` option to help with debugging, but when we test 
 Your job is to create a shellcode-based buffer overflow attack that will assign you a different grade.  For example:
 
 ```
-$ ./grade < input.txt
+$ ./grade < input.bin
 Please enter your name:
 Albert Einstein, your grade on this assignment is an A
 $
 ```
 
-The contents of input.txt are output by a program that you will write in tasks 3 & 4.
+The contents of input.bin are output by a program that you will write in tasks 3 & 4.
 
 The `--print-buffer-address` is described below.
 
@@ -105,9 +136,9 @@ However, it's annoying to do that each time, so we can just do it once: `setarch
 
 We will use the `setarch` command when we run grade.  So your buffer overflow will run via:
 
-`setarch $(uname -m) -L -R ./stack-addr ./grade < input.txt`
+`setarch $(uname -m) -L -R ./stack-addr ./grade < input.bin`
 
-The `input.txt` part is explained below.
+The `input.bin` part is explained below.
 
 
 ### Buffer Address
@@ -292,6 +323,21 @@ Where to start?
 - View the machine code (via `objdump -d`), and work on removing all the invalid characters (mostly 0x00 bytes).
 - As a sanity check, make sure that none of the other invalid bytes are present in the machine code other than 0x00: newlines (0x0a), carriage returns (0x0d), tabs (0x09), vertical tab (0x0b), and spaces (0x20).
 
+
+#### Execution
+
+After compiling with `make`, we will execute your code via `./shellcode_test` as follows.
+
+```
+$ ./shellcode_test
+Before shell code is executed.
+Albert Einstein, your grade on this assignment is an A
+$
+```
+
+Note that we expect it to say *your* name, not Albert Einstein.  Any reasonable form of your name is fine.
+
+
 ### Task 3: Overflow
 
 This is what we are all here for: the buffer overflow itself. Presumably, from task 2, you have shell code that does not contain any 0x00 bytes (or any of the other token-ending characters), prints out the grade you want, and then exits.
@@ -299,14 +345,14 @@ This is what we are all here for: the buffer overflow itself. Presumably, from t
 In this part, you are going to create a C program called `attack_shellcode.c` that will write the carefully constructed data to stdout.  You can run your program as follows (this is how we will do it to test it):
 
 ```
-$ ./attack_shellcode > input.txt
+$ ./attack_shellcode > input.bin
 ```
 
-As your program will be writing binary data, the input.txt will be binary.  You can use `hexdump -C` to view the contents of that file -- but make sure you put the `-C` parameter in there!
+As your program will be writing binary data, the input.bin will be binary.  You can use `hexdump -C` to view the contents of that file -- but make sure you put the `-C` parameter in there!
 
-Needless to say, be sure to name your executable `attack_shellcode`. You will then be able to run the buffer overflow via `./grade < input.txt`, as shown above.  Recall that the `grade` executable was compiled from the grade.c source code, as shown above.
+Needless to say, be sure to name your executable `attack_shellcode`. You will then be able to run the buffer overflow via `./grade < input.bin`, as shown above.  Recall that the `grade` executable was compiled from the grade.c source code, as shown above.
 
-The [buffer overflow slide set](../slides/buffer-overflows.html#/) will be a useful reference for this.  The output of your `attack_shellcode` executable, which is what is stored in input.txt, will likely have three parts:
+The [buffer overflow slide set](../slides/buffer-overflows.html#/) will be a useful reference for this.  The output of your `attack_shellcode` executable, which is what is stored in input.bin, will likely have three parts:
 
 - The NOP sled
 - The shellcode
@@ -325,6 +371,8 @@ You are going to have become friendly with gdb -- there is no way around that.  
 - To print a number of values on the stack, try `x/40xw $rsp`.  Note that this displays the data in little Endian, whereas `hexdump -C` (see below) displays it in big Endian.
 
 
+**NOTE:** If you are running `grade` in the debugger, it will be easiest to create a breakpoint (`break grade.c:38`), check the address of name (`print &name`), and then manually edit the address.txt file with that buffer address.  You can then enter `layout asm` and `stepi` to see it walk through the assembly code.
+
 #### Notes and hints
 
 Some other notes and tips:
@@ -333,7 +381,7 @@ Some other notes and tips:
 - Nothing here will work unless you have run `setarch x86_64 -v -LR bash` first, as described in the [buffer overflow slide set](../slides/buffer-overflows.html#/).
 - The address of the `name` buffer in `vulnerable()` MUST be specified as described below, otherwise your program will not work and you will not receive credit for that part
 - When you are *not* running it in gdb, the buffer address will change slightly.  It's up to you to figure out what that is (you can modify grade.c to find out; just be sure to change it back).
-- You can look at your created file via `hexdump -C input.txt`.  With the `-C` parameter, hexdump will display it in big Endian (different parameters to hexdump will show it in different Endian-ness).
+- You can look at your created file via `hexdump -C input.bin`.  With the `-C` parameter, hexdump will display it in big Endian (different parameters to hexdump will show it in different Endian-ness).
 - In your `attack_shellcode` program, you may be tempted to use [puts()](http://www.cplusplus.com/reference/cstdio/puts/) to write your data to standard output.  However, `puts()` will write a newline character ('\\n', hex value 0x0a) after the data it prints. You can use [fputs()](http://www.cplusplus.com/reference/cstdio/fputs/) instead (use `stdout` as the file descriptor) -- this will print to standard output without the trailing newline.
 
 #### Makefile
@@ -344,6 +392,21 @@ Your Makefile will need to compile your program into an executable named `attack
 gcc -o attack_shellcode attack_shellcode.c
 ```
 
+#### Execution
+
+After compiling with `make`, we will execute your code via `./attack_shellcode` as follows.
+
+```
+$ setarch $(uname -m) -R -L ./grade --print-buffer-address
+7fffffffd410
+$ setarch $(uname -m) -R -L ./grade --print-buffer-address > address.txt
+$ ./attack_shellcode > input.bin
+$ ./grade < input.bin
+Albert Einstein, your grade on this assignment is an A$
+```
+
+The specific value of your buffer address may vary.  Notice that the end prompt is on the *same* line as the output -- this is fixed next.
+
 
 ### Task 4: Newline
 
@@ -352,16 +415,32 @@ gcc -o attack_shellcode attack_shellcode.c
 If you have made it this far, then your code, when run, looks something like:
 
 ```
-$ ./grade < input.txt
+$ ./grade < input.bin
 Please enter your name:
 Albert Einstein, your grade on this assignment is an A$
 ```
 
-You will notice that the prompt (the '$') is on the same line as the desired grade because of the lack of a newline character in the string.  You obviously can not put a newline in the string itself, as that would indicate end-of-string, and the rest of your carefully constructed data in input.txt would never make it onto the stack -- so your buffer overflow attack would never occur.
+You will notice that the prompt (the '$') is on the same line as the desired grade because of the lack of a newline character in the string.  You obviously can not put a newline in the string itself, as that would indicate end-of-string, and the rest of your carefully constructed data in input.bin would never make it onto the stack -- so your buffer overflow attack would never occur.
 
 For this task, you are to modify your shellcode (in shellcode.s), and your attack_shellcode.c file, to put a newline at the end of the string.  You will likely want to compute that value and store it in the string, since you can't include a newline in the shellcode itself. You should test this out via your `shellcode_test` program first. Note that one of the `mprotect()` calls in the provided shellcode_test.c allows for modification of the .text section, so such a modification will work in `shellcode_test`.
 
 This is just a modification of the attack_shellcode.c file, so your modifications for this task can overwrite parts from the last two tasks.  For grading purposes, if you did this task, then you obviously did the previous two tasks.
+
+#### Execution
+
+After compiling with `make`, we will execute your code via `./attack_shellcode` as follows.
+
+```
+$ setarch $(uname -m) -R -L ./grade --print-buffer-address
+7fffffffd410
+$ setarch $(uname -m) -R -L ./grade --print-buffer-address > address.txt
+$ ./attack_shellcode > input.bin
+$ ./grade < input.bin
+Albert Einstein, your grade on this assignment is an A
+$
+```
+
+Notice that the end prompt is on the next line *after* the output.
 
 ### Task 5: Write-up
 

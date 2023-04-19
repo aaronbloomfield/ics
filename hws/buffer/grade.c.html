@@ -39,13 +39,15 @@ http://www.gnu.org/software/src-highlite">
 <font color="#009900">void</font> <b><font color="#000000">vulnerable</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
   <font color="#009900">char</font> name<font color="#990000">[</font><font color="#993399">200</font><font color="#990000">];</font>
   <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> print_buffer_address <font color="#990000">)</font> <font color="#FF0000">{</font>
-    <b><font color="#000000">printf</font></b><font color="#990000">(</font><font color="#FF0000">"%lx</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,(</font><font color="#009900">unsigned</font> <font color="#009900">long</font><font color="#990000">)</font> name<font color="#990000">);</font>
+    <font color="#009900">unsigned</font> <font color="#009900">long</font> addr <font color="#990000">=</font> <font color="#990000">(</font><font color="#009900">unsigned</font> <font color="#009900">long</font><font color="#990000">)</font> name <font color="#990000">+</font> <font color="#993399">0x20</font><font color="#990000">;</font>
+    <b><font color="#000000">printf</font></b><font color="#990000">(</font><font color="#FF0000">"%lx</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font>addr<font color="#990000">);</font>
     <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
   <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
     <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"Please enter your name:</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">);</font>
     <b><font color="#000000">fgets</font></b> <font color="#990000">(</font>name<font color="#990000">,</font> <font color="#993399">1000000</font><font color="#990000">,</font> stdin<font color="#990000">);</font>
     <b><font color="#000000">strncpy</font></b> <font color="#990000">(</font>global_name<font color="#990000">,</font> name<font color="#990000">,</font> <font color="#993399">199</font><font color="#990000">);</font> <i><font color="#9A1900">// look, ma, no buffer overflow possible here!</font></i>
   <font color="#FF0000">}</font>
+  <b><font color="#0000FF">return</font></b><font color="#990000">;</font> <i><font color="#9A1900">// not necessary, but useful to set a breakpoint at grade.c:38</font></i>
 <font color="#FF0000">}</font>
 
 

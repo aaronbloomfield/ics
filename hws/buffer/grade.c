@@ -28,13 +28,15 @@ char global_name[100];
 void vulnerable() {
   char name[200];
   if ( print_buffer_address ) {
-    printf("%lx\n",(unsigned long) name);
+    unsigned long addr = (unsigned long) name + 0x20;
+    printf("%lx\n",addr);
     exit(0);
   } else {
     printf ("Please enter your name:\n");
     fgets (name, 1000000, stdin);
     strncpy (global_name, name, 199); // look, ma, no buffer overflow possible here!
   }
+  return; // not necessary, but useful to set a breakpoint at grade.c:38
 }
 
 
