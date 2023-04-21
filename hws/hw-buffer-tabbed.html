@@ -103,32 +103,32 @@ $</code></pre>
 <p>The contents of input.bin are output by a program that you will write in tasks 3 & 4.</p>
 <p>The <code>--print-buffer-address</code> is described below.</p>
 </div><div id='taslr' class='tabcontent'><h3 id='aslr'>ASLR</h3>
-<p>Address Space Layout Randomization (ASLR) is an operating system defense against buffer overflows. Consider the following program, which is available as <a href='buffer/stack-addr.c.html'>stack-addr.c</a> (<a href='buffer/stack-addr.c'>src</a>):</p>
+<p>Address Space Layout Randomization (ASLR) is an operating system defense against buffer overflows. Consider the following program, which is available as <a href='buffer/stack_addr.c.html'>stack_addr.c</a> (<a href='buffer/stack_addr.c'>src</a>):</p>
 <pre><code>#include &lt;stdio.h&gt;
 int main() {
   char buffer[256];
   printf ("%.8lx\n",(unsigned long)buffer);
 }</code></pre>
-<p>All it does is print out the address of a scoped variable, which means the variable is on the stack. We would expect that the variable is at the same position on the stack, relative to the top, for each execution. We compile it (via <code>gcc -o stack-addr stack-addr.c</code>) and run it a number of times:</p>
-<pre><code>$ ./stack-addr 
+<p>All it does is print out the address of a scoped variable, which means the variable is on the stack. We would expect that the variable is at the same position on the stack, relative to the top, for each execution. We compile it (via <code>gcc -o stack_addr stack_addr.c</code>) and run it a number of times:</p>
+<pre><code>$ ./stack_addr 
 9dbfc92c
-$ ./stack-addr 
+$ ./stack_addr 
 773ee00c
-$ ./stack-addr 
+$ ./stack_addr 
 b4f4c21c
-$ ./stack-addr 
+$ ./stack_addr 
 e811414c
-$ ./stack-addr 
+$ ./stack_addr 
 0f0e077c
-$ ./stack-addr 
+$ ./stack_addr 
 be185c6c
 $ </code></pre>
 <p>The stack position keeps changing. Actually what is happening is the address where the stack <em>starts</em> keeps changing – <code>buffer</code> is still in the same spot relative to that end of the stack, but the address of that end is what varies each time. This is an operating system defense to make buffer overflows quite difficult, since the address of a buffer keeps changing.</p>
 <p>For this assignment, we need to turn that defense off.</p>
-<p>We are going to run it differently. Try: <code>setarch $(uname -m) -L -R ./stack-addr</code>. The <code>-R</code> option tells it to turn off ASLR for the program being run. The <code>-L</code> flag tells it to use an older memory model that is more appropriate for our first buffer overflow. You can execute this command many times, and you will get the exact same stack address each time.</p>
-<p>However, it’s annoying to do that each time, so we can just do it once: <code>setarch $(uname -m) -L -R /bin/bash</code>. This runs bash – the shell – and any commands run in that shell will not have ASLR turned on. You can now run <code>./stack-addr</code> many times, and get the same address each time.</p>
+<p>We are going to run it differently. Try: <code>setarch $(uname -m) -L -R ./stack_addr</code>. The <code>-R</code> option tells it to turn off ASLR for the program being run. The <code>-L</code> flag tells it to use an older memory model that is more appropriate for our first buffer overflow. You can execute this command many times, and you will get the exact same stack address each time.</p>
+<p>However, it’s annoying to do that each time, so we can just do it once: <code>setarch $(uname -m) -L -R /bin/bash</code>. This runs bash – the shell – and any commands run in that shell will not have ASLR turned on. You can now run <code>./stack_addr</code> many times, and get the same address each time.</p>
 <p>We will use the <code>setarch</code> command when we run grade. So your buffer overflow will run via:</p>
-<p><code>setarch $(uname -m) -L -R ./stack-addr ./grade &lt; input.bin</code></p>
+<p><code>setarch $(uname -m) -L -R ./stack_addr ./grade &lt; input.bin</code></p>
 <p>The <code>input.bin</code> part is explained below.</p>
 </div><div id='tbuffer-address' class='tabcontent'><h3 id='buffer-address'>Buffer Address</h3>
 <p>As this is a first take at a stack buffer overflow, we are making the project more viable. Specifically, we will provide the address of the buffer that your program can use when determining the buffer contents.</p>

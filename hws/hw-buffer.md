@@ -98,7 +98,7 @@ The `--print-buffer-address` is described below.
 
 ### ASLR
 
-Address Space Layout Randomization (ASLR) is an operating system defense against buffer overflows.  Consider the following program, which is available as [stack-addr.c](buffer/stack-addr.c.html) ([src](buffer/stack-addr.c)):
+Address Space Layout Randomization (ASLR) is an operating system defense against buffer overflows.  Consider the following program, which is available as [stack_addr.c](buffer/stack_addr.c.html) ([src](buffer/stack_addr.c)):
 
 ```
 #include <stdio.h>
@@ -108,20 +108,20 @@ int main() {
 }
 ```
 
-All it does is print out the address of a scoped variable, which means the variable is on the stack.  We would expect that the variable is at the same position on the stack, relative to the top, for each execution.  We compile it (via `gcc -o stack-addr stack-addr.c`) and run it a number of times:
+All it does is print out the address of a scoped variable, which means the variable is on the stack.  We would expect that the variable is at the same position on the stack, relative to the top, for each execution.  We compile it (via `gcc -o stack_addr stack_addr.c`) and run it a number of times:
 
 ```
-$ ./stack-addr 
+$ ./stack_addr 
 9dbfc92c
-$ ./stack-addr 
+$ ./stack_addr 
 773ee00c
-$ ./stack-addr 
+$ ./stack_addr 
 b4f4c21c
-$ ./stack-addr 
+$ ./stack_addr 
 e811414c
-$ ./stack-addr 
+$ ./stack_addr 
 0f0e077c
-$ ./stack-addr 
+$ ./stack_addr 
 be185c6c
 $ 
 ```
@@ -130,13 +130,13 @@ The stack position keeps changing.  Actually what is happening is the address wh
 
 For this assignment, we need to turn that defense off.
 
-We are going to run it differently.  Try: `setarch $(uname -m) -L -R ./stack-addr`.  The `-R` option tells it to turn off ASLR for the program being run.  The `-L` flag tells it to use an older memory model that is more appropriate for our first buffer overflow.  You can execute this command many times, and you will get the exact same stack address each time.
+We are going to run it differently.  Try: `setarch $(uname -m) -L -R ./stack_addr`.  The `-R` option tells it to turn off ASLR for the program being run.  The `-L` flag tells it to use an older memory model that is more appropriate for our first buffer overflow.  You can execute this command many times, and you will get the exact same stack address each time.
 
-However, it's annoying to do that each time, so we can just do it once: `setarch $(uname -m) -L -R /bin/bash`.  This runs bash -- the shell -- and any commands run in that shell will not have ASLR turned on.  You can now run `./stack-addr` many times, and get the same address each time.
+However, it's annoying to do that each time, so we can just do it once: `setarch $(uname -m) -L -R /bin/bash`.  This runs bash -- the shell -- and any commands run in that shell will not have ASLR turned on.  You can now run `./stack_addr` many times, and get the same address each time.
 
 We will use the `setarch` command when we run grade.  So your buffer overflow will run via:
 
-`setarch $(uname -m) -L -R ./stack-addr ./grade < input.bin`
+`setarch $(uname -m) -L -R ./stack_addr ./grade < input.bin`
 
 The `input.bin` part is explained below.
 
