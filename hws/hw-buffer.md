@@ -24,6 +24,7 @@ This program must run on the Cyber Range account.  You are welcome to develop it
 
 Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here. <!-- So far there aren't any significant changes to report. -->
 
+- Fri, 4/21: clarified that the name in buffer.py has to match the name output by their program
 - Wed, 4/19 @ 5pm: updated grade.c and various instructions throughout (just clarifications to the instructions)
 
 
@@ -93,6 +94,8 @@ $
 ```
 
 The contents of input.bin are output by a program that you will write in tasks 3 & 4.
+
+**NOTE:** Your output on this must be EXACTLY: `<name>, your grade on this assignment is an A`, as the Gradescope submission will check this.  It's fine if `<name>` is a nickname or only your first name.  Specifically, it has to match the name you put in the buffer.py file that you will submit.
 
 The `--print-buffer-address` is described below.
 
@@ -191,6 +194,8 @@ Prior to running your program, there will be an `address.txt` file that will con
 
 ```
 $ setarch $(uname -m) -L -R ./grade --print-buffer-address > address.txt
+$ cat address.txt
+7fffffffd410
 $
 ```
 
@@ -400,6 +405,8 @@ After compiling with `make`, we will execute your code via `./attack_shellcode` 
 $ setarch $(uname -m) -R -L ./grade --print-buffer-address
 7fffffffd410
 $ setarch $(uname -m) -R -L ./grade --print-buffer-address > address.txt
+$ cat address.txt
+7fffffffd410
 $ ./attack_shellcode > input.bin
 $ ./grade < input.bin
 Albert Einstein, your grade on this assignment is an A$
@@ -449,6 +456,7 @@ This is a *brief* write-up, and should be in the [buffer.py](buffer/buffer.py.ht
 Please include the following information:
 
 - Your name and userid
+  - **NOTE:** Your output of your shellcode must EXACTLY: `<name>, your grade on this assignment is an A`, as the Gradescope submission will check this.  The `<name>` part must match the `name` variable in this file.  It's fine if you are only using a first name for the shellcode -- if so, please put your full name in a comment in the file above the `name` variable.
 - How far did you get (i.e., which tasks did you complete)?
 - What thing(s) did you get stuck on for this assignment?
 - Compared to some of the harder assignments you've done -- such as CS 2150's hash lab -- how hard was this assignment?
@@ -478,5 +486,6 @@ You are going to submit five files:
 - `shellcode.s` and `shellcode_test.c` from task 2
 - `attack_shellcode.c` from task 3 & 4 (if you completed task 4, just submit that version, as that shows you also completed task 3)
 - `buffer.py` from task 5
+  - Make sure the `name` variable matches the name printed out by the shellcode, as Gradescope will check for this
 
 If you did not get to a section, you will still have to submit the required files, as the submission will check that all 5 files are present.  You can just create an empty file (or a file with `hello world` in it) if you did not get to that part.

@@ -7,7 +7,9 @@
 # What is your userid?  Just the mst3k part, please
 userid = 'mst3k'
 
-# What is your name?
+# What is your name?  This has to exactly match the name that is output by
+# your program.  If you do not use your full name, which is fine, then put
+# your name here as a comment.
 name = "John Doe"
 
 # Did you complete step 2 (writing the shell code)?  Making this True when you

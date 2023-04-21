@@ -54,6 +54,7 @@
 <h3 id="changelog">Changelog</h3>
 <p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. <!-- So far there aren't any significant changes to report. --></p>
 <ul>
+<li>Fri, 4/21: clarified that the name in buffer.py has to match the name output by their program</li>
 <li>Wed, 4/19 @ 5pm: updated grade.c and various instructions throughout (just clarifications to the instructions)</li>
 </ul>
 <h3 id="platform">Platform</h3>
@@ -89,6 +90,7 @@ Please enter your name:
 Albert Einstein, your grade on this assignment is an A
 $</code></pre>
 <p>The contents of input.bin are output by a program that you will write in tasks 3 &amp; 4.</p>
+<p><strong>NOTE:</strong> Your output on this must be EXACTLY: <code>&lt;name&gt;, your grade on this assignment is an A</code>, as the Gradescope submission will check this. It’s fine if <code>&lt;name&gt;</code> is a nickname or only your first name. Specifically, it has to match the name you put in the buffer.py file that you will submit.</p>
 <p>The <code>--print-buffer-address</code> is described below.</p>
 <h3 id="aslr">ASLR</h3>
 <p>Address Space Layout Randomization (ASLR) is an operating system defense against buffer overflows. Consider the following program, which is available as <a href="buffer/stack_addr.c.html">stack_addr.c</a> (<a href="buffer/stack_addr.c">src</a>):</p>
@@ -152,6 +154,8 @@ $ ./grade --print-buffer-address
 $ </code></pre>
 <p>Prior to running your program, there will be an <code>address.txt</code> file that will contain the (hex) address of the buffer. We will generate it as such:</p>
 <pre><code>$ setarch $(uname -m) -L -R ./grade --print-buffer-address &gt; address.txt
+$ cat address.txt
+7fffffffd410
 $</code></pre>
 <p>You can then read in that file to determine the address of the buffer. The following C code will do that for you:</p>
 <pre><code>#include &lt;stdio.h&gt;
@@ -289,6 +293,8 @@ $</code></pre>
 <pre><code>$ setarch $(uname -m) -R -L ./grade --print-buffer-address
 7fffffffd410
 $ setarch $(uname -m) -R -L ./grade --print-buffer-address &gt; address.txt
+$ cat address.txt
+7fffffffd410
 $ ./attack_shellcode &gt; input.bin
 $ ./grade &lt; input.bin
 Albert Einstein, your grade on this assignment is an A$</code></pre>
@@ -316,7 +322,10 @@ $</code></pre>
 <p>This is a <em>brief</em> write-up, and should be in the <a href="buffer/buffer.py.html">buffer.py</a> (<a href="buffer/buffer.py">src</a>) file – just fill in the blanks as necessary.</p>
 <p>Please include the following information:</p>
 <ul>
-<li>Your name and userid</li>
+<li>Your name and userid
+<ul>
+<li><strong>NOTE:</strong> Your output of your shellcode must EXACTLY: <code>&lt;name&gt;, your grade on this assignment is an A</code>, as the Gradescope submission will check this. The <code>&lt;name&gt;</code> part must match the <code>name</code> variable in this file. It’s fine if you are only using a first name for the shellcode – if so, please put your full name in a comment in the file above the <code>name</code> variable.</li>
+</ul></li>
 <li>How far did you get (i.e., which tasks did you complete)?</li>
 <li>What thing(s) did you get stuck on for this assignment?</li>
 <li>Compared to some of the harder assignments you’ve done – such as CS 2150’s hash lab – how hard was this assignment?</li>
@@ -339,7 +348,10 @@ $</code></pre>
 </ul></li>
 <li><code>shellcode.s</code> and <code>shellcode_test.c</code> from task 2</li>
 <li><code>attack_shellcode.c</code> from task 3 &amp; 4 (if you completed task 4, just submit that version, as that shows you also completed task 3)</li>
-<li><code>buffer.py</code> from task 5</li>
+<li><code>buffer.py</code> from task 5
+<ul>
+<li>Make sure the <code>name</code> variable matches the name printed out by the shellcode, as Gradescope will check for this</li>
+</ul></li>
 </ul>
 <p>If you did not get to a section, you will still have to submit the required files, as the submission will check that all 5 files are present. You can just create an empty file (or a file with <code>hello world</code> in it) if you did not get to that part.</p>
 </body>
