@@ -32,3 +32,7 @@ how_hard_was_this_assignment = 'easy!!!!'
 # Other than just giving the answers, what could we do to make this assignment
 # run more smoothly in the future?
 suggestions = ''
+
+# Any additional information that you would like us to know?  Such as how far
+# you got on a given task, etc.
+additional_info = ''

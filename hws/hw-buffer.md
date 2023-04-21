@@ -446,13 +446,14 @@ Notice that the end prompt is on the next line *after* the output.
 
 This is a *brief* write-up, and should be in the [buffer.py](buffer/buffer.py.html) ([src](buffer/buffer.py)) file -- just fill in the blanks as necessary.
 
-Please include, as a file named writeup.pdf, the following information:
+Please include the following information:
 
 - Your name and userid
 - How far did you get (i.e., which tasks did you complete)?
 - What thing(s) did you get stuck on for this assignment?
 - Compared to some of the harder assignments you've done -- such as CS 2150's hash lab -- how hard was this assignment?
 - Other than just giving the answers, what could we do to make this assignment run more smoothly in the future?
+- Any additional information that you would like to include (how far you got on a given task, etc.)
 
 We are not looking for any significant length here, just candid answers.
 
