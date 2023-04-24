@@ -187,6 +187,7 @@ void main() {
   int on_stack;
   mprotect((char *)((long)&amp;on_stack &amp; -0x1000), 1, PROT_READ | PROT_WRITE | PROT_EXEC);
   mprotect((char *)((long)&amp;main &amp; -0x1000), 1, PROT_READ | PROT_WRITE | PROT_EXEC);
+  printf (&quot;Before shell code is executed.\n&quot;);
   shellcode();
   printf (&quot;After shell code is executed.\n&quot;);
 }</code></pre>
