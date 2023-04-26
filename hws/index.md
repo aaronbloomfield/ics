@@ -7,6 +7,7 @@ You will be bound by the requirements on the [Homeworks policies page](../uva/hw
 
 ### Programing homeworks
 
+- [Programming homework: Forensics](hw-forensics-tabbed.html) ([one-page version](hw-forensics.html), [md](hw-forensics.md))
 - [Programming homework: Buffer Overflow](hw-buffer-tabbed.html) ([one-page version](hw-buffer.html), [md](hw-buffer.md))
 - [Programming homework: Rootkits](hw-rootkits-tabbed.html) ([one-page version](hw-rootkits.html), [md](hw-rootkits.md))
 - [Programming homework: Networks](hw-networks-tabbed.html) ([one-page version](hw-networks.html), [md](hw-networks.md))
@@ -23,10 +24,6 @@ You will be bound by the requirements on the [Homeworks policies page](../uva/hw
 - [Written homework: Policy](hw-policy.html) ([md](hw-policy.md))
 - [Written homework: Rational Paranoia](hw-paranoia.html) ([md](hw-paranoia.md))
 
-
-### Homeworks not assigned yet in spring 2023
-
-- [Programming homework: Forensics](hw-forensics-tabbed.html) ([one-page version](hw-forensics.html), [md](hw-forensics.md))
 
 ### Homeworks not being used in spring 2023
 

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ICS: Programming Homework: Forensics</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../markdown.css" />
+  <script>
+  function openTab(evt, tabName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  </script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="ics-programming-homework-forensics">ICS: Programming Homework: Forensics</h1>
+<p><a href="index.html">Go up to the ICS HW page</a> (<a href="index.md">md</a>) | <a href="hw-forensics-tabbed.html">view tabbed version</a></p>
+<h3 id="scenario">Scenario</h3>
+<p>My server is missing! I don’t know who took it or why they would want to take it. My TAs and I have been working feverishly to get another machine up and running, which is now also has the sane name as the old server. But I don’t know what happened to the original machine, who took it, or what they plan to do with it.</p>
+<p>Somebody left their laptop when they were taking the server. We were able to extract a hard drive image from that device. But we can’t make heads or tails from it.</p>
+<p>You have to help me figure all this out.</p>
+<h3 id="overview">Overview</h3>
+<p>Find out what happened from the disk image.</p>
+<p>Spoiler: there is obviously a story that this disk image can tell, otherwise there wouldn’t be this assignment.</p>
+<p>The intent is for you to use Autopsy / SleuthKit for this assignment, as well as some command-line tools and the file explorer. You will want to be familiar with the <a href="../slides/forensics.html#/">digital forensics slide set</a>. All the techniques needed for this assignment are in that slide set somewhere.</p>
+<h3 id="changelog">Changelog</h3>
+<p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
+<h3 id="platform">Platform</h3>
+<p>As the deliverable for this is a PDF report, you can use any system you want. The requirement is that you can only use autopsy and various system tools (described below). You are welcome to do this in the Cyber Range or you can use your own machine. It will probably be easier to use your own machine.</p>
+<p>You can get a copy of the hard drive image by going to the URL listed on the Canvas landing page. There is a disk image for each student in the course. <strong>You can not use somebody else’s disk image!</strong> You will download your image with the wget command posted on the Canvas landing page – change <code>mst3k</code> in that command to your userid.</p>
+<p><strong>WARNING:</strong> It will take a <em>long</em> time for Autopsy to analyze your disk image – many hours. You need to start that part ahead of time!</p>
+<h4 id="using-your-own-machine">Using your own machine</h4>
+<p>You are also welcome to do this homework on your computer, but you are on your own to install <a href="https://www.sleuthkit.org/autopsy/">Autopsy</a>. You can see installation details at <a href="https://www.sleuthkit.org/autopsy/download.php">Autopsy’s website</a>. The version on the Virginia Cyber Range is version 4.16.0 with SleuthKit version 4.10.0. You should have somewhat similar versions – later is fine, as is slightly earlier (but no earlier than 4.0.0).</p>
+<p>You are allowed to use any system tools that are equivalents on your operating system of the ones discussed below.</p>
+<p>Lastly, you can run autopsy on your own machine, and use the Cyber Range to deal with a few things such as mounting the disk image and file undeletion.</p>
+<h4 id="using-the-cyber-range">Using the Cyber Range</h4>
+<p>Use the environment for the Forensics HW. The initial image analysis (when Autopsy thinks hard about the disk image) will take quite some time, especially if you wait until late the last day when everybody else is doing so. You can do the initial analysis ahead of time, and do the rest – the manual analysis – closer to the due date.</p>
+<p>The Cyber Range has a few limitations that you need to be aware of:</p>
+<ul>
+<li><strong>It can’t play videos.</strong> If you find any, you can instead view them online at the URL provided on the Canvas landing page</li>
+<li>The Cyber Range will disconnect after a certain amount of inactivity. However, Autopsy needs to run for quite some time. Thus, you should do this while you are already using the computer for something else so that you can keep it from disconnecting (move a window around or something).</li>
+<li>If you want to use a tool that is not installed, the terminal will tell you what command to run to install the tool. Just run that command and then use the tool.</li>
+</ul>
+<h4 id="autopsy-limitations">Autopsy limitations</h4>
+<p>Autopsy is great, but there are a few limitations that you need to be aware of. These are limitations on either the Cyber Range or your machine.</p>
+<ul>
+<li>It will find a <em>lot</em> of things to look at. Not all of them are relevant.</li>
+<li>It is not very good at detecting or undeleting files because of the type of filesystem (ext4). Use other tools, as discussed in the slide set, for this
+<ul>
+<li>You can run autopsy on your own machine, and use the Cyber Range to deal with a few things such as mounting the disk image and file undeletion. photorec is good for that.</li>
+</ul></li>
+</ul>
+<h4 id="tools-allowed">Tools allowed</h4>
+<p>The intent of this assignment is for you to use <a href="https://www.sleuthkit.org/autopsy/">Autopsy</a> / <a href="https://www.sleuthkit.org/sleuthkit/">SleuthKit</a>. In addition to Autopsy and SleuthKit, you can use the standard tools that come with an operating system – in particular, file explorers, searching contents of files for text, etc. You can use any of the utilities discussed in the <a href="../slides/forensics.html#/">digital forensics slide set</a>. You can use differently named equivalents in your computer’s operating system. You may also use your operating system’s default file explorer.</p>
+<p><strong>You may NOT use any OTHER existing digital forensic tools for this assignment,</strong> beyond the what is mentioned in the previous two paragraphs. You are to use your knowledge of forensics, the <a href="../slides/forensics.html#/">forensics slide set</a>, and the existing OS commands. In particular, the “Techniques” section of that slide set has the necessary techniques to find what can be found on this disk image. We recommend learning a few commands: <code>strings</code>, <code>find</code>, and <code>grep</code> may be particularly useful for Linux. You can Google for equivalents in other OSes. Note that some of the information on the disk image was specifically designed to NOT be able to be (easily) found with Autopsy / SleuthKit.</p>
+<h3 id="notes">Notes</h3>
+<p>A few notes to help you through the process:</p>
+<ul>
+<li>We can’t really help you on this assignment. The whole point is for <em>you</em> to find things, not for us to tell you where things are. This means we are not going to tell you how many things there are to find, if there is more to find, or where else to look. You are on your own.
+<ul>
+<li>If you are having technical issues, then we will certainly help you</li>
+<li>Otherwise, we are going to give you the same advice: all of the techniques you need are in the <a href="../slides/forensics.html#/">digital forensics slide set</a></li>
+<li>You should be able to discern a full story from the disk image – when you have a full story, then you are probably done</li>
+</ul></li>
+<li>As mentioned above, the Cyber Range can’t play videos. If you find any, you can instead view them online at the URL provided on the Canvas landing page.</li>
+<li>If you are doing this on your own computer, you can also use the Cyber Range for a few other aspects, such as mounting the disk image and file undeletion.</li>
+<li>If you want to view the image directly in the Cyber Range (or Linux or Mac), you can try a command such as: <code>sudo mount -t ext4 -o loop,ro mst3k.img /mnt</code>.
+<ul>
+<li>Play around with that command a bit – your OS may not support the ext4 file system, and you can try to remove the <code>-t ext4</code> part. You have to create the <code>/mnt</code> directory first, of course.</li>
+<li>The <code>,ro</code> part adds the read-only attribute. If you are having problems with this, you can remove it (so the option is just <code>-o loop</code>), and then you can write to the file system. You can download it again if needed (but delete the other one first – there isn’t a lot of disk space on the Cyber Range system, and you don’t want to have excess disk images hanging around on your own machine)</li>
+</ul></li>
+<li>Autopsy sometimes crashes. You should be able to restart it, and it will pick up where it left off.</li>
+</ul>
+<h3 id="deliverable">Deliverable</h3>
+<p>The deliverable is a PDF report, named forensics.pdf.</p>
+<p>Make sure you put your name and userid at the top of the PDF! We need to know who you are when we grade it.</p>
+<p>The report will be divided into a number of parts. So that we can easily figure out what you found out, please make it clear which part of your report are for which part.</p>
+<p>Part 1 is the primary questions of answer:</p>
+<ul>
+<li>Where is the missing server?</li>
+<li>Who took it?</li>
+<li>Why did he/she/they take it?</li>
+<li>Where is it now?</li>
+<li>What else can you tell me about the theft?</li>
+</ul>
+<p>This part of this report should contain as much of the story as you can determine. Note that you will be able to get partial credit based on what you find, even if you don’t find everything.</p>
+<p>The second part of this report should contain the information that you found, and how you found it. The how-you-found-it is is important, as there are a multiple ways to find each piece of information. Please be brief, but concise – we have to read through all of these, and we don’t want to read through pages and pages of content when it can be summarized in a much shorter amount.</p>
+<p>The third part is to comment on this assignment:</p>
+<ul>
+<li>What did you think of it? We are looking for an honest answer here, not a sycophantic one.</li>
+<li>Was there anything that we screwed up on? Specifically, was there a particular piece of evidence in which we did not properly hide something? Or did we give something away?</li>
+<li>Give one (or more!) suggestions for additional content to hide, or where to hide it, or improvements to the story.</li>
+</ul>
+<h3 id="submission">Submission</h3>
+<p>The PDF report, named <code>forensics.pdf</code>, is the only item to submit.</p>
+</body>
+</html>
