@@ -409,7 +409,7 @@ $ setarch $(uname -m) -R -L ./grade --print-buffer-address > address.txt
 $ cat address.txt
 7fffffffd410
 $ ./attack_shellcode > input.bin
-$ ./grade < input.bin
+$ setarch $(uname -m) -R -L ./grade < input.bin
 Albert Einstein, your grade on this assignment is an A$
 ```
 
@@ -443,7 +443,7 @@ $ setarch $(uname -m) -R -L ./grade --print-buffer-address
 7fffffffd410
 $ setarch $(uname -m) -R -L ./grade --print-buffer-address > address.txt
 $ ./attack_shellcode > input.bin
-$ ./grade < input.bin
+$ setarch $(uname -m) -R -L ./grade < input.bin
 Albert Einstein, your grade on this assignment is an A
 $
 ```

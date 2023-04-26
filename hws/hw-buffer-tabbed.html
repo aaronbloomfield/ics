@@ -309,7 +309,7 @@ $ setarch $(uname -m) -R -L ./grade --print-buffer-address &gt; address.txt
 $ cat address.txt
 7fffffffd410
 $ ./attack_shellcode &gt; input.bin
-$ ./grade &lt; input.bin
+$ setarch $(uname -m) -R -L ./grade &lt; input.bin
 Albert Einstein, your grade on this assignment is an A$</code></pre>
 <p>The specific value of your buffer address may vary. Notice that the end prompt is on the <em>same</em> line as the output – this is fixed next.</p>
 </div><div id='ttask-4-newline' class='tabcontent'><h3 id='task-4-newline'>Task 4: Newline</h3>
@@ -327,7 +327,7 @@ Albert Einstein, your grade on this assignment is an A$</code></pre>
 7fffffffd410
 $ setarch $(uname -m) -R -L ./grade --print-buffer-address &gt; address.txt
 $ ./attack_shellcode &gt; input.bin
-$ ./grade &lt; input.bin
+$ setarch $(uname -m) -R -L ./grade &lt; input.bin
 Albert Einstein, your grade on this assignment is an A
 $</code></pre>
 <p>Notice that the end prompt is on the next line <em>after</em> the output.</p>
