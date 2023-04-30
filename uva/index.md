@@ -90,9 +90,9 @@ Course calendar
 | 9  | Mar 20 | M,W,F  | Network fuzzing   | [Cryptocurrency](../slides/cryptocurrency.html#/), [Anonymity](../slides/anonymity.html#/) | Mon: cryptocurrency to 5.4; Wed: finished cryptocurrency; Fri: anonymity to 6.4 |
 | 10 | Mar 27 | M,W,F  | SQL/XSS/CSRF      | [Rootkits](../slides/rootkits.html#/), [Stuxnet](../slides/stuxnet.html#/) | Mon: finished anonymity; Wed: rootkits to 4.7; Fri: finished rootkits, stuxnet to 3.7 |
 | 11 | Apr 3  | M,W,F  | Cryptocurrency    | [Viruses](../slides/viruses.html#/)| Mon: finished stuxnet, viruses to 4.4; Wed: viruses to 7.3; Fri: viruses to 8.3 |
-| 12 | Apr 10 | M,W,F  | (new HW)          | [Buffer Overflows](../slides/buffer-overflows.html#/), guest lecture (Wed) | Mon: finished viruses, buffer overflows to 4.8; Wed: guest lecture; Fri: buffer overflow to 5.19 |
-| 13 | Apr 17 | M,W,F  | Rootkits          | [Binary Exploits](../slides/binary-exploits.html#/) | Mon: finished buffer overflow, binary exploits to 4.4; Wed: binary exploits to 5.15; Fri: forensics to 6.2 |
-| 14 | Apr 24 | M,W,F  | (new HW)          | [Digital Forensics](../slides/forensics.html#/), [Virtual Machines](../slides/vms.html#/) | |
-| 15 | May 1  | M      | Digital forensics | [Course reflection](../slides/reflection.html#/) | |
+| 12 | Apr 10 | M,W,F  | Networks          | [Buffer Overflows](../slides/buffer-overflows.html#/), guest lecture (Wed) | Mon: finished viruses, buffer overflows to 4.8; Wed: guest lecture; Fri: buffer overflow to 5.19 |
+| 13 | Apr 17 | M,W,F  | Rootkits          | [Binary Exploits](../slides/binary-exploits.html#/) | Mon: finished buffer overflow, binary exploits to 4.4; Wed: binary exploits to 5.14; Fri: forensics to 6.2 |
+| 14 | Apr 24 | M,W,F  | Buffer overflow   | [Digital Forensics](../slides/forensics.html#/), [Virtual Machines](../slides/vms.html#/) | Mon: finished forensics; binary exploits to slide 5.15; Wed: finished binary exploits; Fri: review session |
+| 15 | May 1  | M      | Digital forensics | [Course reflection](../slides/reflection.html#/) | Mon: course conclusion |
 
 [1]: https://canvas.its.virginia.edu/courses/59093
