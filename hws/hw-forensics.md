@@ -102,7 +102,6 @@ Part 1 is the primary questions of answer:
 - Where is the missing server?
 - Who took it?
 - Why did he/she/they take it?
-- Where is it now?
 - What else can you tell me about the theft?
 
 This part of this report should contain as much of the story as you can determine.  Note that you will be able to get partial credit based on what you find, even if you don't find everything.
