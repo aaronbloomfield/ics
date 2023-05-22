@@ -1,0 +1,1309 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"><base target="_blank">
+    <title>CS 3710: daily announcements slide set</title>
+    <meta name="description" content="A set of slides for an Introduction to Cybersecurity course">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../../slides/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../slides/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../slides/reveal.js/dist/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../../slides/ics.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../../slides/reveal.js/plugin/highlight/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../slides/reveal.js/css/print/pdf.scss' : '../../slides/reveal.js/css/print/paper.scss';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+  <script src="../../slides/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+    <style>
+.reveal li {
+font-size:80%;
+line-height:110%;
+}
+img {
+  padding: 10px;
+}
+    </style>
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <div class="slides">
+
+  <section data-markdown><script type="text/template">
+# CS 3710
+&nbsp;
+### Introduction to Cybersecurity
+
+<p class='titlep'>&nbsp;</p>
+<div class="titlesmall"><p>
+<a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
+<a href="http://github.com/aaronbloomfield/ics">@github</a> | <a href="index.html">&uarr;</a> | <a href="./03-numbers.html?print-pdf"><img class="print" width="20" src="../../slides/images/print-icon.png" style="top:0px;vertical-align:middle" class="nopad"></a>
+</p></div>
+<p class='titlep'>&nbsp;</p>
+
+## Daily Announcements
+
+## Spring 2023
+  </script></section>
+
+<!-- xkcd template for cut-and-paste (first two lines are the date and title)
+
+<h2></h2>
+<h4 class="xkcd"></h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/.png" title="" alt="">
+<p class="center"><a href="http://xkcd.com/2040/">xkcd # 2040</a></p>
+
+-->
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Final Exam</h2><img src="https://imgs.xkcd.com/comics/final_exam.png" title="For those of you also taking Game Theory, your grade in that class will be based on how close your grade on this exam is to 80% of the average." alt="Final Exam" srcset="https://imgs.xkcd.com/comics/final_exam_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/2385/'>xkcd # 2385</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## The End
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, in new rooms:
+    - Mondays are in Olsson 001
+    - Wednesday & Thursdays are in Rice 540
+  - These office hours end on the last day of classes
+  - More will likely be offered during finals week
+- Homeworks:
+  - Due next Tuesday (May 2nd): [HW 12: Forensics](../../hws/hw-forensics-tabbed.html)
+- Grading
+  - HW 10 (Rootkits) and HW 11 (Buffer overflow) are im queue to be graded
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Final exam
+  - Monday, May 8th, from 2-5 in Olsson 120
+  - Previous exams are in the repo on the [exams page](../../exams/index.html)
+- Today is the [course reflection](../../slides/reflection.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Students</h2><img src="https://imgs.xkcd.com/comics/students.png" title="The same goes for the one where you&#39;re wrestling the Green Ranger in the swimming pool full of Crisco.  You guys all have that dream, right?  It&#39;s not just me.  Right?" alt="Students"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/557/'>xkcd # 557</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 41: Fri, Apr 28th
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, in new rooms:
+    - Mondays are in Olsson 001
+    - Wednesday & Thursdays are in Rice 540
+  - Office hours end on the last day of classes
+- Homeworks: 
+  - [HW 11: Buffer Overflow](../../hws/hw-buffer-tabbed.html): that was rough; sorry about that
+  - Due next Tuesday (May 2nd): [HW 12: Forensics](../../hws/hw-forensics-tabbed.html)
+- Grading
+  - HW 7 (SQL/XSS/CSRF) and HW 9 (Networks) have been returned
+  - HW 10 (Rootkits) and HW 11 (Buffer overflow) are next to be graded
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today is a Q&A review session for the final
+- Final exam
+  - Monday, May 8th, from 2-5 in Olsson 120
+  - Previous exams are in the repo on the [exams page](../../exams/index.html)
+- Next Monday will be the course conclusion lecture
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Crime Scene</h2><img src="https://imgs.xkcd.com/comics/crime_scene.png" title="I think I see a Mandelbrot set! No, that&#39;s just blood splatters. Golly." alt="Crime Scene"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/587/'>xkcd # 587</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 40: Wed, Apr 26th
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, in new rooms:
+    - Mondays are in Olsson 001
+    - Wednesday & Thursdays are in Rice 540
+- Homeworks: 
+  - Now due tonight (Wednesday, April 25th): [HW 11: Buffer Overflow](../../hws/hw-buffer-tabbed.html)
+  - Due next Tuesday (May 2nd): [HW 12: Forensics](../../hws/hw-forensics-tabbed.html)
+- Grading
+  - HW 7 (SQL/XSS/CSRF) and HW 9 (Networks) are out being manually graded
+  - HW 10 (Rootkits) is next to be graded
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- A comment or two about the lecture progress...
+- Today we will continue with [binary exploits](../../slides/binary-exploits.html#/) (starting on [5.16](../../slides/binary-exploits.html#/4/15))
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Turing Test</h2><img src="https://imgs.xkcd.com/comics/turing_test.png" title="Hit Turing right in the test-ees." alt="Turing Test"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/329/'>xkcd # 329</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 39: Mon, Apr 24th
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, in new rooms:
+    - Mondays are in Olsson 001
+    - Wednesday & Thursdays are in Rice 540
+- Homeworks: 
+  - Due tomorrow (Tuesday, April 25th): [HW 11: Buffer Overflow](../../hws/hw-buffer-tabbed.html)
+  - Due next Tuesday (May 2nd): Forensics, which will be out on Wednesday
+- Grading
+  - HW 7 (SQL/XSS/CSRF) and HW 9 (Networks) are out being manually graded
+  - HW 10 (Rootkits) can start being graded this weekend
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- A comment or two about the lecture progress...
+- Today we will continue on [Forensics](../../slides/forensics.html#/)
+  - We will come back to [binary exploits](../../slides/binary-exploits.html#/) after forensics (starting on [5.15](../../slides/binary-exploits.html#/4/14))
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Science Montage</h2><img src="https://imgs.xkcd.com/comics/science_montage.png" title="The rat&#39;s perturbed; it must sense nanobots! Code grey!  We have a Helvetica scenario!" alt="Science Montage"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/683/'>xkcd # 683</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 38: Fri, Apr 21st
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, in new rooms:
+    - Mondays are in Olsson 001
+    - Wednesday & Thursdays are in Rice 540
+- Homeworks: 
+  - Due Tuesday (April 25th): [HW 11: Buffer Overflow](../../hws/hw-buffer-tabbed.html)
+  - Last homework, out next week and due Tuesday, May 2nd, is Forensics
+- Grading
+  - HW 7 (SQL/XSS/CSRF) and HW 9 (Networks) are out being manually graded
+  - HW 10 (Rootkits) can start being graded this weekend
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will start on [Forensics](../../slides/forensics.html#/)
+  - We will come back to [binary exploits](../../slides/binary-exploits.html#/) after forensics
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>2018 CVE List</h2><img src="https://imgs.xkcd.com/comics/2018_cve_list.png" title="CVE-2018-?????: It turns out Bruce Schneier is just two mischevious kids in a trenchcoat." alt="2018 CVE List" srcset="https://imgs.xkcd.com/comics/2018_cve_list_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1957/'>xkcd # 1957</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 37: Wed, Apr 19th
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, in new rooms:
+    - Mondays are in Olsson 001
+    - Wednesday & Thursdays are in Rice 540
+- I caught up with all the support requests yesterday!
+  - Except the regrades -- those are being postponed until finals week
+- Homeworks: 
+  - Due yesterday: [HW 10: Rootkits](../../hws/hw-rootkits-tabbed.html): how was it?
+  - Due next Tuesday (April 25th): [HW 11: Buffer Overflow](../../hws/hw-buffer-tabbed.html)
+    - It will be ready later today
+  - Last homework, out next week and due Tuesday, May 2nd, is Forensics
+- Grading
+  - HW 7 (SQL/XSS/CSRF) and HW 9 (Networks) are out being manually graded
+  - HW 8 (Cryptocurrency): the balance issue was fixed, and grades were returned yesterday
+  - HW 10 (Rootkits) can start being graded this weekend
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will continue with [binary exploits](../../slides/binary-exploits.html#/) starting at [4.5](../../slides/binary-exploits.html#/3/4)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Network</h2><img src="https://imgs.xkcd.com/comics/network.png" title="Viruses so far have been really disappointing on the &#39;disable the internet&#39; front, and time is running out.  When Linux/Mac win in a decade or so the game will be over." alt="Network"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/350/'>xkcd # 350</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 36: Mon, Apr 17th
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, in new rooms:
+    - Mondays are in Olsson 001
+    - Wednesday & Thursdays are in Rice 540
+- I've caught up with all the support requests
+  - Other than regrades -- those are being put off until the semester ends
+- Homeworks: 
+  - Due tomorrow, Tuesday, April 18th: [HW 10: Rootkits](../../hws/hw-rootkits-tabbed.html)
+    - How is going (and also the cyberrange?)
+  - Remaining homeworks are buffer overflows then forensics
+- Grading
+  - HW 7 (SQL/XSS/CSRF) and HW 9 (Networks) are out being graded
+  - HW 8 (Cryptocurrency) needs me to check the balance issues, then it can be returned
+  - Quiz 2 (mis-labelled as quiz 3) was returned last week; regrades open for one week
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will finish [buffer overflows](../../slides/buffer-overflows.html#/) and start on [binary exploits](../../slides/binary-exploits.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Two-Factor Security Key</h2><img src="https://imgs.xkcd.com/comics/two_factor_security_key.png" title="The bruises on my fingertips are my proof of work." alt="Two-Factor Security Key" srcset="https://imgs.xkcd.com/comics/two_factor_security_key_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/2522/'>xkcd # 2522</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 35: Fri, Apr 14th
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, in new rooms:
+    - Mondays are in Olsson 001
+    - Wednesday & Thursdays are in Rice 540
+- Thoughts on Jason Belford's (UVA's CISO) talk on Wednesday?
+  - Attendance was taken, and will count equivalent to a quiz
+- Readings: none currently assigned
+- Homeworks: 
+  - Due next Tuesday, April 18th: [HW 10: Rootkits](../../hws/hw-rootkits-tabbed.html)
+  - Remaining homeworks are buffer overflows then forensics
+- Grading
+  - HW 7 (SQL/XSS/CSRF) and HW 9 (Networks) are out being graded
+  - HW 8 (Cryptocurrency) needs me to check the balance issues, then it can be returned
+  - Quiz 2 (mis-labelled as quiz 3) was returned last night; regrades open for one week
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will continue with [buffer overflows](../../slides/buffer-overflows.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 34: Wed, Apr 12th
+
+Today is the talk by Jason Belford, UVA's CISO, so there are no daily announcements for today.  And lecture was not recorded.
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Retro Virus</h2><img src="https://imgs.xkcd.com/comics/retro_virus.png" title="He says this is the year of Linux on the desktop! The world of Windows will fade any moment now!" alt="Retro Virus"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/694/'>xkcd # 694</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 33: Mon, Apr 10th
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, in new rooms:
+    - Mondays are in Olsson 001
+    - Wednesday & Thursdays are in Rice 540
+    - These new rooms will start today
+- This Wednesday, April 12th, Jason Belford (UVA's CISO) will give a talk during our lecture
+  - Attendance will be taken, and will count equivalent to a quiz
+- Readings: none currently assigned
+- Homeworks: 
+  - Due tomorrow, Tuesday, April 11th: [HW 9: Networks](../../hws/hw-networks-tabbed.html)
+    - Let's chat about Windows fcrackzip issues...
+- Grading
+  - But HW 7 (SQL/XSS/CSRF) will take a bit longer to grade
+  - HW 8 (cryptocurrency): I will look into the autograder balance issue before returning it
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will continue with [viruses](../../slides/viruses.html#/) starting at [8.3](../../slides/viruses.html#/7/2)
+  - Next up: [buffer overflows](../../slides/buffer-overflows.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>The Mother of All Suspicious Files</h2><img src="https://imgs.xkcd.com/comics/the_mother_of_all_suspicious_files.png" title="Better change the URL to &#39;https&#39; before downloading." alt="The Mother of All Suspicious Files" srcset="https://imgs.xkcd.com/comics/the_mother_of_all_suspicious_files_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1247/'>xkcd # 1247</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 32: Fri, Apr 7th
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, in new rooms:
+    - Mondays are in Olsson 001
+    - Wednesday & Thursdays are in Rice 540
+    - These new rooms will start today
+- On Wednesday, April 12th, Jason Belford (UVA's CISO) will give a talk during our lecture
+  - Attendance will be taken, and will count equivalent to a quiz
+- Readings: none currently assigned
+- Homeworks: 
+  - Due Tuesday, April 11th: [HW 9: Networks](../../hws/hw-networks-tabbed.html)
+- Grading
+  - But HW 7 (SQL/XSS/CSRF) will take a bit longer to grade
+  - HW 8 (cryptocurrency): I will look into the autograder balance issue before returning it
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will continue with [viruses](../../slides/viruses.html#/) starting at [7.3](../../slides/viruses.html#/6/2)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Virus Venn Diagram</h2><img src="https://imgs.xkcd.com/comics/virus_venn_diagram.png" title="Within five minutes of the Singularity appearing, somebody will suggest defragging it." alt="Virus Venn Diagram" srcset="https://imgs.xkcd.com/comics/virus_venn_diagram_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1180/'>xkcd # 1180</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 31: Wed, Apr 5th
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+    - But mine are cancelled for today; sorry!
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, in new rooms:
+    - Mondays are in Olsson 001
+    - Wednesday & Thursdays are in Rice 540
+      - And Wednesday's are cancelled today as well...
+    - These new rooms will start today
+- Readings: none currently assigned
+- Homeworks: 
+  - Due yesterday: [HW 8: Cryptocurrency](../../hws/hw-cryptocurrency-tabbed.html); how was it?
+  - Due next Tuesday, April 11th: [HW 9: Networks](../../hws/hw-networks-tabbed.html)
+- Grading
+  - Everything has been returned, including HW 2 (Policy) and HW 6 (fuzzer)
+  - But HW 7 (SQL/XSS/CSRF) will take a bit longer to grade
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will continue with [viruses](../../slides/viruses.html#/) starting at [4.4](../../slides/viruses.html#/3/3)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Voting Software</h2><img src="https://imgs.xkcd.com/comics/voting_software.png" title="There are lots of very smart people doing fascinating work on cryptographic voting protocols. We should be funding and encouraging them, and doing all our elections with paper ballots until everyone currently working in that field has retired." alt="Voting Software" srcset="https://imgs.xkcd.com/comics/voting_software_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/2030/'>xkcd # 2030</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 30: Mon, Apr 3rd
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, in new rooms:
+    - Mondays are in Olsson 001
+    - Wednesday & Thursdays are in Rice 540
+    - These new rooms will start today
+- Readings: none currently assigned
+- Homeworks: 
+  - Due tomorrow, Tuesday, April 4th: [HW 8: Cryptocurrency](../../hws/hw-cryptocurrency-tabbed.html)
+  - The next homework will be ready on Wednesday
+- Grading
+  - Everything has been returned, including HW 2 (Policy) and HW 6 (fuzzer)
+  - But HW 7 (SQL/XSS/CSRF) will take a bit longer to grade
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will finish [Stuxnet](../../slides/stuxnet.html#/)
+  - Next up: [viruses](../../slides/viruses.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Constructive</h2><img src="https://imgs.xkcd.com/comics/constructive.png" title="And what about all the people who won&#39;t be able to join the community because they&#39;re terrible at making helpful and constructive co-- ... oh." alt="Constructive"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/810/'>xkcd # 810</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 29: Fri, Mar 31st
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, in new rooms:
+    - Mondays are in Olsson 001
+    - Wednesday & Thursdays are in Rice 540
+    - These new rooms will start today
+- Readings: none currently assigned
+- Homeworks: 
+  - Due Tuesday, April 4th: [HW 8: Cryptocurrency](../../hws/hw-cryptocurrency-tabbed.html)
+- Grading
+  - Everything has been returned, including HW 2 (Policy) and HW 6 (fuzzer)
+  - But HW 7 (SQL/XSS/CSRF) will take a bit longer to grade
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will finish [rootkits](../../slides/rootkits.html#/)
+  - Next up: [Stuxnet](../../slides/stuxnet.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Voting Machines</h2><img src="https://imgs.xkcd.com/comics/voting_machines.png" title="And that&#39;s *another* crypto conference I&#39;ve been kicked out of.  C&#39;mon, it&#39;s a great analogy!" alt="Voting Machines"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/463/'>xkcd # 463</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 28: Wed, Mar 29th
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, in new rooms:
+    - Mondays are in Olsson 001
+    - Wednesday & Thursdays are in Rice 540
+    - These new rooms will start today
+- Readings:
+  - Due this past Monday, March 27th: [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+- Homeworks: 
+  - Due yesterday: [HW 7: SQL/XSS/CSRF](../../hws/hw-sql-xss-csrf-tabbed.html); how did it go?
+  - Due Tuesday, April 4th: [HW 8: Cryptocurrency](../../hws/hw-cryptocurrency-tabbed.html)
+- Grading
+  - Everything has been returned, including HW 2 (Policy) and HW 6 (fuzzer)
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will start on [rootkits](../../slides/rootkits.html#/)
+  - Next up: [Stuxnet](../../slides/stuxnet.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Privacy Opinions</h2><img src="https://imgs.xkcd.com/comics/privacy_opinions.png" title="I&#39;m the Philosopher until someone hands me a burrito." alt="Privacy Opinions" srcset="https://imgs.xkcd.com/comics/privacy_opinions_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1269/'>xkcd # 1269</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 27: Mon, Mar 27th
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, in new rooms:
+    - Mondays are in Olsson 001
+    - Wednesday & Thursdays are in Rice 540
+    - These new rooms will start today
+- Readings:
+  - Now due next Monday, March 27th: [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+- Homeworks: 
+  - Due tomorrow (Tuesday, March 28th): [HW 7: SQL/XSS/CSRF](../../hws/hw-sql-xss-csrf-tabbed.html)
+  - HW 8, due next Tuesday, April 4th, will be on Cryptocurrency (not yet ready!)
+- Grading
+  - Everything has been returned, including HW 2 (Policy) and HW 6 (fuzzer)
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will continue with [Anonymity](../../slides/anonymity.html#/)
+  - Next up: [rootkits](../../slides/rootkits.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Blockchain</h2><img src="https://imgs.xkcd.com/comics/blockchain.png" title="Blockchains are like grappling hooks, in that it&#39;s extremely cool when you encounter a problem for which they&#39;re the right solution, but it happens way too rarely in real life." alt="Blockchain" srcset="https://imgs.xkcd.com/comics/blockchain_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/2267/'>xkcd # 2267</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 26: Fri, Mar 24th
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, now in Rice 019
+    - But may be moving, as I am going to try for a room change
+- Readings:
+  - Now due next Monday, March 27th: [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+- Homeworks: 
+  - Due next Tuesday, March 28th: [HW 7: SQL/XSS/CSRF](../../hws/hw-sql-xss-csrf-tabbed.html)
+  - HW 8, due Tuesday, April 4th, will be on Cryptocurrency (not yet ready!)
+- Grading
+  - Everything *including* HW 2 (Policy) has been returned
+  - The Fuzzing HW auto-grader is all done, and will be back by next Monday
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will start on [Anonymity](../../slides/anonymity.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>2010 and 2020</h2><img src="https://imgs.xkcd.com/comics/2010_and_2020.png" title="2030: &quot;I just bought a house for one bitcoin. No, it&#39;s the equivalent of a dollar. Houses are often transferred for a nominal fee because the buyer is taking responsibility for containing the holo-banshees in the attic.&quot;" alt="2010 and 2020" srcset="https://imgs.xkcd.com/comics/2010_and_2020_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/2280/'>xkcd # 2280</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 25: Wed, Mar 22nd
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, now in Rice 019
+    - But may be moving, as I am going to try for a room change
+- The [midterm](../../exams/midterm-s23.pdf) was the Wednesday before spring break
+  - Average was 35/48 (73%) with a standard deviation of 7.5 (16%)
+  - Regrades opened on Monday, and will stay open through this Wednesday (today)
+  - Please don't submit a frivolous regrade!
+- Readings:
+  - Now due next Monday, March 27th: [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+- Homeworks: 
+  - Due yesterday: [HW 6: Network Fuzzing](../../hws/hw-fuzzing-tabbed.html): how was it?
+  - Due next Tuesday, March 28th: [HW 7: SQL/XSS/CSRF](../../hws/hw-sql-xss-csrf-tabbed.html)
+  - HW 8, due Tuesday, April 4th, will be on Cryptocurrency (not yet ready!)
+- Grading
+  - Everything except HW 2 (Policy) has been returned
+  - The Fuzzing HW auto-grader is all done, and will be back by next Monday
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will continue with [Cryptocurrency](../../slides/cryptocurrency.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Networking Problems</h2><img src="https://imgs.xkcd.com/comics/networking_problems.png" title="LOOK, THE LATENCY FALLS EVERY TIME YOU CLAP YOUR HANDS AND SAY YOU BELIEVE" alt="Networking Problems" srcset="https://imgs.xkcd.com/comics/networking_problems_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/2259/'>xkcd # 2259</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 24: Mon, Mar 20th
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+    - I have to end mine early today, but will also hold some from 2:30-3:00
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, now in Rice 019
+    - But may be moving, as I am going to try for a room change
+- The [midterm](../../exams/midterm-s23.pdf) was the Wednesday before spring break
+  - Average was 35/48 (73%) with a standard deviation of 7.5 (16%)
+  - Regrades opened on Monday, and will stay open through this Wednesday
+  - Please don't submit a frivolous regrade!
+- Readings:
+  - Now due next Monday, March 27th: [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+- Homeworks: 
+  - Due tomorrow, Tuesday, March 21st: [HW 6: Network Fuzzing](../../hws/hw-fuzzing-tabbed.html)
+  - HW 7, due Tuesday, March 28th, will be on SQL/XSS/CSRF (not yet ready!)
+  - HW 8, due Tuesday, April 4th, will be on Cryptocurrency (not yet ready!)
+- Grading
+  - Everything except HW 2 (Policy) has been returned
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will start on [Cryptocurrency](../../slides/cryptocurrency.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Laptop Issues</h2><img src="https://imgs.xkcd.com/comics/laptop_issues.png" title="Hang on, we got a call from the feds. They say we can do whatever with him, but the EPA doesn&#39;t want that laptop in the ocean. They&#39;re sending a team." alt="Laptop Issues" srcset="https://imgs.xkcd.com/comics/laptop_issues_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/2083/'>xkcd # 2083</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 23: Fri, Mar 17th
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, now in Rice 019
+    - But may be moving, as I am going to try for a room change
+- The [midterm](../../exams/midterm-s23.pdf) was the Wednesday before spring break
+  - Average was 35/48 (73%) with a standard deviation of 7.5 (16%)
+  - Regrades opened on Monday, and will stay open until sometime next week
+  - Please don't submit a frivolous regrade!
+- Readings:
+  - Now due Monday, March 27th: [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+- Homeworks: 
+  - Due Tuesday, March 21st: [HW 6: Network Fuzzing](../../hws/hw-fuzzing-tabbed.html)
+  - HW 7, due Tuesday, March 28th, will be on SQL/XSS/CSRF (not yet ready!)
+  - HW 8, due Tuesday, April 4th, will be on Cryptocurrency (not yet ready!)
+- Grading
+  - RSA HW was returned Monday (really!); regrade concerns via support request
+  - Everything except HW 2 (Policy) has been returned
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will start and finish with [Virtual Machines](../../slides/vms.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>How Hacking Works</h2><img src="https://imgs.xkcd.com/comics/how_hacking_works.png" title="If only somebody had warned them that the world would roll them like this." alt="How Hacking Works" srcset="https://imgs.xkcd.com/comics/how_hacking_works_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/2176/'>xkcd # 2176</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 22: Wed, Mar 15th
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, now in Rice 019
+    - But may be moving, as I am going to try for a room change
+- The [midterm](../../exams/midterm-s23.pdf) was the Wednesday before spring break
+  - Average was 35/48 (73%) with a standard deviation of 7.5 (16%)
+  - Regrades opened on Monday, and will stay open until sometime next week
+  - Please don't submit a frivolous regrade!
+- Readings:
+  - Due Wednesday, March 22nd: [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+- Homeworks: 
+  - Due Tuesday, March 21st: [HW 6: Network Fuzzing](../../hws/hw-fuzzing-tabbed.html)
+  - HW 7, due Tuesday, March 28th, will be on SQL/XSS/CSRF (not yet ready!)
+  - HW 8, due Tuesday, April 4th, will be on Cryptocurrency (not yet ready!)
+- Grading
+  - RSA HW was returned Monday (really!); regrade concerns via support request
+  - Everything except HW 2 (Policy) has been returned
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will continue with [SQL, XSS, & CSRF](../../slides/sql-xss-csrf.html#/)
+  - Next up: [cryptocurrency](../../slides/cryptocurrency.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>CIA</h2><img src="https://imgs.xkcd.com/comics/cia.png" title="It was their main recruiting poster, hung nearly ten feet up a wall! This means the hackers have LADDER technology! Are we headed for a future where everyone has to pay $50 for one of those locked plexiglass poster covers? More after the break ..." alt="CIA"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/932/'>xkcd # 932</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 21: Mon, Mar 13th
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, now in Rice 019
+    - But may be moving, as I am going to try for a room change
+- The [midterm](../../exams/midterm-s23.pdf) was the Wednesday before spring break
+  - Regrades: will be discussed and opened today, and stay open for about a week
+- Readings:
+  - Due Wednesday, March 22nd: [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+- Homeworks: 
+  - Out soon: network fuzzing
+- Grading
+  - RSA HW was returned last night; regrade concerns via support request
+  - Everything except HW 2 (Policy) has been returned
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will start on [SQL, XSS, & CSRF](../../slides/sql-xss-csrf.html#/)
+  - This starts the modern topics module
+  - Next up: [cryptocurrency](../../slides/cryptocurrency.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>API</h2><img src="https://imgs.xkcd.com/comics/api.png" title="ACCESS LIMITS: Clients may maintain connections to the server for no more than 86,400 seconds per day. If you need additional time, you may contact IERS to file a request for up to one additional second." alt="API" srcset="https://imgs.xkcd.com/comics/api_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1481/'>xkcd # 1481</a></p>
+  </section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;"><textarea>
+## Lecture 20: Fri, Mar 3rd
+- Office hours (all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093))
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, now in Rice 019
+  - None next week, though!
+  - I am going to try for a room change for after spring break
+- [Midterm](../../exams/midterm-s23.pdf) this past Wednesday: how did it go?
+  - We'll go over it today
+  - 2 of the longer questions have yet to be graded; expect it back over spring break
+- Readings: none currently assigned
+- Homeworks: none currently assigned, but one will be out over spring break (and due the second week back)
+- Grading
+  - HWs 1 (Rational Paranoia) and 3 (Ethics) have been returned
+  - HW 2 (Policy) is still being graded
+  - HW 4 (RSA) is waiting completion of the autograder
+  - HW 5 (Hashing) is awaiting the last submission before it can be returned
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will finish [web security](../../slides/web-security.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section>
+
+    <section data-markdown data-separator="^\n\n\n" style="font-size:85%;line-height:115%;" class="center"><textarea>
+## Lecture 19: Wed, Mar 1st
+Today was the midterm, so no daily announcements for today.
+</textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Hacking</h2><img src="https://imgs.xkcd.com/comics/hacking.png" title="The dump also contains a list of millions of prime factors, a 0-day Tamagotchi exploit, and a technique for getting gcc and bash to execute arbitrary code." alt="Hacking" srcset="https://imgs.xkcd.com/comics/hacking_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1808/'>xkcd # 1808</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 18: Mon Feb 27th
+- Office hours are in full swing
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, now in Rice 019
+  - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Midterm Wednesday
+  - See [past exams in this repo](../../exams/index.html)
+  - Coverage is through Friday's lecture; today's lecture material at a *very* high level
+- Readings: none currently assigned
+- Homeworks: none currently assigned, but more out by Friday
+- Grading
+  - HWs 1 (Rational Paranoia), 2 (Policy), and 3 (Ethics) are all out being graded
+  - The RSA homework is waiting completion of the autograder
+  - [HW 5: Hashing](../../hws/hw-hashing-tabbed.html) should be back in a day or two
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will continue with [web security](../../slides/web-security.html#/)
+  - Next up: [SQL, XSS, & CSRF](../../slides/sql-xss-csrf.html#/) (probably)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Protocol</h2><img src="https://imgs.xkcd.com/comics/protocol.png" title="Changing the names would be easier, but if you&#39;re not comfortable lying, try only making friends with people named Alice, Bob, Carol, etc." alt="Protocol" srcset="https://imgs.xkcd.com/comics/protocol_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1323/'>xkcd # 1323</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 17: Fri, Feb 24th
+- Office hours are in full swing
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, now in Rice 019
+  - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Homeworks
+  - Homework due yesterday: [HW 5: Hashing](../../hws/hw-hashing-tabbed.html); how did it go?
+  - Next week is the midterm on Wednesday
+    - Material coverage is through what we cover in web security today, plus what we cover Monday in light detail
+    - See [past exams in this repo](../../exams/index.html)
+- Readings: none currently assigned
+- Grading
+  - HWs 1 (Rational Paranoia), 2 (Policy), and 3 (Ethics) are all out being graded
+  - The first reading quiz was returned on Gradescope
+    - Regrade concerns?  Submit it through Gradescope
+  - The RSA homework is waiting completion of the autograder
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will continue with [web security](../../slides/web-security.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Alice and Bob</h2><img src="https://imgs.xkcd.com/comics/alice_and_bob.png" title="Yet one more reason I&#39;m barred from speaking at crypto conferences." alt="Alice and Bob"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/177/'>xkcd # 177</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 16: Wed, Feb 22nd
+- Office hours are in full swing
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, now in Rice 019
+  - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Homeworks
+  - Homework due this Thursday, Feb 23: [HW 5: Hashing](../../hws/hw-hashing-tabbed.html)
+  - Next week is the midterm on Wednesday
+    - Material coverage is through some of web security (details on Friday)
+- Readings: none currently assigned
+- Grading
+  - HWs 1 (Rational Paranoia), 2 (Policy), and 3 (Ethics) are all out being graded
+  - The first reading quiz was returned on Gradescope
+    - Regrade concerns?  Submit it through Gradescope
+  - The RSA homework is waiting completion of the autograder
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Going on now at UVA: Duo "exhaustion" attack
+- Today we will finish [Networking overview](../../slides/networks.html)
+  - Next up: [web security](../../slides/web-security.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Modern OSI Model</h2><img src="https://imgs.xkcd.com/comics/modern_osi_model.png" title="In retrospect, I shouldn&#39;t have used each layer of the OSI model as one of my horcruxes." alt="Modern OSI Model" srcset="https://imgs.xkcd.com/comics/modern_osi_model_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/2105/'>xkcd # 2105</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 15: Mon, Feb 20th
+- Office hours are in full swing
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, now in Rice 019
+  - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Homeworks
+  - Homework due this Thursday, Feb 23: [HW 5: Hashing](../../hws/hw-hashing-tabbed.html)
+  - Next week is the midterm on Wednesday
+- Readings: none currently assigned
+- Grading
+  - HWs 1 (Rational Paranoia), 2 (Policy), and 3 (Ethics) are all out being graded
+  - The first reading quiz was returned on Gradescope
+    - Regrade concerns?  Submit it through Gradescope
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Going on now at UVA: Duo "exhaustion" attack
+- Today we will continue with [Networking overview](../../slides/networks.html)
+  - Next up: [web security](../../slides/web-security.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Encryption</h2><img src="https://imgs.xkcd.com/comics/encryption.png" title="WARNING: PEOPLE NAMED EVE ARE PROHIBITED FROM INSTALLING THIS APP!" alt="Encryption" srcset="https://imgs.xkcd.com/comics/encryption_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/2691/'>xkcd # 2691</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 14: Fri, Feb 17th
+- Office hours are in full swing
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, now in Rice 019
+  - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Homeworks
+  - Homework yesterday: [HW 4: RSA](../../hws/hw-rsa-tabbed.html)
+  - Homework due next Thursday, Feb 23: [HW 5: Hashing](../../hws/hw-hashing-tabbed.html)
+- Readings: none currently assigned
+- Grading
+  - HWs 1 (Rational Paranoia), 2 (Policy), and 3 (Ethics) are all out being graded
+  - The first reading quiz was returned on Gradescope
+    - Regrade concerns?  Submit it through Gradescope
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Going on now at UVA: Duo "exhaustion" attack
+- Today we will finish [encryption](../../slides/encryption.html#/)
+  - Next up: [Networking overview](../../slides/networks.html)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Random Number</h2><img src="https://imgs.xkcd.com/comics/random_number.png" title="RFC 1149.5 specifies 4 as the standard IEEE-vetted random number." alt="Random Number"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/221/'>xkcd # 221</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 13: Wed, Feb 15th
+- Office hours are in full swing
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, now in Rice 019
+  - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Homeworks
+  - Homework due this Thursday, February 17th: [HW 4: RSA](../../hws/hw-rsa-tabbed.html)
+    - Submission on Gradescope has been delayed, but will open "soon"
+  - Homework due next Thursday: Hashing (will be released tomorrow or Friday)
+- Readings: none currently assigned
+- Grading
+  - HW 1 (Rational Paranoia) and HW 2 (Policy) are out being graded
+  - The first reading quiz was returned on Gradescope
+    - Regrade concerns?  Submit it through Gradescope
+- Everybody has to sign the Ethics Honor Pledge; those who have not will be pestered again and again
+- Today we will continue with [encryption](../../slides/encryption.html#/)
+  - Next up: [Networking overview](../../slides/networks.html)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>PGP</h2><img src="https://imgs.xkcd.com/comics/pgp.png" title="If you want to be extra safe, check that there&#39;s a big block of jumbled characters at the bottom." alt="PGP" srcset="https://imgs.xkcd.com/comics/pgp_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1181/'>xkcd # 1181</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 12: Mon, Feb 13th
+- Office hours are in full swing
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, all in Rice 442
+  - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Homeworks
+  - Homework due this Thursday, February 17th: [HW 4: RSA](../../hws/hw-rsa-tabbed.html)
+    - Submission on Gradescope will open up three days (72 hours) before it is due
+    - It (and the encryption slide set) now have Python code/examples as well
+- Readings: none currently assigned
+- Grading
+  - HW 1 (Rational Paranoia) and HW 2 (Policy) are out being graded
+  - The first reading quiz was returned on Gradescope
+    - Regrade concerns?  Submit it through Gradescope
+- Everybody has to sign the Ethics Honor Pledge; those who have not were emailed Sunday night
+- Today we will continue with [encryption](../../slides/encryption.html#/), which will take us well into Wednesday or Friday of this week
+  - Next up: networks (most likely)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Security</h2><img src="https://imgs.xkcd.com/comics/security.png" title="Actual actual reality: nobody cares about his secrets.  (Also, I would be hard-pressed to find that wrench for $5.)" alt="Security"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/538/'>xkcd # 538</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 11: Fri, Feb 10th
+- Office hours are in full swing
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, all in Rice 442
+  - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Homeworks
+  - Homework due yesterday: [HW 3: Ethics](../../hws/hw-ethics.html)
+    - How was using ChatGPT for the HW?
+  - Homework due next Thursday, February 17th: [HW 4: RSA](../../hws/hw-rsa.html)
+    - Submission on Gradescope will open up three days (72 hours) before it is due
+    - It (and the encryption slide set) now have Python code/examples as well
+- Readings: none currently assigned
+- Grading
+  - HW 1 (Rational Paranoia) and HW 2 (Policy) are out being graded
+  - The first reading quiz was returned on Gradescope
+    - Regrade concerns?  Submit it through Gradescope
+- Everybody has to sign the Ethics Honor Pledge; those who have not were emailed Sunday night
+- Today we will continue with [encryption](../../slides/encryption.html#/), which will take us well into next week
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Code Talkers</h2><img src="https://imgs.xkcd.com/comics/code_talkers.png" title="As far as I can tell, Navajo doesn&#39;t have a common word for &#39;zero&#39;.  do-neh-lini means &#39;neutral&#39;." alt="Code Talkers"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/257/'>xkcd # 257</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 10: Wed, Feb 8th
+- Office hours are in full swing
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, all in Rice 442
+  - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Homeworks
+  - Homework due tomorrow (Thursday, February 9th) by midnight: [HW 3: Ethics](../../hws/hw-ethics.html#/)
+    - Submission on Gradescope will open up three days (72 hours) before it is due
+    - It uses ChatGPT; if you wait until the last minute, and it's too busy to be used, then you are going to get the late penalty
+  - Homework due next Thursday (February 16th): RSA (not yet ready)
+- Readings: none currently assigned
+- Grading: HW 1 (Rational Paranoia), HW 2 (Policy), and the first reading quiz are out being graded
+- Everybody has to sign the Ethics Honor Pledge; those who have not were emailed Sunday night
+- Today we will continue with [encryption](../../slides/encryption.html#/), which will take us well into next week
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Authorization</h2><img src="https://imgs.xkcd.com/comics/authorization.png" title="Before you say anything, no, I know not to leave my computer sitting out logged in to all my accounts. I have it set up so after a few minutes of inactivity it automatically switches to my brother&#39;s." alt="Authorization" srcset="https://imgs.xkcd.com/comics/authorization_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1200/'>xkcd # 1200</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 9: Mon, Feb 6th
+- Office hours are in full swing
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, all in Rice 442
+  - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Homeworks
+  - Homework due this Thursday (February 9th) by midnight: [HW 3: Ethics](../../hws/hw-ethics.html#/)
+    - Submission on Gradescope will open up three days (72 hours) before it is due
+    - It uses ChatGPT; if you wait until the last minute, and it's too busy to be used, then you are going to get the late penalty
+- Readings: none currently assigned
+- Grading: HW 1 (Rational Paranoia), HW 2 (Policy), and the first reading quiz are out being graded
+- Everybody has to sign the Ethics Honor Pledge; those who have not were emailed last night
+- Today we will continue with [encryption](../../slides/encryption.html#/), which will take us well into next week
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Trolley Problem</h2><img src="https://imgs.xkcd.com/comics/trolley_problem.png" title="For $5 I promise not to orchestrate this situation, and for $25 I promise not to take further advantage of this ability to create incentives." alt="Trolley Problem" srcset="https://imgs.xkcd.com/comics/trolley_problem_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1455/'>xkcd # 1455</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 8: Fri, Feb 3rd
+- Office hours are in full swing
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, all in Rice 442
+  - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Homeworks
+  - Homework due next week is the ethics assignment, which will be ready on Monday
+    - Submission on Gradescope will open up three days (72 hours) before it is due
+- Readings: none currently assigned
+- Grading: HW 1 (Rational Paranoia) and the first reading quiz are out being graded
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Today we will start on [ethics](../../slides/ethics.html#/)
+  - A bit of fun: [absurd trolley problems](https://neal.fun/absurd-trolley-problems/)
+  - Next up: [encryption](../../slides/encryption.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Bag Check</h2><img src="https://imgs.xkcd.com/comics/bag_check.png" title="A laptop battery contains roughly the stored energy of a hand grenade, and if shorted it ... hey!  You can&#39;t arrest me if I prove your rules inconsistent!" alt="Bag Check"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/651/'>xkcd # 651</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 7: Wed, Feb 1st
+- Office hours are in full swing
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, all in Rice 442
+  - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Homeworks
+  - Homework due tomorrow (Thursday, February 2nd) by midnight: [HW 2: Policy](../../hws/hw-policy.html#/)
+    - Submission on Gradescope will open up three days (72 hours) before it is due
+- Readings: none currently assigned
+- Grading: HW 1 (Rational Paranoia) and the first reading quiz are out being graded
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Today we will start on [ethics](../../slides/ethics.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Smart Home Security</h2><img src="https://imgs.xkcd.com/comics/smart_home_security.png" title="If they&#39;re getting valuable enough stuff from you, at least the organized crime folks have an incentive to issue regular updates to keep the appliance working after the manufacturer discontinues support." alt="Smart Home Security" srcset="https://imgs.xkcd.com/comics/smart_home_security_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1966/'>xkcd # 1966</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 6: Mon, Jan 30th
+- Office hours are in full swing
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, and Thu 4-7, all in Rice 442
+  - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Homeworks
+  - Homework due last Friday: [HW 1: Rational Paranoia](../../hws/hw-paranoia.html)
+    - You have to follow the formatting guidelines described therein!
+    - You will likely want to wait until the [security mindset slide set](../../slides/security-mindset.html#/) has been gone over in lecture
+  - Homework due this Thursday (February 2nd) by midnight: [HW 2: Policy](../../hws/hw-policy.html#/)
+    - Submission on Gradescope will open up three days (72 hours) before it is due
+- Readings
+  - Due today (Mon, Jan 30th): [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Today we will finish [policy](../../slides/policy.html#/) and start on [ethics](../../slides/ethics.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Cyberintelligence</h2><img src="https://imgs.xkcd.com/comics/cyberintelligence.png" title="We had gathered that raw information, but had yet to put it all together." alt="Cyberintelligence" srcset="https://imgs.xkcd.com/comics/cyberintelligence_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1573/'>xkcd # 1573</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 5: Fri, Jan 27th
+- Office hours start this week
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are Mon 5-8, Wed 2-5, Thu 4-7, room TBA
+  - This all will be on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Homeworks
+  - Homework due today (Friday, Jan 27th) by midnight: [HW 1: Rational Paranoia](../../hws/hw-paranoia.html)
+    - You have to follow the formatting guidelines described therein!
+    - You will likely want to wait until the [security mindset slide set](../../slides/security-mindset.html#/) has been gone over in lecture
+    - Submission on Gradescope will open up three days (72 hours) before it is due
+  - Homework due next Thursday (February 2nd) by midnight: [HW 2: Policy](../../hws/hw-policy.html#/)
+- Readings
+  - Now due Monday, Jan 30th: [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Today we will likely finish [policy](../../slides/policy.html#/) and start on [ethics](../../slides/ethics.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Password Strength</h2><img src="https://imgs.xkcd.com/comics/password_strength.png" title="To anyone who understands information theory and security and is in an infuriating argument with someone who does not (possibly involving mixed case), I sincerely apologize." alt="Password Strength"  style="image-orientation:none"  class='stretch'><p class='center'><a href='http://xkcd.com/936/'>xkcd # 936</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 4: Wed, Jan 25th
+- Office hours start this week
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are TBA, and will start later
+  - This all will be on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Homeworks
+  - Homework due this Friday (Jan 27th) by midnight: [HW 1: Rational Paranoia](../../hws/hw-paranoia.html)
+    - You have to follow the formatting guidelines described therein!
+    - You will likely want to wait until the [security mindset slide set](../../slides/security-mindset.html#/) has been gone over in lecture
+    - Submission on Gradescope will open up three days (72 hours) before it is due
+  - The assignment submission will automatically open up 3 days before it is due
+  - The second homework will be on Policy, then one on Ethics
+  - And there will be readings interspersed in there...
+- Readings
+  - Now due Monday, Jan 30th: [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Today we will finish [terminology](../../slides/terminology.html#/) and start on [policy](../../slides/policy.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Security Advice</h2><img src="https://imgs.xkcd.com/comics/security_advice.png" title="Never give your password or bank account number to anyone who doesn&#39;t have a blue check mark next to their name." alt="Security Advice" srcset="https://imgs.xkcd.com/comics/security_advice_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1820/'>xkcd # 1820</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 3: Mon, Jan 23rd
+- Office hours start this week
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are TBA, and will start later
+  - This all will be on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Homeworks
+  - Homework due this Friday (Jan 27th) by midnight: [HW 1: Rational Paranoia](../../hws/hw-paranoia.html)
+    - You have to follow the formatting guidelines described therein!
+    - You will likely want to wait until the [security mindset slide set](../../slides/security-mindset.html#/) has been gone over in lecture
+    - Submission on Gradescope will open up three days (72 hours) before it is due
+  - The assignment submission will automatically open up 3 days before it is due
+  - The second homework will be on Policy, then one on Ethics
+  - And there will be readings interspersed in there...
+- Readings
+  - Due Friday, Jan 27th: [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Today we will finish on the [security mindset slide set](../../slides/security-mindset.html#/) and start on [terminology](../../slides/terminology.html#/)
+  </textarea></section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Security Question</h2><img class='stretch' src="https://imgs.xkcd.com/comics/security_question.png" title="Let&#39;s invite him to a party and play &#39;I never&#39;.  Okay, I never hid any bodies SOUTH of Main Street. ... he&#39;s taking a drink!" alt="Security Question" ><p class='center'><a href='http://xkcd.com/565/'>xkcd # 565</a></p>
+  </section>
+
+  <section data-markdown><textarea data-template>
+## Lecture 2: Fri, Jan 20th
+- Office hours start next week
+  - Mine are Mon 11-noon, Wed 1:30-2:30, and Fri 8-9, all in Rice 402
+  - TA office hours are TBA
+  - This all will be on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Homeworks
+  - Homework due next Friday (Jan 27th) by midnight: [HW 1: Rational Paranoia](../../hws/hw-paranoia.html)
+    - You have to follow the formatting guidelines described therein!
+    - You will likely want to wait until the [security mindset slide set](../../slides/security-mindset.html#/) has been gone over in lecture
+    - Submission on Gradescope will open up three days (72 hours) before it is due
+    - I'm going to add another case or two by the end of the weekend
+  - The assignment submission will automatically open up 3 days before it is due
+  - The second homework will be on Policy, then one on Ethics
+  - And there will be readings interspersed in there...
+- Readings
+  - Due Friday, Jan 27th: [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Today we will start on the [security mindset slide set](../../slides/security-mindset.html#/)
+  - Next up: the [terminology slide set](../../slides/terminology.html#/)
+  </textarea></section>
+
+</section>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+      </div>
+
+    </div>
+
+<script src="../../slides/reveal.js/dist/reveal.js"></script>
+<script src="../../slides/reveal.js/plugin/zoom/zoom.js"></script>
+<script src="../../slides/reveal.js/plugin/notes/notes.js"></script>
+<script src="../../slides/reveal.js/plugin/search/search.js"></script>
+<script src="../../slides/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="../../slides/reveal.js/plugin/highlight/highlight.js"></script>
+<script src="../../slides/reveal.js/plugin/math/math.js"></script>
+    <!-- You cannot, apparently, include this from another directory, hence why settings.js is reproduced here in full -->
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controlsTutorial: false,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      slideNumber: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+    hash: true,
+
+    math: {
+      mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+      config: 'TeX-AMS_HTML-full',
+      // pass other options into `MathJax.Hub.Config()`
+      TeX: { Macros: { RR: "{\\bf R}" } }
+    },
+
+    // Learn about plugins: https://revealjs.com/plugins/
+    plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ],
+
+      });
+    </script>
+
+  </body>
+</html>

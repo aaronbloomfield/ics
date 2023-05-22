@@ -1,4 +1,4 @@
-CS 3710: Syllabus for Introduction to Cybersecurity (ICS), summer 2023
+CS 3710: Syllabus for Introduction to Cybersecurity (ICS), spring 2023
 =========================================================
 
 [Go up to the ICS UVa page](index.html) ([md](index.md))
@@ -8,9 +8,9 @@ CS 3710: Syllabus for Introduction to Cybersecurity (ICS), summer 2023
 I realize that nobody reads these through.  So the TL;DR version:
 
 - This course is using Canvas, not Collab; the Canvas workspace is [here](https://canvas.its.virginia.edu/courses/59093)
-- One midterm, on Friday, June 2nd, during class; one final, on Saturday, June 17th, during the regular class time 
+- One midterm, on Wednesday, March 1st, during lecture; one final, on Monday, May 8th, from 2pm - 5pm
 - Grades are 45% homeworks, 20% midterm, 25% final exam, and 10% participation (quizzes & attendance)
-- Most things are going to be auto-graded, but you can submit multiple times; the grades won't be known until the late due date has passed
+- Everything is going to be auto-graded, but you can submit multiple times; the grades won't be known until the late due date has passed
 - If you encounter any rough spots in the course -- please be patient, and provide constructive feedback, and I'll do my best to get it all fixed
 - There will be both larger programming homeworks and smaller tutorial-style  homeworks or readings -- sometimes one of each will be assigned at any given time
 - Lecture attendance is required, and occasional attendance quizzes will be taken to ensure that
@@ -28,12 +28,12 @@ And now for the really long-winded version...
 ### Course Staff ###
 
 - [Aaron Bloomfield](https://www.cs.virginia.edu/~asb) / aaron at virginia dot edu.  Office: Rice Hall, room 402.  Office hours are posted on the Canvas landing page, and will start the second week of the semester
-- Possibly one TA...
+- Multiple undergraduate TAs and possibly a Masters TA; their office hours are also posted on the Canvas landing page, and will start the second week of the semester
 
 ### Course Info ###
 
-- Lecture: M/Tu/W/Th/F 10:30-12:15 in Rice 340
-- Coordination is through Canvas, not Collab; the Canvas workspace is [here](https://canvas.its.virginia.edu/courses/70890)
+- Lecture: M/W/F 9:00-9:50 in Olsson 120
+- Coordination is through Canvas, not Collab; the Canvas workspace is [here](https://canvas.its.virginia.edu/courses/59093)
 - Email: none; fill out a support request instead; the link is on the Canvas landing page
 - Announcements will be done through the [daily announcements slide set](daily-announcements.html#/)
 - TAs and their office hours will be posted on the Canvas landing page; all office hours start the second day of classes
@@ -82,8 +82,8 @@ All submissions are through Gradescope, the link to which is on the Canvas landi
 
 **Exams:** There will be one midterm exam (worth 20% of the final grade) and one final exam (worth 25% of the final grade).
 
-- Midterm exam: Friday, June 2nd, during lecture
-- Final exam: Saturday, June 17th, during the normal class time
+- Midterm exam: Wednesday, March 1st, during lecture
+- Final exam: Monday, May 8th, from 2pm to 5pm
 
 Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  Since there are no other exams scheduled during that time, it is unlikely that you will have a conflict.
 

@@ -20,11 +20,19 @@ Answer each of the above in the form of a bulleted list, with brief justificatio
 
 Pick two of the following scenarios. 
 
+- You have to plan for the next anniversary of the [Unite the Right](https://en.wikipedia.org/wiki/Unite_the_Right_rally) rally, again in Charlottesville
+- You are hired by [WillowTree](https://willowtreeapps.com/) to help secure their servers from corporate espionage
+- You are grading homework 1 submissions (this assignment) for a class of 80 students
+- You are in charge of the security for a home football game here at UVa
+- You are in charge of making an election voting system that is both secure and has auditing capabilities
+
+
+<!-- rom spring 2023:
 - After the recent [downtime of the NOTAM system by the FAA](https://en.wikipedia.org/wiki/2023_FAA_system_outage), which turned out to be caused by a contractor mistakenly deleting files, you are tasked with preventing this system's downtime in the future.
 - The [US Securities and Exchange Commission (SEC)](https://en.wikipedia.org/wiki/U.S._Securities_and_Exchange_Commission) is in charge of enforcing law against market manipulation.  While the SEC does not (yet) have jurisdiction over cryptocurrencies, they still want to ensure some sort of legality with cryptocurrency scams, especially after the recent and very public [FTX cryptocurrency exchange collapse](https://en.wikipedia.org/wiki/Bankruptcy_of_FTX).  You can do this on either hacks (computerized attacks against cryptocurrency systems) or scams ([rug pulls](https://en.wikipedia.org/wiki/Exit_scam), bad investments, etc.), but not both; and you can't do the other one for your second case, either.
 - A professor at State University wants to perform classified research for the US government.  In addition to having to handle international students performing the research, one has to ensure the security of the information as well.  Describe how you would ensure such confidentiality.
 - You have to manage a large university whose primary means of (physical access) security is [pin tumbler locks](../slides/security-mindset.html#/lock).  How do you ensure the most secure environment possible?
-
+-->
 
 <!-- from summer 2022:
 - You are a company who handles military contracts with the US government, and as a result of the recent invasion of Ukraine by Russia, you are a target for Russian hackers.  How do you secure your system?

@@ -43,12 +43,8 @@ All scholarly articles (such as from the ACM digital library) can be obtained fr
     - [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
 -->
 
-<!--
 - Due Wednesday, March 22nd: [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
-
--->
-
-- Due Wednesday, May 24th:
+- Due Friday, January 27th:
 	- [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
     - [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210)
 	- [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
@@ -57,7 +53,7 @@ All scholarly articles (such as from the ACM digital library) can be obtained fr
 Homeworks
 -----------
 
-Unless otherwise noted, all submissions are due by the end of the day of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the Gradescope -- all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time (1 day / 24 hours in summer terms).
+Unless otherwise noted, all submissions are due by the end of the day of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the Gradescope -- all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time.
 
 To avoid having the due dates having to be listed in too many places, the homeworks and their due dates are not shown here.  The homeworks themselves can be seen on the [Homeworks page](../hws/index.html) ([md](../hws/index.md)) -- but please don't start on one until it's announced in class that it is ready!  You can see the due dates in the [daily announcements](daily-announcements.html#/) and the [Canvas landing page][1].
 
@@ -76,36 +72,6 @@ To avoid having the due dates having to be listed in too many places, the homewo
 - [HW 3: Ethics](../hws/hw-ethics.html) ([md](../hws/hw-ethics.md)) is due Friday, September 20th
 
 -->
-
-
-
-Expected lecture progress
--------------------------
-
-The links to the specific slides sets can be found on the [slides page](../slides/index.html) ([md](../slides/index.md)).
-
-1. Mon, May 22: course introduction; security mindset
-2. Tue, May 23: security mindset, terminology
-3. Wed, May 24: terminology, policy
-4. Thu, May 25: ethics
-5. Fri, May 26: encryption
-6. Tue, May 30: encryption
-7. Wed, May 31: encryption
-8. Thu, Jun 1: encryption, networking overview, web security
-9. Fri, Jun 2: web security (and the midterm)
-10. Mon, Jun 5: web security, sql/xss/csrf
-11. Tue, Jun 6: cryptocurrency
-12. Wed, Jun 7: cryptocurrency, anonymity
-13. Thu, Jun 8: anonymity, stuxnet
-14. Fri, Jun 9: virtual machines, rootkits
-15. Mon, Jun 12: rootkits, viruses
-16. Tue, Jun 13: viruses, buffer overflow
-17. Wed, Jun 14: buffer overflow, binary exploits
-18. Thu, Jun 15: binary exploits, digital forensics
-19. Fri, Jun 16: digital forensics, course conclusion
-
-
-<!--
 
 Course calendar
 ---------------
@@ -129,6 +95,4 @@ Course calendar
 | 14 | Apr 24 | M,W,F  | Buffer overflow   | [Digital Forensics](../slides/forensics.html#/), [Virtual Machines](../slides/vms.html#/) | Mon: finished forensics; binary exploits to slide 5.15; Wed: finished binary exploits; Fri: review session |
 | 15 | May 1  | M      | Digital forensics | [Course reflection](../slides/reflection.html#/) | Mon: course conclusion |
 
--->
-
-[1]: https://canvas.its.virginia.edu/courses/70890
+[1]: https://canvas.its.virginia.edu/courses/59093
