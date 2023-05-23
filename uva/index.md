@@ -15,13 +15,13 @@ There are a number of links and other parts of this course that are **NOT** incl
 - Any concerns you have should be handled via a support request; the link is on the [Canvas landing page][1]
 - Assignment submission is through the Gradescope tool in Canvas
 - The [Piazza forum for this course](https://piazza.com/class/lcyvdla676110z); Canvas can log you in directly -- the Canvas tool link is [here](https://canvas.its.virginia.edu/courses/59093/external_tools/21)
-- The link for the VirtualBox image will be available on the [Canvas landing page][1].  For how to install it, see  [here](https://uva-cs.github.io/pdr/tutorials/01-intro-unix/virtual-box.html).
 - Apparently anonymous feedback is not currently available in Canvas
 
-<!-- no longer available in canvas:
+<!-- no longer available in canvas or no longer used:
 
 - ~~[Email list archive](https://collab.its.virginia.edu/portal/directtool/23262987-1288-4c6d-912f-c1b031973f44/), which is a Collab tool~~
 - ~~[Anonymous feedback](https://collab.its.virginia.edu/portal/directtool/b166e2b1-f967-4df0-8e7e-1b25f58a30e2/), which is a Collab tool~~
+- ~~The link for the VirtualBox image will be available on the [Canvas landing page][1].  For how to install it, see  [here](https://uva-cs.github.io/pdr/tutorials/01-intro-unix/virtual-box.html).~~
 
 -->
 

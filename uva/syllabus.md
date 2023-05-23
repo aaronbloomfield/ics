@@ -23,8 +23,6 @@ I realize that nobody reads these through.  So the TL;DR version:
 And now for the really long-winded version...
 
 
-## Spring 2023
-
 ### Course Staff ###
 
 - [Aaron Bloomfield](https://www.cs.virginia.edu/~asb) / aaron at virginia dot edu.  Office: Rice Hall, room 402.  Office hours are posted on the Canvas landing page, and will start the second week of the semester
@@ -47,7 +45,7 @@ And now for the really long-winded version...
 **Readings:** Due to the rapidly changing nature of this topic, there is no assigned textbook.  Various online readings will be assigned.  You should expect a reading quiz on the day that a reading is due.  These quizzes may be online, so bring a connected device (phone is fine) to take said quizzes.
 
 **Purchases:** As mentioned above, no textbook is required for this course.  
-You don't have to purchase anything else for this course.  But you do have to have a relatively modern *notebook* computer -- both for the course content (online meetings and video) and for VirtualBox (see Computing Resources, below).  If you do not have one, or yours breaks during the semester, speak to me as the department can loan you one.
+You don't have to purchase anything else for this course.  But you do have to have a relatively modern *notebook* computer.  If you do not have one, or yours breaks during the semester, speak to me as the department can loan you one.
 
 **Course Description:** This course is meant as a general introduction to cybersecurity.  It will prepare students to take any of the follow-on cybersecurity courses within the curriculum.  The course content is split into six "modules": introduction, ethics and policy, cryptography, networks, binary exploits, modern topics, and digital forensics.  
 
