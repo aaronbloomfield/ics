@@ -27,6 +27,7 @@ class RSAKey {
     int bitLength;
 }
 
+
 /** Holds the necessary cipher text information.  This class is meant
  * to hold the values, and has no methods itself.
  */
@@ -46,6 +47,7 @@ class CipherText {
         encryptedBlocks = new ArrayList<BigInteger>();
     }
 }
+
 
 /** The main RSA class.  This is the class that contains all of the
  * functionality, and there are five methods that need to be completed
@@ -71,6 +73,11 @@ public class RSA {
      * available, we'll use SHA-256 for this code.
      */
     final static String hashAlgorithm = "SHA-256";
+
+    /** The random number generator
+     */
+    static Random random = new Random();
+
 
     /** Write a {@link RSAKey} key (public or private) to a file.
      *
@@ -335,10 +342,6 @@ public class RSA {
      * @param bitLength The bit length of *p* and *q* used in the
      * generation routines; this means that *n* will be approximately
      * *2n* bits in length.
-     * @param seed The seed to provide to the random number generator;
-     * if zero, then no seed is provided when the random number
-     * generator is created.
-     *
      * @return The keys generated.  Note that in the returned {@link
      * RSAKey}, *both* *d* and *e* are set, which means it contains
      * the information for both public and private keys.
@@ -347,11 +350,7 @@ public class RSA {
      * throw an exception, but this is included in case a future
      * implementation does choose to do so.
      */
-    public static RSAKey generateKeys (int bitLength, int seed) throws Exception {
-        // random number generation -- don't modify this part!
-        Random random = new Random();
-        if ( seed != 0 )
-            random = new Random(seed);
+    public static RSAKey generateKeys (int bitLength) throws Exception {
         // your code here; a dummy return statement is put below to allow this to compile
         return null;
     }
@@ -486,7 +485,6 @@ public class RSA {
      */
     public static void main (String[] args) throws Exception {
         String outputFileName = "output.txt", inputFileName = "input.txt", keyName = "default";
-        int seed = 0;
 
         for ( int i = 0; i < args.length; i++ ) {
 
@@ -507,7 +505,7 @@ public class RSA {
 
             else if ( args[i].equals("-keygen") ) {
                 int bitLength = Integer.parseInt(args[++i]);
-                RSAKey key = generateKeys(bitLength, seed);
+                RSAKey key = generateKeys(bitLength);
                 writeKeyToFile (key,keyName);
             }
 
@@ -550,7 +548,7 @@ public class RSA {
             }
 
             else if ( args[i].equals("-seed") )
-                seed = Integer.parseInt(args[++i]);
+                random = new Random(Integer.parseInt(args[++i]));
 
             else {
                 System.out.println("Unknown parameter: '" + args[i] + "', exiting.");

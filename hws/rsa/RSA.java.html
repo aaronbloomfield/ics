@@ -38,6 +38,7 @@ http://www.gnu.org/software/src-highlite">
     <font color="#009900">int</font> bitLength<font color="#990000">;</font>
 <font color="#FF0000">}</font>
 
+
 <i><font color="#9A1900">/** Holds the necessary cipher text information.  This class is meant</font></i>
 <i><font color="#9A1900"> * to hold the values, and has no methods itself.</font></i>
 <i><font color="#9A1900"> */</font></i>
@@ -57,6 +58,7 @@ http://www.gnu.org/software/src-highlite">
         encryptedBlocks <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> ArrayList<font color="#990000">&lt;</font>BigInteger<font color="#990000">&gt;();</font>
     <font color="#FF0000">}</font>
 <font color="#FF0000">}</font>
+
 
 <i><font color="#9A1900">/** The main RSA class.  This is the class that contains all of the</font></i>
 <i><font color="#9A1900"> * functionality, and there are five methods that need to be completed</font></i>
@@ -82,6 +84,11 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900">     * available, we'll use SHA-256 for this code.</font></i>
 <i><font color="#9A1900">     */</font></i>
     <b><font color="#0000FF">final</font></b> <b><font color="#0000FF">static</font></b> <font color="#008080">String</font> hashAlgorithm <font color="#990000">=</font> <font color="#FF0000">"SHA-256"</font><font color="#990000">;</font>
+
+    <i><font color="#9A1900">/** The random number generator</font></i>
+<i><font color="#9A1900">     */</font></i>
+    <b><font color="#0000FF">static</font></b> <font color="#008080">Random</font> random <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Random</font></b><font color="#990000">();</font>
+
 
     <i><font color="#9A1900">/** Write a {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSAKey} key (public or private) to a file.</font></i>
 <i><font color="#9A1900">     *</font></i>
@@ -346,10 +353,6 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> bitLength The bit length of *p* and *q* used in the</font></i>
 <i><font color="#9A1900">     * generation routines; this means that *n* will be approximately</font></i>
 <i><font color="#9A1900">     * *2n* bits in length.</font></i>
-<i><font color="#9A1900">     * </font></i><font color="#009900">@param</font><i><font color="#9A1900"> seed The seed to provide to the random number generator;</font></i>
-<i><font color="#9A1900">     * if zero, then no seed is provided when the random number</font></i>
-<i><font color="#9A1900">     * generator is created.</font></i>
-<i><font color="#9A1900">     *</font></i>
 <i><font color="#9A1900">     * </font></i><font color="#009900">@return</font><i><font color="#9A1900"> The keys generated.  Note that in the returned {</font></i><font color="#009900">@link</font>
 <i><font color="#9A1900">     * RSAKey}, *both* *d* and *e* are set, which means it contains</font></i>
 <i><font color="#9A1900">     * the information for both public and private keys.</font></i>
@@ -358,11 +361,7 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900">     * throw an exception, but this is included in case a future</font></i>
 <i><font color="#9A1900">     * implementation does choose to do so.</font></i>
 <i><font color="#9A1900">     */</font></i>
-    <b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#008080">RSAKey</font> <b><font color="#000000">generateKeys</font></b> <font color="#990000">(</font><font color="#009900">int</font> bitLength<font color="#990000">,</font> <font color="#009900">int</font> seed<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
-        <i><font color="#9A1900">// random number generation -- don't modify this part!</font></i>
-        <font color="#008080">Random</font> random <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Random</font></b><font color="#990000">();</font>
-        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> seed <font color="#990000">!=</font> <font color="#993399">0</font> <font color="#990000">)</font>
-            random <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Random</font></b><font color="#990000">(</font>seed<font color="#990000">);</font>
+    <b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#008080">RSAKey</font> <b><font color="#000000">generateKeys</font></b> <font color="#990000">(</font><font color="#009900">int</font> bitLength<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
         <i><font color="#9A1900">// your code here; a dummy return statement is put below to allow this to compile</font></i>
         <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">null</font></b><font color="#990000">;</font>
     <font color="#FF0000">}</font>
@@ -497,7 +496,6 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900">     */</font></i>
     <b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#009900">void</font> <b><font color="#000000">main</font></b> <font color="#990000">(</font>String<font color="#990000">[]</font> args<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> Exception <font color="#FF0000">{</font>
         <font color="#008080">String</font> outputFileName <font color="#990000">=</font> <font color="#FF0000">"output.txt"</font><font color="#990000">,</font> inputFileName <font color="#990000">=</font> <font color="#FF0000">"input.txt"</font><font color="#990000">,</font> keyName <font color="#990000">=</font> <font color="#FF0000">"default"</font><font color="#990000">;</font>
-        <font color="#009900">int</font> seed <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
 
         <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> args<font color="#990000">.</font>length<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
 
@@ -518,7 +516,7 @@ http://www.gnu.org/software/src-highlite">
 
             <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> args<font color="#990000">[</font>i<font color="#990000">].</font><b><font color="#000000">equals</font></b><font color="#990000">(</font><font color="#FF0000">"-keygen"</font><font color="#990000">)</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
                 <font color="#009900">int</font> bitLength <font color="#990000">=</font> Integer<font color="#990000">.</font><b><font color="#000000">parseInt</font></b><font color="#990000">(</font>args<font color="#990000">[++</font>i<font color="#990000">]);</font>
-                <font color="#008080">RSAKey</font> key <font color="#990000">=</font> <b><font color="#000000">generateKeys</font></b><font color="#990000">(</font>bitLength<font color="#990000">,</font> seed<font color="#990000">);</font>
+                <font color="#008080">RSAKey</font> key <font color="#990000">=</font> <b><font color="#000000">generateKeys</font></b><font color="#990000">(</font>bitLength<font color="#990000">);</font>
                 <b><font color="#000000">writeKeyToFile</font></b> <font color="#990000">(</font>key<font color="#990000">,</font>keyName<font color="#990000">);</font>
             <font color="#FF0000">}</font>
 
@@ -561,7 +559,7 @@ http://www.gnu.org/software/src-highlite">
             <font color="#FF0000">}</font>
 
             <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> args<font color="#990000">[</font>i<font color="#990000">].</font><b><font color="#000000">equals</font></b><font color="#990000">(</font><font color="#FF0000">"-seed"</font><font color="#990000">)</font> <font color="#990000">)</font>
-                seed <font color="#990000">=</font> Integer<font color="#990000">.</font><b><font color="#000000">parseInt</font></b><font color="#990000">(</font>args<font color="#990000">[++</font>i<font color="#990000">]);</font>
+                random <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Random</font></b><font color="#990000">(</font>Integer<font color="#990000">.</font><b><font color="#000000">parseInt</font></b><font color="#990000">(</font>args<font color="#990000">[++</font>i<font color="#990000">]));</font>
 
             <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
                 System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font><font color="#FF0000">"Unknown parameter: '"</font> <font color="#990000">+</font> args<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">+</font> <font color="#FF0000">"', exiting."</font><font color="#990000">);</font>

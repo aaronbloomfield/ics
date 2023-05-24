@@ -121,10 +121,9 @@ def generate_prime(bits, k):
 #----------------------------------------
 # You have to implement these functions
 
-# Given the passed bitlength (int) and the seed (int), it will generate a key.
-# One should initialize the random number generator with the passed seed via
-# random.seed(). This returns a rsakey object.
-def generateKeys(bitlength, seed):
+# Given the passed bitlength (int), it will generate a key. This returns a
+# rsakey object.
+def generateKeys(bitlength):
 	pass
 
 # Given the passed rsakey object and string, this will perform the RSA
@@ -165,7 +164,6 @@ def main():
 	outputFileName = "output.txt"
 	inputFileName = "input.txt"
 	keyName = "default"
-	seed = 0
 	
 	i = 1
 	while i < len(sys.argv):
@@ -191,7 +189,7 @@ def main():
 		elif sys.argv[i] == "-keygen":
 			i = i + 1
 			bitLength = int(sys.argv[i])
-			key = generateKeys(bitLength, seed)
+			key = generateKeys(bitLength)
 			writeKeyToFile (key,keyName)
 
 		elif sys.argv[i] == "-encrypt":
@@ -228,6 +226,7 @@ def main():
 
 		elif sys.argv[i] == "-seed":
 			seed = int(sys.argv[++i])
+			random.seed(seed)
 
 		else:
 			print ("Unknown parameter: '" + str(sys.argv[i]) + "', exiting.")

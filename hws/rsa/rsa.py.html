@@ -132,10 +132,9 @@ showPandQ <font color="#990000">=</font> False
 <i><font color="#9A1900">#----------------------------------------</font></i>
 <i><font color="#9A1900"># You have to implement these functions</font></i>
 
-<i><font color="#9A1900"># Given the passed bitlength (int) and the seed (int), it will generate a key.</font></i>
-<i><font color="#9A1900"># One should initialize the random number generator with the passed seed via</font></i>
-<i><font color="#9A1900"># random.seed(). This returns a rsakey object.</font></i>
-<b><font color="#0000FF">def</font></b> <b><font color="#000000">generateKeys</font></b><font color="#990000">(</font>bitlength<font color="#990000">,</font> seed<font color="#990000">):</font>
+<i><font color="#9A1900"># Given the passed bitlength (int), it will generate a key. This returns a</font></i>
+<i><font color="#9A1900"># rsakey object.</font></i>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">generateKeys</font></b><font color="#990000">(</font>bitlength<font color="#990000">):</font>
 	<b><font color="#0000FF">pass</font></b>
 
 <i><font color="#9A1900"># Given the passed rsakey object and string, this will perform the RSA</font></i>
@@ -176,7 +175,6 @@ showPandQ <font color="#990000">=</font> False
 	outputFileName <font color="#990000">=</font> <font color="#FF0000">"output.txt"</font>
 	inputFileName <font color="#990000">=</font> <font color="#FF0000">"input.txt"</font>
 	keyName <font color="#990000">=</font> <font color="#FF0000">"default"</font>
-	seed <font color="#990000">=</font> <font color="#993399">0</font>
 	
 	i <font color="#990000">=</font> <font color="#993399">1</font>
 	<b><font color="#0000FF">while</font></b> i <font color="#990000">&lt;</font> <b><font color="#000000">len</font></b><font color="#990000">(</font>sys<font color="#990000">.</font>argv<font color="#990000">):</font>
@@ -202,7 +200,7 @@ showPandQ <font color="#990000">=</font> False
 		<b><font color="#0000FF">elif</font></b> sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">"-keygen"</font><font color="#990000">:</font>
 			i <font color="#990000">=</font> i <font color="#990000">+</font> <font color="#993399">1</font>
 			bitLength <font color="#990000">=</font> <b><font color="#000000">int</font></b><font color="#990000">(</font>sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">])</font>
-			key <font color="#990000">=</font> <b><font color="#000000">generateKeys</font></b><font color="#990000">(</font>bitLength<font color="#990000">,</font> seed<font color="#990000">)</font>
+			key <font color="#990000">=</font> <b><font color="#000000">generateKeys</font></b><font color="#990000">(</font>bitLength<font color="#990000">)</font>
 			<b><font color="#000000">writeKeyToFile</font></b> <font color="#990000">(</font>key<font color="#990000">,</font>keyName<font color="#990000">)</font>
 
 		<b><font color="#0000FF">elif</font></b> sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">"-encrypt"</font><font color="#990000">:</font>
@@ -239,6 +237,7 @@ showPandQ <font color="#990000">=</font> False
 
 		<b><font color="#0000FF">elif</font></b> sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">"-seed"</font><font color="#990000">:</font>
 			seed <font color="#990000">=</font> <b><font color="#000000">int</font></b><font color="#990000">(</font>sys<font color="#990000">.</font>argv<font color="#990000">[++</font>i<font color="#990000">])</font>
+			random<font color="#990000">.</font><b><font color="#000000">seed</font></b><font color="#990000">(</font>seed<font color="#990000">)</font>
 
 		<b><font color="#0000FF">else</font></b><font color="#990000">:</font>
 			<b><font color="#0000FF">print</font></b> <font color="#990000">(</font><font color="#FF0000">"Unknown parameter: '"</font> <font color="#990000">+</font> <b><font color="#000000">str</font></b><font color="#990000">(</font>sys<font color="#990000">.</font>argv<font color="#990000">[</font>i<font color="#990000">])</font> <font color="#990000">+</font> <font color="#FF0000">"', exiting."</font><font color="#990000">)</font>

@@ -15,9 +15,7 @@ You should be familiar with how the RSA algorithm works from the [the encryption
 
 ### Changelog
 
-Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  <!-- So far there aren't any significant changes to report. -->
-
-- Mon, Feb 13: Made a change to the Python <code>convertToASCII()</code> function to address a bug that only appears when the first character in the ASCII is a newline.
+Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
 
 
 ### Links
@@ -132,6 +130,17 @@ You may assume (and, in fact, should) that you will only receive one of `-encryp
 
 Furthermore, you may assume that we will not give you invalid input, either in the files we provide, or for the command-line parameters.
 
+#### The `-showpandq` parameter
+
+When this is provided, it should print both $p$ and $q$ on separate lines (first $p$ and then $q$) as base-10 integers.  For example:
+
+```
+$ java RSA -showpandq -keygen 10
+859
+701
+$
+```
+
 ### Testing
 
 A sample usage of the program, in which is Alice and Bob are sending messages is available.  This code can be found in a shell script named [test-rsa.sh](rsa/test-rsa.sh) ([HTML version](rsa/test-rsa.sh.html)). If you are on a UNIX environment, run `chmod 755 test-rsa.sh`, and then run it via `./test-rsa.sh`.  Note that this is not a complete test suite!  Just a quick check to see if the basics work.  But if your program does not work with this, then it's incomplete, and will receive a low grade.  If you are not on a UNIX system, then you may have to copy-and-paste those commands into a command terminal.
@@ -218,7 +227,7 @@ __Block size determination:__ To figure out your block size (which we'll call *b
 
 __Block size minimum:__ Each block will be a whole number of 8-bit characters, so we will not be splitting characters between blocks. Thus, if your keys can hold up to 31 bits per block (if 2^^31^^ < *n* < 2^^32^^), we will only encode 24 bits (3 characters) in that block, not 31 bits.  That being said, you can assume that all blocks we will use will allow for at least 2 characters per block.  Note that the number passed in via `-keygen` is the bit size for *p* and *q*; *n* is roughly twice that size.
 
-__ASCII:__ All files (messages, keys, ciphertext, what‐not) will have only printable ASCII characters, so you need not worry about binary files.  But there may be whitespace as well: newlines, tabs, linefeeds, etc.  Make sure that your code does not have UTF-8 characters in it!  Given a file, you can tell what type of characters it has via the `file foo.txt` command.
+__ASCII:__ All files (messages, keys, ciphertext, what‐not) will have only printable ASCII characters, so you need not worry about binary files.  But there may be whitespace as well: newlines, tabs, linefeeds, etc.  Make sure that your code does not have UTF-8 characters in it!  Given a file, you can tell what type of characters it has via the `file foo.txt` command in Linux and Mac OS X.  Under Windows, you can right-click on the file in Explorer, and it should tell you the file type.  In particular, if you use IntelliJ (or similar), make sure it writes the files as ASCII (or UTF-8) files, *not* Unicode files.
 
 ### Submission
 
