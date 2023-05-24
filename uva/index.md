@@ -104,6 +104,11 @@ The links to the specific slides sets can be found on the [slides page](../slide
 18. Thu, Jun 15: binary exploits, digital forensics
 19. Fri, Jun 16: digital forensics, course conclusion
 
+Actual progress:
+
+1. finished course introduction and security mindset, terminology to 4.5
+2. finished terminology and policy, ethics to 4.7
+
 
 <!--
 
