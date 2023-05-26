@@ -106,10 +106,11 @@ The links to the specific slides sets can be found on the [slides page](../slide
 
 Actual progress:
 
-1. finished course introduction and security mindset, terminology to 4.5
-2. finished terminology and policy, ethics to 4.7
-3. finished ethics, encryption to 4.16
-3. finished ethics, encryption to 6.44
+1. Mon, 5/22: finished course introduction and security mindset, terminology to 4.5
+2. Tue, 5/23: finished terminology and policy, ethics to 4.7
+3. Wed, 5/24: finished ethics, encryption to 4.16
+4. Thu, 5/25: encryption to 6.44
+5. Fri, 5/26: encryption to 8.17
 
 <!--
 
