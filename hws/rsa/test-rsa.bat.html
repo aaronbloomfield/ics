@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>test-rsa.bat</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">rem setup: create the message1.txt and message2.txt files</font></i>
+<b><font color="#000000">del</font></b> <font color="#990000">-</font>f message<font color="#990000">[</font><font color="#993399">12</font><font color="#990000">].</font>txt
+<b><font color="#000000">echo</font></b> <font color="#FF0000">"Two things are infinite: the universe and human stupidity;"</font> <font color="#990000">&gt;</font> message1<font color="#990000">.</font>txt
+<b><font color="#000000">echo</font></b> <font color="#FF0000">"and I'm not sure about the the universe."</font> <font color="#990000">&gt;&gt;</font> message1<font color="#990000">.</font>txt
+<b><font color="#000000">echo</font></b> <font color="#FF0000">"by Albert Einstein"</font> <font color="#990000">&gt;&gt;</font> message1<font color="#990000">.</font>txt
+<b><font color="#000000">echo</font></b> <font color="#FF0000">"The quick brown fox jumped over the lazy dog."</font> <font color="#990000">&gt;</font> message2<font color="#990000">.</font>txt
+<i><font color="#9A1900">rem 1: create keys alice-public.key and alice-private.key</font></i>
+<font color="#990000">./</font>rsa<font color="#990000">.</font>bat <font color="#990000">-</font>key alice <font color="#990000">-</font>keygen <font color="#993399">200</font>
+<i><font color="#9A1900">rem 2: create keys bob-public.key and bob-private.key</font></i>
+<font color="#990000">./</font>rsa<font color="#990000">.</font>bat <font color="#990000">-</font>key bob <font color="#990000">-</font>keygen <font color="#993399">200</font>
+<i><font color="#9A1900">rem 3: alice is going to encrypt a message for bob</font></i>
+<font color="#990000">./</font>rsa<font color="#990000">.</font>bat <font color="#990000">-</font>key bob <font color="#990000">-</font>input message1<font color="#990000">.</font>txt <font color="#990000">-</font>output encrypted1<font color="#990000">.</font>txt <font color="#990000">-</font>encrypt
+<i><font color="#9A1900">rem 4: bob will decrypt the message</font></i>
+<font color="#990000">./</font>rsa<font color="#990000">.</font>bat <font color="#990000">-</font>key bob <font color="#990000">-</font>input encrypted1<font color="#990000">.</font>txt <font color="#990000">-</font>output message1b<font color="#990000">.</font>txt <font color="#990000">-</font>decrypt
+<i><font color="#9A1900">rem 5: are they the same?</font></i>
+<b><font color="#000000">comp</font></b> message1<font color="#990000">.</font>txt message1b<font color="#990000">.</font>txt
+<i><font color="#9A1900">rem 6: bob now sends a message to alice</font></i>
+<font color="#990000">./</font>rsa<font color="#990000">.</font>bat <font color="#990000">-</font>key alice <font color="#990000">-</font>input message2<font color="#990000">.</font>txt <font color="#990000">-</font>output encrypted2<font color="#990000">.</font>txt <font color="#990000">-</font>encrypt
+<i><font color="#9A1900">rem 7: alice will decrypt the message</font></i>
+<font color="#990000">./</font>rsa<font color="#990000">.</font>bat <font color="#990000">-</font>key alice <font color="#990000">-</font>input encrypted2<font color="#990000">.</font>txt <font color="#990000">-</font>output message2b<font color="#990000">.</font>txt <font color="#990000">-</font>decrypt
+<i><font color="#9A1900">rem 8: are they the same?</font></i>
+<b><font color="#000000">comp</font></b> message2<font color="#990000">.</font>txt message2b<font color="#990000">.</font>txt
+<i><font color="#9A1900">rem 9: alice signs her message1.txt</font></i>
+<font color="#990000">./</font>rsa<font color="#990000">.</font>bat <font color="#990000">-</font>key alice <font color="#990000">-</font>input message1<font color="#990000">.</font>txt <font color="#990000">-</font>sign
+<i><font color="#9A1900">rem 10: bob checks that sign; they should match</font></i>
+<font color="#990000">./</font>rsa<font color="#990000">.</font>bat <font color="#990000">-</font>key alice <font color="#990000">-</font>input message1<font color="#990000">.</font>txt <font color="#990000">-</font>checksign
+<i><font color="#9A1900">rem 11: modify message1.txt</font></i>
+<b><font color="#000000">move</font></b> message1<font color="#990000">.</font>txt message1<font color="#990000">.</font>txt<font color="#990000">.</font>bak
+<b><font color="#000000">echo</font></b> hi <font color="#990000">&gt;&gt;</font> message1<font color="#990000">.</font>txt
+<i><font color="#9A1900">rem 12: bob checks that sign; they should NOT match</font></i>
+<font color="#990000">./</font>rsa<font color="#990000">.</font>bat <font color="#990000">-</font>key alice <font color="#990000">-</font>input message1<font color="#990000">.</font>txt <font color="#990000">-</font>checksign
+<i><font color="#9A1900">rem 13: restore message1.txt</font></i>
+<b><font color="#000000">move</font></b> message1<font color="#990000">.</font>txt<font color="#990000">.</font>bak message1<font color="#990000">.</font>txt
+<font color="#990000">./</font>rsa<font color="#990000">.</font>bat <font color="#990000">-</font>key alice <font color="#990000">-</font>input message1<font color="#990000">.</font>txt <font color="#990000">-</font>checksign
+<i><font color="#9A1900">rem 14: charlie generates an easy-to-crack key</font></i>
+<font color="#990000">./</font>rsa<font color="#990000">.</font>bat <font color="#990000">-</font>key charlie <font color="#990000">-</font>keygen <font color="#993399">10</font>
+<i><font color="#9A1900">rem eve tries to crack alice's key</font></i>
+<font color="#990000">./</font>rsa<font color="#990000">.</font>bat <font color="#990000">-</font>key charlie <font color="#990000">-</font>crack
+<i><font color="#9A1900">rem 15: is the cracked key the same as the original key?</font></i>
+<b><font color="#000000">comp</font></b> charlie<font color="#990000">-</font>cracked<font color="#990000">-</font>private<font color="#990000">.</font>key charlie<font color="#990000">-</font>private<font color="#990000">.</font>key
+<i><font color="#9A1900">rem 16: clean up files (commented out by default)</font></i>
+<i><font color="#9A1900">rem del alice*.key bob*.key charlie*.key message*.sign message?b.txt encrypted?.txt message?.txt</font></i>
+</tt></pre>
+</body>
+</html>

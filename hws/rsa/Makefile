@@ -2,5 +2,5 @@ convert:
 	astyle --style=java --pad-header RSA.java
 	source-highlight -d RSA.java
 	source-highlight -d rsa.py
-	source-highlight -d test-rsa.sh
+	source-highlight -d test-rsa.sh test-rsa.bat
 	#doxygen

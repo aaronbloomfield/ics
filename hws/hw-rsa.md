@@ -22,7 +22,8 @@ Any changes to this page will be put here for easy reference.  Typo fixes and mi
 
 These links are all described below, but are included here, all in one place.
 
-- [RSA.java](rsa/RSA.java) skeleton code, which you ***MUST*** use; you can also view an [HTML version](rsa/RSA.java.html)
+- Java: [RSA.java](rsa/RSA.java) skeleton code, which you ***MUST*** use; you can also view an [HTML version](rsa/RSA.java.html)
+- Python: The skeleton code is in the [rsa.py](rsa/rsa.py) file; you can see an HTML version of that code [here](rsa/rsa.py.html).
 - Doxygen documentation for the [CipherText](rsa/html/classCipherText.html), [RSAKey](rsa/html/classRSAKey.html), and [RSA](rsa/html/classRSA.html) classes
 - [Command line parameter usage](rsa/html/cmdparam.html) -- note that the provided RSA.java file calls the correct functions based on the parameters passed
 - [The encryption lecture](../slides/encryption.html#/rsa), and the [Wikipedia article on RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
@@ -206,6 +207,10 @@ Signatures do not match!
 ```
 
 While we are not going to try to break your program with strange combinations of command line parameters (trying to decrypt but not specifying a key), we would encourage you to put some sanity error‐checking code in your methods for your own sanity while developing the program.
+
+#### Windows
+
+If you are using Microsoft Windows, and are *NOT* using the Linux subsystem, then you may want to try the [test-rsa.bat](rsa/test-rsa.bat) ([HTML version](rsa/test-rsa.bat.html)) file.  ***WARNING:*** this is a beta release of this batch file, and it's not yet clear that it works.  To use it, create a `rsa.bat` (not `rsa.sh`) file that calls your code, as above.  Note that you still have to submit a `rsa.sh` file when you submit the assignment.
 
 
 ### Notes

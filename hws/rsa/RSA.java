@@ -304,7 +304,6 @@ public class RSA {
             ret = ret.multiply(ff);
             ret = ret.add(new BigInteger(Integer.toString((int)text.charAt(i))));
         }
-        // your code here; a dummy return statement is put below to allow this to compile
         return ret;
     }
 
@@ -329,7 +328,6 @@ public class RSA {
             ret = (char) block.mod(ff).intValue() + ret;
             block = block.divide(ff);
         }
-        // your code here; a dummy return statement is put below to allow this to compile
         return ret;
     }
 

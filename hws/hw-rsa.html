@@ -54,7 +54,8 @@
 <h3 id="links">Links</h3>
 <p>These links are all described below, but are included here, all in one place.</p>
 <ul>
-<li><a href="rsa/RSA.java">RSA.java</a> skeleton code, which you <strong><em>MUST</em></strong> use; you can also view an <a href="rsa/RSA.java.html">HTML version</a></li>
+<li>Java: <a href="rsa/RSA.java">RSA.java</a> skeleton code, which you <strong><em>MUST</em></strong> use; you can also view an <a href="rsa/RSA.java.html">HTML version</a></li>
+<li>Python: The skeleton code is in the <a href="rsa/rsa.py">rsa.py</a> file; you can see an HTML version of that code <a href="rsa/rsa.py.html">here</a>.</li>
 <li>Doxygen documentation for the <a href="rsa/html/classCipherText.html">CipherText</a>, <a href="rsa/html/classRSAKey.html">RSAKey</a>, and <a href="rsa/html/classRSA.html">RSA</a> classes</li>
 <li><a href="rsa/html/cmdparam.html">Command line parameter usage</a> – note that the provided RSA.java file calls the correct functions based on the parameters passed</li>
 <li><a href="../slides/encryption.html#/rsa">The encryption lecture</a>, and the <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">Wikipedia article on RSA</a></li>
@@ -174,6 +175,8 @@ diff charlie-cracked-private.key charlie-private.key
 <p>The output should be just:</p>
 <pre><code>Signatures do not match!</code></pre>
 <p>While we are not going to try to break your program with strange combinations of command line parameters (trying to decrypt but not specifying a key), we would encourage you to put some sanity error‐checking code in your methods for your own sanity while developing the program.</p>
+<h4 id="windows">Windows</h4>
+<p>If you are using Microsoft Windows, and are <em>NOT</em> using the Linux subsystem, then you may want to try the <a href="rsa/test-rsa.bat">test-rsa.bat</a> (<a href="rsa/test-rsa.bat.html">HTML version</a>) file. <strong><em>WARNING:</em></strong> this is a beta release of this batch file, and it’s not yet clear that it works. To use it, create a <code>rsa.bat</code> (not <code>rsa.sh</code>) file that calls your code, as above. Note that you still have to submit a <code>rsa.sh</code> file when you submit the assignment.</p>
 <h3 id="notes">Notes</h3>
 <p><strong>Determining SHA-256 hashes:</strong> We are using the SHA-256 hash for this assignment. If you want to see if a string has the same SHA-256 as a file, make sure they are EXACTLY the same. If the file has a ending newline (<code>\n</code>) character, and the string does not, then the SHA-256 sums will not match! You can find the SHA-256 hash of a file via the <code>sha256sum</code> command (<code>CertUtil -hashfile message1.txt SHA256</code> on Windows):</p>
 <pre><code>$ sha256sum message1.txt 
