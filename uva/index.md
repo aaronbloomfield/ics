@@ -109,6 +109,7 @@ Actual progress:
 1. finished course introduction and security mindset, terminology to 4.5
 2. finished terminology and policy, ethics to 4.7
 3. finished ethics, encryption to 4.16
+3. finished ethics, encryption to 6.44
 
 <!--
 
