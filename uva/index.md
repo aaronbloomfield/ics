@@ -111,6 +111,7 @@ Actual progress:
 3. Wed, 5/24: finished ethics, encryption to 4.16
 4. Thu, 5/25: encryption to 6.44
 5. Fri, 5/26: encryption to 8.17
+6. Mon, 5/30: finished encryption, finished networks
 
 <!--
 
