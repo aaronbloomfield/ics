@@ -11,22 +11,19 @@ http://www.gnu.org/software/src-highlite">
 <body bgcolor="white">
 <pre><tt><i><font color="#9A1900"># Fuzzer skeleton code</font></i>
 
-<b><font color="#000080">import</font></b> aiohttp<font color="#990000">,</font> asyncio<font color="#990000">,</font> args
+<b><font color="#000080">import</font></b> args<font color="#990000">,</font> urllib<font color="#990000">.</font>request
 
-<b><font color="#0000FF">async</font></b> <b><font color="#0000FF">def</font></b> <b><font color="#000000">fuzz</font></b><font color="#990000">(</font>args<font color="#990000">):</font>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">fuzz</font></b><font color="#990000">(</font>args<font color="#990000">):</font>
 <i><font color="#9A1900">    """Fuzz a target URL with the command-line arguments specified by ``args``."""</font></i>
 
-    <i><font color="#9A1900"># asynchronous loading of a URL:</font></i>
-    <b><font color="#0000FF">async</font></b> with aiohttp<font color="#990000">.</font><b><font color="#000000">ClientSession</font></b><font color="#990000">()</font> as session<font color="#990000">:</font>
-        <b><font color="#0000FF">async</font></b> with session<font color="#990000">.</font><b><font color="#000000">get</font></b><font color="#990000">(</font>args<font color="#990000">.</font>url<font color="#990000">)</font> as response<font color="#990000">:</font>
-            <b><font color="#0000FF">await</font></b> response<font color="#990000">.</font><b><font color="#000000">text</font></b><font color="#990000">()</font>
-            <b><font color="#0000FF">print</font></b><font color="#990000">(</font>response<font color="#990000">)</font>
+    <i><font color="#9A1900"># your code here...</font></i>
+    <b><font color="#0000FF">pass</font></b>
 
 
 <i><font color="#9A1900"># do not modify this!</font></i>
 <b><font color="#0000FF">if</font></b> __name__ <font color="#990000">==</font> <font color="#FF0000">"__main__"</font><font color="#990000">:</font>
     arguments <font color="#990000">=</font> args<font color="#990000">.</font><b><font color="#000000">parse_args</font></b><font color="#990000">()</font>
-    asyncio<font color="#990000">.</font><b><font color="#000000">run</font></b><font color="#990000">(</font><b><font color="#000000">fuzz</font></b><font color="#990000">(</font>arguments<font color="#990000">))</font>
+    <b><font color="#000000">fuzz</font></b><font color="#990000">(</font>arguments<font color="#990000">)</font>
 </tt></pre>
 </body>
 </html>

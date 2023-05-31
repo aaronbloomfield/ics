@@ -19,28 +19,36 @@ Credit: this homework is based heavily on [Will Shand's xfuzz assignment](https:
 
 ### Changelog
 
-Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  <!-- So far there aren't any significant changes to report. -->
-
-- Tue, 3/14: Clarified that there are no spaces in the words in the word list, but `%20` will be used instead.  [common.txt](fuzzing/common.txt) was updated to include all instances of a space with `%20`.
+Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
 
 
 ### Setup
 
-This assignment must be done in a recent version of Python.  You will want to create a virtual environment in Python: `virtualenv fuzzer`.  You then enter that virtual environment; on Linux it is `source fuzzer/bin/activate`; on Windows it's (something similar).  
+This assignment must be done in a recent version of Python.  You may want to create a virtual environment in Python: `virtualenv fuzzer`.  You then enter that virtual environment; on Linux it is `source fuzzer/bin/activate`; on Windows it's something similar.  
 
-Next, install all the packages listed in the [requirements.txt](fuzzing/requirements.txt) file via `pip install -r fuzzing/requirements.txt`
+The only additional package you will need is `uvicorn` -- to install it, enter `pip install uvicorn` (or `pip3 install uvicorn`).
 
 You will need a number of files from this repository to work on this assignment:
 
 - [fuzzer.py](fuzzing/fuzzer.py.html) ([src](fuzzing/fuzzer.py)): this is where you will write the code for this assignment, and the only file that will be submitted.
 - [args.py](fuzzing/args.py.html) ([src](fuzzing/args.py)) is supporting code for fuzzer.py that does the command-line argument parsing.  You should not modify this file!
 - [common.txt](fuzzing/common.txt): the word list that we will be using for testing.  The format is one word per line, with no spaces in the words.  If a space is in the URL, then `%20` (the URL representation for a space) will be used instead; you do NOT have to replace `%20` with a space in your code.
+- [common-reduced.txt](fuzzing/common-reduced.txt): a smaller word list, described in detail below (in the 'Testing' section)
 - [server.py](fuzzing/server.py.html) ([src](fuzzing/server.py)) code to run a mini web server on your machine for testing.
 
 
 #### Calling the code
 
 The provided code in args.py already handles the command line argument parsing.  Run `python3 fuzzer.py -h` to see the various options.  You are going to write the `fuzz()` function in fuzzer.py -- the parameter passed into that function contains the parse command line arguments -- you can print it to the screen during development to see how they are stored (but be sure to remove that print statement -- and any others beyond what is required -- before submission).
+
+
+#### Writing the code
+
+You have to write the `fuzz()` function in [fuzzer.py](fuzzing/fuzzer.py.html) ([src](fuzzing/fuzzer.py)) -- remove the `pass` line that is there once you insert your own code.  The intent is for you to use the `urllib.request` library; documentation on that can be found [here](https://docs.python.org/3/library/urllib.request.html).  
+
+For the basic fuzzing, you will likely need the `urllib.request.urlopen()` function and the `status` field of the object it returns.
+
+For advanced fuzzing, you will want to create a `urllib.request.Request` object so that you can set more parameters.
 
 
 ### Task 1: Basic fuzzing
@@ -77,13 +85,14 @@ There are a number of command-line parameters that the fuzzer.py file will accep
 	- Note that adding any number of extensions still means you try the base word as well.  So adding `-e html` means your program will try *both* `alert` and `alert.html`.
 - `-X METHOD` or `--method METHOD`: HTTP method to use (GET, POST, or PUT) (default: GET)
 	- Your code should allow both upper-case and lower-case values
-	- The provided skeleton code in [fuzzer.py](fuzzing/fuzzer.py.html) ([src](fuzzing/fuzzer.py)) has, as line 10: `async with session.get(args.url) as response:`.  This is a GET call, and there is both a `put()` and a `post()` call as well.
-	- You can also use the `request()` method described on the [aiohttp client reference documentation](https://docs.aiohttp.org/en/stable/client_reference.html).
+	- You can also use the `urllib.request.Request` class to set the method; to check the method is received correctly, print out the `scope` variable in `server.py`
 - `-H HEADERS` or `--header HEADERS`: One or more HTTP headers to add to requests, in the form "HeaderName: HeaderValue" (e.g. "Content-Type: application/json" or "Host: FUZZ.example.com"). May be specified one or more times.
-	- To see how to insert one or more headers into the request, look at the [aiohttp client reference documentation](https://docs.aiohttp.org/en/stable/client_reference.html).
+	- You can also use the `urllib.request.Request` class to set the headers; to check the header is received correctly, print out the `scope` variable in `server.py`
+	- Example usage: adding `-H "MyHeader:foobarbaz"` will cause each request sent to the URL to include that header; note that there is no space after the colon
+	- Note that, in `fuzz()`, the headers are received as a string with a colon (`:`) separating the key and value.  You have to `split()` that, as what is passed to the `urllib.request.Request` constructor is a dictionary of key-value pairs.
 - `-d DATA` or `--data DATA`: Data to send in the body of the HTTP request.
-	- To see how to insert the data into the request, look at the [aiohttp client reference documentation](https://docs.aiohttp.org/en/stable/client_reference.html).
 	- To see how to read it from uvicorn, look [here](https://www.uvicorn.org/) -- specifically, look at the `read_body()` function, which is called (in the `app()` function in server.py) as `body = await read_body(receive)`.
+	- You can also use the `urllib.request.Request` class to set the data; to check the data is received correctly, print out the `scope` variable in `server.py`
 - `-mc MATCH_CODES`: Match HTTP response codes. May be specified multiple times. If let unspecified, defaults to the following response codes: [200, 301, 302, 401, 403].  Previously you printed out any URLs that did not return 404 (not found).  That should now be modified to print out the URLs that return one of the escape codes in this list (which is parsed for you and passed into the `fuzz()` function).
 	- Specifying just one response code via `-mc` will replace the default list with just that one.  So `-mc 200` will not check for any of the defaults other than 200.  Note that the command line argument parsing does this for you.
 
@@ -149,8 +158,9 @@ Please do ***NOT*** try it out against any other machines, as ITS will get very 
 
 As mentioned above, the word list we are using is the [common.txt](fuzzing/common.txt) file that we provide.  You can also use word lists in the [SecLists repository](https://github.com/danielmiessler/SecLists/) repository; you will probably want to use a word list in the Discovery/Web-Content/ directory.  You do not need any word lists beyond the [common.txt](fuzzing/common.txt) file for this assignment -- the additional ones are just if you are interested.
 
+There is also a [common-reduced.txt](fuzzing/common-reduced.txt) file that contains only 100 words.  It contains the five URLs that are expected to be found in the tests herein (`.gitignore`, `employers`, and `~admin` for the uvicorn testing, and `class` and `development.log` for the fuff.me testing), as well as 95 other randomly chosen words from common.txt.  This file is useful for testing, as it will take much less time to print the results.
+
 
 ### Submission
 
-You should only submit your fuzzer.py file to Gradescope.  The only visible test will be the `python3 fuzzer.py http://ffuf.me/cd/basic/FUZZ -w common-reduced.txt`, where the `common-reduced.txt` file is a reduced word list (that will still contain both `class` and `development.log`).
-
+You should only submit your `fuzzer.py` file to Gradescope.  The only visible test will be the `python3 fuzzer.py -u http://ffuf.me/cd/basic/FUZZ -w common-reduced.txt`.

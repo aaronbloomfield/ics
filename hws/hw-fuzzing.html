@@ -55,22 +55,24 @@
 <li>You should have a recent version of Python, and you will need to be able to install packages, via pip, presumably in a virtual environment</li>
 </ul>
 <h3 id="changelog">Changelog</h3>
-<p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. <!-- So far there aren't any significant changes to report. --></p>
-<ul>
-<li>Tue, 3/14: Clarified that there are no spaces in the words in the word list, but <code>%20</code> will be used instead. <a href="fuzzing/common.txt">common.txt</a> was updated to include all instances of a space with <code>%20</code>.</li>
-</ul>
+<p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
 <h3 id="setup">Setup</h3>
-<p>This assignment must be done in a recent version of Python. You will want to create a virtual environment in Python: <code>virtualenv fuzzer</code>. You then enter that virtual environment; on Linux it is <code>source fuzzer/bin/activate</code>; on Windows it’s (something similar).</p>
-<p>Next, install all the packages listed in the <a href="fuzzing/requirements.txt">requirements.txt</a> file via <code>pip install -r fuzzing/requirements.txt</code></p>
+<p>This assignment must be done in a recent version of Python. You may want to create a virtual environment in Python: <code>virtualenv fuzzer</code>. You then enter that virtual environment; on Linux it is <code>source fuzzer/bin/activate</code>; on Windows it’s something similar.</p>
+<p>The only additional package you will need is <code>uvicorn</code> – to install it, enter <code>pip install uvicorn</code> (or <code>pip3 install uvicorn</code>).</p>
 <p>You will need a number of files from this repository to work on this assignment:</p>
 <ul>
 <li><a href="fuzzing/fuzzer.py.html">fuzzer.py</a> (<a href="fuzzing/fuzzer.py">src</a>): this is where you will write the code for this assignment, and the only file that will be submitted.</li>
 <li><a href="fuzzing/args.py.html">args.py</a> (<a href="fuzzing/args.py">src</a>) is supporting code for fuzzer.py that does the command-line argument parsing. You should not modify this file!</li>
 <li><a href="fuzzing/common.txt">common.txt</a>: the word list that we will be using for testing. The format is one word per line, with no spaces in the words. If a space is in the URL, then <code>%20</code> (the URL representation for a space) will be used instead; you do NOT have to replace <code>%20</code> with a space in your code.</li>
+<li><a href="fuzzing/common-reduced.txt">common-reduced.txt</a>: a smaller word list, described in detail below (in the ‘Testing’ section)</li>
 <li><a href="fuzzing/server.py.html">server.py</a> (<a href="fuzzing/server.py">src</a>) code to run a mini web server on your machine for testing.</li>
 </ul>
 <h4 id="calling-the-code">Calling the code</h4>
 <p>The provided code in args.py already handles the command line argument parsing. Run <code>python3 fuzzer.py -h</code> to see the various options. You are going to write the <code>fuzz()</code> function in fuzzer.py – the parameter passed into that function contains the parse command line arguments – you can print it to the screen during development to see how they are stored (but be sure to remove that print statement – and any others beyond what is required – before submission).</p>
+<h4 id="writing-the-code">Writing the code</h4>
+<p>You have to write the <code>fuzz()</code> function in <a href="fuzzing/fuzzer.py.html">fuzzer.py</a> (<a href="fuzzing/fuzzer.py">src</a>) – remove the <code>pass</code> line that is there once you insert your own code. The intent is for you to use the <code>urllib.request</code> library; documentation on that can be found <a href="https://docs.python.org/3/library/urllib.request.html">here</a>.</p>
+<p>For the basic fuzzing, you will likely need the <code>urllib.request.urlopen()</code> function and the <code>status</code> field of the object it returns.</p>
+<p>For advanced fuzzing, you will want to create a <code>urllib.request.Request</code> object so that you can set more parameters.</p>
 <h3 id="task-1-basic-fuzzing">Task 1: Basic fuzzing</h3>
 <p>The first task is to perform basic testing. Given a URL, such as <code>http://server.com/FUZZ</code>, you will replace <code>FUZZ</code> with each word in the word list file, and then try that URL to see if you get a response other than 404 (not found). You will do this by modifying the <code>fuzz()</code> function in the <a href="fuzzing/fuzzer.py.html">fuzzer.py</a> (<a href="fuzzing/fuzzer.py">src</a>) skeleton code. Try printing out the parameter to the function to see how the command-line arguments are passed into the function. You can see in the skeleton code how one might load a URL from a string.</p>
 <p>When you are ready to test this, read the ‘Testing’ section, below, for easy ways to test it locally on your computer.</p>
@@ -93,17 +95,18 @@
 <li><code>-X METHOD</code> or <code>--method METHOD</code>: HTTP method to use (GET, POST, or PUT) (default: GET)
 <ul>
 <li>Your code should allow both upper-case and lower-case values</li>
-<li>The provided skeleton code in <a href="fuzzing/fuzzer.py.html">fuzzer.py</a> (<a href="fuzzing/fuzzer.py">src</a>) has, as line 10: <code>async with session.get(args.url) as response:</code>. This is a GET call, and there is both a <code>put()</code> and a <code>post()</code> call as well.</li>
-<li>You can also use the <code>request()</code> method described on the <a href="https://docs.aiohttp.org/en/stable/client_reference.html">aiohttp client reference documentation</a>.</li>
+<li>You can also use the <code>urllib.request.Request</code> class to set the method; to check the method is received correctly, print out the <code>scope</code> variable in <code>server.py</code></li>
 </ul></li>
 <li><code>-H HEADERS</code> or <code>--header HEADERS</code>: One or more HTTP headers to add to requests, in the form “HeaderName: HeaderValue” (e.g. “Content-Type: application/json” or “Host: FUZZ.example.com”). May be specified one or more times.
 <ul>
-<li>To see how to insert one or more headers into the request, look at the <a href="https://docs.aiohttp.org/en/stable/client_reference.html">aiohttp client reference documentation</a>.</li>
+<li>You can also use the <code>urllib.request.Request</code> class to set the headers; to check the header is received correctly, print out the <code>scope</code> variable in <code>server.py</code></li>
+<li>Example usage: adding <code>-H "MyHeader:foobarbaz"</code> will cause each request sent to the URL to include that header; note that there is no space after the colon</li>
+<li>Note that, in <code>fuzz()</code>, the headers are received as a string with a colon (<code>:</code>) separating the key and value. You have to <code>split()</code> that, as what is passed to the <code>urllib.request.Request</code> constructor is a dictionary of key-value pairs.</li>
 </ul></li>
 <li><code>-d DATA</code> or <code>--data DATA</code>: Data to send in the body of the HTTP request.
 <ul>
-<li>To see how to insert the data into the request, look at the <a href="https://docs.aiohttp.org/en/stable/client_reference.html">aiohttp client reference documentation</a>.</li>
 <li>To see how to read it from uvicorn, look <a href="https://www.uvicorn.org/">here</a> – specifically, look at the <code>read_body()</code> function, which is called (in the <code>app()</code> function in server.py) as <code>body = await read_body(receive)</code>.</li>
+<li>You can also use the <code>urllib.request.Request</code> class to set the data; to check the data is received correctly, print out the <code>scope</code> variable in <code>server.py</code></li>
 </ul></li>
 <li><code>-mc MATCH_CODES</code>: Match HTTP response codes. May be specified multiple times. If let unspecified, defaults to the following response codes: [200, 301, 302, 401, 403]. Previously you printed out any URLs that did not return 404 (not found). That should now be modified to print out the URLs that return one of the escape codes in this list (which is parsed for you and passed into the <code>fuzz()</code> function).
 <ul>
@@ -136,7 +139,8 @@
 <p>Please do <strong><em>NOT</em></strong> try it out against any other machines, as ITS will get very cranky at you for doing so.</p>
 <h4 id="word-lists">Word lists</h4>
 <p>As mentioned above, the word list we are using is the <a href="fuzzing/common.txt">common.txt</a> file that we provide. You can also use word lists in the <a href="https://github.com/danielmiessler/SecLists/">SecLists repository</a> repository; you will probably want to use a word list in the Discovery/Web-Content/ directory. You do not need any word lists beyond the <a href="fuzzing/common.txt">common.txt</a> file for this assignment – the additional ones are just if you are interested.</p>
+<p>There is also a <a href="fuzzing/common-reduced.txt">common-reduced.txt</a> file that contains only 100 words. It contains the five URLs that are expected to be found in the tests herein (<code>.gitignore</code>, <code>employers</code>, and <code>~admin</code> for the uvicorn testing, and <code>class</code> and <code>development.log</code> for the fuff.me testing), as well as 95 other randomly chosen words from common.txt. This file is useful for testing, as it will take much less time to print the results.</p>
 <h3 id="submission">Submission</h3>
-<p>You should only submit your fuzzer.py file to Gradescope. The only visible test will be the <code>python3 fuzzer.py http://ffuf.me/cd/basic/FUZZ -w common-reduced.txt</code>, where the <code>common-reduced.txt</code> file is a reduced word list (that will still contain both <code>class</code> and <code>development.log</code>).</p>
+<p>You should only submit your <code>fuzzer.py</code> file to Gradescope. The only visible test will be the <code>python3 fuzzer.py -u http://ffuf.me/cd/basic/FUZZ -w common-reduced.txt</code>.</p>
 </body>
 </html>
