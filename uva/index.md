@@ -111,7 +111,11 @@ Actual progress:
 3. Wed, 5/24: finished ethics, encryption to 4.16
 4. Thu, 5/25: encryption to 6.44
 5. Fri, 5/26: encryption to 8.17
-6. Mon, 5/30: finished encryption, finished networks
+6. Tue, 5/30: finished encryption, finished networks
+7. Wed, 5/31: web security to 7.11
+8. Thu, 6/1: finished web security, SQL/XSS/CSRF to 8.13
+9. Fri, 6/2: midterm and open office hours, so no lecture progress
+10: Mon, 6/5: finished SQL/XSS/CSRF, cryptocurrency to ...
 
 <!--
 
