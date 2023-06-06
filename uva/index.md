@@ -115,7 +115,8 @@ Actual progress:
 7. Wed, 5/31: web security to 7.11
 8. Thu, 6/1: finished web security, SQL/XSS/CSRF to 8.13
 9. Fri, 6/2: midterm and open office hours, so no lecture progress
-10: Mon, 6/5: finished SQL/XSS/CSRF, cryptocurrency to ...
+10. Mon, 6/5: finished SQL/XSS/CSRF, finished cryptocurrency
+11. Tue, 6/6: ...
 
 <!--
 
