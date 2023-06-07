@@ -24,8 +24,8 @@ Slide sets, ordered in the order presented in lecture:
 	- [Cryptocurrency](cryptocurrency.html#/)
 	- [Anonymity](anonymity.html#/)
     - [Rootkits](rootkits.html#/)
-	- [Stuxnet](stuxnet.html#/)
 	- [Virtual Machines](vms.html#/)
+	- [Stuxnet](stuxnet.html#/)
 - Binary Exploits
 	- [Viruses](viruses.html#/)
 	- [Buffer Overflows](buffer-overflows.html#/)
