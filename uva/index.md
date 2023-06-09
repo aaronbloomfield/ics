@@ -117,6 +117,9 @@ Actual progress:
 9. Fri, 6/2: midterm and open office hours, so no lecture progress
 10. Mon, 6/5: finished SQL/XSS/CSRF, finished cryptocurrency
 11. Tue, 6/6: finished anonymity, rootkits to 4.15
+12. Wed, 6/7: finished virtual machines; stuxnet to 5.8
+13. Thu, 6/8: finished stuxnet; viruses to 7.8
+14. Fri, 6/9: finished viruses; buffer overflows to ...
 
 <!--
 
