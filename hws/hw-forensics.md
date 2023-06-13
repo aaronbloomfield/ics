@@ -31,12 +31,13 @@ Any changes to this page will be put here for easy reference.  Typo fixes and mi
 
 ### Platform
 
-As the deliverable for this is a PDF report, you can use any system you want.  The requirement is that you can only use autopsy and various system tools (described below).  You are welcome to do this in the Cyber Range or you can use your own machine.  It will probably be easier to use your own machine.
+As the deliverable for this is a PDF report, you can use any system you want.  The system running autopsy, described below, can be accessed via any web browser.
 
 You can get a copy of the hard drive image by going to the URL listed on the Canvas landing page.  There is a disk image for each student in the course.  **You can not use somebody else's disk image!**  You will download your image with the wget command posted on the Canvas landing page -- change `mst3k` in that command to your userid.
 
 **WARNING:** It will take a *long* time for Autopsy to analyze your disk image -- many hours.  You need to start that part ahead of time!
 
+<!--
 #### Using your own machine
 
 You are also welcome to do this homework on your computer, but you are on your own to install [Autopsy](https://www.sleuthkit.org/autopsy/).  You can see installation details at [Autopsy's website](https://www.sleuthkit.org/autopsy/download.php).  The version on the Virginia Cyber Range is version 4.16.0 with SleuthKit version 4.10.0.  You should have somewhat similar versions -- later is fine, as is slightly earlier (but no earlier than 4.0.0).
@@ -44,10 +45,17 @@ You are also welcome to do this homework on your computer, but you are on your o
 You are allowed to use any system tools that are equivalents on your operating system of the ones discussed below.
 
 Lastly, you can run autopsy on your own machine, and use the Cyber Range to deal with a few things such as mounting the disk image and file undeletion.
+-->
 
 #### Using the Cyber Range
 
-Use the environment for the Forensics HW.  The initial image analysis (when Autopsy thinks hard about the disk image) will take quite some time, especially if you wait until late the last day when everybody else is doing so.  You can do the initial analysis ahead of time, and do the rest -- the manual analysis -- closer to the due date.
+There is an invitation code on the Canvas landing page to join the cyber range course, if you haven't done so already.  Once in the course, use the environment for the Forensics HW.  You will download the image onto that machine, using the `wget` command.  You then start autopsy via: `autopsy`.
+
+When you are adding the disk image to the autopsy case, you will be presented with a series of check boxes as to which modules you want to enable.  It will look something like this:
+
+![](forensics/autopsy-modules.webp)
+
+***IMPORTANT:*** You ***MUST*** de-select the 'keyword search' box.  All of the other modules take 10 minutes to run, combined.  The keyword search takes 5 hours.  And the cyber range resets everything after 4 hours.
 
 The Cyber Range has a few limitations that you need to be aware of:
 
@@ -55,6 +63,9 @@ The Cyber Range has a few limitations that you need to be aware of:
 - The Cyber Range will disconnect after a certain amount of inactivity.  However, Autopsy needs to run for quite some time.  Thus, you should do this while you are already using the computer for something else so that you can keep it from disconnecting (move a window around or something).
 - If you want to use a tool that is not installed, the terminal will tell you what command to run to install the tool.  Just run that command and then use the tool.
 
+#### Using your own machine
+
+We do not recommend using your own machine.  Autopsy is notoriously hard to install, and has caused a lot of frustration to students trying to do so.  And it does not work on M1 or M2 Macs.
 
 #### Autopsy limitations
 
