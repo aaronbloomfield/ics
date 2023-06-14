@@ -120,6 +120,8 @@ Actual progress:
 12. Wed, 6/7: finished virtual machines; stuxnet to 5.8
 13. Thu, 6/8: finished stuxnet; viruses to 7.8
 14. Fri, 6/9: finished viruses; buffer overflows to 4.16
+15. Mon, 6/12: finished buffer overflows; second half was open office hours
+16. Tue, 6/13: finished forensics; second half was open office hours
 
 <!--
 
