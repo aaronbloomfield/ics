@@ -122,6 +122,9 @@ Actual progress:
 14. Fri, 6/9: finished viruses; buffer overflows to 4.16
 15. Mon, 6/12: finished buffer overflows; second half was open office hours
 16. Tue, 6/13: finished forensics; second half was open office hours
+17. Wed, 6/14: finished binary exploits
+18. Thu, 6/15: open office hours; no lecture
+19. Fri, 6/16: review session, course reflection
 
 <!--
 
