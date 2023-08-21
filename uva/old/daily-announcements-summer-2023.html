@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"><base target="_blank">
+    <title>CS 3710: daily announcements slide set</title>
+    <meta name="description" content="A set of slides for an Introduction to Cybersecurity course">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../../slides/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../slides/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../slides/reveal.js/dist/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../../slides/ics.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../../slides/reveal.js/plugin/highlight/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../slides/reveal.js/css/print/pdf.scss' : '../../slides/reveal.js/css/print/paper.scss';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+  <script src="../../slides/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+    <style>
+.reveal li {
+font-size:80%;
+line-height:110%;
+}
+img {
+  padding: 10px;
+}
+    </style>
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <div class="slides">
+
+  <section data-markdown><script type="text/template">
+# CS 3710
+&nbsp;
+### Introduction to Cybersecurity
+
+<p class='titlep'>&nbsp;</p>
+<div class="titlesmall"><p>
+<a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
+<a href="http://github.com/aaronbloomfield/ics">@github</a> | <a href="index.html">&uarr;</a> | <a href="./03-numbers.html?print-pdf"><img class="print" width="20" src="../../slides/images/print-icon.png" style="top:0px;vertical-align:middle" class="nopad"></a>
+</p></div>
+<p class='titlep'>&nbsp;</p>
+
+## Daily Announcements
+
+## Summer 2023
+  </script></section>
+
+<!-- xkcd template for cut-and-paste (first two lines are the date and title)
+
+<h2></h2>
+<h4 class="xkcd"></h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/.png" title="" alt="">
+<p class="center"><a href="http://xkcd.com/2040/">xkcd # 2040</a></p>
+
+-->
+
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Final Exam</h2>
+<img src="https://imgs.xkcd.com/comics/final_exam.png" title="For those of you also taking Game Theory, your grade in that class will be based on how close your grade on this exam is to 80% of the average." alt="Final Exam" srcset="https://imgs.xkcd.com/comics/final_exam_2x.png 2x" style="image-orientation:none" class='stretch'>
+<p class='center'><a href='http://xkcd.com/2385/'>xkcd # 2385</a></p>
+</section>
+
+  <section data-markdown>
+### The End
+- My office hours are weekdays from 9:30-10:25 in Rice 402
+- We now have a TA!  His office hours are M-F 1:15-2:15 via Zoom; link on the Canvas landing page
+- Schedule
+  - Saturday morning at 10:30, in the lecture classroom, is the final exam
+  - Due Sat, June 17: [HW 7: Forensics](../../hws/hw-forensics-tabbed.html)
+    - Some people were having Cyber Range problems...
+- Grading
+  - Being graded: HW 1 (rational paranoia), HW 2 (ethics), HW 5 (SQL/XSS/CSRF), Quiz 2
+  - Already returned: HW 3 (RSA), HW 4 (fuzzer), Quiz 1
+  - [Midterm](../../exams/midterm-sum23.pdf): returned Sunday night
+  - Note that all regrades have a 5 day timeout!
+- Everybody has to sign the Ethics Honor Pledge
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we'll have a review session and then go through the course reflection
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section data-markdown>
+## Lecture 18: Thu, Jun 15th
+- Today was open office hours, and there was no lecture
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Laptop Issues</h2><img src="https://imgs.xkcd.com/comics/laptop_issues.png" title="Hang on, we got a call from the feds. They say we can do whatever with him, but the EPA doesn&#39;t want that laptop in the ocean. They&#39;re sending a team." alt="Laptop Issues" srcset="https://imgs.xkcd.com/comics/laptop_issues_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/2083/'>xkcd # 2083</a></p>
+</section>
+
+  <section data-markdown>
+## Lecture 17: Wed, Jun 14th
+- My office hours are weekdays from 9:30-10:25 in Rice 402
+- We now have a TA!  His office hours are M-F 1:15-2:15 via Zoom; link on the Canvas landing page
+  - His office hour schedule may be bumpy for a few days -- check Piazza for updates
+- Schedule
+  - Saturday morning at 10:30 is the final exam
+  - Due Sat, June 17: [HW 7: Forensics](../../hws/hw-forensics-tabbed.html)
+    - Some people were having Cyber Range problems...
+- Grading
+  - Being graded: HW 1 (rational paranoia), HW 2 (ethics), HW 5 (SQL/XSS/CSRF), Quiz 2
+  - Already returned: HW 3 (RSA), HW 4 (fuzzer), Quiz 1
+  - [Midterm](../../exams/midterm-sum23.pdf): returned Sunday night
+  - Note that all regrades have a 5 day timeout!
+- Everybody has to sign the Ethics Honor Pledge
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we'll work through binary exploits
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>CIA</h2><img src="https://imgs.xkcd.com/comics/cia.png" title="It was their main recruiting poster, hung nearly ten feet up a wall! This means the hackers have LADDER technology! Are we headed for a future where everyone has to pay $50 for one of those locked plexiglass poster covers? More after the break ..." alt="CIA"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/932/'>xkcd # 932</a></p>
+</section>
+
+  <section data-markdown>
+## Lecture 16: Tue, Jun 13th
+- My office hours are weekdays from 9:30-10:25 in Rice 402
+- We now have a TA!  His office hours are M-F 1:15-2:15 via Zoom; link on the Canvas landing page
+  - His office hour schedule may be bumpy for a few days -- check Piazza for updates
+- Schedule
+  - Due today: [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency-tabbed.html)
+  - Due ???: [HW 7: Forensics](../../hws/hw-forensics-tabbed.html)
+- Grading
+  - Being graded: HW 1 (rational paranoia), HW 2 (ethics), HW 5 (SQL/XSS/CSRF), Quiz 2
+  - Already returned: HW 3 (RSA), HW 4 (fuzzer), Quiz 1
+  - [Midterm](../../exams/midterm-sum23.pdf): returned Sunday night
+  - Note that all regrades have a 5 day timeout!
+- Everybody has to sign the Ethics Honor Pledge
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we'll switch over to forensics and then come back to binary exploits
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Retro Virus</h2><img src="https://imgs.xkcd.com/comics/retro_virus.png" title="He says this is the year of Linux on the desktop! The world of Windows will fade any moment now!" alt="Retro Virus"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/694/'>xkcd # 694</a></p>
+</section>
+
+  <section data-markdown>
+## Lecture 15: Mon, Jun 12th
+- My office hours are weekdays from 9:30-10:25 in Rice 402
+- We now have a TA!  His office hours are M-F 1:15-2:15 via Zoom; link on the Canvas landing page
+  - His office hour schedule may be bumpy for a few days -- check Piazza for updates
+- Schedule
+  - Due today: [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html)
+- Grading
+  - Being graded: HW 1 (rational paranoia), HW 2 (ethics), HW 5 (SQL/XSS/CSRF), Quiz 2
+  - Already returned: HW 3 (RSA), HW 4 (fuzzer), Quiz 1
+  - [Midterm](../../exams/midterm-sum23.pdf): returned last night
+  - Note that all regrades have a 5 day timeout!
+- Everybody has to sign the Ethics Honor Pledge
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we'll finish buffer overflows and start on binary exploits
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Network</h2><img src="https://imgs.xkcd.com/comics/network.png" title="Viruses so far have been really disappointing on the &#39;disable the internet&#39; front, and time is running out.  When Linux/Mac win in a decade or so the game will be over." alt="Network"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/350/'>xkcd # 350</a></p>
+</section>
+
+  <section data-markdown>
+## Lecture 14: Fri, Jun 9th
+- My office hours are weekdays from 9:30-10:25 in Rice 402
+- We now have a TA!  His office hours are M-F 1:15-2:15 via Zoom; link on the Canvas landing page
+- Schedule
+  - Due Monday: [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html)
+- Grading
+  - HW 1 (rational paranoia) and HW 2 (ethics) are out to the TA to be graded
+  - Already returned: HW 3 (RSA), Quiz 1
+  - Midterm: being graded
+  - [HW 4 (fuzzer)](../../hws/hw-fuzzing.html): returned this morning; regrades via a chat in person
+    - - The auto-grader was tweaked and re-ran for everybody
+  - Note that all regrades have a 5 day timeout!
+- Everybody has to sign the Ethics Honor Pledge
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we'll finish viruses and start on buffer overflows
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Two-Factor Security Key</h2><img src="https://imgs.xkcd.com/comics/two_factor_security_key.png" title="The bruises on my fingertips are my proof of work." alt="Two-Factor Security Key" srcset="https://imgs.xkcd.com/comics/two_factor_security_key_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/2522/'>xkcd # 2522</a></p>
+</section>
+
+  <section data-markdown>
+## Lecture 13: Thu, Jun 8th
+- My office hours are weekdays from 9:30-10:25 in Rice 402
+- We now have a TA!  His office hours are M-F 1:15-2:15 via Zoom; link on the Canvas landing page
+- Schedule
+  - Due yesterday: [HW 5: SQL/XSS/CSRF](../../hws/hw-sql-xss-csrf.html); how was it?
+  - Due today: listen to [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+  - Due next Monday: [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html)
+- Grading
+  - HW 1 (rational paranoia) and HW 2 (ethics) are out to the TA to be graded
+  - Already returned: HW 3 (RSA), Quiz 1
+  - Midterm: being graded
+  - [HW 4 (fuzzer)](../../hws/hw-fuzzing.html): returned this morning; regrades via a chat in person
+    - Questions were raised about the test cases...
+  - Note that all regrades have a 5 day timeout!
+- Everybody has to sign the Ethics Honor Pledge; those who have not were emailed Sunday night
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we'll finish stuxnet and start on viruses
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>How Hacking Works</h2><img src="https://imgs.xkcd.com/comics/how_hacking_works.png" title="If only somebody had warned them that the world would roll them like this." alt="How Hacking Works" srcset="https://imgs.xkcd.com/comics/how_hacking_works_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/2176/'>xkcd # 2176</a></p>
+</section>
+
+  <section data-markdown>
+## Lecture 12: Wed, Jun 7th
+- My office hours are weekdays from 9:30-10:25 in Rice 402
+- We now have a TA!  His office hours will be M-F 1:15-2:15 via Zoom, starting today
+  - Link on the Canvas landing page
+- Schedule
+  - Due today: [HW 5: SQL/XSS/CSRF](../../hws/hw-sql-xss-csrf.html); details on the Canvas landing page
+  - Due Thursday (tomorrow) at the start of class: listen to [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+  - Due next Monday: [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html)
+- Grading
+  - HW 1 (rational paranoia) and HW 2 (ethics) are out to the TA to be graded
+  - Already returned: HW 3 (RSA), Quiz 1
+  - Midterm: being graded
+  - HW 4 (fuzzer): returned this morning; regrades via a chat in person
+  - Note that all regrades have a 5 day timeout!
+- Everybody has to sign the Ethics Honor Pledge; those who have not were emailed Sunday night
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Next up: rootkits, virtual machines, stuxnet
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Blockchain</h2><img src="https://imgs.xkcd.com/comics/blockchain.png" title="Blockchains are like grappling hooks, in that it&#39;s extremely cool when you encounter a problem for which they&#39;re the right solution, but it happens way too rarely in real life." alt="Blockchain" srcset="https://imgs.xkcd.com/comics/blockchain_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/2267/'>xkcd # 2267</a></p>
+</section>
+
+  <section data-markdown>
+## Lecture 11: Tue, Jun 6th
+- My office hours are weekdays from 9:30-10:25 in Rice 402
+- We now have a TA!  His office hours will be M-F 1:15-2:15 via Zoom
+- Schedule
+  - Due this Wednesday: [HW 5: SQL/XSS/CSRF](../../hws/hw-sql-xss-csrf.html); details on the Canvas landing page
+  - Due Thursday: listen to [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+  - Due next Monday: [HW 6: Cryptocurrency](../../hws/hw-cryptocurrency.html)
+- Grading
+  - HW 1 (rational paranoia) and HW 2 (ethics) are out to the TA to be graded
+  - HW 3 (RSA) was returned Sunday night (regrades via chat in person)
+  - Quiz 1: returned this morning (really!)
+  - Midterm: being graded
+  - HW 4 (fuzzer): can be returned Wednesday
+  - Note that all regrades have a 5 day timeout!
+- Everybody has to sign the Ethics Honor Pledge; those who have not were emailed Sunday night
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Next up: anonymity, rootkits, stuxnet
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>The Mother of All Suspicious Files</h2><img src="https://imgs.xkcd.com/comics/the_mother_of_all_suspicious_files.png" title="Better change the URL to &#39;https&#39; before downloading." alt="The Mother of All Suspicious Files" srcset="https://imgs.xkcd.com/comics/the_mother_of_all_suspicious_files_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1247/'>xkcd # 1247</a></p>
+</section>
+
+  <section data-markdown>
+## Lecture 10: Mon, Jun 5th
+- My office hours are weekdays from 9:30-10:25 in Rice 402
+- We now have a TA!  His office hours will be M-F 1:15-2:15 via Zoom
+- How was the midterm last week?
+- Schedule
+  - Due this Wednesday: [HW 5: SQL/XSS/CSRF](../../hws/hw-sql-xss-csrf.html)
+    - Details on the Canvas landing page
+  - Due late this week (when?): Cryptocurrency (not yet ready)
+- Grading
+  - HW 1 (rational paranoia): out to the TA to be graded
+  - HW 2 (ethics): out to the TA to be graded
+  - HW 3 (RSA) was returned last night (regrades via chat in person)
+  - Quiz 1: returned last night (regrades via Gradescope)
+  - Midterm: being graded
+  - HW 4 (fuzzer): can be returned Wednesday
+  - Note that all regrades have a 5 day timeout!
+- Everybody has to sign the Ethics Honor Pledge; those who have not were emailed Sunday night
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we will finish SQL/XSS/CSRF and start on Cryptocurrency
+  </section>
+
+  <section data-markdown>
+## Reality Winner
+- Remember [Reality Winner from the Policy slide set](../../slides/policy.html#/winner)
+  - She released a confidential report about the [Russian interference in the 2016 United States elections](https://en.wikipedia.org/wiki/Russian_interference_in_the_2016_United_States_elections)
+  - She was jailed from 2017 to 2021
+- HBO released (last week) a drama film on her
+  - Entitled [Winner](https://en.wikipedia.org/wiki/Reality_(2023_film))
+  - It has received critical acclaim (92% on Rotten Tomatoes from 50 reviews)
+</section>
+
+  <section>
+<h2>Installing UVA's certificates</h2>
+<a href='../../slides/images/networks/uva-cert.webp'>link</a>
+<img src='../../slides/images/networks/uva-cert.webp' class='stretch' style='padding:0'>
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Networking Problems</h2><img src="https://imgs.xkcd.com/comics/networking_problems.png" title="LOOK, THE LATENCY FALLS EVERY TIME YOU CLAP YOUR HANDS AND SAY YOU BELIEVE" alt="Networking Problems" srcset="https://imgs.xkcd.com/comics/networking_problems_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/2259/'>xkcd # 2259</a></p>
+</section>
+
+  <section data-markdown>
+## Lecture 8: Thu, Jun 1st
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- We now have a TA!  His office hours will be posted shortly
+  - They are going to have to be virtual (via Zoom) for a week or two, as he is out of town
+- Schedule
+  - Midterm is this Friday at the start of class
+    - Past exams can be found on the [exams page](../../exams/index.html); I don't have answer keys
+    - Content will include all that is covered today, and what is covered tomorrow in light detail
+  - Due Saturday, June 3rd: [HW 4: Fuzzing](../../hws/hw-fuzzing-tabbed.html)
+  - Due next Tuesday: SQL/XSS/CSRF (not yet ready)
+  - Due late next week (when?): Cryptocurrency (not yet ready)
+- Summer term lectures are 2:15 -- we'll generally have a 10-15 minute break in the middle
+- Everybody has to sign the Ethics Honor Pledge; those who have not were emailed Sunday night
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we will finish web security and start on SQL/XSS/CSRF
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Privacy Opinions</h2><img src="https://imgs.xkcd.com/comics/privacy_opinions.png" title="I&#39;m the Philosopher until someone hands me a burrito." alt="Privacy Opinions" srcset="https://imgs.xkcd.com/comics/privacy_opinions_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1269/'>xkcd # 1269</a></p>
+</section>
+
+  <section data-markdown>
+## Lecture 7: Wed, May 31st
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- We now have a TA!  His office hours will be posted shortly
+  - They are going to have to be virtual (via Zoom) for a week or two, as he is out of town
+- Schedule
+  - Due yesterday: [HW 3: RSA](../../hws/hw-rsa-tabbed.html); how did it go?
+  - Midterm is this Friday at the start of class
+    - Past exams can be found on the [exams page](../../exams/index.html); I don't have answer keys
+    - Content will include all that is covered today, and what is covered tomorrow in light detail
+  - Due Saturday, June 3rd: [HW 4: Fuzzing](../../hws/hw-fuzzing-tabbed.html)
+- Summer term lectures are 2:15 -- we'll generally have a 10-15 minute break in the middle
+- Everybody has to sign the Ethics Honor Pledge; those who have not were emailed Sunday night
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we will start on web security
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>PGP</h2><img src="https://imgs.xkcd.com/comics/pgp.png" title="If you want to be extra safe, check that there&#39;s a big block of jumbled characters at the bottom." alt="PGP" srcset="https://imgs.xkcd.com/comics/pgp_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1181/'>xkcd # 1181</a></p>
+</section>
+
+  <section data-markdown>
+## Lecture 6: Tue, May 30th
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- Schedule
+  - Due last Friday, May 26th, by midnight: [HW 2: Ethics](../../hws/hw-ethics.html)
+    - Thoughts on ChatGPT?
+  - Due today, Tuesday, May 30th: [HW 3: RSA](../../hws/hw-rsa-tabbed.html)
+    - A note about the Windows batch file now in the HW and also about auto-graders and submissions
+    - A response to a Piazza post...
+  - Midterm is this Friday at the start of class
+  - Next homework will be due... Saturday?
+- Summer term lectures are 2:15 -- we'll generally have a 10-15 minute break in the middle
+- Everybody has to sign the Ethics Honor Pledge; those who have not were emailed Sunday night
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we will finish with encryption and start on networks
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Code Talkers</h2><img src="https://imgs.xkcd.com/comics/code_talkers.png" title="As far as I can tell, Navajo doesn&#39;t have a common word for &#39;zero&#39;.  do-neh-lini means &#39;neutral&#39;." alt="Code Talkers"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/257/'>xkcd # 257</a></p>
+</section>
+
+  <section data-markdown>
+## Lecture 5: Fri, May 26th
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- Schedule
+  - Due yesterday by the start of class: read the [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), and the [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+  - Due today, Friday, May 26th, by midnight: [HW 2: Ethics](../../hws/hw-ethics.html)
+  - Due next Tuesday, May 30th: [HW 3: RSA](../../hws/hw-rsa-tabbed.html)
+    - Submission opens up tomorrow
+    - A note about the Windows batch file now in the HW
+    - And a note about auto-graders and submissions
+- No lecture on Monday due to Memorial Day
+- Summer term lectures are 2:15 -- we'll generally have a 10-15 minute break in the middle
+- About support requests...
+- Everybody has to sign the Ethics Honor Pledge; those who have not were emailed Sunday night
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we will continue with encryption
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Bag Check</h2><img src="https://imgs.xkcd.com/comics/bag_check.png" title="A laptop battery contains roughly the stored energy of a hand grenade, and if shorted it ... hey!  You can&#39;t arrest me if I prove your rules inconsistent!" alt="Bag Check"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/651/'>xkcd # 651</a></p>
+</section>
+
+  <section data-markdown>
+## Lecture 4: Thu, May 25th
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- Schedule
+  - Due yesterday: [HW 1: Rational Paranoia](../../hws/hw-paranoia.html); how did it go?
+  - Due today by the start of class: read the [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), and the [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+  - Due tomorrow, Friday, May 26th, by midnight: [HW 2: Ethics](../../hws/hw-ethics.html)
+  - Due next Tuesday, May 30th: [RSA](../../hws/hw-rsa-tabbed.html)
+- Summer term lectures are 2:15 -- we'll generally have a 10-15 minute break in the middle
+- Everybody has to sign the Ethics Honor Pledge; those who have not were emailed Sunday night
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we will continue with encryption
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Trolley Problem</h2><img src="https://imgs.xkcd.com/comics/trolley_problem.png" title="For $5 I promise not to orchestrate this situation, and for $25 I promise not to take further advantage of this ability to create incentives." alt="Trolley Problem" srcset="https://imgs.xkcd.com/comics/trolley_problem_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1455/'>xkcd # 1455</a></p>
+</section>
+
+  <section data-markdown>
+## Lecture 3: Wed, May 24th
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- Schedule
+  - Due Wednesday, May 24th by midnight: [HW 1: Rational Paranoia](../../hws/hw-paranoia.html)
+  - Due Thursday, May 25th, by the start of class: read the [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), and the [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+  - Due Friday, May 26th, by midnight: [HW 2: Ethics](../../hws/hw-ethics.html)
+  - Due next Tuesday, May 30th: [RSA](../../hws/hw-rsa-tabbed.html) (which is now ready)
+- Summer term lectures are 2:15 -- we'll generally have a 10-15 minute break in the middle
+- Everybody has to sign the Ethics Honor Pledge; those who have not were emailed Sunday night
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - We start today with continuing ethics
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Security Advice</h2><img src="https://imgs.xkcd.com/comics/security_advice.png" title="Never give your password or bank account number to anyone who doesn&#39;t have a blue check mark next to their name." alt="Security Advice" srcset="https://imgs.xkcd.com/comics/security_advice_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1820/'>xkcd # 1820</a></p>
+</section>
+
+  <section data-markdown>
+## Lecture 2: Tue, May 23rd
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- Schedule
+  - Due Wednesday, May 24th by midnight: [HW 1: Rational Paranoia](../../hws/hw-paranoia.html)
+  - Due Thursday, May 25th, by the start of class: read the [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), and the [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+  - Due Friday, May 26th, by midnight: [HW 2: Ethics](../../hws/hw-ethics.html)
+  - Due next week, likely Tuesday: HW 3: RSA (not yet ready)
+- Summer term lectures are 2:15 -- we'll generally have a 10-15 minute break in the middle
+- Everybody has to sign the Ethics Honor Pledge; those who have not were emailed Sunday night
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - We start today with continuing terminology
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Security Question</h2><img class='stretch' src="https://imgs.xkcd.com/comics/security_question.png" title="Let&#39;s invite him to a party and play &#39;I never&#39;.  Okay, I never hid any bodies SOUTH of Main Street. ... he&#39;s taking a drink!" alt="Security Question" ><p class='center'><a href='http://xkcd.com/565/'>xkcd # 565</a></p>
+</section>
+
+  <section data-markdown>
+## Lecture 1: Mon, May 22nd
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- Schedule
+  - Due Wednesday, May 24th by midnight: [HW 1: Rational Paranoia](../../hws/hw-paranoia.html)
+  - Due Thursday, May 25th, by the start of class: read the [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), and the [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+  - Due Friday, May 26th, by midnight: [HW 2: Ethics](../../hws/hw-ethics.html)
+  - Due next week, likely Tuesday: HW 3: RSA (not yet ready)
+- Summer term lectures are 2:15 -- we'll generally have a 10-15 minute break in the middle
+- Everybody has to sign the Ethics Honor Pledge; those who have not were emailed Sunday night
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+      </div>
+
+    </div>
+
+<script src="../../slides/reveal.js/dist/reveal.js"></script>
+<script src="../../slides/reveal.js/plugin/zoom/zoom.js"></script>
+<script src="../../slides/reveal.js/plugin/notes/notes.js"></script>
+<script src="../../slides/reveal.js/plugin/search/search.js"></script>
+<script src="../../slides/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="../../slides/reveal.js/plugin/highlight/highlight.js"></script>
+<script src="../../slides/reveal.js/plugin/math/math.js"></script>
+    <!-- You cannot, apparently, include this from another directory, hence why settings.js is reproduced here in full -->
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controlsTutorial: false,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      slideNumber: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+    hash: true,
+
+    math: {
+      mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+      config: 'TeX-AMS_HTML-full',
+      // pass other options into `MathJax.Hub.Config()`
+      TeX: { Macros: { RR: "{\\bf R}" } }
+    },
+
+    // Learn about plugins: https://revealjs.com/plugins/
+    plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ],
+
+      });
+    </script>
+
+  </body>
+</html>

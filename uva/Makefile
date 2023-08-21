@@ -1,2 +1,2 @@
 doc:
-	@cd .. && make
+	@cd .. && make -s
