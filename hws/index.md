@@ -22,7 +22,7 @@ You will be bound by the requirements on the [Homeworks policies page](../uva/hw
 
 - [Written homework: Ethics](hw-ethics.html) ([md](hw-ethics.md))
 - [Written homework: Policy](hw-policy.html) ([md](hw-policy.md))
-- [Written homework: Rational Paranoia](hw-paranoia.html) ([md](hw-paranoia.md))
+- [Written homework: Rational Paranoia](hw-paranoia-tabbed.html) ([md](hw-paranoia.md))
 
 
 ### Homeworks not being used in spring 2023
