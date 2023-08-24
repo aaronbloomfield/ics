@@ -3,10 +3,15 @@ ICS: Written Homework: Rational Paranoia
 
 [Go up to the ICS HW page](index.html) ([md](index.md))
 
-You will want to see the [homeworks policies page](../uva/hw-policies.html)
-([md](../uva/hw-policies.md)) for formatting and other details.  The due
-dates are listed on the [UVa course page](../uva/index.html)
-([md](../uva/index.md)).
+### Overview 
+
+This assignment will focus on analyzing security in three different scenarios; two of which you choose from the list below, and one of which you create yourself.  The deliverable is a typed PDF document.  You will need to be familiar with the [Security Mindset slide set](../slides/security-mindset.html#/).
+
+You will want to see the [homeworks policies page](../uva/hw-policies.html) ([md](../uva/hw-policies.md)) for formatting and other details.  The due dates are listed on the Canvas landing page.
+
+### Changelog
+
+Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
 
 ### Assignment
 
@@ -20,14 +25,20 @@ Answer each of the above in the form of a bulleted list, with brief justificatio
 
 Pick two of the following scenarios. 
 
+- A high profile political candidate is being arraigned for a series of alleged crimes.  How would you ensure that this person does not cause any "problems" via his/her social media postings.  Note: this needs to be an *apolitical* discussion.
+- Generative AI, such as ChatGPT, can be used to complete assignments -- both essay and coding.  How would you prevent cheating in a college level course in the era of generative AI?
+- There is a high probability that the government will have a shutdown at the end of this September (2023).  How would you ensure cybersecurity during the government shutdown?  Note that this needs to be a realistic analysis -- saying "have both political parties get along and all agree" is not, unfortunately, very realistic these days.
+- [Phishing scams](https://en.wikipedia.org/wiki/Phishing) are the single biggest vulnerability for UVA's networks.  Other than the one-a-semester phishing scam test, discussed in lecture, how would you improve the cybersecurity of UVA with regard to the phishing scams?
+
+<!-- from summer 2023:
 - You have to plan for the next anniversary of the [Unite the Right](https://en.wikipedia.org/wiki/Unite_the_Right_rally) rally, again in Charlottesville
 - You are hired by [WillowTree](https://willowtreeapps.com/) to help secure their servers from corporate espionage
 - You are grading homework 1 submissions (this assignment) for a class of 80 students
 - You are in charge of the security for a home football game here at UVa
 - You are in charge of making an election voting system that is both secure and has auditing capabilities
+-->
 
-
-<!-- rom spring 2023:
+<!-- from spring 2023:
 - After the recent [downtime of the NOTAM system by the FAA](https://en.wikipedia.org/wiki/2023_FAA_system_outage), which turned out to be caused by a contractor mistakenly deleting files, you are tasked with preventing this system's downtime in the future.
 - The [US Securities and Exchange Commission (SEC)](https://en.wikipedia.org/wiki/U.S._Securities_and_Exchange_Commission) is in charge of enforcing law against market manipulation.  While the SEC does not (yet) have jurisdiction over cryptocurrencies, they still want to ensure some sort of legality with cryptocurrency scams, especially after the recent and very public [FTX cryptocurrency exchange collapse](https://en.wikipedia.org/wiki/Bankruptcy_of_FTX).  You can do this on either hacks (computerized attacks against cryptocurrency systems) or scams ([rug pulls](https://en.wikipedia.org/wiki/Exit_scam), bad investments, etc.), but not both; and you can't do the other one for your second case, either.
 - A professor at State University wants to perform classified research for the US government.  In addition to having to handle international students performing the research, one has to ensure the security of the information as well.  Describe how you would ensure such confidentiality.
@@ -83,7 +94,7 @@ In addition, come up with another scenario from everyday life that we have not d
 
 ### Submission Template
 
-Obviously reformat this in your word processor of choice.  The file to be submitted **MUST BE A PDF DOCUMENT**.  Please name it `paranoia.pdf`.  The page must be exactly three pages long, and each case must be on a separate page.  The case that you come up with must be on page three.  This is all to facilitate grading -- the document is going to be split by pages, and each page will be graded separately.
+Obviously reformat this in your word processor of choice.  The file to be submitted **MUST BE A PDF DOCUMENT**.  Please name it `paranoia.pdf`.  The page must be exactly three pages long, and **each case must be on a separate page**.  The case that you come up with must be on page three.  This is all to facilitate grading -- the document is going to be split by pages, and each page will be graded separately.
 
 ```
 1. (name_of_example)
@@ -127,4 +138,6 @@ Countermeasures:
 
 ### File to submit
 
-Submit the above as a PDF document, named `paranoia.pdf`.  Make sure you follow the formatting guidelines mentioned above!  In particular, each case should be on its own page, and the document should be exactly three pages long.
+Submit the above as a PDF document, named `paranoia.pdf`.  Make sure you follow the formatting guidelines mentioned above!  In particular, **each case should be on its own page**, and the document should be exactly three pages long.
+
+The submission is via Gradescope.

@@ -12,6 +12,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
   <script>
@@ -36,11 +37,18 @@
     evt.currentTarget.className += " active";
   }
   </script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="ics-written-homework-rational-paranoia">ICS: Written Homework: Rational Paranoia</h1>
-<p><a href="index.html">Go up to the ICS HW page</a> (<a href="index.md">md</a>)</p>
-<p>You will want to see the <a href="../uva/hw-policies.html">homeworks policies page</a> (<a href="../uva/hw-policies.md">md</a>) for formatting and other details. The due dates are listed on the <a href="../uva/index.html">UVa course page</a> (<a href="../uva/index.md">md</a>).</p>
+<p><a href="index.html">Go up to the ICS HW page</a> (<a href="index.md">md</a>) | <a href="hw-paranoia-tabbed.html">view tabbed version</a></p>
+<h3 id="overview">Overview</h3>
+<p>This assignment will focus on analyzing security in three different scenarios; two of which you choose from the list below, and one of which you create yourself. The deliverable is a typed PDF document. You will need to be familiar with the <a href="../slides/security-mindset.html#/">Security Mindset slide set</a>.</p>
+<p>You will want to see the <a href="../uva/hw-policies.html">homeworks policies page</a> (<a href="../uva/hw-policies.md">md</a>) for formatting and other details. The due dates are listed on the Canvas landing page.</p>
+<h3 id="changelog">Changelog</h3>
+<p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
 <h3 id="assignment">Assignment</h3>
 <p>For each of the three total scenarios (two from our list, one of your own, as explained below), imagine that you are in charge of security. Apply the security mindset, discussed in the <a href="../slides/security-mindset.html#/">security mindset slide set</a>, to answer these questions:</p>
 <ul>
@@ -51,13 +59,19 @@
 <p>Answer each of the above in the form of a bulleted list, with brief justifications or explanations as necessary. State any critical assumptions you decide to make. Your grade will be based on the thoroughness, realism, and thoughtfulness of your analysis. We are more interested in quality than quantity. But if you want a length estimate, then one or two sentences for each “brief_explanation”, below, is reasonable. That being said, as long as you are being concise and not adding in fluff (see <a href="../uva/hw-policies.html">here</a> (<a href="../uva/hw-policies.md">md</a>) for a definition of fluff), they can be longer.</p>
 <p>Pick two of the following scenarios.</p>
 <ul>
-<li>You have to plan for the next anniversary of the <a href="https://en.wikipedia.org/wiki/Unite_the_Right_rally">Unite the Right</a> rally, again in Charlottesville</li>
-<li>You are hired by <a href="https://willowtreeapps.com/">WillowTree</a> to help secure their servers from corporate espionage</li>
-<li>You are grading homework 1 submissions (this assignment) for a class of 80 students</li>
-<li>You are in charge of the security for a home football game here at UVa</li>
-<li>You are in charge of making an election voting system that is both secure and has auditing capabilities</li>
+<li>A high profile political candidate is being arraigned for a series of alleged crimes. How would you ensure that this person does not cause any “problems” via his/her social media postings. Note: this needs to be an <em>apolitical</em> discussion.</li>
+<li>Generative AI, such as ChatGPT, can be used to complete assignments – both essay and coding. How would you prevent cheating in a college level course in the era of generative AI?</li>
+<li>There is a high probability that the government will have a shutdown at the end of this September (2023). How would you ensure cybersecurity during the government shutdown? Note that this needs to be a realistic analysis – saying “have both political parties get along and all agree” is not, unfortunately, very realistic these days.</li>
+<li><a href="https://en.wikipedia.org/wiki/Phishing">Phishing scams</a> are the single biggest vulnerability for UVA’s networks. Other than the one-a-semester phishing scam test, discussed in lecture, how would you improve the cybersecurity of UVA with regard to the phishing scams?</li>
 </ul>
-<!-- rom spring 2023:
+<!-- from summer 2023:
+- You have to plan for the next anniversary of the [Unite the Right](https://en.wikipedia.org/wiki/Unite_the_Right_rally) rally, again in Charlottesville
+- You are hired by [WillowTree](https://willowtreeapps.com/) to help secure their servers from corporate espionage
+- You are grading homework 1 submissions (this assignment) for a class of 80 students
+- You are in charge of the security for a home football game here at UVa
+- You are in charge of making an election voting system that is both secure and has auditing capabilities
+-->
+<!-- from spring 2023:
 - After the recent [downtime of the NOTAM system by the FAA](https://en.wikipedia.org/wiki/2023_FAA_system_outage), which turned out to be caused by a contractor mistakenly deleting files, you are tasked with preventing this system's downtime in the future.
 - The [US Securities and Exchange Commission (SEC)](https://en.wikipedia.org/wiki/U.S._Securities_and_Exchange_Commission) is in charge of enforcing law against market manipulation.  While the SEC does not (yet) have jurisdiction over cryptocurrencies, they still want to ensure some sort of legality with cryptocurrency scams, especially after the recent and very public [FTX cryptocurrency exchange collapse](https://en.wikipedia.org/wiki/Bankruptcy_of_FTX).  You can do this on either hacks (computerized attacks against cryptocurrency systems) or scams ([rug pulls](https://en.wikipedia.org/wiki/Exit_scam), bad investments, etc.), but not both; and you can't do the other one for your second case, either.
 - A professor at State University wants to perform classified research for the US government.  In addition to having to handle international students performing the research, one has to ensure the security of the information as well.  Describe how you would ensure such confidentiality.
@@ -104,7 +118,7 @@
 -->
 <p>In addition, come up with another scenario from everyday life that we have not discussed in class. Your choice can be directly related to computer security, but it does not have to be.</p>
 <h3 id="submission-template">Submission Template</h3>
-<p>Obviously reformat this in your word processor of choice. The file to be submitted <strong>MUST BE A PDF DOCUMENT</strong>. Please name it <code>paranoia.pdf</code>. The page must be exactly three pages long, and each case must be on a separate page. The case that you come up with must be on page three. This is all to facilitate grading – the document is going to be split by pages, and each page will be graded separately.</p>
+<p>Obviously reformat this in your word processor of choice. The file to be submitted <strong>MUST BE A PDF DOCUMENT</strong>. Please name it <code>paranoia.pdf</code>. The page must be exactly three pages long, and <strong>each case must be on a separate page</strong>. The case that you come up with must be on page three. This is all to facilitate grading – the document is going to be split by pages, and each page will be graded separately.</p>
 <pre><code>1. (name_of_example)
 
 [Assumptions: explain_assumptions]
@@ -143,6 +157,7 @@ Threats:
 Countermeasures:
 ...</code></pre>
 <h3 id="file-to-submit">File to submit</h3>
-<p>Submit the above as a PDF document, named <code>paranoia.pdf</code>. Make sure you follow the formatting guidelines mentioned above! In particular, each case should be on its own page, and the document should be exactly three pages long.</p>
+<p>Submit the above as a PDF document, named <code>paranoia.pdf</code>. Make sure you follow the formatting guidelines mentioned above! In particular, <strong>each case should be on its own page</strong>, and the document should be exactly three pages long.</p>
+<p>The submission is via Gradescope.</p>
 </body>
 </html>
