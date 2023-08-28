@@ -78,7 +78,7 @@ Course calendar
 | Week # | Week of Monday | Lecture days | HWs due | Expected Topics | Actual Progress |
 |----|----|----|----|----|----|
 | 1  | Aug 21 | W,F    |                   | [Course introduction](../slides/introduction.html#/), [The Security Mindset](../slides/security-mindset.html#/) | Wed: intro to 5.7; Fri: finished intro, security mindset to 6.13 |
-| 2  | Aug 28 | M,W,F  | Rational Paranoia | [The Security Mindset](../slides/security-mindset.html#/), [Terminology](../slides/terminology.html#/), [US Cybersecurity Policy](../slides/policy.html#/) | |
+| 2  | Aug 28 | M,W,F  | Rational Paranoia | [The Security Mindset](../slides/security-mindset.html#/), [Terminology](../slides/terminology.html#/), [US Cybersecurity Policy](../slides/policy.html#/) | Mon: terminology to 4.16 |
 | 3  | Sep 4  | M,W,F  | Policy            | [US Cybersecurity Policy](../slides/policy.html#/), [Ethics](../slides/ethics.html#/) |   |
 | 4  | Sep 11 | M,W,F  | Ethics            | [Encryption](../slides/encryption.html#/) |  |
 | 5  | Sep 18 | M,W,F  | RSA               | [Encryption](../slides/encryption.html#/) |   |
