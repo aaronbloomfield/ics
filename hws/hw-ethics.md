@@ -3,19 +3,19 @@ ICS: Written Homework: Cybersecurity Ethics
 
 [Go up to the ICS HW page](index.html) ([md](index.md))
 
-You will want to see the
-[homeworks policies page](../uva/hw-policies.html)
-([md](../uva/hw-policies.md)) for formatting and other details.  The
-due dates are listed on the [UVa course page](../uva/index.html)
-([md](../uva/index.md)).
-
-### Assignment
-
-You will need to be familiar with the content of the [Ethics slide set](../slides/ethics.html#/).
+### Overview
 
 For this assignment, you are to present an AI-generated argument about one of the cybersecurity challenges listed in part 2 of the [An Introduction to Cybersecurity Ethics PDF](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf), and then a discussion about that argument.  A challenge is one single paragraph, typically 4-5 lines, with the first sentence bolded; they are all listed in part 2 of the document (pages 15-21).  However, it must be one for which there are arguments on both sides (or all sides, if there are more than 2 sides) as to which path is the correct one ethically.
 
+You will need to be familiar with the content of the [Ethics slide set](../slides/ethics.html#/).
+
 The challenge you write about is left for you to decide, although you cannot choose the one in the example below.  You will need to copy and paste the challenge scenario into the top of your document; this is described in the formatting section, below.
+
+You will want to see the [homeworks policies page](../uva/hw-policies.html) ([md](../uva/hw-policies.md)) for formatting and other details.  The due dates are listed on the [UVa course page](../uva/index.html) ([md](../uva/index.md)).
+
+### Changelog
+
+Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
 
 
 ### Part 1: Create a ChatGPT account
@@ -25,14 +25,16 @@ We are going to use the ChatGPT generative AI tool for this assignment.  You can
 Play around a bit with ChatGPT to get the hang of how it works.  Give it a prompt, or use one of the prompts they provide.  In particular, once it generates a response, you can then modify that response ("make the answer longer" or "phrase that answer in the style of dr. suess", "phrase that answer in iambic pentameter", etc.).
 
 
-### Part 2: Choose a challenge
+### Part 2: Choose challenge
 
 Pick one of the challenges in the [An Introduction to Cybersecurity Ethics PDF](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf) document.  For the example herein, we will select the "How will we respond to ransomware attacks affecting our network or users" challenge.  **YOU MAY NOT USE THAT ONE!**  Pick any other one.
 
 You will need to clearly state the challenge in your document (see the formatting section, below).
 
 
-### Part 3: Have ChatGPT generate a response to the challenge
+### Part 3: Use ChatGPT 
+
+You will need to use ChatGPT to generate a response to the challenge you picked above.  You have to make a good faith effort to generate a good response -- one that might, say, get a good grade if that were the only part of this assignment.  This will mean taking some time to carefully craft the prompt, and will likely require prompt revisions.
 
 You have to phrase the ethical dilemma in a way that ChatGPT can generate a response to.  The particular one we have chosen is phrased as such in the document (this is the very bottom of page 16):
 
@@ -52,7 +54,7 @@ Keep in mind that you can re-generate a previous response, or make modifications
 The entire ChatGPT response is to be included in the final document (see formatting, below).
 
 
-### Part 4: Tell us why it is wrong
+### Part 4: Why is ChatGPT wrong?
 
 Explain how the ChatGPT answer is wrong.  Where did it mess up the argument?  Where did it not take into account some other factors?  Where did it not take into account some issues on one (or both) of the sides?  What nuances of the argument did it miss?  The list of things it could get wrong is endless; these are only some examples.
 
