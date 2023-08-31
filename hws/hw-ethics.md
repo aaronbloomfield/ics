@@ -48,8 +48,8 @@ Your ChatGPT response must be reasonable!!!  While it's fun to phrase it as if i
 
 Keep in mind that you can re-generate a previous response, or make modifications.  There are a few strict requirements about the final ChatGPT response that you are going to use:
 
-- Each of the cases (or situations or ethical framekworks) must have a discussion about both sides (pros and cons, etc.) of the issue
-- The generated response must be 500 words or less; too longer and we won't grade it.  This is about 1 page worth of content.  Any word processor can count the words (usually in the Tools menu, or similar).
+- Each of the cases (or situations or ethical framekworks) must have a discussion about both sides (pros and cons, etc.) of the issue, so review your ChatGPT answer to get this type of respnose.
+- The generated response must be 500 words or less; too much longer and we won't grade it.  This is about 1 page worth of content.  Any word processor can count the words (usually in the Tools menu, or similar).
 
 The entire ChatGPT response is to be included in the final document (see formatting, below).
 
