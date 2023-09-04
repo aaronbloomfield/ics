@@ -105,4 +105,5 @@ with open(outfilename,"w") as fout:
 	print(body,file=fout)
 
 # add in the 'tabbed version' link back into the source
-os.system("sed -i s_'<p><a href=\"index.html\">Go up to the ICS HW page</a> (<a href=\"index.md\">md</a>)</p>'_'<p><a href=\"index.html\">Go up to the ICS HW page</a> (<a href=\"index.md\">md</a>) | <a href=\"" + outfilename + "\">view tabbed version</a></p>'_g " + sys.argv[1])
+os.system("sed s_'<p><a href=\"index.html\">Go up to the ICS HW page</a> (<a href=\"index.md\">md</a>)</p>'_'<p><a href=\"index.html\">Go up to the ICS HW page</a> (<a href=\"index.md\">md</a>) | <a href=\"" + outfilename + \
+		"\">view tabbed version</a></p>'_g " + sys.argv[1] + " > tmp.foo; /bin/mv -f tmp.foo " + sys.argv[1])

@@ -1,4 +1,4 @@
-/* This file is part of the http://github.com/uva-cs/pdr
+/* This file is part of the http://github.com/aaronbloomfield/ics
  * repo, and has the same license as the rest of the repo (CC BY-SA)
  *
  * The formatting is loosely based on that of github.com's README.md
@@ -180,5 +180,18 @@ img.formulabig {
 div.cclogos img {
   width: 50px;
   max-height: 50px;
+}
 
+.copy_img {
+     background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBzdHlsZT0iZmlsbDojODA4MDgwIiBkPSJNNDMzLjk0MSA2NS45NDFsLTUxLjg4Mi01MS44ODJBNDggNDggMCAwIDAgMzQ4LjExOCAwSDE3NmMtMjYuNTEgMC00OCAyMS40OS00OCA0OHY0OEg0OGMtMjYuNTEgMC00OCAyMS40OS00OCA0OHYzMjBjMCAyNi41MSAyMS40OSA0OCA0OCA0OGgyMjRjMjYuNTEgMCA0OC0yMS40OSA0OC00OHYtNDhoODBjMjYuNTEgMCA0OC0yMS40OSA0OC00OFY5OS44ODJhNDggNDggMCAwIDAtMTQuMDU5LTMzLjk0MXpNMjY2IDQ2NEg1NGE2IDYgMCAwIDEtNi02VjE1MGE2IDYgMCAwIDEgNi02aDc0djIyNGMwIDI2LjUxIDIxLjQ5IDQ4IDQ4IDQ4aDk2djQyYTYgNiAwIDAgMS02IDZ6bTEyOC05NkgxODJhNiA2IDAgMCAxLTYtNlY1NGE2IDYgMCAwIDEgNi02aDEwNnY4OGMwIDEzLjI1NSAxMC43NDUgMjQgMjQgMjRoODh2MjAyYTYgNiAwIDAgMS02IDZ6bTYtMjU2aC02NFY0OGg5LjYzMmMxLjU5MSAwIDMuMTE3LjYzMiA0LjI0MyAxLjc1N2w0OC4zNjggNDguMzY4YTYgNiAwIDAgMSAxLjc1NyA0LjI0M1YxMTJ6Ii8+PC9zdmc+');
+}
+
+.copylink {
+    height:13px;
+    width:13px;
+    display:inline-block;
+    margin-right:5px;
+    vertical-align:middle;
+    background-repeat:no-repeat;
+    cursor:pointer;
 }

@@ -459,6 +459,18 @@ img.cclogomed, div.cclogomed img, img[src$='#cclogomed'] {
   box-shadow: none !important;
 }
 
+/* In a slide, but smaller than the previous one */
+img.cclogosmall, div.cclogosmall img, img[src$='#cclogosmall'] {
+  width: 70px;
+  max-height: 70px;
+  float: left;
+  background-color: transparent !important;
+  margin-right: 10px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
 /* on a slide column heading page, it appears above the <h1> title and very large */
 img.cclogotitle {
   width: 200px;
