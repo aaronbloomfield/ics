@@ -79,7 +79,7 @@ Course calendar
 |----|----|----|----|----|----|
 | 1  | Aug 21 | W,F    |                   | [Course introduction](../slides/introduction.html#/), [The Security Mindset](../slides/security-mindset.html#/) | Wed: intro to 5.7; Fri: finished intro, security mindset to 6.13 |
 | 2  | Aug 28 | M,W,F  | Rational Paranoia | [The Security Mindset](../slides/security-mindset.html#/), [Terminology](../slides/terminology.html#/), [US Cybersecurity Policy](../slides/policy.html#/) | Mon: terminology to 4.16; Wed: finished terminology, ethics to 5.6; Fri: finished ethics |
-| 3  | Sep 4  | M,W,F  | Policy            | [US Cybersecurity Policy](../slides/policy.html#/), [Ethics](../slides/ethics.html#/) | Mon: encryption to 4.18 |
+| 3  | Sep 4  | M,W,F  | Policy            | [US Cybersecurity Policy](../slides/policy.html#/), [Ethics](../slides/ethics.html#/) | Mon: encryption to 4.18; Wed: encryption to 6.19 |
 | 4  | Sep 11 | M,W,F  | Ethics            | [Encryption](../slides/encryption.html#/) |  |
 | 5  | Sep 18 | M,W,F  | RSA               | [Encryption](../slides/encryption.html#/) |   |
 | 6  | Sep 25 | M,W,F  | Hashing           | [Networking Overview](../slides/networks.html#/), [Web Security](../slides/web-security.html#/) |   |
