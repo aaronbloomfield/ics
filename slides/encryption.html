@@ -795,30 +795,6 @@ Formula is $c = m^e\text{ mod }n$
 
 
 ## Why does this work?
-Let's use some much smaller numbers:
-```
-$ python3
->>> import math
->>> p=107
->>> q=97
->>> n=p*q
->>> n
-10379
->>> pq=(p-1)*(q-1)
->>> pq
-60
->>> e=17
->>> math.gcd(e,pq)
-1
->>> d=pow(e,-1,pq)
->>> d
-53
->>> exit()
-$
-```
-
-
-## Why does this work?
 - The values of $d=4669$ and $e=85$ are the inverse of each other for exponentiation within $n=10379$
   - $(x^e)^d \mod n == x$
 
@@ -884,7 +860,7 @@ $
 ## Why RSA is considered secure
 - RSA security is based on two principles:
   - Second: the "RSA problem": finding the $e^{th}$ roots modulo a composite number $N$ is hard
-  - Specifically, given $c = p^e\text{ mod } n$,  and knowing $c$, $e$, and $n$, finding $p$ is hard
+  - Specifically, given $c = m^e\text{ mod } n$,  and knowing $c$, $e$, and $n$, finding $p$ is hard
   - Considered as hard as integer factorization
 
 
