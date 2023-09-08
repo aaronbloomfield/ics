@@ -799,11 +799,11 @@ Let's use some much smaller numbers:
 ```
 $ python3
 >>> import math
->>> p=7
->>> q=11
+>>> p=107
+>>> q=97
 >>> n=p*q
 >>> n
-77
+10379
 >>> pq=(p-1)*(q-1)
 >>> pq
 60
@@ -819,21 +819,25 @@ $
 
 
 ## Why does this work?
-- The values of $d=53$ and $e=17$ are the inverse of each other for exponentiation within $n=77$
+- The values of $d=4669$ and $e=85$ are the inverse of each other for exponentiation within $n=10379$
   - $(x^e)^d \mod n == x$
-  - Examples:
-    ```
->>> (9**53 % 77) ** 17 % 77
-9
->>> (12**53 % 77) ** 17 % 77
-12
->>> (25**53 % 77) ** 17 % 77
-25
->>> 
+
 ```
-- There is no known efficient way to obtain $d$ from $e$ and $n$
-- But we didn't
-  - We obtained both via a different means (from $p$ and $q$)
+$ python3
+>>> e=85
+>>> d=4669
+>>> n=10379
+>>> (1024 ** d) ** e % n
+1024
+>>> (1234 ** d) ** e % n
+1234
+>>> (3710 ** d) ** e % n
+3710
+>>> (9999 ** d) ** e % n
+9999
+>>> exit()
+$
+```
 
 
 ## Cracking a message
@@ -868,6 +872,26 @@ $
   - <font color='red'>This would not have been feasible with two large prime factors!!!</font>
   - $d \* 85 (\text{mod }(96)(106)) = 1$
 - We then compute d as above, and crack the message
+
+
+## Why RSA is considered secure
+- RSA security is based on two principles:
+  - First: factoring large composites into their prime factors is hard
+  - In 2005, a 193-digit number was factored using 12.5 CPU years on a 2.2 GHz Operon CPU (actually 5 months on 30 CPUs)
+  - The best algorithm for factoring large numbers (general number field sieve) is $O(e^n)$
+
+
+## Why RSA is considered secure
+- RSA security is based on two principles:
+  - Second: the "RSA problem": finding the $e^{th}$ roots modulo a composite number $N$ is hard
+  - Specifically, given $c = p^e\text{ mod } n$,  and knowing $c$, $e$, and $n$, finding $p$ is hard
+  - Considered as hard as integer factorization
+
+
+## Current state of the art for factoring
+- "As of the end of 2007, thanks to the constant decline in memory prices, the ready availability of multi-core 64-bit computers, and the availability of [efficient factoring software], special-form numbers of up to 750 bits and general-form numbers of up to about 520 bits can be factored [...]. These bounds would increase to about 900 and 600 [on a] few dozen PCs"
+  - We used 2048 bit (617 decimal digit) numbers!
+  - http://en.wikipedia.org/wiki/Integer_factorization_records
 
 
 ## Signing a message
@@ -925,26 +949,6 @@ $
 ## The US gov't and war munitions
 ![war muntition shirt 1](images/encryption/war-munition-1.jpg)
 ![war muntition shirt 2](images/encryption/war-munition-2.jpg)
-
-
-## Current state of the art for factoring
-- "As of the end of 2007, thanks to the constant decline in memory prices, the ready availability of multi-core 64-bit computers, and the availability of [efficient factoring software], special-form numbers of up to 750 bits and general-form numbers of up to about 520 bits can be factored [...]. These bounds would increase to about 900 and 600 [on a] few dozen PCs"
-  - We used 2048 bit (617 decimal digit) numbers!
-  - http://en.wikipedia.org/wiki/Integer_factorization_records 
-
-
-## Why RSA is considered secure
-- RSA security is based on two principles:
-  - First: factoring large composites into their prime factors is hard
-	- In 2005, a 193-digit number was factored using 12.5 CPU years on a 2.2 GHz Operon CPU (actually 5 months on 30 CPUs)
-	- The best algorithm for factoring large numbers (general number field sieve) is $O(e^n)$
-
-
-## Why RSA is considered secure
-- RSA security is based on two principles:
-  - Second: the "RSA problem": finding the $e^{th}$ roots modulo a composite number $N$ is hard
-	- Specifically, given $c = p^e\text{ mod } n$,  and knowing $c$, $e$, and $n$, finding $p$ is hard
-	- Considered as hard as integer factorization
 
 
 ## RSA vulnerabilities
@@ -1064,6 +1068,8 @@ $
   - You would need a new (quantum) encryption algorithm to encrypt your messages
 - This is like saying, "in principle, you could program a computer to correctly predict the weather"
 - I bet the NSA is working on such a computer, also
+- In 2022, a 48-bit number was factored using a quantum computer (source: [wikipedia](https://en.wikipedia.org/wiki/Integer_factorization_records))
+  - Modern RSA has $n$ with 4,096 or 8,192 bits
 
 
 ## Quantum computing factorization
