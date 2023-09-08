@@ -794,6 +794,48 @@ Formula is $c = m^e\text{ mod }n$
   - Etc...
 
 
+## Why does this work?
+Let's use some much smaller numbers:
+```
+$ python3
+>>> import math
+>>> p=7
+>>> q=11
+>>> n=p*q
+>>> n
+77
+>>> pq=(p-1)*(q-1)
+>>> pq
+60
+>>> e=17
+>>> math.gcd(e,pq)
+1
+>>> d=pow(e,-1,pq)
+>>> d
+53
+>>> exit()
+$
+```
+
+
+## Why does this work?
+- The values of $d=53$ and $e=17$ are the inverse of each other for exponentiation within $n=77$
+  - $(x^e)^d \mod n == x$
+  - Examples:
+    ```
+>>> (9**53 % 77) ** 17 % 77
+9
+>>> (12**53 % 77) ** 17 % 77
+12
+>>> (25**53 % 77) ** 17 % 77
+25
+>>> 
+```
+- There is no known efficient way to obtain $d$ from $e$ and $n$
+- But we didn't
+  - We obtained both via a different means (from $p$ and $q$)
+
+
 ## Cracking a message
 - In order to decrypt a m, we must compute $m = c^d \text{ mod }n$
   - $n$ is known (part of the public key)
