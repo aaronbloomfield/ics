@@ -35,8 +35,8 @@
  *   below, for how to write the key to a file.
  * - `-output <filename>`: this specifies the file name to save the
  *   results in. It can be the output from an encryption or
- *   decryption. The key file format is described in the {@link
- *   RSA.writeKeyToFile()} method.  A encrypted message file will
+ *   decryption. The key file format is described in the {@link RSA.writeKeyToFile()}
+ *   method.  A encrypted message file will
  *   follow the format described in the {@link
  *   RSA.writeCipherTextToFile()} method. If not specified, it should
  *   default to "output.txt".

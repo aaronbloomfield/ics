@@ -27,7 +27,6 @@ class RSAKey {
     int bitLength;
 }
 
-
 /** Holds the necessary cipher text information.  This class is meant
  * to hold the values, and has no methods itself.
  */
@@ -47,7 +46,6 @@ class CipherText {
         encryptedBlocks = new ArrayList<BigInteger>();
     }
 }
-
 
 /** The main RSA class.  This is the class that contains all of the
  * functionality, and there are five methods that need to be completed
@@ -77,7 +75,6 @@ public class RSA {
     /** The random number generator
      */
     static Random random = new Random();
-
 
     /** Write a {@link RSAKey} key (public or private) to a file.
      *
