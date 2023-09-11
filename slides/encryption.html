@@ -896,21 +896,21 @@ $
 
 
 ## Signing a message: detail
-- Write out a plaintext *p*
-- Take the SHA-256 (or similar) hash of the plaintext *p* to get hash value *h*
-- Encrypt *h* with your private key *(n,d)* to get *c*
+- Write out a plaintext message $m$
+- Take the SHA-256 (or similar) hash of the message $m$ to get hash value $h$
+- Encrypt $h$ with your private key $(n,d)$ to get $c$
   - This is your *private* key that is being used for encryption here
-- The message you send is *m = p* $\cdot$ *c*
+- The message you send is $x = m \cdot c$
   - That's concatenation
 
 
 ## Checking a message signature: detail
-- You receive message *m = p* $\cdot$ *c* from somebody with public key *(n,e)*
-- You separate *m* into it's constituent parts *p* and *c*
-- You decrypt *c* using public key *(n,e)* to get *h<sub>1</sub>*
+- You receive message $x = m \cdot c$ from somebody with public key $(n,e)$
+- You separate $x$ into it's constituent parts $m$ and $c$
+- You decrypt $c$ using public key $(n,e)$ to get $h_1$
   - That's the *public* key being used for decryption here
-- You take the SHA-256 (or similar) hash of *p* to get *h<sub>2</sub>*
-- If *h<sub>1</sub>* and *h<sub>2</sub>* match, then it was signed by the person with the private key that matches public key *(n,e)*
+- You take the SHA-256 (or similar) hash of $m$ to get $h_2$
+- If $h_1$ and $h_2$ match, then it was signed by the person with the private key that matches public key $(n,e)$
 
 
 ## PGP and GnuPG
