@@ -8,10 +8,18 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
@@ -50,7 +58,10 @@
 <p>You will want to see the <a href="../uva/hw-policies.html">homeworks policies page</a> (<a href="../uva/hw-policies.md">md</a>) for formatting and other details. The due dates are listed on the <a href="../uva/index.html">UVa course page</a> (<a href="../uva/index.md">md</a>).</p>
 <p>You should be familiar with how the RSA algorithm works from the <a href="../slides/encryption.html#/rsa">the encryption lecture</a>. More details are available online (see the <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">Wikipedia article on RSA</a>). Keep in mind, however, that the Wikipedia page uses different variable names than what the lecture and slide set used. <!-- You will also want to reference the [Java SDK documentation](https://docs.oracle.com/javase/11/docs/api/), specifically the [java.math.BigInteger](https://docs.oracle.com/javase/11/docs/api/java/math/BigInteger.html) and [java.security.MessageDigest](https://docs.oracle.com/javase/11/docs/api/java/security/MessageDigest.html) classes.  --> The Python code does not use anything beyond the <a href="https://docs.python.org/3/library/">standard Python library</a>, specifically <code>hashlib</code> and <code>random</code>.</p>
 <h3 id="changelog">Changelog</h3>
-<p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
+<p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. <!-- So far there aren't any significant changes to report. --></p>
+<ul>
+<li>Tue, Sep 12th: fixed the <code>showPandQ = True</code> line in <code>main()</code> in rsa.py</li>
+</ul>
 <h3 id="links">Links</h3>
 <p>These links are all described below, but are included here, all in one place.</p>
 <ul>

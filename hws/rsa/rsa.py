@@ -184,7 +184,7 @@ def main():
 			keyName = sys.argv[i]
 
 		elif sys.argv[i] == "-showpandq":
-			showPandQ = true
+			showPandQ = True
 
 		elif sys.argv[i] == "-keygen":
 			i = i + 1
