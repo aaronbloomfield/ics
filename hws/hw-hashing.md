@@ -112,12 +112,12 @@ For this part, we are only using SHA-256 hashes.  This part may be written in an
 A password file will be provided in the following format:
 
 ```
-aaron 36a095da4e23a3b35db038092aef1b8c3dbd4eb7068d3fdc869af10849476f82
-alex 553c165c0199e45e6c44ea743650d7f48a62c82357d46a03179b86719d670b2a
+hayden 36a095da4e23a3b35db038092aef1b8c3dbd4eb7068d3fdc869af10849476f82
+alexander 553c165c0199e45e6c44ea743650d7f48a62c82357d46a03179b86719d670b2a
 chase 83352f28d732fa2a255d6c69d5c332f6b9f421d89bacb2ed334b0841bfce6661
-natasha f9c6b88c040ec9388f78d50a06d2da92362f9d9a219a3180fde59c768da3f366
+megan f9c6b88c040ec9388f78d50a06d2da92362f9d9a219a3180fde59c768da3f366
 sam 1d06b71965f3c7466467c7a89dd1aadfffe9da9f409017c1fa363b49312d70f4
-taher 226f7f2a65158d441748b1ce9543b5027af1a7438314371d3dfccf12fba85edf
+lindsey 226f7f2a65158d441748b1ce9543b5027af1a7438314371d3dfccf12fba85edf
 ```
 
 The file is ASCII, and all usernames will be alphanumeric strings.  There is exactly one space between the two tokens on any given line.  The hashes shown are SHA-256 hashes.  The passwords used to generate those hashes are shown in the execution run, below.
@@ -138,25 +138,65 @@ Your program should print out one line for the passwords that it finds.  Here is
 $ ./dictionary.sh words passwords.txt _l337_h4x0r
 password for chase is: astound
 password for sam is: flotation
-password for alex is: patois
-password for aaron is: plastic
-password for taher is: reunification
-password for natasha is: spade
+password for alexander is: patois
+password for hayden is: plastic
+password for lindsey is: reunification
+password for megan is: spade
 $ 
 
 ```
 
-The order you print it out does not matter (we are going to sort your output), but the exact text on each line does, as we are going to have it graded by an autograder.  Not all the passwords may be found in the words file.  We will not give you invalid input (meaning files that do not exist, a wrong number of command-line parameters, etc.).  Both the words file and the password file will be ASCII files with at least 1 line in each file.  The salt will only be alphanumeric characters and underscores.
+The order you print it out does not matter (we are going to sort your output), but the exact text on each line does, as we are going to have it graded by an auto-grader.  Not all the passwords may be found in the words file.  We will not give you invalid input (meaning files that do not exist, a wrong number of command-line parameters, etc.).  Both the words file and the password file will be ASCII files with at least 1 line in each file.  The salt will only be alphanumeric characters and underscores.
 
 If no passwords are found, then the program should produce no output.
 
 While we do not really care about efficiency, your program must run in a reasonable time.  Basically it -- along with the program in the previous task -- should not time out in Gradescope.
 
+### Task 3: Poor passwords
+
+Now that we can tell if their passwords are in a dictionary, from the previous section, we also need to also check if they made a very simple change from their previous password.  What we are trying to prevent is if their password is `password`, then they should not be able to change it to `passwordxx`.
+
+Formally, given the hash of their current password, the *plaintext* password that they had used previously, and the salt (as above), did they add two characters to their old password to make the new one?  If so, output `Found: xy`, where `xy` are the two characters added (note the capitalization, punctuation, and spacing!).  If not found, output `Not found`.
+
+Here is a sample execution run; details about this run are described below.
+
+```
+$ echo -n "passwordab_l337_h4x0r" | sha256sum
+2b87e4d56ae6e2a761da88f1f16956c6d1590648daf868754baefb57f840416a  -
+$ ./passwords.sh 2b87e4d56ae6e2a761da88f1f16956c6d1590648daf868754baefb57f840416a password _l337_h4x0r
+Found: ab
+$ echo -n "password.._l337_h4x0r" | sha256sum
+c5a05edf9891ee111b9feab37667093d6d74538e0f33d31cc7cc993441c360dd  -
+$ /passwords.sh c5a05edf9891ee111b9feab37667093d6d74538e0f33d31cc7cc993441c360dd password _l337_h4x0r
+bash: /passwords.sh: No such file or directory
+$ ./passwords.sh c5a05edf9891ee111b9feab37667093d6d74538e0f33d31cc7cc993441c360dd password _l337_h4x0r
+Found: ..
+$ echo -n "password123_l337_h4x0r" | sha256sum
+1eb837cbffa28125d7f141f8578748615581972cea3ec5a59bd6e2b3c349e976  -
+$ ./passwords.sh 1eb837cbffa28125d7f141f8578748615581972cea3ec5a59bd6e2b3c349e976 password _l337_h4x0r
+Not found
+$ 
+```
+
+This run assumes the previous password was just `password`.  The `echo` lines show a quick way to determine the hash of a value from the command line; make sure you put in the `-n` parameter to `echo` if doing it this way!  You can also use `hashlib.sha256(bytes('passwordab_l337_h4x0r','ascii')).hexdigest()` in Python.  
+
+The first run creates a hash where they just added `ab` to their previous password of `password`.  The salt, which is `_l337_h4x0r`, is added as well, so the full value hashed is `passwordab_l337_h4x0r`.  The program output of `Found: ab` indicates that it determined that they just added `ab` to their password.  The second execution run does the same, but detects adding `..` (two periods) to their password.  The third execution run adds three characters to their old password; as we are only checking for exactly two added characters, it outputs `Not found`.
+
+Some notes:
+
+- We are only using ASCII characters for this.
+- In Python, `string.printable` (you have to import the `string` module first) will provide a string of all printable characters that you can iterate through.
+- Although white space characters (space, tab, return) are in the printable character set, we are not going to be testing your code with white space as either of the two additional characters.
+- If the character causes problems with the shell, such as the exclamation point, you can ignore that one -- we will be using characters that do not cause such issues.
+- Make sure your output is exactly as specified above!
+- Don't overthink this -- the solution code is under 10 lines in Python.
+
+
 ### Other Files
 
 #### Makefile
 
-You will need to submit a `Makefile`.  It will have to compile your CRC-16 code, and (possibly) your dictionary attack code.
+You will need to submit a `Makefile`.  It will have to compile your CRC-16 code, and (possibly) your dictionary attack code and password checking code.
 
 If you are using a language for the dictionary attack code that does not need compilation, such as Python, your Makefile will look like the following:
 
@@ -174,13 +214,14 @@ If you are using a language for your dictionary attack code that *does* need com
 main:
     clang++ -O2 -o crc16 crc16.cpp
     javac Dictionary.java
+    javac Passwords.java
 ```
 
 Change the name of your source code file as appropriate.  Also note that we did not use the `-I boost_1_81_0/` flag.
 
-#### Shell script
+#### Shell script: dictionary.sh
 
-The CRC code does not need a shell script, since it will be compiled into a `crc16` binary by the Makefile above.  Your dictionary attack will need a shell script, which will likely be one of the following:
+The CRC code does not need a shell script, since it will be compiled into a `crc16` binary by the Makefile above.  Your password checking code will aLSO need a shell script, named `dictionary.sh`, which will likely be one of the following:
 
 ```
 #!/bin/bash
@@ -195,12 +236,31 @@ java Dictionary $@
 Change the name of your file and/or class as appropriate for your code.
 
 
+#### Shell script: passwords.sh
+
+Your password checking code will also need a shell script, named `passwords.sh`, which will likely be one of the following:
+
+```
+#!/bin/bash
+python3 passwords.py $@
+```
+
+```
+#!/bin/bash
+java Passwords $@
+```
+
+Change the name of your file and/or class as appropriate for your code.
+
+
 ### Submission
 
 
-There are four files to submit:
+There are six files to submit:
 
+- `Makefile`, which should compile `crc16.cpp` from part 1, and -- if necessary -- any code form parts 2 and 3
 - `crc16.cpp` from task 1
-- ` Makefile`, `dictionary.sh` and your source code from task 2
+- `dictionary.sh` and your source code from task 2
+- `passwords.sh` and your source code from task 3
 
 We will be compiling your submission with `make`.
