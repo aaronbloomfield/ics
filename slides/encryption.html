@@ -57,6 +57,7 @@
 [RSA](#/rsa)  
 [Randomness](#/random)  
 [Hashing](#/hashing)  
+[Applied Cryptography](#/applied)  
 [Top 10 uncracked codes](#/uncracked)  
 </textarea></section>
 
@@ -1430,6 +1431,229 @@ afe68f753a65f773a591bcf6f9ce3c63  message1.txt
 	  </textarea></section>
 
 	</section>
+
+  <section>
+      
+    <section data-markdown id="applied" class="center"><textarea data-template>
+# Applied Cryptography
+    </textarea></section>
+    
+    <section data-markdown data-separator="^\n$"><textarea data-template>
+## Openssl to generate a RSA Key
+
+```
+$ openssl genpkey -algorithm RSA \
+    -pkeyopt rsa_keygen_bits:2048 \
+    -out key.pem
+....+++++
+....+++++
+$
+```
+    </textarea></section>
+    
+    <section data-markdown data-separator="^\n$" id=rsapem><textarea data-template>
+## PEM key file format
+<pre class="code-wrapper"><code class="hljs awk small" style="height:auto">$ cat key.pem
+-----BEGIN PRIVATE KEY-----
+MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDKmfQPMEZiho43
+7rYfHB6bXDW1aQWrSJLlufEB23akwgyiHI85XcejJ10prWGU8aJA4VW8UJ1e6EZu
+m0LFln1LCEZJX1Os/H9zR2OxV52Xd+/U5ooy+nxg9VfBwUOcEx6gmNfQu06zLDuf
+cyKWXkF3DOE7rlPSq1xLk0GxYq+VvQEexMphMswdIiqcx4swdDWdA7x7z/nX6opx
+TDp+tY3M/QIJVh6mn1MvIbhc+PDLQRvEi1ZhMiAgk69LkA32gxXFaSU+x5Cl44dH
+69SJX3Z3xVhy/dpRpac9yEf/iVbSyV9z7as2qcD7PEfa3vIiQ+5o1O3O0jG40d8T
+bxCsPe7TAgMBAAECggEBAJ3AVBWDfDp5FMGeYDZG+dn0aWlwddaRcrfnGS5eCLpu
+0dFkNWzwhWKXYuXxt3p2zuR/z/cKOg7NAxJaWBpre/FxZvD4hbm6/S3wl0JduzpW
+S+rU+ySIf1IrloIqDo+3H3DisaA4SCYguegEiRjWGVkuMS38Jg5yGTJLXapV8eu/
+VGetSD7o6icG3QUs44NUOgoDPJeM41WpndgqPl558p6Y0wo48o08GBnQ7eAn+ERW
+06JBeQ70/lrsj0RbkJdBqou17O2fpTJW0MM4fEWa9c8DCWmQIIS2R17sZNIT2/i1
+9hnMWnvu5N+cIU53zefpskzmv6VdDLa0o1prqvvmlEECgYEA87t8HnvI1RzSvJUe
++/Knioe2PK9Ebd6HMJjNPhzuHOGjSDVbxMmBmDuxFgA7ia/PRGQLKUPcqlMBEJo+
+C8t7gyAa5v8kJFvn8Y1+gdRkVqV/g7yV8Bes/0ZbDNzHra4vOVzkIO+gopy/9/Iz
+CmSBP56p4/VUV5MC4l6OeTTHJPMCgYEA1Mx955btDWa8vqJJCsXcNp+Av1J9dI2e
+T3Jx2/7ETNTCAD98r/2PryboHq1R20DqE/lTWE06gOphHl1OOyoR8YaV7zT0bzlP
+4DoTvxamp7Xah8mgnnG0FjGSclKeMSeFsQAIfX+VJGqw+8UWTHgVsu+B8OQCHQ1n
+wIZ3mp/WBqECgYAqhAHar20Q/74i90A4YtOm7pVzcH9XSwH6EC19MD64+wMojWY8
+pYndrEvvsoqwMeLN40WvJQ9RBrmg08cO96fL78XBlbAQR5fmIvB2ZT47fxMHP9ZH
+01lyDivDyp9qRIAoWXPR6vryYrV54t3UakPBfUPVZ+4WeKaAJk5kBjjW0QKBgQCb
+19ctUD7zXZZFFpzfouAPsOidNVBjl4OlM29nakFg8z/Q5q3uRYiBAcFlFhGovPWx
+Axuiw4xg9UWC81pjwf+6HpKXyPRqsFJrKJ1liLUsheYxI9zZrPPyfQN/bjokTYl/
+g0K0hkc3kFtlR4V5I0jg7r7/KDzUAglF2jSlrQEVgQKBgQCVbKjqCbDzTIrct8jQ
+xVrEpND1JcnyQoAdBIi8Lf8ffVpCxBhOBklJhhXqjaZ8iE7nS7xWfDOR2Jm0RUu0
+3KpnWcKQz7MCGjkXVWrm412T1lrnp2UlD0MhqLps27NUJ6bybr200kwHxJcrZLb0
+p4ZuGFwSn9QTFdGG3Y/OPRGWhg==
+-----END PRIVATE KEY-----
+$
+
+</code>
+</pre>
+    </textarea></section>
+    
+    <section data-markdown data-separator="^\n$"><textarea data-template>
+## OpenSSL to view a RSA Key
+
+<pre class="code-wrapper">
+<code class="hljs awk small" style="height:600px">$ openssl rsa -in key.pem -text -noout
+RSA Private-Key: (2048 bit, 2 primes)
+modulus:
+    00:ca:99:f4:0f:30:46:62:86:8e:37:ee:b6:1f:1c:
+    1e:9b:5c:35:b5:69:05:ab:48:92:e5:b9:f1:01:db:
+    76:a4:c2:0c:a2:1c:8f:39:5d:c7:a3:27:5d:29:ad:
+    61:94:f1:a2:40:e1:55:bc:50:9d:5e:e8:46:6e:9b:
+    42:c5:96:7d:4b:08:46:49:5f:53:ac:fc:7f:73:47:
+    63:b1:57:9d:97:77:ef:d4:e6:8a:32:fa:7c:60:f5:
+    57:c1:c1:43:9c:13:1e:a0:98:d7:d0:bb:4e:b3:2c:
+    3b:9f:73:22:96:5e:41:77:0c:e1:3b:ae:53:d2:ab:
+    5c:4b:93:41:b1:62:af:95:bd:01:1e:c4:ca:61:32:
+    cc:1d:22:2a:9c:c7:8b:30:74:35:9d:03:bc:7b:cf:
+    f9:d7:ea:8a:71:4c:3a:7e:b5:8d:cc:fd:02:09:56:
+    1e:a6:9f:53:2f:21:b8:5c:f8:f0:cb:41:1b:c4:8b:
+    56:61:32:20:20:93:af:4b:90:0d:f6:83:15:c5:69:
+    25:3e:c7:90:a5:e3:87:47:eb:d4:89:5f:76:77:c5:
+    58:72:fd:da:51:a5:a7:3d:c8:47:ff:89:56:d2:c9:
+    5f:73:ed:ab:36:a9:c0:fb:3c:47:da:de:f2:22:43:
+    ee:68:d4:ed:ce:d2:31:b8:d1:df:13:6f:10:ac:3d:
+    ee:d3
+publicExponent: 65537 (0x10001)
+privateExponent:
+    00:9d:c0:54:15:83:7c:3a:79:14:c1:9e:60:36:46:
+    f9:d9:f4:69:69:70:75:d6:91:72:b7:e7:19:2e:5e:
+    08:ba:6e:d1:d1:64:35:6c:f0:85:62:97:62:e5:f1:
+    b7:7a:76:ce:e4:7f:cf:f7:0a:3a:0e:cd:03:12:5a:
+    58:1a:6b:7b:f1:71:66:f0:f8:85:b9:ba:fd:2d:f0:
+    97:42:5d:bb:3a:56:4b:ea:d4:fb:24:88:7f:52:2b:
+    96:82:2a:0e:8f:b7:1f:70:e2:b1:a0:38:48:26:20:
+    b9:e8:04:89:18:d6:19:59:2e:31:2d:fc:26:0e:72:
+    19:32:4b:5d:aa:55:f1:eb:bf:54:67:ad:48:3e:e8:
+    ea:27:06:dd:05:2c:e3:83:54:3a:0a:03:3c:97:8c:
+    e3:55:a9:9d:d8:2a:3e:5e:79:f2:9e:98:d3:0a:38:
+    f2:8d:3c:18:19:d0:ed:e0:27:f8:44:56:d3:a2:41:
+    79:0e:f4:fe:5a:ec:8f:44:5b:90:97:41:aa:8b:b5:
+    ec:ed:9f:a5:32:56:d0:c3:38:7c:45:9a:f5:cf:03:
+    09:69:90:20:84:b6:47:5e:ec:64:d2:13:db:f8:b5:
+    f6:19:cc:5a:7b:ee:e4:df:9c:21:4e:77:cd:e7:e9:
+    b2:4c:e6:bf:a5:5d:0c:b6:b4:a3:5a:6b:aa:fb:e6:
+    94:41
+prime1:
+    00:f3:bb:7c:1e:7b:c8:d5:1c:d2:bc:95:1e:fb:f2:
+    a7:8a:87:b6:3c:af:44:6d:de:87:30:98:cd:3e:1c:
+    ee:1c:e1:a3:48:35:5b:c4:c9:81:98:3b:b1:16:00:
+    3b:89:af:cf:44:64:0b:29:43:dc:aa:53:01:10:9a:
+    3e:0b:cb:7b:83:20:1a:e6:ff:24:24:5b:e7:f1:8d:
+    7e:81:d4:64:56:a5:7f:83:bc:95:f0:17:ac:ff:46:
+    5b:0c:dc:c7:ad:ae:2f:39:5c:e4:20:ef:a0:a2:9c:
+    bf:f7:f2:33:0a:64:81:3f:9e:a9:e3:f5:54:57:93:
+    02:e2:5e:8e:79:34:c7:24:f3
+prime2:
+    00:d4:cc:7d:e7:96:ed:0d:66:bc:be:a2:49:0a:c5:
+    dc:36:9f:80:bf:52:7d:74:8d:9e:4f:72:71:db:fe:
+    c4:4c:d4:c2:00:3f:7c:af:fd:8f:af:26:e8:1e:ad:
+    51:db:40:ea:13:f9:53:58:4d:3a:80:ea:61:1e:5d:
+    4e:3b:2a:11:f1:86:95:ef:34:f4:6f:39:4f:e0:3a:
+    13:bf:16:a6:a7:b5:da:87:c9:a0:9e:71:b4:16:31:
+    92:72:52:9e:31:27:85:b1:00:08:7d:7f:95:24:6a:
+    b0:fb:c5:16:4c:78:15:b2:ef:81:f0:e4:02:1d:0d:
+    67:c0:86:77:9a:9f:d6:06:a1
+exponent1:
+    2a:84:01:da:af:6d:10:ff:be:22:f7:40:38:62:d3:
+    a6:ee:95:73:70:7f:57:4b:01:fa:10:2d:7d:30:3e:
+    b8:fb:03:28:8d:66:3c:a5:89:dd:ac:4b:ef:b2:8a:
+    b0:31:e2:cd:e3:45:af:25:0f:51:06:b9:a0:d3:c7:
+    0e:f7:a7:cb:ef:c5:c1:95:b0:10:47:97:e6:22:f0:
+    76:65:3e:3b:7f:13:07:3f:d6:47:d3:59:72:0e:2b:
+    c3:ca:9f:6a:44:80:28:59:73:d1:ea:fa:f2:62:b5:
+    79:e2:dd:d4:6a:43:c1:7d:43:d5:67:ee:16:78:a6:
+    80:26:4e:64:06:38:d6:d1
+exponent2:
+    00:9b:d7:d7:2d:50:3e:f3:5d:96:45:16:9c:df:a2:
+    e0:0f:b0:e8:9d:35:50:63:97:83:a5:33:6f:67:6a:
+    41:60:f3:3f:d0:e6:ad:ee:45:88:81:01:c1:65:16:
+    11:a8:bc:f5:b1:03:1b:a2:c3:8c:60:f5:45:82:f3:
+    5a:63:c1:ff:ba:1e:92:97:c8:f4:6a:b0:52:6b:28:
+    9d:65:88:b5:2c:85:e6:31:23:dc:d9:ac:f3:f2:7d:
+    03:7f:6e:3a:24:4d:89:7f:83:42:b4:86:47:37:90:
+    5b:65:47:85:79:23:48:e0:ee:be:ff:28:3c:d4:02:
+    09:45:da:34:a5:ad:01:15:81
+coefficient:
+    00:95:6c:a8:ea:09:b0:f3:4c:8a:dc:b7:c8:d0:c5:
+    5a:c4:a4:d0:f5:25:c9:f2:42:80:1d:04:88:bc:2d:
+    ff:1f:7d:5a:42:c4:18:4e:06:49:49:86:15:ea:8d:
+    a6:7c:88:4e:e7:4b:bc:56:7c:33:91:d8:99:b4:45:
+    4b:b4:dc:aa:67:59:c2:90:cf:b3:02:1a:39:17:55:
+    6a:e6:e3:5d:93:d6:5a:e7:a7:65:25:0f:43:21:a8:
+    ba:6c:db:b3:54:27:a6:f2:6e:bd:b4:d2:4c:07:c4:
+    97:2b:64:b6:f4:a7:86:6e:18:5c:12:9f:d4:13:15:
+    d1:86:dd:8f:ce:3d:11:96:86
+$
+</code>
+</pre>
+<!--
+  modulus: n
+  prime1: p or q
+  prime2: q or p
+  pube: e
+  prie: d
+  exp1, exp2, and coefficient are used in the Chinese Remainder Theorem
+-->
+<!-- bc code for these numbers:
+ibase=16
+n=00CA99F40F304662868E37EEB61F1C1E9B5C35B56905AB4892E5B9F101DB76A4C20CA21C8F395DC7A3275D29AD6194F1A240E155BC509D5EE8466E9B42C5967D4B0846495F53ACFC7F734763B1579D9777EFD4E68A32FA7C60F557C1C1439C131EA098D7D0BB4EB32C3B9F7322965E41770CE13BAE53D2AB5C4B9341B162AF95BD011EC4CA6132CC1D222A9CC78B3074359D03BC7BCFF9D7EA8A714C3A7EB58DCCFD0209561EA69F532F21B85CF8F0CB411BC48B566132202093AF4B900DF68315C569253EC790A5E38747EBD4895F7677C55872FDDA51A5A73DC847FF8956D2C95F73EDAB36A9C0FB3C47DADEF22243EE68D4EDCED231B8D1DF136F10AC3DEED3
+p=00F3BB7C1E7BC8D51CD2BC951EFBF2A78A87B63CAF446DDE873098CD3E1CEE1CE1A348355BC4C981983BB116003B89AFCF44640B2943DCAA5301109A3E0BCB7B83201AE6FF24245BE7F18D7E81D46456A57F83BC95F017ACFF465B0CDCC7ADAE2F395CE420EFA0A29CBFF7F2330A64813F9EA9E3F554579302E25E8E7934C724F3
+q=00D4CC7DE796ED0D66BCBEA2490AC5DC369F80BF527D748D9E4F7271DBFEC44CD4C2003F7CAFFD8FAF26E81EAD51DB40EA13F953584D3A80EA611E5D4E3B2A11F18695EF34F46F394FE03A13BF16A6A7B5DA87C9A09E71B416319272529E312785B100087D7F95246AB0FBC5164C7815B2EF81F0E4021D0D67C086779A9FD606A1
+pube=10001
+prie=009DC05415837C3A7914C19E603646F9D9F469697075D69172B7E7192E5E08BA6ED1D164356CF085629762E5F1B77A76CEE47FCFF70A3A0ECD03125A581A6B7BF17166F0F885B9BAFD2DF097425DBB3A564BEAD4FB24887F522B96822A0E8FB71F70E2B1A038482620B9E8048918D619592E312DFC260E7219324B5DAA55F1EBBF5467AD483EE8EA2706DD052CE383543A0A033C978CE355A99DD82A3E5E79F29E98D30A38F28D3C1819D0EDE027F84456D3A241790EF4FE5AEC8F445B909741AA8BB5ECED9FA53256D0C3387C459AF5CF030969902084B6475EEC64D213DBF8B5F619CC5A7BEEE4DF9C214E77CDE7E9B24CE6BFA55D0CB6B4A35A6BAAFBE69441
+exp1=2A8401DAAF6D10FFBE22F7403862D3A6EE9573707F574B01FA102D7D303EB8FB03288D663CA589DDAC4BEFB28AB031E2CDE345AF250F5106B9A0D3C70EF7A7CBEFC5C195B0104797E622F076653E3B7F13073FD647D359720E2BC3CA9F6A4480285973D1EAFAF262B579E2DDD46A43C17D43D567EE1678A680264E640638D6D1
+exp2=009BD7D72D503EF35D9645169CDFA2E00FB0E89D3550639783A5336F676A4160F33FD0E6ADEE45888101C1651611A8BCF5B1031BA2C38C60F54582F35A63C1FFBA1E9297C8F46AB0526B289D6588B52C85E63123DCD9ACF3F27D037F6E3A244D897F8342B4864737905B654785792348E0EEBEFF283CD4020945DA34A5AD011581
+c=00956CA8EA09B0F34C8ADCB7C8D0C55AC4A4D0F525C9F242801D0488BC2DFF1F7D5A42C4184E0649498615EA8DA67C884EE74BBC567C3391D899B4454BB4DCAA6759C290CFB3021A3917556AE6E35D93D65AE7A765250F4321A8BA6CDBB35427A6F26EBDB4D24C07C4972B64B6F4A7866E185C129FD41315D186DD8FCE3D119686
+
+p*q==n
+scale=0
+(prie*pube) % ((p-1)*(q-1))
+
+-->
+
+
+## Openssl to generate and view an ECDSA Key
+<pre class="code-wrapper"><code class="hljs awk small" style="height:auto">$ openssl ecparam -out ec_key.pem -name secp256k1 -genkey
+$ cat ec_key.pem 
+-----BEGIN EC PARAMETERS-----
+BgUrgQQACg==
+-----END EC PARAMETERS-----
+-----BEGIN EC PRIVATE KEY-----
+MHQCAQEEIGcgMEVvdpER8E/FsnK2CsUWJWy9X39WLHdDtvFHCx8zoAcGBSuBBAAK
+oUQDQgAE3jzNUf91RHMzRiob3KZLZI3BFcxZMg7UeHrM6ifVAjTNcBi9iqwYlCy8
+LYKcHMYYna0smEOaQL6o0oPDV2hh9w==
+-----END EC PRIVATE KEY-----
+$
+</code></pre>
+
+
+## Openssl to view an ECDSA key
+<!--
+d=46645095665948752159725390617705266833925338929901767141886312735501806411571
+qx=100520880278031488762125882754878952466629466830145810675677838350919375585844
+qy=92922191582770924169293325173158913322815666845532262217119080172645576630775
+-->
+<pre class="code-wrapper"><code class="hljs awk small" style="height:auto">$ cat ec_key.pem
+read EC key
+Private-Key: (256 bit)
+priv:
+    67:20:30:45:6f:76:91:11:f0:4f:c5:b2:72:b6:0a:
+    c5:16:25:6c:bd:5f:7f:56:2c:77:43:b6:f1:47:0b:
+    1f:33
+pub:
+    04:de:3c:cd:51:ff:75:44:73:33:46:2a:1b:dc:a6:
+    4b:64:8d:c1:15:cc:59:32:0e:d4:78:7a:cc:ea:27:
+    d5:02:34:cd:70:18:bd:8a:ac:18:94:2c:bc:2d:82:
+    9c:1c:c6:18:9d:ad:2c:98:43:9a:40:be:a8:d2:83:
+    c3:57:68:61:f7
+ASN1 OID: secp256k1
+$
+</code></pre>
+- Private key (scalar) $d \approx 4.66 \ast 10^{76}$
+- Public key (point) $Q \approx (1.01 \ast 10^{76}, 9.29 \ast 10^{76})$
+    </textarea></section>
+
+  </section>
 
 	<section>
       
