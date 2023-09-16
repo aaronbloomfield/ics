@@ -19,6 +19,93 @@ Any changes to this page will be put here for easy reference.  Typo fixes and mi
 
 ### Task 1: CRC insecurity
 
+Your job is to write a program that, when given an input file and a CRC checksum, will modify that message, and ensure that the modified version matches the provided CRC checksum.  We are using CRC-16 here for speed, but the concepts are the exact same as for CRC-32, which would be much slower.
+
+While you can use any language, we provide some sample code in Python.  You will have to install the "crc" library -- you can do this via `pip install crc` or `pip3 install crc`.
+
+#### Getting the CRC-16 checksum
+
+Note: there are apparently [many versions of CRC16](https://reveng.sourceforge.io/crc-catalogue/all.htm); we are using the MODBUS version.  You can use a site such as [this one](https://crccalc.com) to compute a CRC hash, but be sure to look at the MODBUS version line when it presents the hash results.  If you do use that site, be sure to take into account a ending newline -- most text files will have it, and if so, you have to make sure that the online form has it as well.
+
+You can also use the program below to do so; this demonstrates the use of the "crc" library in Python:
+
+```
+import crc, sys
+assert len(sys.argv) == 2
+with open(sys.argv[1]) as f:
+    data = f.read()
+bindata = bytes(data,"ascii")
+calculator = crc.Calculator(crc.Crc16.MODBUS)
+result = calculator.checksum(bindata)
+print(sys.argv[0]+":",hex(result))
+```
+
+Run it as such:
+
+```
+$ echo "Things are going just great" > input.txt
+$ python3 crc16.py input.txt                       
+crc16.py: 0x766a
+$
+```
+
+#### Assignment
+
+Your program can be named anything, and there will have to be a `crc16crack.sh` shell script, described below, to run your program.  Your program will be run with two command-line parameters:
+
+1. the input file name to read from
+2. the desired CRC value (in hex) - this will be 4 hexadecimal characters, such as 'abcd' (we will leave out the leading '0x')
+
+A sample execution:
+
+```
+$ cat input.txt 
+Things are going just great
+$ python3 crc16.py input.txt 
+crc16.py: 0x766a
+$ ./crc16crack.sh input.txt abcd 
+$ cat output.txt 
+Things are going just great!
+
+If you think things can't get worse it's probably only because you lack sufficient imagination.
+
+0000|4
+$ python3 crc16.py output.txt         
+crc16.py: 0xabcd
+$ 
+```
+
+Note that the execution of `crc16crack.sh` took between 1 and 3 minutes, depending on the platform it was run on.  This means the Gradescope submission will take a while as well -- see the hints in the Submission section, below, for ways to handle this.
+
+The program should write its output to a file named `output.txt`.  Note that the output.txt file above does not have to have a trailing newline character. That file should contain the following:
+
+1. The contents of the original file in its entirety (it will consist only of printable ASCII characters, as well as newlines)
+2. A message of your own, which demonstrates that you *could* modify the original message, possibly maliciously, if desired. (Do not actually modify the original message -- just add your message after the original, as that simplifies this assignment.) 
+3. A reasonable amount of PRINTABLE ASCII characters (decimal values 32 - 127) to the end of the input file (reasonable means 10 or fewer), such that the new output file has the same CRC as the desired CRC value (the second command-line parameter).  The only purpose of these characters is to affect the CRC value.
+
+Here is a sample execution run:
+
+```
+$ cat input.txt 
+Things are going just great!
+$ python3 crc16.py input.txt 
+crc16.py: 0xd868
+$ python3 crc16crack.py input.txt abcd 
+$ cat output.txt 
+Things are going just great!
+
+If you think things can't get worse it's probably only because you lack sufficient imagination.
+
+000ct-
+$ python3 crc16.py output.txt         
+crc16.py: 0xabcd
+$ time python3 crc16crack.py input.txt abcd
+python3 crc16crack.py input.txt abcd  81.16s user 1.99s system 99% cpu 1:23.15 total
+$ 
+```
+
+<!--
+
 Your job is to write a C or C++ program (necessary for speed reasons) that, when given an input file and a CRC checksum, will modify that message, and ensure that the modified version matches the CRC checksum.  You can use either C or C++ for this part, it doesn't matter.
 
 [CRC32](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) is used extensively in network transmission -- that podcast that you downloaded used thousands of CRC32 checksums to transfer it over the network.  We are going to use CRC16 -- it's a bit quicker to brute-force a hash, but has the same principles as CRC32.
@@ -96,6 +183,7 @@ The program should write its output to a file named `output.txt`.  Note that the
 - You need to create a new `crc_16_type` result EACH time you compute the CRC value; you can't re-use it very easily.
 - Your program will be given 60 seconds to run when we grade it.  This should be enough time for CRC16, but you may want to include the `-O2` compilation flag.
 
+-->
 
 ### Task 2: Dictionary Attacks
 
@@ -219,38 +307,30 @@ main:
 
 Change the name of your source code file as appropriate.  Also note that we did not use the `-I boost_1_81_0/` flag.
 
-#### Shell script: dictionary.sh
+#### Shell scripts
 
-The CRC code does not need a shell script, since it will be compiled into a `crc16` binary by the Makefile above.  Your password checking code will aLSO need a shell script, named `dictionary.sh`, which will likely be one of the following:
-
-```
-#!/bin/bash
-python3 dictionary.py $@
-```
+Each of the three parts will have to have its own shell script.  All these shell scripts are exactly two lines.  The first line is exactly:
 
 ```
 #!/bin/bash
-java Dictionary $@
 ```
 
-Change the name of your file and/or class as appropriate for your code.
+The name of the shell script and the second line will depend on which shell script and what language.  You are welcome to name your source code anything reaosnale; be sure to change the second line in your shell scripts accordingly.  Here are some examples of the second line:
 
+- Task 1: `crc16crack.sh`:
+    - Python: `python3 crc16crack.py $@`
+    - Java: `java CRC16Crack $@`
+    - C/C++: `crc16crack $@`
+- Task 2: `dictionary.sh`:
+    - Python: `python3 dictionary.py $@`
+    - Java: `java Dictionary $@`
+    - C/C++: `dictionary $@`
+- Task 3: `passwords.sh`:
+    - Python: `python3 passwords.py $@`
+    - Java: `java Passwords $@`
+    - C/C++: `passwords $@`
 
-#### Shell script: passwords.sh
-
-Your password checking code will also need a shell script, named `passwords.sh`, which will likely be one of the following:
-
-```
-#!/bin/bash
-python3 passwords.py $@
-```
-
-```
-#!/bin/bash
-java Passwords $@
-```
-
-Change the name of your file and/or class as appropriate for your code.
+To run it yourself, be sure to run `chmod 755 crc16crack.sh dictionary.sh passwords.sh`
 
 
 ### Submission
@@ -258,9 +338,14 @@ Change the name of your file and/or class as appropriate for your code.
 
 There are six files to submit:
 
-- `Makefile`, which should compile `crc16.cpp` from part 1, and -- if necessary -- any code form parts 2 and 3
-- `crc16.cpp` from task 1
+- `Makefile`, which should compile the code, as necessary, from all three tasks; you can just have an `echo` statement if you do not need to compile your code
+- `crc16crack.sh` and your source code from task 1
 - `dictionary.sh` and your source code from task 2
 - `passwords.sh` and your source code from task 3
 
 We will be compiling your submission with `make`.
+
+#### Submission hints
+
+The CRC-16 cracking code will take some time on Gradescope.  You can write a temporary version of that program that just writes anything to `output.txt` to start -- this will obviously fail the Gradescope tests, but it will allow you to ensure that everything else in your submission works (Makefile, the other file parts, the shell scripts, etc.).  Once you know everything else works, you can submit your real version of the CRC-16 cracking code.
+
