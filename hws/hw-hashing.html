@@ -84,7 +84,8 @@ $</code></pre>
 <li>the desired CRC value (in hex) - this will be 4 hexadecimal characters, such as ‘abcd’ (we will leave out the leading ‘0x’)</li>
 </ol>
 <p>A sample execution:</p>
-<pre><code>$ cat input.txt 
+<pre><code>$ echo &quot;Things are going just great&quot; &gt; input.txt
+$ cat input.txt 
 Things are going just great
 $ python3 crc16.py input.txt 
 crc16.py: 0x766a
@@ -122,86 +123,6 @@ crc16.py: 0xabcd
 $ time python3 crc16crack.py input.txt abcd
 python3 crc16crack.py input.txt abcd  81.16s user 1.99s system 99% cpu 1:23.15 total
 $ </code></pre>
-<!--
-
-Your job is to write a C or C++ program (necessary for speed reasons) that, when given an input file and a CRC checksum, will modify that message, and ensure that the modified version matches the CRC checksum.  You can use either C or C++ for this part, it doesn't matter.
-
-[CRC32](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) is used extensively in network transmission -- that podcast that you downloaded used thousands of CRC32 checksums to transfer it over the network.  We are going to use CRC16 -- it's a bit quicker to brute-force a hash, but has the same principles as CRC32.
-
-#### Set-up
-
-For this task, you will need a few functions from the [Boost C++ library](https://www.boost.org/), as they will perform the CRC hash computation.  Your program should include the library as follows:
-
-```
-#include <boost/crc.hpp>
-```
-
-To compile it, you first have to get Boost on your computer.  One option is to install it through your operating system's package manager -- and older version of Boost is fine, as the CRC code has not changed much in the last 6 years.  You can also download the Boost library, and uncompress it on your computer.  You can find the latest version (1.81.0) [here](https://www.boost.org/users/history/version_1_81_0.html); the .zip file direct download link is [here](https://boostorg.jfrog.io/artifactory/main/release/1.81.0/source/boost_1_81_0.zip).  You would then want to unzip that file.
-
-Once on your computer, your compilation line will be:
-
-```
-clang++ -O2 -I boost_1_81_0/ -o crc16 crc16.cpp
-```
-
-The `-I boost_1_81_0/` parameter tells the compiler to look in that directory, as it needs that to find the `boost/crc.hpp` file from the include line, above.  Change it as appropriate for wherever you unzipped Boost to.  If you installed it through your OS'es package manager, you would not include that flag.
-
-**IMPORTANT NOTE:** When you submit your code to Gradescope, you must ***NOT*** have the `-I boost_1_81_0/` flag present, as Boost will be installed on that autograder image.
-
- 
-#### Resources 
-
-- Boost libraries:
-    - [Wikipedia overview](https://en.wikipedia.org/wiki/Boost_(C++_libraries))
-    - [Documentation](https://www.boost.org/doc/libs/1_81_0/libs/crc/crc.html)
-    - [Example usage of CRC functions](https://stackoverflow.com/questions/2573726/how-to-use-boostcrc)
-- [Online CRC16 calculator](https://www.lammertbies.nl/comm/info/crc-calculation.html) (does not include trailing newlines)
-
-#### Assignment
-
-Your program should be called `crc16.cpp`, even if it's a C program; you will provide a Makefile to compile it (described below).  It will be run with two command-line parameters:
-
-1. the input file name to read from
-2. the desired CRC value (in hex) - this will be 4 hexadecimal characters, such as 'abcd' (we will leave out the leading '0x')
-
-A sample execution:
-
-```
-$ clang++ -O2 -o crc16 crc16.cpp 
-$ cat input.txt 
-Things are going just great!
-$ ./crc16 input.txt abcd
-$ cat output.txt ; /bin/echo
-Things are going just great!
-
-If you think things can't get worse it's probably only because you lack sufficient imagination.
-
-   &No
-$ 
-```
-
-
-The program should write its output to a file named `output.txt`.  Note that the output.txt file above does not have a trailing newline character. That file should contain the following:
-
-1. The contents of the original file in its entirety (it will consist only of printable ASCII characters, as well as newlines)
-2. A message of your own, which demonstrates that you *could* modify the original message, possibly maliciously, if desired. (Do not actually modify the original message -- just add your message after the original.) 
-3. A reasonable amount of PRINTABLE ASCII characters (decimal values 32 - 127) to the end of the input file (reasonable means 10 or fewer), such that the new output file has the same CRC as the desired CRC value (the second command-line parameter).  The only purpose of these characters is to affect the CRC value.
-
-
-#### Important Notes
-
-- **CRC16:** We will be using the CRC16 algorithm, NOT the CRC32 algorithm, to allow the program to run in a reasonably short time frame.  Boost can do both, so be careful.
-- **Testing:** As mentioned above, there is an [online CRC16 calculator](https://www.lammertbies.nl/comm/info/crc-calculation.html) to help you ensure that you are generating your CRC-16 hashes correctly.  For testing your CRC16 hashes, you should NOT use a string that has a newline, as that web page can not handle those.
-- **Newlines:** There are two things to be watch out for with newlines:
-    1. There are differences between Linux and Windows platforms (see [Wikipedia](http://en.wikipedia.org/wiki/Newline) for details).  Your program will be run (and graded) in a Linux environment.
-    2. Trailing newlines (`\n`) affect the CRC16 value of a file, but are often overlooked. Be careful not to unintentionally add any extra newlines that would change the CRC value of `output.txt`.  For example, the CRC16 for "hello world" with no trailing newline is 0x39c1 on a UNIX system, but with a trailing newline it is 0x9778.  
-
-#### Additional Hints
-
-- You need to create a new `crc_16_type` result EACH time you compute the CRC value; you can't re-use it very easily.
-- Your program will be given 60 seconds to run when we grade it.  This should be enough time for CRC16, but you may want to include the `-O2` compilation flag.
-
--->
 <h3 id="task-2-dictionary-attacks">Task 2: Dictionary Attacks</h3>
 <p>Modern computer systems do not store the password in plain text, but instead store a hash of that password. When a user logs in, a hash is taken of the password the user enters, and that hash is compared to the saved one – if they match, then the login is successful. Since hashes are one-way functions, we cannot determine a password based solely on the hash. Instead, we perform a <a href="https://en.wikipedia.org/wiki/Dictionary_attack">dictionary attack</a>: we take every word in the dictionary, hash each one, and then compare the hashes. If we had more computing power, we could compute <em>all</em> passwords of 8 printable characters, and hash each one of those.</p>
 <p>If all that was stored was the hash of the password, then it would be easy to figure out one from the other. For example, an Internet search for the hash 5f0974ee455c4cd57c58dfb04f3d070b1f365d0ed4401dbf28089b308b019a67 yields <a href="https://hashdecryption.com/h/plain/tableau">this site</a>, which tells us that the password is ‘tableau’.</p>
@@ -266,21 +187,21 @@ $ </code></pre>
 </ul>
 <h3 id="other-files">Other Files</h3>
 <h4 id="makefile">Makefile</h4>
-<p>You will need to submit a <code>Makefile</code>. It will have to compile your CRC-16 code, and (possibly) your dictionary attack code and password checking code.</p>
+<p>You will need to submit a <code>Makefile</code>. It will compile your code, as needed; if you are using Python (or similar), the no compilation is necessary, but a valid Makefile must still be submitted.</p>
 <p>If you are using a language for the dictionary attack code that does not need compilation, such as Python, your Makefile will look like the following:</p>
 <pre><code>main:
-    clang++ -O2 -o crc16 crc16.cpp</code></pre>
-<p>Note that the indentation is a tab, not spaces! Make is annoying that way. Also note that we did not use the <code>-I boost_1_81_0/</code> flag.</p>
+    echo &#39;hello world&#39;</code></pre>
+<p>Note that the indentation is a tab, not spaces! Make is annoying that way.</p>
 <p>If you are using a language for your dictionary attack code that <em>does</em> need compilation, such as Java, your Makefile will look like the following:</p>
 <pre><code>main:
-    clang++ -O2 -o crc16 crc16.cpp
+    javac CRC16Crack.java
     javac Dictionary.java
     javac Passwords.java</code></pre>
-<p>Change the name of your source code file as appropriate. Also note that we did not use the <code>-I boost_1_81_0/</code> flag.</p>
+<p>Change the name of your source code file as appropriate.</p>
 <h4 id="shell-scripts">Shell scripts</h4>
 <p>Each of the three parts will have to have its own shell script. All these shell scripts are exactly two lines. The first line is exactly:</p>
 <pre><code>#!/bin/bash</code></pre>
-<p>The name of the shell script and the second line will depend on which shell script and what language. You are welcome to name your source code anything reaosnale; be sure to change the second line in your shell scripts accordingly. Here are some examples of the second line:</p>
+<p>The name of the shell script and the second line will depend on which shell script and what programming language. You are welcome to name your source code anything reaosnale; be sure to change the second line in your shell scripts accordingly. Here are some examples of the second line:</p>
 <ul>
 <li>Task 1: <code>crc16crack.sh</code>:
 <ul>
@@ -303,7 +224,7 @@ $ </code></pre>
 </ul>
 <p>To run it yourself, be sure to run <code>chmod 755 crc16crack.sh dictionary.sh passwords.sh</code></p>
 <h3 id="submission">Submission</h3>
-<p>There are six files to submit:</p>
+<p>There are seven files to submit:</p>
 <ul>
 <li><code>Makefile</code>, which should compile the code, as necessary, from all three tasks; you can just have an <code>echo</code> statement if you do not need to compile your code</li>
 <li><code>crc16crack.sh</code> and your source code from task 1</li>
@@ -313,5 +234,6 @@ $ </code></pre>
 <p>We will be compiling your submission with <code>make</code>.</p>
 <h4 id="submission-hints">Submission hints</h4>
 <p>The CRC-16 cracking code will take some time on Gradescope. You can write a temporary version of that program that just writes anything to <code>output.txt</code> to start – this will obviously fail the Gradescope tests, but it will allow you to ensure that everything else in your submission works (Makefile, the other file parts, the shell scripts, etc.). Once you know everything else works, you can submit your real version of the CRC-16 cracking code.</p>
+<p>Note: there will be other, hidden, tests for this assignment. However, the hidden tests for part 1 (CRC cracking) are disabled for now so as not to prolong the Gradescope submission time. We’ll run those tests later.</p>
 </body>
 </html>

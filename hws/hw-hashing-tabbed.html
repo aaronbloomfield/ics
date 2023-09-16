@@ -90,7 +90,8 @@ $</code></pre>
 <li>the desired CRC value (in hex) - this will be 4 hexadecimal characters, such as ‘abcd’ (we will leave out the leading ‘0x’)</li>
 </ol>
 <p>A sample execution:</p>
-<pre><code>$ cat input.txt 
+<pre><code>$ echo "Things are going just great" &gt; input.txt
+$ cat input.txt 
 Things are going just great
 $ python3 crc16.py input.txt 
 crc16.py: 0x766a
@@ -128,7 +129,6 @@ crc16.py: 0xabcd
 $ time python3 crc16crack.py input.txt abcd
 python3 crc16crack.py input.txt abcd  81.16s user 1.99s system 99% cpu 1:23.15 total
 $ </code></pre>
-
 </div><div id='ttask-2-dictionary-attacks' class='tabcontent'><h3 id='task-2-dictionary-attacks'>Task 2: Dictionary Attacks</h3>
 <p>Modern computer systems do not store the password in plain text, but instead store a hash of that password. When a user logs in, a hash is taken of the password the user enters, and that hash is compared to the saved one – if they match, then the login is successful. Since hashes are one-way functions, we cannot determine a password based solely on the hash. Instead, we perform a <a href='https://en.wikipedia.org/wiki/Dictionary_attack'>dictionary attack</a>: we take every word in the dictionary, hash each one, and then compare the hashes. If we had more computing power, we could compute <em>all</em> passwords of 8 printable characters, and hash each one of those.</p>
 <p>If all that was stored was the hash of the password, then it would be easy to figure out one from the other. For example, an Internet search for the hash 5f0974ee455c4cd57c58dfb04f3d070b1f365d0ed4401dbf28089b308b019a67 yields <a href='https://hashdecryption.com/h/plain/tableau'>this site</a>, which tells us that the password is ‘tableau’.</p>
@@ -193,21 +193,21 @@ $ </code></pre>
 </ul>
 </div><div id='tother-files' class='tabcontent'><h3 id='other-files'>Other Files</h3>
 <h4 id='makefile'>Makefile</h4>
-<p>You will need to submit a <code>Makefile</code>. It will have to compile your CRC-16 code, and (possibly) your dictionary attack code and password checking code.</p>
+<p>You will need to submit a <code>Makefile</code>. It will compile your code, as needed; if you are using Python (or similar), the no compilation is necessary, but a valid Makefile must still be submitted.</p>
 <p>If you are using a language for the dictionary attack code that does not need compilation, such as Python, your Makefile will look like the following:</p>
 <pre><code>main:
-    clang++ -O2 -o crc16 crc16.cpp</code></pre>
-<p>Note that the indentation is a tab, not spaces! Make is annoying that way. Also note that we did not use the <code>-I boost_1_81_0/</code> flag.</p>
+    echo 'hello world'</code></pre>
+<p>Note that the indentation is a tab, not spaces! Make is annoying that way.</p>
 <p>If you are using a language for your dictionary attack code that <em>does</em> need compilation, such as Java, your Makefile will look like the following:</p>
 <pre><code>main:
-    clang++ -O2 -o crc16 crc16.cpp
+    javac CRC16Crack.java
     javac Dictionary.java
     javac Passwords.java</code></pre>
-<p>Change the name of your source code file as appropriate. Also note that we did not use the <code>-I boost_1_81_0/</code> flag.</p>
+<p>Change the name of your source code file as appropriate.</p>
 <h4 id='shell-scripts'>Shell scripts</h4>
 <p>Each of the three parts will have to have its own shell script. All these shell scripts are exactly two lines. The first line is exactly:</p>
 <pre><code>#!/bin/bash</code></pre>
-<p>The name of the shell script and the second line will depend on which shell script and what language. You are welcome to name your source code anything reaosnale; be sure to change the second line in your shell scripts accordingly. Here are some examples of the second line:</p>
+<p>The name of the shell script and the second line will depend on which shell script and what programming language. You are welcome to name your source code anything reaosnale; be sure to change the second line in your shell scripts accordingly. Here are some examples of the second line:</p>
 <ul>
 <li>Task 1: <code>crc16crack.sh</code>:
 <ul>
@@ -230,7 +230,7 @@ $ </code></pre>
 </ul>
 <p>To run it yourself, be sure to run <code>chmod 755 crc16crack.sh dictionary.sh passwords.sh</code></p>
 </div><div id='tsubmission' class='tabcontent'><h3 id='submission'>Submission</h3>
-<p>There are six files to submit:</p>
+<p>There are seven files to submit:</p>
 <ul>
 <li><code>Makefile</code>, which should compile the code, as necessary, from all three tasks; you can just have an <code>echo</code> statement if you do not need to compile your code</li>
 <li><code>crc16crack.sh</code> and your source code from task 1</li>
@@ -240,6 +240,7 @@ $ </code></pre>
 <p>We will be compiling your submission with <code>make</code>.</p>
 <h4 id='submission-hints'>Submission hints</h4>
 <p>The CRC-16 cracking code will take some time on Gradescope. You can write a temporary version of that program that just writes anything to <code>output.txt</code> to start – this will obviously fail the Gradescope tests, but it will allow you to ensure that everything else in your submission works (Makefile, the other file parts, the shell scripts, etc.). Once you know everything else works, you can submit your real version of the CRC-16 cracking code.</p>
+<p>Note: there will be other, hidden, tests for this assignment. However, the hidden tests for part 1 (CRC cracking) are disabled for now so as not to prolong the Gradescope submission time. We’ll run those tests later.</p>
 </div><script>document.getElementById('defaultOpen').click();</script></body>
 </html>
 
