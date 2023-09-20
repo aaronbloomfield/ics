@@ -49,12 +49,22 @@ crc16.py: 0x766a
 $
 ```
 
+The first line (`echo "Things are going just great" > input.txt`) creates a text file that has the indicated string.  The second line calls the program above.
+
 #### Assignment
 
 Your program can be named anything, and there will have to be a `crc16crack.sh` shell script, described below, to run your program.  Your program will be run with two command-line parameters:
 
 1. the input file name to read from
 2. the desired CRC value (in hex) - this will be 4 hexadecimal characters, such as 'abcd' (we will leave out the leading '0x')
+
+Note that the execution of `crc16crack.sh` can take a few minutes, depending on the platform it was run on.  This means the Gradescope submission will take a while as well -- see the hints in the Submission section, below, for ways to handle this.
+
+The program should write its output to a file named `output.txt`.  Note that the output.txt file above does not have to have a trailing newline character. That file should contain the following:
+
+1. The contents of the original file in its entirety (it will consist only of printable ASCII characters, as well as newlines)
+2. A message of your own, which demonstrates that you *could* modify the original message, possibly maliciously, if desired. (Do not actually modify the original message -- just add your message after the original, as that simplifies this assignment.) 
+3. A reasonable amount of PRINTABLE ASCII characters (decimal values 32 - 127) to the end of the input file (reasonable means 10 or fewer), such that the new output file has the same CRC as the desired CRC value (the second command-line parameter).  The only purpose of these characters is to affect the CRC value.
 
 A sample execution:
 
@@ -76,34 +86,21 @@ crc16.py: 0xabcd
 $ 
 ```
 
-Note that the execution of `crc16crack.sh` took between 1 and 3 minutes, depending on the platform it was run on.  This means the Gradescope submission will take a while as well -- see the hints in the Submission section, below, for ways to handle this.
+Here is what is happening in the above execution run:
 
-The program should write its output to a file named `output.txt`.  Note that the output.txt file above does not have to have a trailing newline character. That file should contain the following:
+- `echo "Things are going just great" > input.txt`
+    - This is creating a text file, called `input.txt`, that has the string "Things are going just great"
+- `cat input.txt`
+    - `cat` is how you display a text file to screen in UNIX; the equivalent command on Windows is `type input.txt`
+- `python3 crc16.py input.txt`
+    - This uses the program provided above to check what the CRC-16 hash of `input.txt` is -- and it's reports back that it is 0x766a
+- `./crc16crack.sh input.txt abcd`
+    - This runs your crack program using `input.txt` as the input file, with a desired hash of 0xabcd
+- `cat output.txt`
+    - This displays the resulting output file to the screen -- you can see the original contents of `input.txt`, the additions (like 3 in the file), and the extra few characters needed to make `output.txt` have hash 0xabcd
+- `python3 crc16.py output.txt`
+    - This runs the program provided above to verify that the hash of `output.txt` really is 0xabcd
 
-1. The contents of the original file in its entirety (it will consist only of printable ASCII characters, as well as newlines)
-2. A message of your own, which demonstrates that you *could* modify the original message, possibly maliciously, if desired. (Do not actually modify the original message -- just add your message after the original, as that simplifies this assignment.) 
-3. A reasonable amount of PRINTABLE ASCII characters (decimal values 32 - 127) to the end of the input file (reasonable means 10 or fewer), such that the new output file has the same CRC as the desired CRC value (the second command-line parameter).  The only purpose of these characters is to affect the CRC value.
-
-Here is a sample execution run:
-
-```
-$ cat input.txt 
-Things are going just great!
-$ python3 crc16.py input.txt 
-crc16.py: 0xd868
-$ python3 crc16crack.py input.txt abcd 
-$ cat output.txt 
-Things are going just great!
-
-If you think things can't get worse it's probably only because you lack sufficient imagination.
-
-000ct-
-$ python3 crc16.py output.txt         
-crc16.py: 0xabcd
-$ time python3 crc16crack.py input.txt abcd
-python3 crc16crack.py input.txt abcd  81.16s user 1.99s system 99% cpu 1:23.15 total
-$ 
-```
 
 ### Task 2: Dictionary Attacks
 

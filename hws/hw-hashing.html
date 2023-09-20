@@ -8,18 +8,10 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
+    ul.task-list{list-style: none;}
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
@@ -77,11 +69,19 @@ print(sys.argv[0]+&quot;:&quot;,hex(result))</code></pre>
 $ python3 crc16.py input.txt                       
 crc16.py: 0x766a
 $</code></pre>
+<p>The first line (<code>echo "Things are going just great" &gt; input.txt</code>) creates a text file that has the indicated string. The second line calls the program above.</p>
 <h4 id="assignment">Assignment</h4>
 <p>Your program can be named anything, and there will have to be a <code>crc16crack.sh</code> shell script, described below, to run your program. Your program will be run with two command-line parameters:</p>
 <ol type="1">
 <li>the input file name to read from</li>
 <li>the desired CRC value (in hex) - this will be 4 hexadecimal characters, such as ‘abcd’ (we will leave out the leading ‘0x’)</li>
+</ol>
+<p>Note that the execution of <code>crc16crack.sh</code> can take a few minutes, depending on the platform it was run on. This means the Gradescope submission will take a while as well – see the hints in the Submission section, below, for ways to handle this.</p>
+<p>The program should write its output to a file named <code>output.txt</code>. Note that the output.txt file above does not have to have a trailing newline character. That file should contain the following:</p>
+<ol type="1">
+<li>The contents of the original file in its entirety (it will consist only of printable ASCII characters, as well as newlines)</li>
+<li>A message of your own, which demonstrates that you <em>could</em> modify the original message, possibly maliciously, if desired. (Do not actually modify the original message – just add your message after the original, as that simplifies this assignment.)</li>
+<li>A reasonable amount of PRINTABLE ASCII characters (decimal values 32 - 127) to the end of the input file (reasonable means 10 or fewer), such that the new output file has the same CRC as the desired CRC value (the second command-line parameter). The only purpose of these characters is to affect the CRC value.</li>
 </ol>
 <p>A sample execution:</p>
 <pre><code>$ echo &quot;Things are going just great&quot; &gt; input.txt
@@ -99,30 +99,33 @@ If you think things can&#39;t get worse it&#39;s probably only because you lack 
 $ python3 crc16.py output.txt         
 crc16.py: 0xabcd
 $ </code></pre>
-<p>Note that the execution of <code>crc16crack.sh</code> took between 1 and 3 minutes, depending on the platform it was run on. This means the Gradescope submission will take a while as well – see the hints in the Submission section, below, for ways to handle this.</p>
-<p>The program should write its output to a file named <code>output.txt</code>. Note that the output.txt file above does not have to have a trailing newline character. That file should contain the following:</p>
-<ol type="1">
-<li>The contents of the original file in its entirety (it will consist only of printable ASCII characters, as well as newlines)</li>
-<li>A message of your own, which demonstrates that you <em>could</em> modify the original message, possibly maliciously, if desired. (Do not actually modify the original message – just add your message after the original, as that simplifies this assignment.)</li>
-<li>A reasonable amount of PRINTABLE ASCII characters (decimal values 32 - 127) to the end of the input file (reasonable means 10 or fewer), such that the new output file has the same CRC as the desired CRC value (the second command-line parameter). The only purpose of these characters is to affect the CRC value.</li>
-</ol>
-<p>Here is a sample execution run:</p>
-<pre><code>$ cat input.txt 
-Things are going just great!
-$ python3 crc16.py input.txt 
-crc16.py: 0xd868
-$ python3 crc16crack.py input.txt abcd 
-$ cat output.txt 
-Things are going just great!
-
-If you think things can&#39;t get worse it&#39;s probably only because you lack sufficient imagination.
-
-000ct-
-$ python3 crc16.py output.txt         
-crc16.py: 0xabcd
-$ time python3 crc16crack.py input.txt abcd
-python3 crc16crack.py input.txt abcd  81.16s user 1.99s system 99% cpu 1:23.15 total
-$ </code></pre>
+<p>Here is what is happening in the above execution run:</p>
+<ul>
+<li><code>echo "Things are going just great" &gt; input.txt</code>
+<ul>
+<li>This is creating a text file, called <code>input.txt</code>, that has the string “Things are going just great”</li>
+</ul></li>
+<li><code>cat input.txt</code>
+<ul>
+<li><code>cat</code> is how you display a text file to screen in UNIX; the equivalent command on Windows is <code>type input.txt</code></li>
+</ul></li>
+<li><code>python3 crc16.py input.txt</code>
+<ul>
+<li>This uses the program provided above to check what the CRC-16 hash of <code>input.txt</code> is – and it’s reports back that it is 0x766a</li>
+</ul></li>
+<li><code>./crc16crack.sh input.txt abcd</code>
+<ul>
+<li>This runs your crack program using <code>input.txt</code> as the input file, with a desired hash of 0xabcd</li>
+</ul></li>
+<li><code>cat output.txt</code>
+<ul>
+<li>This displays the resulting output file to the screen – you can see the original contents of <code>input.txt</code>, the additions (like 3 in the file), and the extra few characters needed to make <code>output.txt</code> have hash 0xabcd</li>
+</ul></li>
+<li><code>python3 crc16.py output.txt</code>
+<ul>
+<li>This runs the program provided above to verify that the hash of <code>output.txt</code> really is 0xabcd</li>
+</ul></li>
+</ul>
 <h3 id="task-2-dictionary-attacks">Task 2: Dictionary Attacks</h3>
 <p>Modern computer systems do not store the password in plain text, but instead store a hash of that password. When a user logs in, a hash is taken of the password the user enters, and that hash is compared to the saved one – if they match, then the login is successful. Since hashes are one-way functions, we cannot determine a password based solely on the hash. Instead, we perform a <a href="https://en.wikipedia.org/wiki/Dictionary_attack">dictionary attack</a>: we take every word in the dictionary, hash each one, and then compare the hashes. If we had more computing power, we could compute <em>all</em> passwords of 8 printable characters, and hash each one of those.</p>
 <p>If all that was stored was the hash of the password, then it would be easy to figure out one from the other. For example, an Internet search for the hash 5f0974ee455c4cd57c58dfb04f3d070b1f365d0ed4401dbf28089b308b019a67 yields <a href="https://hashdecryption.com/h/plain/tableau">this site</a>, which tells us that the password is ‘tableau’.</p>
