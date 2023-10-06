@@ -83,7 +83,7 @@ Course calendar
 | 4  | Sep 11 | M,W,F  | Ethics            | [Encryption](../slides/encryption.html#/) | Mon: encryption to 6.73; Wed: encryption to 8.10; Fri: finished encryption |
 | 5  | Sep 18 | M,W,F  | RSA               | [Encryption](../slides/encryption.html#/) | Mon: policy to 4.8; Wed: policy to 7.19; Fri: networking to 3.13 |
 | 6  | Sep 25 | M,W,F  | Hashing           | [Networking Overview](../slides/networks.html#/), [Web Security](../slides/web-security.html#/) | Mon: overview to 5.2; Wed: finished overview, finished policy, web security to 4.8; Fri: web security to 6.10 |
-| 7  | Oct 2  | W,F    | Networks          | [Web Security](../slides/web-security.html#/), [Anonymity](../slides/anonymity.html#/) | Mon: fall break; Wed: web security to 7.7  |
+| 7  | Oct 2  | W,F    | Networks          | [Web Security](../slides/web-security.html#/), [Anonymity](../slides/anonymity.html#/) | Mon: fall break; Wed: web security to 7.7; Fri: web security to 4.21  |
 | 8  | Oct 9  | M,W,F  | (midterm week)    | [SQL, XSS, and CSRF](../slides/sql-xss-csrf.html#/), midterm |  |
 | 9  | Oct 16 | M,W,F  | Network fuzzing   | [Cryptocurrency](../slides/cryptocurrency.html#/) |   |
 | 10 | Oct 23 | M,W,F  | SQL/XSS/CSRF      | [Rootkits](../slides/rootkits.html#/), [Stuxnet](../slides/stuxnet.html#/) |   |
