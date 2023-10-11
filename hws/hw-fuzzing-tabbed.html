@@ -58,13 +58,12 @@
 <li>You can read about what fuzzing is on the <a href='https://en.wikipedia.org/wiki/Fuzzing'>Fuzzing Wikipedia page</a>. You should know what fuzzing is before you proceed.</li>
 <li>You should be familiar with the <a href='../slides/networks.html'>networking slide set</a>.</li>
 <li>You should be familiar with the <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/Status'>HTTP status codes</a> – whenever a web page is requested, one of these codes is provided. For example, if the page is valid, it provides code 200 (OK) along with the page data. If the page is not found, then it returns 404 (not found).</li>
-<li>You should have a recent version of Python, and you will need to be able to install packages, via pip, presumably in a virtual environment</li>
+<li>You should have a recent version of Python, and you will need to be able to install packages, via pip</li>
 </ul>
 </div><div id='tchangelog' class='tabcontent'><h3 id='changelog'>Changelog</h3>
 <p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
 </div><div id='tsetup' class='tabcontent'><h3 id='setup'>Setup</h3>
-<p>This assignment must be done in a recent version of Python. You may want to create a virtual environment in Python: <code>virtualenv fuzzer</code>. You then enter that virtual environment; on Linux it is <code>source fuzzer/bin/activate</code>; on Windows it’s something similar.</p>
-<p>The only additional package you will need is <code>uvicorn</code> – to install it, enter <code>pip install uvicorn</code> (or <code>pip3 install uvicorn</code>).</p>
+<p>This assignment must be done in a recent version of Python. The only additional package you will need is <code>uvicorn</code> – to install it, enter <code>pip install uvicorn</code> (or <code>pip3 install uvicorn</code>).</p>
 <p>You will need a number of files from this repository to work on this assignment:</p>
 <ul>
 <li><a href='fuzzing/fuzzer.py.html'>fuzzer.py</a> (<a href='fuzzing/fuzzer.py'>src</a>): this is where you will write the code for this assignment, and the only file that will be submitted.</li>
@@ -117,6 +116,7 @@
 <li><code>-mc MATCH_CODES</code>: Match HTTP response codes. May be specified multiple times. If let unspecified, defaults to the following response codes: [200, 301, 302, 401, 403]. Previously you printed out any URLs that did not return 404 (not found). That should now be modified to print out the URLs that return one of the escape codes in this list (which is parsed for you and passed into the <code>fuzz()</code> function).
 <ul>
 <li>Specifying just one response code via <code>-mc</code> will replace the default list with just that one. So <code>-mc 200</code> will not check for any of the defaults other than 200. Note that the command line argument parsing does this for you.</li>
+<li><strong>NOTE:</strong> this can be specified <em>multiple</em> times, at which point you would then have to check for <em>multiple</em> match codes.</li>
 </ul></li>
 </ul>
 <p>When we test your code, we will never give it invalid parameters, and there will always be a <code>-u</code> parameter and a <code>-w</code> parameter. So you do not have to error-check the parameters.</p>
@@ -130,6 +130,7 @@
 <p>This runs the server on port 5000 on your computer. To test against this, you will run your fuzzer as follows:</p>
 <pre><code>python3 fuzzer.py -u http://localhost:5000/FUZZ -w common.txt</code></pre>
 <p>Note: it may be that your computer needs to use <code>http://127.0.0.1:5000/FUZZ</code> instead.</p>
+<p>Also note: sometimes Macs have issues with port 5000. If that is the case, then try any other port (5001, 5002, etc.).</p>
 <p>Following the output specifications described above, the output should be exactly as follows. Note that the order of the lines does not matter, as long as the format of each line is exact.</p>
 <pre><code>200 http://localhost:5000/.gitignore
 200 http://localhost:5000/employers

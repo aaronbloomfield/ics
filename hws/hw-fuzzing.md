@@ -15,7 +15,7 @@ Credit: this homework is based heavily on [Will Shand's xfuzz assignment](https:
 - You can read about what fuzzing is on the [Fuzzing Wikipedia page](https://en.wikipedia.org/wiki/Fuzzing).  You should know what fuzzing is before you proceed.
 - You should be familiar with the [networking slide set](../slides/networks.html).
 - You should be familiar with the [HTTP status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) -- whenever a web page is requested, one of these codes is provided.  For example, if the page is valid, it provides code 200 (OK) along with the page data.  If the page is not found, then it returns 404 (not found).
-- You should have a recent version of Python, and you will need to be able to install packages, via pip, presumably in a virtual environment
+- You should have a recent version of Python, and you will need to be able to install packages, via pip
 
 ### Changelog
 
@@ -24,9 +24,7 @@ Any changes to this page will be put here for easy reference.  Typo fixes and mi
 
 ### Setup
 
-This assignment must be done in a recent version of Python.  You may want to create a virtual environment in Python: `virtualenv fuzzer`.  You then enter that virtual environment; on Linux it is `source fuzzer/bin/activate`; on Windows it's something similar.  
-
-The only additional package you will need is `uvicorn` -- to install it, enter `pip install uvicorn` (or `pip3 install uvicorn`).
+This assignment must be done in a recent version of Python.  The only additional package you will need is `uvicorn` -- to install it, enter `pip install uvicorn` (or `pip3 install uvicorn`).
 
 You will need a number of files from this repository to work on this assignment:
 
@@ -95,6 +93,7 @@ There are a number of command-line parameters that the fuzzer.py file will accep
 	- You can also use the `urllib.request.Request` class to set the data; to check the data is received correctly, print out the `scope` variable in `server.py`
 - `-mc MATCH_CODES`: Match HTTP response codes. May be specified multiple times. If let unspecified, defaults to the following response codes: [200, 301, 302, 401, 403].  Previously you printed out any URLs that did not return 404 (not found).  That should now be modified to print out the URLs that return one of the escape codes in this list (which is parsed for you and passed into the `fuzz()` function).
 	- Specifying just one response code via `-mc` will replace the default list with just that one.  So `-mc 200` will not check for any of the defaults other than 200.  Note that the command line argument parsing does this for you.
+	- **NOTE:** this can be specified *multiple* times, at which point you would then have to check for *multiple* match codes.
 
 When we test your code, we will never give it invalid parameters, and there will always be a `-u` parameter and a `-w` parameter.  So you do not have to error-check the parameters.
 
@@ -122,6 +121,8 @@ python3 fuzzer.py -u http://localhost:5000/FUZZ -w common.txt
 ```
 
 Note: it may be that your computer needs to use `http://127.0.0.1:5000/FUZZ` instead.
+
+Also note: sometimes Macs have issues with port 5000.  If that is the case, then try any other port (5001, 5002, etc.).
 
 Following the output specifications described above, the output should be exactly as follows.  Note that the order of the lines does not matter, as long as the format of each line is exact.
 
