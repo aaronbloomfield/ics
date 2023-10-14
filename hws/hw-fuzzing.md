@@ -19,7 +19,9 @@ Credit: this homework is based heavily on [Will Shand's xfuzz assignment](https:
 
 ### Changelog
 
-Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
+Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  <!-- So far there aren't any significant changes to report. -->
+
+- Sat, Oct 14: improved the explanations in the advanced fuzzing section; no changes made to the requirements.
 
 
 ### Setup
@@ -76,22 +78,23 @@ We are going to use this particular call the visible test when you submit your a
 
 ### Task 2: Advanced fuzzing
 
-There are a number of command-line parameters that the fuzzer.py file will accept.  You have to implement usage of the others.  You can find the via `python3 fuzzer.py -h`.  The remaining ones to implement are as follows.  Note that these are already parsed for you; you just have to handle when those values are in the `args` parameter to the `fuzz()` function.
+There are a number of command-line parameters that the fuzzer.py file will accept.  You have to implement usage of the others.  You can find them all via `python3 fuzzer.py -h`.  The remaining ones to implement are as follows.  Note that these are already parsed for you; you just have to handle when those values are in the `args` parameter to the `fuzz()` function.
 
-- `-e EXTENSIONS` or `--extension EXTENSIONS`: One or more extensions to append (e.g. php, html, etc.). Multiple extensions may be provided.  So if `-e php` and `-e html` is provided, and the wordlist contains `hello` and `world`, then you should be replacing `FUZZ` with six different values: `hello`, `hello.php`, `hello.html`, `world`, `world.php`, and `world.html`.  
-	- The value to the `-e` parameter assumes htat it will be prefixed with a period before being added to each word in the word list.  So `-e html` means you will add `.html` to each word in the word list.  However, note that the command line parameter inserts that period for you.
+- `-e EXTENSIONS` or `--extension EXTENSIONS`: One or more extensions to append (e.g. php, html, etc.). Multiple extensions may be provided.  So if `-e php -e html` is provided, and the wordlist contains `hello` and `world`, then you should be replacing `FUZZ` with six different values: `hello`, `hello.php`, `hello.html`, `world`, `world.php`, and `world.html`.  
+	- The value to the `-e` parameter assumes that it will be prefixed with a period before being added to each word in the word list.  So `-e html` means you will add `.html` to each word in the word list.  However, note that the command line parameter inserts that period for you.
 	- Note that adding any number of extensions still means you try the base word as well.  So adding `-e html` means your program will try *both* `alert` and `alert.html`.
 - `-X METHOD` or `--method METHOD`: HTTP method to use (GET, POST, or PUT) (default: GET)
-	- Your code should allow both upper-case and lower-case values
-	- You can also use the `urllib.request.Request` class to set the method; to check the method is received correctly, print out the `scope` variable in `server.py`
-- `-H HEADERS` or `--header HEADERS`: One or more HTTP headers to add to requests, in the form "HeaderName: HeaderValue" (e.g. "Content-Type: application/json" or "Host: FUZZ.example.com"). May be specified one or more times.
-	- You can also use the `urllib.request.Request` class to set the headers; to check the header is received correctly, print out the `scope` variable in `server.py`
+	- Your code should allow both upper-case and lower-case values ("get" and "GET")
+	- You can also use the [urllib.request.Request](https://docs.python.org/3/library/urllib.request.html#urllib.request.Request) class to set the method; you just pass that object into [urllib.request.urlopen()](https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen).  To check the method is received correctly, update `server.py` to print out the `scope` variable.
+- `-H HEADERS` or `--header HEADERS`: One or more HTTP headers to add to requests, in the form "HeaderName:HeaderValue" (e.g. "Content-Type:application/json" or "Host:FUZZ.example.com"). This may be specified one or more times.
+	- You can again use [urllib.request.Request](https://docs.python.org/3/library/urllib.request.html#urllib.request.Request) to set the headers; to check the header is received correctly, print out the `scope` variable in `server.py`.  As before, you then past the Request object into `urllib.request.urlopen`.
 	- Example usage: adding `-H "MyHeader:foobarbaz"` will cause each request sent to the URL to include that header; note that there is no space after the colon
-	- Note that, in `fuzz()`, the headers are received as a string with a colon (`:`) separating the key and value.  You have to `split()` that, as what is passed to the `urllib.request.Request` constructor is a dictionary of key-value pairs.
+	- Note that, in `fuzz()`, the headers are received as a string with a colon (`:`) separating the key and value.  You have to `split()` that, as what needs to be passed to the `urllib.request.Request` constructor is a dictionary of key-value pairs.
 - `-d DATA` or `--data DATA`: Data to send in the body of the HTTP request.
-	- To see how to read it from uvicorn, look [here](https://www.uvicorn.org/) -- specifically, look at the `read_body()` function, which is called (in the `app()` function in server.py) as `body = await read_body(receive)`.
-	- You can also use the `urllib.request.Request` class to set the data; to check the data is received correctly, print out the `scope` variable in `server.py`
-- `-mc MATCH_CODES`: Match HTTP response codes. May be specified multiple times. If let unspecified, defaults to the following response codes: [200, 301, 302, 401, 403].  Previously you printed out any URLs that did not return 404 (not found).  That should now be modified to print out the URLs that return one of the escape codes in this list (which is parsed for you and passed into the `fuzz()` function).
+	- To see how to read it from uvicorn, look [here](https://www.uvicorn.org/) -- specifically, look at the `read_body()` function, which is called (in the `app()` function in server.py) as `body = await read_body(receive)`.  You can cut-and-paste that function right into server.py if you want to use it.
+	- You can also use the `urllib.request.Request` class to set the data; to check the data is received correctly, print out the `scope` variable in `server.py`.  As before, you then past the Request object into `urllib.request.urlopen`.
+	- Warning: the data passed in to the `Request` object must be `bytes`, not a string or `None`.
+- `-mc MATCH_CODES`: Match [HTTP response codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes). May be specified multiple times. If left unspecified, defaults to the following response codes: [200, 301, 302, 401, 403].  Previously you printed out any URLs that did not return 404 (not found).  That should now be modified to print out the URLs that return one of the response codes in this list (which is parsed for you and passed into the `fuzz()` function in the `args` parameter).
 	- Specifying just one response code via `-mc` will replace the default list with just that one.  So `-mc 200` will not check for any of the defaults other than 200.  Note that the command line argument parsing does this for you.
 	- **NOTE:** this can be specified *multiple* times, at which point you would then have to check for *multiple* match codes.
 
