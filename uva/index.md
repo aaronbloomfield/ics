@@ -85,7 +85,7 @@ Course calendar
 | 6  | Sep 25 | M,W,F  | Hashing           | [Networking Overview](../slides/networks.html#/), [Web Security](../slides/web-security.html#/) | Mon: overview to 5.2; Wed: finished overview, finished policy, web security to 4.8; Fri: web security to 6.10 |
 | 7  | Oct 2  | W,F    | Networks          | [Web Security](../slides/web-security.html#/), [Anonymity](../slides/anonymity.html#/) | Mon: fall break; Wed: web security to 7.7; Fri: web security to 8.14 |
 | 8  | Oct 9  | M,W,F  | (midterm week)    | [SQL, XSS, and CSRF](../slides/sql-xss-csrf.html#/), midterm | Mon: finished web security, review session; Wed: midterm; Fri: SQL/XSS/CSRF to 4.11 |
-| 9  | Oct 16 | M,W,F  | Network fuzzing   | [Cryptocurrency](../slides/cryptocurrency.html#/) |   |
+| 9  | Oct 16 | M,W,F  | Network fuzzing   | [Cryptocurrency](../slides/cryptocurrency.html#/) | Mon: finished SQL/XSS/CSRF |
 | 10 | Oct 23 | M,W,F  | SQL/XSS/CSRF      | [Rootkits](../slides/rootkits.html#/), [Stuxnet](../slides/stuxnet.html#/) |   |
 | 11 | Oct 30 | M,W,F  | Cryptocurrency    | [Viruses](../slides/viruses.html#/)|   |
 | 12 | Nov 6  | M,W,F  | Networks          | [Buffer Overflows](../slides/buffer-overflows.html#/) |   |
