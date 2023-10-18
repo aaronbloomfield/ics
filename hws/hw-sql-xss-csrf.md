@@ -10,6 +10,10 @@ There are three parts to this assignment.  As part of this assignment, you will 
 
 Your final report should be a PDF file.  It need not be long, but it must answer the questions posed below.  However, it must be EXACTLY three pages, which each of the three parts on its own page (SQL on page 1, XSS on page 2, and CSRF on page 3).
 
+### Changelog
+
+Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.   So far there aren't any significant changes to report.
+
 
 ### Part 1: SQL Injection Attack
 
@@ -80,7 +84,7 @@ Your goal is to transfer $200 to 'mallory' via that URL.  This must be done two 
 - Via GET variables, so that it's an attack in a single URL.  This URL could be hidden through a link, a picture, etc.
 - Via a form posting, which uses that URL as the 'action' value of the form.
 
-Now try visiting the site but add `?token` to the link (so it's [https://andromeda.cs.virginia.edu/~insecure/csrf.php?token](https://andromeda.cs.virginia.edu/~insecure/csrf.php?token)).  This adds a CSRF token to the form.  Unfortunately for this bank's security, the token that was added is always the same.  Perform the two CSRF attacks (via GET and via POST) against this variant URL.  For the GET, your URL would be something like `.../csrf.php?token&foo=bar&...`, and for the post, the `action` field of the `form` tag would have the `csrf.php` part be `csrf.php?token`.
+Now try visiting the site but add `?token` to the end of the URL.  This adds a CSRF token to the form.  Unfortunately for this bank's security, the token that was added is always the same.  Perform the two CSRF attacks (via GET and via POST) against this variant URL.  For the GET, your URL would be something like `.../csrf.php?token&foo=bar&...`, and for the post, the `action` field of the `form` tag would have the `csrf.php` part be `csrf.php?token`.
 
 In your write-up, show the two URLs used (for the two GET attacks), and the two HTML forms used for the two POST attacks).
 

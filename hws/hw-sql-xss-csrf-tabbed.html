@@ -8,10 +8,18 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel='stylesheet' href='../markdown.css'></link>
@@ -43,6 +51,7 @@
 <h1 id='ics-programming-homework-sql-csrf-and-xss'>ICS: Programming Homework: SQL, CSRF, and XSS</h1>
 <p><a href='index.html'>Go up to the ICS HW page</a> (<a href='index.md'>md</a>) | <a href='hw-sql-xss-csrf.html'>view one-page version</a></p><div class='tab'>
 <button class='tablinks' onclick="openTab(event,'tintroduction')" id='defaultOpen'>Introduction</button>
+<button class='tablinks' onclick="openTab(event,'tchangelog')">Changelog</button>
 <button class='tablinks' onclick="openTab(event,'tpart-1-sql-injection-attack')">SQL Injection Attack</button>
 <button class='tablinks' onclick="openTab(event,'tpart-2-cross-site-scripting-attack')">Cross Site Scripting Attack</button>
 <button class='tablinks' onclick="openTab(event,'tpart-3-cross-site-request-forgery-attack')">Cross Site Request Forgery Attack</button>
@@ -51,6 +60,8 @@
 <div id='tintroduction' class='tabcontent'><h3 id='introduction'>Introduction</h3>
 <p>There are three parts to this assignment. As part of this assignment, you will have to create a document, called <code>mst3k-websecurity.pdf</code> (where mst3k is your userid), and submit that file. We aren’t looking for any fancy write-up - just an explanation of what you did, and the results you got. That being said, it should be legible. So make sure you indicate what answers are for what questions, etc.</p>
 <p>Your final report should be a PDF file. It need not be long, but it must answer the questions posed below. However, it must be EXACTLY three pages, which each of the three parts on its own page (SQL on page 1, XSS on page 2, and CSRF on page 3).</p>
+</div><div id='tchangelog' class='tabcontent'><h3 id='changelog'>Changelog</h3>
+<p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
 </div><div id='tpart-1-sql-injection-attack' class='tabcontent'><h3 id='part-1-sql-injection-attack'>Part 1: SQL Injection Attack</h3>
 <p>First, you should be familiar with SQL and SQL injection attacks. For review, look at the first half of the <a href='../slides/sql-xss-csrf.html#/'>SQL, XSS, and CSRF slide set</a>.</p>
 <p>I’ve already determined your grades for this part! And you all got an F. So sorry! Those grades have been stored in a database. Whatever grade is in that database at the end of this assignment is your grade for htis part.</p>
@@ -106,7 +117,7 @@
 <li>Via GET variables, so that it’s an attack in a single URL. This URL could be hidden through a link, a picture, etc.</li>
 <li>Via a form posting, which uses that URL as the ‘action’ value of the form.</li>
 </ul>
-<p>Now try visiting the site but add <code>?token</code> to the link (so it’s <a href='https://andromeda.cs.virginia.edu/~insecure/csrf.php?token'>https://andromeda.cs.virginia.edu/~insecure/csrf.php?token</a>). This adds a CSRF token to the form. Unfortunately for this bank’s security, the token that was added is always the same. Perform the two CSRF attacks (via GET and via POST) against this variant URL. For the GET, your URL would be something like <code>.../csrf.php?token&foo=bar&...</code>, and for the post, the <code>action</code> field of the <code>form</code> tag would have the <code>csrf.php</code> part be <code>csrf.php?token</code>.</p>
+<p>Now try visiting the site but add <code>?token</code> to the end of the URL. This adds a CSRF token to the form. Unfortunately for this bank’s security, the token that was added is always the same. Perform the two CSRF attacks (via GET and via POST) against this variant URL. For the GET, your URL would be something like <code>.../csrf.php?token&foo=bar&...</code>, and for the post, the <code>action</code> field of the <code>form</code> tag would have the <code>csrf.php</code> part be <code>csrf.php?token</code>.</p>
 <p>In your write-up, show the two URLs used (for the two GET attacks), and the two HTML forms used for the two POST attacks).</p>
 <p>Honor pledge details: you are given permission to execute CSRF attacks against this particular URL for this assignment.</p>
 </div><div id='tsubmission' class='tabcontent'><h3 id='submission'>Submission</h3>
