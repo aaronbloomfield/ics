@@ -70,6 +70,44 @@
     
 <section data-markdown data-separator="^\n\n\n">
   <textarea data-template>
+<!-- .slide: class="right-float-img" -->
+## What is money?
+
+<img src="images/cryptocurrency/dollar-bill.webp" style="padding:0;border-radius:0">
+
+- Four functions (Jevons, 1875):
+  1. medium of exchange
+  2. common measure of value (or unit of account)
+  3. standard of value (or standard of deferred payment)
+  4. a store of value
+
+> Money's a matter of functions four,  
+> A Medium, a Measure, a Standard, a Store
+
+<aside data-markdown class='notes'>
+- medium: any item that is widely acceptable in exchange for goods and services
+- measure: a means to measure worth
+- standard: a means to resolve debts
+- store: a means to save money
+</aside>
+
+
+
+## Types of currencies
+- Commodity currency: made from actual valuable commodities, such as gold
+  - "gold pieces" in role-playing games
+- Representative currency: one that is backed up by a valuable "thing", such as gold
+  - When the US dollor was on the "[gold standard](https://en.wikipedia.org/wiki/Gold_standard)"
+- Fiat currency: established by the government "by fiat"
+  - What the US dollar is (now)
+- Cryptocurrency (obviously)
+
+<aside data-markdown class='notes'>
+  Really just the last two will be relevant to this class
+</aside>
+
+
+
 ## What is a cryptocurrency?
 - A digital asset designed to work as a [medium of exchange](https://en.wikipedia.org/wiki/Medium_of_exchange)
   - "a widely accepted token which can be exchanged for goods and services"
@@ -95,10 +133,10 @@ According to Jan Lansky ([source](http://si-journal.org/index.php/JSI/article/vi
 
 
 ## Consider the AaronDollar (TM)
-<!-- .slide: class="no-white-img-background max-image-height-300" -->
+<!-- .slide: class="no-white-img-background max-image-height-300 noboxshadow" -->
 ![AaronDollar (TM)](images/cryptocurrency/aaron-dollar.png)
-- Would you pay me 1 dollar for it?  What about 10?  100?
-<li class="fragment" data-fragment-index="1">If I told you it would buy you an A+ in the course...<ul><li>Would you pay me 1 dollar for it?  What about 10?  100?</li></ul></li>
+- Would you pay me 1 dollar for it?  What about `$`10?  `$`100?
+<li class="fragment" data-fragment-index="1">If I told you it would buy you an A+ in this course...<ul><li>Would you pay me <code>$</code>100 then?</li></ul></li>
 
 
 
@@ -111,12 +149,17 @@ According to Jan Lansky ([source](http://si-journal.org/index.php/JSI/article/vi
 
 
 
+<!-- .slide: class="right-float-img max-image-height-300" -->
 ## Currency examples
 - Some examples:
   - The US Dollar is the most widely used in international financial transactions
-  - Due to the [crisis Venezuela](https://en.wikipedia.org/wiki/Crisis_in_Venezuela), the Venezuelan [bolivar soberano](https://en.wikipedia.org/wiki/Venezuelan_bol%C3%ADvar) (VEB), and its predecessor the bolivar fuerte, are essentially worthless
+  - ![](https://upload.wikimedia.org/wikipedia/commons/e/e3/Moneda_1_Bol%C3%ADvar_2021.png) Due to the [crisis in Venezuela](https://en.wikipedia.org/wiki/Crisis_in_Venezuela), the Venezuelan [bolivar soberano](https://en.wikipedia.org/wiki/Venezuelan_bol%C3%ADvar) (VEB), and its predecessor the bolivar fuerte, are essentially worthless
     - The VEB had a 1,698,488% (yes, 1.7 *million* percent) inflation rate in 2018
-<!-- change each semester -->
+    - And about 5,000% in 2020
+  - El Salvador
+    - Official currencies: USD and BTC
+    - Thus, little control over monetary policy...
+    - In 2021 they mined `$`269 in BTC for `$`4,672 ([source](https://slashdot.org/story/21/12/11/188219/foreign-policy-magazine-bitcoin-failed-in-el-salvador-is-the-answer-more-bitcoin))
 
 
 
@@ -130,11 +173,13 @@ According to Jan Lansky ([source](http://si-journal.org/index.php/JSI/article/vi
 
 
 ## Cryptocurrencies
-- There are 8,836 currently, as per [investing.com](https://www.investing.com/crypto/currencies) (as of March 2023)
-<!-- change each semester -->
+- There are 8,906 existing cryptocurrencies (that have value) <!-- change each semester -->
+  - As per [investing.com](https://www.investing.com/crypto/currencies) (as of Aug 27, 2023)
+- One estimate is that 100 new ones are created *each day*
+  - Most don't make investing.com's list
 - Some are [Ponzi schemes](https://en.wikipedia.org/wiki/Ponzi_scheme), some are [pyramid schemes](https://en.wikipedia.org/wiki/Ponzi_scheme), and some are worthwhile
 - Their value comes in if they are widely accepted, and very few are
-  - You can see a [list of the 10 with the highest market cap](https://coinmarketcap.com)
+  - You can see a [list of the 100 most popular cryptocurrencies](https://coinmarketcap.com/coins/) by market capitalization
 - Bitcoin was the first, the most widely accepted, and the most stable, so it will be focused on in this slide set
   </textarea>
 </section>
@@ -148,33 +193,43 @@ According to Jan Lansky ([source](http://si-journal.org/index.php/JSI/article/vi
 <section data-markdown id="bitcoin" class="center">
   <textarea data-template>
 # Bitcoin Basics
+
+<img src="images/cryptocurrency/btc-coin-symbol.svg" class="cclogosubtitle">
   </textarea>
 </section>
     
 <section data-markdown data-separator="^\n\n\n">
   <textarea data-template>
+<!-- .slide: class="right-float-img-nb-300" -->
 ## A note about numbers...
-- The data in this slide set was all updated for the current semester (as of March 20, 2023)
+[![](../slides/images/cryptocurrency/bitcoin-coin.webp)](https://commons.wikimedia.org/wiki/File:One_bitcoin_sitting_atop_bundles_of_US_$100_notes.png)
+- The data in this slide set was all updated for the current semester (as of Aug 27, 2023) <!-- change each semester -->
 - Bitcoin is highly volatile (the value changes so fast) that it is likely to be quite different in a day or two
   - Indeed, the value of a Bitcoin changed *during* the updating of the numbers!
     - So you will see (slightly) different values for the price, for example
-- Also, most of the graphs are from the previous day's market close
+- Also, most of the graphs are from the previous day
 
 
 
-## History
+<!-- .slide: class="right-float-img-nb-400" -->
+## Bitcoin
+![](https://upload.wikimedia.org/wikipedia/commons/7/77/Satoshi_Nakamoto.jpg)
 - The first viable cryptocurrency, it was created in 2008 by Satoshi Nakamoto
   - That's a pseudonym; nobody knows who the real person (or group) that created it
   - Although the person is [likely British](https://en.wikipedia.org/wiki/Satoshi_Nakamoto#Characteristics_and_identity)
 - It is now fully open source
-- It was also one of the first digital-only currencies that didn't bankrupt the creator...
+- It was also one of the first digital-only currencies that didn't bankrupt the creator
 
 
 
-## Bitcoin price from [blockchain.com](https://blockchain.com)
-BTC peaked at $68,789 in November 2021 ([source](https://www.blockchain.com/charts/market-price?timespan=all))
-![BTC price](images/cryptocurrency/btc-price-2023-03-20.webp)
+## Bitcoin price
+From [blockchain.com](https://blockchain.com); BTC peaked at $68,789 in November 2021 ([source](https://www.blockchain.com/charts/market-price?timespan=all))
+![BTC price](images/cryptocurrency/btc-price.webp)
 <!-- change each semester -->
+
+<aside data-markdown class='notes'>
+  The actual record high varies by source
+</aside>
 
 
 
@@ -188,8 +243,10 @@ BTC peaked at $68,789 in November 2021 ([source](https://www.blockchain.com/char
 
 
 
-## Wallet
-- You create a bitcoin *wallet*, which is a public/private key set
+<!-- .slide: class="right-float-img-nb-400" -->
+## Wallets
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Czech_Wallet.jpg/800px-Czech_Wallet.jpg)
+- You create a bitcoin *wallet*, which contains (possibly many) public/private key sets
   - Many software programs can create this for you
   - With such rampant Bitcoin theft, hardware wallets are much more secure
 - Transfers are between the public keys of the wallets, but require signing by the private key
@@ -200,6 +257,7 @@ BTC peaked at $68,789 in November 2021 ([source](https://www.blockchain.com/char
 ## Anonymity and usage
 - Bitcoin allows for (mostly) anonymous transactions
   - You only publish your wallet's public key
+- ... but lately it's been possible to trace people...
 - Thus, it's also used for illegal things:
   - Tax evasion
   - Purchasing of illegal items
@@ -213,31 +271,39 @@ BTC peaked at $68,789 in November 2021 ([source](https://www.blockchain.com/char
   - You also include the hash of the transaction(s) where you got the money
 - You sign all this with your wallet's private key
   - You then broadcast this to the P2P network
-- This takes *10 minutes* for the transaction to occur
+- This takes up to *30 minutes* for the transaction to occur
   - This prevents [double spending](https://en.wikipedia.org/wiki/Double-spending)
   - And this is partly for mining reasons we will see shortly
 
 
 
 ## The mempool
-- All transactions are stored in a *mempool* (memory pool), which is public
+- All transactions not yet on the blockchain are stored in a *memory pool* or *mempool*, which is public
   - Maintained by a network of "equally privileged miners"
 - Every 10 minutes or so, all the transactions are combined into a single *block*
-  - That block eventually becomes part of the *blockchain* (through mining)
+  - That block becomes part of the *blockchain* (through mining)
 
 
 
 ## Blockchain
 - The first block was the "genesis block"
 - Each successive block includes the SHA-256 hash of the previous block
-  - Thus, you can't make a change to a previous block without changing all future blocks
-- The current blockchain (as of March 2023) is  781,662 blocks ([source](https://bitinfocharts.com/)) and about 466 Gb in size ([source](https://www.blockchain.com/charts/blocks-size))
-<!-- change each semester -->
-</textarea>
-</section>
+  - Thus, you can't make a change to a previous block without changing all successive blocks
+- The current blockchain (as of Aug 27, 2023) is  805,090 blocks (aka 'height'; [source](https://bitinfocharts.com/))
+  - About 494 Gb in size ([source](https://www.blockchain.com/charts/blocks-size))
+<!-- change each semester (be sure to divide that number by 1024) -->
 
-<section>
-<img alt="btc summary" title="from IEEE spectrum" src="images/cryptocurrency/bitcoin-infographic.jpg" class="stretch">
+
+
+<!-- .slide: class="right-float-img" -->
+![](images/cryptocurrency/overview.dot.1.svg)
+## Simple Blockchain
+- Each block is mined by somebody
+  - That creates currency as a reward
+- A block contains the hash of the previous block
+  - They typically don't include the hash of that block; it's put into the diagram for clarity)
+- A block *may* contain transactions
+</textarea>
 </section>
 
 </section>
@@ -249,6 +315,8 @@ BTC peaked at $68,789 in November 2021 ([source](https://www.blockchain.com/char
 <section data-markdown id="mining" class="center">
   <textarea data-template>
 # Mining
+
+<img src="../slides/images/cryptocurrency/btc-coin-symbol.svg" class="cclogosubtitle">
   </textarea>
 </section>
     
@@ -256,7 +324,7 @@ BTC peaked at $68,789 in November 2021 ([source](https://www.blockchain.com/char
   <textarea data-template>
 ## Mining
 - Mining is just a record keeping operation
-  - It is what creates the blocks of blockchain
+  - It is the process that creates the blocks of blockchain
 - A block consists of:
   - A listing of the transactions over the last 10 (or so) minutes
   - The SHA-256 hash of the *previous* block in the chain
@@ -265,10 +333,20 @@ BTC peaked at $68,789 in November 2021 ([source](https://www.blockchain.com/char
 
 
 
+## Mining
+- A transaction is not considered to have occurred until it is mined to the blockchain
+- Thus, mining is *essential* to the Bitcoin system working at all
+  - Without mining, no transactions would occur, and it becomes useless
+- So how do we encourage people to contribute to this mining process?
+  - Answer: give them BTC for doing so
+
+
+
+<!-- .slide: class="right-float-img-nb-300" -->
 ## Target
+![](https://upload.wikimedia.org/wikipedia/commons/d/dc/WA_archery_target_with_arrows.jpg)
 - The [target](https://en.bitcoin.it/wiki/Target) is the 256-bit number that a blockchain SHA-256 hash must be below
 - Goal: generate a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) (a one-time numerical value) to add to the block that will cause the SHA-256 hash to be below the target
-  - Similar to what you did in the CRC part of the [hashing homework](../hws/hw-hashing.html)
 
 
 
@@ -283,39 +361,44 @@ BTC peaked at $68,789 in November 2021 ([source](https://www.blockchain.com/char
 
 ## Difficulty
 - First target ($ft$): 00000000ffff00000000000000 00000000000000000000000000000000000000
-- The current target ($ct$) is 00000000000000000007303900000000 00000000000000000000000000000000
-  - As of March 2023 and can be found [here](http://learnmeabitcoin.com/glossary/target)
+<!-- formula: ft=26959535291011309493156476344723991336010898738574164086137773096960 -->
+- The current target ($ct$) is  0000000000000000000561020000000 000000000000000000000000000000000
+<!-- formula: ct=515199788182065911307653755120147792390991404454641664 -->
+  - As of Aug 27, 2023 and can be found [here](http://learnmeabitcoin.com/glossary/target)
+    - That site is almost 5,000 blocks behind...
   <!-- change each semester -->
-  - The new target is harder than the old: specifically $ft/ct$ = 29,897,409,688,833 times harder (that's about 30 *trillion*)
+  - The new target is harder than the old: specifically $ft/ct$ = 52,328,312,063,444 times harder (that's 52.3 *trillion*)
+    - Actually it's about 55.6 trillion now<!-- set this value to diff, such as via the formula: diff=55.62*10^12 -->
 - This number is the bitcoin *difficulty*, and the latest value can be found [here](https://www.coinwarz.com/mining/bitcoin/difficulty-chart)
 
 
 
 ## Current hash difficulty
 - For the first target, a random nonce had a 1 in 4.3 billion chance of success
-- The current target is about 30 trillion times harder
-  <!-- change each semester -->
-  - A random nonce now has a 1 in $7.6 \times 10^{22}$ chance of success <!-- formula in bc (ibase & obase = 10): 2^(256-log2(ct)) -->
+- The current target is 55.6 trillion times harder
+  - A random nonce now has a 1 in $2.39 \times 10^{23}$ chance of success
+    <!-- change each semester; formula: chance=diff*2^32 -->
 
 
 
+<!-- .slide: class="right-float-img-nb-400" -->
 ## How long this will take
+![](https://upload.wikimedia.org/wikipedia/commons/4/48/Gigabyte_GTX_970_Windforce.jpg)
 - A typical CPU can do maybe 10 Mhash/sec (million hashes per second)
   - A very fast CPU today could do about 25 Mhash/sec
-  - A [$900 video card](https://www.amazon.com/gp/product/B07GHXQTGZ/) today could do about 800 Mhash/sec (estimate based on [this](https://en.bitcoin.it/wiki/Non-specialized_hardware_comparison#Nvidia) and [this](https://gpu.userbenchmark.com/Compare/Nvidia-RTX-2080-vs-Nvidia-GeForce-GTX-590-SLI-Disabled/4026vsm8041))
-- Consider a 1 in $7.6 \times 10^{22}$ chance of success
-- To generate $7.6 \times 10^{22}$ hashes at 800 million (8 Mhash) per second on a fast graphics card, this will take about 3 *million years*
-  <!-- change each semester -->
+  - A [$1,500 video card](https://www.amazon.com/gp/product/B07GHXQTGZ/) today could do about 800 Mhash/sec (estimate based on [this](https://en.bitcoin.it/wiki/Non-specialized_hardware_comparison#Nvidia) and [this](https://gpu.userbenchmark.com/Compare/Nvidia-RTX-2080-vs-Nvidia-GeForce-GTX-590-SLI-Disabled/4026vsm8041))
+- Consider a 1 in $2.39 \times 10^{23}$ chance of success
+- To generate $2.39 \times 10^{23}$ hashes at 800 million (8 Mhash) per second on a fast graphics card, this will take 9.5 *million years*
+  <!-- change each semester; formula: gpuyears=chance/(365.25*24*60*60*800*10^6) -->
 
 
 
+<!-- .slide: class="right-float-img-nb-300" -->
 ## Electricity usage
-- A graphics card uses about 200 W (watts) (estimated from [here](https://en.bitcoin.it/wiki/Non-specialized_hardware_comparison#Nvidia))
+![](https://upload.wikimedia.org/wikipedia/commons/6/6b/Electricity_pylons2.jpg)
+- A graphics card uses about 400 W (watts) (estimated from [here](https://en.bitcoin.it/wiki/Non-specialized_hardware_comparison#Nvidia))
 - Electricity in Charlottesville costs 11.04 cents per kW/h (as per [here](https://www.electricitylocal.com/states/virginia/charlottesville/))
-- So 2.2 million years is $1.2*10^{11}$ hours
-  <!-- change each semester -->
-- Which will cost 5.7 *billion* dollars
-- With 1 BTC going for about `$`30k, your reward is less than `$`200k
+- This would cost about 3.7 billion dollars <!-- change each semester; formula: elecost=gpuyears*400/1000*24*365.25*0.1104 -->
 
 
 
@@ -338,14 +421,22 @@ BTC peaked at $68,789 in November 2021 ([source](https://www.blockchain.com/char
 
 
 ## All-time difficulty graph from [blockchain.com](https://www.blockchain.com/en/charts/difficulty)
-![BTC difficulty, all time](images/cryptocurrency/btc-difficulty-all-time-2023-03-20.webp)
+![BTC difficulty, all time](images/cryptocurrency/btc-difficulty-all-time.webp)
 <!-- change each semester -->
+
+<aside data-markdown class='notes'>
+- why the drop? it's when China outlawed BTC mining!
+</aside>
 
 
 
 ## Last 3 years difficulty graph from [blockchain.com](https://www.blockchain.com/en/charts/difficulty)
-![BTC difficulty, last 3 years](images/cryptocurrency/btc-difficulty-last-3-years-2023-03-20.webp)
+![BTC difficulty, last 2 years](images/cryptocurrency/btc-difficulty-last-3-years.webp)
 <!-- change each semester -->
+
+<aside data-markdown class='notes'>
+- the stair case is because it is updated every 2 weeks (2,016 blocks)
+</aside>
 
 
 
@@ -359,95 +450,121 @@ BTC peaked at $68,789 in November 2021 ([source](https://www.blockchain.com/char
 
 
 ## Reward per block
-- The current reward (as of March 2023) is 6.25 BTC
+- The current reward (as of Aug 27, 2023) is 6.25 BTC
   <!-- change each semester -->
-  - The estimated date when it drops to 6.25 is May 2024 ([source](https://www.bitcoinblockhalf.com/))
-- At a price of about `$`30k per BTC ([source](https://www.coindesk.com/price/bitcoin)), that's about `$`187,500 for a properly signed block!
-  - But if it costs $5.7 billion in electricity, perhaps it's not all that worth it
+  - Plus transaction fees of around 0.1 BTC or so
+  - The estimated date when it drops to 3.125 BTC is April 2024 ([source](https://www.bitcoinblockhalf.com/))
+- At a price of about $26k per block ([source](https://www.coindesk.com/price/bitcoin)), 6.35 BTC is  about $166k for a properly signed block   <!-- change each semester --><!-- formula: reward=166*1000 -->
+  - But if it costs almost 4 billion dollars in electricity, perhaps it's not all that worth it
   - Unless you use somebody else's electricity...
 
 
 
 ## Current state of mining
 - Needless to say, CPUs and graphics cards are no longer viable to use for mining
-  - Special purpose hardware can be found online
+  - Special purpose hardware (ASICs) can be bought online
 - Many people use company resources for the mining
 - Others use botnets
 - Javascript mining programs are found on many web pages, and run in *your* browser
   - Thus, they are using *your* electricity for their financial gain
+  - But probably not mining BTC...
 
 
 
 ## Pooled mining
-- If it would take your high-end GPU a million years to compute a block, and blocks need to be computed every 10 minutes, then you aren't going to get very far on your own
+- If it would take your high-end GPU a billion years to compute a block, and blocks need to be computed every 10 minutes, then you aren't going to get very far on your own
 - *Mining pools* aggregate many resources, and distribute any rewards based on the computational resources provided to the pool
 
 
 
-## Hashes per second from [blockchain.com](https://www.blockchain.com/charts/hash-rate)
-For the entire Bitcoin network; E = exa = $10^{18}$
+## Hashes per second
+From [blockchain.com](https://www.blockchain.com/charts/hash-rate), and for the entire Bitcoin network; E = exa = $10^{18}$
 <!-- change each semester -->
-![hashes per second](images/cryptocurrency/btc-hashes-per-sec-2023-03-20.webp)
+<!-- formula: hashrate=390.9*10^18 -->
+![hashes per second](images/cryptocurrency/btc-hashes-per-sec.webp)
 
 
 
+<!-- .slide: class="right-float-img-nb-400" -->
 ## Mining hardware
+![](https://m.media-amazon.com/images/I/61WsmRwaOaL._AC_SL1000_.jpg)
 - A whole industry has sprung up: you can find the hardware online (such as [here](https://www.bitcoinmining.com/bitcoin-mining-hardware/))
 - These devices are much faster and use much less electricity
-- Consider the [DragonX AntMiner S9](https://www.amazon.com/dp/B07WV6TPN7), which costs $599
-  <!-- change each semester -->
-  - It can compute 14 Thash/sec (tera), or $14*10^{12}$ hash/sec
-  - I don't believe their numbers that they post at that link, though
+- Consider the [DragonX AntMiner S19](https://www.amazon.com//dp/B08ZNMGKZ1/), which costs `$`1,200 (as of Aug 27, 2023)
+  - It can compute 90 Thash/sec (tera), or $90 \ast 10^{12}=9 \ast 10^{13}$ hash/sec
+  - I don't believe their numbers that they posted at that link, though
 
 
 
 ## Mining profitability
 - A reasonable profit margin estimate:
   - For a investment of $x$ dollars in mining equipment, you might make one-tenth of that per month
-  - So you will start to make a profit in almost a year, assuming that the difficulty doesn't go up that much
+    - If you are lucky!
+  - So you will start to make a profit in about two years, assuming that the difficulty doesn't go up that much
+- But this does *NOT* include electrical costs!
 - Keep in mind that if this were *really* profitable, then everybody would jump in on it, and the difficulty would just jump up, causing it to become suddenly less profitable
 
 
 
-## [DragonX AntMiner S9](https://www.amazon.com/dp/B07WV6TPN7) analysis
+## [DragonX AntMiner S19](https://www.amazon.com/dp/B08ZNMGKZ1) analysis
 <!-- change each semester -->
 - We know that:
-  - The current hash rate is 212.5 EH/s
-  - Blocks take about 10 minutes to process (actually about 8m 47s right now ([source](https://bitinfocharts.com/)))
-  - The [DragonX AntMiner S9](https://www.amazon.com/dp/B07WV6TPN7) claims to hash 14 TH/s
-- 212.5 exa / 14 tera = $212.5 \cdot 10^{18} / 14 \cdot 10^{12} = 1.5 \cdot 10^{7}$ or 15.2 million
-- Thus, you would expect to get one 15-millionth of a block's reward in a pooled setup
-- At $187,500 per block, that's 1.25 *cents* per block
+  - The current hash rate is about 391 EH/s
+  - Blocks take about 10 minutes to process (actually about 12m 6s right now ([source](https://bitinfocharts.com/)))
+  - The [DragonX AntMiner S19](https://www.amazon.com/dp/B08ZNMGKZ1) claims to hash 90 TH/s <!-- formula: minerrate=90*10^12 -->
+- 391 exa / 90 tera = $391 \cdot 10^{18} / 90 \cdot 10^{12} = 4.34 \cdot 10^{6}$ or 4 million <!-- formula: blockreward=hashrate/minerrate -->
+- Thus, you would expect to get one 4-millionth of a block's reward in a pooled setup <!-- formula: profitperblock=reward/blockreward -->
+- At `$`166 per block, that's about 3.8 *cents* per block
 - (And we aren't counting electricity here)
 
 
 
-## [DragonX AntMiner S9](https://www.amazon.com/dp/B07WV6TPN7) analysis
+## [DragonX AntMiner S19](https://www.amazon.com/dp/B08ZNMGKZ1) analysis
 <!-- change each semester -->
-- At $187,500 per block, that's 1.25 *cents* per block
-  - Which is $1.80 per day
-    - This assumes 10 minute blocks; it's maybe $2 with more frequent blocks
-  - You will make back your initial investment of $600 in 300 days (10 months)
+- At `$`166 per block, that's about 3.8 cents per block
+  - Which is $5.50 per day <!-- formula: profitperday=profitperblock*24*6 -->
+    - This assumes 10 minute blocks; it's a less with 12m6s blocks
+  - You will make back your initial investment of `$`1,200 (plus tax) 220 days
+    - That's 7.3 months
 - This assumes that the numbers don't change!
-  - And we know the reward per block will go down in May of 2024...
-- There is also [one available](https://www.amazon.com/dp/B07YVMS7CY/) that mines 3 times as fast but costs twice as much
+  - And that you aren't paying for electricity
+  - And we know the reward per block will go down in April of 2024...
+- There is also [one available](https://www.amazon.com/dp/B0CCK4RDJF/) that mines twice times as fast but costs 3.5 times as much, but uses less power
 
 
 
-## Should you mine bitcoin?
-No.
+## [DragonX AntMiner S19](https://www.amazon.com/dp/B08ZNMGKZ1) analysis
+<!-- change each semester -->
+- You will make $5.50 in BTC per day
+- But... electricity is not free
+- Stated power usage: 3,250 W or 3.25 kW
+  - Over 24 hours that's $24 * 3.25 = 78$ kWh
+  - At Charlottesville's rate of 11.04&cent; per kWh, that's `$`8.61 per day
+    - About `$`260 per month
+- So your total daily profit is: `$`5.50 - `$`8.61 or
+  - *Negative* `$`3.11 cents per day!
+
+
+
+
+## When is Bitcoin mining profitable?
+- When you don't pay for electricity
+  - Apartment rental where utilities are included in the rent, for example
+- Using computers that are not your own
+  - Malware, running it on another cluster, etc.
+- When done on a large scale
+  - One can make deals with power companies, locate where power is cheaper, etc.
 
 
 
 ## Current value links, all in one place
+- [Extant cryptocurrencies](https://www.investing.com/crypto/currencies)
 - [Current price](https://www.coindesk.com/price/bitcoin)
 - [Current target](http://learnmeabitcoin.com/glossary/target)
 - [Current difficulty](https://blockexplorer.com/api/status?q=getDifficulty)
 - [Charlottesville's electric rates](https://www.electricitylocal.com/states/virginia/charlottesville/)
 - [Reward halving date estimator and total block count](https://www.bitcoinblockhalf.com/)
-- [Difficulty graphs](https://www.blockchain.com/en/charts/difficulty)
 - [Blockchain size, in Gb](https://www.blockchain.com/charts/blocks-size)
-
 </textarea>
 </section>
 
@@ -464,6 +581,6 @@ No.
 <script src="../slides/reveal.js/plugin/markdown/markdown.js"></script>
 <script src="../slides/reveal.js/plugin/highlight/highlight.js"></script>
 <script src="../slides/reveal.js/plugin/math/math.js"></script>
-<script src="settings.js"></script>
+<script src="../slides/settings.js"></script>
 </body>
 </html>
