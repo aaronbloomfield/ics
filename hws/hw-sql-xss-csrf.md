@@ -94,4 +94,4 @@ Honor pledge details: you are given permission to execute CSRF attacks against t
 
 Your assignment PDF must be EXACTLY three pages, which each of the three parts on its own page (SQL on page 1, XSS on page 2, and CSRF on page 3).
 
-You should submit a file called `mst3k-websecurity.pdf`, where mst3k is your userid.  Answers to all the above questions should be in that file.
+You should submit a single PDF file to Gradescope.  Answers to all the above questions should be in that file.

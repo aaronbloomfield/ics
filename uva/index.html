@@ -8,10 +8,18 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
@@ -156,7 +164,7 @@
 <td>9</td>
 <td>Oct 16</td>
 <td>M,W,F</td>
-<td>Network fuzzing</td>
+<td>Fuzzing</td>
 <td><a href="../slides/cryptocurrency.html#/">Cryptocurrency</a></td>
 <td>Mon: finished SQL/XSS/CSRF</td>
 </tr>
@@ -172,7 +180,7 @@
 <td>11</td>
 <td>Oct 30</td>
 <td>M,W,F</td>
-<td>Cryptocurrency</td>
+<td>Rootkits</td>
 <td><a href="../slides/viruses.html#/">Viruses</a></td>
 <td></td>
 </tr>
@@ -180,7 +188,7 @@
 <td>12</td>
 <td>Nov 6</td>
 <td>M,W,F</td>
-<td>Networks</td>
+<td>Cryptocurrency</td>
 <td><a href="../slides/buffer-overflows.html#/">Buffer Overflows</a></td>
 <td></td>
 </tr>
@@ -188,7 +196,7 @@
 <td>13</td>
 <td>Nov 13</td>
 <td>M,W,F</td>
-<td>Rootkits</td>
+<td>Buffer overflow</td>
 <td><a href="../slides/binary-exploits.html#/">Binary Exploits</a></td>
 <td></td>
 </tr>
@@ -196,7 +204,7 @@
 <td>14</td>
 <td>Nov 20</td>
 <td>M</td>
-<td>Buffer overflow</td>
+<td>(none b/c T-day)</td>
 <td><a href="../slides/forensics.html#/">Digital Forensics</a>, <a href="../slides/vms.html#/">Virtual Machines</a></td>
 <td></td>
 </tr>
@@ -204,7 +212,7 @@
 <td>14</td>
 <td>Nov 27</td>
 <td>M,W,F</td>
-<td>Buffer overflow</td>
+<td></td>
 <td>(catch-up week)</td>
 <td></td>
 </tr>

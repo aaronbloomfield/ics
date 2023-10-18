@@ -85,13 +85,13 @@ Course calendar
 | 6  | Sep 25 | M,W,F  | Hashing           | [Networking Overview](../slides/networks.html#/), [Web Security](../slides/web-security.html#/) | Mon: overview to 5.2; Wed: finished overview, finished policy, web security to 4.8; Fri: web security to 6.10 |
 | 7  | Oct 2  | W,F    | Networks          | [Web Security](../slides/web-security.html#/), [Anonymity](../slides/anonymity.html#/) | Mon: fall break; Wed: web security to 7.7; Fri: web security to 8.14 |
 | 8  | Oct 9  | M,W,F  | (midterm week)    | [SQL, XSS, and CSRF](../slides/sql-xss-csrf.html#/), midterm | Mon: finished web security, review session; Wed: midterm; Fri: SQL/XSS/CSRF to 4.11 |
-| 9  | Oct 16 | M,W,F  | Network fuzzing   | [Cryptocurrency](../slides/cryptocurrency.html#/) | Mon: finished SQL/XSS/CSRF |
+| 9  | Oct 16 | M,W,F  | Fuzzing           | [Cryptocurrency](../slides/cryptocurrency.html#/) | Mon: finished SQL/XSS/CSRF |
 | 10 | Oct 23 | M,W,F  | SQL/XSS/CSRF      | [Rootkits](../slides/rootkits.html#/), [Stuxnet](../slides/stuxnet.html#/) |   |
-| 11 | Oct 30 | M,W,F  | Cryptocurrency    | [Viruses](../slides/viruses.html#/)|   |
-| 12 | Nov 6  | M,W,F  | Networks          | [Buffer Overflows](../slides/buffer-overflows.html#/) |   |
-| 13 | Nov 13 | M,W,F  | Rootkits          | [Binary Exploits](../slides/binary-exploits.html#/) |   |
-| 14 | Nov 20 | M      | Buffer overflow   | [Digital Forensics](../slides/forensics.html#/), [Virtual Machines](../slides/vms.html#/) |   |
-| 14 | Nov 27 | M,W,F  | Buffer overflow   | (catch-up week) |   |
+| 11 | Oct 30 | M,W,F  | Rootkits          | [Viruses](../slides/viruses.html#/)|   |
+| 12 | Nov 6  | M,W,F  | Cryptocurrency    | [Buffer Overflows](../slides/buffer-overflows.html#/) |   |
+| 13 | Nov 13 | M,W,F  | Buffer overflow   | [Binary Exploits](../slides/binary-exploits.html#/) |   |
+| 14 | Nov 20 | M      | (none b/c T-day)  | [Digital Forensics](../slides/forensics.html#/), [Virtual Machines](../slides/vms.html#/) |  |
+| 14 | Nov 27 | M,W,F  |                   | (catch-up week) |   |
 | 15 | Dec 4  | M      | Digital forensics | [Course reflection](../slides/reflection.html#/) |   |
 
 [1]: https://canvas.its.virginia.edu/courses/79086
