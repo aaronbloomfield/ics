@@ -8,18 +8,10 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
+    ul.task-list{list-style: none;}
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
@@ -63,9 +55,9 @@
 <h3 id="languages">Languages</h3>
 <p>You may use any programming language for this, but if you want to use a language other than Java or Python, please check with us first so that we can enable it on the submission server. You have to let us know at least two days before the assignment is due so we have time to configure it.</p>
 <p>For Java and Python, we provide you with the code to convert a hex string to an array of bytes, to convert an array of bytes to a hex string, getting the SHA-256 hash of a file, and to read and write RSA keys. For Java, that is in the form of methods that you can use. For Python, it is links to the library functions that performs those tasks.</p>
-<p><strong>Python:</strong> you have to use Python 3 for this. We will install the <a href="https://pypi.org/project/rsa/">rsa</a> package; the documentation for that library, including code examples, is <a href="https://stuvel.eu/rsa">here</a>. Some of these functions will require you to encode your message as ASCII (it gives ‘Unicode-objects must be encoded before hashing’ message otherwise) – just call <code>.encode('ascii')</code> on the string first. Encoding from a byte array to a string is done via the <a href="https://docs.python.org/3/library/binascii.html">binascii</a> library. Hashes in Python are in <a href="https://docs.python.org/3/library/hashlib.html">hashlib</a>, which is part of the Python installation. To take the SHA-256 hash of a file, see <a href="https://stackoverflow.com/a/44873382">this code on stack overflow</a>. You can see some example code in the <a href="sample.py">sample.py</a> (<a href="sample.py.html">html</a>) file we have provided for you to use; you can copy that code as-is into your homework solution, if you want. You can see <a href="https://www.tutorialspoint.com/python/python_command_line_arguments.htm">here</a> for how to use command-line arguments.</p>
+<p><strong>Python:</strong> you have to use Python 3 for this. We will install the <a href="https://pypi.org/project/rsa/">rsa</a> package; the documentation for that library, including code examples, is <a href="https://stuvel.eu/rsa">here</a>. Some of these functions will require you to encode your message as ASCII (it gives ‘Unicode-objects must be encoded before hashing’ message otherwise) – just call <code>.encode('ascii')</code> on the string first. Encoding from a byte array to a string is done via the <a href="https://docs.python.org/3/library/binascii.html">binascii</a> library. Hashes in Python are in <a href="https://docs.python.org/3/library/hashlib.html">hashlib</a>, which is part of the Python installation. To take the SHA-256 hash of a file, see <a href="https://stackoverflow.com/a/44873382">this code on stack overflow</a>. You can see some example code in the <a href="cryptocurrency/sample.py">sample.py</a> (<a href="cryptocurrency/sample.py.html">html</a>) file we have provided for you to use; you can copy that code as-is into your homework solution, if you want. You can see <a href="https://www.tutorialspoint.com/python/python_command_line_arguments.htm">here</a> for how to use command-line arguments.</p>
 <p>Other languages are available; chat with the course instructor. We do <strong><em>NOT</em></strong> recommend Java for this assignment.</p>
-<p><del><strong>Java:</strong> RSA and SHA are already in the standard Java library; you can look <a href="https://www.devglan.com/java8/rsa-encryption-decryption-java">here</a> for how to handle RSA in Java, and see the <a href="https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html">MessageDigest class</a> for SHA (and the example <a href="https://www.baeldung.com/sha-256-hashing-java">here</a>). An example about how to sign a message can be found <a href="https://niels.nu/blog/2016/java-rsa.html">here</a>. You may use any of the code on those pages for your program. Note that the Java version on the submission server is OpenJDK 1.11. We provide some methods in the <a href="Sample.java">Sample.java</a> (<a href="Sample.java.html">html</a>) file we have provided for you to use; you can copy that code as-is into your homework solution, if you want.</del></p>
+<p><del><strong>Java:</strong> RSA and SHA are already in the standard Java library; you can look <a href="https://www.devglan.com/java8/rsa-encryption-decryption-java">here</a> for how to handle RSA in Java, and see the <a href="https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html">MessageDigest class</a> for SHA (and the example <a href="https://www.baeldung.com/sha-256-hashing-java">here</a>). An example about how to sign a message can be found <a href="https://niels.nu/blog/2016/java-rsa.html">here</a>. You may use any of the code on those pages for your program. Note that the Java version on the submission server is OpenJDK 1.11. We provide some methods in the <a href="cryptocurrency/Sample.java">Sample.java</a> (<a href="cryptocurrency/Sample.java.html">html</a>) file we have provided for you to use; you can copy that code as-is into your homework solution, if you want.</del></p>
 <!-- **C/C++:** Boost is installed, as well as the openssl library.  There are many great things about C and C++, but be careful if you pursue this langage -- we think this will give you a real headache if you try to implement it in C or C++.  The compiler is `gcc` or `g++`. -->
 <h3 id="file-format">File format</h3>
 <p><strong>Blockchain</strong></p>
@@ -223,8 +215,8 @@ java CMoney $@</code></pre>
      javac CMoney.java</code></pre>
 <p>Note that the indentation is a tab, not spaces! Makefiles are very strict on that. And change the Java file name as appropriate for your source code.</p>
 <h3 id="sample-execution">Sample execution</h3>
-<p>This is just meant to show the syntax – it is not meant to be a full fledged testing suite of your homework. However, it does call each of the commands listed above, and makes the calls via the shell script. Note that the lines with the equals signs are setting shell variables to be used later on. The commands used here are in the <a href="basic-test.sh">basic-test.sh</a> (<a href="basic-test.sh.html">html</a>) script. Note that you will have to run <code>chmod 755 basic-test.sh</code> before you can run the shell script. You would run it as: <code>./basic-test.sh</code>. Also note that this shell script takes the SHA-256 sum of one of the block files via the <code>sha256sum</code> command – if you don’t have this command on your computer, you can remove that line.</p>
-<p><strong><em>NOTE:</em></strong> We provide these commands in the <a href="basic-test.sh">basic-test.sh</a> (<a href="basic-test.sh.html">html</a>) script above! No need to cut-and-paste.</p>
+<p>This is just meant to show the syntax – it is not meant to be a full fledged testing suite of your homework. However, it does call each of the commands listed above, and makes the calls via the shell script. Note that the lines with the equals signs are setting shell variables to be used later on. The commands used here are in the <a href="cryptocurrency/basic-test.sh">basic-test.sh</a> (<a href="cryptocurrency/basic-test.sh.html">html</a>) script. Note that you will have to run <code>chmod 755 basic-test.sh</code> before you can run the shell script. You would run it as: <code>./basic-test.sh</code>. Also note that this shell script takes the SHA-256 sum of one of the block files via the <code>sha256sum</code> command – if you don’t have this command on your computer, you can remove that line.</p>
+<p><strong><em>NOTE:</em></strong> We provide these commands in the <a href="cryptocurrency/basic-test.sh">basic-test.sh</a> (<a href="cryptocurrency/basic-test.sh.html">html</a>) script above! No need to cut-and-paste.</p>
 <pre><code>$ ./cryptomoney.sh name
 AaronDollar(TM)
 $ ./cryptomoney.sh genesis
