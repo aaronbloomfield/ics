@@ -86,7 +86,7 @@ Course calendar
 | 7  | Oct 2  | W,F    | Networks          | [Web Security](../slides/web-security.html#/), [Anonymity](../slides/anonymity.html#/) | Mon: fall break; Wed: web security to 7.7; Fri: web security to 8.14 |
 | 8  | Oct 9  | M,W,F  | (midterm week)    | [SQL, XSS, and CSRF](../slides/sql-xss-csrf.html#/), midterm | Mon: finished web security, review session; Wed: midterm; Fri: SQL/XSS/CSRF to 4.11 |
 | 9  | Oct 16 | M,W,F  | Fuzzing           | [Cryptocurrency](../slides/cryptocurrency.html#/) | Mon: finished SQL/XSS/CSRF; Wed: cryptocurrency to 5.6: Fri: finished cryptocurrency, rootkits to 3.7 |
-| 10 | Oct 23 | M,W,F  | SQL/XSS/CSRF      | [Rootkits](../slides/rootkits.html#/), [Stuxnet](../slides/stuxnet.html#/) |   |
+| 10 | Oct 23 | M,W,F  | SQL/XSS/CSRF      | [Rootkits](../slides/rootkits.html#/), [Stuxnet](../slides/stuxnet.html#/) | Mon: rootkits to 5.6; Wed: finished rootkits, stuxnet to 5.1 |
 | 11 | Oct 30 | M,W,F  | Rootkits          | [Viruses](../slides/viruses.html#/)|   |
 | 12 | Nov 6  | M,W,F  | Cryptocurrency    | [Buffer Overflows](../slides/buffer-overflows.html#/) |   |
 | 13 | Nov 13 | M,W,F  | Buffer overflow   | [Binary Exploits](../slides/binary-exploits.html#/) |   |
