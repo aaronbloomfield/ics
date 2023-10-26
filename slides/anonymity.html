@@ -81,21 +81,6 @@ This slide set was based, with permission, on one created by Benjamin Kreuter wh
     
 <section data-markdown data-separator="^\n\n\n">
   <textarea data-template>
-## Review: Public Key Encryption
-- A public key encryption system is a triple $\Pi = (KeyGen, Enc, Dec)$ such that:
-  - A random pair of keys, $(pk, sk)$, is produced by $KeyGen(n)$, where $n$ is the security parameter
-  - If $m$ is a message, $c \leftarrow Enc(pk, m)$ is a randomized encryption process that can be performed by anyone
-    - $pk$ does not contain enough information to decrypt $c$
-
-
-
-## Review: Public Key Encryption
-- A public key encryption system is a triple $\Pi = (KeyGen, Enc, Dec)$ such that:
-  - If $c \leftarrow Enc(pk, m)$ then $Dec(sk, c) = m$, i.e. decryption, can be performed using the secret key
-    - Decryption may or may not be a randomized process; if it is, then $Pr [Dec(sk, c) = m] \ge 1 - negl(n)$
-
-
-
 ## Why anonymity?
 - Whenever a big announcement is planned, the White House staff places a big order for pizza from a nearby pizza shop
 <li class="fragment">Journalists begin publishing speculation about the big announcement hours before it is made</li>
@@ -466,7 +451,8 @@ Cypherpunks remailers can be used to send messages to email addresses or to Usen
 ## Would you buy an Internet connected sex toy?
 - Apparently a lot of people do, but they keep getting hacked
   - [Wired article on this](https://www.wired.co.uk/article/sex-toy-bluetooth-hacks-security-fix)
-- This is a field of research called "onion dildonics"
+- Security idea: have the sex toy use Tor
+- This is a field of study called "onion dildonics"
   - I promise that I did not make that name up...
 - While the application is somewhat humorous, the privacy implications involved are very real
 - Tor has been suggested as the answer to this
