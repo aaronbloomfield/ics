@@ -53,9 +53,7 @@ with the [digital forensics slide set](../slides/forensics.html#/).
 
 ### Details
 
-You can get a copy of the hard drive image by going to
-[https://libra.cs.virginia.edu/forensics/](https://libra.cs.virginia.edu/forensics/)
--- you will have to use Netbadge to log in.  **You can not use
+You can get a copy of the hard drive image via the links on the Canvas landing page.  **You can not use
 somebody else's disk image!** You have to wait until you are told the
 images are ready for this semester.  The image was compressed with
 gzip -- if your operating system does not natively support it, then

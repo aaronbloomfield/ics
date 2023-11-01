@@ -12,6 +12,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
   <script>
@@ -36,6 +37,9 @@
     evt.currentTarget.className += " active";
   }
   </script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="ics-programming-homework-forensics">ICS: Programming Homework: Forensics</h1>
@@ -54,7 +58,7 @@
 <p>Spoiler: there is obviously a story that this disk image can tell, otherwise there wouldn’t be this assignment.</p>
 <p>The intent is for you to use Autopsy / SleuthKit for this assignment, as well as some command-line tools. You will also want to be familiar with the <a href="../slides/forensics.html#/">digital forensics slide set</a>.</p>
 <h3 id="details">Details</h3>
-<p>You can get a copy of the hard drive image by going to <a href="https://libra.cs.virginia.edu/forensics/">https://libra.cs.virginia.edu/forensics/</a> – you will have to use Netbadge to log in. <strong>You can not use somebody else’s disk image!</strong> You have to wait until you are told the images are ready for this semester. The image was compressed with gzip – if your operating system does not natively support it, then you can use <a href="https://www.7-zip.org/">7-zip</a> to extract it. The compressed .gz file is about 3.5 Gb in size, and the uncompressed image is about 9 Gb in size.</p>
+<p>You can get a copy of the hard drive image via the links on the Canvas landing page. <strong>You can not use somebody else’s disk image!</strong> You have to wait until you are told the images are ready for this semester. The image was compressed with gzip – if your operating system does not natively support it, then you can use <a href="https://www.7-zip.org/">7-zip</a> to extract it. The compressed .gz file is about 3.5 Gb in size, and the uncompressed image is about 9 Gb in size.</p>
 <p>This image was designed using Linux (it’s an ext4 file system). However, you can do this homework on any host OS. The course VirtualBox image is configured to run Autopsy. Within that image, you can download your disk image, un-gzip it, and run autopsy right from the command line.</p>
 <h3 id="tools-allowed">Tools allowed</h3>
 <p>The intent of this assignment is for you to use <a href="https://www.sleuthkit.org/autopsy/">Autopsy</a> / <a href="https://www.sleuthkit.org/sleuthkit/">SleuthKit</a>. In addition to Autopsy and SleuthKit, you can use the standard tools that come with an operating system – in particular, file explorers, searching contents of files for text, etc. You can use any of the utilities discussed in the <a href="../slides/forensics.html#/">digital forensics slide set</a>. You can use differently named equivalents in differing operating systems.</p>
