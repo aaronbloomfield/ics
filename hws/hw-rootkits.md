@@ -11,7 +11,7 @@ In this assignment, you will investigate both types of rootkits: application and
 In this assignment, you will create both types of rootkits: a kernel-level one and an application-level one.
 
 
-***YOU MUST RUN THIS IN THE CYBER DEFENSE RANGE!!!***, described below.  You are going to *negatively affect the machine you develop this on*.  Do not think that you can or should do this on your computer and still have your computer work.
+***YOU MUST RUN THIS ON THE VIRGINIA CYBER RANGE!!!***, described below.  You are going to *negatively affect the machine you develop this on*.  Do not think that you can or should do this on your computer and still have your computer work.
 
 We are not responsible if you render your computer inoperable because you did not follow this warning!  This is why we provided the Cyber Defense Range account!
 
@@ -80,7 +80,7 @@ Some of these commands will require to to execute them as the root user.  You ca
 
 **Kernel level rootkit:** Recall that a Linux kernel level rootkit installs a loadable kernel module (LKM) that gives the attacker more privileges on the compromised machine.  We are going to build such a module here. There are two tasks to be done for the kernel level rootkit aspect of this assignment.
 
-Follow [this tutorial at 0x00SEC](https://0x00sec.org/t/kernel-rootkits-getting-your-hands-dirty/1485). This will require that you read two sub-tutorials ([1](http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/) and [2](http://derekmolloy.ie/writing-a-linux-kernel-module-part-2-a-character-device/)). This rootkit will allow you to gain root access on the machine from a non-root user.  Note: the sub-tutorials should be used to understand what is happening on [the main tutorial at 0x00SEC page](https://0x00sec.org/t/kernel-rootkits-getting-your-hands-dirty/1485); they do not all compile at this point.
+Follow [this tutorial at 0x00SEC](https://0x00sec.org/t/kernel-rootkits-getting-your-hands-dirty/1485). It is not necessary to read the two sub-tutorials ([1](http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/) and [2](http://derekmolloy.ie/writing-a-linux-kernel-module-part-2-a-character-device/)), if you do not want to. This rootkit will allow you to gain root access on the machine from a non-root user.  Note: the sub-tutorials (if you want to read them) should be used to understand what is happening on [the main tutorial at 0x00SEC page](https://0x00sec.org/t/kernel-rootkits-getting-your-hands-dirty/1485); they do not all compile at this point.
 
 A few notes from those tutorials:
 
@@ -123,22 +123,40 @@ Next, copy the sha224sum program to another name -- we will use `/usr/bin/sha224
 
 You are going to write a wrapper program that you will name `sha224sum`, and put it in `/usr/bin/` -- thus, when you normally call `sha224sum`, it will call your wrapper file.  Your wrapper file will then call the renamed (and original) `sha224sum.original`.
 
-- Whenever run, it will print out a one-line witty quote
-- If the `--be-evil` flag is passed (note the two leading dashes!), it will print out some (different) witty multi-line quote
-- Any other command-line parameters other than `--be-evil` will be passed to a call to the `sha224sum.original` file
+- Whenever run, it will print out the SHA hash as normal, via a call to the `sha224sum.original` file
+  - Any other command-line parameters other than `--be-evil` will be passed to a call to the `sha224sum.original` file
+- If the `--be-evil` flag is passed (note the two leading dashes!), it will print out a one-line witty quote on the second line (the first line is still the hash)
 
-Thus, once installed, if you were to call `sha224sum <file>`, it would print out the witty one-line quote and then the SHA-224 sum.
+Example usage:
+
+```
+$ sha224sum Makefile
+09142d9d6dc3f122f931dd9c5dc733f78250063fb03e30997daea6c2  Makefile
+$ sha224sum --tag Makefile
+SHA224 (Makefile) = 09142d9d6dc3f122f931dd9c5dc733f78250063fb03e30997daea6c2
+$ sha224sum --be-evil Makefile
+09142d9d6dc3f122f931dd9c5dc733f78250063fb03e30997daea6c2  Makefile
+The sky above the port was the color of television, tuned to a dead channel.
+$ sha224sum --tag --be-evil Makefile
+SHA224 (Makefile) = 09142d9d6dc3f122f931dd9c5dc733f78250063fb03e30997daea6c2
+The sky above the port was the color of television, tuned to a dead channel.
+$ 
+```
+
+Obviously, your hash is expected to be different.
 
 You can do this in any language that you want:
 
 - A bash shell script will be the shortest, but familiarize yourself with how to deal command-line parameters in bash -- you can see the cryptmoney.sh shell script in the [cryptocurrency](hw-cryptocurrency.html) ([md](hw-cryptocurrency.md)) homework for examples
 - C/C++ program: if you need a refresher as to how to parse command-line parameters, see [this slide from CS 2150](https://uva-cs.github.io/pdr/slides/04-arrays-bigoh.html#/cmdlineparams) and the source code linked to on that page; to execute another program, you will want to use the [execl()](https://www.systutorials.com/docs/linux/man/3-exec/) C function, which is in the `<unistd.h>` library.
 - We can't use Java -- we need the executable name to be `sha224sum`, not `sha224sum.class`
-- Python 3 is fine -- be sure to put `#!/usr/bin/python3` and run`chmod 755 <scriptfilename>` on the file
+- Python 3 is fine -- be sure to put `#!/usr/bin/python3` and run `chmod 755 <scriptfilename>` on the file
 
 For this assignment, you should name your source code file `sha224sum-fake.?` where the "?" is the appropriate filename extension (use 'sh' for a shell script).
 
 Your Makefile MUST create a `sha224sum` *executable* file.  If your code requires compilation, then compile it to the `sha224sum` file name.  If you are using a scripting language (Python or bash), then copy the file over *WITHOUT* a .py or .sh extension.  If you are using C, C++, or Go, then compile it to that file name.  We are going to run `make`, then assume that the `sha224sum` file is present.
+
+**NOTE:** In your Makefile, you should *NOT* copy the resulting `sha224sum` file to /usr/bin -- our grading scripts will do that for you.  You will need to do that manually when testing it, but let our grading scripts handle that upon submission.
 
 ### Task 4: Modify source code
 
@@ -146,7 +164,7 @@ For this task, we will attack the `sha384sum` binary, for similar reasons as the
 
 First, *BACK UP THE PROGRAM*.  For example: `sudo cp /usr/bin/sha384sum /usr/bin/sha384sum.bak`.  This way if you mess up, you can easily restore it.
 
-For this task we are going to modify the source code to insert our compromise into the program itself.  Linux is open source, and all of the core utilities are GNU, so their source code is freely available.  You can download the latest (highest-numbered) version from [https://ftp.gnu.org/gnu/coreutils/](https://ftp.gnu.org/gnu/coreutils/) -- at the time of this writing, it's 8.31 (NOTE: later versions do not work as well, so stay with version 8.31).  The coreutils are the basic utilities used by all Linux systems -- ls, cp, mv, etc.  Once you've downloaded it, uncompress it (`tar xfa coreutils-8.31.tar.xz`). Once in that directory, run `./configure` then `make`.  This will work on the VirtualBox image -- you are on your own if you are using your own computer's OS.
+For this task we are going to modify the source code to insert our compromise into the program itself.  Linux is open source, and all of the core utilities are GNU, so their source code is freely available.  You can download the latest (highest-numbered) version from [https://ftp.gnu.org/gnu/coreutils/](https://ftp.gnu.org/gnu/coreutils/) -- although there are likely later verions, **we are going to version 8.31**.  The specific file to download is [here](https://ftp.gnu.org/gnu/coreutils/coreutils-8.31.tar.xz).  The coreutils are the basic utilities used by all Linux systems -- ls, cp, mv, etc.  Once you've downloaded it, uncompress it (`tar xfa coreutils-8.31.tar.xz`). Once in that directory, run `./configure` then `make`.  This will work on the VirtualBox image -- you are on your own if you are using your own computer's OS.
 
 The source code for the various files in coreutils is all inter-dependent on each other, and it's not worth our time for this assignment to figure out the details or try to separate it.  So you are going to edit the appropriate files in the coreutils archive and compile it with the Makefile that the archive provides.  The `main()` function for the sha384sum binary is in src/md5sum.c (SHA-1 was originally added as an "extension" of MD5, and it stayed that way as successive SHA versions were created).  Once you modify that file, you can run `make src/sha384sum`.
 
@@ -181,6 +199,8 @@ You will then need to transmit this over the network.  To simplify it, you just 
 
 You may also want to familiarize yourself with the [system()](https://www.systutorials.com/docs/linux/man/3-system) function.
 
+**NOTE:** Your program should NOT display any output from the `wget` command.  You can redirect it to a file (use `/dev/null`: `wget ... > /dev/null`) or use the `-q` (quiet) option, or both.
+
 To see what information has been sent, go directly to the rootkit data viewer URL, which is on the Canvas landing page.  Once you log in with Netbadge, you will be able to see all the data sent in under that userid.
 
 Note that the logs that are displayed only keep the information sent in the last few hours -- we will look at the entire log history when we grade the assignment, but the information that you see will be only the most recent.  So don't worry if the entries that you saw on a previous day are no longer present.  As long as they were there at *some* point, we'll see them when we grade the assignment.
@@ -196,8 +216,18 @@ We've collected a few of these here...
 - Similarly, the `PATH` environment variable indicates all the possible locations that the system looks for when you want to execute a command. You can view it with `echo $PATH`
 - If you finished the backdoored `sha224sum` rootkit, but it's not printing out anything, consider flushing out stdout to force print the contents in the stdout buffer.
 - `exec()` refers to a family of functions that can execute other processes; we recommend using `execl()` for this assignment (though you are free to do otherwise!)
+- If `make` does not work, you can try running `sudo apt install --fix-missing`  and then run `make` again to see if that fixes the problem
 
 ### Submission
+
+#### Sanity checks
+
+A few things to check before you submit...
+
+- Task 3: in your Makefile, you should *NOT* move any files to /usr/bin -- our grading scripts will do that for you
+- Task 4: your sha384sum does *not* display the wget output
+
+#### Submission
 
 The following files will need to be submitted:
 

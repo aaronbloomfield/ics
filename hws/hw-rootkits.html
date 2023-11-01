@@ -47,7 +47,7 @@
 <h3 id="overview">Overview</h3>
 <p>In this assignment, you will investigate both types of rootkits: application and kernel. There are four tasks to be completed for submission. You will want to review the <a href="../slides/rootkits.html#/">rootkit slides</a>.</p>
 <p>In this assignment, you will create both types of rootkits: a kernel-level one and an application-level one.</p>
-<p><strong><em>YOU MUST RUN THIS IN THE CYBER DEFENSE RANGE!!!</em></strong>, described below. You are going to <em>negatively affect the machine you develop this on</em>. Do not think that you can or should do this on your computer and still have your computer work.</p>
+<p><strong><em>YOU MUST RUN THIS ON THE VIRGINIA CYBER RANGE!!!</em></strong>, described below. You are going to <em>negatively affect the machine you develop this on</em>. Do not think that you can or should do this on your computer and still have your computer work.</p>
 <p>We are not responsible if you render your computer inoperable because you did not follow this warning! This is why we provided the Cyber Defense Range account!</p>
 <h3 id="changelog">Changelog</h3>
 <p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
@@ -90,7 +90,7 @@ sudo apt install -y make g++ emacs</code></pre>
 <p>Some of these commands will require to to execute them as the root user. You can do this by prepending <code>sudo</code> in front of the command. For example, to insert a module called <code>root.ko</code>, you would call <code>sudo insmod root.ko</code> – this executes the <code>insmod root.ko</code> command as root.</p>
 <h3 id="task-1-kernel-level-rootkit">Task 1: Kernel-level rootkit</h3>
 <p><strong>Kernel level rootkit:</strong> Recall that a Linux kernel level rootkit installs a loadable kernel module (LKM) that gives the attacker more privileges on the compromised machine. We are going to build such a module here. There are two tasks to be done for the kernel level rootkit aspect of this assignment.</p>
-<p>Follow <a href="https://0x00sec.org/t/kernel-rootkits-getting-your-hands-dirty/1485">this tutorial at 0x00SEC</a>. This will require that you read two sub-tutorials (<a href="http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/">1</a> and <a href="http://derekmolloy.ie/writing-a-linux-kernel-module-part-2-a-character-device/">2</a>). This rootkit will allow you to gain root access on the machine from a non-root user. Note: the sub-tutorials should be used to understand what is happening on <a href="https://0x00sec.org/t/kernel-rootkits-getting-your-hands-dirty/1485">the main tutorial at 0x00SEC page</a>; they do not all compile at this point.</p>
+<p>Follow <a href="https://0x00sec.org/t/kernel-rootkits-getting-your-hands-dirty/1485">this tutorial at 0x00SEC</a>. It is not necessary to read the two sub-tutorials (<a href="http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/">1</a> and <a href="http://derekmolloy.ie/writing-a-linux-kernel-module-part-2-a-character-device/">2</a>), if you do not want to. This rootkit will allow you to gain root access on the machine from a non-root user. Note: the sub-tutorials (if you want to read them) should be used to understand what is happening on <a href="https://0x00sec.org/t/kernel-rootkits-getting-your-hands-dirty/1485">the main tutorial at 0x00SEC page</a>; they do not all compile at this point.</p>
 <p>A few notes from those tutorials:</p>
 <ul>
 <li>You don’t have to install the package that the <a href="http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/">first sub-tutorial</a> states (the one obtained via <code>wget</code> and installed via <code>dpkg -i</code>), nor clone the git repo</li>
@@ -117,24 +117,39 @@ sudo apt install -y make g++ emacs</code></pre>
 <p>Next, copy the sha224sum program to another name – we will use <code>/usr/bin/sha224sum.original</code> for this task. When we test your program, we are going to rename our <code>/usr/bin/sha224sum</code> to <code>/usr/bin/sha224sum.original</code>, so if you use a different name, your submission will not work.</p>
 <p>You are going to write a wrapper program that you will name <code>sha224sum</code>, and put it in <code>/usr/bin/</code> – thus, when you normally call <code>sha224sum</code>, it will call your wrapper file. Your wrapper file will then call the renamed (and original) <code>sha224sum.original</code>.</p>
 <ul>
-<li>Whenever run, it will print out a one-line witty quote</li>
-<li>If the <code>--be-evil</code> flag is passed (note the two leading dashes!), it will print out some (different) witty multi-line quote</li>
+<li>Whenever run, it will print out the SHA hash as normal, via a call to the <code>sha224sum.original</code> file
+<ul>
 <li>Any other command-line parameters other than <code>--be-evil</code> will be passed to a call to the <code>sha224sum.original</code> file</li>
+</ul></li>
+<li>If the <code>--be-evil</code> flag is passed (note the two leading dashes!), it will print out a one-line witty quote on the second line (the first line is still the hash)</li>
 </ul>
-<p>Thus, once installed, if you were to call <code>sha224sum &lt;file&gt;</code>, it would print out the witty one-line quote and then the SHA-224 sum.</p>
+<p>Example usage:</p>
+<pre><code>$ sha224sum Makefile
+09142d9d6dc3f122f931dd9c5dc733f78250063fb03e30997daea6c2  Makefile
+$ sha224sum --tag Makefile
+SHA224 (Makefile) = 09142d9d6dc3f122f931dd9c5dc733f78250063fb03e30997daea6c2
+$ sha224sum --be-evil Makefile
+09142d9d6dc3f122f931dd9c5dc733f78250063fb03e30997daea6c2  Makefile
+The sky above the port was the color of television, tuned to a dead channel.
+$ sha224sum --tag --be-evil Makefile
+SHA224 (Makefile) = 09142d9d6dc3f122f931dd9c5dc733f78250063fb03e30997daea6c2
+The sky above the port was the color of television, tuned to a dead channel.
+$ </code></pre>
+<p>Obviously, your hash is expected to be different.</p>
 <p>You can do this in any language that you want:</p>
 <ul>
 <li>A bash shell script will be the shortest, but familiarize yourself with how to deal command-line parameters in bash – you can see the cryptmoney.sh shell script in the <a href="hw-cryptocurrency.html">cryptocurrency</a> (<a href="hw-cryptocurrency.md">md</a>) homework for examples</li>
 <li>C/C++ program: if you need a refresher as to how to parse command-line parameters, see <a href="https://uva-cs.github.io/pdr/slides/04-arrays-bigoh.html#/cmdlineparams">this slide from CS 2150</a> and the source code linked to on that page; to execute another program, you will want to use the <a href="https://www.systutorials.com/docs/linux/man/3-exec/">execl()</a> C function, which is in the <code>&lt;unistd.h&gt;</code> library.</li>
 <li>We can’t use Java – we need the executable name to be <code>sha224sum</code>, not <code>sha224sum.class</code></li>
-<li>Python 3 is fine – be sure to put <code>#!/usr/bin/python3</code> and run<code>chmod 755 &lt;scriptfilename&gt;</code> on the file</li>
+<li>Python 3 is fine – be sure to put <code>#!/usr/bin/python3</code> and run <code>chmod 755 &lt;scriptfilename&gt;</code> on the file</li>
 </ul>
 <p>For this assignment, you should name your source code file <code>sha224sum-fake.?</code> where the “?” is the appropriate filename extension (use ‘sh’ for a shell script).</p>
 <p>Your Makefile MUST create a <code>sha224sum</code> <em>executable</em> file. If your code requires compilation, then compile it to the <code>sha224sum</code> file name. If you are using a scripting language (Python or bash), then copy the file over <em>WITHOUT</em> a .py or .sh extension. If you are using C, C++, or Go, then compile it to that file name. We are going to run <code>make</code>, then assume that the <code>sha224sum</code> file is present.</p>
+<p><strong>NOTE:</strong> In your Makefile, you should <em>NOT</em> copy the resulting <code>sha224sum</code> file to /usr/bin – our grading scripts will do that for you. You will need to do that manually when testing it, but let our grading scripts handle that upon submission.</p>
 <h3 id="task-4-modify-source-code">Task 4: Modify source code</h3>
 <p>For this task, we will attack the <code>sha384sum</code> binary, for similar reasons as the previous task – it’s not likely to be critical to your OS booting.</p>
 <p>First, <em>BACK UP THE PROGRAM</em>. For example: <code>sudo cp /usr/bin/sha384sum /usr/bin/sha384sum.bak</code>. This way if you mess up, you can easily restore it.</p>
-<p>For this task we are going to modify the source code to insert our compromise into the program itself. Linux is open source, and all of the core utilities are GNU, so their source code is freely available. You can download the latest (highest-numbered) version from <a href="https://ftp.gnu.org/gnu/coreutils/">https://ftp.gnu.org/gnu/coreutils/</a> – at the time of this writing, it’s 8.31 (NOTE: later versions do not work as well, so stay with version 8.31). The coreutils are the basic utilities used by all Linux systems – ls, cp, mv, etc. Once you’ve downloaded it, uncompress it (<code>tar xfa coreutils-8.31.tar.xz</code>). Once in that directory, run <code>./configure</code> then <code>make</code>. This will work on the VirtualBox image – you are on your own if you are using your own computer’s OS.</p>
+<p>For this task we are going to modify the source code to insert our compromise into the program itself. Linux is open source, and all of the core utilities are GNU, so their source code is freely available. You can download the latest (highest-numbered) version from <a href="https://ftp.gnu.org/gnu/coreutils/">https://ftp.gnu.org/gnu/coreutils/</a> – although there are likely later verions, <strong>we are going to version 8.31</strong>. The specific file to download is <a href="https://ftp.gnu.org/gnu/coreutils/coreutils-8.31.tar.xz">here</a>. The coreutils are the basic utilities used by all Linux systems – ls, cp, mv, etc. Once you’ve downloaded it, uncompress it (<code>tar xfa coreutils-8.31.tar.xz</code>). Once in that directory, run <code>./configure</code> then <code>make</code>. This will work on the VirtualBox image – you are on your own if you are using your own computer’s OS.</p>
 <p>The source code for the various files in coreutils is all inter-dependent on each other, and it’s not worth our time for this assignment to figure out the details or try to separate it. So you are going to edit the appropriate files in the coreutils archive and compile it with the Makefile that the archive provides. The <code>main()</code> function for the sha384sum binary is in src/md5sum.c (SHA-1 was originally added as an “extension” of MD5, and it stayed that way as successive SHA versions were created). Once you modify that file, you can run <code>make src/sha384sum</code>.</p>
 <p>To ensure that you can get it to work, put a <code>printf()</code> statement in the top of the <code>main()</code> method in <code>md5sum.c</code>, then run <code>make src/sha384sum</code>. When you run the command (<code>src/sha384sum &lt;file&gt;</code>), it should print your output from the <code>printf()</code> line, then the 384-bit SHA hash. Then remove that <code>printf()</code> statement.</p>
 <p>The challenge for this task is that you have to find out some information about the host system and then send that over a network connection. This all has to happen when <code>sha384sum</code> is run.</p>
@@ -154,6 +169,7 @@ Codename:       bionic</code></pre>
 </ul>
 <p>You will then need to transmit this over the network. To simplify it, you just call a URL, which is shwown on the Canvas landing page. In that URL, mst3k is your userid and the <code>...</code> is the data you are sending. You can do this via a <code>wget</code> call (executing a command-line program from the C/C++ program via <a href="https://www.systutorials.com/docs/linux/man/3-system">system()</a>: <code>wget &lt;URL&gt;</code>. This puts the information into the apache web server log. There are more efficient ways to do this, but putting it into the apache log is fine for this assignment. Note that you should supress the output from the <code>wget</code> call – you can do this with the <code>-q</code> flag.</p>
 <p>You may also want to familiarize yourself with the <a href="https://www.systutorials.com/docs/linux/man/3-system">system()</a> function.</p>
+<p><strong>NOTE:</strong> Your program should NOT display any output from the <code>wget</code> command. You can redirect it to a file (use <code>/dev/null</code>: <code>wget ... &gt; /dev/null</code>) or use the <code>-q</code> (quiet) option, or both.</p>
 <p>To see what information has been sent, go directly to the rootkit data viewer URL, which is on the Canvas landing page. Once you log in with Netbadge, you will be able to see all the data sent in under that userid.</p>
 <p>Note that the logs that are displayed only keep the information sent in the last few hours – we will look at the entire log history when we grade the assignment, but the information that you see will be only the most recent. So don’t worry if the entries that you saw on a previous day are no longer present. As long as they were there at <em>some</em> point, we’ll see them when we grade the assignment.</p>
 <p>The only file you should submit from this is the modified <code>md5sum.c</code> file. We will unpack and configure the entire coreutils archive, put the md5sum.c file in there, and then recompile the <code>sha384sum</code> program. Thus, you do NOT need anything in your Makefile for this task.</p>
@@ -164,8 +180,16 @@ Codename:       bionic</code></pre>
 <li>Similarly, the <code>PATH</code> environment variable indicates all the possible locations that the system looks for when you want to execute a command. You can view it with <code>echo $PATH</code></li>
 <li>If you finished the backdoored <code>sha224sum</code> rootkit, but it’s not printing out anything, consider flushing out stdout to force print the contents in the stdout buffer.</li>
 <li><code>exec()</code> refers to a family of functions that can execute other processes; we recommend using <code>execl()</code> for this assignment (though you are free to do otherwise!)</li>
+<li>If <code>make</code> does not work, you can try running <code>sudo apt install --fix-missing</code> and then run <code>make</code> again to see if that fixes the problem</li>
 </ul>
 <h3 id="submission">Submission</h3>
+<h4 id="sanity-checks">Sanity checks</h4>
+<p>A few things to check before you submit…</p>
+<ul>
+<li>Task 3: in your Makefile, you should <em>NOT</em> move any files to /usr/bin – our grading scripts will do that for you</li>
+<li>Task 4: your sha384sum does <em>not</em> display the wget output</li>
+</ul>
+<h4 id="submission-1">Submission</h4>
 <p>The following files will need to be submitted:</p>
 <ul>
 <li><code>root.c</code> from task 1</li>
