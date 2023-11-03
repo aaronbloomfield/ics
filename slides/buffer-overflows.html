@@ -449,14 +449,19 @@ Note that nothing is 64-bit (even when compiled with `-f elf64`)
 - We need to gracefully exit
 - So we use `syscall` to do so:
 ```x86asm
-mov eax, 1        ; syscall function (sys_write)
-mov edi, 1        ; print to stdout
-lea esi, [string] ; buffer to print
-mov edx, 37       ; size of buffer
-syscall
-mov eax, 60       ; syscall function (sys_exit)
-xor edi, edi      ; exit value (0)
-syscall
+global mysyscall
+section .data
+  string db "You have been infected with a virus!", 0x0a
+section .text
+  mysyscall:
+    mov eax, 1        ; syscall function (sys_write)
+    mov edi, 1        ; print to stdout
+    lea esi, [string] ; buffer to print
+    mov edx, 37       ; size of buffer
+    syscall
+    mov eax, 60       ; syscall function (sys_exit)
+    xor edi, edi      ; exit value (0)
+    syscall
 ```
 
 
