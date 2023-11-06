@@ -50,7 +50,10 @@
 <p><strong><em>YOU MUST RUN THIS ON THE VIRGINIA CYBER RANGE!!!</em></strong>, described below. You are going to <em>negatively affect the machine you develop this on</em>. Do not think that you can or should do this on your computer and still have your computer work.</p>
 <p>We are not responsible if you render your computer inoperable because you did not follow this warning! This is why we provided the Cyber Defense Range account!</p>
 <h3 id="changelog">Changelog</h3>
-<p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
+<p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. <!-- So far there aren't any significant changes to report. --></p>
+<ul>
+<li>Mon, 11/6: Clarified the <code>system()</code> function call for <code>lsb_release</code></li>
+</ul>
 <!--
 ### Backups and Restoration
 
@@ -164,8 +167,11 @@ Codename:       bionic</code></pre>
 <p>You can even replace all spaces with underscores, if you wish. We are less focused on text formatting and more on the obtaining and transmission of the information. And if your system does not print the first line (“No LSB modules are available.”), that’s fine as well.</p>
 <p>From the C code, you will need to execute a command-line program and capture the output. There are a few ways to do this:</p>
 <ul>
-<li>You can do this as series of command-line arguments that create a file, and then read in that file. For example, <code>system("command &gt; filename.txt");</code> will create the file, and then you can look into file I/O to read in that file (see the <a href="https://uva-cs.github.io/pdr/labs/lab10/fileio.cpp.html">fileio.cpp</a> program from CS 2150’s Huffman coding lab as an example)</li>
-<li>You can call the command directly (without redirecting it to a file) from C – see the code <a href="https://stackoverflow.com/questions/7292642/grabbing-output-from-exec">here</a> for how to do this (you can copy the code at that link for this assignment).</li>
+<li>You can do this as series of command-line arguments that create a file, and then read in that file. For example, <code>system("command &gt; filename.txt");</code> will create the file, and then you can look into file I/O to read in that file (see the <a href="https://uva-cs.github.io/pdr/labs/lab10/fileio.cpp.html">fileio.cpp</a> program from CS 2150’s Huffman coding lab as an example)
+<ul>
+<li>A better way would be: <code>system("lsb_release -a &gt; output.txt 2&gt; /dev/null");</code> – this saves the output to <code>output.txt</code>, but the error message (“No LSB modules are available.”) is not displayed to the screen.</li>
+</ul></li>
+<li>You can call the command directly (without redirecting it to a file) from C – see the code <a href="https://stackoverflow.com/questions/7292642/grabbing-output-from-exec">here</a> for how to do this (you can copy the code at that link for this assignment). This is a lot harder, though.</li>
 </ul>
 <p>You will then need to transmit this over the network. To simplify it, you just call a URL, which is shwown on the Canvas landing page. In that URL, mst3k is your userid and the <code>...</code> is the data you are sending. You can do this via a <code>wget</code> call (executing a command-line program from the C/C++ program via <a href="https://www.systutorials.com/docs/linux/man/3-system">system()</a>: <code>wget &lt;URL&gt;</code>. This puts the information into the apache web server log. There are more efficient ways to do this, but putting it into the apache log is fine for this assignment. Note that you should supress the output from the <code>wget</code> call – you can do this with the <code>-q</code> flag.</p>
 <p>You may also want to familiarize yourself with the <a href="https://www.systutorials.com/docs/linux/man/3-system">system()</a> function.</p>

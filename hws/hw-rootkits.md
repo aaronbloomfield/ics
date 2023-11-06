@@ -18,7 +18,9 @@ We are not responsible if you render your computer inoperable because you did no
 
 ### Changelog
 
-Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.   So far there aren't any significant changes to report.
+Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.   <!-- So far there aren't any significant changes to report. -->
+
+- Mon, 11/6: Clarified the `system()` function call for `lsb_release`
 
 
 <!--
@@ -193,7 +195,8 @@ You can even replace all spaces with underscores, if you wish.  We are less focu
 From the C code, you will need to execute a command-line program and capture the output.  There are a few ways to do this:
 
 - You can do this as series of command-line arguments that create a file, and then read in that file.  For example, `system("command > filename.txt");` will create the file, and then you can look into file I/O to read in that file (see the [fileio.cpp](https://uva-cs.github.io/pdr/labs/lab10/fileio.cpp.html) program from CS 2150's Huffman coding lab as an example)
-- You can call the command directly (without redirecting it to a file) from C -- see the code [here](https://stackoverflow.com/questions/7292642/grabbing-output-from-exec) for how to do this (you can copy the code at that link for this assignment).
+  - A better way would be: `system("lsb_release -a > output.txt 2> /dev/null");` -- this saves the output to `output.txt`, but the error message ("No LSB modules are available.") is not displayed to the screen.
+- You can call the command directly (without redirecting it to a file) from C -- see the code [here](https://stackoverflow.com/questions/7292642/grabbing-output-from-exec) for how to do this (you can copy the code at that link for this assignment).  This is a lot harder, though.
 
 You will then need to transmit this over the network.  To simplify it, you just call a URL, which is shwown on the Canvas landing page.  In that URL, mst3k is your userid and the `...` is the data you are sending. You can do this via a `wget` call (executing a command-line program from the C/C++ program via [system()](https://www.systutorials.com/docs/linux/man/3-system): `wget <URL>`.  This puts the information into the apache web server log.  There are more efficient ways to do this, but putting it into the apache log is fine for this assignment.  Note that you should supress the output from the `wget` call -- you can do this with the `-q` flag.
 
