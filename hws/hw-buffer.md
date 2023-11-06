@@ -22,15 +22,11 @@ This program must run on the Cyber Range account.  You are welcome to develop it
 
 ### Changelog
 
-Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here. <!-- So far there aren't any significant changes to report. -->
-
-- Fri, 4/21: clarified that the name in buffer.py has to match the name output by their program
-- Wed, 4/19 @ 5pm: updated grade.c and various instructions throughout (just clarifications to the instructions)
-
+Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
 
 ### Platform
 
-We will be using the Virginia Cyber Range at [https://www.virginiacyberrange.org/](https://www.virginiacyberrange.org/). This site basically allows you to run a remote virtual environment; we are using Ubunmtu 22.04.
+We will be using the Virginia Cyber Range at [https://www.virginiacyberrange.org/](https://www.virginiacyberrange.org/). This site allows you to run a remote virtual environment; we are using Ubunmtu 22.04.
 
 Go to [https://www.virginiacyberrange.org/](https://www.virginiacyberrange.org/).  You should have already signed up for the last assignment; if not, see that one for how to do so.
 
@@ -43,7 +39,7 @@ sudo apt update
 sudo apt install -y make g++ emacs nasm
 ```
 
-You are welcome to install any other software that you would like to use.  gedit is already installed, as is python3.
+This image is *persistent*, which means that any changes you make will be preserved in your virtual environment the next time you log in -- so you should only have to do that once.  You are welcome to install any other software that you would like to use.  gedit is already installed, as is python3.
 
 When you are done, you should close that window, and you can stop the virtual machine (the stop button, which is next to the play button that started this whole party).
 
@@ -97,7 +93,7 @@ The contents of input.bin are output by a program that you will write in tasks 3
 
 **NOTE:** Your output on this must be EXACTLY: `<name>, your grade on this assignment is an A`, as the Gradescope submission will check this.  It's fine if `<name>` is a nickname or only your first name.  Specifically, it has to match the name you put in the buffer.py file that you will submit.
 
-The `--print-buffer-address` is described below.
+<!-- The `--print-buffer-address` is described below. -->
 
 ### ASLR
 
@@ -133,7 +129,7 @@ The stack position keeps changing.  Actually what is happening is the address wh
 
 For this assignment, we need to turn that defense off.
 
-We are going to run it differently.  Try: `setarch $(uname -m) -L -R ./stack_addr`.  The `-R` option tells it to turn off ASLR for the program being run.  The `-L` flag tells it to use an older memory model that is more appropriate for our first buffer overflow.  You can execute this command many times, and you will get the exact same stack address each time.
+We are going to run it differently.  Try: `setarch $(uname -m) -L -R ./stack_addr`.  The `-R` option tells it to turn off ASLR for the program being run.  The `-L` flag tells it to use an older memory model that is more appropriate for our first buffer overflow exploit.  You can execute this command many times, and you will get the exact same stack address each time.
 
 However, it's annoying to do that each time, so we can just do it once: `setarch $(uname -m) -L -R /bin/bash`.  This runs bash -- the shell -- and any commands run in that shell will not have ASLR turned on.  You can now run `./stack_addr` many times, and get the same address each time.
 
@@ -176,9 +172,10 @@ $ setarch $(uname -m) -L -R ./grade --print-buffer-address
 $
 ```
 
-Or just once to run `bash` and then run the program:
+Or we can run `setarch` just once to run `bash`, and then run the program:
 
 ```
+$ setarch $(uname -m) -L -R /bin/bash
 $ ./grade --print-buffer-address
 7fffffffe030
 $ ./grade --print-buffer-address
@@ -232,7 +229,11 @@ Note that the indentation must be a tab, not spaces!
 
 ### Step 2: Shellcode
 
-Your first step is to create shellcode that will print out the grade you want to receive, and then gracefully exit.  This should be in a file called `shellcode.s`.  Recall that you will have to remove all end-of-string characters from the machine code generated.  While this will mostly be 0x00 bytes, you will also have to check for newlines (0x0a) and carriage returns (0x0d).  The [buffer overflow slide set](../slides/buffer-overflows.html#/) goes over how to do this.
+This step is to create shellcode that will print out the grade you want to receive, and then gracefully exit.  This should be in a file called `shellcode.s`.  Recall that you will have to remove all end-of-string characters from the machine code generated.  While this will mostly be 0x00 bytes, you will also have to check for newlines (0x0a) and carriage returns (0x0d).  The [buffer overflow slide set](../slides/buffer-overflows.html#/) goes over how to do this.
+
+#### Goal
+
+The goal of this part is to create a stand-alone assembly program that will print out, `Albert Einstein, your grade on this assignment is an A`.  You will code that in an assembly routine, and use a C program to call that routine.  **The intent is that you start with the shellcode provided in the course slides, specifically [here](slides/buffer-overflows.html#/how2doit), and adapt that code.**
 
 #### C Code
 
@@ -279,7 +280,7 @@ shellcode:
 
 This file is provided in [shellcode_test.c](buffer/shellcode.s.html) ([src](buffer/shellcode.s)).
 
-Forget assembly?  Here are some CS 2150 assembly references: [slides](https://uva-cs.github.io/pdr/slides/08-assembly-64bit.html#/), labs ([1](https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html) & [2](https://uva-cs.github.io/pdr/labs/lab09-64bit/index.html)), book chapters ([1](https://uva-cs.github.io/pdr/book/x86-64bit-asm-chapter.pdf) & [2](https://uva-cs.github.io/pdr/book/x86-64bit-ccc-chapter.pdf)), and/or [recommended online document](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf).
+Forget assembly?  Here are some references from CS 2150: [slides](https://uva-cs.github.io/pdr/slides/08-assembly-64bit.html#/), labs ([1](https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html) & [2](https://uva-cs.github.io/pdr/labs/lab09-64bit/index.html)), book chapters ([1](https://uva-cs.github.io/pdr/book/x86-64bit-asm-chapter.pdf) & [2](https://uva-cs.github.io/pdr/book/x86-64bit-ccc-chapter.pdf)), and/or [recommended online document](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf).  If you took CSO1, that course will have some references as well.
 
 
 #### Makefile
@@ -299,7 +300,8 @@ This goes after the line to compile grade.c from the previous step.
 
 Some VERY important notes for compilation:
 
-- We are using C, not C++, so you will have to use the `gcc` (not `clang`) compiler.
+- We are using C, not C++, so you will have to use the `gcc` (not `g++`) compiler.
+- We are using the GNU C compiler, so we are using `gcc` (not `clang`)
 - We are doing this as a 64-bit program, so you will have to pass `-f elf64` to nasm, and `-m64` to BOTH of the gcc compilation commands.
 - You will have to add the `-no-pie` flag to the final link line.  (If you are interested, the default for the current version of gcc is to create a position independent executable (PIE), which means the addresses for everything are relative, not absolute.  This does not work with what we are compiling, so we turn it off with that flag.)
 - Your compiled shellcode.s file should be named `shellcode.o` -- we are going to run a disassembler on that file, so please name it correctly.
@@ -318,7 +320,6 @@ Some notes and hints for developing this shellcode:
 - As mentioned in the slides, you will want your string to be in your .text section.
 - To save yourself a headache, don't bother putting in a newline at the end of the string at this time.
 
-
 Where to start?
 
 - First, get the C code (from above) properly compiling with some assembly code -- you can adapt the vecsum example from the [first x86 lab in CS 2150](https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html) for this.
@@ -327,8 +328,10 @@ Where to start?
 - Change the assembly code to print out a string (via a `syscall`)
 - Add more assembly code to gracefully exit (also via a `syscall`)
 - View the machine code (via `objdump -d`), and work on removing all the invalid characters (mostly 0x00 bytes).
-- As a sanity check, make sure that none of the other invalid bytes are present in the machine code other than 0x00: newlines (0x0a), carriage returns (0x0d), tabs (0x09), vertical tab (0x0b), and spaces (0x20).
 
+#### Removing invalid characters
+
+As discussed in [the slides](slides/buffer-overflows.html#/how2doit), we are going to have to remove all end-of-string characters.  There are a number of characters can cause problems: newlines (0x0a), carriage returns (0x0d), tabs (0x09), vertical tab (0x0b), and spaces (0x20).  The real issue, however, is removing null bytes (0x00).  The slides discuss how to do this.  You can check your assembly subroutine with `objdump -d` to verify that these bytes do not occur.  Once you make these modifications, recompile `shellcode_test` to make sure it still works as intended after those changes.
 
 #### Execution
 
@@ -460,7 +463,7 @@ Please include the following information:
   - **NOTE:** Your output of your shellcode must EXACTLY: `<name>, your grade on this assignment is an A`, as the Gradescope submission will check this.  The `<name>` part must match the `name` variable in this file.  It's fine if you are only using a first name for the shellcode -- if so, please put your full name in a comment in the file above the `name` variable.
 - How far did you get (i.e., which tasks did you complete)?
 - What thing(s) did you get stuck on for this assignment?
-- Compared to some of the harder assignments you've done -- such as CS 2150's hash lab -- how hard was this assignment?
+- Compared to some of the harder assignments you've done, how hard was this assignment?
 - Other than just giving the answers, what could we do to make this assignment run more smoothly in the future?
 - Any additional information that you would like to include (how far you got on a given task, etc.)
 

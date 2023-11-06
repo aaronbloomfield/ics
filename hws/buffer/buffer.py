@@ -27,8 +27,7 @@ completed_step_3 = False
 # internal statistics.
 completed_step_4 = False
 
-# Compared to other really hard CS assignments, such as CS 2150's hash lab,
-# how hard was this assignment?
+# Compared to other really hard CS assignments, how hard was this assignment?
 how_hard_was_this_assignment = 'easy!!!!'
 
 # Other than just giving the answers, what could we do to make this assignment

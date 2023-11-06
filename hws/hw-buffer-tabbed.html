@@ -64,19 +64,15 @@
 <h4 id='reference-platform'>Reference platform</h4>
 <p>This program must run on the Cyber Range account. You are welcome to develop it on your own machine, but make sure it works there before you submit it. And if it isn’t working on your machine, try it on the Cyber Range to see if that allows it to work.</p>
 </div><div id='tchangelog' class='tabcontent'><h3 id='changelog'>Changelog</h3>
-<p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. </p>
-<ul>
-<li>Fri, 4/21: clarified that the name in buffer.py has to match the name output by their program</li>
-<li>Wed, 4/19 @ 5pm: updated grade.c and various instructions throughout (just clarifications to the instructions)</li>
-</ul>
+<p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
 </div><div id='tplatform' class='tabcontent'><h3 id='platform'>Platform</h3>
-<p>We will be using the Virginia Cyber Range at <a href='https://www.virginiacyberrange.org/'>https://www.virginiacyberrange.org/</a>. This site basically allows you to run a remote virtual environment; we are using Ubunmtu 22.04.</p>
+<p>We will be using the Virginia Cyber Range at <a href='https://www.virginiacyberrange.org/'>https://www.virginiacyberrange.org/</a>. This site allows you to run a remote virtual environment; we are using Ubunmtu 22.04.</p>
 <p>Go to <a href='https://www.virginiacyberrange.org/'>https://www.virginiacyberrange.org/</a>. You should have already signed up for the last assignment; if not, see that one for how to do so.</p>
 <p>Once you log in, click on the course. There will then be a list of exercise environments at the bottom of the page – there should be only one, called “Buffer Overflow HW Environment”. Click on it, then click on the power button on the page that appears (it’s in the lower left of the page). It will take a minute or so to start (boot). Once it does, hit the play button (the right-arrow that replaced the power button) to attach to a screen in the virtual environment.</p>
 <p>You can load up a terminal via one of the icons on the bottom of the screen. You will then have to install a bit of the software. To do so, enter the following two commands:</p>
 <pre><code>sudo apt update
 sudo apt install -y make g++ emacs nasm</code></pre>
-<p>You are welcome to install any other software that you would like to use. gedit is already installed, as is python3.</p>
+<p>This image is <em>persistent</em>, which means that any changes you make will be preserved in your virtual environment the next time you log in – so you should only have to do that once. You are welcome to install any other software that you would like to use. gedit is already installed, as is python3.</p>
 <p>When you are done, you should close that window, and you can stop the virtual machine (the stop button, which is next to the play button that started this whole party).</p>
 <p><strong>WARNING:</strong> This site is free to use for <em>class purposes</em> for all students in the course. Using it for non-class purposes is an honor violation, and will be dealt with as such. Anything outside the reasonable bounds of an assignment in this course is considered a non-class purpose.</p>
 <p>This is a great resource, but it is a <em>finite</em> resource. If you decide to wait to the last minute to start the assignment, and the rest of your class-mates do so as well, it’s going to be slooooooow. You cannot get an extension because you waited until the last minute along with everybody else, and the system was slow as a result.</p>
@@ -103,7 +99,7 @@ Albert Einstein, your grade on this assignment is an A
 $</code></pre>
 <p>The contents of input.bin are output by a program that you will write in tasks 3 & 4.</p>
 <p><strong>NOTE:</strong> Your output on this must be EXACTLY: <code>&lt;name&gt;, your grade on this assignment is an A</code>, as the Gradescope submission will check this. It’s fine if <code>&lt;name&gt;</code> is a nickname or only your first name. Specifically, it has to match the name you put in the buffer.py file that you will submit.</p>
-<p>The <code>--print-buffer-address</code> is described below.</p>
+
 </div><div id='taslr' class='tabcontent'><h3 id='aslr'>ASLR</h3>
 <p>Address Space Layout Randomization (ASLR) is an operating system defense against buffer overflows. Consider the following program, which is available as <a href='buffer/stack_addr.c.html'>stack_addr.c</a> (<a href='buffer/stack_addr.c'>src</a>):</p>
 <pre><code>#include &lt;stdio.h&gt;
@@ -127,7 +123,7 @@ be185c6c
 $ </code></pre>
 <p>The stack position keeps changing. Actually what is happening is the address where the stack <em>starts</em> keeps changing – <code>buffer</code> is still in the same spot relative to that end of the stack, but the address of that end is what varies each time. This is an operating system defense to make buffer overflows quite difficult, since the address of a buffer keeps changing.</p>
 <p>For this assignment, we need to turn that defense off.</p>
-<p>We are going to run it differently. Try: <code>setarch $(uname -m) -L -R ./stack_addr</code>. The <code>-R</code> option tells it to turn off ASLR for the program being run. The <code>-L</code> flag tells it to use an older memory model that is more appropriate for our first buffer overflow. You can execute this command many times, and you will get the exact same stack address each time.</p>
+<p>We are going to run it differently. Try: <code>setarch $(uname -m) -L -R ./stack_addr</code>. The <code>-R</code> option tells it to turn off ASLR for the program being run. The <code>-L</code> flag tells it to use an older memory model that is more appropriate for our first buffer overflow exploit. You can execute this command many times, and you will get the exact same stack address each time.</p>
 <p>However, it’s annoying to do that each time, so we can just do it once: <code>setarch $(uname -m) -L -R /bin/bash</code>. This runs bash – the shell – and any commands run in that shell will not have ASLR turned on. You can now run <code>./stack_addr</code> many times, and get the same address each time.</p>
 <p>We will use the <code>setarch</code> command when we run grade. So your buffer overflow will run via:</p>
 <p><code>setarch $(uname -m) -L -R ./stack_addr ./grade &lt; input.bin</code></p>
@@ -154,8 +150,9 @@ $ setarch $(uname -m) -L -R ./grade --print-buffer-address
 $ setarch $(uname -m) -L -R ./grade --print-buffer-address
 7fffffffe050
 $</code></pre>
-<p>Or just once to run <code>bash</code> and then run the program:</p>
-<pre><code>$ ./grade --print-buffer-address
+<p>Or we can run <code>setarch</code> just once to run <code>bash</code>, and then run the program:</p>
+<pre><code>$ setarch $(uname -m) -L -R /bin/bash
+$ ./grade --print-buffer-address
 7fffffffe030
 $ ./grade --print-buffer-address
 7fffffffe030
@@ -187,7 +184,9 @@ void main() {
     gcc -fno-stack-protector -m64 -fomit-frame-pointer -o grade grade.c</code></pre>
 <p>Note that the indentation must be a tab, not spaces!</p>
 </div><div id='tstep-2-shellcode' class='tabcontent'><h3 id='step-2-shellcode'>Step 2: Shellcode</h3>
-<p>Your first step is to create shellcode that will print out the grade you want to receive, and then gracefully exit. This should be in a file called <code>shellcode.s</code>. Recall that you will have to remove all end-of-string characters from the machine code generated. While this will mostly be 0x00 bytes, you will also have to check for newlines (0x0a) and carriage returns (0x0d). The <a href='../slides/buffer-overflows.html#/'>buffer overflow slide set</a> goes over how to do this.</p>
+<p>This step is to create shellcode that will print out the grade you want to receive, and then gracefully exit. This should be in a file called <code>shellcode.s</code>. Recall that you will have to remove all end-of-string characters from the machine code generated. While this will mostly be 0x00 bytes, you will also have to check for newlines (0x0a) and carriage returns (0x0d). The <a href='../slides/buffer-overflows.html#/'>buffer overflow slide set</a> goes over how to do this.</p>
+<h4 id='goal'>Goal</h4>
+<p>The goal of this part is to create a stand-alone assembly program that will print out, <code>Albert Einstein, your grade on this assignment is an A</code>. You will code that in an assembly routine, and use a C program to call that routine. <strong>The intent is that you start with the shellcode provided in the course slides, specifically <a href='slides/buffer-overflows.html#/how2doit'>here</a>, and adapt that code.</strong></p>
 <h4 id='c-code'>C Code</h4>
 <p>To test that your code works, you will need a <code>main()</code> function to call your shellcode; this will go into a <code>shellcode_test.c</code> file. Here is an example such file (you are welcome to use this as-is or modify it):</p>
 <pre><code>#include &lt;stdio.h&gt;
@@ -220,7 +219,7 @@ shellcode:
   ; for now, a ret, but you will want to eventually remove it
   ret</code></pre>
 <p>This file is provided in <a href='buffer/shellcode.s.html'>shellcode_test.c</a> (<a href='buffer/shellcode.s'>src</a>).</p>
-<p>Forget assembly? Here are some CS 2150 assembly references: <a href='https://uva-cs.github.io/pdr/slides/08-assembly-64bit.html#/'>slides</a>, labs (<a href='https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html'>1</a> & <a href='https://uva-cs.github.io/pdr/labs/lab09-64bit/index.html'>2</a>), book chapters (<a href='https://uva-cs.github.io/pdr/book/x86-64bit-asm-chapter.pdf'>1</a> & <a href='https://uva-cs.github.io/pdr/book/x86-64bit-ccc-chapter.pdf'>2</a>), and/or <a href='https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf'>recommended online document</a>.</p>
+<p>Forget assembly? Here are some references from CS 2150: <a href='https://uva-cs.github.io/pdr/slides/08-assembly-64bit.html#/'>slides</a>, labs (<a href='https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html'>1</a> & <a href='https://uva-cs.github.io/pdr/labs/lab09-64bit/index.html'>2</a>), book chapters (<a href='https://uva-cs.github.io/pdr/book/x86-64bit-asm-chapter.pdf'>1</a> & <a href='https://uva-cs.github.io/pdr/book/x86-64bit-ccc-chapter.pdf'>2</a>), and/or <a href='https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf'>recommended online document</a>. If you took CSO1, that course will have some references as well.</p>
 <h4 id='makefile'>Makefile</h4>
 <p>Your Makefile will need to have three lines to compile this program: one to call nasm to compile shellcode.s, one to compile shellcode_test.c, and one to link them together.</p>
 <p>You will add the following lines to your Makefile (remember that the indents are a single tab, not spaces):</p>
@@ -230,7 +229,8 @@ gcc -g -no-pie -m64 -o shellcode_test shellcode.o shellcode_test.o</code></pre>
 <p>This goes after the line to compile grade.c from the previous step.</p>
 <p>Some VERY important notes for compilation:</p>
 <ul>
-<li>We are using C, not C++, so you will have to use the <code>gcc</code> (not <code>clang</code>) compiler.</li>
+<li>We are using C, not C++, so you will have to use the <code>gcc</code> (not <code>g++</code>) compiler.</li>
+<li>We are using the GNU C compiler, so we are using <code>gcc</code> (not <code>clang</code>)</li>
 <li>We are doing this as a 64-bit program, so you will have to pass <code>-f elf64</code> to nasm, and <code>-m64</code> to BOTH of the gcc compilation commands.</li>
 <li>You will have to add the <code>-no-pie</code> flag to the final link line. (If you are interested, the default for the current version of gcc is to create a position independent executable (PIE), which means the addresses for everything are relative, not absolute. This does not work with what we are compiling, so we turn it off with that flag.)</li>
 <li>Your compiled shellcode.s file should be named <code>shellcode.o</code> – we are going to run a disassembler on that file, so please name it correctly.</li>
@@ -255,8 +255,9 @@ gcc -g -no-pie -m64 -o shellcode_test shellcode.o shellcode_test.o</code></pre>
 <li>Change the assembly code to print out a string (via a <code>syscall</code>)</li>
 <li>Add more assembly code to gracefully exit (also via a <code>syscall</code>)</li>
 <li>View the machine code (via <code>objdump -d</code>), and work on removing all the invalid characters (mostly 0x00 bytes).</li>
-<li>As a sanity check, make sure that none of the other invalid bytes are present in the machine code other than 0x00: newlines (0x0a), carriage returns (0x0d), tabs (0x09), vertical tab (0x0b), and spaces (0x20).</li>
 </ul>
+<h4 id='removing-invalid-characters'>Removing invalid characters</h4>
+<p>As discussed in <a href='slides/buffer-overflows.html#/how2doit'>the slides</a>, we are going to have to remove all end-of-string characters. There are a number of characters can cause problems: newlines (0x0a), carriage returns (0x0d), tabs (0x09), vertical tab (0x0b), and spaces (0x20). The real issue, however, is removing null bytes (0x00). The slides discuss how to do this. You can check your assembly subroutine with <code>objdump -d</code> to verify that these bytes do not occur. Once you make these modifications, recompile <code>shellcode_test</code> to make sure it still works as intended after those changes.</p>
 <h4 id='execution'>Execution</h4>
 <p>After compiling with <code>make</code>, we will execute your code via <code>./shellcode_test</code> as follows.</p>
 <pre><code>$ ./shellcode_test
@@ -341,7 +342,7 @@ $</code></pre>
 </ul></li>
 <li>How far did you get (i.e., which tasks did you complete)?</li>
 <li>What thing(s) did you get stuck on for this assignment?</li>
-<li>Compared to some of the harder assignments you’ve done – such as CS 2150’s hash lab – how hard was this assignment?</li>
+<li>Compared to some of the harder assignments you’ve done, how hard was this assignment?</li>
 <li>Other than just giving the answers, what could we do to make this assignment run more smoothly in the future?</li>
 <li>Any additional information that you would like to include (how far you got on a given task, etc.)</li>
 </ul>
