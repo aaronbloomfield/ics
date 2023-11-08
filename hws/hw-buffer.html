@@ -56,7 +56,7 @@
 <h3 id="platform">Platform</h3>
 <p>We will be using the Virginia Cyber Range at <a href="https://www.virginiacyberrange.org/">https://www.virginiacyberrange.org/</a>. This site allows you to run a remote virtual environment; we are using Ubunmtu 22.04.</p>
 <p>Go to <a href="https://www.virginiacyberrange.org/">https://www.virginiacyberrange.org/</a>. You should have already signed up for the last assignment; if not, see that one for how to do so.</p>
-<p>Once you log in, click on the course. There will then be a list of exercise environments at the bottom of the page – there should be only one, called “Buffer Overflow HW Environment”. Click on it, then click on the power button on the page that appears (it’s in the lower left of the page). It will take a minute or so to start (boot). Once it does, hit the play button (the right-arrow that replaced the power button) to attach to a screen in the virtual environment.</p>
+<p>Once you log in, click on the course. There will then be a list of exercise environments at the bottom of the page – click on the one called “Buffer Overflow HW Environment”, then click on the power button on the page that appears (it’s in the lower left of the page). It will take a minute or so to start (boot). Once it does, hit the play button (the right-arrow that replaced the power button) to attach to a screen in the virtual environment.</p>
 <p>You can load up a terminal via one of the icons on the bottom of the screen. You will then have to install a bit of the software. To do so, enter the following two commands:</p>
 <pre><code>sudo apt update
 sudo apt install -y make g++ emacs nasm</code></pre>
@@ -78,8 +78,7 @@ $</code></pre>
 <p>Note that the first instance of the name in the output above is what the user input, and the second is what the program printed back.</p>
 <p>The grade reported by this program is the grade you will receive on (part of) this assignment.</p>
 <p>The source code for this program is available: <a href="buffer/grade.c.html">grade.c</a> (<a href="buffer/grade.c">src</a>). It MUST be compiled with the following command:</p>
-<pre><code>gcc -fno-stack-protector -m64 -fomit-frame-pointer -o grade grade.c</code></pre>
-<p>You are welcome to add the <code>-g</code> option to help with debugging, but when we test your program, we will not add the <code>-g</code> option.</p>
+<pre><code>gcc -g -fno-stack-protector -m64 -fomit-frame-pointer -o grade grade.c</code></pre>
 <p>Your job is to create a shellcode-based buffer overflow attack that will assign you a different grade. For example:</p>
 <pre><code>$ ./grade &lt; input.bin
 Please enter your name:
@@ -169,7 +168,7 @@ void main() {
 <p>If you forget how to write a Makefile, you can see <a href="https://uva-cs.github.io/pdr/tutorials/05-make/index.html">this Makefile tutorial</a>, and <a href="https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html">this C/assembly Makefile example</a>, or any other reference online.</p>
 <p>You may want to put the grade.c compilation line, from above, into your Makefile. So far, your Makefile should look like this:</p>
 <pre><code>all:
-    gcc -fno-stack-protector -m64 -fomit-frame-pointer -o grade grade.c</code></pre>
+    gcc -g -fno-stack-protector -m64 -fomit-frame-pointer -o grade grade.c</code></pre>
 <p>Note that the indentation must be a tab, not spaces!</p>
 <h3 id="step-2-shellcode">Step 2: Shellcode</h3>
 <p>This step is to create shellcode that will print out the grade you want to receive, and then gracefully exit. This should be in a file called <code>shellcode.s</code>. Recall that you will have to remove all end-of-string characters from the machine code generated. While this will mostly be 0x00 bytes, you will also have to check for newlines (0x0a) and carriage returns (0x0d). The <a href="../slides/buffer-overflows.html#/">buffer overflow slide set</a> goes over how to do this.</p>
@@ -265,18 +264,8 @@ $</code></pre>
 <li>The shellcode</li>
 <li>The return address</li>
 </ul>
-<h4 id="debugger">Debugger</h4>
-<p>You are going to have become friendly with gdb – there is no way around that. Here are a bunch of commands that will be of help; you can also see the <a href="https://uva-cs.github.io/pdr/tutorials/02-gdb/index.html">CS 2150 GDB tutorial</a> (although some of the commands below are not listed there).</p>
-<ul>
-<li>‘n’ steps <em>over</em> the next instruction, so it will pause (break) at the instruction following the one it is currently stopped at</li>
-<li><code>stepi</code> steps into the assembly being executed – this will be necessary to trace your shellcode.</li>
-<li><code>layout asm</code> will split the screen so that the assembly being executed is shown at the top (with an arrow at the current instruction pointer), and a place to enter commands below. This can be <em>very</em> useful for tracing your assembly, especially once it is on the stack.</li>
-<li>If you want to repeat the last command, just hit Enter – this is particularly useful when you are repeatedly stepping through assembly commands via <code>stepi</code>.</li>
-<li>To print the value in a register, use <code>p/x $rsi</code></li>
-<li>When paused in a part of the executable code, you can see the assembly listing via <code>disassemble</code> (or just <code>disas</code>). However, when you are executing on the stack, gdb can’t figure out what to disassemble, so it won’t show anything via a <code>disas</code> command. Instead, you can give it a range, such as: <code>disassemble 0x7fffffffdcb0,0x7fffffffdd30</code>. As x86 instructions are variable length, if your start address is not on an instruction boundary, you will not get the output you intend.</li>
-<li>To print a number of values on the stack, try <code>x/40xw $rsp</code>. Note that this displays the data in little Endian, whereas <code>hexdump -C</code> (see below) displays it in big Endian.</li>
-</ul>
-<p><strong>NOTE:</strong> If you are running <code>grade</code> in the debugger, it will be easiest to create a breakpoint (<code>break grade.c:38</code>), check the address of name (<code>print &amp;name</code>), and then manually edit the address.txt file with that buffer address. You can then enter <code>layout asm</code> and <code>stepi</code> to see it walk through the assembly code.</p>
+<h4 id="debugging">Debugging</h4>
+<p>See the next section for a quick tutorial on how to use the debugger to get your program working.</p>
 <h4 id="notes-and-hints-1">Notes and hints</h4>
 <p>Some other notes and tips:</p>
 <ul>
@@ -301,6 +290,114 @@ $ ./attack_shellcode &gt; input.bin
 $ setarch $(uname -m) -R -L ./grade &lt; input.bin
 Albert Einstein, your grade on this assignment is an A$</code></pre>
 <p>The specific value of your buffer address may vary. Notice that the end prompt is on the <em>same</em> line as the output – this is fixed next.</p>
+<h3 id="debugger">Debugger</h3>
+<p>You are going to have become friendly with gdb – the GNU Debugger. There is no way around that. Here are a bunch of commands that will be of help; you can also see the <a href="https://uva-cs.github.io/pdr/tutorials/02-gdb/index.html">CS 2150 GDB tutorial</a> (although some of the commands below are not listed there).</p>
+<p>To perform any of these commands, you need to add the <code>-g</code> flag to <em>all</em> of your compilation lines. This was included above, but be sure that <em>each</em> compilation line (both gcc and nasm) have that flag present..</p>
+<p>To start the debugger, run <code>gbd</code> with the <em>compiled</em> program you want to debug, such as: <code>gdb shellcode_test</code>.</p>
+<h4 id="breakpoints-and-examining-data">Breakpoints and examining data</h4>
+<p>A breakpoint is a spot in the file where the program execution will pause so that you can examine the state of things. To set a breakpoint, enter <code>break shellcode_test.c:11</code>. This will set a breakpoint at line 11 of the shellcode_test.c file, which is the line that calls <code>shellcode();</code>. A breakpoint will pause the program just <em>before</em> that line is executed.</p>
+<p>To start the program executing, you enter <code>run</code>. You can enter any command line parameters after the <code>run</code>, or pipes (i.e., <code>run &lt; input.bin</code>).</p>
+<p>One you have entered the breakpoint, you can examine the state of the program:</p>
+<ul>
+<li><code>info locals</code> prints the values of the local variables in that subroutine</li>
+<li><code>print</code> or <code>p</code> will show the value of a specific variable. If it’s an array or buffer, you can prefix it by the ampersand (<code>&amp;</code>) to get the address of that array or buffer.</li>
+<li>You can get the value of a specific register via: <code>p $rax</code>; this will be quite useful later on</li>
+<li><code>bt</code> (for backtrace) shows the set of function calls that got to that point</li>
+<li><code>list</code> shows the line of source code that the program is paused on, and the few lines before and after</li>
+</ul>
+<p>Below is an example of running the debugger using those commands. This is using the shellcode_test.c, from above, and there is only one local variable. There are a number of lines of information printed when the debugger starts; these have been omitted below and replaced with an elipsis (…).</p>
+<pre><code>$ gdb shellcode_test 
+GNU gdb (Ubuntu 12.1-0ubuntu1~22.04) 12.1
+...
+(gdb) break shellcode_test.c:11
+Breakpoint 1 at 0x40122a: file shellcode_test.c, line 11.
+(gdb) run
+Starting program: /home/aaron/Dropbox/git/ics-staff/hws/buffer/shellcode_test 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib/x86_64-linux-gnu/libthread_db.so.1&quot;.
+Before shell code is executed.
+
+Breakpoint 1, main () at shellcode_test.c:11
+11    shellcode();
+(gdb) info locals
+on_stack = 0
+(gdb) p on_stack
+$1 = 0
+(gdb) p $rax
+$2 = 31
+(gdb) bt
+#0  main () at shellcode_test.c:11
+(gdb) list
+6 void main() {
+7   int on_stack;
+8   mprotect((char *)((long)&amp;on_stack &amp; -0x1000), 1, PROT_READ | PROT_WRITE | PROT_EXEC);
+9   mprotect((char *)((long)&amp;main &amp; -0x1000), 1, PROT_READ | PROT_WRITE | PROT_EXEC);
+10    printf (&quot;Before shell code is executed.\n&quot;);
+11    shellcode();
+12    printf (&quot;After shell code is executed.\n&quot;);
+13  }
+(gdb) exit
+A debugging session is active.
+
+  Inferior 1 [process 1162358] will be killed.
+
+Quit anyway? (y or n) y
+$ </code></pre>
+<h4 id="managing-execution">Managing execution</h4>
+<p>Debuggers can allow you to execute lines of code one at a time; this is called single-stepping. Presumably we would want to examine the data after each single step, as above – but for this part we are just going to look at how to control the execution of the program.</p>
+<p>The relevant commands are:</p>
+<ul>
+<li><code>next</code> or <code>n</code> will execute the current line of C code and step to the next instruction. In particular, if that line is a subroutine call, it will execute the entire subroutine and break at the line <em>after</em> the subroutine call. It will also step over conditionals (<code>if</code>) and loops (<code>for</code> and <code>while</code>).</li>
+<li><code>step</code> or <code>s</code> will step <em>into</em> the subroutine, and break at the very start of the subroutine. This is useful for subroutines that we write, but less useful for a subroutine we are calling from a library.</li>
+<li><code>continue</code> or <code>c</code> will resume execution until either the program ends or another breakpoint is encountered.</li>
+</ul>
+<p>If you want to enter the same command a second time, you can just hit the Enter button. You will see this below where it looks like there was nothing entered on the gdb prompt – it just used the previous command.</p>
+<p>For this example, we are going to use the grade.c program from above, and break at the first line of the <code>main()</code> function (line 45). We want to step over the <code>mprotect()</code> calls, but step into the <code>vulnerable()</code> call. We are also going to print the address of the buffer once in <code>vulnerable()</code>.</p>
+<pre><code>$ gdb grade
+GNU gdb (Ubuntu 12.1-0ubuntu1~22.04) 12.1
+...
+(gdb) break grade.c:45
+Breakpoint 1 at 0x12cf: file grade.c, line 45.
+(gdb) run
+Starting program: /home/aaron/Dropbox/git/ics-staff/hws/buffer/grade 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library &quot;/lib/x86_64-linux-gnu/libthread_db.so.1&quot;.
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffe3e8) at grade.c:45
+45    if ( (argc == 2) &amp;&amp; (!strcmp(argv[1],&quot;--print-buffer-address&quot;)) )
+(gdb) n
+53    mprotect((char *)((long)&amp;on_stack &amp; -0x1000), 1, PROT_READ | PROT_WRITE | PROT_EXEC);
+(gdb) 
+57    mprotect((char *)((long)&amp;main &amp; -0x1000), 1, PROT_READ | PROT_WRITE | PROT_EXEC);
+(gdb) 
+60    vulnerable();
+(gdb) s
+vulnerable () at grade.c:28
+28  void vulnerable() {
+(gdb) print &amp;buffer
+$1 = (char (*)[30]) 0x7ffff7f96e30 &lt;buffer&gt;
+(gdb) n
+30    if ( print_buffer_address ) {
+(gdb) n
+35      printf (&quot;Please enter your name:\n&quot;);
+(gdb) c
+Continuing.
+Please enter your name:
+Albert Einstein
+
+Albert Einstein, your grade on this assignment is a F
+[Inferior 1 (process 1162585) exited with code 067]
+(gdb) exit</code></pre>
+<h4 id="assembly-in-a-debugger">Assembly in a debugger</h4>
+<p>The commands seen so far work for C programs, but we want to also be able to examine assembly execution. Here are a few new commands:</p>
+<ul>
+<li><code>stepi</code> steps into the assembly being executed – this will be necessary to trace your shellcode. This is like the <code>step</code> (or <code>s</code>) command from above, but shows the instructions opcode by opcode.</li>
+<li><code>layout asm</code> will split the screen so that the assembly being executed is shown at the top (with an arrow at the current instruction pointer), and a place to enter commands below. This can be <em>very</em> useful for tracing your assembly, especially once it is on the stack.</li>
+<li>To print the value in a register, use <code>p/x $rsi</code> – this prints it in hexadecimal.</li>
+<li>When paused in a part of the executable code, you can see the assembly listing via <code>disassemble</code> (or just <code>disas</code>). However, when you are executing on the stack, gdb can’t figure out what to disassemble, so it won’t show anything via a <code>disas</code> command. Instead, you can give it a range, such as: <code>disassemble 0x7fffffffdcb0,0x7fffffffdd30</code>. As x86 instructions are variable length, if your start address is not on an instruction boundary, you will not get the output you intend.</li>
+<li>To print a number of values on the stack, try <code>x/40xw $rsp</code>. Note that this displays the data in little Endian, whereas <code>hexdump -C</code> (see below) displays it in big Endian.</li>
+</ul>
+<p>There is no example for this because the only relevant example is the homework solution.</p>
 <h3 id="task-4-newline">Task 4: Newline</h3>
 <p><strong><em>BACK UP YOUR CODE FIRST!!!</em></strong> You are about to modify your program, and if things go poorly, then you want to be able to revert back to the code that successfully completes tasks 3 and 4.</p>
 <p>If you have made it this far, then your code, when run, looks something like:</p>
@@ -337,7 +434,7 @@ $</code></pre>
 <p>We are not looking for any significant length here, just candid answers.</p>
 <h3 id="troubleshooting">Troubleshooting</h3>
 <p>You are likely to run into problems, which will probably be segmentation faults. Here are some ideas about how to solve that.</p>
-<p>Recall that g++ often leaves some extra space between the buffer and the return address. How much? You have to figure that out yourself. You can look at the assembly generated for grade.c (run <code>g++ -S -o grade.s grade.c</code>) to start.</p>
+<p>Recall that gcc often leaves some extra space between the buffer and the return address. How much? You have to figure that out yourself. You can look at the assembly generated for grade.c (run <code>gcc -S -o grade.s grade.c</code>) to start.</p>
 <p>One issue is to figure out whether you are setting the return address correctly – if not, that would be the cause of the segfault. First, we need to find what the return address should be. To do this, we first need to find the return address from <code>vulnerable()</code> back to <code>main()</code>. Run <code>objdump -d grade</code>, and find the line <em>after</em> the call (in <code>main()</code>) to <code>vulnerable()</code> – that is the return address from vulnerable. Next, load up the executable in gdb, and set up a break point right when you enter into the <code>vulnerable()</code> function. You can list the stack with a command such as, <code>x/100xw $rsp</code>. This will print out 100 hex values, each one being 4 bytes. A typical gdb display will list four 32-bit (4 byte) values per line, which is 16 bytes per line. Since you know the size of the buffer (200 bytes), the return address is likely to be about 200/16 lines down, or about a dozen lines down. Keep in mind that a return address is 64 bits, which will be <em>two</em> of the 32-bit values listed in this display. That return address should (more or less) match the value you gleaned from the objdump command. Once you have the return address, figure out the command to just print out that return address: <code>x/2xw 0x7fffffffdcc0</code> might work (if the return address were located at 0x7fffffffdcc0). Next, set up a break point for the <em>end</em> of the <code>vulnerable()</code> function. Check that return address value again – it should look similar to (but not the exact same value as) the value in the rsp register (<code>print $rsp</code>). When split among two values, it will list like, <code>0xffffde00 0x00007fff</code>. Once you see that value, it should be the exact address of the <code>name</code> buffer. If not, then your program is going to seg fault.</p>
 <p>If you are sure the return address is set correctly, the next step is to trace the injected assembly. Set a break point for the end of the <code>vulnerable()</code> function. If you set it <em>before</em> the last function call (the <code>strncpy()</code> call), hit <code>n</code> to step over that function. You will then start using <code>stepi</code> to single-step through the assembly instructions. Running <code>layout asm</code> will help the trace. You should step through your assembly code to make sure it works – presumably there will be the nop sled, then your injected code. Note that x86 instructions are of a different lengths, so if your jump is off, it may jump to the middle of an instruction, and you will get an illegal instruction error. You can disassemble a region of memory with a command such as <code>disassemble 0x7fffffffdcb0,0x7fffffffdd30</code>. Also note that when you are disassembling the contents of the stack, gdb will attempt to map the string (that you should receive, presumably, an A) to x86 instructions, many of which will be invalid. But if you do a disassembly from the start of your shell code (which is the target of your initial jump), you should see the assembly that you wrote.</p>
 <h3 id="submission">Submission</h3>
