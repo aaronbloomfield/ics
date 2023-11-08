@@ -166,7 +166,7 @@ For this task, we will attack the `sha384sum` binary, for similar reasons as the
 
 First, *BACK UP THE PROGRAM*.  For example: `sudo cp /usr/bin/sha384sum /usr/bin/sha384sum.bak`.  This way if you mess up, you can easily restore it.
 
-For this task we are going to modify the source code to insert our compromise into the program itself.  Linux is open source, and all of the core utilities are GNU, so their source code is freely available.  You can download the latest (highest-numbered) version from [https://ftp.gnu.org/gnu/coreutils/](https://ftp.gnu.org/gnu/coreutils/) -- although there are likely later verions, **we are going to version 8.31**.  The specific file to download is [here](https://ftp.gnu.org/gnu/coreutils/coreutils-8.31.tar.xz).  The coreutils are the basic utilities used by all Linux systems -- ls, cp, mv, etc.  Once you've downloaded it, uncompress it (`tar xfa coreutils-8.31.tar.xz`). Once in that directory, run `./configure` then `make`.  This will work on the VirtualBox image -- you are on your own if you are using your own computer's OS.
+For this task we are going to modify the source code to insert our compromise into the program itself.  Linux is open source, and all of the core utilities are GNU, so their source code is freely available.  You can download the latest (highest-numbered) version from [https://ftp.gnu.org/gnu/coreutils/](https://ftp.gnu.org/gnu/coreutils/) -- although there are likely later verions, **we are going to version 8.31**.  The specific file to download is [here](https://ftp.gnu.org/gnu/coreutils/coreutils-8.31.tar.xz).  The coreutils are the basic utilities used by all Linux systems -- ls, cp, mv, etc.  Once you've downloaded it, uncompress it (`tar xfa coreutils-8.31.tar.xz`). Once in that directory, run `./configure` then `make`.  This will work on the Virginia Cyber Range -- you are on your own if you are using your own computer's OS.
 
 The source code for the various files in coreutils is all inter-dependent on each other, and it's not worth our time for this assignment to figure out the details or try to separate it.  So you are going to edit the appropriate files in the coreutils archive and compile it with the Makefile that the archive provides.  The `main()` function for the sha384sum binary is in src/md5sum.c (SHA-1 was originally added as an "extension" of MD5, and it stayed that way as successive SHA versions were created).  Once you modify that file, you can run `make src/sha384sum`.
 
@@ -174,7 +174,7 @@ To ensure that you can get it to work, put a `printf()` statement in the top of 
 
 The challenge for this task is that you have to find out some information about the host system and then send that over a network connection.  This all has to happen when `sha384sum` is run.
 
-One can find out a lot of information about the system.  For this part, though, we aren't as focused on *what* you can find out, but instead *how* you send that information back.  The information we want is the output of `lsb_release -a`.  On the VirtualBox image, it would print out:
+One can find out a lot of information about the system.  For this part, though, we aren't as focused on *what* you can find out, but instead *how* you send that information back.  The information we want is the output of `lsb_release -a`.  On the Virginia Cyber Range, it would print out:
 
 ```
 No LSB modules are available.
