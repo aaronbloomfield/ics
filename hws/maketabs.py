@@ -11,7 +11,8 @@ assert os.path.exists(sys.argv[1])
 
 if sys.argv[1] not in ['hw-rsa.html','hw-hashing.html', 'hw-fuzzing.html', 'hw-networks.html',
 						'hw-sql-xss-csrf.html', 'hw-cryptocurrency.html','hw-rootkits.html',
-						'hw-buffer.html', 'hw-forensics.html', 'hw-paranoia.html', 'hw-ethics.html']:
+						'hw-buffer.html', 'hw-forensics.html', 'hw-paranoia.html', 'hw-ethics.html',
+						'hw-tricky-jump.html']:
 	exit()
 
 outfilename = sys.argv[1].replace(".html","") + "-tabbed.html"
@@ -79,7 +80,7 @@ replacements = [ ("Ec","EC"),("Io","I/O"),("Tbtc","tBTC"),("P2Pkh","P2PKH"),("To
 				 ("Igradebook","IGradebook"),("Tc","TC"),("Tokencc","TokenCC"),("Css","CSS"),
 				 ("&","&amp;"),("Dex","DEX"),("Metamask","MetaMask"),
 				 ("Ascii","ASCII"),("Crc","CRC"),("Md5","MD5"),("Sql","SQL"),("Csrf","CSRF"),("Xss","XSS"),
-				 ("Aslr","ASLR"),("Chatgpt","ChatGPT")]
+				 ("Aslr","ASLR"),("Chatgpt","ChatGPT"),("Elf","ELF")]
 
 parser = MyHTMLParser()
 parser.feed(data)

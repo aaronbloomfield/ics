@@ -1,0 +1,273 @@
+
+test6:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000401000 <_init>:
+  401000:	f3 0f 1e fa          	endbr64 
+  401004:	48 83 ec 08          	sub    $0x8,%rsp
+  401008:	48 8b 05 e1 2f 00 00 	mov    0x2fe1(%rip),%rax        # 403ff0 <__gmon_start__@Base>
+  40100f:	48 85 c0             	test   %rax,%rax
+  401012:	74 02                	je     401016 <_init+0x16>
+  401014:	ff d0                	call   *%rax
+  401016:	48 83 c4 08          	add    $0x8,%rsp
+  40101a:	c3                   	ret    
+
+Disassembly of section .plt:
+
+0000000000401020 <__cxa_atexit@plt-0x10>:
+  401020:	ff 35 e2 2f 00 00    	push   0x2fe2(%rip)        # 404008 <_GLOBAL_OFFSET_TABLE_+0x8>
+  401026:	ff 25 e4 2f 00 00    	jmp    *0x2fe4(%rip)        # 404010 <_GLOBAL_OFFSET_TABLE_+0x10>
+  40102c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000401030 <__cxa_atexit@plt>:
+  401030:	ff 25 e2 2f 00 00    	jmp    *0x2fe2(%rip)        # 404018 <__cxa_atexit@GLIBC_2.2.5>
+  401036:	68 00 00 00 00       	push   $0x0
+  40103b:	e9 e0 ff ff ff       	jmp    401020 <_init+0x20>
+
+0000000000401040 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>:
+  401040:	ff 25 da 2f 00 00    	jmp    *0x2fda(%rip)        # 404020 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@GLIBCXX_3.4>
+  401046:	68 01 00 00 00       	push   $0x1
+  40104b:	e9 d0 ff ff ff       	jmp    401020 <_init+0x20>
+
+0000000000401050 <_ZNSolsEPFRSoS_E@plt>:
+  401050:	ff 25 d2 2f 00 00    	jmp    *0x2fd2(%rip)        # 404028 <_ZNSolsEPFRSoS_E@GLIBCXX_3.4>
+  401056:	68 02 00 00 00       	push   $0x2
+  40105b:	e9 c0 ff ff ff       	jmp    401020 <_init+0x20>
+
+0000000000401060 <_ZNSt8ios_base4InitC1Ev@plt>:
+  401060:	ff 25 ca 2f 00 00    	jmp    *0x2fca(%rip)        # 404030 <_ZNSt8ios_base4InitC1Ev@GLIBCXX_3.4>
+  401066:	68 03 00 00 00       	push   $0x3
+  40106b:	e9 b0 ff ff ff       	jmp    401020 <_init+0x20>
+
+Disassembly of section .text:
+
+0000000000401070 <_start>:
+  401070:	f3 0f 1e fa          	endbr64 
+  401074:	31 ed                	xor    %ebp,%ebp
+  401076:	49 89 d1             	mov    %rdx,%r9
+  401079:	5e                   	pop    %rsi
+  40107a:	48 89 e2             	mov    %rsp,%rdx
+  40107d:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+  401081:	50                   	push   %rax
+  401082:	54                   	push   %rsp
+  401083:	45 31 c0             	xor    %r8d,%r8d
+  401086:	31 c9                	xor    %ecx,%ecx
+  401088:	48 c7 c7 56 11 40 00 	mov    $0x401156,%rdi
+  40108f:	ff 15 53 2f 00 00    	call   *0x2f53(%rip)        # 403fe8 <__libc_start_main@GLIBC_2.34>
+  401095:	f4                   	hlt    
+  401096:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  40109d:	00 00 00 
+
+00000000004010a0 <_dl_relocate_static_pie>:
+  4010a0:	f3 0f 1e fa          	endbr64 
+  4010a4:	c3                   	ret    
+  4010a5:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  4010ac:	00 00 00 
+  4010af:	90                   	nop
+
+00000000004010b0 <deregister_tm_clones>:
+  4010b0:	b8 48 40 40 00       	mov    $0x404048,%eax
+  4010b5:	48 3d 48 40 40 00    	cmp    $0x404048,%rax
+  4010bb:	74 13                	je     4010d0 <deregister_tm_clones+0x20>
+  4010bd:	b8 00 00 00 00       	mov    $0x0,%eax
+  4010c2:	48 85 c0             	test   %rax,%rax
+  4010c5:	74 09                	je     4010d0 <deregister_tm_clones+0x20>
+  4010c7:	bf 48 40 40 00       	mov    $0x404048,%edi
+  4010cc:	ff e0                	jmp    *%rax
+  4010ce:	66 90                	xchg   %ax,%ax
+  4010d0:	c3                   	ret    
+  4010d1:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+  4010d8:	00 00 00 00 
+  4010dc:	0f 1f 40 00          	nopl   0x0(%rax)
+
+00000000004010e0 <register_tm_clones>:
+  4010e0:	be 48 40 40 00       	mov    $0x404048,%esi
+  4010e5:	48 81 ee 48 40 40 00 	sub    $0x404048,%rsi
+  4010ec:	48 89 f0             	mov    %rsi,%rax
+  4010ef:	48 c1 ee 3f          	shr    $0x3f,%rsi
+  4010f3:	48 c1 f8 03          	sar    $0x3,%rax
+  4010f7:	48 01 c6             	add    %rax,%rsi
+  4010fa:	48 d1 fe             	sar    %rsi
+  4010fd:	74 11                	je     401110 <register_tm_clones+0x30>
+  4010ff:	b8 00 00 00 00       	mov    $0x0,%eax
+  401104:	48 85 c0             	test   %rax,%rax
+  401107:	74 07                	je     401110 <register_tm_clones+0x30>
+  401109:	bf 48 40 40 00       	mov    $0x404048,%edi
+  40110e:	ff e0                	jmp    *%rax
+  401110:	c3                   	ret    
+  401111:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+  401118:	00 00 00 00 
+  40111c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000401120 <__do_global_dtors_aux>:
+  401120:	f3 0f 1e fa          	endbr64 
+  401124:	80 3d 65 30 00 00 00 	cmpb   $0x0,0x3065(%rip)        # 404190 <completed.0>
+  40112b:	75 13                	jne    401140 <__do_global_dtors_aux+0x20>
+  40112d:	55                   	push   %rbp
+  40112e:	48 89 e5             	mov    %rsp,%rbp
+  401131:	e8 7a ff ff ff       	call   4010b0 <deregister_tm_clones>
+  401136:	c6 05 53 30 00 00 01 	movb   $0x1,0x3053(%rip)        # 404190 <completed.0>
+  40113d:	5d                   	pop    %rbp
+  40113e:	c3                   	ret    
+  40113f:	90                   	nop
+  401140:	c3                   	ret    
+  401141:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+  401148:	00 00 00 00 
+  40114c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000401150 <frame_dummy>:
+  401150:	f3 0f 1e fa          	endbr64 
+  401154:	eb 8a                	jmp    4010e0 <register_tm_clones>
+
+0000000000401156 <main>:
+  401156:	f3 0f 1e fa          	endbr64 
+  40115a:	48 83 ec 08          	sub    $0x8,%rsp
+  40115e:	48 8d 05 9f 0e 00 00 	lea    0xe9f(%rip),%rax        # 402004 <_IO_stdin_used+0x4>
+  401165:	48 89 c6             	mov    %rax,%rsi
+  401168:	48 8d 05 11 2f 00 00 	lea    0x2f11(%rip),%rax        # 404080 <_ZSt4cout@GLIBCXX_3.4>
+  40116f:	48 89 c7             	mov    %rax,%rdi
+  401172:	e8 c9 fe ff ff       	call   401040 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
+  401177:	48 8b 15 62 2e 00 00 	mov    0x2e62(%rip),%rdx        # 403fe0 <_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@GLIBCXX_3.4>
+  40117e:	48 89 d6             	mov    %rdx,%rsi
+  401181:	48 89 c7             	mov    %rax,%rdi
+  401184:	e8 c7 fe ff ff       	call   401050 <_ZNSolsEPFRSoS_E@plt>
+  401189:	b8 00 00 00 00       	mov    $0x0,%eax
+  40118e:	48 83 c4 08          	add    $0x8,%rsp
+  401192:	c3                   	ret    
+
+0000000000401193 <_Z41__static_initialization_and_destruction_0ii>:
+  401193:	f3 0f 1e fa          	endbr64 
+  401197:	48 83 ec 18          	sub    $0x18,%rsp
+  40119b:	89 7c 24 0c          	mov    %edi,0xc(%rsp)
+  40119f:	89 74 24 08          	mov    %esi,0x8(%rsp)
+  4011a3:	83 7c 24 0c 01       	cmpl   $0x1,0xc(%rsp)
+  4011a8:	75 3c                	jne    4011e6 <_Z41__static_initialization_and_destruction_0ii+0x53>
+  4011aa:	81 7c 24 08 ff ff 00 	cmpl   $0xffff,0x8(%rsp)
+  4011b1:	00 
+  4011b2:	75 32                	jne    4011e6 <_Z41__static_initialization_and_destruction_0ii+0x53>
+  4011b4:	48 8d 05 d6 2f 00 00 	lea    0x2fd6(%rip),%rax        # 404191 <_ZStL8__ioinit>
+  4011bb:	48 89 c7             	mov    %rax,%rdi
+  4011be:	e8 9d fe ff ff       	call   401060 <_ZNSt8ios_base4InitC1Ev@plt>
+  4011c3:	48 8d 05 76 2e 00 00 	lea    0x2e76(%rip),%rax        # 404040 <__dso_handle>
+  4011ca:	48 89 c2             	mov    %rax,%rdx
+  4011cd:	48 8d 05 bd 2f 00 00 	lea    0x2fbd(%rip),%rax        # 404191 <_ZStL8__ioinit>
+  4011d4:	48 89 c6             	mov    %rax,%rsi
+  4011d7:	48 8b 05 1a 2e 00 00 	mov    0x2e1a(%rip),%rax        # 403ff8 <_ZNSt8ios_base4InitD1Ev@GLIBCXX_3.4>
+  4011de:	48 89 c7             	mov    %rax,%rdi
+  4011e1:	e8 4a fe ff ff       	call   401030 <__cxa_atexit@plt>
+  4011e6:	90                   	nop
+  4011e7:	48 83 c4 18          	add    $0x18,%rsp
+  4011eb:	c3                   	ret    
+
+00000000004011ec <_GLOBAL__sub_I_main>:
+  4011ec:	f3 0f 1e fa          	endbr64 
+  4011f0:	48 83 ec 08          	sub    $0x8,%rsp
+  4011f4:	be ff ff 00 00       	mov    $0xffff,%esi
+  4011f9:	bf 01 00 00 00       	mov    $0x1,%edi
+  4011fe:	e8 90 ff ff ff       	call   401193 <_Z41__static_initialization_and_destruction_0ii>
+  401203:	48 83 c4 08          	add    $0x8,%rsp
+  401207:	c3                   	ret    
+  401208:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+  40120f:	00 
+
+0000000000401210 <nops>:
+  401210:	90                   	nop
+  401211:	90                   	nop
+  401212:	90                   	nop
+  401213:	90                   	nop
+  401214:	90                   	nop
+  401215:	90                   	nop
+  401216:	90                   	nop
+  401217:	90                   	nop
+  401218:	90                   	nop
+  401219:	90                   	nop
+  40121a:	90                   	nop
+  40121b:	90                   	nop
+  40121c:	90                   	nop
+  40121d:	90                   	nop
+  40121e:	90                   	nop
+  40121f:	90                   	nop
+  401220:	90                   	nop
+  401221:	90                   	nop
+  401222:	90                   	nop
+  401223:	90                   	nop
+  401224:	90                   	nop
+  401225:	90                   	nop
+  401226:	90                   	nop
+  401227:	90                   	nop
+  401228:	90                   	nop
+  401229:	90                   	nop
+  40122a:	90                   	nop
+  40122b:	90                   	nop
+  40122c:	90                   	nop
+  40122d:	90                   	nop
+  40122e:	90                   	nop
+  40122f:	90                   	nop
+  401230:	90                   	nop
+  401231:	90                   	nop
+  401232:	90                   	nop
+  401233:	90                   	nop
+  401234:	90                   	nop
+  401235:	90                   	nop
+  401236:	90                   	nop
+  401237:	90                   	nop
+  401238:	90                   	nop
+  401239:	90                   	nop
+  40123a:	90                   	nop
+  40123b:	90                   	nop
+  40123c:	90                   	nop
+  40123d:	90                   	nop
+  40123e:	90                   	nop
+  40123f:	90                   	nop
+  401240:	90                   	nop
+  401241:	90                   	nop
+  401242:	90                   	nop
+  401243:	90                   	nop
+  401244:	90                   	nop
+  401245:	90                   	nop
+  401246:	90                   	nop
+  401247:	90                   	nop
+  401248:	90                   	nop
+  401249:	90                   	nop
+  40124a:	90                   	nop
+  40124b:	90                   	nop
+  40124c:	90                   	nop
+  40124d:	90                   	nop
+  40124e:	90                   	nop
+  40124f:	90                   	nop
+  401250:	90                   	nop
+  401251:	90                   	nop
+  401252:	90                   	nop
+  401253:	90                   	nop
+  401254:	90                   	nop
+  401255:	90                   	nop
+  401256:	90                   	nop
+  401257:	90                   	nop
+  401258:	90                   	nop
+  401259:	90                   	nop
+  40125a:	90                   	nop
+  40125b:	90                   	nop
+  40125c:	90                   	nop
+  40125d:	90                   	nop
+  40125e:	90                   	nop
+  40125f:	90                   	nop
+  401260:	90                   	nop
+  401261:	90                   	nop
+  401262:	90                   	nop
+  401263:	90                   	nop
+  401264:	90                   	nop
+  401265:	90                   	nop
+  401266:	90                   	nop
+  401267:	90                   	nop
+  401268:	90                   	nop
+  401269:	90                   	nop
+
+Disassembly of section .fini:
+
+000000000040126c <_fini>:
+  40126c:	f3 0f 1e fa          	endbr64 
+  401270:	48 83 ec 08          	sub    $0x8,%rsp
+  401274:	48 83 c4 08          	add    $0x8,%rsp
+  401278:	c3                   	ret    

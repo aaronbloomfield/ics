@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>Makefile</title>
+</head>
+<body bgcolor="white">
+<pre><tt><font color="#009900">CC 		=</font> gcc
+<font color="#009900">TARGETS =</font> test1 test2 test3
+<font color="#009900">CFLAGS	=</font> -m<font color="#993399">64</font> -fomit-frame-pointer -fno-stack-protector -g -no-pie -O<font color="#993399">0</font>
+
+<font color="#990000">all:</font> <font color="#009900">$(TARGETS)</font>
+	nasm -g -f elf64 -o nops.o nops.s
+	gcc -c <font color="#009900">$(CFLAGS)</font> test1.c
+	gcc -o test1 <font color="#009900">$(CFLAGS)</font> test1.o nops.o
+	objdump -d test1 <font color="#990000">&gt;</font> test1.objdump.txt
+	hexdump -C test1 <font color="#990000">&gt;</font> test1.hexdump.txt
+	readelf -e test1 <font color="#990000">&gt;</font> test1.readelf.txt
+	gcc -c <font color="#009900">$(CFLAGS)</font> test2.c
+	gcc -o test2 <font color="#009900">$(CFLAGS)</font> test2.o nops.o
+	objdump -d test2 <font color="#990000">&gt;</font> test2.objdump.txt
+	hexdump -C test2 <font color="#990000">&gt;</font> test2.hexdump.txt
+	readelf -e test2 <font color="#990000">&gt;</font> test2.readelf.txt
+	gcc -c <font color="#009900">$(CFLAGS)</font> test3.c
+	gcc -o test3 <font color="#009900">$(CFLAGS)</font> test3.o nops.o
+	objdump -d test3 <font color="#990000">&gt;</font> test3.objdump.txt
+	hexdump -C test3 <font color="#990000">&gt;</font> test3.hexdump.txt
+	readelf -e test3 <font color="#990000">&gt;</font> test3.readelf.txt
+	gcc -c <font color="#009900">$(CFLAGS)</font> test4.c
+	gcc -o test4 <font color="#009900">$(CFLAGS)</font> test4.o nops.o
+	objdump -d test4 <font color="#990000">&gt;</font> test4.objdump.txt
+	hexdump -C test4 <font color="#990000">&gt;</font> test4.hexdump.txt
+	readelf -e test4 <font color="#990000">&gt;</font> test4.readelf.txt
+	gcc -c <font color="#009900">$(CFLAGS)</font> test5.c
+	gcc -o test5 <font color="#009900">$(CFLAGS)</font> test5.o nops.o
+	objdump -d test5 <font color="#990000">&gt;</font> test5.objdump.txt
+	hexdump -C test5 <font color="#990000">&gt;</font> test5.hexdump.txt
+	readelf -e test5 <font color="#990000">&gt;</font> test5.readelf.txt
+	g<font color="#990000">++</font> -c <font color="#009900">$(CFLAGS)</font> test6.cpp
+	g<font color="#990000">++</font> -o test6 <font color="#009900">$(CFLAGS)</font> test6.o nops.o
+	objdump -d test6 <font color="#990000">&gt;</font> test6.objdump.txt
+	hexdump -C test6 <font color="#990000">&gt;</font> test6.hexdump.txt
+	readelf -e test6 <font color="#990000">&gt;</font> test6.readelf.txt
+	source-highlight -d <font color="#990000">*</font>.c <font color="#990000">*</font>.s <font color="#990000">*</font>.cpp Makefile
+	/bin/rm -f <font color="#990000">*</font>.o
+</tt></pre>
+</body>
+</html>
