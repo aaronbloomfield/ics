@@ -231,7 +231,7 @@ This step is to create shellcode that will print out the grade you want to recei
 
 #### Goal
 
-The goal of this part is to create a stand-alone assembly program that will print out, `Albert Einstein, your grade on this assignment is an A`.  You will code that in an assembly routine, and use a C program to call that routine.  **The intent is that you start with the shellcode provided in the course slides, specifically [here](slides/buffer-overflows.html#/how2doit), and adapt that code.**
+The goal of this part is to create a stand-alone assembly program that will print out, `Albert Einstein, your grade on this assignment is an A`.  You will code that in an assembly routine, and use a C program to call that routine.  **The intent is that you start with the shellcode provided in the course slides, specifically [here](../slides/buffer-overflows.html#/how2doit), and adapt that code.**
 
 #### C Code
 
