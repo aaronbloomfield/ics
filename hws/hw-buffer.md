@@ -22,7 +22,9 @@ This program must run on the Cyber Range account.  You are welcome to develop it
 
 ### Changelog
 
-Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
+Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  <!-- So far there aren't any significant changes to report. -->
+
+- Mon, 11/13: updated the code to read in address.txt at the end of the 'buffer address' section
 
 ### Platform
 
@@ -199,11 +201,18 @@ You can then read in that file to determine the address of the buffer.  The foll
 ```
 #include <stdio.h>
 void main() {
-  void* buffer;
+  unsigned char bytes[8];
+  unsigned long n;
+
   FILE *fp = fopen("address.txt","r");
-  fscanf(fp, "%lx", (unsigned long)&buffer);
+  fscanf(fp, "%lx", (unsigned long)&n);
   fclose(fp);
-  printf("Buffer address: %lx\n",buffer);
+  printf("Buffer address: %lx\n",n);
+
+  for (int i = 0; i < 8; i ++)
+      bytes[i] = (n >> (64 - 8 * (i + 1))) & 0xFF;
+ 
+  printf("Reverse address: %lx%lx%lx%lx%lx%lx%lx%lx\n", bytes[7], bytes[6], bytes[5], bytes[4], bytes[3], bytes[2], bytes[1], bytes[0]); 
 }
 ```
 

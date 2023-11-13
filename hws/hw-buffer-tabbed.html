@@ -65,7 +65,10 @@
 <h4 id='reference-platform'>Reference platform</h4>
 <p>This program must run on the Cyber Range account. You are welcome to develop it on your own machine, but make sure it works there before you submit it. And if it isn’t working on your machine, try it on the Cyber Range to see if that allows it to work.</p>
 </div><div id='tchangelog' class='tabcontent'><h3 id='changelog'>Changelog</h3>
-<p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
+<p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. </p>
+<ul>
+<li>Mon, 11/13: updated the code to read in address.txt at the end of the ‘buffer address’ section</li>
+</ul>
 </div><div id='tplatform' class='tabcontent'><h3 id='platform'>Platform</h3>
 <p>We will be using the Virginia Cyber Range at <a href='https://www.virginiacyberrange.org/'>https://www.virginiacyberrange.org/</a>. This site allows you to run a remote virtual environment; we are using Ubunmtu 22.04.</p>
 <p>Go to <a href='https://www.virginiacyberrange.org/'>https://www.virginiacyberrange.org/</a>. You should have already signed up for the last assignment; if not, see that one for how to do so.</p>
@@ -169,11 +172,18 @@ $</code></pre>
 <p>You can then read in that file to determine the address of the buffer. The following C code will do that for you:</p>
 <pre><code>#include &lt;stdio.h&gt;
 void main() {
-  void* buffer;
+  unsigned char bytes[8];
+  unsigned long n;
+
   FILE *fp = fopen("address.txt","r");
-  fscanf(fp, "%lx", (unsigned long)&buffer);
+  fscanf(fp, "%lx", (unsigned long)&n);
   fclose(fp);
-  printf("Buffer address: %lx\n",buffer);
+  printf("Buffer address: %lx\n",n);
+
+  for (int i = 0; i &lt; 8; i ++)
+      bytes[i] = (n &gt;&gt; (64 - 8 * (i + 1))) & 0xFF;
+ 
+  printf("Reverse address: %lx%lx%lx%lx%lx%lx%lx%lx\n", bytes[7], bytes[6], bytes[5], bytes[4], bytes[3], bytes[2], bytes[1], bytes[0]); 
 }</code></pre>
 <p>You may assume that the <code>address.txt</code> file is present, properly formed, and has the correct buffer address value.</p>
 </div><div id='tstep-1-makefile' class='tabcontent'><h3 id='step-1-makefile'>Step 1: Makefile</h3>
