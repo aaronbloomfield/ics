@@ -1,5 +1,5 @@
 
-test4:     file format elf64-x86-64
+test5:     file format elf64-x86-64
 
 
 Disassembly of section .init:
@@ -16,13 +16,13 @@ Disassembly of section .init:
 
 Disassembly of section .plt:
 
-0000000000401020 <putchar@plt-0x10>:
+0000000000401020 <puts@plt-0x10>:
   401020:	ff 35 e2 2f 00 00    	push   0x2fe2(%rip)        # 404008 <_GLOBAL_OFFSET_TABLE_+0x8>
   401026:	ff 25 e4 2f 00 00    	jmp    *0x2fe4(%rip)        # 404010 <_GLOBAL_OFFSET_TABLE_+0x10>
   40102c:	0f 1f 40 00          	nopl   0x0(%rax)
 
-0000000000401030 <putchar@plt>:
-  401030:	ff 25 e2 2f 00 00    	jmp    *0x2fe2(%rip)        # 404018 <putchar@GLIBC_2.2.5>
+0000000000401030 <puts@plt>:
+  401030:	ff 25 e2 2f 00 00    	jmp    *0x2fe2(%rip)        # 404018 <puts@GLIBC_2.2.5>
   401036:	68 00 00 00 00       	push   $0x0
   40103b:	e9 e0 ff ff ff       	jmp    401020 <_init+0x20>
 
@@ -39,7 +39,7 @@ Disassembly of section .text:
   401052:	54                   	push   %rsp
   401053:	45 31 c0             	xor    %r8d,%r8d
   401056:	31 c9                	xor    %ecx,%ecx
-  401058:	48 c7 c7 77 11 40 00 	mov    $0x401177,%rdi
+  401058:	48 c7 c7 2c 11 40 00 	mov    $0x40112c,%rdi
   40105f:	ff 15 8b 2f 00 00    	call   *0x2f8b(%rip)        # 403ff0 <__libc_start_main@GLIBC_2.34>
   401065:	f4                   	hlt    
   401066:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
@@ -53,13 +53,13 @@ Disassembly of section .text:
   40107f:	90                   	nop
 
 0000000000401080 <deregister_tm_clones>:
-  401080:	b8 40 40 40 00       	mov    $0x404040,%eax
-  401085:	48 3d 40 40 40 00    	cmp    $0x404040,%rax
+  401080:	b8 30 40 40 00       	mov    $0x404030,%eax
+  401085:	48 3d 30 40 40 00    	cmp    $0x404030,%rax
   40108b:	74 13                	je     4010a0 <deregister_tm_clones+0x20>
   40108d:	b8 00 00 00 00       	mov    $0x0,%eax
   401092:	48 85 c0             	test   %rax,%rax
   401095:	74 09                	je     4010a0 <deregister_tm_clones+0x20>
-  401097:	bf 40 40 40 00       	mov    $0x404040,%edi
+  401097:	bf 30 40 40 00       	mov    $0x404030,%edi
   40109c:	ff e0                	jmp    *%rax
   40109e:	66 90                	xchg   %ax,%ax
   4010a0:	c3                   	ret    
@@ -68,8 +68,8 @@ Disassembly of section .text:
   4010ac:	0f 1f 40 00          	nopl   0x0(%rax)
 
 00000000004010b0 <register_tm_clones>:
-  4010b0:	be 40 40 40 00       	mov    $0x404040,%esi
-  4010b5:	48 81 ee 40 40 40 00 	sub    $0x404040,%rsi
+  4010b0:	be 30 40 40 00       	mov    $0x404030,%esi
+  4010b5:	48 81 ee 30 40 40 00 	sub    $0x404030,%rsi
   4010bc:	48 89 f0             	mov    %rsi,%rax
   4010bf:	48 c1 ee 3f          	shr    $0x3f,%rsi
   4010c3:	48 c1 f8 03          	sar    $0x3,%rax
@@ -79,7 +79,7 @@ Disassembly of section .text:
   4010cf:	b8 00 00 00 00       	mov    $0x0,%eax
   4010d4:	48 85 c0             	test   %rax,%rax
   4010d7:	74 07                	je     4010e0 <register_tm_clones+0x30>
-  4010d9:	bf 40 40 40 00       	mov    $0x404040,%edi
+  4010d9:	bf 30 40 40 00       	mov    $0x404030,%edi
   4010de:	ff e0                	jmp    *%rax
   4010e0:	c3                   	ret    
   4010e1:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
@@ -88,12 +88,12 @@ Disassembly of section .text:
 
 00000000004010f0 <__do_global_dtors_aux>:
   4010f0:	f3 0f 1e fa          	endbr64 
-  4010f4:	80 3d 45 2f 00 00 00 	cmpb   $0x0,0x2f45(%rip)        # 404040 <__TMC_END__>
+  4010f4:	80 3d 35 2f 00 00 00 	cmpb   $0x0,0x2f35(%rip)        # 404030 <__TMC_END__>
   4010fb:	75 13                	jne    401110 <__do_global_dtors_aux+0x20>
   4010fd:	55                   	push   %rbp
   4010fe:	48 89 e5             	mov    %rsp,%rbp
   401101:	e8 7a ff ff ff       	call   401080 <deregister_tm_clones>
-  401106:	c6 05 33 2f 00 00 01 	movb   $0x1,0x2f33(%rip)        # 404040 <__TMC_END__>
+  401106:	c6 05 23 2f 00 00 01 	movb   $0x1,0x2f23(%rip)        # 404030 <__TMC_END__>
   40110d:	5d                   	pop    %rbp
   40110e:	c3                   	ret    
   40110f:	90                   	nop
@@ -106,44 +106,90 @@ Disassembly of section .text:
   401120:	f3 0f 1e fa          	endbr64 
   401124:	eb 8a                	jmp    4010b0 <register_tm_clones>
 
-0000000000401126 <print_char>:
+0000000000401126 <subroutine>:
   401126:	f3 0f 1e fa          	endbr64 
-  40112a:	48 83 ec 18          	sub    $0x18,%rsp
-  40112e:	89 7c 24 0c          	mov    %edi,0xc(%rsp)
-  401132:	0f b6 05 f7 2e 00 00 	movzbl 0x2ef7(%rip),%eax        # 404030 <length>
-  401139:	0f be c0             	movsbl %al,%eax
-  40113c:	39 44 24 0c          	cmp    %eax,0xc(%rsp)
-  401140:	7f 2f                	jg     401171 <print_char+0x4b>
-  401142:	48 8b 15 ef 2e 00 00 	mov    0x2eef(%rip),%rdx        # 404038 <output>
-  401149:	8b 44 24 0c          	mov    0xc(%rsp),%eax
-  40114d:	48 98                	cltq   
-  40114f:	48 01 d0             	add    %rdx,%rax
-  401152:	0f b6 00             	movzbl (%rax),%eax
-  401155:	0f be c0             	movsbl %al,%eax
-  401158:	89 c7                	mov    %eax,%edi
-  40115a:	e8 d1 fe ff ff       	call   401030 <putchar@plt>
-  40115f:	83 44 24 0c 01       	addl   $0x1,0xc(%rsp)
-  401164:	8b 44 24 0c          	mov    0xc(%rsp),%eax
-  401168:	89 c7                	mov    %eax,%edi
-  40116a:	e8 b7 ff ff ff       	call   401126 <print_char>
-  40116f:	eb 01                	jmp    401172 <print_char+0x4c>
+  40112a:	90                   	nop
+  40112b:	c3                   	ret    
+
+000000000040112c <main>:
+  40112c:	f3 0f 1e fa          	endbr64 
+  401130:	48 83 ec 08          	sub    $0x8,%rsp
+  401134:	b8 00 00 00 00       	mov    $0x0,%eax
+  401139:	e8 e8 ff ff ff       	call   401126 <subroutine>
+  40113e:	48 8d 05 bf 0e 00 00 	lea    0xebf(%rip),%rax        # 402004 <_IO_stdin_used+0x4>
+  401145:	48 89 c7             	mov    %rax,%rdi
+  401148:	e8 e3 fe ff ff       	call   401030 <puts@plt>
+  40114d:	b8 00 00 00 00       	mov    $0x0,%eax
+  401152:	48 83 c4 08          	add    $0x8,%rsp
+  401156:	c3                   	ret    
+  401157:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+  40115e:	00 00 
+
+0000000000401160 <nops>:
+  401160:	90                   	nop
+  401161:	90                   	nop
+  401162:	90                   	nop
+  401163:	90                   	nop
+  401164:	90                   	nop
+  401165:	90                   	nop
+  401166:	90                   	nop
+  401167:	90                   	nop
+  401168:	90                   	nop
+  401169:	90                   	nop
+  40116a:	90                   	nop
+  40116b:	90                   	nop
+  40116c:	90                   	nop
+  40116d:	90                   	nop
+  40116e:	90                   	nop
+  40116f:	90                   	nop
+  401170:	90                   	nop
   401171:	90                   	nop
-  401172:	48 83 c4 18          	add    $0x18,%rsp
-  401176:	c3                   	ret    
-
-0000000000401177 <main>:
-  401177:	f3 0f 1e fa          	endbr64 
-  40117b:	48 83 ec 08          	sub    $0x8,%rsp
-  40117f:	bf 00 00 00 00       	mov    $0x0,%edi
-  401184:	e8 9d ff ff ff       	call   401126 <print_char>
-  401189:	b8 00 00 00 00       	mov    $0x0,%eax
-  40118e:	48 83 c4 08          	add    $0x8,%rsp
-  401192:	c3                   	ret    
-  401193:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
-  40119a:	00 00 00 
-  40119d:	0f 1f 00             	nopl   (%rax)
-
-00000000004011a0 <nops>:
+  401172:	90                   	nop
+  401173:	90                   	nop
+  401174:	90                   	nop
+  401175:	90                   	nop
+  401176:	90                   	nop
+  401177:	90                   	nop
+  401178:	90                   	nop
+  401179:	90                   	nop
+  40117a:	90                   	nop
+  40117b:	90                   	nop
+  40117c:	90                   	nop
+  40117d:	90                   	nop
+  40117e:	90                   	nop
+  40117f:	90                   	nop
+  401180:	90                   	nop
+  401181:	90                   	nop
+  401182:	90                   	nop
+  401183:	90                   	nop
+  401184:	90                   	nop
+  401185:	90                   	nop
+  401186:	90                   	nop
+  401187:	90                   	nop
+  401188:	90                   	nop
+  401189:	90                   	nop
+  40118a:	90                   	nop
+  40118b:	90                   	nop
+  40118c:	90                   	nop
+  40118d:	90                   	nop
+  40118e:	90                   	nop
+  40118f:	90                   	nop
+  401190:	90                   	nop
+  401191:	90                   	nop
+  401192:	90                   	nop
+  401193:	90                   	nop
+  401194:	90                   	nop
+  401195:	90                   	nop
+  401196:	90                   	nop
+  401197:	90                   	nop
+  401198:	90                   	nop
+  401199:	90                   	nop
+  40119a:	90                   	nop
+  40119b:	90                   	nop
+  40119c:	90                   	nop
+  40119d:	90                   	nop
+  40119e:	90                   	nop
+  40119f:	90                   	nop
   4011a0:	90                   	nop
   4011a1:	90                   	nop
   4011a2:	90                   	nop
@@ -170,75 +216,11 @@ Disassembly of section .text:
   4011b7:	90                   	nop
   4011b8:	90                   	nop
   4011b9:	90                   	nop
-  4011ba:	90                   	nop
-  4011bb:	90                   	nop
-  4011bc:	90                   	nop
-  4011bd:	90                   	nop
-  4011be:	90                   	nop
-  4011bf:	90                   	nop
-  4011c0:	90                   	nop
-  4011c1:	90                   	nop
-  4011c2:	90                   	nop
-  4011c3:	90                   	nop
-  4011c4:	90                   	nop
-  4011c5:	90                   	nop
-  4011c6:	90                   	nop
-  4011c7:	90                   	nop
-  4011c8:	90                   	nop
-  4011c9:	90                   	nop
-  4011ca:	90                   	nop
-  4011cb:	90                   	nop
-  4011cc:	90                   	nop
-  4011cd:	90                   	nop
-  4011ce:	90                   	nop
-  4011cf:	90                   	nop
-  4011d0:	90                   	nop
-  4011d1:	90                   	nop
-  4011d2:	90                   	nop
-  4011d3:	90                   	nop
-  4011d4:	90                   	nop
-  4011d5:	90                   	nop
-  4011d6:	90                   	nop
-  4011d7:	90                   	nop
-  4011d8:	90                   	nop
-  4011d9:	90                   	nop
-  4011da:	90                   	nop
-  4011db:	90                   	nop
-  4011dc:	90                   	nop
-  4011dd:	90                   	nop
-  4011de:	90                   	nop
-  4011df:	90                   	nop
-  4011e0:	90                   	nop
-  4011e1:	90                   	nop
-  4011e2:	90                   	nop
-  4011e3:	90                   	nop
-  4011e4:	90                   	nop
-  4011e5:	90                   	nop
-  4011e6:	90                   	nop
-  4011e7:	90                   	nop
-  4011e8:	90                   	nop
-  4011e9:	90                   	nop
-  4011ea:	90                   	nop
-  4011eb:	90                   	nop
-  4011ec:	90                   	nop
-  4011ed:	90                   	nop
-  4011ee:	90                   	nop
-  4011ef:	90                   	nop
-  4011f0:	90                   	nop
-  4011f1:	90                   	nop
-  4011f2:	90                   	nop
-  4011f3:	90                   	nop
-  4011f4:	90                   	nop
-  4011f5:	90                   	nop
-  4011f6:	90                   	nop
-  4011f7:	90                   	nop
-  4011f8:	90                   	nop
-  4011f9:	90                   	nop
 
 Disassembly of section .fini:
 
-00000000004011fc <_fini>:
-  4011fc:	f3 0f 1e fa          	endbr64 
-  401200:	48 83 ec 08          	sub    $0x8,%rsp
-  401204:	48 83 c4 08          	add    $0x8,%rsp
-  401208:	c3                   	ret    
+00000000004011bc <_fini>:
+  4011bc:	f3 0f 1e fa          	endbr64 
+  4011c0:	48 83 ec 08          	sub    $0x8,%rsp
+  4011c4:	48 83 c4 08          	add    $0x8,%rsp
+  4011c8:	c3                   	ret    

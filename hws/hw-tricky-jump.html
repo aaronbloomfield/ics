@@ -64,7 +64,6 @@
 <li><a href="tricky-jump/test3.c.html">test3.c</a> (<a href="tricky-jump/test3.c">src</a>) and <a href="tricky-jump/nops.s.html">nops.s</a> (<a href="tricky-jump/nops.s">src</a>) compile to the <a href="tricky-jump/test3">test3</a> executable file. You can also see the <a href="tricky-jump/test3.objdump.txt">objdump -d</a>, the <a href="tricky-jump/test3.hexdump.txt">hexdump -C</a>, and the <a href="tricky-jump/test3.readelf.txt">results of readelf</a>.</li>
 <li><a href="tricky-jump/test4.c.html">test4.c</a> (<a href="tricky-jump/test4.c">src</a>) and <a href="tricky-jump/nops.s.html">nops.s</a> (<a href="tricky-jump/nops.s">src</a>) compile to the <a href="tricky-jump/test4">test4</a> executable file. You can also see the <a href="tricky-jump/test4.objdump.txt">objdump -d</a>, the <a href="tricky-jump/test4.hexdump.txt">hexdump -C</a>, and the <a href="tricky-jump/test4.readelf.txt">results of readelf</a>.</li>
 <li><a href="tricky-jump/test5.c.html">test5.c</a> (<a href="tricky-jump/test5.c">src</a>) and <a href="tricky-jump/nops.s.html">nops.s</a> (<a href="tricky-jump/nops.s">src</a>) compile to the <a href="tricky-jump/test5">test5</a> executable file. You can also see the <a href="tricky-jump/test5.objdump.txt">objdump -d</a>, the <a href="tricky-jump/test5.hexdump.txt">hexdump -C</a>, and the <a href="tricky-jump/test5.readelf.txt">results of readelf</a>.</li>
-<li><a href="tricky-jump/test6.cpp.html">test6.cpp</a> (<a href="tricky-jump/test6.cpp">src</a>) and <a href="tricky-jump/nops.s.html">nops.s</a> (<a href="tricky-jump/nops.s">src</a>) compile to the <a href="tricky-jump/test6">test6</a> executable file. You can also see the <a href="tricky-jump/test6.objdump.txt">objdump -d</a>, the <a href="tricky-jump/test6.hexdump.txt">hexdump -C</a>, and the <a href="tricky-jump/test6.readelf.txt">results of readelf</a>.</li>
 <li>The <a href="tricky-jump/Makefile.html">Makefile</a> (<a href="tricky-jump/Makefile">src</a>) that compiled all of these.</li>
 </ul>
 <p>All of the programs just print “hello world”.</p>
@@ -121,6 +120,13 @@ for i in bin:
     binout += bytes.fromhex(&quot;0x{:02x}&quot;.format(i).replace(&#39;0x&#39;,&#39;&#39;))
 with open(&quot;test1mod&quot;,&quot;wb&quot;) as f:
     f.write(binout)</code></pre>
+<h4 id="hard-coded-values">Hard-coded values</h4>
+<p>To make your life easier when you get to the next part, you should have the various hard-coded values in variables. You are welcome to do this before or after you get this part working. Those values are:</p>
+<ul>
+<li><code>push_loc</code>: The location in <code>main()</code> where you are going to write the <code>nop</code> instructions and the <code>push</code> command (0x113d)</li>
+<li><code>inst_len</code>: The number of bytes you are overwriting at that address (9)</li>
+<li><code>write_loc</code>: The address where you are writing the code to (determined above)</li>
+</ul>
 <h4 id="ensuring-it-works">Ensuring it works</h4>
 <p>Run your program! It should look like this:</p>
 <pre><code>$ ./test1mod 
@@ -135,6 +141,7 @@ $</code></pre>
 <li>Run it through gdb, the debugger. You can see a list of gdb commands in the <a href="hw-buffer-tabbed.html">buffer overflow</a> (<a href="hw-buffer.md">md</a>) homework. Here are a few more useful gdb commands:
 <ul>
 <li><code>x/2x $rsp</code> will show you the 8-byte value in the rsp register – you want to make sure that is 0x1160 right before the <code>ret</code> at the end of <code>main()</code></li>
+<li>You can break at a given hex address via: <code>break *0x401234</code>. Pick the address based on what’s in the objdump.</li>
 </ul></li>
 </ul>
 <h4 id="what-to-submit-1">What to submit</h4>
@@ -158,7 +165,7 @@ $</code></pre>
 <pre><code>00000010  02 00 3e 00 01 00 00 00  40 10 40 00 00 00 00 00  |..&gt;.....@.@.....|</code></pre>
 <p>That’s little-Endian for 0x00401040. We remove the leading ‘0x0040’, so we really only want bytes 0x18 and 0x19: <code>0x1040</code>. That’s the start of <code>.text</code>.</p>
 <h4 id="where-in-main-the-ret-is">Where in <code>main()</code> the <code>ret</code> is</h4>
-<p>This is at 0x1146 in <code>test1</code>.</p>
+<p>This is at 0x1146 in <code>test1</code>. The entry point is 0x1040. Note that there are a number of 0xc3 (<code>ret</code>) bytes before you get to <code>main()</code> itself – these will not work due to the next part (identifying the previous instructions) – you can start analyzing at byte 0x1120 in <code>test1</code> until you get that part working.</p>
 <p>For our purposes, we will just look for a <code>ret</code> opcode in binary (0xc3). It’s possible that a 0xc3 byte is present due to being part of another instruction, such as a data value. If we can identify the instructions <em>before</em> the <code>ret</code> (that’s next), then we can safely assume that we have found a <code>ret</code> and not a data value.</p>
 <h4 id="identify-previous-instructions">Identify previous instructions</h4>
 <p>For <code>test1</code>, these are the nine bytes of instructions that you dealt with in the previous part (bytes 0x113d to 0x1145).</p>
@@ -168,6 +175,15 @@ $</code></pre>
 <h4 id="where-to-put-the-payload">Where to put the payload</h4>
 <p>You identified this location for <code>test1</code> in the previous part.</p>
 <p>The programs we are using have a large set of consecutive <code>nop</code> statements for you to put your payload in. However big your payload is (likely around 40 or so bytes), you should look for a sequence of <code>nop</code> bytes (0x90) that is of that length. That is where you should put your payload.</p>
+<h4 id="command-line-parameter">Command-line parameter</h4>
+<p>The binary file to modify will be passed in as a command line parameter – in <code>sys.argv[1]</code>. Your output should just append <code>mod</code> (not <code>.mod</code>!) to the file name. So an input of <code>test2</code> should result in <code>test2mod</code>. An example run:</p>
+<pre><code>$ ./test2
+hello world
+$ python3 part3.py test2
+$ ./test2mod
+hello world
+not a virus
+$</code></pre>
 <h4 id="putting-it-all-together">Putting it all together</h4>
 <p>When you can determine the four previous data items, you can use your binary modification code from part 2. You can test this on the three executable files provided with this assignment:</p>
 <ul>
@@ -185,13 +201,9 @@ $</code></pre>
 </ul></li>
 <li><a href="tricky-jump/test4.c.html">test4.c</a> (<a href="tricky-jump/test4.c">src</a>) and <a href="tricky-jump/nops.s.html">nops.s</a> (<a href="tricky-jump/nops.s">src</a>) compile to the <a href="tricky-jump/test4">test4</a> executable file. You can also see the <a href="tricky-jump/test4.objdump.txt">objdump -d</a>, the <a href="tricky-jump/test4.hexdump.txt">hexdump -C</a>, and the <a href="tricky-jump/test4.readelf.txt">results of readelf</a>.
 <ul>
-<li>This is similar to the previous one (<code>subroutine()</code> is first), but with a different way of printing “hello world” to give you an executable with different addresses to test your code on.</li>
-</ul></li>
-<li><a href="tricky-jump/test5.c.html">test5.c</a> (<a href="tricky-jump/test5.c">src</a>) and <a href="tricky-jump/nops.s.html">nops.s</a> (<a href="tricky-jump/nops.s">src</a>) compile to the <a href="tricky-jump/test5">test5</a> executable file. You can also see the <a href="tricky-jump/test5.objdump.txt">objdump -d</a>, the <a href="tricky-jump/test5.hexdump.txt">hexdump -C</a>, and the <a href="tricky-jump/test5.readelf.txt">results of readelf</a>.
-<ul>
 <li><code>subroutine()</code> is before <code>main()</code> in the <code>.text</code> section, but it does NOT have the assumed opcodes before it, so your program should skip over that one and modify the <code>ret</code> in <code>main()</code>.</li>
 </ul></li>
-<li><a href="tricky-jump/test6.cpp.html">test6.cpp</a> (<a href="tricky-jump/test6.cpp">src</a>) and <a href="tricky-jump/nops.s.html">nops.s</a> (<a href="tricky-jump/nops.s">src</a>) compile to the <a href="tricky-jump/test6">test6</a> executable file. You can also see the <a href="tricky-jump/test6.objdump.txt">objdump -d</a>, the <a href="tricky-jump/test6.hexdump.txt">hexdump -C</a>, and the <a href="tricky-jump/test6.readelf.txt">results of readelf</a>.
+<li><a href="tricky-jump/test5.c.html">test5.c</a> (<a href="tricky-jump/test5.c">src</a>) and <a href="tricky-jump/nops.s.html">nops.s</a> (<a href="tricky-jump/nops.s">src</a>) compile to the <a href="tricky-jump/test5">test5</a> executable file. You can also see the <a href="tricky-jump/test5.objdump.txt">objdump -d</a>, the <a href="tricky-jump/test5.hexdump.txt">hexdump -C</a>, and the <a href="tricky-jump/test5.readelf.txt">results of readelf</a>.
 <ul>
 <li>This program has a different entry point address (0x1070) than the others (0x1040). It does not have a subroutine, so the <code>ret</code> in <code>main()</code> is what should be modified.</li>
 </ul></li>

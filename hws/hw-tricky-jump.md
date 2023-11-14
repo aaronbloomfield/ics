@@ -40,7 +40,6 @@ We provide a number of executable files for you try to modify.  If you compile t
 - [test3.c](tricky-jump/test3.c.html) ([src](tricky-jump/test3.c)) and [nops.s](tricky-jump/nops.s.html) ([src](tricky-jump/nops.s)) compile to the [test3](tricky-jump/test3) executable file.  You can also see the [objdump -d](tricky-jump/test3.objdump.txt), the [hexdump -C](tricky-jump/test3.hexdump.txt), and the [results of readelf](tricky-jump/test3.readelf.txt).
 - [test4.c](tricky-jump/test4.c.html) ([src](tricky-jump/test4.c)) and [nops.s](tricky-jump/nops.s.html) ([src](tricky-jump/nops.s)) compile to the [test4](tricky-jump/test4) executable file.  You can also see the [objdump -d](tricky-jump/test4.objdump.txt), the [hexdump -C](tricky-jump/test4.hexdump.txt), and the [results of readelf](tricky-jump/test4.readelf.txt).
 - [test5.c](tricky-jump/test5.c.html) ([src](tricky-jump/test5.c)) and [nops.s](tricky-jump/nops.s.html) ([src](tricky-jump/nops.s)) compile to the [test5](tricky-jump/test5) executable file.  You can also see the [objdump -d](tricky-jump/test5.objdump.txt), the [hexdump -C](tricky-jump/test5.hexdump.txt), and the [results of readelf](tricky-jump/test5.readelf.txt).
-- [test6.cpp](tricky-jump/test6.cpp.html) ([src](tricky-jump/test6.cpp)) and [nops.s](tricky-jump/nops.s.html) ([src](tricky-jump/nops.s)) compile to the [test6](tricky-jump/test6) executable file.  You can also see the [objdump -d](tricky-jump/test6.objdump.txt), the [hexdump -C](tricky-jump/test6.hexdump.txt), and the [results of readelf](tricky-jump/test6.readelf.txt).
 - The [Makefile](tricky-jump/Makefile.html) ([src](tricky-jump/Makefile)) that compiled all of these.
 
 All of the programs just print "hello world".
@@ -155,6 +154,15 @@ with open("test1mod","wb") as f:
 	f.write(binout)
 ```
 
+#### Hard-coded values
+
+To make your life easier when you get to the next part, you should have the various hard-coded values in variables.  You are welcome to do this before or after you get this part working.  Those values are:
+
+- `push_loc`: The location in `main()` where you are going to write the `nop` instructions and the `push` command (0x113d)
+- `inst_len`: The number of bytes you are overwriting at that address (9)
+- `write_loc`: The address where you are writing the code to (determined above)
+
+
 #### Ensuring it works
 
 Run your program!  It should look like this:
@@ -173,6 +181,7 @@ If it didn't work, here are a few things to try:
 - Compare the two objdumps (the [one provided](tricky-jump/test1.objdump.txt) and the one you generated in the bullet point above) to see the differences
 - Run it through gdb, the debugger.  You can see a list of gdb commands in the [buffer overflow](hw-buffer-tabbed.html) ([md](hw-buffer.md)) homework.  Here are a few more useful gdb commands:
 	- `x/2x $rsp` will show you the 8-byte value in the rsp register -- you want to make sure that is 0x1160 right before the `ret` at the end of `main()`
+	- You can break at a given hex address via: `break *0x401234`.  Pick the address based on what's in the objdump.
 
 
 #### What to submit
@@ -212,7 +221,7 @@ That's little-Endian for 0x00401040.  We remove the leading '0x0040', so we real
 
 #### Where in `main()` the `ret` is
 
-This is at 0x1146 in `test1`.
+This is at 0x1146 in `test1`.  The entry point is 0x1040.  Note that there are a number of 0xc3 (`ret`) bytes before you get to `main()` itself -- these will not work due to the next part (identifying the previous instructions) -- you can start analyzing at byte 0x1120 in `test1` until you get that part working.
 
 For our purposes, we will just look for a `ret` opcode in binary (0xc3).  It's possible that a 0xc3 byte is present due to being part of another instruction, such as a data value.  If we can identify the instructions *before* the `ret` (that's next), then we can safely assume that we have found a `ret` and not a data value.
 
@@ -232,6 +241,20 @@ You identified this location for `test1` in the previous part.
 
 The programs we are using have a large set of consecutive `nop` statements for you to put your payload in.  However big your payload is (likely around 40 or so bytes), you should look for a sequence of `nop` bytes (0x90) that is of that length.  That is where you should put your payload.
 
+#### Command-line parameter
+
+The binary file to modify will be passed in as a command line parameter -- in `sys.argv[1]`.  Your output should just append `mod` (not `.mod`!) to the file name.  So an input of `test2` should result in `test2mod`.  An example run:
+
+```
+$ ./test2
+hello world
+$ python3 part3.py test2
+$ ./test2mod
+hello world
+not a virus
+$
+```
+
 #### Putting it all together
 
 When you can determine the four previous data items, you can use your binary modification code from part 2.  You can test this on the three executable files provided with this assignment:
@@ -243,10 +266,8 @@ When you can determine the four previous data items, you can use your binary mod
 - [test3.c](tricky-jump/test3.c.html) ([src](tricky-jump/test3.c)) and [nops.s](tricky-jump/nops.s.html) ([src](tricky-jump/nops.s)) compile to the [test3](tricky-jump/test3) executable file.  You can also see the [objdump -d](tricky-jump/test3.objdump.txt), the [hexdump -C](tricky-jump/test3.hexdump.txt), and the [results of readelf](tricky-jump/test3.readelf.txt).
 	- This is similar to the previous one (`subroutine()` is first), but with a different way of printing "hello world" to give you an executable with different addresses to test your code on.
 - [test4.c](tricky-jump/test4.c.html) ([src](tricky-jump/test4.c)) and [nops.s](tricky-jump/nops.s.html) ([src](tricky-jump/nops.s)) compile to the [test4](tricky-jump/test4) executable file.  You can also see the [objdump -d](tricky-jump/test4.objdump.txt), the [hexdump -C](tricky-jump/test4.hexdump.txt), and the [results of readelf](tricky-jump/test4.readelf.txt).
-	- This is similar to the previous one (`subroutine()` is first), but with a different way of printing "hello world" to give you an executable with different addresses to test your code on.
-- [test5.c](tricky-jump/test5.c.html) ([src](tricky-jump/test5.c)) and [nops.s](tricky-jump/nops.s.html) ([src](tricky-jump/nops.s)) compile to the [test5](tricky-jump/test5) executable file.  You can also see the [objdump -d](tricky-jump/test5.objdump.txt), the [hexdump -C](tricky-jump/test5.hexdump.txt), and the [results of readelf](tricky-jump/test5.readelf.txt).
 	- `subroutine()` is before `main()` in the `.text` section, but it does NOT have the assumed opcodes before it, so your program should skip over that one and modify the `ret` in `main()`.
-- [test6.cpp](tricky-jump/test6.cpp.html) ([src](tricky-jump/test6.cpp)) and [nops.s](tricky-jump/nops.s.html) ([src](tricky-jump/nops.s)) compile to the [test6](tricky-jump/test6) executable file.  You can also see the [objdump -d](tricky-jump/test6.objdump.txt), the [hexdump -C](tricky-jump/test6.hexdump.txt), and the [results of readelf](tricky-jump/test6.readelf.txt).
+- [test5.c](tricky-jump/test5.c.html) ([src](tricky-jump/test5.c)) and [nops.s](tricky-jump/nops.s.html) ([src](tricky-jump/nops.s)) compile to the [test5](tricky-jump/test5) executable file.  You can also see the [objdump -d](tricky-jump/test5.objdump.txt), the [hexdump -C](tricky-jump/test5.hexdump.txt), and the [results of readelf](tricky-jump/test5.readelf.txt).
 	- This program has a different entry point address (0x1070) than the others (0x1040).  It does not have a subroutine, so the `ret` in `main()` is what should be modified.
 
 You are welcome to create your own, but check (with `objdump -d`) that the assembly instructions before the `ret` are what you expect them to be.
