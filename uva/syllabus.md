@@ -9,7 +9,7 @@ I realize that nobody reads these through.  So the TL;DR version:
 
 - Course staff: [Aaron Bloomfield](https://www.cs.virginia.edu/~asb) (aaron at virginia dot edu) and a group of amazing teaching assistants.
 - This course is using Canvas; the Canvas workspace is [here](https://canvas.its.virginia.edu/courses/79086)
-- One midterm, on Wednesday, October 11th, during lecture; one final, on Tuesday, December 12th, from 9am - noon
+- One midterm, on Wednesday, October 11th, during lecture; one final, on Tuesday, December 9th, from 9am - noon
 - Grades are 45% homeworks, 20% midterm, 25% final exam, and 10% participation (quizzes & attendance)
 - Everything is going to be auto-graded, but you can submit multiple times; the grades won't be known until the late due date has passed
 - If you encounter any rough spots in the course -- please be patient, and provide constructive feedback, and I'll do my best to get it all fixed
