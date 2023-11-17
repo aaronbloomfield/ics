@@ -24,15 +24,10 @@ all: $(TARGETS)
 	objdump -d test4 > test4.objdump.txt
 	hexdump -C test4 > test4.hexdump.txt
 	readelf -e test4 > test4.readelf.txt
-	gcc -c $(CFLAGS) test5.c
-	gcc -o test5 $(CFLAGS) test5.o nops.o
+	g++ -c $(CFLAGS) test5.cpp
+	g++ -o test5 $(CFLAGS) test5.o nops.o
 	objdump -d test5 > test5.objdump.txt
 	hexdump -C test5 > test5.hexdump.txt
 	readelf -e test5 > test5.readelf.txt
-	g++ -c $(CFLAGS) test6.cpp
-	g++ -o test6 $(CFLAGS) test6.o nops.o
-	objdump -d test6 > test6.objdump.txt
-	hexdump -C test6 > test6.hexdump.txt
-	readelf -e test6 > test6.readelf.txt
 	source-highlight -d *.c *.s *.cpp Makefile
 	/bin/rm -f *.o

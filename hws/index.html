@@ -8,10 +8,18 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
@@ -49,6 +57,7 @@
 <ul>
 <li><a href="hw-forensics-tabbed.html">Programming homework: Forensics</a> (<a href="hw-forensics.html">one-page version</a>, <a href="hw-forensics.md">md</a>)</li>
 <li><a href="hw-buffer-tabbed.html">Programming homework: Buffer Overflow</a> (<a href="hw-buffer.html">one-page version</a>, <a href="hw-buffer.md">md</a>)</li>
+<li><a href="hw-tricky-jump-tabbed.html">Programming homework: Tricky Jump</a> (<a href="hw-tricky-jump.html">one-page version</a>, <a href="hw-tricky-jump.md">md</a>)</li>
 <li><a href="hw-rootkits-tabbed.html">Programming homework: Rootkits</a> (<a href="hw-rootkits.html">one-page version</a>, <a href="hw-rootkits.md">md</a>)</li>
 <li><a href="hw-networks-tabbed.html">Programming homework: Networks</a> (<a href="hw-networks.html">one-page version</a>, <a href="hw-networks.md">md</a>)</li>
 <li><a href="hw-cryptocurrency-tabbed.html">Programming homework: Cryptocurrency</a> (<a href="hw-cryptocurrency.html">one-page version</a>, <a href="hw-cryptocurrency.md">md</a>)</li>

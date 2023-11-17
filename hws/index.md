@@ -9,6 +9,7 @@ You will be bound by the requirements on the [Homeworks policies page](../uva/hw
 
 - [Programming homework: Forensics](hw-forensics-tabbed.html) ([one-page version](hw-forensics.html), [md](hw-forensics.md))
 - [Programming homework: Buffer Overflow](hw-buffer-tabbed.html) ([one-page version](hw-buffer.html), [md](hw-buffer.md))
+- [Programming homework: Tricky Jump](hw-tricky-jump-tabbed.html) ([one-page version](hw-tricky-jump.html), [md](hw-tricky-jump.md))
 - [Programming homework: Rootkits](hw-rootkits-tabbed.html) ([one-page version](hw-rootkits.html), [md](hw-rootkits.md))
 - [Programming homework: Networks](hw-networks-tabbed.html) ([one-page version](hw-networks.html), [md](hw-networks.md))
 - [Programming homework: Cryptocurrency](hw-cryptocurrency-tabbed.html) ([one-page version](hw-cryptocurrency.html), [md](hw-cryptocurrency.md))

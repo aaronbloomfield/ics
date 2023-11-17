@@ -35,16 +35,11 @@ http://www.gnu.org/software/src-highlite">
 	objdump -d test4 <font color="#990000">&gt;</font> test4.objdump.txt
 	hexdump -C test4 <font color="#990000">&gt;</font> test4.hexdump.txt
 	readelf -e test4 <font color="#990000">&gt;</font> test4.readelf.txt
-	gcc -c <font color="#009900">$(CFLAGS)</font> test5.c
-	gcc -o test5 <font color="#009900">$(CFLAGS)</font> test5.o nops.o
+	g<font color="#990000">++</font> -c <font color="#009900">$(CFLAGS)</font> test5.cpp
+	g<font color="#990000">++</font> -o test5 <font color="#009900">$(CFLAGS)</font> test5.o nops.o
 	objdump -d test5 <font color="#990000">&gt;</font> test5.objdump.txt
 	hexdump -C test5 <font color="#990000">&gt;</font> test5.hexdump.txt
 	readelf -e test5 <font color="#990000">&gt;</font> test5.readelf.txt
-	g<font color="#990000">++</font> -c <font color="#009900">$(CFLAGS)</font> test6.cpp
-	g<font color="#990000">++</font> -o test6 <font color="#009900">$(CFLAGS)</font> test6.o nops.o
-	objdump -d test6 <font color="#990000">&gt;</font> test6.objdump.txt
-	hexdump -C test6 <font color="#990000">&gt;</font> test6.hexdump.txt
-	readelf -e test6 <font color="#990000">&gt;</font> test6.readelf.txt
 	source-highlight -d <font color="#990000">*</font>.c <font color="#990000">*</font>.s <font color="#990000">*</font>.cpp Makefile
 	/bin/rm -f <font color="#990000">*</font>.o
 </tt></pre>
