@@ -90,6 +90,7 @@ int main() {
     nasm -g -f elf64 -o print.o print.s
     gcc -c part1.c
     gcc -o part1 part1.o print.o</code></pre>
+<p>Note: on some platforms, the flags <code>-m64 -no-pie</code> had to be added to the two <code>gcc</code> lines. See if the above works for you first; if not, then try adding those two flags.</p>
 <p>Remember that the indentation is tabs, not spaces! The executable here is just <code>part1</code>. You are welcome to use the Makefile provided above, and add your lines to that. Just be sure to put <em>your</em> compilation lines <em>above</em> what is already in the Makefile. At this point, you should be able to type <code>make</code> it should compile, and it should print:</p>
 <pre><code>Not a virus</code></pre>
 <h4 id='what-to-submit'>What to submit</h4>

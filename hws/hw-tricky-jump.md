@@ -73,6 +73,8 @@ all:
 	gcc -o part1 part1.o print.o
 ```
 
+Note: on some platforms, the flags `-m64 -no-pie` had to be added to the two `gcc` lines.  See if the above works for you first; if not, then try adding those two flags.
+
 Remember that the indentation is tabs, not spaces!  The executable here is just `part1`.  You are welcome to use the Makefile provided above, and add your lines to that.  Just be sure to put *your* compilation lines *above* what is already in the Makefile.  At this point, you should be able to type `make` it should compile, and it should print:
 
 ```
