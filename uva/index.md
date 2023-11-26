@@ -90,7 +90,7 @@ Course calendar
 | 11 | Oct 30 | M,W,F  | Cryptocurrency    | [Viruses](../slides/viruses.html#/)| Mon: finished anonymity, vms to 4.12; Wed: finished vms, buffer overflow to 4.7; Fri: buffer overflow to 5.19 |
 | 12 | Nov 6  | M,W,F  | Rootkits          | [Buffer Overflows](../slides/buffer-overflows.html#/) | Mon: finished buffer overflow, viruses to 4.5; Wed: viruses to 7.3; Fri: viruses to 8.9 |
 | 13 | Nov 13 | M,W,F  | Buffer overflow   | [Binary Exploits](../slides/binary-exploits.html#/) | Mon: finished viruses; binary exploits to 4.5; Wed: guest lecturer; Fri: binary exploits to 5.14 |
-| 14 | Nov 20 | M      | (none b/c T-day)  | [Digital Forensics](../slides/forensics.html#/), [Virtual Machines](../slides/vms.html#/) |  |
+| 14 | Nov 20 | M      | (none b/c T-day)  | [Digital Forensics](../slides/forensics.html#/), [Virtual Machines](../slides/vms.html#/) | Mon: finished binary exploits; Wed: Thanksgiving break; Fri: Thanksgiving break |
 | 14 | Nov 27 | M,W,F  |                   | (catch-up week) |   |
 | 15 | Dec 4  | M      | Digital forensics | [Course reflection](../slides/reflection.html#/) |   |
 
