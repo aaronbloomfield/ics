@@ -5,11 +5,13 @@ ICS: Programming Homework: Forensics
 
 ### Scenario
 
-My server is missing!  I don't know who took it or why they would want to take it.  My TAs and I have been working feverishly to get another machine up and running, which is now also has the sane name as the old server.  But I don't know what happened to the original machine, who took it, or what they plan to do with it.
+Professor Bloomfield has been acting strange lately.  Ever since sometime around mid-November he has been unfocused in his lectures, and seems to not know the material -- even though he's taught this course many times before.  He doesn't show up to office hours or his required departmental meetings.  And he often just misses class.  When asked about it, he seems to just brush it off, giving vague answers.  There have been many conspiracy theories about what happened, and alien abduction is the latest craze.
 
-Somebody left their laptop when they were taking the server.  We were able to extract a hard drive image from that device.  But we can't make heads or tails from it.  
+He recently left his laptop behind after class.  Some enterprising students were able to obtain a disk image of his hard drive before he came and retrieved it.
 
-You have to help me figure all this out.
+Take a look at the image and figure out what's going on.
+
+Note: something you will find along the way is quite obviously satirical -- you will know it when you see it.  This was done partly for fun, and also so that nobody actually thought that anything illegal was going on.
 
 
 ### Overview
