@@ -9,7 +9,9 @@ Professor Bloomfield has been acting strange lately.  Ever since sometime around
 
 He recently left his laptop behind after class.  Some enterprising students were able to obtain a disk image of his hard drive before he came and retrieved it.
 
-Take a look at the image and figure out what's going on.
+Where is Bloomfield?  Is he safe?  Is anybody else in danger?  What's going on?
+
+Take a look at the image and figure out what the situation is.
 
 Note: something you will find along the way is quite obviously satirical -- you will know it when you see it.  This was done partly for fun, and also so that nobody actually thought that anything illegal was going on.
 
@@ -37,7 +39,7 @@ As the deliverable for this is a PDF report, you can use any system you want.  T
 
 You can get a copy of the hard drive image by going to the URL listed on the Canvas landing page.  There is a disk image for each student in the course.  **You can not use somebody else's disk image!**  You will download your image with the wget command posted on the Canvas landing page -- change `mst3k` in that command to your userid.
 
-**WARNING:** It will take a *long* time for Autopsy to analyze your disk image -- many hours.  You need to start that part ahead of time!
+**WARNING:** It will Autopsy a while to analyze your disk image.  You need to start that part ahead of time!
 
 <!--
 #### Using your own machine
@@ -53,6 +55,10 @@ Lastly, you can run autopsy on your own machine, and use the Cyber Range to deal
 
 There is an invitation code on the Canvas landing page to join the cyber range course, if you haven't done so already.  Once in the course, use the environment for the Forensics HW.  You will download the image onto that machine, using the `wget` command.  You then start autopsy via: `autopsy`.
 
+From a web browser, go to the URL on the Canvas landing page to download your disk image.  Once it's downloaded, you have to uncompress it: `gzip -d mst3k.img.gz`.
+
+#### Starting Autopsy
+
 When you are adding the disk image to the autopsy case, you will be presented with a series of check boxes as to which modules you want to enable.  It will look something like this:
 
 ![](forensics/autopsy-modules.webp)
@@ -61,7 +67,7 @@ When you are adding the disk image to the autopsy case, you will be presented wi
 
 The Cyber Range has a few limitations that you need to be aware of:
 
-- **It can't play videos.**  If you find any, you can instead view them online at the URL provided on the Canvas landing page
+- **It can't play videos.**  If you find any (not all scenarios have them), you can instead view them online at the URL provided on the Canvas landing page
 - The Cyber Range will disconnect after a certain amount of inactivity.  However, Autopsy needs to run for quite some time.  Thus, you should do this while you are already using the computer for something else so that you can keep it from disconnecting (move a window around or something).
 - If you want to use a tool that is not installed, the terminal will tell you what command to run to install the tool.  Just run that command and then use the tool.
 

@@ -47,7 +47,8 @@
 <h3 id="scenario">Scenario</h3>
 <p>Professor Bloomfield has been acting strange lately. Ever since sometime around mid-November he has been unfocused in his lectures, and seems to not know the material – even though he’s taught this course many times before. He doesn’t show up to office hours or his required departmental meetings. And he often just misses class. When asked about it, he seems to just brush it off, giving vague answers. There have been many conspiracy theories about what happened, and alien abduction is the latest craze.</p>
 <p>He recently left his laptop behind after class. Some enterprising students were able to obtain a disk image of his hard drive before he came and retrieved it.</p>
-<p>Take a look at the image and figure out what’s going on.</p>
+<p>Where is Bloomfield? Is he safe? Is anybody else in danger? What’s going on?</p>
+<p>Take a look at the image and figure out what the situation is.</p>
 <p>Note: something you will find along the way is quite obviously satirical – you will know it when you see it. This was done partly for fun, and also so that nobody actually thought that anything illegal was going on.</p>
 <h3 id="overview">Overview</h3>
 <p>Find out what happened from the disk image.</p>
@@ -58,7 +59,7 @@
 <h3 id="platform">Platform</h3>
 <p>As the deliverable for this is a PDF report, you can use any system you want. The system running autopsy, described below, can be accessed via any web browser.</p>
 <p>You can get a copy of the hard drive image by going to the URL listed on the Canvas landing page. There is a disk image for each student in the course. <strong>You can not use somebody else’s disk image!</strong> You will download your image with the wget command posted on the Canvas landing page – change <code>mst3k</code> in that command to your userid.</p>
-<p><strong>WARNING:</strong> It will take a <em>long</em> time for Autopsy to analyze your disk image – many hours. You need to start that part ahead of time!</p>
+<p><strong>WARNING:</strong> It will Autopsy a while to analyze your disk image. You need to start that part ahead of time!</p>
 <!--
 #### Using your own machine
 
@@ -70,12 +71,14 @@ Lastly, you can run autopsy on your own machine, and use the Cyber Range to deal
 -->
 <h4 id="using-the-cyber-range">Using the Cyber Range</h4>
 <p>There is an invitation code on the Canvas landing page to join the cyber range course, if you haven’t done so already. Once in the course, use the environment for the Forensics HW. You will download the image onto that machine, using the <code>wget</code> command. You then start autopsy via: <code>autopsy</code>.</p>
+<p>From a web browser, go to the URL on the Canvas landing page to download your disk image. Once it’s downloaded, you have to uncompress it: <code>gzip -d mst3k.img.gz</code>.</p>
+<h4 id="starting-autopsy">Starting Autopsy</h4>
 <p>When you are adding the disk image to the autopsy case, you will be presented with a series of check boxes as to which modules you want to enable. It will look something like this:</p>
 <p><img src="forensics/autopsy-modules.webp" /></p>
 <p><strong><em>IMPORTANT:</em></strong> You <strong><em>MUST</em></strong> de-select the ‘keyword search’ box. All of the other modules take 10 minutes to run, combined. The keyword search takes 5 hours. And the cyber range resets everything after 4 hours.</p>
 <p>The Cyber Range has a few limitations that you need to be aware of:</p>
 <ul>
-<li><strong>It can’t play videos.</strong> If you find any, you can instead view them online at the URL provided on the Canvas landing page</li>
+<li><strong>It can’t play videos.</strong> If you find any (not all scenarios have them), you can instead view them online at the URL provided on the Canvas landing page</li>
 <li>The Cyber Range will disconnect after a certain amount of inactivity. However, Autopsy needs to run for quite some time. Thus, you should do this while you are already using the computer for something else so that you can keep it from disconnecting (move a window around or something).</li>
 <li>If you want to use a tool that is not installed, the terminal will tell you what command to run to install the tool. Just run that command and then use the tool.</li>
 </ul>
