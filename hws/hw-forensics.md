@@ -118,10 +118,10 @@ The report will be divided into a number of parts.  So that we can easily figure
 
 Part 1 is the primary questions of answer:
 
-- Where is the missing server?
-- Who took it?
-- Why did he/she/they take it?
-- What else can you tell me about the theft?
+- What happened to Bloomfield?  Is he safe?
+- Is anybody else in danger?
+- What's going on?
+- What else can you tell me about the situation?
 
 This part of this report should contain as much of the story as you can determine.  Note that you will be able to get partial credit based on what you find, even if you don't find everything.
 

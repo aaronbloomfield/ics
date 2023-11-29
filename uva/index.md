@@ -91,7 +91,7 @@ Course calendar
 | 12 | Nov 6  | M,W,F  | Rootkits          | [Buffer Overflows](../slides/buffer-overflows.html#/) | Mon: finished buffer overflow, viruses to 4.5; Wed: viruses to 7.3; Fri: viruses to 8.9 |
 | 13 | Nov 13 | M,W,F  | Buffer overflow   | [Binary Exploits](../slides/binary-exploits.html#/) | Mon: finished viruses; binary exploits to 4.5; Wed: guest lecturer; Fri: binary exploits to 5.14 |
 | 14 | Nov 20 | M      | (none b/c T-day)  | [Digital Forensics](../slides/forensics.html#/), [Virtual Machines](../slides/vms.html#/) | Mon: finished binary exploits; Wed: Thanksgiving break; Fri: Thanksgiving break |
-| 14 | Nov 27 | M,W,F  |                   | (catch-up week) | Mon: forensics to 5.11  |
-| 15 | Dec 4  | M      | Digital forensics | [Course reflection](../slides/reflection.html#/) |   |
+| 14 | Nov 27 | M,W,F  |                   | (catch-up week) | Mon: forensics to 5.11; Wed: finished forensics; Fri: review session  |
+| 15 | Dec 4  | M      | Digital forensics | [Course reflection](../slides/reflection.html#/) | Mon: course conclusion |
 
 [1]: https://canvas.its.virginia.edu/courses/79086
