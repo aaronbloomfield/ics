@@ -223,7 +223,7 @@ A series of (mostly unrelated) topics relating to computing security
 
 ## CVE details
 - Rated as per [CVSS](https://nvd.nist.gov/vuln-metrics/cvss), the Common Vulnerability Scoring System, as defined by [NIST](https://www.nist.gov/)
-  - There is an [online calculator](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?name=CVE-2016-0051) to help find the rating...
+  - There is (was?) an [online calculator](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?name=CVE-2016-0051) to help find the rating...
 
 | Severity | Base score range |
 |----------|------------------|
@@ -234,11 +234,15 @@ A series of (mostly unrelated) topics relating to computing security
 | Critical | 9.0-10.0 |
 
 
+<!-- .slide: class="right-float-img-1000" -->
 ## CVE details
-- As of 4/30/23, there were 201,824 vulnerabilities reported
-  - Stats since 1999 (image from [cvedetails.com](https://www.cvedetails.com/)):
-![cve diagram](images/reflection/cves-2023-04-30.webp)
-  - Approximately 1,000 reported per month
+
+<img src="images/reflection/cves-2023-12-02.webp">
+
+- As of 12/2/23, there were well over 200,000 vulnerabilities reported
+  - 164,623 in the last 10 years
+  - Stats for the last 10 years (image from [cvedetails.com](https://www.cvedetails.com/)):
+  - Approximately 1,400 reported per month
 
 
 ## Reporting vulnerabilities
@@ -273,7 +277,7 @@ A series of (mostly unrelated) topics relating to computing security
 ## Overall course goal
 - To create a single introduction course for all cybersecurity electives
   - This course is a SIS-enforced pre-req for all other cybersecurity electives starting this fall
-  - This will prevent each if those electives from having to go over RSA, terminology, etc.
+  - This will prevent each of those electives from having to go over RSA, terminology, etc.
 
 
 ## Course Objectives
@@ -287,30 +291,29 @@ A series of (mostly unrelated) topics relating to computing security
 There were six "modules" this semester:
 - **Ethics & policy**, including the security mindset
 - **Encryption**, including hashing and randomness
-- **Binary exploits**, including viruses and buffer overflows
 - **Networks**, including web security
 - **Modtern topics**, including SQL/XSS/CSRF, cryptocurrency, anonymity, rootkits, stuxnet, and VMs
+- **Binary exploits**, including viruses and buffer overflows
 - **Digital forensics**
 
 
 ## Follow-on courses
 - Ethics & policy: a STS 2500 course was supposed to be taught on this...
-- Encryption: CS 4501/6501 offerings on cryptography
-- Binary exploits: CS 4630, Defense Against the Dark Arts, this fall
-- Networks: CS 4760, Network Security, this past spring
+- Encryption: CS 4501/6501 offerings on cryptography, including one this upcoming spring
+- Binary exploits: CS 4630, Defense Against the Dark Arts, this upcoming spring
+- Networks: CS 4760, Network Security, this upcoming spring
 - Modern topics: CS 4501 oferings: Cybersecurity and Elections, Cryptocurrency, Privacy and the Internet Age, etc.
-- Forensics: a CS 4501/6501, Digital Forensics, this past spring
+- Forensics: a CS 4501/6501, Digital Forensics, is occassionally offered
 	  </textarea></section>
 
 	  
 	  <section data-markdown data-separator="^\n$"><textarea data-template>
-## What was new this spring semester / summer term
-- Some homeworks were new: Fuzzing
-- Some of the homeworks were revised: ~~Networks~~, ~~Buffer Overflow~~, ~~Hashing~~, Ethics
+## What was new this semester / term
+- Some homeworks were new: Tricky Jump
+- Some of the homeworks were revised: Networks, Buffer Overflow, Hashing
 - Some homeworks were moved to the Cyber Range: ~~Rootkits~~, ~~Buffer Overflow~~, Forensics
-- An all-new Forensics plot for the spring
-  - Revised forensics instructions for the summer
-- Spring: the first time teaching in a spring/fall semester in 5 years for me
+- One homework was dropped: Policy
+- An all-new Forensics plot
 	  </textarea></section>
 
 <!-- 
@@ -345,17 +348,17 @@ other new things used in the past:
 <table class="transparent">
 <tr><td><ul>
 <li><a href='../hws/hw-forensics.html'>HW 12: Forensics</a></li>
-<li><a href='../hws/hw-buffer.html'>HW 11: Buffer Overflow</a></li>
-<li><a href='../hws/hw-rootkits.html'>HW 10: Rootkits</a></li>
-<li><a href='../hws/hw-networks.html'>HW 9: Networks</a></li>
+<li><a href='../hws/hw-tricky-jump.html'>HW 11: Tricky Jump</a></li>
+<li><a href='../hws/hw-buffer.html'>HW 10: Buffer Overflow</a></li>
+<li><a href='../hws/hw-rootkits.html'>HW 9: Rootkits</a></li>
 <li><a href='../hws/hw-cryptocurrency.html'>HW 8: Cryptocurrency</a></li>
 <li><a href='../hws/hw-sql-xss-csrf.html'>HW 7: SQL / XSS / CSRF</a></li>
 </ul></td><td style="width:50px"></td><td class="top"><ul>
 <li><a href='../hws/hw-fuzzing.html'>HW 6: Fuzzing</a></li>
-<li><a href='../hws/hw-hashing.html'>HW 5: Hashing</a></li>
-<li><a href='../hws/hw-rsa.html'>HW 4: RSA</a></li>
-<li><a href='../hws/hw-ethics.html'>HW 3: Ethics</a></li>
-<li><a href='../hws/hw-policy.html'>HW 2: Policy</a></li>
+<li><a href='../hws/hw-networks.html'>HW 5: Networks</a></li>
+<li><a href='../hws/hw-hashing.html'>HW 4: Hashing</a></li>
+<li><a href='../hws/hw-rsa.html'>HW 3: RSA</a></li>
+<li><a href='../hws/hw-ethics.html'>HW 2: Ethics</a></li>
 <li><a href='../hws/hw-paranoia.html'>HW 1: Rational Paranoia</a></li>
 </ul></td></tr></table>
 	</section>
@@ -372,7 +375,7 @@ other things that didn't work well in the past:
 	  <section data-markdown data-separator="^\n$"><textarea data-template>
 ## What didn't work well
 - Slow grading for the written homeworks
-- 2 week delay getting the TA
+- Delays in answering the support requests
 - Homework difficulty was not as even as I would have liked, although I'm not sure how to solve this
 </textarea></section>
 
@@ -393,10 +396,9 @@ other things that worked well in the past:
 - The homeworks matched well with the lectures, even if some were delayed a bit from when they were presented in lecture
 
 
-## Changes for the fall
+## Changes for "next time"
 - Changes a few of the homeworks
   - Buffer Overflow needs an overhaul (again)
-  - The Cyber Range may be limited to only Rootkits and Forensics
 - A different story line to the forensics HW
 - More readings throughout the semester
 
