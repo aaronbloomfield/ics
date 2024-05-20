@@ -12,7 +12,7 @@ Links
 
 There are a number of links and other parts of this course that are **NOT** included in this repository.  They are:
 
-- Any concerns you have should be handled via a support request; the link is on the [Canvas landing page][1]
+- Any concerns you have should be handled via a support request; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/107451)
 - Assignment submission is through the Gradescope tool in Canvas
 - The [Piazza forum for this course](https://piazza.com/class/lwe5bspo5os4o8); Canvas can log you in directly -- the Canvas tool link is [here](https://canvas.its.virginia.edu/courses/107451/external_tools/21)
 - [Apparently anonymous feedback in Canvas](https://canvas.its.virginia.edu/courses/107451/external_tools/18084)
@@ -21,7 +21,7 @@ There are a number of links and other parts of this course that are **NOT** incl
 
 - ~~[Email list archive](https://collab.its.virginia.edu/portal/directtool/23262987-1288-4c6d-912f-c1b031973f44/), which is a Collab tool~~
 - ~~[Anonymous feedback](https://collab.its.virginia.edu/portal/directtool/b166e2b1-f967-4df0-8e7e-1b25f58a30e2/), which is a Collab tool~~
-- ~~The link for the VirtualBox image will be available on the [Canvas landing page][1].  For how to install it, see  [here](https://uva-cs.github.io/pdr/tutorials/01-intro-unix/virtual-box.html).~~
+- ~~The link for the VirtualBox image will be available on the [Canvas landing page](https://canvas.its.virginia.edu/courses/107451).  For how to install it, see  [here](https://uva-cs.github.io/pdr/tutorials/01-intro-unix/virtual-box.html).~~
 
 -->
 
@@ -38,6 +38,8 @@ Readings
 
 All scholarly articles (such as from the ACM digital library) can be obtained from free from any UVa wireless network.  Some of them you will *NOT* be able to get it for free from your home Internet provider such as Comcast (unless you live in a UVa dorm, of course) without using a UVa VPN.  All readings are due by the start of lecture that day.
 
+To avoid having the due dates having to be listed in too many places, the readings and their due dates are not shown here.  The readings can be found on the Canvas landing page and in Canvas Assignments tool.
+
 <!--
 - Due Friday, September 13th:
     - [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
@@ -47,19 +49,19 @@ All scholarly articles (such as from the ACM digital library) can be obtained fr
 - Due Wednesday, March 22nd: [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
 
 -->
-
+<!--
 - Due Wednesday, May 22nd:
 	- [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
     - [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210)
 	- [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
-
+-->
 
 Homeworks
 -----------
 
 Unless otherwise noted, all submissions are due by the end of the day of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the Gradescope -- all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time (1 day / 24 hours in summer terms).
 
-To avoid having the due dates having to be listed in too many places, the homeworks and their due dates are not shown here.  The homeworks themselves can be seen on the [Homeworks page](../hws/index.html) ([md](../hws/index.md)) -- but please don't start on one until it's announced in class that it is ready!  You can see the due dates in the [daily announcements](daily-announcements.html#/) and the [Canvas landing page][1].
+To avoid having the due dates having to be listed in too many places, the homeworks and their due dates are not shown here.  The homeworks themselves can be seen on the [Homeworks page](../hws/index.html) ([md](../hws/index.md)) -- but please don't start on one until it's announced in class that it is ready!  You can see the due dates in the [daily announcements](daily-announcements.html#/) and the [Canvas landing page](https://canvas.its.virginia.edu/courses/107451).
 
 <!-- 
 
