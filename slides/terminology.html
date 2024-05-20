@@ -31,7 +31,7 @@
     <div class="reveal">
       <div class="slides">
 
-<section data-markdown id="cover"><script type="text/template">
+<section data-markdown id="cover"><textarea data-template>
 # CS 3710
 &nbsp;  
 ### Introduction to Cybersecurity
@@ -44,17 +44,17 @@
 <p class='titlep'>&nbsp;</p>
 
 ## Terminology
-</script></section>
+</textarea></section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
-<section data-markdown><script type="text/template">
+<section data-markdown><textarea data-template>
 # Contents
 &nbsp;  
 [Terms](#/terms)  
 [Malware Types](#/types)  
 [Vulnerabilities Exploited](#/vulnerabilities)  
-</script></section>
+</textarea></section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
@@ -62,9 +62,9 @@
       
   <section data-markdown id="terms" class="center"><textarea data-template>
 # Terms
-  </textarea></section>
+</textarea></section>
 
-  <section data-markdown data-separator="^\n\n\n"><textarea>
+  <section data-markdown data-separator="^\n\n\n"><textarea data-template>
 ## Vulnerability vs exploit
 - A *vulnerability* is a weakness (or bug) in the security of a program
   - A lock that is easy to pick
@@ -73,7 +73,8 @@
 
 
 
-## Authentication vs authorization
+<h2 class="r-fit-text">Authentication vs authorization</h2>
+
 - *Authentication* is determining who a user is
   - Signing in through netbadge, for example
 - *Authorization* is controlling one's actions based on who they are
@@ -127,9 +128,9 @@ From [dictionary.com](https://www.dictionary.com/browse/hack?s=t):
       
   <section data-markdown id="types" class="center"><textarea data-template>
 # Malware Types
-  </textarea></section>
+</textarea></section>
 
-  <section data-markdown data-separator="^\n\n\n"><textarea>
+  <section data-markdown data-separator="^\n\n\n"><textarea data-template>
 ## Characteristics of malware
 - Self-replicating: does it reproduce by itself?
 - Population growth: how does the infected population increase?
@@ -240,8 +241,8 @@ From [dictionary.com](https://www.dictionary.com/browse/hack?s=t):
 ## Some fork bombs
 C++, Python, and Bash shell, respectively:
 ```
-#include <stdio.h>
-#include <sys/types.h>
+#include &lt;stdio.h&gt;
+#include &lt;sys/types.h&gt;
 int main() {
   while(1) fork();
   return 0;
@@ -374,7 +375,7 @@ while(1):
   - The DOJ received 7,700 public complains in the last decade, totaling $57.6 million paid
     - Generally $200 to $10,000 per "episode"
   - $24 million in 2,500 cases in 2015 alone
-	  </textarea></section>
+	</textarea></section>
 
 	</section>
 
@@ -384,24 +385,26 @@ while(1):
 
 	  <section data-markdown id="vulnerabilities" class="center"><textarea data-template>
 # Vulnerabilities Exploited
-	  </textarea></section>
+	</textarea></section>
 
-	  <section data-markdown><textarea data-template>
-## What Vulnerabilities Were Exploited?
+	  <section data-markdown data-separator="^\n\n\n"><textarea data-template>
+<h2 class="r-fit-text">What Vulnerabilities Were Exploited?</h2>
+
 - "Vulnerability" often refers only to vulnerable code in an OS or applications
   - E.g. Unguarded buffer overflow in OS command allows attacker to run arbitrary command, gain root access, etc.
   - Failure to validate user input
   - Allowing ActiveX controls to be run from scripts
-	  </textarea></section>
 
-	  <section data-markdown><textarea data-template>
-## What Vulnerabilities Were Exploited?
+
+
+<h2 class="r-fit-text">What Vulnerabilities Were Exploited?</h2>
+
 - More generally, a vulnerability is whatever weakness in an overall system that makes it open to attack
   - System administration and configuration flaws
   - Dangerous user behavior
-	  </textarea></section>
 
-	  <section data-markdown><textarea data-template>
+
+
 ## Code Vulnerabilities
 - Buffer overflow is the most common
   - Array bounds not usually checked at run time (Why not?)
@@ -410,9 +413,9 @@ while(1):
   - Function pointer can point to malicious code
   - Output file name for a program can be overwritten with file name desired by attacker
 - Buffer overflows are simple to guard against, yet they remain the most common code vulnerability
-	  </textarea></section>
 
-	  <section data-markdown><textarea data-template>
+
+
 ## Buffer Overflow Example
 
 ```
@@ -431,34 +434,36 @@ void bogus(void) {
 }
 ```
 When writing beyond the size of `buffer` one will (eventually) overwrite the return address
-	  </textarea></section>
 
-	  <section data-markdown><textarea data-template>
-## Buffer Overflow cont'd.
+
+
+<h2 class="r-fit-text">Buffer Overflow continued</h2>
+
 - Notice that the program does not check to make sure that the user inputs 255 characters or less
 - Source code is available for many operating systems and applications
   - OR they can be disassembled and analyzed by the attacker
 - Attacker can see that it is possible to overflow the buffer
 - Buffer is last data item on the stack frame; the return address from this function will be at a defined distance after it
-	  </textarea></section>
 
-	  <section data-markdown><textarea data-template>
-## Buffer Overflow cont'd.
+
+
+<h2 class="r-fit-text">Buffer Overflow continued</h2>
+
 - Attacker can enter a character string representation of his malicious object code, long enough to fill the buffer
 - At the end of the malicious code, the attacker passes the address of variable "buffer" so that it overwrites the return address of function bogus() on the stack frame
 - When bogus() returns, it will cause a return to the buffer address, executing the malicious code in it
-	  </textarea></section>
 
-	  <section data-markdown><textarea data-template>
+
+
 ## User Behavior Vulnerabilities
 - Poor password selection
   - Too short; all alphabetic; common words
   - 1988 Morris worm used a list of only 432 common passwords, and succeeded in cracking many user accounts all over the Internet
   - This was the main reason the worm spread more than the creator thought it would; he did not realize that password selection was that bad!
-	  </textarea></section>
 
-	  <section data-markdown><textarea data-template>
-## User Behavior Vulnerabilities cont'd.
+
+
+## User Behavior Vulnerabilities
 - Opening executable email attachments
   - "This email is from my friend; it must be safe." But, the friend's PC has a virus!
   - Knowing the sender is not enough to make it safe to open
@@ -466,7 +471,7 @@ When writing beyond the size of `buffer` one will (eventually) overwrite the ret
   - Remember the "Love Letter" virus!
 - So only open the attachment if you know the sender, right?
   - What could be wrong with that?
-	  </textarea></section>
+	</textarea></section>
 
 	</section>
 

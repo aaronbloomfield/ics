@@ -31,7 +31,7 @@
     <div class="reveal">
       <div class="slides">
 
-<section data-markdown id="cover"><script type="text/template">
+<section data-markdown id="cover"><textarea data-template>
 # CS 3710
 &nbsp;  
 ### Introduction to Cybersecurity
@@ -44,43 +44,36 @@
 <p class='titlep'>&nbsp;</p>
 
 ## The Security Mindset
-</script></section>
+</textarea></section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
-<section data-markdown>
-  <textarea data-template>
+<section data-markdown><textarea data-template>
 # Contents
 &nbsp;  
 [Motivation](#/motivation)  
 [Security overview](#/overview)  
 [How to pick a lock](#/lock)  
 [Case Study: C'ville's Unite the Right rally](#/casestudies)  
-  </textarea>
-</section>
+</textarea></section>
   
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 
-<section data-markdown id="motivation" class="center">
-  <textarea data-template>
+<section data-markdown id="sources" class="center"><textarea data-template>
 ## Sources
 Some of the content for this slide set was based on [CS 487 from the University of Illinois at Chicago](https://www.cs.uic.edu/~s/teaching/cs487/2017-fall/slides/Lecture-01-Mindset.pdf), which was based on [ECE 422 / CS 461 from the University of Illinois](https://courses.engr.illinois.edu/cs461/sp2018/), which is also released under a [CC BY-SA](http://creativecommons.org/licenses/by-sa/4.0/) license
-  </textarea>
-</section>
+</textarea></section>
 
 <section>
 
-<section data-markdown id="motivation" class="center">
-  <textarea data-template>
+<section data-markdown id="motivation" class="center"><textarea data-template>
 # Motivation
-  </textarea>
-</section>
+</textarea></section>
     
-<section data-markdown data-separator="^\n\n\n">
-  <textarea data-template>
+<section data-markdown data-separator="^\n\n\n"><textarea data-template>
 ## Security Fails
-- You can find them [many places online](https://www.google.com/search?q=security+fails); Here is [one](https://www.boredpanda.com/funny-security-fails/?utm_source=google&utm_medium=organic&utm_campaign=organic)
+- You can find them [many places online](https://www.google.com/search?q=security+fails); Here is [one](https://www.boredpanda.com/funny-security-fails/?utm_source=google&amp;utm_medium=organic&amp;utm_campaign=organic)
   - You may want to open that in a private tab!
 
 
@@ -117,38 +110,34 @@ from [Wikipedia](https://en.wikipedia.org/wiki/Security)
   - And the universe is only about $13.75*10^{9}$ years old...
 - Now 2048 bit is recommended, and 4096 is available
 - [Source](https://crypto.stackexchange.com/questions/3043/how-much-computing-resource-is-required-to-brute-force-rsa)
-</textarea></section>
 
-<section>
+
+
 <h2>Example: "Unbreakable" RSA</h2>
 <img class="stretch" src="http://imgs.xkcd.com/comics/security.png" title="Actual actual reality: nobody cares about his secrets.  (Also, I would be hard-pressed to find that wrench for $5.)" alt="Security">
 <p class="center">"Security" from <a href="http://xkcd.com/538/">xkcd # 538</a></p>
-</section>
 
-<section data-markdown data-separator="^\n\n\n">
-  <textarea data-template>
+
+
 ## The key to good security...
 ... is knowing your enemy
-</textarea></section>
 
 
-<section class="center">
+
 <p style="text-align:center"><i>If you know the enemy and know yourself,<br>you need not fear the result of a hundred battles.</i></p>
 <p style="text-align:center"><i>If you know yourself but not the enemy,<br>for every victory gained you will also suffer a defeat.</i></p>
 <p style="text-align:center"><i>If you know neither the enemy nor yourself,<br>you will succumb in every battle.</i></p>
 <p>&nbsp;</p>
 <p style="text-align:center">– Sun Tzu, Art of War, chapter 3<br>(Lionel Giles' translation)</p>
-</section>
 
 
-<section data-markdown data-separator="^\n\n\n"><textarea data-template>
+
 ## Know your enemy
 - This is the threat model:
   - ... what are their motives?
   - ... what are their capabilities?
   - ... what is their degree of access?
-  </textarea>
-</section>
+</textarea></section>
 
 </section>
 	
@@ -156,14 +145,11 @@ from [Wikipedia](https://en.wikipedia.org/wiki/Security)
 
 <section>
 
-<section data-markdown id="overview" class="center">
-  <textarea data-template>
+<section data-markdown id="overview" class="center"><textarea data-template>
 # Security Mindset Overview
-  </textarea>
-</section>
+</textarea></section>
     
-<section data-markdown data-separator="^\n\n\n">
-  <textarea data-template>
+<section data-markdown data-separator="^\n\n\n"><textarea data-template>
 ## The Security Mindset is...
 - Learning to think like the attacker
   - Including trying to understand how to attack a system
@@ -179,9 +165,7 @@ from [Wikipedia](https://en.wikipedia.org/wiki/Security)
 > Security professionals ... can't walk into a store without noticing how they might shoplift. They can't use a computer without wondering about the security vulnerabilities. They can't vote without trying to figure out how to vote twice.
 
 
-</textarea></section>
 
-<section data-markdown data-separator="^\n\n\n"><textarea data-template>
 ## Security Mindset vs Crime
 - *Thinking* about the weaknesses of a system is different than *acting* on those weaknesses
   - Thinking about how a lock can be picked allows one to build a better lock; this is not breaking and entering
@@ -196,17 +180,15 @@ from [Wikipedia](https://en.wikipedia.org/wiki/Security)
 - Think outside the box, and don't be constrained by the system designer's worldview
 
 
-</textarea></section>
 
-<section>
 <img alt="weakest link" class="stretch" src="images/security-mindset/road-block.jpg">
-</section>
 
-<section>
+
+
 <img alt="weakest link" class="stretch" src="images/security-mindset/lock.jpg">
-</section>
 
-<section data-markdown data-separator="^\n\n\n"><textarea data-template>
+
+
 ## Thinking Like a Defender
 - There are four parts that we'll go over
   - Security policy
@@ -276,8 +258,7 @@ from [Wikipedia](https://en.wikipedia.org/wiki/Security)
   - Threat model: who are the attackers?  What are their motives, capabilities, and access?
   - Risk assessment: what would a breach cost us, both in direct and indirect costs?  How likely are these costs?
   - Countermeasures: both technical and non-technical
-</textarea>
-</section>
+</textarea></section>
 
 </section>
 	
@@ -285,14 +266,11 @@ from [Wikipedia](https://en.wikipedia.org/wiki/Security)
 
 <section>
 
-<section data-markdown id="lock" class="center">
-  <textarea data-template>
+<section data-markdown id="lock" class="center"><textarea data-template>
 # Case Study:<br>How to pick a lock
-  </textarea>
-</section>
+</textarea></section>
     
-<section data-markdown data-separator="^\n\n\n">
-  <textarea data-template>
+<section data-markdown data-separator="^\n\n\n"><textarea data-template>
 ## A pin tumbler lock
 ![](images/security-mindset/Pin_tumbler_no_key.svg)
 
@@ -328,11 +306,11 @@ Note that the 'breaks' between the pins are lined up
 ## How to pick a lock
 - First, get a set of lock picks ($15 for a decent pair on Amazon)
   - Disclaimer: it is ILLEGAL to own a set of lockpicks in Virginia unless you are a certified locksmith
-- And maybe some [practice locks](https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=transparent+lock) which run as low as $9 on Amazon
+- And maybe some [practice locks](https://www.amazon.com/s?k=transparent+lock) which run as low as $9 on Amazon
 
 
 
-## How to pick a lock
+<h2>How to pick a lock</h2>
 <iframe width="720" height="540" src="http://www.youtube.com/embed/Mz5IOFK38nU?rel=0" frameborder="0" allowfullscreen></iframe>
 <p><a href='http://www.youtube.com/embed/Mz5IOFK38nU?rel=0'>direct link</a></p>
 
@@ -373,8 +351,7 @@ Now that you know how easy it is to pick a cylinder lock, how many people feel *
   - [Safecracking for the computer scientist](https://www.mattblaze.org/papers/safelocks.pdf)
   - A frank discussion of the quality of safes and their weaknesses
 - Some in the locksmith community [tried to silence him](https://groups.google.com/forum/#!topic/alt.locksmithing/WAVbLjCSMQM%5B1-25%5D); it didn't get very far...
-  </textarea>
-</section>
+</textarea></section>
 
 </section>
 
@@ -384,14 +361,11 @@ Now that you know how easy it is to pick a cylinder lock, how many people feel *
 
 <section>
 
-<section data-markdown id="casestudies" class="center">
-  <textarea data-template>
+<section data-markdown id="casestudies" class="center"><textarea data-template>
 # Case Study: Charlottesville's [2017 Unite the Right rally](https://en.wikipedia.org/wiki/Unite_the_Right_rally)
-  </textarea>
-</section>
+</textarea></section>
     
-<section data-markdown data-separator="^\n\n\n">
-	<textarea data-template>
+<section data-markdown data-separator="^\n\n\n"><textarea data-template>
 ## Introduction
 - All the information herein is taken from the [Heaphy report](https://www.policefoundation.org/wp-content/uploads/2017/12/Charlottesville-Critical-Incident-Review-2017.pdf) or [Wikipedia's article](https://en.wikipedia.org/wiki/Unite_the_Right_rally)
   - The Heaphy report was commissioned by the Charlottesville City Council after the rally
@@ -407,37 +381,45 @@ from [Wikipedia's article on the rally](https://en.wikipedia.org/wiki/Unite_the_
 
 
 
-### Police watched violence happen
+<h2 class="r-fit-text">Police watched violence happen</h2>
+
 From one (of many) [sources](https://www.propublica.org/article/police-stood-by-as-mayhem-mounted-in-charlottesville):  <i>"State police and National Guardsmen watched passively for hours as self-proclaimed Nazis engaged in street battles with counter-protesters. ProPublica reporter A.C. Thompson was on the scene and reports that the authorities turned the streets of the city over to groups of militiamen armed with assault rifles."</i>
 <p>&nbsp;</p>
 The image on the next slide shows this happening...
-</textarea></section><section>
+
+
 
 <img alt="rally picture" class="stretch" src="images/security-mindset/rally-166.jpg">
 
-</section><section data-markdown data-separator="^\n\n\n"><textarea data-template>
-## Streets were not properly closed
+
+
+<h2 class="r-fit-text">Streets were not properly closed</h2>
+
 - Some streets that were supposed to be closed were not
   - Or were closed with an insufficient barrier
 - In particular, 4th Street NW where [Heather Heyer](https://en.wikipedia.org/wiki/Charlottesville_car_attack) was killed, was not properly closed
   - Source: [Heaphy report](https://www.policefoundation.org/wp-content/uploads/2017/12/Charlottesville-Critical-Incident-Review-2017.pdf), pages 89-90
 - The next slide shows the *single* sawhorse barrier meant to stop all traffic on 4th street NW
-</textarea></section><section>
+
+
 
 <img alt="rally picture" class="stretch" src="images/security-mindset/rally-183.jpg">
 
-</section><section data-markdown data-separator="^\n\n\n"><textarea data-template>
+
+
 ## Insufficient group separation
 - The white supremacists were directed to exit right past the counter protesters
   - With a police wall between the two groups
   - The police where thus in the middle, and were the unfortunate recipients of thrown objects and being spit upon
 - An earlier plan didn't have any separation between the groups! (next slide)
 - Source: [Heaphy report](https://www.policefoundation.org/wp-content/uploads/2017/12/Charlottesville-Critical-Incident-Review-2017.pdf), pages 57-58
-</textarea></section><section>
+
+
 
 <img alt="rally picture" class="stretch" src="images/security-mindset/rally-119.jpg">
 
-</section><section data-markdown data-separator="^\n\n\n"><textarea data-template>
+
+
 ## Other problems
 - Police did not have riot gear on (or ready) when people started showing up
 - The protesters (the white supremacists) were entrusted to enter the park where they were told to do so (they didn't)
@@ -477,8 +459,7 @@ The image on the next slide shows this happening...
     - And how to keep the groups separated
   - They did not understand (or admit) to their lack of knowledge to handle these events
     - Federal agencies could have been called in to help
-</textarea>
-</section>
+</textarea></section>
 
 </section>
 	
