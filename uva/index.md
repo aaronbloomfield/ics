@@ -81,10 +81,12 @@ To avoid having the due dates having to be listed in too many places, the homewo
 
 
 
-Expected lecture progress
+Lecture progress
 -------------------------
 
 The links to the specific slides sets can be found on the [slides page](../slides/index.html) ([md](../slides/index.md)).
+
+Expected lecture progress:
 
 1. Mon, May 20: course introduction; security mindset, terminology
 2. Tue, May 21: terminology, policy, ethics
@@ -106,10 +108,9 @@ The links to the specific slides sets can be found on the [slides page](../slide
 18. Thu, Jun 13: (buffer class)
 19. Fri, Jun 14: (buffer class)
 
-Actual progress:
+Actual lecture progress:
 
-
-1. Mon, May 20: 
+1. Mon, May 20: finished course introduction; security mindset to 6.13
 2. Tue, May 21: 
 3. Wed, May 22: 
 4. Thu, May 23: 

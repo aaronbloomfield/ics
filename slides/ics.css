@@ -70,7 +70,7 @@ p.center {
   margin-left: 20px;
 }
 .reveal pre code { 
-    max-height: 700px;
+    max-height: 600px;
     background-color:dimgray;
     border-radius:7px;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
@@ -201,6 +201,20 @@ p.blankline { height:1em; }
     margin-top: 12px;
 }
 
+.no-border img, img.no-border {
+  padding:0;
+}
+
+.no-img-corner-radius img, img.no-img-corner-radius {
+  border-radius:0;
+}
+
+.right-code-40 pre code {
+    float:right;
+    width:40%;
+    margin-left:40px !important;
+}
+
 .right-float-img-200 img {
     float:right;
     max-width:200px;
@@ -244,10 +258,31 @@ p.blankline { height:1em; }
     margin-left:20px !important;
 }
 
-.right-float-img-600 img {
+.right-float-img-600 img, img.right-float-img-600 {
     float:right;
     max-width:600px;
     max-height:300px;
+    margin-left:20px !important;
+}
+
+.left-float-img-600 img, img.left-float-img-600 {
+    float:left;
+    max-width:600px;
+    max-height:300px;
+    margin-left:20px !important;
+}
+
+.right-float-img-700 img, img.right-float-img-700 {
+    float:right;
+    max-width:700px;
+    max-height:350px;
+    margin-left:20px !important;
+}
+
+.left-float-img-700 img, img.left-float-img-700 {
+    float:left;
+    max-width:700px;
+    max-height:350px;
     margin-left:20px !important;
 }
 
@@ -560,3 +595,61 @@ div.twitter-tweet {
 }
 
 span.hotpink { color:hotpink; }
+
+/* these next few rules are for tables copied from wikipedia; wikipedia uses a CC BY-SA license */
+div.wikitablediv {
+  font-family:sans-serif;
+  line-height:1.57142;
+  direction:ltr;
+  --font-size-medium: 0.875rem;
+  --line-height-medium: 1.5714285;
+  margin-left:20px;
+  text-align: center;
+  font-size:20px;
+}
+.wikitable {
+  background-color: #f8f9fa;
+  color: #202122;
+  margin: 1em 0;
+  border: 1px solid #a2a9b1;
+  border-collapse: collapse;
+}
+.wikitable>tr>th, .wikitable>tr>td, .wikitable>*>tr>th, .wikitable>*>tr>td {
+  border: 1px solid #a2a9b1;
+  padding: 0.2em 0.4em
+}
+.wikitable>tr>th, .wikitable>*>tr>th {
+  background-color: #eaecf0;
+  text-align: center
+}
+.wikitable>*>tr>th {
+  font-weight:normal;
+  text-decoration-line:none !important;
+  padding-top:0;
+  padding-bottom:0;
+}
+.wikitable>caption {
+  font-weight: bold;
+  color:#fff;
+}
+
+/* wide pre */
+.wide-pre pre {
+  margin-left:-30px;
+  width:100%;
+}
+/* wide pre */
+.wider-pre pre {
+  margin-left:-100px;
+  width:120%;
+}
+
+/* smaller pres */
+.small-pre pre { font-size:50%;}
+.smaller-pre pre { font-size:40%;}
+.smaller-pre code { max-height:600px;}
+.smallest-pre pre { font-size:35%;}
+
+.table-small table { font-size:90%; }
+.table-smaller table { font-size:80%; }
+.table-smallest table { font-size:75%; }
