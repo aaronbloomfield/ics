@@ -110,7 +110,8 @@
 - [Reference](http://en.wikipedia.org/wiki/Security_by_obscurity)
 
 
-## Block-ciphers vs. stream ciphers
+<h2 class="r-fit-text">Block-ciphers vs. stream ciphers</h2>
+
 - Block ciphers require a block of text (perhaps 1 Kb, for example)
   - [Reference](http://en.wikipedia.org/wiki/Block_cipher)
 - Stream ciphers encrypt data as it is provided, character-by-character
@@ -330,6 +331,7 @@ W . . . E . . . C . . . R . . . L . . . T . . . E
 - [Reference](http://en.wikipedia.org/wiki/Enigma_machine)
 
 
+<!-- .slide: class="no-border" -->
 ## Enigma machine
 ![enigma machine](images/encryption/enigma-machine.png)
 	</textarea></section>
@@ -343,7 +345,8 @@ W . . . E . . . C . . . R . . . L . . . T . . . E
 	  </textarea></section>
 	  
 	  <section data-markdown data-separator="^\n$"><textarea data-template>
-## Data Encryption Standard ([DES](http://en.wikipedia.org/wiki/Data_Encryption_Standard))
+<h2 class="r-fit-text">Data Encryption Standard (<a href='http://en.wikipedia.org/wiki/Data_Encryption_Standard'>DES</a>)</h2>
+
 - Adopted in 1976, it's a private-key encryption/decryption block cipher
 - Briefly, it does a lot of (invertible) bit-shifting in rounds to encrypt/decrypt a message
 - How to crack?
@@ -352,7 +355,8 @@ W . . . E . . . C . . . R . . . L . . . T . . . E
   - Use a 56*3 = 168 bit key, and encrypt the message three times, once with each key
 
 
-## Cracking Triple DES encryption
+<h2 class="r-fit-text">Cracking Triple DES encryption</h2>
+
 - Brute-force attacks:
   - $2^{168}$ keys, but due to various mathematical properties, this ends up being $2^{112}$ different keys
 - "The best attack known on 3-key TDES requires around $2^{32}$ known plaintexts, $2^{113}$ steps, $2^{90}$ single DES encryptions, and $2^{88}$ memory"
@@ -368,7 +372,8 @@ W . . . E . . . C . . . R . . . L . . . T . . . E
 - It's known that the NSA had the budget for such a machine.  But did they build it?
 
 
-## Advanced Encryption Standard (AES)
+<h2 class="r-fit-text">Advanced Encryption Standard (AES)</h2>
+
 - The successor to DES
 - Has three possible key lengths: 128, 192, and 256
 - NSA approved this standard, and kept the process open
@@ -453,7 +458,8 @@ return probably prime
   - At this point, 101 has a $(1/2)^4 = 1/16$ chance of still being composite
 
 
-## More on the Fermat primality test
+<h2 class="r-fit-text">More on the Fermat primality test</h2>
+
 - Each iteration halves the probability that the number is a composite
   - Probability = $(1/2)^k$
   - If $k = 100$, the probability it's a composite is $(1/2)^{100} = 1\text{ in }1.2 * 10^{30}$ that the number is composite
@@ -461,13 +467,15 @@ return probably prime
   - Thus, $k = 100$ is a good value
 
 
-## More on the Fermat primality test
+<h2 class="r-fit-text">More on the Fermat primality test</h2>
+
 - Even with a certainty of $k=100$, it is not certain that the number is prime!
   - There are known numbers that are composite but will always report prime by this test
   - The Carmichael numbers: 561, 1105, 1729, ...
 - [Reference](http://en.wikipedia.org/wiki/Fermat_primality_test)
 
 
+<!-- .slide: class="no-border" -->
 ## Google's recruitment campaign
 ![google billboard](https://statisticallyinsignificant.files.wordpress.com/2011/05/google.jpg)
 
@@ -500,7 +508,8 @@ return probably prime
   - Memory usage is (relatively) minimal, as we keep mod'ing each time
 
 
-## Running the Fermat primality test
+<h2 class="r-fit-text">Running the Fermat primality test</h2>
+
 - We can now compute $a^e \mod n$
 - To run the test, we repeat:
   - Pick a random (odd) number of the correct bit size
@@ -865,7 +874,8 @@ $
   - Considered as hard as integer factorization
 
 
-## Current state of the art for factoring
+<h2 class="r-fit-text">Current factoring state of the art</h2>
+
 - "As of the end of 2007, thanks to the constant decline in memory prices, the ready availability of multi-core 64-bit computers, and the availability of [efficient factoring software], special-form numbers of up to 750 bits and general-form numbers of up to about 520 bits can be factored [...]. These bounds would increase to about 900 and 600 [on a] few dozen PCs"
   - We used 2048 bit (617 decimal digit) numbers!
   - http://en.wikipedia.org/wiki/Integer_factorization_records
@@ -905,7 +915,8 @@ $
   - That's concatenation
 
 
-## Checking a message signature: detail
+<h2 class="r-fit-text">Checking a message signature: detail</h2>
+
 - You receive message $x = m \cdot c$ from somebody with public key $(n,e)$
 - You separate $x$ into it's constituent parts $m$ and $c$
 - You decrypt $c$ using public key $(n,e)$ to get $h_1$
@@ -923,9 +934,10 @@ $
   - Specified in RFC 4880: http://tools.ietf.org/html/rfc4880 
 
 
-## The US gov't and war munitions
-![war muntition shirt 1](images/encryption/war-munition-1.jpg)
-![war muntition shirt 2](images/encryption/war-munition-2.jpg)
+<!-- .slide: class="no-border" -->
+<h2 class="r-fit-text">The US gov't and war munitions</h2>
+<img src='images/encryption/war-munition-1.jpg' alt='war munition shirt 1' style='float:left'>
+<img src='images/encryption/war-munition-2.jpg' alt='war munition shirt 2' style='float:right'>
 
 
 ## RSA vulnerabilities
@@ -955,19 +967,21 @@ $
 </textarea></section>
 
 	  <section class='rsa-anim'>
+<!-- .slide: class="no-border" -->
 <h2>"Normal" RSA communication</h2>
-<img alt="rsa communication bars" src="images/encryption/rsa-com-1-top.png">
-<img class="fragment fade-in"  data-fragment-index="1" alt="rsa communication 1a"  src="images/encryption/rsa-com-1-a.png">
-<img class="fragment fade-in"  data-fragment-index="2" alt="rsa communication 1b"  src="images/encryption/rsa-com-1-b.png">
-<img class="fragment fade-in"  data-fragment-index="3" alt="rsa communication 1c"  src="images/encryption/rsa-com-1-c.png">
-<img class="fragment fade-in"  data-fragment-index="4" alt="rsa communication 1d"  src="images/encryption/rsa-com-1-d.png">
-<img class="fragment fade-in"  data-fragment-index="5" alt="rsa communication 1e"  src="images/encryption/rsa-com-1-e.png">
-<img class="fragment fade-in"  data-fragment-index="6" alt="rsa communication 1f"  src="images/encryption/rsa-com-1-f.png">
+<img alt="rsa communication bars" src="images/encryption/rsa-com-1-top.png" style="margin-top:0;margin-bottom:0;border-radius:10px 10px 0 0;padding-bottom:0">
+<img class="fragment fade-in"  data-fragment-index="1" alt="rsa communication 1a"  src="images/encryption/rsa-com-1-a.png" style="margin-top:0;margin-bottom:0;border-radius:0;padding-bottom:0;padding-top:0">
+<img class="fragment fade-in"  data-fragment-index="2" alt="rsa communication 1b"  src="images/encryption/rsa-com-1-b.png" style="margin-top:0;margin-bottom:0;border-radius:0;padding-bottom:0;padding-top:0">
+<img class="fragment fade-in"  data-fragment-index="3" alt="rsa communication 1c"  src="images/encryption/rsa-com-1-c.png" style="margin-top:0;margin-bottom:0;border-radius:0;padding-bottom:0;padding-top:0">
+<img class="fragment fade-in"  data-fragment-index="4" alt="rsa communication 1d"  src="images/encryption/rsa-com-1-d.png" style="margin-top:0;margin-bottom:0;border-radius:0;padding-bottom:0;padding-top:0">
+<img class="fragment fade-in"  data-fragment-index="5" alt="rsa communication 1e"  src="images/encryption/rsa-com-1-e.png" style="margin-top:0;margin-bottom:0;border-radius:0;padding-bottom:0;padding-top:0">
+<img class="fragment fade-in"  data-fragment-index="6" alt="rsa communication 1f"  src="images/encryption/rsa-com-1-f.png" style="margin-top:0;margin-bottom:0;border-radius:0 0 10px 10px;padding-top:0">
 	  </section>
 
 	  <section data-markdown data-separator="^\n$"><textarea data-template>
-## SSH display to get a key
-![ssh good](images/encryption/ssh-good.png)
+<!-- .slide: class="no-border" -->
+<h2>SSH display to get a key</h2>
+<img src='images/encryption/ssh-good.png' alt='ssh good' style='border:10px solid #bbb'>
 
 
 ## Man-in-the-middle attack
@@ -980,18 +994,19 @@ $
 
 	  <section class='rsa-anim'>
 <h2>MITM RSA communication</h2>
-<img alt="rsa communication bars" src="images/encryption/rsa-com-2-top.png">
-<img class="fragment fade-in"  data-fragment-index="1" alt="rsa communication 2a"  src="images/encryption/rsa-com-2-a.png">
-<img class="fragment fade-in"  data-fragment-index="2" alt="rsa communication 2b"  src="images/encryption/rsa-com-2-b.png">
-<img class="fragment fade-in"  data-fragment-index="3" alt="rsa communication 2c"  src="images/encryption/rsa-com-2-c.png">
-<img class="fragment fade-in"  data-fragment-index="4" alt="rsa communication 2d"  src="images/encryption/rsa-com-2-d.png">
-<img class="fragment fade-in"  data-fragment-index="5" alt="rsa communication 2e"  src="images/encryption/rsa-com-2-e.png">
-<img class="fragment fade-in"  data-fragment-index="6" alt="rsa communication 2f"  src="images/encryption/rsa-com-2-f.png">
+<img alt="rsa communication bars" src="images/encryption/rsa-com-2-top.png" style="margin-top:0;margin-bottom:0;border-radius:10px 10px 0 0;padding-bottom:0">
+<img class="fragment fade-in"  data-fragment-index="1" alt="rsa communication 2a"  src="images/encryption/rsa-com-2-a.png" style="margin-top:0;margin-bottom:0;border-radius:0;padding-bottom:0;padding-top:0">
+<img class="fragment fade-in"  data-fragment-index="2" alt="rsa communication 2b"  src="images/encryption/rsa-com-2-b.png" style="margin-top:0;margin-bottom:0;border-radius:0;padding-bottom:0;padding-top:0">
+<img class="fragment fade-in"  data-fragment-index="3" alt="rsa communication 2c"  src="images/encryption/rsa-com-2-c.png" style="margin-top:0;margin-bottom:0;border-radius:0;padding-bottom:0;padding-top:0">
+<img class="fragment fade-in"  data-fragment-index="4" alt="rsa communication 2d"  src="images/encryption/rsa-com-2-d.png" style="margin-top:0;margin-bottom:0;border-radius:0;padding-bottom:0;padding-top:0">
+<img class="fragment fade-in"  data-fragment-index="5" alt="rsa communication 2e"  src="images/encryption/rsa-com-2-e.png" style="margin-top:0;margin-bottom:0;border-radius:0;padding-bottom:0;padding-top:0">
+<img class="fragment fade-in"  data-fragment-index="6" alt="rsa communication 2f"  src="images/encryption/rsa-com-2-f.png" style="margin-top:0;margin-bottom:0;border-radius:0 0 10px 10px;padding-top:0">
 	  </section>
 
 	  <section data-markdown data-separator="^\n$"><textarea data-template>
-## SSH display with a possible MITM
-![ssh bad](images/encryption/ssh-bad.png)
+<!-- .slide: class="no-border" -->
+<h2 class="r-fit-text">SSH display with a possible MITM</h2>
+<img src='images/encryption/ssh-bad.png' alt='ssh good' style='border:10px solid #bbb'>
 
 
 ## How to prevent MITM attacks
@@ -1004,7 +1019,8 @@ $
 - Still possible for me to upload a key and claim it's yours, though...
 
 
-## Other public key encryption methods
+<h2 class="r-fit-text">Other public key encryption methods</h2>
+
 - The goals are the same as RSA
   - There must be two keys, which are paired
   - Encryption and decryption (with the key!) should be "easy" (i.e. polynomial time)
@@ -1049,7 +1065,8 @@ $
   - Modern RSA has $n$ with 4,096 or 8,192 bits
 
 
-## Quantum computing factorization
+<h2 class="r-fit-text">Quantum computing factorization</h2>
+
 - In 2012, UCSB built a quantum computer that can factor 15 into 3*5 with 48% accuracy
   - Yes, really
   - (Okay, I realize that it was a big advancement, but come on now...)
@@ -1057,7 +1074,8 @@ $
 - [reference](http://www.popsci.com/science/article/2012-08/quantum-processor-calculates-15-3x5-about-half-time)
 
 
-## Latest quantum computing stats
+<h2 class="r-fit-text">Latest quantum computing stats</h2>
+
 - April 2012: 143 factored into 13*11
 - April 2016: factored 200,099 into 401*499
 - [reference](https://en.wikipedia.org/wiki/Integer_factorization_records)
