@@ -111,7 +111,7 @@ Expected lecture progress:
 Actual lecture progress:
 
 1. Mon, May 20: finished course introduction; security mindset to 6.13
-2. Tue, May 21: 
+2. Tue, May 21: finished security mindset; finished terminology; policy to 4.19
 3. Wed, May 22: 
 4. Thu, May 23: 
 5. Fri, May 24: 
