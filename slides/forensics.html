@@ -466,36 +466,36 @@
 - Given a binary file, run `strings` on that file to extract all ASCII strings in that file
   - By default, it's all consecutive printable ASCII characters of length 4 or greater
   - The -n option can change this: 
-  ```console
-  strings -n 10 filename
-  ```
+```console
+strings -n 10 filename
+```
 
 
 
 ## Basic UNIX commands: grep
 - Searches a file for text
-  ```console
-  grep foobar filename
-  ```
+```console
+grep foobar filename
+```
 - Case insensitive by adding -i
 - All files *not* matching the string via -v
 - `egrep` uses regular expressions:
-  ```console
-  egrep -i 'apple|banana|orange' *
-  ```
+```console
+egrep -i 'apple|banana|orange' *
+```
 
 
 
 ## Basic UNIX commands: find
 - Find files in sub-directories based on specific criteria, such as filename:
-  ```console
-  find / -name "*.foo"
-  ```
+```console
+find / -name "*.foo"
+```
   - That searches the root directory (`/`)
 - or by file contents:
-  ```console
-  find . -type f -exec grep "example" '{}' \; -print
-  ```
+```console
+find . -type f -exec grep "example" '{}' \; -print
+```
   - Finds files (`-type f`) and runs `grep` on them to search for `example` within
   - That searches the current directory (`.`)
 

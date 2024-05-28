@@ -135,7 +135,8 @@ If that doesn't work, try the [direct Youtube link](http://youtu.be/YEBfamv-_do?
 
 
 
-## DH key exchange in practical use
+<h2 class="r-fit-text">DH key exchange in practical use</h2>
+
 - Used in many cryptographic protocols
   - Including ones we will see shortly
 - Uses *very* large numbers created with a very good pseudo-random number generator
@@ -184,8 +185,8 @@ If that doesn't work, try the [direct Youtube link](http://youtu.be/YEBfamv-_do?
 <!-- .slide: class="right-float-img-800" -->
 ## Certificate usage
 ![https certificate](images/web-security/ServerCertificate.png)
-- All websites that<br>support https<br>provide such a<br>certificate to<br>any client
-- Browsers can<br>display certificate<br>info, such as<br>shown here
+- All websites that support https provide such a certificate to any client
+- Browsers can display certificate info, such as shown here
 
 
 
@@ -270,7 +271,8 @@ An entity (such as virginia.edu) can hold an *intermediate* certificate, which a
 
 
 
-## Public vs. Symmetric Cryptography
+<h2 class="r-fit-text">Public vs. Symmetric Cryptography</h2>
+
 - Public key cryptosystems (such as RSA) are:
   - Very secure: one message will take all the computers in the world longer than the life of the universe to crack
   - Very slow: not feasible for real-time data transmission (downloading a large file, streaming, etc.)
@@ -351,7 +353,8 @@ An entity (such as virginia.edu) can hold an *intermediate* certificate, which a
 
 <section data-markdown data-separator="^\n\n\n">
   <textarea data-template>
-## Message authentication code (MAC)
+<h2 class="r-fit-text">Message authentication code (MAC)</h2>
+
 - It's "a short piece of information used to authenticate a message" ([Wikipedia](https://en.wikipedia.org/wiki/Message_authentication_code))
 - Like a digital signature, but:
   - uses a shared *secret* key, so it is faster
@@ -439,9 +442,9 @@ Note that even if the MAC doesn't support encryption (in the first 3 rows), the 
 ## Heartbleed (2012)
 <!-- .slide: class="right-float-img-800" -->
 ![heartbleed icon](images/web-security/Heartbleed.svg)
-- A problem in *one*<br>implementation of<br>the TLS protocol
-  - Specifically the<br>OpenSSL library<br>implementation
-- Affected about<br>one sixth of<br>all websites
+- A problem in *one* implementation of the TLS protocol
+  - Specifically the OpenSSL library implementation
+- Affected about one sixth of all websites
 
 
 
@@ -494,7 +497,7 @@ Note that even if the MAC doesn't support encryption (in the first 3 rows), the 
 </section>
 
 <section>
-<h2>Boot-up time versus PRG quality</h2>
+<h2 class="r-fit-text">Boot-up time versus PRG quality</h2>
 <img class="stretch" src="images/web-security/weakkeys12.extended.svg">
 <p>Source: <a href="https://factorable.net/weakkeys12.extended.pdf">Mining Your Ps and Qs: Detection of Widespread Weak Keys in Network Devices</a></p>
 </section>
@@ -533,7 +536,7 @@ err = sslRawVerify(...)
     - NUL characters are valid in these strings
 - X.509 certificates use Pascal-style strings
 - Consider obtaining a certificate for:
-  ```
+```
 gmail.com\0.mydomain.com
 ```
 - The CA sees some sub-domain off of mydomain.com
@@ -599,7 +602,7 @@ Modern browsers limit cookie viewing to the domain (or URL) that issued the cook
   - Now both A and B can leave cookies
   - This request includes the referring website!  So B can see where you have been
 - Part of the headers of any [Stack Overflow](https://stackoverflow.com) page:
-  ```
+```
 <script
 src="https://ajax.googleapis.com/.../jquery.min.js">
 </script>
