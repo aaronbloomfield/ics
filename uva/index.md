@@ -116,7 +116,7 @@ Actual lecture progress:
 4. Thu, May 23: finished ethics; encryption to 6.17
 5. Fri, May 24: encryption to 7.13
 6. Tue, May 28: finished encryption; networks to 3.12
-7. Wed, May 29: 
+7. Wed, May 29: finished networks; web security to 6.8
 8. Thu, May 30: 
 9. Fri, May 31: 
 10. Mon, Jun 3: 
