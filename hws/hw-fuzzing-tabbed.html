@@ -61,10 +61,7 @@
 <li>You should have a recent version of Python, and you will need to be able to install packages, via pip</li>
 </ul>
 </div><div id='tchangelog' class='tabcontent'><h3 id='changelog'>Changelog</h3>
-<p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. </p>
-<ul>
-<li>Sat, Oct 14: improved the explanations in the advanced fuzzing section; no changes made to the requirements.</li>
-</ul>
+<p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
 </div><div id='tsetup' class='tabcontent'><h3 id='setup'>Setup</h3>
 <p>This assignment must be done in a recent version of Python. The only additional package you will need is <code>uvicorn</code> – to install it, enter <code>pip install uvicorn</code> (or <code>pip3 install uvicorn</code>).</p>
 <p>You will need a number of files from this repository to work on this assignment:</p>
@@ -131,6 +128,7 @@
 <p>You are welcome to, and will eventually have to, change the elements in that list during testing – just note that each USLS part has to start with a forward slash. If you are running uvicorn, and you edit the server.py file, it should detect this and reload the contents so that you don’t have to restart it.</p>
 <p>You will run your uvicorn server as follows:</p>
 <pre><code>uvicorn server:app --reload --port 5000</code></pre>
+<p>On some systems (Windows without WSL, in particular), you have to put <code>python -m</code> at the start of that command.</p>
 <p>This runs the server on port 5000 on your computer. To test against this, you will run your fuzzer as follows:</p>
 <pre><code>python3 fuzzer.py -u http://localhost:5000/FUZZ -w common.txt</code></pre>
 <p>Note: it may be that your computer needs to use <code>http://127.0.0.1:5000/FUZZ</code> instead.</p>

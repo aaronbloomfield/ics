@@ -19,9 +19,7 @@ Credit: this homework is based heavily on [Will Shand's xfuzz assignment](https:
 
 ### Changelog
 
-Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  <!-- So far there aren't any significant changes to report. -->
-
-- Sat, Oct 14: improved the explanations in the advanced fuzzing section; no changes made to the requirements.
+Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here. So far there aren't any significant changes to report.
 
 
 ### Setup
@@ -116,6 +114,8 @@ You will run your uvicorn server as follows:
 ```
 uvicorn server:app --reload --port 5000
 ```
+
+On some systems (Windows without WSL, in particular), you have to put `python -m` at the start of that command.
 
 This runs the server on port 5000 on your computer.  To test against this, you will run your fuzzer as follows:
 
