@@ -313,6 +313,8 @@ An entity (such as virginia.edu) can hold an *intermediate* certificate, which a
 - Let's review the [TLS 1.2 protocol](https://upload.wikimedia.org/wikipedia/commons/a/ae/SSL_handshake_with_two_way_authentication_with_certificates.svg)
 - What would make it forward-secret?
   - Adding in Diffe-Hellman Key Exchange (DHE)
+  - *Some* allowed TLS 1.2 protocols have DHE, but not all
+    - And it's not required
 
 
 
@@ -321,6 +323,7 @@ An entity (such as virginia.edu) can hold an *intermediate* certificate, which a
   - Only allow public enryption protocols that are forward-secret (meaning: they use DHE)
 - Other imrpovements:
   - Send more of the information as a single message, so there is less back-and-forth to the handshake
+  - Can initiate the connection in 4 messages rather than 6
 
 
 
