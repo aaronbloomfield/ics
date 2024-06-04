@@ -118,8 +118,8 @@ Actual lecture progress:
 6. Tue, May 28: finished encryption; networks to 3.12
 7. Wed, May 29: finished networks; web security to 6.8
 8. Thu, May 30: finished sql/xss/csrf
-9. Fri, May 31: 
-10. Mon, Jun 3: 
+9. Fri, May 31: midterm and HW work day, so no lecture progress
+10. Mon, Jun 3: finished web security
 11. Tue, Jun 4: 
 12. Wed, Jun 5: 
 13. Thu, Jun 6: 
