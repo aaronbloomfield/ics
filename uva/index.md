@@ -123,7 +123,7 @@ Actual lecture progress:
 11. Tue, Jun 4: finished cryptocurrency
 12. Wed, Jun 5: finished anonymity, rootkits to 4.11
 13. Thu, Jun 6: finished rootkits, finished vms, finished stuxnet
-14. Fri, Jun 7: 
+14. Fri, Jun 7: viruses to 8.3
 15. Mon, Jun 10: 
 16. Tue, Jun 11: 
 17. Wed, Jun 12: 
