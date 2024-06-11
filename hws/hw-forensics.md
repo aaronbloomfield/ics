@@ -5,7 +5,7 @@ ICS: Programming Homework: Forensics
 
 ### Scenario
 
-Professor Bloomfield has been acting strange lately.  Ever since sometime around mid-November he has been unfocused in his lectures, and seems to not know the material -- even though he's taught this course many times before.  He doesn't show up to office hours or his required departmental meetings.  And he often just misses class.  When asked about it, he seems to just brush it off, giving vague answers.  There have been many conspiracy theories about what happened, and alien abduction is the latest craze.
+Professor Bloomfield has been acting strange lately.  Ever since sometime the start of the summer term he has been unfocused in his lectures, and seems to not know the material -- even though he's taught this course many times before.  He doesn't show up to office hours or his required departmental meetings.  And he often just misses class.  When asked about it, he seems to just brush it off, giving vague answers.  There have been many conspiracy theories about what happened, and alien abduction is the latest craze.
 
 He recently left his laptop behind after class.  Some enterprising students were able to obtain a disk image of his hard drive before he came and retrieved it.
 
@@ -107,6 +107,17 @@ A few notes to help you through the process:
 	- The `,ro` part adds the read-only attribute.  If you are having problems with this, you can remove it (so the option is just `-o loop`), and then you can write to the file system.  You can download it again if needed (but delete the other one first -- there isn't a lot of disk space on the Cyber Range system, and you don't want to have excess disk images hanging around on your own machine)
 - Autopsy sometimes crashes.  You should be able to restart it, and it will pick up where it left off.
 
+
+#### Mounting the disk image
+
+You can also mount the disk image directly from the CyberRange system.  To do so:
+
+```
+mkdir -p /mnt
+mount -o ro /path/to/mst3k.img /mnt
+```
+
+You can then look in the `/mnt/` directory to find the files on the disk image.  This way of mounting the image -- with the `-o ro` flags -- makes it a read-only file system, so you can't modify anything therein.
 
 ### Deliverable
 

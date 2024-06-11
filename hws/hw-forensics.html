@@ -8,10 +8,18 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
@@ -37,15 +45,12 @@
     evt.currentTarget.className += " active";
   }
   </script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="ics-programming-homework-forensics">ICS: Programming Homework: Forensics</h1>
 <p><a href="index.html">Go up to the ICS HW page</a> (<a href="index.md">md</a>) | <a href="hw-forensics-tabbed.html">view tabbed version</a></p>
 <h3 id="scenario">Scenario</h3>
-<p>Professor Bloomfield has been acting strange lately. Ever since sometime around mid-November he has been unfocused in his lectures, and seems to not know the material – even though he’s taught this course many times before. He doesn’t show up to office hours or his required departmental meetings. And he often just misses class. When asked about it, he seems to just brush it off, giving vague answers. There have been many conspiracy theories about what happened, and alien abduction is the latest craze.</p>
+<p>Professor Bloomfield has been acting strange lately. Ever since sometime the start of the summer term he has been unfocused in his lectures, and seems to not know the material – even though he’s taught this course many times before. He doesn’t show up to office hours or his required departmental meetings. And he often just misses class. When asked about it, he seems to just brush it off, giving vague answers. There have been many conspiracy theories about what happened, and alien abduction is the latest craze.</p>
 <p>He recently left his laptop behind after class. Some enterprising students were able to obtain a disk image of his hard drive before he came and retrieved it.</p>
 <p>Where is Bloomfield? Is he safe? Is anybody else in danger? What’s going on?</p>
 <p>Take a look at the image and figure out what the situation is.</p>
@@ -114,6 +119,11 @@ Lastly, you can run autopsy on your own machine, and use the Cyber Range to deal
 </ul></li>
 <li>Autopsy sometimes crashes. You should be able to restart it, and it will pick up where it left off.</li>
 </ul>
+<h4 id="mounting-the-disk-image">Mounting the disk image</h4>
+<p>You can also mount the disk image directly from the CyberRange system. To do so:</p>
+<pre><code>mkdir -p /mnt
+mount -o ro /path/to/mst3k.img /mnt</code></pre>
+<p>You can then look in the <code>/mnt/</code> directory to find the files on the disk image. This way of mounting the image – with the <code>-o ro</code> flags – makes it a read-only file system, so you can’t modify anything therein.</p>
 <h3 id="deliverable">Deliverable</h3>
 <p>The deliverable is a PDF report, named forensics.pdf.</p>
 <p>Make sure you put your name and userid at the top of the PDF! We need to know who you are when we grade it.</p>
