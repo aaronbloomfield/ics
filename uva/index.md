@@ -125,7 +125,7 @@ Actual lecture progress:
 13. Thu, Jun 6: finished rootkits, finished vms, finished stuxnet
 14. Fri, Jun 7: viruses to 8.3
 15. Mon, Jun 10: finished viruses; finished buffer overflows
-16. Tue, Jun 11: 
+16. Tue, Jun 11: finished forensics
 17. Wed, Jun 12: 
 18. Thu, Jun 13: 
 19. Fri, Jun 14: 
