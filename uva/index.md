@@ -126,7 +126,7 @@ Actual lecture progress:
 14. Fri, Jun 7: viruses to 8.3
 15. Mon, Jun 10: finished viruses; finished buffer overflows
 16. Tue, Jun 11: finished forensics
-17. Wed, Jun 12: 
-18. Thu, Jun 13: 
-19. Fri, Jun 14: 
+17. Wed, Jun 12: finished binary exploits
+18. Thu, Jun 13: HW work day
+19. Fri, Jun 14: review session; course reflection
 
