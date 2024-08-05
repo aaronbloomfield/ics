@@ -1,0 +1,14 @@
+project:
+  title: ICS slides
+  lib-dir: quarto_files
+format:
+  revealjs: 
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: images/quarto.png
+    css: ics.css
+    navigation-mode: vertical
+    footer: <https://aaronbloomfield.github.io/ics>
+    controls: false
