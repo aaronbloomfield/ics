@@ -1,266 +1,597 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8"><base target="_blank">
-    <title>ICS: Course Introduction</title>
-    <meta name="description" content="A set of slides for a course on Introduction to Cybersecurity">
-    <meta name="author" content="Aaron Bloomfield">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="../slides/reveal.js/dist/reset.css">
-    <link rel="stylesheet" href="../slides/reveal.js/dist/reveal.css">
-    <link rel="stylesheet" href="../slides/reveal.js/dist/theme/black.css" id="theme">
-    <link rel="stylesheet" href="../slides/ics.css">
-    <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="../slides/reveal.js/plugin/highlight/zenburn.css">
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.scss' : '../slides/reveal.js/css/print/paper.scss';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
-    <!--[if lt IE 9]>
-	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
-	<![endif]-->
-  </head>
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="quarto_files/clipboard/clipboard.min.js"></script>
+<script src="quarto_files/quarto-html/tabby.min.js"></script>
+<script src="quarto_files/quarto-html/popper.min.js"></script>
+<script src="quarto_files/quarto-html/tippy.umd.min.js"></script>
+<link href="quarto_files/quarto-html/tippy.css" rel="stylesheet">
+<link href="quarto_files/quarto-html/light-border.css" rel="stylesheet">
+<link href="quarto_files/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="quarto_files/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.56">
 
-  <body>
-    <div class="reveal">
-      <div class="slides">
+  <title>Intro to Cybersecurity: Course Introduction</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="quarto_files/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="quarto_files/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="quarto_files/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="ics.css">
+  <link href="quarto_files/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="quarto_files/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="quarto_files/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="quarto_files/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="quarto_files/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="quarto_files/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
 
-<section data-markdown id="cover"><textarea data-template>
-# CS 3710
-&nbsp;  
-### Introduction to Cybersecurity
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
 
-<p class='titlep'>&nbsp;</p>
-<div class="titlesmall"><p>
-<a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
-<a href="http://github.com/aaronbloomfield/ics">@github</a> | <a href="index.html">&uarr;</a> | <a href="./introduction.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png" style="top:0px;vertical-align:middle;padding:0;border-radius:0"></a>
-</p></div>
-<p class='titlep'>&nbsp;</p>
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
 
-## Course Introduction
-</textarea></section>
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
 
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
 
-<section data-markdown><textarea data-template>
-# Contents
-[Motivation](#/why)  
-[Course Information](#/how)  
-[Ethics](#/ethics)  
-</textarea></section>
-  
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
 
-<section>
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
 
-<section data-markdown id="why" class="center"><textarea data-template>
-# Motivation
-</textarea></section>
-      
-<section data-markdown data-separator="^\n\n\n"><textarea data-template>
-## First, a definition...
-> mal: bad, in the Latin
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
 
-&nbsp;  
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
 
-> malware: software that is intended to damage or disable computers and computer systems
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
 
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
 
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
 
-## Costs of Malware
-- Cost of malware (worldwide):
-  - 1997: $3.3 billion ([source](http://www.computereconomics.com/article.cfm?id=1225))
-  - 2006: $13.3 billion ([source](http://www.computereconomics.com/article.cfm?id=1225))
-  - 2014: $491 billion ([source](https://www.scmagazine.com/breaches-malware-to-cost-491-billion-in-2014-study-says/article/539302/))
-  - 2015: $3 trillion ([source](https://cybersecurityventures.com/hackerpocalypse-cybercrime-report-2016/))
-  - 2021: estimated to hit $6 trillion ([source](https://www.varonis.com/blog/cybersecurity-statistics/))
-- Companies often cover up the worst cases
-- Does not include cost of security measures
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
 
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
 
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
 
-<!-- .slide: class="right-float-img-nb-400 norad" -->
-## Malware Costs: Example 1
-![](https://upload.wikimedia.org/wikipedia/commons/0/07/CIH.png)
-- April 1999: [CIH (Chernobyl) virus](http://en.wikipedia.org/wiki/CIH_virus)
-  - Overwrites first megabyte of the hard drive with zeros, then overwrites the BIOS
-  - Only affects Windows 95, 98, and ME
-- $250 million lost in one day in Korea alone; widespread across Asia
-  - Estimated $1 billion in damages in total
-- Hard to quantify cost of lost files, time spent reinstalling OS and applications, etc.
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
 
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
 
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
 
-<!-- .slide: class="right-float-img-nb-400" -->
-## Malware Costs: Example 2
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Anna_Kournikova-Bagram_Airfield_2009.jpg/548px-Anna_Kournikova-Bagram_Airfield_2009.jpg)
-- February 2001 mass mailer: [Anna Kournikova computer virus/worm](https://en.wikipedia.org/wiki/Anna_Kournikova_(computer_virus%29)
-  - Visual Basic script via email, based on [LoveLetter](http://en.wikipedia.org/wiki/Loveletter)
-  - Enticed people to open it promising a picture of a popular and pretty tennis star
-    - Social engineering!
-  - Did little damage, though
-  - The creator didn't know how to program!
-	- He used a virus kit
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
 
+  .callout.no-icon::before {
+    display: none !important;
+  }
 
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
 
-<!-- .slide: class="right-float-img-nb-400" -->
-## Malware Costs: Example 3
-![](images/stuxnet/960px-Gas_centrifuge_cascade.jpg)
-- 2010 / 2011: [Stuxnet worm](http://en.wikipedia.org/wiki/Stuxnet)
-  - By far the most advanced piece of malware ever created at that point
-  - It's goal (and it succeeded!) was to cripple Iran's nuclear enrichment
-    - Said program was set back by 1-2 years
-  - Authors have not come forward, but speculation is a joint Israel / US team
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
 
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
 
+  /* Callout Types */
 
-## Malware Costs: Example 4
-![](https://upload.wikimedia.org/wikipedia/commons/3/3a/Ashley_madison_logo.png)
-- [Ashley Madison data breach](https://en.wikipedia.org/wiki/Ashley_Madison_data_breach) in 2015
-  - This is the site that peddled extra-marital affairs
-  - The hackers threatened to release the site's DB info unless the site was closed down
-    - No ransom was requested!
-  - They did reveal the information, which led to embarrassment and some suicides
-  - Interestingly, almost all of the "female" members were bots...
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
 
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
 
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
 
-<!-- .slide: class="right-float-img-nb-400" -->
-## Malware Costs: Example 5
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Vote_Here_sign_in_Taft%2C_Texas.jpg/891px-Vote_Here_sign_in_Taft%2C_Texas.jpg)
-- [2016 US election hacks](https://en.wikipedia.org/wiki/Russian_interference_in_the_2016_United_States_elections)
-  - "The US intelligence community has concluded with high confidence that the Russian government interfered in the ... election"
-  - Whether it affected the outcome is up for debate
-	- And not one I want to engage in now...
-  - But the fact that they were able to interfere is worrisome
-- Interfering in elections is a common tactic; the US has done so a lot as well ([source](https://www.washingtonpost.com/news/worldviews/wp/2016/10/13/the-long-history-of-the-u-s-interfering-with-elections-elsewhere/))
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
 
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
 
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
 
-<!-- .slide: class="right-float-img-nb-400" -->
-## Malware Costs: Example 6
-![](https://upload.wikimedia.org/wikipedia/commons/6/65/2017_Petya_cyberattack_screenshot.png)
-- [NotPetya](https://en.wikipedia.org/wiki/Petya_(malware%29) in 2017
-  - Infected Ukrainian companies through a back door put into a Ukrainian version of a TurboTax-like software
-    - Companies with Ukrainian subsidiaries were infected through their corporate network
-  - This was "the equivalent of using a nuclear bomb to achieve a small tactical victory"
-  - There is a good [Wired article](https://www.wired.com/story/notpetya-cyberattack-ukraine-russia-code-crashed-the-world/) on it
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
 
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
 
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
 
-<!-- .slide: class="right-float-img-nb-400" -->
-## Malware Costs: Example 7
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Pumpspeicherwerk_Geesthacht_Rohre.jpg/800px-Pumpspeicherwerk_Geesthacht_Rohre.jpg)
-- The [Colonial Pipeline shutdown](https://en.wikipedia.org/wiki/Colonial_Pipeline_cyberattack)
-  - Ransomware infected the computers of the company that supplies half of the east coast's oil and gas
-  - They paid 75 bitcoin (about $5 million) to the ransomware writers (DarkSide)
-  - The costs beyond that -- to regular citizens -- have not yet been estimated
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
 
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
 
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
 
-## Malware Costs: Conclusion
-- Computer viruses and other security attacks are very costly
-- Computer security is a hot field today; many career and research opportunities for graduates from this course
-- Knowledge of security issues is sensitive and carries an ethical responsibility with it
-- ...but how can you write a detection software for a virus that does not exist yet?
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
 
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
 
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
 
-<h2 class="r-fit-text">There are also policy motivations</h2>
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
 
-- US bills [SOPA](https://en.wikipedia.org/wiki/Stop_Online_Piracy_Act) / [PIPA](https://en.wikipedia.org/wiki/PROTECT_IP_Act) from 2011 were intended to hinder piracy, it would allow serious security problems
-  - There have been many such attempts since
-- US drone fleet virus (see articles [here](http://www.tgdaily.com/security-features/58927-virus-infects-us-military-drones) and [here](https://www.wired.com/2011/10/virus-hits-drone-fleet/))
-  - And people thought viruses were a thing of the past!
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Intro to Cybersecurity:<br>Course Introduction</h1>
+  <p class="subtitle">(subtitle)</p>
 
-
-
-<h2>A UVa hack (2013)</h2>
-<img class="stretch" src="images/introduction/root-the-box-uva-hack.png" alt="uva hack image">
-(<a href="http://www.c-ville.com/anatomy-of-a-hack-examining-root-the-boxs-attack-on-uvas-website/#.WZz6w3XythE">source</a>)
-
-
-
-<h2>Another UVa hack (2015)</h2>
-<img class="stretch" src="images/introduction/uva-chinese-hack.png" alt="uva hack image">
-(<a href="http://www.thedailybeast.com/chinese-hackers-target-us-university-with-government-ties">source</a>)
-
-
-
-<h2>Yet another UVa hack (2016)</h2>
-<img class="stretch" src="images/introduction/uva-phishing-hack.png" alt="uva hack image">
-(<a href="https://www.washingtonpost.com/news/grade-point/wp/2016/01/22/phishing-hack-at-the-university-of-virginia-compromises-employee-computer-records/">source</a>)
-
-
-
-<h2 class="r-fit-text">Cybersecurity and gov't shutdowns</h2>
-
-- The [government shutdown](https://en.wikipedia.org/wiki/United_States_federal_government_shutdown_of_2018%E2%80%932019) from early 2019 lasted 35 days
-- With skeletal staffs, many gov't agencies could not perform basic cybersecurity procedures
-- Thus, cybersecurity is one of many things hurt by the shutdown
-- [source](https://www.rollcall.com/news/cybersecurity-efforts-may-suffer-shutdown-persists)
-</textarea></section>
+<div class="quarto-title-authors">
+</div>
 
 </section>
-
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
 <section>
+<section id="motivation" class="title-slide slide level1 center">
+<h1>Motivation</h1>
 
-<section data-markdown id="how" class="center"><textarea data-template>
-# Course Information
-</textarea></section>
+</section>
+<section id="first-a-definition" class="slide level2">
+<h2>First, a definition…</h2>
+<blockquote>
+<p>mal: bad, in the Latin</p>
+</blockquote>
+<p>&nbsp;</p>
+<blockquote>
+<p>malware: software that is intended to damage or disable computers and computer systems</p>
+</blockquote>
+</section>
+<section id="costs-of-malware" class="slide level2">
+<h2>Costs of Malware</h2>
+<ul>
+<li>Cost of malware (worldwide):
+<ul>
+<li>1997: $3.3 billion (<a href="http://www.computereconomics.com/article.cfm?id=1225">source</a>)</li>
+<li>2006: $13.3 billion (<a href="http://www.computereconomics.com/article.cfm?id=1225">source</a>)</li>
+<li>2014: $491 billion (<a href="https://www.scmagazine.com/breaches-malware-to-cost-491-billion-in-2014-study-says/article/539302/">source</a>)</li>
+<li>2015: $3 trillion (<a href="https://cybersecurityventures.com/hackerpocalypse-cybercrime-report-2016/">source</a>)</li>
+<li>2021: estimated to hit $6 trillion (<a href="https://www.varonis.com/blog/cybersecurity-statistics/">source</a>)</li>
+</ul></li>
+<li>Companies often cover up the worst cases</li>
+<li>Does not include cost of security measures</li>
+</ul>
+</section>
+<section id="malware-costs-example-1" class="slide level2">
+<h2>Malware Costs: Example 1</h2>
+<div class="right-float-img-nb-500">
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/0/07/CIH.png"></p>
+</div>
+<!-- -->
+<ul>
+<li>April 1999: <a href="http://en.wikipedia.org/wiki/CIH_virus">CIH (Chernobyl) virus</a>
+<ul>
+<li>Overwrites first megabyte of the hard drive with zeros, then overwrites the BIOS</li>
+<li>Only affects Windows 95, 98, and ME</li>
+</ul></li>
+<li>$250 million lost in one day in Korea alone; widespread across Asia
+<ul>
+<li>Estimated $1 billion in damages in total</li>
+</ul></li>
+<li>Hard to quantify cost of lost files, time spent reinstalling OS and applications, etc.</li>
+</ul>
+</section>
+<section id="malware-costs-example-2" class="slide level2">
+<h2>Malware Costs: Example 2</h2>
+<div class="right-float-img-nb-500">
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Anna_Kournikova-Bagram_Airfield_2009.jpg/548px-Anna_Kournikova-Bagram_Airfield_2009.jpg"></p>
+</div>
+<ul>
+<li>February 2001 mass mailer: <a href="https://en.wikipedia.org/wiki/Anna_Kournikova_(computer_virus)">Anna Kournikova virus</a>
+<ul>
+<li>Visual Basic script via email, based on <a href="http://en.wikipedia.org/wiki/Loveletter">LoveLetter</a></li>
+<li>Enticed people to open it promising a picture of a popular and pretty tennis star
+<ul>
+<li>Social engineering!</li>
+</ul></li>
+<li>Did little damage, though</li>
+<li>The creator didn’t know how to program!
+<ul>
+<li>He used a virus kit</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="malware-costs-example-3" class="slide level2">
+<h2>Malware Costs: Example 3</h2>
+<div class="right-float-img-nb-500">
+<p><img data-src="images/stuxnet/960px-Gas_centrifuge_cascade.jpg"></p>
+</div>
+<ul>
+<li>2010 / 2011: <a href="http://en.wikipedia.org/wiki/Stuxnet">Stuxnet worm</a>
+<ul>
+<li>By far the most advanced piece of malware ever created at that point</li>
+<li>It’s goal (and it succeeded!) was to cripple Iran’s nuclear enrichment
+<ul>
+<li>Said program was set back by 1-2 years</li>
+</ul></li>
+<li>Authors have not come forward, but speculation is a joint Israel / US team</li>
+</ul></li>
+</ul>
+</section>
+<section id="malware-costs-example-4" class="slide level2">
+<h2>Malware Costs: Example 4</h2>
 
-<section data-markdown data-separator="^\n\n\n"><textarea data-template>
-## Course Objectives
-- Understand the ethical and policy context for cybersecurity in today's society
-- Understand how to better safeguard one's personal computer
-- Understand the basics of advanced topics in cybersecurity including encryption, digital forensics, binary exploits, and networks
-- Understand the modern concepts in cybersecurity attacks and prevention
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Ashley_madison_logo.png" class="r-stretch"><ul>
+<li><a href="https://en.wikipedia.org/wiki/Ashley_Madison_data_breach">Ashley Madison data breach</a> in 2015
+<ul>
+<li>This is the site that peddled extra-marital affairs</li>
+<li>The hackers threatened to release the site’s DB info unless the site was closed down
+<ul>
+<li>No ransom was requested!</li>
+</ul></li>
+<li>They did reveal the information, which led to embarrassment and some suicides</li>
+<li>Interestingly, almost all of the “female” members were bots…</li>
+</ul></li>
+</ul>
+</section>
+<section id="malware-costs-example-5" class="slide level2">
+<h2>Malware Costs: Example 5</h2>
+<div class="right-float-img-nb-500">
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Vote_Here_sign_in_Taft%2C_Texas.jpg/891px-Vote_Here_sign_in_Taft%2C_Texas.jpg"></p>
+</div>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Russian_interference_in_the_2016_United_States_elections">2016 US election hacks</a>
+<ul>
+<li>“The US intelligence community has concluded with high confidence that the Russian government interfered in the … election”</li>
+<li>Whether it affected the outcome is up for debate
+<ul>
+<li>And not one I want to engage in now…</li>
+</ul></li>
+<li>But the fact that they were able to interfere is worrisome</li>
+</ul></li>
+<li>Interfering in elections is a common tactic; the US has done so a lot as well (<a href="https://www.washingtonpost.com/news/worldviews/wp/2016/10/13/the-long-history-of-the-u-s-interfering-with-elections-elsewhere/">source</a>)</li>
+</ul>
+</section>
+<section id="malware-costs-example-6" class="slide level2">
+<h2>Malware Costs: Example 6</h2>
+<div class="right-float-img-nb-500">
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/6/65/2017_Petya_cyberattack_screenshot.png"></p>
+</div>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Petya_%28malware%29">NotPetya</a> in 2017
+<ul>
+<li>Infected Ukrainian companies through a back door put into a Ukrainian version of a TurboTax-like software
+<ul>
+<li>Companies with Ukrainian subsidiaries were infected through their corporate network</li>
+</ul></li>
+<li>This was “the equivalent of using a nuclear bomb to achieve a small tactical victory”</li>
+<li>There is a good <a href="https://www.wired.com/story/notpetya-cyberattack-ukraine-russia-code-crashed-the-world/">Wired article</a> on it</li>
+</ul></li>
+</ul>
+</section>
+<section id="malware-costs-example-7" class="slide level2">
+<h2>Malware Costs: Example 7</h2>
+<div class="right-float-img-nb-500">
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Pumpspeicherwerk_Geesthacht_Rohre.jpg/800px-Pumpspeicherwerk_Geesthacht_Rohre.jpg"></p>
+</div>
+<ul>
+<li>The <a href="https://en.wikipedia.org/wiki/Colonial_Pipeline_cyberattack">Colonial Pipeline shutdown</a>
+<ul>
+<li>Ransomware infected the computers of the company that supplies half of the east coast’s oil and gas</li>
+<li>They paid 75 bitcoin (about $5 million) to the ransomware writers (DarkSide)</li>
+<li>The costs beyond that – to regular citizens – have not yet been estimated</li>
+</ul></li>
+</ul>
+</section>
+<section id="malware-costs-conclusion" class="slide level2">
+<h2>Malware Costs: Conclusion</h2>
+<ul>
+<li>Computer viruses and other security attacks are very costly</li>
+<li>Computer security is a hot field today; many career and research opportunities for graduates from this course</li>
+<li>Knowledge of security issues is sensitive and carries an ethical responsibility with it</li>
+<li>…but how can you write a detection software for a virus that does not exist yet?</li>
+</ul>
+</section>
+<section id="there-are-also-policy-motivations" class="slide level2">
+<h2>There are also policy motivations</h2>
+<ul>
+<li>US bills <a href="https://en.wikipedia.org/wiki/Stop_Online_Piracy_Act">SOPA</a> / <a href="https://en.wikipedia.org/wiki/PROTECT_IP_Act">PIPA</a> from 2011 were intended to hinder piracy, it would allow serious security problems
+<ul>
+<li>There have been many such attempts since</li>
+</ul></li>
+<li>US drone fleet virus (see articles <a href="http://www.tgdaily.com/security-features/58927-virus-infects-us-military-drones">here</a> and <a href="https://www.wired.com/2011/10/virus-hits-drone-fleet/">here</a>)
+<ul>
+<li>And people thought viruses were a thing of the past!</li>
+</ul></li>
+</ul>
+</section>
+<section id="a-uva-hack-2013" class="slide level2">
+<h2>A UVa hack (2013)</h2>
+<p><img class="stretch" src="images/introduction/root-the-box-uva-hack.png" alt="uva hack image"> (<a href="http://www.c-ville.com/anatomy-of-a-hack-examining-root-the-boxs-attack-on-uvas-website/#.WZz6w3XythE">source</a>)</p>
+</section>
+<section id="another-uva-hack-2015" class="slide level2">
+<h2>Another UVa hack (2015)</h2>
+<p><img class="stretch" src="images/introduction/uva-chinese-hack.png" alt="uva hack image"> (<a href="http://www.thedailybeast.com/chinese-hackers-target-us-university-with-government-ties">source</a>)</p>
+</section>
+<section id="yet-another-uva-hack-2016" class="slide level2">
+<h2>Yet another UVa hack (2016)</h2>
+<p><img class="stretch" src="images/introduction/uva-phishing-hack.png" alt="uva hack image"> (<a href="https://www.washingtonpost.com/news/grade-point/wp/2016/01/22/phishing-hack-at-the-university-of-virginia-compromises-employee-computer-records/">source</a>)</p>
+</section>
+<section id="cybersecurity-and-govt-shutdowns" class="slide level2">
+<h2>Cybersecurity and gov’t shutdowns</h2>
+<ul>
+<li>The <a href="https://en.wikipedia.org/wiki/United_States_federal_government_shutdown_of_2018%E2%80%932019">government shutdown</a> from early 2019 lasted 35 days</li>
+<li>With skeletal staffs, many gov’t agencies could not perform basic cybersecurity procedures</li>
+<li>Thus, cybersecurity is one of many things hurt by the shutdown</li>
+<li><a href="https://www.rollcall.com/news/cybersecurity-efforts-may-suffer-shutdown-persists">source</a></li>
+</ul>
+<!-- ------------------------------------------------------------ -->
+</section></section>
+<section>
+<section id="course-information" class="title-slide slide level1 center">
+<h1>Course Information</h1>
 
-
-
-## Course Purpose
-- This course is meant to be a general introduction to cybersecurity
-- It is the pre-req for all the other cybersecurity courses at UVa
-
-
-
-## Course Sources
-- I am not, in fact, the first to create an Introduction to Cybersecurity course
-  - Some of this course's content is based on [UMich EECS 388](https://www.eecs.umich.edu/courses/eecs388.f13//index.html)
-    - Intel funded them to create a course under a [CC BY-SA](http://creativecommons.org/licenses/by-sa/4.0/) license
-  - Other parts come from online sources
-    - The ethics part from [here](https://www.scu.edu/ethics/focus-areas/technology-ethics/resources/an-introduction-to-cybersecurity-ethics/), for example
-
-
-
-## Class Information
-- Prerequisites: CS 2150 (PDR) or (CS 2100 (DSA1) and CS 2130 (CSO1)) with a grade of C- or higher
-- Grades
-  - One midterm (20%) (date on [syllabus](../uva/syllabus.html))
-  - Final exam (25%) (date on [syllabus](../uva/syllabus.html))
-  - Homeworks (45%)
-  - Class participation, pop quizzes (10%)
-- I reserve the right to adjust the percentages based on the number of assignments and quizzes, and other factors
-
-
-
-## More on that pre-requisite
-- If you are are a transfer student (or a non-UVA student during the summer term), then your pre-req is all of the following:
-  - two semesters of programming experience
-  - knowledge of programming in C or C++
-  - knowledge of programming in assembly
-
-
-
+</section>
+<section id="course-objectives" class="slide level2">
+<h2>Course Objectives</h2>
+<ul>
+<li>Understand the ethical and policy context for cybersecurity in today’s society</li>
+<li>Understand how to better safeguard one’s personal computer</li>
+<li>Understand the basics of advanced topics in cybersecurity including encryption, digital forensics, binary exploits, and networks</li>
+<li>Understand the modern concepts in cybersecurity attacks and prevention</li>
+</ul>
+</section>
+<section id="course-purpose" class="slide level2">
+<h2>Course Purpose</h2>
+<ul>
+<li>This course is meant to be a general introduction to cybersecurity</li>
+<li>It is the pre-req for all the other cybersecurity courses at UVa</li>
+</ul>
+</section>
+<section id="course-sources" class="slide level2">
+<h2>Course Sources</h2>
+<ul>
+<li>I am not, in fact, the first to create an Introduction to Cybersecurity course
+<ul>
+<li>Some of this course’s content is based on <a href="https://www.eecs.umich.edu/courses/eecs388.f13//index.html">UMich EECS 388</a>
+<ul>
+<li>Intel funded them to create a course under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a> license</li>
+</ul></li>
+<li>Other parts come from online sources
+<ul>
+<li>The ethics part from <a href="https://www.scu.edu/ethics/focus-areas/technology-ethics/resources/an-introduction-to-cybersecurity-ethics/">here</a>, for example</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="class-information" class="slide level2">
+<h2>Class Information</h2>
+<ul>
+<li>Prerequisites: CS 2150 (PDR) or (CS 2100 (DSA1) and CS 2130 (CSO1)) with a grade of C- or higher</li>
+<li>Grades
+<ul>
+<li>One midterm (20%) (date on <a href="../uva/syllabus.html">syllabus</a>)</li>
+<li>Final exam (25%) (date on <a href="../uva/syllabus.html">syllabus</a>)</li>
+<li>Homeworks (45%)</li>
+<li>Class participation, pop quizzes (10%)</li>
+</ul></li>
+<li>I reserve the right to adjust the percentages based on the number of assignments and quizzes, and other factors</li>
+</ul>
+</section>
+<section id="more-on-that-pre-requisite" class="slide level2">
+<h2>More on that pre-requisite</h2>
+<ul>
+<li>If you are are a transfer student (or a non-UVA student during the summer term), then your pre-req is all of the following:
+<ul>
+<li>two semesters of programming experience</li>
+<li>knowledge of programming in C or C++</li>
+<li>knowledge of programming in assembly</li>
+</ul></li>
+</ul>
 <!-- 
 ## Exams
 - As mentioned, two midterms:
@@ -273,228 +604,684 @@
 
 
 -->
-## Homeworks
-- Late homework is docked 25% per day (or fraction thereof)
-  - Thus, more than 72 hours late will receive a zero 
-- Homeworks will generally be given out two per week
-  - Some "easy" ones will be more often
-  - Some "hard" ones will have a bit more time
-- Note that the difficulty level of the homeworks varies considerably
-
-
-
-## Us and you
-- All office hours are posted on the Canvas landing page
-- I avoid e-mailing the class; announcements will be discussed each day in lecture and posted to Canvas / Piazza
-- To contact me, please use the support tickets tool (linked to from the main Canvas page)
-- We also have Piazza as well for questions
-
-
-
-## Course Materials
-- They are kept in a github repo: https://github.com/aaronbloomfield/ics
-  - Released under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA) license
-- That repo is viewable online at http://aaronbloomfield.github.io/ics/
-
-
-
-## Canvas
-- We'll use for:
-  - Access to Gradescope for the assignment submissions
-  - Piazza link
-  - Large file downloads
-  - Lecture recordings
-  - Online meetings link if necessary
-  - Assignments and grades will be duplicated there
-- Recall that most of the course materials are in the [github repo](https://github.com/aaronbloomfield/ics)
-
-
-
-## Tentative schedule
-- (for the summer, a class is 2 lectures of content)
-- Introduction (3.5 lectures): course introduction and motivation, terminology, security mindset
-- Ethics & Policy (5 lectures): ethics, policy
-- Encryption (5.5 lectures): encryption, hashes
-- Networks (6 lectures): networks, web security
-- Binary manipulation (6 lectures): viruses, buffer overflows, binary exploits
-- Modern topics (9 lectures): SQL/XSS/CSRF, anonymity, cryptocurrency, stuxnet, rootkits, VMs
-- Digital forensics (3 lectures): forensics
-
-
-
-## Homeworks
-- Each module will generally have two assignments during a regular (fall/spring) semester, and less than that during a summer term
-  - A written homework, submitted as a PDF
-    - Will consist of writing, math, and short programs
-  - A programming assignment; source code will be submitted
-- Please read the [homework policies](../uva/hw-policies.html) page, as you are going to be bound by it!
-
-
-
-## Completing the homeworks
-- Most you will run it on your own computer
-- We will provide a separate online environment for some assignments
-- Some homeworks will *require* a specific platform or language, others it will be a recommendation, and others can be done on any platform
-- You can use any development environment (including IDE) that you would like
-
-
-
-## Readings
-- There is no assigned textbook
-  - They get outdated too quickly!
-- However, there will be readings assigned
-- These readings may have pop quizzes to test that you actually read it
-  - If you miss class, then you get a zero for the quiz!
-  - They will be via provided PDFs and/or online materials
-- Some of the "readings" may be podcasts to listen to
-
-
-
-## What you must purchase
-- Nothing
-  - (there is no textbook for this course, only online materials)
-- But, as it's a computer science course, you need to have a (working and recent) computer
-  - If you don't, or if yours breaks, let me know, and the department can loan you one
-
-
-
+</section>
+<section id="homeworks" class="slide level2">
+<h2>Homeworks</h2>
+<ul>
+<li>Late homework is docked 25% per day (or fraction thereof)
+<ul>
+<li>Thus, more than 72 hours late will receive a zero</li>
+</ul></li>
+<li>Homeworks will generally be given out two per week
+<ul>
+<li>Some “easy” ones will be more often</li>
+<li>Some “hard” ones will have a bit more time</li>
+</ul></li>
+<li>Note that the difficulty level of the homeworks varies considerably</li>
+</ul>
+</section>
+<section id="us-and-you" class="slide level2">
+<h2>Us and you</h2>
+<ul>
+<li>All office hours are posted on the Canvas landing page</li>
+<li>I avoid e-mailing the class; announcements will be discussed each day in lecture and posted to Canvas / Piazza</li>
+<li>To contact me, please use the support tickets tool (linked to from the main Canvas page)</li>
+<li>We also have Piazza as well for questions</li>
+</ul>
+</section>
+<section id="course-materials" class="slide level2">
+<h2>Course Materials</h2>
+<ul>
+<li>They are kept in a github repo: https://github.com/aaronbloomfield/ics
+<ul>
+<li>Released under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> (CC BY-SA) license</li>
+</ul></li>
+<li>That repo is viewable online at http://aaronbloomfield.github.io/ics/</li>
+</ul>
+</section>
+<section id="canvas" class="slide level2">
+<h2>Canvas</h2>
+<ul>
+<li>We’ll use for:
+<ul>
+<li>Access to Gradescope for the assignment submissions</li>
+<li>Piazza link</li>
+<li>Large file downloads</li>
+<li>Lecture recordings</li>
+<li>Online meetings link if necessary</li>
+<li>Assignments and grades will be duplicated there</li>
+</ul></li>
+<li>Recall that most of the course materials are in the <a href="https://github.com/aaronbloomfield/ics">github repo</a></li>
+</ul>
+</section>
+<section id="tentative-schedule" class="slide level2">
+<h2>Tentative schedule</h2>
+<ul>
+<li>(for the summer, a class is 2 lectures of content)</li>
+<li>Introduction (3.5 lectures): course introduction and motivation, terminology, security mindset</li>
+<li>Ethics &amp; Policy (5 lectures): ethics, policy</li>
+<li>Encryption (5.5 lectures): encryption, hashes</li>
+<li>Networks (6 lectures): networks, web security</li>
+<li>Binary manipulation (6 lectures): viruses, buffer overflows, binary exploits</li>
+<li>Modern topics (9 lectures): SQL/XSS/CSRF, anonymity, cryptocurrency, stuxnet, rootkits, VMs</li>
+<li>Digital forensics (3 lectures): forensics</li>
+</ul>
+</section>
+<section id="homeworks-1" class="slide level2">
+<h2>Homeworks</h2>
+<ul>
+<li>Each module will generally have two assignments during a regular (fall/spring) semester, and less than that during a summer term
+<ul>
+<li>A written homework, submitted as a PDF
+<ul>
+<li>Will consist of writing, math, and short programs</li>
+</ul></li>
+<li>A programming assignment; source code will be submitted</li>
+</ul></li>
+<li>Please read the <a href="../uva/hw-policies.html">homework policies</a> page, as you are going to be bound by it!</li>
+</ul>
+</section>
+<section id="completing-the-homeworks" class="slide level2">
+<h2>Completing the homeworks</h2>
+<ul>
+<li>Most you will run it on your own computer</li>
+<li>We will provide a separate online environment for some assignments</li>
+<li>Some homeworks will <em>require</em> a specific platform or language, others it will be a recommendation, and others can be done on any platform</li>
+<li>You can use any development environment (including IDE) that you would like</li>
+</ul>
+</section>
+<section id="readings" class="slide level2">
+<h2>Readings</h2>
+<ul>
+<li>There is no assigned textbook
+<ul>
+<li>They get outdated too quickly!</li>
+</ul></li>
+<li>However, there will be readings assigned</li>
+<li>These readings may have pop quizzes to test that you actually read it
+<ul>
+<li>If you miss class, then you get a zero for the quiz!</li>
+<li>They will be via provided PDFs and/or online materials</li>
+</ul></li>
+<li>Some of the “readings” may be podcasts to listen to</li>
+</ul>
+</section>
+<section id="what-you-must-purchase" class="slide level2">
+<h2>What you must purchase</h2>
+<ul>
+<li>Nothing
+<ul>
+<li>(there is no textbook for this course, only online materials)</li>
+</ul></li>
+<li>But, as it’s a computer science course, you need to have a (working and recent) computer
+<ul>
+<li>If you don’t, or if yours breaks, let me know, and the department can loan you one</li>
+</ul></li>
+</ul>
 <!--
 - You have to have a network card that is compatible with [Aircrack-ng](https://www.aircrack-ng.org/) for one of the homeworks
   - If yours is not compatible (and many are not), you can buy one that is for about $20 via Amazon
   - Information on this will be provided part-way through the semester, in time for the appropriate homework
 -->
-## Politics
-- Some of the discussion in this class will be regarding politics
-  - Especially the policy discussion late next week
-- Although I have strong political opinions, I have always maintained strict political neutrality when teaching my classes
-  - If you ever feel this is not the case, please let me know!
-- That being said, if something is stupid, I'm going to say so (generally something technology related)
-  - I don't consider that politics -- just common sense
-
-
-
-## Sensitive topics
-- Cybersecurity is closely tied to spam (a common vector), which is closely tied to pornography (a common means to get clicks)
-- We will be discussing these as well -- and yes, in a professional manner
-
-
-
-## Honor policy
-- All assignments are individual assignments
-- You can talk at a high level about the assignment
-- You cannot look at anybody else's code prior to either of your submissions
-- Once you both have submitted it for the *FINAL* time, you may discuss code
-- Any honor violation or cheating will be referred to the honor committee, and will result in <span class="red">immediate failure</span> for the course
-
-
-
-## Generative AI
-- You may use generative AI, such as ChatGPT, to help you study and understand concepts
-- All the *code* you submit must be your own, and cannot come from a generative AI
-  - It turns out that generative AI is not all that useful for most of our assignments
-</textarea></section>
-
 </section>
-
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
+<section id="politics" class="slide level2">
+<h2>Politics</h2>
+<ul>
+<li>Some of the discussion in this class will be regarding politics
+<ul>
+<li>Especially the policy discussion late next week</li>
+</ul></li>
+<li>Although I have strong political opinions, I have always maintained strict political neutrality when teaching my classes
+<ul>
+<li>If you ever feel this is not the case, please let me know!</li>
+</ul></li>
+<li>That being said, if something is stupid, I’m going to say so (generally something technology related)
+<ul>
+<li>I don’t consider that politics – just common sense</li>
+</ul></li>
+</ul>
+</section>
+<section id="sensitive-topics" class="slide level2">
+<h2>Sensitive topics</h2>
+<ul>
+<li>Cybersecurity is closely tied to spam (a common vector), which is closely tied to pornography (a common means to get clicks)</li>
+<li>We will be discussing these as well – and yes, in a professional manner</li>
+</ul>
+</section>
+<section id="honor-policy" class="slide level2">
+<h2>Honor policy</h2>
+<ul>
+<li>All assignments are individual assignments</li>
+<li>You can talk at a high level about the assignment</li>
+<li>You cannot look at anybody else’s code prior to either of your submissions</li>
+<li>Once you both have submitted it for the <em>FINAL</em> time, you may discuss code</li>
+<li>Any honor violation or cheating will be referred to the honor committee, and will result in <span class="red">immediate failure</span> for the course</li>
+</ul>
+</section>
+<section id="generative-ai" class="slide level2">
+<h2>Generative AI</h2>
+<ul>
+<li>You may use generative AI, such as ChatGPT, to help you study and understand concepts</li>
+<li>All the <em>code</em> you submit must be your own, and cannot come from a generative AI
+<ul>
+<li>It turns out that generative AI is not all that useful for most of our assignments</li>
+</ul></li>
+</ul>
+<!-- ------------------------------------------------------------ -->
+</section></section>
 <section>
-
-<section data-markdown id="ethics" class="center"><textarea data-template>
-# Ethics
-</textarea></section>
-      
-<section data-markdown data-separator="^\n\n\n"><textarea data-template>
-## Computer Ethics
-- We must teach how attacks upon computer systems work in order to teach defenses against attacks
-- Information about attacks must NEVER be used to attack any computer system in any way
-
-
-
-## Ethics Pledge
-- You will have to read and sign the ethics pledge
-  - It should not be difficult to follow
-- Ethics will be covered in more detail later
-- You cannot continue in the course without signing the ethics pledge
-- I'll provide the pledge links to sign electronically in a day or two
-
-
-
-## Ethics Pledge Points
-- Unauthorized use of computer resources is forbidden
-- Even malware that does nothing but copy itself uses resources
-- Don't ever rationalize that a system owner won't object to your actions; ask permission
-  - If you are afraid to ask permission, it must be forbidden!
-
-
-
-<!-- .slide: class="right-float-img-nb-400" -->
-## Example: [1988 Morris Worm](http://en.wikipedia.org/wiki/Morris_worm)
-![](https://upload.wikimedia.org/wikipedia/commons/b/b6/Morris_Worm.jpg)
-- Creator rationalized that the worm did no damage
-  - It only copied itself from system to system over the Internet
-- BUT: Copying monopolized system resources until they had to be shut down
-- Worm reached 10% of entire Internet
-- Creator did not realize it would be that resource-intensive
-- Creator was convicted of felonies!
-  - And is now a professor at MIT.  Go figure!
-
-
-
-## Morris Worm Lessons
-- Consequences of a virus or worm cannot always be foreseen
-- Severe damage can be done without destroying data
-- Excessive resource usage is destructive enough to be criminal
-
-
-
-## Criminal Prosecution
-- Attackers have been prosecuted for:
-  - Stealing passwords, even if never used 
-  - Copying copyrighted materials
-  - Accessing confidential data, even if it was never used for harmful purposes
-  - Entering a system without permission, causing sys admins to spend time tracking them and securing the system, even without otherwise causing harm
-- Moral: Don't assume it is legally safe to do any of the above
-
-
-
-## Ethics Violations
-- Violations by students endanger our ability to offer this course
-- As a result, they will be treated severely
-  - UJC (University Judiciary Committee)
-  - Course grades
-  - Criminal prosecution
-
-
-
-<!-- .slide: class="right-float-img-400" -->
-## ACM Code of Ethics
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Association_for_Computing_Machinery_%28ACM%29_logo.svg/768px-Association_for_Computing_Machinery_%28ACM%29_logo.svg.png)
-- ACM is the primary professional organization for computer scientists
-  - IEEE is the other
-- The entire code is available at http://www.acm.org/about/code-of-ethics 
-
-
-
-## Ethics Questions
-- Scenario: John Doe attempts to guess the password of a user of a system on which John Doe has no account. After a few guesses, he succeeds, but finds nothing of interest on the system and logs off.
-- Q1: Has he committed a crime?
-- Q2: Are his actions analogous to any common crime not involving computers?
-</textarea></section>
+<section id="ethics" class="title-slide slide level1 center">
+<h1>Ethics</h1>
 
 </section>
-
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
+<section id="computer-ethics" class="slide level2">
+<h2>Computer Ethics</h2>
+<ul>
+<li>We must teach how attacks upon computer systems work in order to teach defenses against attacks</li>
+<li>Information about attacks must NEVER be used to attack any computer system in any way</li>
+</ul>
+</section>
+<section id="ethics-pledge" class="slide level2">
+<h2>Ethics Pledge</h2>
+<ul>
+<li>You will have to read and sign the ethics pledge
+<ul>
+<li>It should not be difficult to follow</li>
+</ul></li>
+<li>Ethics will be covered in more detail later</li>
+<li>You cannot continue in the course without signing the ethics pledge</li>
+<li>I’ll provide the pledge links to sign electronically in a day or two</li>
+</ul>
+</section>
+<section id="ethics-pledge-points" class="slide level2">
+<h2>Ethics Pledge Points</h2>
+<ul>
+<li>Unauthorized use of computer resources is forbidden</li>
+<li>Even malware that does nothing but copy itself uses resources</li>
+<li>Don’t ever rationalize that a system owner won’t object to your actions; ask permission
+<ul>
+<li>If you are afraid to ask permission, it must be forbidden!</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-1988-morris-worm" class="slide level2">
+<h2>Example: <a href="http://en.wikipedia.org/wiki/Morris_worm">1988 Morris Worm</a></h2>
+<div class="right-float-img-nb-500">
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Morris_Worm.jpg"></p>
+</div>
+<ul>
+<li>Creator rationalized that the worm did no damage
+<ul>
+<li>It only copied itself from system to system over the Internet</li>
+</ul></li>
+<li>BUT: Copying monopolized system resources until they had to be shut down</li>
+<li>Worm reached 10% of entire Internet</li>
+<li>Creator did not realize it would be that resource-intensive</li>
+<li>Creator was convicted of felonies!
+<ul>
+<li>And is now a professor at MIT. Go figure!</li>
+</ul></li>
+</ul>
+</section>
+<section id="morris-worm-lessons" class="slide level2">
+<h2>Morris Worm Lessons</h2>
+<ul>
+<li>Consequences of a virus or worm cannot always be foreseen</li>
+<li>Severe damage can be done without destroying data</li>
+<li>Excessive resource usage is destructive enough to be criminal</li>
+</ul>
+</section>
+<section id="criminal-prosecution" class="slide level2">
+<h2>Criminal Prosecution</h2>
+<ul>
+<li>Attackers have been prosecuted for:
+<ul>
+<li>Stealing passwords, even if never used</li>
+<li>Copying copyrighted materials</li>
+<li>Accessing confidential data, even if it was never used for harmful purposes</li>
+<li>Entering a system without permission, causing sys admins to spend time tracking them and securing the system, even without otherwise causing harm</li>
+</ul></li>
+<li>Moral: Don’t assume it is legally safe to do any of the above</li>
+</ul>
+</section>
+<section id="ethics-violations" class="slide level2">
+<h2>Ethics Violations</h2>
+<ul>
+<li>Violations by students endanger our ability to offer this course</li>
+<li>As a result, they will be treated severely
+<ul>
+<li>UJC (University Judiciary Committee)</li>
+<li>Course grades</li>
+<li>Criminal prosecution</li>
+</ul></li>
+</ul>
+</section>
+<section id="acm-code-of-ethics" class="slide level2">
+<h2>ACM Code of Ethics</h2>
+<div class="right-float-img-nb-400">
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Association_for_Computing_Machinery_%28ACM%29_logo.svg/768px-Association_for_Computing_Machinery_%28ACM%29_logo.svg.png"></p>
+</div>
+<ul>
+<li>ACM is the primary professional organization for computer scientists
+<ul>
+<li>IEEE is the other</li>
+</ul></li>
+<li>The entire code is available at http://www.acm.org/about/code-of-ethics</li>
+</ul>
+</section>
+<section id="ethics-questions" class="slide level2">
+<h2>Ethics Questions</h2>
+<ul>
+<li>Scenario: John Doe attempts to guess the password of a user of a system on which John Doe has no account. After a few guesses, he succeeds, but finds nothing of interest on the system and logs off.</li>
+<li>Q1: Has he committed a crime?</li>
+<li>Q2: Are his actions analogous to any common crime not involving computers?</li>
+</ul>
+<div class="quarto-auto-generated-content">
+<p><img src="images/quarto.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://aaronbloomfield.github.io/ics" class="uri">https://aaronbloomfield.github.io/ics</a></p>
 </div>
 </div>
-<script src="../slides/reveal.js/dist/reveal.js"></script>
-<script src="../slides/reveal.js/plugin/zoom/zoom.js"></script>
-<script src="../slides/reveal.js/plugin/notes/notes.js"></script>
-<script src="../slides/reveal.js/plugin/search/search.js"></script>
-<script src="../slides/reveal.js/plugin/markdown/markdown.js"></script>
-<script src="../slides/reveal.js/plugin/highlight/highlight.js"></script>
-<script src="../slides/reveal.js/plugin/math/math.js"></script>
-<script src="settings.js"></script>
-</body>
-</html>
+</section></section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="quarto_files/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="quarto_files/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="quarto_files/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="quarto_files/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="quarto_files/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="quarto_files/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="quarto_files/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="quarto_files/revealjs/plugin/notes/notes.js"></script>
+  <script src="quarto_files/revealjs/plugin/search/search.js"></script>
+  <script src="quarto_files/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="quarto_files/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":false},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'h.v',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

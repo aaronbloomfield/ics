@@ -233,7 +233,7 @@ p.blankline { height:1em; }
     max-height: 300px;
 }
 
-.right-float-img-400 img {
+.right-float-img-400 img, div.right-float-img-400 p img {
     float:right;
     max-width:400px;
     max-height:200px;
@@ -244,11 +244,30 @@ p.blankline { height:1em; }
     float:right;
     max-width: 50%;
     margin-left:20px !important;
-    max-height: 600px;
     margin-top: 12px;
     padding: 0;
     max-width: 400px;
     max-height: 400px;
+}
+
+.right-float-img-nb-500 img {
+    float:right;
+    max-width: 50%;
+    margin-left:20px !important;
+    margin-top: 12px;
+    padding: 0;
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.right-float-img-nb-600 img {
+    float:right;
+    max-width: 50%;
+    margin-left:20px !important;
+    margin-top: 12px;
+    padding: 0;
+    max-width: 600px;
+    max-height: 600px;
 }
 
 .right-float-img-500 img {
@@ -653,3 +672,17 @@ div.wikitablediv {
 .table-small table { font-size:90%; }
 .table-smaller table { font-size:80%; }
 .table-smallest table { font-size:75%; }
+
+/* quarto styling */
+
+.border {
+  border: 1px solid #dee2e6;
+}
+
+.border-thick {
+  border-width: 3px;
+}
+
+.reveal .footer p {
+  text-align: center; !important
+}

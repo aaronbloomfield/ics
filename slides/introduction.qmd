@@ -1,0 +1,430 @@
+---
+title: "Intro to Cybersecurity:<br>Course Introduction"
+subtitle: "(subtitle)"
+---
+
+
+# Motivation
+
+
+## First, a definition...
+> mal: bad, in the Latin
+
+&nbsp;  
+
+> malware: software that is intended to damage or disable computers and computer systems
+
+
+
+## Costs of Malware
+- Cost of malware (worldwide):
+  - 1997: $3.3 billion ([source](http://www.computereconomics.com/article.cfm?id=1225))
+  - 2006: $13.3 billion ([source](http://www.computereconomics.com/article.cfm?id=1225))
+  - 2014: $491 billion ([source](https://www.scmagazine.com/breaches-malware-to-cost-491-billion-in-2014-study-says/article/539302/))
+  - 2015: $3 trillion ([source](https://cybersecurityventures.com/hackerpocalypse-cybercrime-report-2016/))
+  - 2021: estimated to hit $6 trillion ([source](https://www.varonis.com/blog/cybersecurity-statistics/))
+- Companies often cover up the worst cases
+- Does not include cost of security measures
+
+
+
+## Malware Costs: Example 1
+::: {.right-float-img-nb-500}
+![](https://upload.wikimedia.org/wikipedia/commons/0/07/CIH.png)
+:::
+<!-- -->
+
+- April 1999: [CIH (Chernobyl) virus](http://en.wikipedia.org/wiki/CIH_virus)
+  - Overwrites first megabyte of the hard drive with zeros, then overwrites the BIOS
+  - Only affects Windows 95, 98, and ME
+- $250 million lost in one day in Korea alone; widespread across Asia
+  - Estimated $1 billion in damages in total
+- Hard to quantify cost of lost files, time spent reinstalling OS and applications, etc.
+
+
+
+## Malware Costs: Example 2
+::: {.right-float-img-nb-500}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Anna_Kournikova-Bagram_Airfield_2009.jpg/548px-Anna_Kournikova-Bagram_Airfield_2009.jpg)
+:::
+
+- February 2001 mass mailer: [Anna Kournikova virus](https://en.wikipedia.org/wiki/Anna_Kournikova_(computer_virus))
+  - Visual Basic script via email, based on [LoveLetter](http://en.wikipedia.org/wiki/Loveletter)
+  - Enticed people to open it promising a picture of a popular and pretty tennis star
+    - Social engineering!
+  - Did little damage, though
+  - The creator didn't know how to program!
+	- He used a virus kit
+
+
+
+## Malware Costs: Example 3
+::: {.right-float-img-nb-500}
+![](images/stuxnet/960px-Gas_centrifuge_cascade.jpg)
+:::
+- 2010 / 2011: [Stuxnet worm](http://en.wikipedia.org/wiki/Stuxnet)
+  - By far the most advanced piece of malware ever created at that point
+  - It's goal (and it succeeded!) was to cripple Iran's nuclear enrichment
+    - Said program was set back by 1-2 years
+  - Authors have not come forward, but speculation is a joint Israel / US team
+
+
+
+## Malware Costs: Example 4
+![](https://upload.wikimedia.org/wikipedia/commons/3/3a/Ashley_madison_logo.png)
+
+- [Ashley Madison data breach](https://en.wikipedia.org/wiki/Ashley_Madison_data_breach) in 2015
+  - This is the site that peddled extra-marital affairs
+  - The hackers threatened to release the site's DB info unless the site was closed down
+    - No ransom was requested!
+  - They did reveal the information, which led to embarrassment and some suicides
+  - Interestingly, almost all of the "female" members were bots...
+
+
+
+## Malware Costs: Example 5
+::: {.right-float-img-nb-500}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Vote_Here_sign_in_Taft%2C_Texas.jpg/891px-Vote_Here_sign_in_Taft%2C_Texas.jpg)
+:::
+- [2016 US election hacks](https://en.wikipedia.org/wiki/Russian_interference_in_the_2016_United_States_elections)
+  - "The US intelligence community has concluded with high confidence that the Russian government interfered in the ... election"
+  - Whether it affected the outcome is up for debate
+	- And not one I want to engage in now...
+  - But the fact that they were able to interfere is worrisome
+- Interfering in elections is a common tactic; the US has done so a lot as well ([source](https://www.washingtonpost.com/news/worldviews/wp/2016/10/13/the-long-history-of-the-u-s-interfering-with-elections-elsewhere/))
+
+
+
+## Malware Costs: Example 6
+::: {.right-float-img-nb-500}
+![](https://upload.wikimedia.org/wikipedia/commons/6/65/2017_Petya_cyberattack_screenshot.png)
+:::
+- [NotPetya](https://en.wikipedia.org/wiki/Petya_%28malware%29) in 2017
+  - Infected Ukrainian companies through a back door put into a Ukrainian version of a TurboTax-like software
+    - Companies with Ukrainian subsidiaries were infected through their corporate network
+  - This was "the equivalent of using a nuclear bomb to achieve a small tactical victory"
+  - There is a good [Wired article](https://www.wired.com/story/notpetya-cyberattack-ukraine-russia-code-crashed-the-world/) on it
+
+
+
+## Malware Costs: Example 7
+::: {.right-float-img-nb-500}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Pumpspeicherwerk_Geesthacht_Rohre.jpg/800px-Pumpspeicherwerk_Geesthacht_Rohre.jpg)
+:::
+- The [Colonial Pipeline shutdown](https://en.wikipedia.org/wiki/Colonial_Pipeline_cyberattack)
+  - Ransomware infected the computers of the company that supplies half of the east coast's oil and gas
+  - They paid 75 bitcoin (about $5 million) to the ransomware writers (DarkSide)
+  - The costs beyond that -- to regular citizens -- have not yet been estimated
+
+
+
+## Malware Costs: Conclusion
+- Computer viruses and other security attacks are very costly
+- Computer security is a hot field today; many career and research opportunities for graduates from this course
+- Knowledge of security issues is sensitive and carries an ethical responsibility with it
+- ...but how can you write a detection software for a virus that does not exist yet?
+
+
+
+## There are also policy motivations
+
+- US bills [SOPA](https://en.wikipedia.org/wiki/Stop_Online_Piracy_Act) / [PIPA](https://en.wikipedia.org/wiki/PROTECT_IP_Act) from 2011 were intended to hinder piracy, it would allow serious security problems
+  - There have been many such attempts since
+- US drone fleet virus (see articles [here](http://www.tgdaily.com/security-features/58927-virus-infects-us-military-drones) and [here](https://www.wired.com/2011/10/virus-hits-drone-fleet/))
+  - And people thought viruses were a thing of the past!
+
+
+
+## A UVa hack (2013)
+
+<img class="stretch" src="images/introduction/root-the-box-uva-hack.png" alt="uva hack image">
+(<a href="http://www.c-ville.com/anatomy-of-a-hack-examining-root-the-boxs-attack-on-uvas-website/#.WZz6w3XythE">source</a>)
+
+
+
+## Another UVa hack (2015)
+
+<img class="stretch" src="images/introduction/uva-chinese-hack.png" alt="uva hack image">
+(<a href="http://www.thedailybeast.com/chinese-hackers-target-us-university-with-government-ties">source</a>)
+
+
+
+## Yet another UVa hack (2016)
+
+
+<img class="stretch" src="images/introduction/uva-phishing-hack.png" alt="uva hack image">
+(<a href="https://www.washingtonpost.com/news/grade-point/wp/2016/01/22/phishing-hack-at-the-university-of-virginia-compromises-employee-computer-records/">source</a>)
+
+
+
+## Cybersecurity and gov't shutdowns
+
+- The [government shutdown](https://en.wikipedia.org/wiki/United_States_federal_government_shutdown_of_2018%E2%80%932019) from early 2019 lasted 35 days
+- With skeletal staffs, many gov't agencies could not perform basic cybersecurity procedures
+- Thus, cybersecurity is one of many things hurt by the shutdown
+- [source](https://www.rollcall.com/news/cybersecurity-efforts-may-suffer-shutdown-persists)
+
+<!-- ------------------------------------------------------------ -->
+
+# Course Information
+
+
+
+## Course Objectives
+- Understand the ethical and policy context for cybersecurity in today's society
+- Understand how to better safeguard one's personal computer
+- Understand the basics of advanced topics in cybersecurity including encryption, digital forensics, binary exploits, and networks
+- Understand the modern concepts in cybersecurity attacks and prevention
+
+
+
+## Course Purpose
+- This course is meant to be a general introduction to cybersecurity
+- It is the pre-req for all the other cybersecurity courses at UVa
+
+
+
+## Course Sources
+- I am not, in fact, the first to create an Introduction to Cybersecurity course
+  - Some of this course's content is based on [UMich EECS 388](https://www.eecs.umich.edu/courses/eecs388.f13//index.html)
+    - Intel funded them to create a course under a [CC BY-SA](http://creativecommons.org/licenses/by-sa/4.0/) license
+  - Other parts come from online sources
+    - The ethics part from [here](https://www.scu.edu/ethics/focus-areas/technology-ethics/resources/an-introduction-to-cybersecurity-ethics/), for example
+
+
+
+## Class Information
+- Prerequisites: CS 2150 (PDR) or (CS 2100 (DSA1) and CS 2130 (CSO1)) with a grade of C- or higher
+- Grades
+  - One midterm (20%) (date on [syllabus](../uva/syllabus.html))
+  - Final exam (25%) (date on [syllabus](../uva/syllabus.html))
+  - Homeworks (45%)
+  - Class participation, pop quizzes (10%)
+- I reserve the right to adjust the percentages based on the number of assignments and quizzes, and other factors
+
+
+
+## More on that pre-requisite
+- If you are are a transfer student (or a non-UVA student during the summer term), then your pre-req is all of the following:
+  - two semesters of programming experience
+  - knowledge of programming in C or C++
+  - knowledge of programming in assembly
+
+
+
+<!-- 
+## Exams
+- As mentioned, two midterms:
+  - Friday, October 4th, during lecture
+  - Friday, November 8th, during lecture
+- Final exam
+  - It's on Friday, December 13, from 2pm to 5pm
+  - You can't take it early, so please don't ask
+  - You can't take it late, either
+
+
+-->
+## Homeworks
+- Late homework is docked 25% per day (or fraction thereof)
+  - Thus, more than 72 hours late will receive a zero 
+- Homeworks will generally be given out two per week
+  - Some "easy" ones will be more often
+  - Some "hard" ones will have a bit more time
+- Note that the difficulty level of the homeworks varies considerably
+
+
+
+## Us and you
+- All office hours are posted on the Canvas landing page
+- I avoid e-mailing the class; announcements will be discussed each day in lecture and posted to Canvas / Piazza
+- To contact me, please use the support tickets tool (linked to from the main Canvas page)
+- We also have Piazza as well for questions
+
+
+
+## Course Materials
+- They are kept in a github repo: https://github.com/aaronbloomfield/ics
+  - Released under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA) license
+- That repo is viewable online at http://aaronbloomfield.github.io/ics/
+
+
+
+## Canvas
+- We'll use for:
+  - Access to Gradescope for the assignment submissions
+  - Piazza link
+  - Large file downloads
+  - Lecture recordings
+  - Online meetings link if necessary
+  - Assignments and grades will be duplicated there
+- Recall that most of the course materials are in the [github repo](https://github.com/aaronbloomfield/ics)
+
+
+
+## Tentative schedule
+- (for the summer, a class is 2 lectures of content)
+- Introduction (3.5 lectures): course introduction and motivation, terminology, security mindset
+- Ethics & Policy (5 lectures): ethics, policy
+- Encryption (5.5 lectures): encryption, hashes
+- Networks (6 lectures): networks, web security
+- Binary manipulation (6 lectures): viruses, buffer overflows, binary exploits
+- Modern topics (9 lectures): SQL/XSS/CSRF, anonymity, cryptocurrency, stuxnet, rootkits, VMs
+- Digital forensics (3 lectures): forensics
+
+
+
+## Homeworks
+- Each module will generally have two assignments during a regular (fall/spring) semester, and less than that during a summer term
+  - A written homework, submitted as a PDF
+    - Will consist of writing, math, and short programs
+  - A programming assignment; source code will be submitted
+- Please read the [homework policies](../uva/hw-policies.html) page, as you are going to be bound by it!
+
+
+
+## Completing the homeworks
+- Most you will run it on your own computer
+- We will provide a separate online environment for some assignments
+- Some homeworks will *require* a specific platform or language, others it will be a recommendation, and others can be done on any platform
+- You can use any development environment (including IDE) that you would like
+
+
+
+## Readings
+- There is no assigned textbook
+  - They get outdated too quickly!
+- However, there will be readings assigned
+- These readings may have pop quizzes to test that you actually read it
+  - If you miss class, then you get a zero for the quiz!
+  - They will be via provided PDFs and/or online materials
+- Some of the "readings" may be podcasts to listen to
+
+
+
+## What you must purchase
+- Nothing
+  - (there is no textbook for this course, only online materials)
+- But, as it's a computer science course, you need to have a (working and recent) computer
+  - If you don't, or if yours breaks, let me know, and the department can loan you one
+
+
+
+<!--
+- You have to have a network card that is compatible with [Aircrack-ng](https://www.aircrack-ng.org/) for one of the homeworks
+  - If yours is not compatible (and many are not), you can buy one that is for about $20 via Amazon
+  - Information on this will be provided part-way through the semester, in time for the appropriate homework
+-->
+## Politics
+- Some of the discussion in this class will be regarding politics
+  - Especially the policy discussion late next week
+- Although I have strong political opinions, I have always maintained strict political neutrality when teaching my classes
+  - If you ever feel this is not the case, please let me know!
+- That being said, if something is stupid, I'm going to say so (generally something technology related)
+  - I don't consider that politics -- just common sense
+
+
+
+## Sensitive topics
+- Cybersecurity is closely tied to spam (a common vector), which is closely tied to pornography (a common means to get clicks)
+- We will be discussing these as well -- and yes, in a professional manner
+
+
+
+## Honor policy
+- All assignments are individual assignments
+- You can talk at a high level about the assignment
+- You cannot look at anybody else's code prior to either of your submissions
+- Once you both have submitted it for the *FINAL* time, you may discuss code
+- Any honor violation or cheating will be referred to the honor committee, and will result in <span class="red">immediate failure</span> for the course
+
+
+
+## Generative AI
+- You may use generative AI, such as ChatGPT, to help you study and understand concepts
+- All the *code* you submit must be your own, and cannot come from a generative AI
+  - It turns out that generative AI is not all that useful for most of our assignments
+
+
+<!-- ------------------------------------------------------------ -->
+
+# Ethics
+
+
+## Computer Ethics
+- We must teach how attacks upon computer systems work in order to teach defenses against attacks
+- Information about attacks must NEVER be used to attack any computer system in any way
+
+
+
+## Ethics Pledge
+- You will have to read and sign the ethics pledge
+  - It should not be difficult to follow
+- Ethics will be covered in more detail later
+- You cannot continue in the course without signing the ethics pledge
+- I'll provide the pledge links to sign electronically in a day or two
+
+
+
+## Ethics Pledge Points
+- Unauthorized use of computer resources is forbidden
+- Even malware that does nothing but copy itself uses resources
+- Don't ever rationalize that a system owner won't object to your actions; ask permission
+  - If you are afraid to ask permission, it must be forbidden!
+
+
+
+## Example: [1988 Morris Worm](http://en.wikipedia.org/wiki/Morris_worm)
+::: {.right-float-img-nb-500}
+![](https://upload.wikimedia.org/wikipedia/commons/b/b6/Morris_Worm.jpg)
+:::
+- Creator rationalized that the worm did no damage
+  - It only copied itself from system to system over the Internet
+- BUT: Copying monopolized system resources until they had to be shut down
+- Worm reached 10% of entire Internet
+- Creator did not realize it would be that resource-intensive
+- Creator was convicted of felonies!
+  - And is now a professor at MIT.  Go figure!
+
+
+
+## Morris Worm Lessons
+- Consequences of a virus or worm cannot always be foreseen
+- Severe damage can be done without destroying data
+- Excessive resource usage is destructive enough to be criminal
+
+
+
+## Criminal Prosecution
+- Attackers have been prosecuted for:
+  - Stealing passwords, even if never used 
+  - Copying copyrighted materials
+  - Accessing confidential data, even if it was never used for harmful purposes
+  - Entering a system without permission, causing sys admins to spend time tracking them and securing the system, even without otherwise causing harm
+- Moral: Don't assume it is legally safe to do any of the above
+
+
+
+
+## Ethics Violations
+- Violations by students endanger our ability to offer this course
+- As a result, they will be treated severely
+  - UJC (University Judiciary Committee)
+  - Course grades
+  - Criminal prosecution
+
+
+
+## ACM Code of Ethics
+::: {.right-float-img-nb-400}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Association_for_Computing_Machinery_%28ACM%29_logo.svg/768px-Association_for_Computing_Machinery_%28ACM%29_logo.svg.png)
+:::
+- ACM is the primary professional organization for computer scientists
+  - IEEE is the other
+- The entire code is available at http://www.acm.org/about/code-of-ethics 
+
+
+
+## Ethics Questions
+- Scenario: John Doe attempts to guess the password of a user of a system on which John Doe has no account. After a few guesses, he succeeds, but finds nothing of interest on the system and logs off.
+- Q1: Has he committed a crime?
+- Q2: Are his actions analogous to any common crime not involving computers?
