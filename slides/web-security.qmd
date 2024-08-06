@@ -1,0 +1,622 @@
+---
+title: Web Security
+---
+
+
+## Credit Where Credit is Due
+
+Much of the material in this slide set, including some of the images, was obtained from [EECS 388](https://www.eecs.umich.edu/courses/eecs388/) from the [CS department at the University of Michigan](https://www.cse.umich.edu/).  That course material was released under a [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0/deed.en_US) license.  Other images are from [Wikipedia](https://en.wikipedia.org), and each of those images is linked to its source on Wikipedia.
+  
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+# Key Exchange
+
+
+## Key Exchange
+- If you want to communicate with another party, how do you create a private key?
+  - One solution: Key stores, but only if you both have generated public/private key sets
+    - Not always practical for all security protocols
+- One solution: [Diffie–Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange)
+  - This version uses discrete logs
+  - A variant called [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) uses elliptic curves
+
+
+
+## DH key exchange
+- Alice and Bob agree on public values *g* (generator) and *p* (prime or modulus)
+- Alice picks a private *a* and sends to Bob $A=g^a \text{ mod } p$
+- Bob picks a private *b* and sends to Alice $B=g^b \text{ mod } p$
+- Because $g^{ab} \text{ mod } p = g^{ba} \text{ mod } p$, both can compute the secret key
+  - Alice received $g^b \text{ mod } p$ and computes $(g^b \text{ mod } p)^a \text{ mod } p = g^{ab} \text{ mod } p$
+  - Similarly for Bob
+<span class="green">
+<span class="pink">
+</span>
+
+
+
+## DH key exchange example
+From [Wikipedia](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange#Cryptographic_explanation); <span style="color:skyblue">blue</span> are public, <span style="color:red">red</span> are secret
+<ol style="font-size:80%;line-height:110%;">
+<li>Alice and Bob agree to use a modulus <i><span style="color:skyblue">p</span></i> = <span style="color:skyblue">23</span> and base <span style="color:skyblue">g</span></i> = <span style="color:skyblue">5</span> (which is a primitive root modulo 23).</li>
+<li>Alice chooses a secret integer <i><b><span style="color:red">a</span></b></i> = 4, then sends Bob <i><span style="color:skyblue">A</span></i> = <i><span style="color:skyblue">g</span><sup><b><span style="color:red">a</span></b></sup></i> mod <i><span style="color:skyblue">p</span></i>
+<ul><li><i><span style="color:skyblue">A</span></i> = <span style="color:skyblue">5</span><sup><b><span style="color:red">4</span></b></sup> mod <span style="color:skyblue">23</span> = <span style="color:skyblue">4</span></li></ul></li>
+<li>Bob chooses a secret integer <i><b><span style="color:red">b</span></b></i> = 3, then sends Alice <i><span style="color:skyblue">B</span></i> = <i><span style="color:skyblue">g</span><sup><b><span style="color:red">b</span></b></sup></i> mod <i><span style="color:skyblue">p</span></i>
+<ul><li><i><span style="color:skyblue">B</span></i> = <span style="color:skyblue">5</span><sup><b><span style="color:red">3</span></b></sup> mod <span style="color:skyblue">23</span> = <span style="color:skyblue">10</span></li></ul></li>
+<li>Alice computes <i><b><span style="color:red">s</span></b></i> = <i><span style="color:skyblue">B</span><sup><b><span style="color:red">a</span></b></sup></i> mod <i><span style="color:skyblue">p</span></i>
+<ul><li><i><b><span style="color:red">s</span></b></i> = <span style="color:skyblue">10</span><sup><b><span style="color:red">4</span></b></sup> mod <span style="color:skyblue">23</span> = <span style="color:red">18</span></li></ul></li>
+<li>Bob computes <i><b><span style="color:red">s</span></b></i> = <i><span style="color:skyblue">A</span><sup><b><span style="color:red">b</span></b></sup></i> mod <i><span style="color:skyblue">p</span></i>
+<ul><li><i><b><span style="color:red">s</span></b></i> = <span style="color:skyblue">4</span><sup><b><span style="color:red">3</span></b></sup> mod <span style="color:skyblue">23</span> = <span style="color:red">18</span></li></ul></li>
+<li>Alice and Bob now share a secret (the number 18)</li>
+</ol>
+
+
+
+----
+
+::: {.right-float-img}
+[![](images/web-security/Diffie-Hellman_Key_Exchange.svg)](https://commons.wikimedia.org/wiki/File:Diffie-Hellman_Key_Exchange.svg)
+:::
+<h2>DH key<br>exchange<br>example<br>as colors</h2>
+
+
+## Colors in video (at 2:43)
+<iframe width="720" height="540" src="https://www.youtube.com/embed/YEBfamv-_do?t=163&rel=0" frameborder="0" allowfullscreen></iframe>
+
+If that doesn't work, try the [direct Youtube link](http://youtu.be/YEBfamv-_do?t=163), but start at 2:43
+
+
+
+## DH key exchange in practical use
+
+- Used in many cryptographic protocols
+  - Including ones we will see shortly
+- Uses *very* large numbers created with a very good pseudo-random number generator
+
+
+
+## MITM versus DH key exchange?
+- Possible if Eve actively controls the communication medium
+- If s/he is only a *passive* listener, then it is not possible
+- How to avoid an active compromiser:
+  - Post on a public forum
+  - Use communication methods s/he can't compromise, such as shortwave radio
+
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+# Certificates
+
+
+## Definition
+- A certificate is:
+  - A public key
+  - Information about the key (algorithm used, version number, etc.)
+  - An identity (hostname, individual, etc.)
+  - Other meta-data (expiration date, etc.)
+  - A *signature* from a *certificate authority*
+- Most common format is [X.509](https://en.wikipedia.org/wiki/X.509)
+
+
+
+## Diagram of an X.509 cert
+![](images/web-security/x.509-cert.svg)
+
+
+
+## Certificate usage
+::: {.right-float-img .img-size-800}
+![](images/web-security/ServerCertificate.png)
+:::
+- All websites that support https provide such a certificate to any client
+- Browsers can display certificate info, such as shown here
+
+
+
+## Certificate validity
+- All certificates are *signed* with the (private) key of a certificate authority (CA)
+  - Their public keys are well known, and are hard-coded into browsers
+  - Or determined by key exchange protocols discussed in this slide set
+- One can verify such a certificate by the (known) public key of the CA
+- One can "self sign" a certificate, but modern browsers typically won't allow viewing without manual exceptions
+
+
+
+## Certificate Chains
+[![certificate chain](images/web-security/Chain_of_trust.svg)](https://commons.wikimedia.org/wiki/File:Chain_of_trust.svg)
+An entity (such as virginia.edu) can hold an *intermediate* certificate, which allows it to sign for entities in its division (such as news.virginia.edu)
+
+
+
+## Certificate Authorities (CAs)
+- Any CA can "vouch" (i.e., sign) for *any* certificate
+  - For any website or any (likely new) CA
+- Thus, the security is based on the weakest CA
+- What happens if a CA is compromised or goes rogue?
+
+
+
+## CA Revocation
+- This has happened!  In February 2018.
+  - [Google to kill Symantec certs in Chrome 66, due in early 2018](https://www.theregister.co.uk/2017/09/12/chrome_66_to_reject_symantec_certs/)
+  - Firefox also: [Distrust of Symantec TLS Certificates](https://blog.mozilla.org/security/2018/03/12/distrust-symantec-tls-certificates/)
+- The reason: a site called [Trustico](https://www.trustico.com/) resold Symantec-signed certificates
+  - The 23,000 certificates Trustico sold were "compromised"
+    - They still had the private keys (a big no-no)
+  - They were sold under the umbrella of Symantec, so Symantec was party at fault as well
+
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+# SSL & TLS
+
+
+## SSL & TLS
+- They are cryptographic protocols used to encrypt network communication
+- SSL: Secure Sockets Layer
+  - v1.0 never released due to flaws
+  - v2.0 released in 1995; broken and not used
+  - v3.0 released in 1996; broken and not used
+- TLS: Transport Layer Security, the successor to SSL
+  - v1.0 released Jan 1999; currently deprecated
+  - v1.1 released Apr 2006; currently deprecated
+  - v1.2 released Aug 2008; in widespread use
+  - v1.3 released Aug 2018; currently being adopted
+
+
+
+## TLS Usage
+- TLS can be implemented on top of just about any protocol
+- Most common use: when implemented on top of HTTP, that yields HTTPS
+- Also used for encrypting mail (SMTP)
+- A programmer can use it for any other purpose
+
+
+
+## Forward Secrecy (FS)
+- Also known as perfect forward secrecy (PFS)
+- The concept that a compromise of keys...
+  - ... including the server's private keys...
+- Will *not* allow decryption of past sessions
+- Solution: generate a unique *session key* for each encrypted connection
+  - And discard once done
+- That session key can be communicated via public key cryptography
+
+
+
+## Public vs. Symmetric Cryptography
+
+- Public key cryptosystems (such as RSA) are:
+  - Very secure: one message will take all the computers in the world longer than the life of the universe to crack
+  - Very slow: not feasible for real-time data transmission (downloading a large file, streaming, etc.)
+- They are typically used for key exchange, and then symmetric key cryptography is used for the rest of the communication
+
+
+
+## TLS 1.2 Handshake, part 1
+- Client opens a network connection to server
+- Client sends *hello*, including a random number $R_c$ and supported ciphers
+- Server responds with *hello*, including a random number $R_s$, selection of which client-supported cipher to use, its certificate, and requests client certificate
+- Client checks server certificate, and sends its own cert, and a signature of all previous messages sent
+  - Signed with the client certificate's private key
+- Server checks client certificate and signature
+
+
+
+## TLS 1.2 Handshake, part 2
+- Client generates $PMS$ (Pre-Master Secret) -- a session key -- and sends it to server, encrypted with server's public key
+- Both sides compute $MS$ (Master Secret) from $PMS$, $R_s$, and $R_c$
+- Client send a message to switch over to using the $MS$ for symmetric encryption
+  - Server confirms switching over to using the $MS$ for encryption
+- Both sides terminate the SSL handshake, and use $MS$ as the symmetric encryption key
+
+
+----
+
+::: {.stretch}
+[![](images/web-security/SSL_handshake_with_two_way_authentication_with_certificates.svg)](https://upload.wikimedia.org/wikipedia/commons/a/ae/SSL_handshake_with_two_way_authentication_with_certificates.svg)
+:::
+
+
+
+## Is TLS 1.2 forward-secret?
+
+
+
+## Is TLS 1.2 forward-secret?
+- No, it is not (generally)
+- Depending on the ciphers used, if the keys are later made available, then it is *NOT* forward-secret
+- Let's review the [TLS 1.2 protocol](https://upload.wikimedia.org/wikipedia/commons/a/ae/SSL_handshake_with_two_way_authentication_with_certificates.svg)
+- What would make it forward-secret?
+  - Adding in Diffe-Hellman Key Exchange (DHE)
+  - *Some* allowed TLS 1.2 protocols have DHE, but not all
+    - And it's not required
+
+
+
+## TLS 1.3
+- Main improvement:
+  - Only allow public enryption protocols that are forward-secret (meaning: they use DHE)
+- Other imrpovements:
+  - Send more of the information as a single message, so there is less back-and-forth to the handshake
+  - Can initiate the connection in 4 messages rather than 6
+
+
+
+## TLS Ciphers Supported
+- In version 1.3, for key exchange, only forward-secret public key systems are supported
+  - Mostly RSA variants with a secure DH key exchange
+  - Version 1.2 allows many other algorithms
+- Once the channel is configured, multiple algorithms are supported, the most common being AES
+
+
+
+## [TLS key exchange protocols](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
+::: {.stretch}
+![](images/web-security/tls-protocols-1.webp)
+:::
+Updated version [here](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
+
+
+## [TLS session protocols](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
+::: {.stretch}
+![](images/web-security/tls-protocols-2.png)
+:::
+Updated version [here](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
+
+
+## Initialization Vectors (IVs)
+Each successive encrypted block depends on the previous one, so that two encrypted blocks that are the same plaintext will have different ciphertext
+
+::: {style="zoom:200%"}
+![](images/web-security/IVs.svg)
+:::
+
+
+
+## Message authentication code (MAC)
+- It's "a short piece of information used to authenticate a message" ([Wikipedia](https://en.wikipedia.org/wiki/Message_authentication_code))
+- Like a digital signature, but:
+  - uses a shared *secret* key, so it is faster
+- Like a hash, but:
+  - provides authentication, not just a message digest
+  - includes the secret key, so two different connections' MAC of the same text will be different due to different secret keys
+
+
+
+## A possible MAC
+- Given a message $m$ and a secret key $k$:
+  - Create a new value $x = m \cdot k$
+	- That's string concatenation
+  - Hash that message: $h = hash(x)$
+	- Use a good hash function!
+  - Encrypt that hash with $k$: $mac = encrypt(h,k)$
+    - Likely AES (or similar) with the shared secret key
+- In one line: $mac = encrypt(hash(m \cdot k),k)$
+
+
+
+## MAC properties
+- Does not encrypt the message!
+  - If the connection is not encrypted, then the message is eavesdroppable
+- Cannot be forged without the secret key
+  - Any eavesdropper must know the secret key in order to create a valid MAC
+- It is "unforgeable under chosen-message attacks"
+  - Even if Eve can get Bob to send chosen text attacks, she needs the (unknown to her) secret key to generate a valid MAC
+- Provides authentication (since only the other party has the secret key)
+
+
+
+## HMAC
+- A MAC is a general term for a message authentication code
+- A HMAC uses a hash as its algorithm
+- Not all MACs use hashes
+  - A CMAC uses a cipher (AES, DES, etc.) to create the code
+    - Likely truncating it to the first $x$ bits
+- The example algorithm a few slides back was an HMAC
+- Named by their hash algorithm:
+  - HMAC-MD5, HMAC-SHA1, etc.
+
+
+
+## HMAC with SHA1
+::: {.stretch .img-size-900}
+[![](images/web-security/SHAhmac.svg)](https://commons.wikimedia.org/wiki/File:SHAhmac.svg)
+:::
+
+*i_pad* and *o_pad* have known and non-secret values
+
+
+
+## Authenticated Encryption with Associated Data (AEAD)
+- MACs do not *encrypt* the data, and we want to do so
+- If we combine encryption and a MAC, we get an AEAD
+  - Assuming a few properties about the quality of the encryption and MAC function
+
+
+
+## [TLS MAC protocols](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
+![TLS MAC protocols](images/web-security/tls-protocols-3.png)
+Note that even if the MAC doesn't support encryption (in the first 3 rows), the cipher (likely AES) still does
+
+Updated version [here](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+# Attacking HTTPS
+
+
+## Attacks on HTTPS
+- Most are attacks on TLS in some form
+- Like the attacks on RSA, they tend to focus on attacking the *protocol*, and not cracking the encryption
+  - Although there are some exceptions...
+
+
+
+## Heartbleed (2012)
+::: {.right-float-img .img-size-800}
+![](images/web-security/Heartbleed.svg)
+:::
+- A problem in *one* implementation of the TLS protocol
+  - Specifically the OpenSSL library implementation
+- Affected about one sixth of all websites
+
+
+
+## Heartbleed
+- [RFC 6520](https://tools.ietf.org/html/rfc6520) allows a client to send a *Heartbeat Request* message -- like a ping -- to the server
+  - It consists of a string and its size (as a 16-bit int)
+- The server sends that message back
+- In OpenSSL, the library did not check the size of the message
+  - So if you sent "bird" and 65,536, it would send 64Kb of data back
+    - Which would be a 64Kb dump of the server's memory
+
+
+
+## xkcd on Heartbleed ([# 1354](https://xkcd.com/1354/))
+![](images/web-security/heartbleed_explanation_2x-a.png)
+
+## xkcd on Heartbleed ([# 1354](https://xkcd.com/1354/))
+![](images/web-security/heartbleed_explanation_2x-b.png)
+
+## xkcd on Heartbleed ([# 1354](https://xkcd.com/1354/))
+![](images/web-security/heartbleed_explanation_2x-c.png)
+
+
+## Mining Your Ps and Qs (2012)
+- In 2012 it was found that 5% of TLS servers and 9% of SSH servers shared common key material
+  - Also, one could compute keys for about 0.5% of TLS hosts (64,000) an 1% of SSH hosts (108,000)
+  - Most were headless or embedded devices
+- Reference: [Mining Your Ps and Qs: Detection of Widespread Weak Keys in Network Devices](https://factorable.net/weakkeys12.extended.pdf), USENIX '12
+- But why?
+
+
+
+## Mining Your Ps and Qs
+- These devices generated their TLS and/or SSH keys at boot-up
+  - Either the first time they were powered on or each time they powered up
+- Recall that for RSA, $n = p*q$
+- The pseudo-random number generator (PRG) on Linux is of very low quality at boot-up
+  - It takes about a minute after boot-up to create good quality keys
+
+
+## Boot-up time versus PRG quality
+![](images/web-security/weakkeys12.extended.svg)
+
+Source: [Mining Your Ps and Qs: Detection of Widespread Weak Keys in Network Devices](https://factorable.net/weakkeys12.extended.pdf)
+
+
+## Apple Goto Fail (Feb 2014)
+- A stray `goto` statement kept the Apple libraries from properly checking certificates for almost a year
+
+``` c
+hashOut.data = hashes + SSL_MD5_DIGEST_LEN;
+hashOut.length = SSL_SHA1_DIGEST_LEN;
+if ((err = SSLFreeBuffer(&hashCtx)) != 0)
+    goto fail;
+if ((err = ReadyHash(&SSLHashSHA1, &hashCtx)) != 0)
+    goto fail;
+if ((err = SSLHashSHA1.update(&hashCtx, &clientRandom)) != 0)
+    goto fail;
+if ((err = SSLHashSHA1.update(&hashCtx, &serverRandom)) != 0)
+    goto fail;
+if ((err = SSLHashSHA1.update(&hashCtx, &signedParams)) != 0)
+    goto fail;
+    goto fail;  /* MISTAKE! THIS LINE SHOULD NOT BE HERE */
+if ((err = SSLHashSHA1.final(&hashCtx, &hashOut)) != 0)
+    goto fail;
+
+err = sslRawVerify(...)
+```
+
+
+## Null Prefix Attack (2009)
+- String types
+  - C strings end in a NUL byte ('\0')
+  - Pascal style strings have the length at the beginning
+    - NUL characters are valid in these strings
+- X.509 certificates use Pascal-style strings
+- Consider obtaining a certificate for:
+``` c
+gmail.com\0.mydomain.com
+```
+- The CA sees some sub-domain off of mydomain.com
+- Browsers see a certificate for gmail.com
+
+
+
+## More attacks
+- Wikipedia [lists a dozen or so](https://en.wikipedia.org/wiki/Transport_Layer_Security#Attacks_against_TLS/SSL)
+
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+# Privacy
+
+
+## How are you tracked online?
+- Can you list the ways?
+- I listed 10 different ways...
+
+
+
+## 1. "Standard" cookies
+- All web connections are, by definition, stateless
+- A cookie allows one to "save" state
+  - Remember who you are, for example
+- So when you return to amazon.com, it knows who you are
+- Most sites that log you in use cookies of some sort
+  - Some use server variables, such as UVa's netbadge
+
+
+
+## Cookie exchange
+[![](images/web-security/800px-HTTP_cookie_exchange.svg.png)](https://commons.wikimedia.org/wiki/File:HTTP_cookie_exchange.svg)
+
+
+
+## What a cookie stores
+::: {.right-float-img style="zoom:200%"}
+[![](images/web-security/HTTP-Cookie-Google.svg)](https://commons.wikimedia.org/wiki/File:HTTP-Cookie-Google.svg)
+:::
+- The URL the cookie<br>applies to (domain<br>and path)
+- An information string
+- An expiration date
+
+Modern browsers limit cookie viewing to the domain (or URL) that issued the cookie
+
+
+
+## 2. Cross-domain content
+- Website A can include an image (or script, or CSS file) from website B
+  - Now both A and B can leave cookies
+  - This request includes the referring website!  So B can see where you have been
+- Part of the headers of any [Stack Overflow](https://stackoverflow.com) page:
+``` html
+<script
+src="https://ajax.googleapis.com/.../jquery.min.js">
+</script>
+```
+- So Google now knows what sites you've visited
+
+
+
+<!-- .slide: class="max-pre-400" -->
+## An example close to home...
+- A recent [cavalier daily article](http://www.cavalierdaily.com/article/2018/10/early-voting-numbers-show-sharp-increase-from-last-off-year-midterm-elections) loaded 347 (sic) different pieces of content from 52 different domains (33 unique TLDs)
+``` text
+adsafeprotected.com
+adsrvr.org
+bootstrapcdn.com
+cavalierdaily.com
+cloudfront.net
+digitru.st
+doubleclick.net
+everesttech.net
+facebook.com
+facebook.net
+google-analytics.com
+googleapis.com
+google.com
+googlesyndication.com
+googletagmanager.com
+gstatic.com
+iasds01.com
+imgix.net
+mathtag.com
+moatads.com
+moatpixel.com
+openx.net
+quantcount.com
+quantserve.com
+rfihub.com
+serving-sys.com
+sitescout.com
+spotxcdn.com
+spotxchange.com
+spotx.tv
+thesn.net
+turn.com
+yahoo.com
+```
+
+
+
+
+## 3. "Tracking" cookies
+- A cookie from a known domain that attempts to track you across multiple sites
+  - The difference is that it is known that this particular domain does lots of tracking
+  - It is ultimately no different than a regular cookie
+- Considered spyware, they are flagged (and removed) by modern anti-virus scanners
+
+
+
+## 4. Social media comment boxes
+- Those tiny little icons to encourage you to share that page on social media: <img alt="social media comments" src="images/web-security/social-media-comments.png" style="width:600px">
+- It's actually an [iframe](https://www.w3schools.com/tags/tag_iframe.asp) with FB content, and obviously includes the referrer
+- Now Facebook knows what articles you read
+- Many social media widgets are similar
+
+
+
+## 5. Javascript tracking code
+- Javascript is basically somebody else's code running in your (sandboxed) browser
+- One can easily include code to track users, such as via [Google analytics](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
+- Google Analytics is included from http://www.virginia.edu (along with a twitter widget)
+
+
+
+## 6. Non-digital purchases
+- Brick-and-mortar retailers have gotten in on the tracking game also:
+  - Grocery store "loyalty cards"
+  - Coupons, such as Bed Bath & Beyond's 20% off coupons
+    - They connect it to you even if you pay cash!
+
+
+
+## 7. Canvas elements
+- The [canvas element](https://www.w3schools.com/html/html5_canvas.asp) allows graphic-based mark-up, rendering of fonts, etc.
+  - The element can be hidden
+- So create a hidden canvas element, and render some text
+  - Each browser / OS / set of fonts will render this slightly differently
+- This creates a partial *signature* to help identify you
+  - We'll see one in a bit...
+- There are canvas blocker extensions available for every major browser
+
+
+
+## 8. Browser fingerprint
+- When you visit a website, your browser sends information about your host system
+  - OS (including version), browser (including version), etc.
+- Combine that with a few other things, such as canvas-rendered text ...
+- ... and you get a possibly unique signature of you
+
+
+
+## More on browser fingerprints
+- These can be used to track you even *after* you have cleared your cookies
+  - And they can link you to previous visits
+- Is yours unique?  Check out https://amiunique.org
+  - It shows a canvas-based text rendering
+
+
+
+## 9. Financial payments
+- If you use PayPal, then it knows a lot about what you buy
+  - Likewise amazon pay, venmo, etc.
+- These sites have differing levels of privacy statements
+
+
+
+## 10. Geo-location
+- For a device without a GPS, this is easy, but rough
+  - Go to [https://www.iplocation.net/](https://www.iplocation.net/); they were within 2.2 miles for me
+- For any mobile device with a GPS, this is trivial
+  - And *very* precise -- which store you just visited, whose house you are at, etc.
+  - And, likely, who else is there with you
+- Google continues to track your mobile device even after you have signed out or opted out ([reference](https://www.pcmag.com/news/363068/report-google-tracks-location-data-even-if-youve-opted-out))

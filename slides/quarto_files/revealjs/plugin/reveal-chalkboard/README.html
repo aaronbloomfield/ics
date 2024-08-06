@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title># Chalkboard</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../../../../markdown.css" />
+</head>
+<body>
+<h1 id="chalkboard">Chalkboard</h1>
+<p>With this plugin you can add a chalkboard to reveal.js. The plugin provides two possibilities to include handwritten notes to your presentation:</p>
+<ul>
+<li>you can make notes directly on the slides, e.g. to comment on certain aspects,</li>
+<li>you can open a chalkboard or whiteboard on which you can make notes.</li>
+</ul>
+<p>The main use case in mind when implementing the plugin is classroom usage in which you may want to explain some course content and quickly need to make some notes.</p>
+<p>The plugin records all drawings made so that they can be play backed using the <code>autoSlide</code> feature or the <code>audio-slideshow</code> plugin.</p>
+<p><a href="https://rajgoel.github.io/reveal.js-demos/chalkboard-demo.html">Check out the live demo</a></p>
+<p>The chalkboard effect is based on <a href="https://github.com/mmoustafa/Chalkboard">Chalkboard</a> by Mohamed Moustafa.</p>
+<h2 id="installation">Installation</h2>
+<p>Copy the file <code>plugin.js</code> and the <code>img</code> directory into the plugin folder of your reveal.js presentation, i.e. <code>plugin/chalkboard</code> and load the plugin as shown below.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;plugin/chalkboard/plugin.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;plugin/customcontrols/plugin.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    Reveal<span class="op">.</span><span class="fu">initialize</span>({</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">plugins</span><span class="op">:</span> [ RevealChalkboard<span class="op">,</span> RevealCustomControls ]<span class="op">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>The following stylesheet</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;plugin/chalkboard/style.css&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;plugin/customcontrols/style.css&quot;</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>has to be included to the <code>head</code> section of you HTML-file.</p>
+<p>In order to include buttons for opening and closing the notes canvas or the chalkboard you should make sure that <code>font-awesome</code> is available. The easiest way is to include</p>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css&quot;&gt;</code></pre>
+<p>to the <code>head</code> section of you HTML-file.</p>
+<h2 id="usage">Usage</h2>
+<h3 id="mouse-or-touch">Mouse or touch</h3>
+<ul>
+<li>Click on the pen symbols at the bottom left to toggle the notes canvas or chalkboard</li>
+<li>Click on the color picker at the left to change the color (the color picker is only visible if the notes canvas or chalkboard is active)</li>
+<li>Click on the up/down arrows on the left to the switch among multiple chalkboardd (the up/down arrows are only available for the chlakboard)</li>
+<li>Click the left mouse button and drag to write on notes canvas or chalkboard</li>
+<li>Click the right mouse button and drag to wipe away previous drawings</li>
+<li>Touch and move to write on notes canvas or chalkboard</li>
+<li>Touch and hold for half a second, then move to wipe away previous drawings</li>
+</ul>
+<h3 id="keyboard">Keyboard</h3>
+<ul>
+<li>Press the ‘BACKSPACE’ key to delete all chalkboard drawings</li>
+<li>Press the ‘DEL’ key to clear the notes canvas or chalkboard</li>
+<li>Press the ‘c’ key to toggle the notes canvas</li>
+<li>Press the ‘b’ key to toggle the chalkboard</li>
+<li>Press the ‘d’ key to download drawings</li>
+<li>Press the ‘x’ key to cycle colors forward</li>
+<li>Press the ‘y’ key to cycle colors backward</li>
+</ul>
+<h2 id="playback">Playback</h2>
+<p>If the <code>autoSlide</code> feature is set or if the <code>audio-slideshow</code> plugin is used, pre-recorded chalkboard drawings can be played. The slideshow plays back the user interaction with the chalkboard in the same way as it was conducted when recording the data.</p>
+<h2 id="multiplexing">Multiplexing</h2>
+<p>The plugin supports multiplexing via the <a href="https://github.com/reveal/multiplex"><code>multiplex</code> plugin</a> or the <a href="https://github.com/rajgoel/reveal.js-plugins/tree/master/seminar"><code>seminar</code> plugin</a>.</p>
+<h2 id="pdf-export">PDF-Export</h2>
+<p>If the slideshow is opened in <a href="https://revealjs.com/pdf-export/">print mode</a>, the chalkboard drawings in the session storage (see <code>storage</code> option - print version must be opened in the same tab or window as the original slideshow) or provided in a file (see <code>src</code> option) are included in the PDF-file. Each drawing on the chalkboard is added after the slide that was shown when opening the chalkboard. Drawings on the notes canvas are not included in the PDF-file.</p>
+<h2 id="configuration">Configuration</h2>
+<p>The plugin has several configuration options:</p>
+<ul>
+<li><code>boardmarkerWidth</code>: an integer, the drawing width of the boardmarker; larger values draw thicker lines.</li>
+<li><code>chalkWidth</code>: an integer, the drawing width of the chalk; larger values draw thicker lines.</li>
+<li><code>chalkEffect</code>: a float in the range <code>[0.0, 1.0]</code>, the intesity of the chalk effect on the chalk board. Full effect (default) <code>1.0</code>, no effect <code>0.0</code>.</li>
+<li><code>storage</code>: Optional variable name for session storage of drawings.</li>
+<li><code>src</code>: Optional filename for pre-recorded drawings.</li>
+<li><code>readOnly</code>: Configuation option allowing to prevent changes to existing drawings. If set to <code>true</code> no changes can be made, if set to false <code>false</code> changes can be made, if unset or set to <code>undefined</code> no changes to the drawings can be made after returning to a slide or fragment for which drawings had been recorded before. In any case the recorded drawings for a slide or fragment can be cleared by pressing the ‘DEL’ key (i.e. by using the <code>RevealChalkboard.clear()</code> function).</li>
+<li><code>transition</code>: Gives the duration (in milliseconds) of the transition for a slide change, so that the notes canvas is drawn after the transition is completed.</li>
+<li><code>theme</code>: Can be set to either <code>"chalkboard"</code> or <code>"whiteboard"</code>.</li>
+</ul>
+<p>The following configuration options allow to change the appearance of the notes canvas and the chalkboard. All of these options require two values, the first gives the value for the notes canvas, the second for the chalkboard.</p>
+<ul>
+<li><code>background</code>: The first value expects a (semi-)transparent color which is used to provide visual feedback that the notes canvas is enabled, the second value expects a filename to a background image for the chalkboard.</li>
+<li><code>grid</code>: By default whiteboard and chalkboard themes include a grid pattern on the background. This pattern can be modified by setting the color, the distance between lines, and the line width, e.g. <code>{ color: 'rgb(127,127,255,0.1)', distance: 40, width: 2}</code>. Alternatively, the grid can be removed by setting the value to <code>false</code>.</li>
+<li><code>eraser</code>: An image path and radius for the eraser.</li>
+<li><code>boardmarkers</code>: A list of boardmarkers with given color and cursor.</li>
+<li><code>chalks</code>: A list of chalks with given color and cursor.</li>
+<li><code>rememberColor</code>: Whether to remember the last selected color for the slide canvas or the board.</li>
+</ul>
+<p>All of the configurations are optional and the default values shown below are used if the options are not provided.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Reveal<span class="op">.</span><span class="fu">initialize</span>({</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ...</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">chalkboard</span><span class="op">:</span> {</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">boardmarkerWidth</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">chalkWidth</span><span class="op">:</span> <span class="dv">7</span><span class="op">,</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">chalkEffect</span><span class="op">:</span> <span class="fl">1.0</span><span class="op">,</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">storage</span><span class="op">:</span> <span class="kw">null</span><span class="op">,</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="dt">src</span><span class="op">:</span> <span class="kw">null</span><span class="op">,</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="dt">readOnly</span><span class="op">:</span> <span class="kw">undefined</span><span class="op">,</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="dt">transition</span><span class="op">:</span> <span class="dv">800</span><span class="op">,</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="dt">theme</span><span class="op">:</span> <span class="st">&quot;chalkboard&quot;</span><span class="op">,</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="dt">background</span><span class="op">:</span> [ <span class="st">&#39;rgba(127,127,127,.1)&#39;</span> <span class="op">,</span> path <span class="op">+</span> <span class="st">&#39;img/blackboard.png&#39;</span> ]<span class="op">,</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="dt">grid</span><span class="op">:</span> { <span class="dt">color</span><span class="op">:</span> <span class="st">&#39;rgb(50,50,10,0.5)&#39;</span><span class="op">,</span> <span class="dt">distance</span><span class="op">:</span> <span class="dv">80</span><span class="op">,</span> <span class="dt">width</span><span class="op">:</span> <span class="dv">2</span>}<span class="op">,</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="dt">eraser</span><span class="op">:</span> { <span class="dt">src</span><span class="op">:</span> path <span class="op">+</span> <span class="st">&#39;img/sponge.png&#39;</span><span class="op">,</span> <span class="dt">radius</span><span class="op">:</span> <span class="dv">20</span>}<span class="op">,</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="dt">boardmarkers</span> <span class="op">:</span> [</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                { <span class="dt">color</span><span class="op">:</span> <span class="st">&#39;rgba(100,100,100,1)&#39;</span><span class="op">,</span> <span class="dt">cursor</span><span class="op">:</span> <span class="st">&#39;url(&#39;</span> <span class="op">+</span> path <span class="op">+</span> <span class="st">&#39;img/boardmarker-black.png), auto&#39;</span>}<span class="op">,</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                { <span class="dt">color</span><span class="op">:</span> <span class="st">&#39;rgba(30,144,255, 1)&#39;</span><span class="op">,</span> <span class="dt">cursor</span><span class="op">:</span> <span class="st">&#39;url(&#39;</span> <span class="op">+</span> path <span class="op">+</span> <span class="st">&#39;img/boardmarker-blue.png), auto&#39;</span>}<span class="op">,</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                { <span class="dt">color</span><span class="op">:</span> <span class="st">&#39;rgba(220,20,60,1)&#39;</span><span class="op">,</span> <span class="dt">cursor</span><span class="op">:</span> <span class="st">&#39;url(&#39;</span> <span class="op">+</span> path <span class="op">+</span> <span class="st">&#39;img/boardmarker-red.png), auto&#39;</span>}<span class="op">,</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                { <span class="dt">color</span><span class="op">:</span> <span class="st">&#39;rgba(50,205,50,1)&#39;</span><span class="op">,</span> <span class="dt">cursor</span><span class="op">:</span> <span class="st">&#39;url(&#39;</span> <span class="op">+</span> path <span class="op">+</span> <span class="st">&#39;img/boardmarker-green.png), auto&#39;</span>}<span class="op">,</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                { <span class="dt">color</span><span class="op">:</span> <span class="st">&#39;rgba(255,140,0,1)&#39;</span><span class="op">,</span> <span class="dt">cursor</span><span class="op">:</span> <span class="st">&#39;url(&#39;</span> <span class="op">+</span> path <span class="op">+</span> <span class="st">&#39;img/boardmarker-orange.png), auto&#39;</span>}<span class="op">,</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>                { <span class="dt">color</span><span class="op">:</span> <span class="st">&#39;rgba(150,0,20150,1)&#39;</span><span class="op">,</span> <span class="dt">cursor</span><span class="op">:</span> <span class="st">&#39;url(&#39;</span> <span class="op">+</span> path <span class="op">+</span> <span class="st">&#39;img/boardmarker-purple.png), auto&#39;</span>}<span class="op">,</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                { <span class="dt">color</span><span class="op">:</span> <span class="st">&#39;rgba(255,220,0,1)&#39;</span><span class="op">,</span> <span class="dt">cursor</span><span class="op">:</span> <span class="st">&#39;url(&#39;</span> <span class="op">+</span> path <span class="op">+</span> <span class="st">&#39;img/boardmarker-yellow.png), auto&#39;</span>}</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        ]<span class="op">,</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        <span class="dt">chalks</span><span class="op">:</span> [</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>                { <span class="dt">color</span><span class="op">:</span> <span class="st">&#39;rgba(255,255,255,0.5)&#39;</span><span class="op">,</span> <span class="dt">cursor</span><span class="op">:</span> <span class="st">&#39;url(&#39;</span> <span class="op">+</span> path <span class="op">+</span> <span class="st">&#39;img/chalk-white.png), auto&#39;</span>}<span class="op">,</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>                { <span class="dt">color</span><span class="op">:</span> <span class="st">&#39;rgba(96, 154, 244, 0.5)&#39;</span><span class="op">,</span> <span class="dt">cursor</span><span class="op">:</span> <span class="st">&#39;url(&#39;</span> <span class="op">+</span> path <span class="op">+</span> <span class="st">&#39;img/chalk-blue.png), auto&#39;</span>}<span class="op">,</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>                { <span class="dt">color</span><span class="op">:</span> <span class="st">&#39;rgba(237, 20, 28, 0.5)&#39;</span><span class="op">,</span> <span class="dt">cursor</span><span class="op">:</span> <span class="st">&#39;url(&#39;</span> <span class="op">+</span> path <span class="op">+</span> <span class="st">&#39;img/chalk-red.png), auto&#39;</span>}<span class="op">,</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>                { <span class="dt">color</span><span class="op">:</span> <span class="st">&#39;rgba(20, 237, 28, 0.5)&#39;</span><span class="op">,</span> <span class="dt">cursor</span><span class="op">:</span> <span class="st">&#39;url(&#39;</span> <span class="op">+</span> path <span class="op">+</span> <span class="st">&#39;img/chalk-green.png), auto&#39;</span>}<span class="op">,</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>                { <span class="dt">color</span><span class="op">:</span> <span class="st">&#39;rgba(220, 133, 41, 0.5)&#39;</span><span class="op">,</span> <span class="dt">cursor</span><span class="op">:</span> <span class="st">&#39;url(&#39;</span> <span class="op">+</span> path <span class="op">+</span> <span class="st">&#39;img/chalk-orange.png), auto&#39;</span>}<span class="op">,</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>                { <span class="dt">color</span><span class="op">:</span> <span class="st">&#39;rgba(220,0,220,0.5)&#39;</span><span class="op">,</span> <span class="dt">cursor</span><span class="op">:</span> <span class="st">&#39;url(&#39;</span> <span class="op">+</span> path <span class="op">+</span> <span class="st">&#39;img/chalk-purple.png), auto&#39;</span>}<span class="op">,</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>                { <span class="dt">color</span><span class="op">:</span> <span class="st">&#39;rgba(255,220,0,0.5)&#39;</span><span class="op">,</span> <span class="dt">cursor</span><span class="op">:</span> <span class="st">&#39;url(&#39;</span> <span class="op">+</span> path <span class="op">+</span> <span class="st">&#39;img/chalk-yellow.png), auto&#39;</span>}</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="dt">customcontrols</span><span class="op">:</span> {</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>        <span class="dt">controls</span><span class="op">:</span> [</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>            { <span class="dt">icon</span><span class="op">:</span> <span class="st">&#39;&lt;i class=&quot;fa fa-pen-square&quot;&gt;&lt;/i&gt;&#39;</span><span class="op">,</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>              <span class="dt">title</span><span class="op">:</span> <span class="st">&#39;Toggle chalkboard (B)&#39;</span><span class="op">,</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>              <span class="dt">action</span><span class="op">:</span> <span class="st">&#39;RevealChalkboard.toggleChalkboard();&#39;</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>            }<span class="op">,</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>            { <span class="dt">icon</span><span class="op">:</span> <span class="st">&#39;&lt;i class=&quot;fa fa-pen&quot;&gt;&lt;/i&gt;&#39;</span><span class="op">,</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>              <span class="dt">title</span><span class="op">:</span> <span class="st">&#39;Toggle notes canvas (C)&#39;</span><span class="op">,</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>              <span class="dt">action</span><span class="op">:</span> <span class="st">&#39;RevealChalkboard.toggleNotesCanvas();&#39;</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ...</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<h2 id="license">License</h2>
+<p>MIT licensed</p>
+<p>Copyright (C) 2021 Asvin Goel</p>
+</body>
+</html>

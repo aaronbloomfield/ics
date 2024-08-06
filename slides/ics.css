@@ -31,6 +31,7 @@ p.center {
 .reveal table tr:nth-child(odd) {
   background-color: #666666;
   padding-left: 5px;
+  color: white;
 }
 .reveal table th {
   background-color: rgb(20,60,110);
@@ -193,16 +194,76 @@ p.blankline { height:1em; }
   box-shadow: none !important;
 }
 
+/* image floating */
+
 .right-float-img img {
     float:right;
-    max-width: 50%;
     margin-left:20px !important;
-    max-height: 600px;
-    margin-top: 12px;
+    padding: 0;
 }
 
+.left-float-img img {
+    float:left;
+    margin-left:20px !important;
+    padding: 0;
+}
+
+.img-no-border img {
+  padding: 0 !important;
+}
+
+.img-square-corners img {
+  border-radius: 0 !important;
+}
+.img-size-200 img {
+    max-width:200px;
+    max-height:200px;
+}
+
+.img-size-300 img {
+    max-width:300px;
+    max-height:300px;
+}
+
+.img-size-400 img {
+    max-width:400px;
+    max-height:400px;
+}
+
+.img-size-500 img {
+    max-width:500px;
+    max-height:500px;
+}
+
+.img-size-600 img {
+    max-width:600px;
+    max-height:600px;
+}
+
+.img-size-700 img {
+    max-width:700px;
+    max-height:700px;
+}
+
+.img-size-800 img {
+    max-width:800px;
+    max-height:800px;
+}
+
+.img-size-900 img {
+    max-width:900px;
+    max-height:900px;
+}
+
+.img-size-1000 img {
+    max-width:1000px;
+    max-height:1000px;
+}
+
+/* ... */
+
 .no-border img, img.no-border {
-  padding:0;
+  padding:0 !important;
 }
 
 .no-img-corner-radius img, img.no-img-corner-radius {
@@ -213,125 +274,6 @@ p.blankline { height:1em; }
     float:right;
     width:40%;
     margin-left:40px !important;
-}
-
-.right-float-img-200 img {
-    float:right;
-    max-width:200px;
-    max-height:100px;
-    margin-left:20px !important;
-}
-
-.right-float-img-nb-300 img {
-    float:right;
-    max-width: 50%;
-    margin-left:20px !important;
-    max-height: 600px;
-    margin-top: 12px;
-    padding: 0;
-    max-width: 300px;
-    max-height: 300px;
-}
-
-.right-float-img-400 img, div.right-float-img-400 p img {
-    float:right;
-    max-width:400px;
-    max-height:200px;
-    margin-left:20px !important;
-}
-
-.right-float-img-nb-400 img {
-    float:right;
-    max-width: 50%;
-    margin-left:20px !important;
-    margin-top: 12px;
-    padding: 0;
-    max-width: 400px;
-    max-height: 400px;
-}
-
-.right-float-img-nb-500 img {
-    float:right;
-    max-width: 50%;
-    margin-left:20px !important;
-    margin-top: 12px;
-    padding: 0;
-    max-width: 500px;
-    max-height: 500px;
-}
-
-.right-float-img-nb-600 img {
-    float:right;
-    max-width: 50%;
-    margin-left:20px !important;
-    margin-top: 12px;
-    padding: 0;
-    max-width: 600px;
-    max-height: 600px;
-}
-
-.right-float-img-500 img {
-    float:right;
-    max-width:500px;
-    max-height:250px;
-    margin-left:20px !important;
-}
-
-.right-float-img-600 img, img.right-float-img-600 {
-    float:right;
-    max-width:600px;
-    max-height:300px;
-    margin-left:20px !important;
-}
-
-.left-float-img-600 img, img.left-float-img-600 {
-    float:left;
-    max-width:600px;
-    max-height:300px;
-    margin-left:20px !important;
-}
-
-.right-float-img-700 img, img.right-float-img-700 {
-    float:right;
-    max-width:700px;
-    max-height:350px;
-    margin-left:20px !important;
-}
-
-.left-float-img-700 img, img.left-float-img-700 {
-    float:left;
-    max-width:700px;
-    max-height:350px;
-    margin-left:20px !important;
-}
-
-.right-float-img-800 img {
-    float:right;
-    max-width:800px;
-    max-height:400px;
-    margin-left:20px !important;
-}
-
-.right-float-img-1000 img {
-    float:right;
-    max-width:1000px;
-    max-height:500px;
-    margin-left:20px !important;
-}
-
-.left-float-img img {
-    float:left;
-    max-width: 50%;
-    margin-left:20px !important;
-    max-height: 600px;
-    margin-top: 12px;
-}
-
-.left-float-img-800 img {
-    float:left;
-    max-width:800px;
-    max-height:400px;
-    margin-left:20px !important;
 }
 
 .img-max-height-500 img {
@@ -422,7 +364,7 @@ p.titlep {
 }
 
 img {
-  padding:10px;
+  /* padding:10px; */
   border-radius:10px;
 }
 
@@ -685,4 +627,8 @@ div.wikitablediv {
 
 .reveal .footer p {
   text-align: center; !important
+}
+
+span.inline {
+  display:inline-block !important;
 }

@@ -1,0 +1,421 @@
+---
+title: "Terminology"
+---
+
+
+# Terms
+
+
+## Vulnerability vs exploit
+- A *vulnerability* is a weakness (or bug) in the security of a program
+  - A lock that is easy to pick
+- An *exploit* is an attack that makes use of some vulnerability
+  - A "skeleton key" that can open many types of locks
+
+
+
+## Authentication vs authorization
+
+- *Authentication* is determining who a user is
+  - Signing in through netbadge, for example
+- *Authorization* is controlling one's actions based on who they are
+  - Normal users can not delete certain things, for example
+
+
+
+## Vector vs payload
+- The malware's *vector* is the means by which it attacked the host
+  - Virus, buffer overflow, worm, back door, etc.
+- The malware's *payload* is what damage or effects it causes
+  - File deletion, infection of other files, mailing spam, etc.
+  - Malware may not have a payload
+
+
+
+## Hack
+From [dictionary.com](https://www.dictionary.com/browse/hack?s=t):
+
+> hack (intransitive verb): to modify (a computer program or electronic device) or write (a program) in a skillful or clever way
+
+> hack (intransitive verb): to circumvent security and break into (a network, computer, file, etc.), usually with malicious intent
+
+
+
+## Hacker
+From [dictionary.com](https://www.dictionary.com/browse/hack?s=t):
+
+> hacker (noun): a person who has a high level of skill in computer technology or programming; a computer expert or enthusiast
+
+> hacker (noun): a person who circumvents security and breaks into a network, computer, file, etc., usually with malicious intent
+
+
+
+## 'Hack' and 'hacker' in context
+- Good contexts:
+  - We have all heard of (or participated in) hack-a-thons
+  - One may hack a program together
+  - "That's a great hack"
+- Bad contexts:
+  - Any malware is termed to be created by 'hackers'
+  - One who hacks into a secure system to do something malicious
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+# Malware Types
+
+
+## Characteristics of malware
+- Self-replicating: does it reproduce by itself?
+- Population growth: how does the infected population increase?
+  - Zero if it is not self-replicating
+  - But self replicating can have either a zero or positive population growth
+- Parasitic: does it need another executable in order to exist?
+
+
+
+## Logic bomb
+::: {.right-float-img .img-size-800}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Bomb_icon.svg/350px-Bomb_icon.svg.png)
+:::
+- Self-replicating: 	no
+- Population growth: 	zero
+- Parasitic: 		possibly
+&nbsp;  
+
+<p class="blankline">&nbsp;</p>
+
+- Has a *payload*, which is an action to perform
+  - Delete files, etc. -- usually a malicious effect
+- Has a *trigger*, which is a Boolean condition as to when to execute
+  - On a given date, when somebody performs some action, etc.
+
+
+
+## Trojan Horse
+::: {.right-float-img .img-size-600}
+![](https://s-media-cache-ak0.pinimg.com/originals/98/31/91/983191ca276eb1227fd2f85960215b8c.jpg)
+:::
+- Self-replicating:	no 
+- Population growth: 	zero
+- Parasitic: 		yes
+&nbsp;  
+
+<p class="blankline">&nbsp;</p>
+
+- A program that looks like a valid program, but has a malicious purpose
+  - Stealing passwords, deleting files, etc.
+
+
+
+## Back door
+::: {.right-float-img .img-size-600}
+![](http://img11.deviantart.net/8549/i/2012/129/b/b/door_ajar_by_layall-d4z3odw.jpg)
+:::
+- Self-replicating:	no 
+- Population growth: 	zero
+- Parasitic: 		possibly
+&nbsp;  
+
+<p class="blankline">&nbsp;</p>
+
+- Any mechanism that allows bypassing of the normal security checks
+  - If you are logging in from this IP address, or enter a specific username, don't ask for a password
+
+
+
+## Virus
+::: {.right-float-img .img-size-500}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Coronavirus._SARS-CoV-2.png/768px-Coronavirus._SARS-CoV-2.png)
+:::
+- Self-replicating:		yes 
+- Population growth: 	positive
+- Parasitic: 			yes
+&nbsp;  
+
+<p class="blankline">&nbsp;</p>
+
+- Code that *modifies* an executable program file and inserts itself into it
+  - This self-replication into existing executable code is the defining characteristic of a virus
+- Often has a destructive payload
+- Does not *propagate* using a network, but infected files can be downloaded or emailed by a network
+
+
+
+<!-- .slide: class="right-float-img .img-size-400" -->
+## Worm
+::: {.right-float-img .img-size-500}
+![](https://upload.wikimedia.org/wikipedia/commons/3/30/Regenwurm1.jpg)
+:::
+- Self-replicating:	yes 
+- Population growth: 	positive
+- Parasitic: 		no
+&nbsp;  
+
+<p class="blankline">&nbsp;</p>
+
+- A stand-alone program that propagates via a network
+  - Typically exploiting a security hole
+- It does *not* modify an existing binary file
+
+
+
+<!-- .slide: class="right-float-img .img-size-400" -->
+## Rabbit
+::: {.right-float-img .img-size-500}
+![](https://upload.wikimedia.org/wikipedia/commons/3/37/Oryctolagus_cuniculus_Tasmania_2.jpg)
+:::
+- Self-replicating:	yes 
+- Population growth: 	zero
+- Parasitic: 		no
+&nbsp;  
+
+<p class="blankline">&nbsp;</p>
+
+- A rapidly reproducing program  that consumes all of the available computer resources
+  - A fork bomb, for example
+- Leaves lots of traces, and doesn't accomplish much
+  - So they aren't seen very often
+- See the [Wikipedia article on "fork bomb"](https://en.wikipedia.org/wiki/Fork_bomb) for more
+
+
+
+## Some fork bombs
+C++, Python, and Bash shell, respectively:
+``` c
+#include <stdio.h>
+#include <sys/types.h>
+int main() {
+  while(1) fork();
+  return 0;
+}
+```
+
+<p>&nbsp;</p>
+
+``` py
+import os
+while(1):
+    os.fork()
+```
+
+<p>&nbsp;</p>
+
+``` sh
+#!/bin/bash
+:(){ :|:& };:
+```
+
+
+
+## Spyware
+::: {.right-float-img .img-size-600}
+![](http://4.bp.blogspot.com/-OdK2rCo-g9s/VGRyT8EwP6I/AAAAAAAAAK0/pSxTUYy699g/s1600/spyware.gif)
+:::
+- Self-replicating:	no
+- Population growth: 	zero
+- Parasitic: 		no
+&nbsp;  
+
+<p class="blankline">&nbsp;</p>
+
+- Software that collects information from a computer and transmits it to somebody else
+  - Usernames and passwords, e-mail addresses, financial information, software license keys, etc.
+- Viruses and worms can do similar things
+  - Spyware is software that doesn't self replicate
+
+
+
+## Adware
+::: {.right-float-img .img-size-500}
+![](https://cdn.ttgtmedia.com/rms/onlineImages/security-adware.jpg)
+:::
+- Self-replicating:	no 
+- Population growth: 	zero
+- Parasitic: 		no
+&nbsp;  
+
+<p class="blankline">&nbsp;</p>
+
+- Similar to spyware:
+  - Gathers information about the user
+- But it has differences:
+  - It's more marketing-focused (pops up ads, redirects a browser, etc.)
+
+
+
+## Droppers
+::: {.right-float-img .img-size-500}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Pipette_tip_over_tube.jpg/548px-Pipette_tip_over_tube.jpg)
+:::
+- Self-replicating:	n/a
+- Population growth: 	n/a
+- Parasitic: 		n/a
+&nbsp;  
+
+<p class="blankline">&nbsp;</p>
+
+- A dropper is a program that deposits malware on a computer
+- Many viruses or worms contain a dropper for a larger piece of malware
+
+
+
+## Hybrids
+::: {.right-float-img .img-size-500}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Chimera_d%27arezzo%2C_fi%2C_04.JPG/640px-Chimera_d%27arezzo%2C_fi%2C_04.JPG)
+:::
+- Self-replicating:	n/a
+- Population growth: 	n/a
+- Parasitic: 		n/a
+&nbsp;  
+
+<p class="blankline">&nbsp;</p>
+
+- A hybrid is a piece of malware that uses multiple techniques discussed here
+- Hybrid example: Ken Thompson's UNIX back door
+  - Was a Trojan horse, replicated like a virus, created back doors
+- Most malware today is hybrids
+
+
+
+## Zombies
+::: {.right-float-img .img-size-500}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Zombie_haiti_ill_artlibre_jnl.png/434px-Zombie_haiti_ill_artlibre_jnl.png)
+:::
+- Self-replicating:	?
+- Population growth: 	?
+- Parasitic: 		yes (to a computer)
+&nbsp;  
+
+<p class="blankline">&nbsp;</p>
+
+- A zombie is a computer that somebody else can (partially) control
+  - Often Windows machines
+  - Can send spam, perform DoS attacks
+  - User is often unaware of the zombie
+- A zombie is often a drop of another piece of malware
+
+
+
+## Botnet
+::: {.right-float-img .img-size-600}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Botnet2.gif/640px-Botnet2.gif)
+:::
+- Self-replicating:	N/A
+- Population growth: 	N/A
+- Parasitic: 		yes
+&nbsp;  
+
+<p class="blankline">&nbsp;</p>
+
+- A number of zombie computers controlled by a single source
+- Example: [Bredolab botnet](https://en.wikipedia.org/wiki/Bredolab_botnet)
+  - Dismantled in 2010, but controlled 30 *million* computers at it's peak
+  - Owner(s) made over $100k per month
+
+
+
+## Ransomware
+::: {.right-float-img .img-size-600}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Ransomware-pic.jpg/640px-Ransomware-pic.jpg)
+:::
+- Very common these days
+  - It usually is the payload of<br>another attack
+- It requires one to pay to<br>"release" resources
+
+
+- Stats ([source](http://www.businessinsider.com/doj-and-dhs-ransomware-attacks-government-2016-4)) from an April 2015 report:
+  - The DOJ received 7,700 public complains in the last decade, totaling $57.6 million paid
+    - Generally `$`200 to `$`10,000 per "episode"
+  - $24 million in 2,500 cases in 2015 alone
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+# Vulnerabilities Exploited
+
+
+## What Vulnerabilities Were Exploited?
+
+- "Vulnerability" often refers only to vulnerable code in an OS or applications
+  - E.g. Unguarded buffer overflow in OS command allows attacker to run arbitrary command, gain root access, etc.
+  - Failure to validate user input
+  - Allowing ActiveX controls to be run from scripts
+
+
+
+## What Vulnerabilities Were Exploited?
+
+- More generally, a vulnerability is whatever weakness in an overall system that makes it open to attack
+  - System administration and configuration flaws
+  - Dangerous user behavior
+
+
+
+## Code Vulnerabilities
+- Buffer overflow is the most common
+  - Array bounds not usually checked at run time (Why not?)
+- What comes *after* the buffer being overflowed determines what can be attacked
+  - Return address can be changed to malicious code
+  - Function pointer can point to malicious code
+  - Output file name for a program can be overwritten with file name desired by attacker
+- Buffer overflows are simple to guard against, yet they remain the most common code vulnerability
+
+
+
+## Buffer Overflow Example
+
+``` c
+void bogus(void) {
+   int i;
+   char buffer[256];      // Return address follows!
+
+   printf("Enter your data as a string.\n");
+   scanf("%s", buffer);   // No bounds check!
+
+   process_data(buffer);
+   return;
+
+   // Returns to the return address that 
+   // follows buffer[] on the stack frame
+}
+```
+When writing beyond the size of `buffer` one will (eventually) overwrite the return address
+
+
+
+## Buffer Overflow continued
+
+- Notice that the program does not check to make sure that the user inputs 255 characters or less
+- Source code is available for many operating systems and applications
+  - OR they can be disassembled and analyzed by the attacker
+- Attacker can see that it is possible to overflow the buffer
+- Buffer is last data item on the stack frame; the return address from this function will be at a defined distance after it
+
+
+
+## Buffer Overflow continued
+
+- Attacker can enter a character string representation of his malicious object code, long enough to fill the buffer
+- At the end of the malicious code, the attacker passes the address of variable "buffer" so that it overwrites the return address of function bogus() on the stack frame
+- When bogus() returns, it will cause a return to the buffer address, executing the malicious code in it
+
+
+
+## User Behavior Vulnerabilities
+- Poor password selection
+  - Too short; all alphabetic; common words
+  - 1988 Morris worm used a list of only 432 common passwords, and succeeded in cracking many user accounts all over the Internet
+  - This was the main reason the worm spread more than the creator thought it would; he did not realize that password selection was that bad!
+
+
+
+## User Behavior Vulnerabilities
+- Opening executable email attachments
+  - "This email is from my friend; it must be safe." But, the friend's PC has a virus!
+  - Knowing the sender is not enough to make it safe to open
+  - Virus creator can disguise the attachment to look like it is not executable
+  - Remember the "Love Letter" virus!
+- So only open the attachment if you know the sender, right?
+  - What could be wrong with that?

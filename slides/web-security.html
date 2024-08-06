@@ -1,749 +1,1622 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8"><base target="_blank">
-    <title>ICS: Web Security</title>
-    <meta name="description" content="A set of slides for a course on Introduction to Cybersecurity">
-    <meta name="author" content="Aaron Bloomfield">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="../slides/reveal.js/dist/reset.css">
-    <link rel="stylesheet" href="../slides/reveal.js/dist/reveal.css">
-    <link rel="stylesheet" href="../slides/reveal.js/dist/theme/black.css" id="theme">
-    <link rel="stylesheet" href="../slides/ics.css">
-    <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="../slides/reveal.js/plugin/highlight/zenburn.css">
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.scss' : '../slides/reveal.js/css/print/paper.scss';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
-    <!--[if lt IE 9]>
-	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
-	<![endif]-->
-  </head>
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="quarto_files/clipboard/clipboard.min.js"></script>
+<script src="quarto_files/quarto-html/tabby.min.js"></script>
+<script src="quarto_files/quarto-html/popper.min.js"></script>
+<script src="quarto_files/quarto-html/tippy.umd.min.js"></script>
+<link href="quarto_files/quarto-html/tippy.css" rel="stylesheet">
+<link href="quarto_files/quarto-html/light-border.css" rel="stylesheet">
+<link href="quarto_files/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="quarto_files/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.56">
 
-  <body>
-    <div class="reveal">
-      <div class="slides">
+  <title>Web Security</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="quarto_files/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="quarto_files/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="quarto_files/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="ics.css">
+  <link href="quarto_files/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="quarto_files/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="quarto_files/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="quarto_files/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="quarto_files/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="quarto_files/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
 
-<section data-markdown id="cover"><script type="text/template">
-# CS 3710
-&nbsp;  
-### Introduction to Cybersecurity
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
 
-<p class='titlep'>&nbsp;</p>
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-markdown="" class="center">
+  <h1 class="title">CS 3710</h1>
+  <h2 class="subtitle">Introduction to Cybersecurity</h2>
+
+<p class="titlep">&nbsp;</p>
 <div class="titlesmall"><p>
 <a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
-<a href="http://github.com/aaronbloomfield/ccc">@github</a> | <a href="index.html">&uarr;</a> | <a href="?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png" style="top:0px;vertical-align:middle"></a>
+<a href="http://github.com/aaronbloomfield/ccc">@github</a> | <a href="index.html">↑</a> | <a href="?print-pdf"><img class="print" width="20" src="images/print-icon.png" style="top:0px;vertical-align:middle"></a>
 </p></div>
-<p class='titlep'>&nbsp;</p>
+<p class="titlep">&nbsp;</p>
 
-## Web Security
-</script></section>
+  <h2 class="subtitle">Web Security</h2>
 
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-<section data-markdown>
-  <textarea data-template>
-## Credit Where Credit is Due
-
-Much of the material in this slide set, including some of the images, was obtained from [EECS 388](https://www.eecs.umich.edu/courses/eecs388/) from the [CS department at the University of Michigan](https://www.cse.umich.edu/).  That course material was released under a [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0/deed.en_US) license.  Other images are from [Wikipedia](https://en.wikipedia.org), and each of those images is linked to its source on Wikipedia.
-  </textarea>
+</section><section id="TOC">
+<nav role="doc-toc"> 
+<h2 id="toc-title">Contents</h2>
+<ul>
+<li><a href="#/key-exchange" id="/toc-key-exchange">Key Exchange</a></li>
+<li><a href="#/certificates" id="/toc-certificates">Certificates</a></li>
+<li><a href="#/ssl-tls" id="/toc-ssl-tls">SSL &amp; TLS</a></li>
+<li><a href="#/attacking-https" id="/toc-attacking-https">Attacking HTTPS</a></li>
+<li><a href="#/privacy" id="/toc-privacy">Privacy</a></li>
+</ul>
+</nav>
 </section>
-  
+<section id="credit-where-credit-is-due" class="slide level2">
+<h2>Credit Where Credit is Due</h2>
+<p>Much of the material in this slide set, including some of the images, was obtained from <a href="https://www.eecs.umich.edu/courses/eecs388/">EECS 388</a> from the <a href="https://www.cse.umich.edu/">CS department at the University of Michigan</a>. That course material was released under a <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en_US">CC BY-SA</a> license. Other images are from <a href="https://en.wikipedia.org">Wikipedia</a>, and each of those images is linked to its source on Wikipedia.</p>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-<section data-markdown>
-  <textarea data-template>
-# Contents
-&nbsp;  
-[Key Exchange](#/keyexch)  
-[Certificates](#/certificates)  
-[SSL & TLS](#/ssltls)  
-[Attacking HTTPS](#/attacks)  
-[Privacy](#/privacy)  
-  </textarea>
 </section>
-  
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
 <section>
+<section id="key-exchange" class="title-slide slide level1 center">
+<h1>Key Exchange</h1>
 
-<section data-markdown id="keyexch" class="center">
-  <textarea data-template>
-# Key Exchange
-  </textarea>
 </section>
-    
-<section data-markdown data-separator="^\n\n\n">
-  <textarea data-template>
-## Key Exchange
-- If you want to communicate with another party, how do you create a private key?
-  - One solution: Key stores, but only if you both have generated public/private key sets
-    - Not always practical for all security protocols
-- One solution: [Diffie–Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange)
-  - This version uses discrete logs
-  - A variant called [ECDH](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) uses elliptic curves
-
-
-
-## DH key exchange
-- Alice and Bob agree on public values *g* (generator) and *p* (prime or modulus)
-- Alice picks a private *a* and sends to Bob $A=g^a \mod p$
-- Bob picks a private *b* and sends to Alice $B=g^b \mod p$
-- Because $g^{ab} \mod p = g^{ba} \mod p$, both can compute the secret key
-  - Alice received $g^b \mod p$ and computes $(g^b \mod p)^a \mod p = g^{ab} \mod p$
-  - Similarly for Bob
-<span class="green">
-<span class="pink">
-</span>
-
-
-
-## DH key exchange example
-From [Wikipedia](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange#Cryptographic_explanation); <span style="color:skyblue">blue</span> are public, <span style="color:red">red</span> are secret
+<section id="key-exchange-1" class="slide level2">
+<h2>Key Exchange</h2>
+<ul>
+<li>If you want to communicate with another party, how do you create a private key?
+<ul>
+<li>One solution: Key stores, but only if you both have generated public/private key sets
+<ul>
+<li>Not always practical for all security protocols</li>
+</ul></li>
+</ul></li>
+<li>One solution: <a href="https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange">Diffie–Hellman key exchange</a>
+<ul>
+<li>This version uses discrete logs</li>
+<li>A variant called <a href="https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman">ECDH</a> uses elliptic curves</li>
+</ul></li>
+</ul>
+</section>
+<section id="dh-key-exchange" class="slide level2">
+<h2>DH key exchange</h2>
+<ul>
+<li>Alice and Bob agree on public values <em>g</em> (generator) and <em>p</em> (prime or modulus)</li>
+<li>Alice picks a private <em>a</em> and sends to Bob <span class="math inline">\(A=g^a \text{ mod } p\)</span></li>
+<li>Bob picks a private <em>b</em> and sends to Alice <span class="math inline">\(B=g^b \text{ mod } p\)</span></li>
+<li>Because <span class="math inline">\(g^{ab} \text{ mod } p = g^{ba} \text{ mod } p\)</span>, both can compute the secret key
+<ul>
+<li>Alice received <span class="math inline">\(g^b \text{ mod } p\)</span> and computes <span class="math inline">\((g^b \text{ mod } p)^a \text{ mod } p = g^{ab} \text{ mod } p\)</span></li>
+<li>Similarly for Bob <span class="green"> <span class="pink"> </span></span></li>
+</ul></li>
+</ul>
+</section>
+<section id="dh-key-exchange-example" class="slide level2">
+<h2>DH key exchange example</h2>
+From <a href="https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange#Cryptographic_explanation">Wikipedia</a>; <span style="color:skyblue">blue</span> are public, <span style="color:red">red</span> are secret
 <ol style="font-size:80%;line-height:110%;">
-<li>Alice and Bob agree to use a modulus <i><span style="color:skyblue">p</span></i> = <span style="color:skyblue">23</span> and base <span style="color:skyblue">g</span></i> = <span style="color:skyblue">5</span> (which is a primitive root modulo 23).</li>
-<li>Alice chooses a secret integer <i><b><span style="color:red">a</span></b></i> = 4, then sends Bob <i><span style="color:skyblue">A</span></i> = <i><span style="color:skyblue">g</span><sup><b><span style="color:red">a</span></b></sup></i> mod <i><span style="color:skyblue">p</span></i>
-<ul><li><i><span style="color:skyblue">A</span></i> = <span style="color:skyblue">5</span><sup><b><span style="color:red">4</span></b></sup> mod <span style="color:skyblue">23</span> = <span style="color:skyblue">4</span></li></ul></li>
-<li>Bob chooses a secret integer <i><b><span style="color:red">b</span></b></i> = 3, then sends Alice <i><span style="color:skyblue">B</span></i> = <i><span style="color:skyblue">g</span><sup><b><span style="color:red">b</span></b></sup></i> mod <i><span style="color:skyblue">p</span></i>
-<ul><li><i><span style="color:skyblue">B</span></i> = <span style="color:skyblue">5</span><sup><b><span style="color:red">3</span></b></sup> mod <span style="color:skyblue">23</span> = <span style="color:skyblue">10</span></li></ul></li>
-<li>Alice computes <i><b><span style="color:red">s</span></b></i> = <i><span style="color:skyblue">B</span><sup><b><span style="color:red">a</span></b></sup></i> mod <i><span style="color:skyblue">p</span></i>
-<ul><li><i><b><span style="color:red">s</span></b></i> = <span style="color:skyblue">10</span><sup><b><span style="color:red">4</span></b></sup> mod <span style="color:skyblue">23</span> = <span style="color:red">18</span></li></ul></li>
-<li>Bob computes <i><b><span style="color:red">s</span></b></i> = <i><span style="color:skyblue">A</span><sup><b><span style="color:red">b</span></b></sup></i> mod <i><span style="color:skyblue">p</span></i>
-<ul><li><i><b><span style="color:red">s</span></b></i> = <span style="color:skyblue">4</span><sup><b><span style="color:red">3</span></b></sup> mod <span style="color:skyblue">23</span> = <span style="color:red">18</span></li></ul></li>
-<li>Alice and Bob now share a secret (the number 18)</li>
+<li>
+Alice and Bob agree to use a modulus <i><span style="color:skyblue">p</span></i> = <span style="color:skyblue">23</span> and base <span style="color:skyblue">g</span> = <span style="color:skyblue">5</span> (which is a primitive root modulo 23).
+</li>
+<li>
+Alice chooses a secret integer <i><b><span style="color:red">a</span></b></i> = 4, then sends Bob <i><span style="color:skyblue">A</span></i> = <i><span style="color:skyblue">g</span><sup><b><span style="color:red">a</span></b></sup></i> mod <i><span style="color:skyblue">p</span></i>
+<ul>
+<li>
+<i><span style="color:skyblue">A</span></i> = <span style="color:skyblue">5</span><sup><b><span style="color:red">4</span></b></sup> mod <span style="color:skyblue">23</span> = <span style="color:skyblue">4</span>
+</li>
+</ul>
+</li>
+<li>
+Bob chooses a secret integer <i><b><span style="color:red">b</span></b></i> = 3, then sends Alice <i><span style="color:skyblue">B</span></i> = <i><span style="color:skyblue">g</span><sup><b><span style="color:red">b</span></b></sup></i> mod <i><span style="color:skyblue">p</span></i>
+<ul>
+<li>
+<i><span style="color:skyblue">B</span></i> = <span style="color:skyblue">5</span><sup><b><span style="color:red">3</span></b></sup> mod <span style="color:skyblue">23</span> = <span style="color:skyblue">10</span>
+</li>
+</ul>
+</li>
+<li>
+Alice computes <i><b><span style="color:red">s</span></b></i> = <i><span style="color:skyblue">B</span><sup><b><span style="color:red">a</span></b></sup></i> mod <i><span style="color:skyblue">p</span></i>
+<ul>
+<li>
+<i><b><span style="color:red">s</span></b></i> = <span style="color:skyblue">10</span><sup><b><span style="color:red">4</span></b></sup> mod <span style="color:skyblue">23</span> = <span style="color:red">18</span>
+</li>
+</ul>
+</li>
+<li>
+Bob computes <i><b><span style="color:red">s</span></b></i> = <i><span style="color:skyblue">A</span><sup><b><span style="color:red">b</span></b></sup></i> mod <i><span style="color:skyblue">p</span></i>
+<ul>
+<li>
+<i><b><span style="color:red">s</span></b></i> = <span style="color:skyblue">4</span><sup><b><span style="color:red">3</span></b></sup> mod <span style="color:skyblue">23</span> = <span style="color:red">18</span>
+</li>
+</ul>
+</li>
+<li>
+Alice and Bob now share a secret (the number 18)
+</li>
 </ol>
-
-
-
-<!-- .slide: class="right-float-img" -->
-[![DH key exchange as colors](images/web-security/Diffie-Hellman_Key_Exchange.svg)](https://commons.wikimedia.org/wiki/File:Diffie-Hellman_Key_Exchange.svg)
-## DH key<br>exchange<br>example<br>as colors
-
-
-
-## Colors in video (at 2:43)
-<iframe width="720" height="540" src="https://www.youtube.com/embed/YEBfamv-_do?t=163&rel=0" frameborder="0" allowfullscreen></iframe>
-
-If that doesn't work, try the [direct Youtube link](http://youtu.be/YEBfamv-_do?t=163), but start at 2:43
-
-
-
-<h2 class="r-fit-text">DH key exchange in practical use</h2>
-
-- Used in many cryptographic protocols
-  - Including ones we will see shortly
-- Uses *very* large numbers created with a very good pseudo-random number generator
-
-
-
-## MITM versus DH key exchange?
-- Possible if Eve actively controls the communication medium
-- If s/he is only a *passive* listener, then it is not possible
-- How to avoid an active compromiser:
-  - Post on a public forum
-  - Use communication methods s/he can't compromise, such as shortwave radio
-  </textarea>
 </section>
+<section class="slide level2">
 
+<div class="right-float-img">
+<p><a href="https://commons.wikimedia.org/wiki/File:Diffie-Hellman_Key_Exchange.svg"><img data-src="images/web-security/Diffie-Hellman_Key_Exchange.svg"></a></p>
+</div>
+<h2>
+DH key<br>exchange<br>example<br>as colors
+</h2>
 </section>
-	
+<section id="colors-in-video-at-243" class="slide level2">
+<h2>Colors in video (at 2:43)</h2>
+<iframe width="720" height="540" src="https://www.youtube.com/embed/YEBfamv-_do?t=163&amp;rel=0" frameborder="0" allowfullscreen="">
+</iframe>
+<p>If that doesn’t work, try the <a href="http://youtu.be/YEBfamv-_do?t=163">direct Youtube link</a>, but start at 2:43</p>
+</section>
+<section id="dh-key-exchange-in-practical-use" class="slide level2">
+<h2>DH key exchange in practical use</h2>
+<ul>
+<li>Used in many cryptographic protocols
+<ul>
+<li>Including ones we will see shortly</li>
+</ul></li>
+<li>Uses <em>very</em> large numbers created with a very good pseudo-random number generator</li>
+</ul>
+</section>
+<section id="mitm-versus-dh-key-exchange" class="slide level2">
+<h2>MITM versus DH key exchange?</h2>
+<ul>
+<li>Possible if Eve actively controls the communication medium</li>
+<li>If s/he is only a <em>passive</em> listener, then it is not possible</li>
+<li>How to avoid an active compromiser:
+<ul>
+<li>Post on a public forum</li>
+<li>Use communication methods s/he can’t compromise, such as shortwave radio</li>
+</ul></li>
+</ul>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
+</section></section>
 <section>
-
-<section data-markdown id="certificates" class="center">
-  <textarea data-template>
-# Certificates
-  </textarea>
-</section>
-    
-<section data-markdown data-separator="^\n\n\n">
-  <textarea data-template>
-## Definition
-- A certificate is:
-  - A public key
-  - Information about the key (algorithm used, version number, etc.)
-  - An identity (hostname, individual, etc.)
-  - Other meta-data (expiration date, etc.)
-  - A *signature* from a *certificate authority*
-- Most common format is [X.509](https://en.wikipedia.org/wiki/X.509)
-
-
-
-## Diagram of an X.509 cert
-![x.509 certificate](images/web-security/x.509-cert.svg)
-
-
-
-<!-- .slide: class="right-float-img-800" -->
-## Certificate usage
-![https certificate](images/web-security/ServerCertificate.png)
-- All websites that support https provide such a certificate to any client
-- Browsers can display certificate info, such as shown here
-
-
-
-## Certificate validity
-- All certificates are *signed* with the (private) key of a certificate authority (CA)
-  - Their public keys are well known, and are hard-coded into browsers
-  - Or determined by key exchange protocols discussed in this slide set
-- One can verify such a certificate by the (known) public key of the CA
-- One can "self sign" a certificate, but modern browsers typically won't allow viewing without manual exceptions
-
-
-
-## Certificate Chains
-[![certificate chain](images/web-security/Chain_of_trust.svg)](https://commons.wikimedia.org/wiki/File:Chain_of_trust.svg)
-An entity (such as virginia.edu) can hold an *intermediate* certificate, which allows it to sign for entities in its division (such as news.virginia.edu)
-
-
-
-## Certificate Authorities (CAs)
-- Any CA can "vouch" (i.e., sign) for *any* certificate
-  - For any website or any (likely new) CA
-- Thus, the security is based on the weakest CA
-- What happens if a CA is compromised or goes rogue?
-
-
-
-## CA Revocation
-- This has happened!  In February 2018.
-  - [Google to kill Symantec certs in Chrome 66, due in early 2018](https://www.theregister.co.uk/2017/09/12/chrome_66_to_reject_symantec_certs/)
-  - Firefox also: [Distrust of Symantec TLS Certificates](https://blog.mozilla.org/security/2018/03/12/distrust-symantec-tls-certificates/)
-- The reason: a site called [Trustico](https://www.trustico.com/) resold Symantec-signed certificates
-  - The 23,000 certificates Trustico sold were "compromised"
-    - They still had the private keys (a big no-no)
-  - They were sold under the umbrella of Symantec, so Symantec was party at fault as well
-  </textarea>
-</section>
+<section id="certificates" class="title-slide slide level1 center">
+<h1>Certificates</h1>
 
 </section>
-	
+<section id="definition" class="slide level2">
+<h2>Definition</h2>
+<ul>
+<li>A certificate is:
+<ul>
+<li>A public key</li>
+<li>Information about the key (algorithm used, version number, etc.)</li>
+<li>An identity (hostname, individual, etc.)</li>
+<li>Other meta-data (expiration date, etc.)</li>
+<li>A <em>signature</em> from a <em>certificate authority</em></li>
+</ul></li>
+<li>Most common format is <a href="https://en.wikipedia.org/wiki/X.509">X.509</a></li>
+</ul>
+</section>
+<section id="diagram-of-an-x.509-cert" class="slide level2">
+<h2>Diagram of an X.509 cert</h2>
+
+<img data-src="images/web-security/x.509-cert.svg" class="r-stretch"></section>
+<section id="certificate-usage" class="slide level2">
+<h2>Certificate usage</h2>
+<div class="right-float-img img-size-800">
+<p><img data-src="images/web-security/ServerCertificate.png"></p>
+</div>
+<ul>
+<li>All websites that support https provide such a certificate to any client</li>
+<li>Browsers can display certificate info, such as shown here</li>
+</ul>
+</section>
+<section id="certificate-validity" class="slide level2">
+<h2>Certificate validity</h2>
+<ul>
+<li>All certificates are <em>signed</em> with the (private) key of a certificate authority (CA)
+<ul>
+<li>Their public keys are well known, and are hard-coded into browsers</li>
+<li>Or determined by key exchange protocols discussed in this slide set</li>
+</ul></li>
+<li>One can verify such a certificate by the (known) public key of the CA</li>
+<li>One can “self sign” a certificate, but modern browsers typically won’t allow viewing without manual exceptions</li>
+</ul>
+</section>
+<section id="certificate-chains" class="slide level2">
+<h2>Certificate Chains</h2>
+<p><a href="https://commons.wikimedia.org/wiki/File:Chain_of_trust.svg"><img data-src="images/web-security/Chain_of_trust.svg" alt="certificate chain"></a> An entity (such as virginia.edu) can hold an <em>intermediate</em> certificate, which allows it to sign for entities in its division (such as news.virginia.edu)</p>
+</section>
+<section id="certificate-authorities-cas" class="slide level2">
+<h2>Certificate Authorities (CAs)</h2>
+<ul>
+<li>Any CA can “vouch” (i.e., sign) for <em>any</em> certificate
+<ul>
+<li>For any website or any (likely new) CA</li>
+</ul></li>
+<li>Thus, the security is based on the weakest CA</li>
+<li>What happens if a CA is compromised or goes rogue?</li>
+</ul>
+</section>
+<section id="ca-revocation" class="slide level2">
+<h2>CA Revocation</h2>
+<ul>
+<li>This has happened! In February 2018.
+<ul>
+<li><a href="https://www.theregister.co.uk/2017/09/12/chrome_66_to_reject_symantec_certs/">Google to kill Symantec certs in Chrome 66, due in early 2018</a></li>
+<li>Firefox also: <a href="https://blog.mozilla.org/security/2018/03/12/distrust-symantec-tls-certificates/">Distrust of Symantec TLS Certificates</a></li>
+</ul></li>
+<li>The reason: a site called <a href="https://www.trustico.com/">Trustico</a> resold Symantec-signed certificates
+<ul>
+<li>The 23,000 certificates Trustico sold were “compromised”
+<ul>
+<li>They still had the private keys (a big no-no)</li>
+</ul></li>
+<li>They were sold under the umbrella of Symantec, so Symantec was party at fault as well</li>
+</ul></li>
+</ul>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
+</section></section>
 <section>
-
-<section data-markdown id="ssltls" class="center">
-  <textarea data-template>
-# SSL & TLS
-  </textarea>
-</section>
-    
-<section data-markdown data-separator="^\n\n\n">
-  <textarea data-template>
-## SSL & TLS
-- They are cryptographic protocols used to encrypt network communication
-- SSL: Secure Sockets Layer
-  - v1.0 never released due to flaws
-  - v2.0 released in 1995; broken and not used
-  - v3.0 released in 1996; broken and not used
-- TLS: Transport Layer Security, the successor to SSL
-  - v1.0 released Jan 1999; currently deprecated
-  - v1.1 released Apr 2006; currently deprecated
-  - v1.2 released Aug 2008; in widespread use
-  - v1.3 released Aug 2018; currently being adopted
-
-
-
-## TLS Usage
-- TLS can be implemented on top of just about any protocol
-- Most common use: when implemented on top of HTTP, that yields HTTPS
-- Also used for encrypting mail (SMTP)
-- A programmer can use it for any other purpose
-
-
-
-## Forward Secrecy (FS)
-- Also known as perfect forward secrecy (PFS)
-- The concept that a compromise of keys...
-  - ... including the server's private keys...
-- Will *not* allow decryption of past sessions
-- Solution: generate a unique *session key* for each encrypted connection
-  - And discard once done
-- That session key can be communicated via public key cryptography
-
-
-
-<h2 class="r-fit-text">Public vs. Symmetric Cryptography</h2>
-
-- Public key cryptosystems (such as RSA) are:
-  - Very secure: one message will take all the computers in the world longer than the life of the universe to crack
-  - Very slow: not feasible for real-time data transmission (downloading a large file, streaming, etc.)
-- They are typically used for key exchange, and then symmetric key cryptography is used for the rest of the communication
-
-
-
-## TLS 1.2 Handshake, part 1
-- Client opens a network connection to server
-- Client sends *hello*, including a random number $R_c$ and supported ciphers
-- Server responds with *hello*, including a random number $R_s$, selection of which client-supported cipher to use, its certificate, and requests client certificate
-- Client checks server certificate, and sends its own cert, and a signature of all previous messages sent
-  - Signed with the client certificate's private key
-- Server checks client certificate and signature
-
-
-
-## TLS 1.2 Handshake, part 2
-- Client generates $PMS$ (Pre-Master Secret) -- a session key -- and sends it to server, encrypted with server's public key
-- Both sides compute $MS$ (Master Secret) from $PMS$, $R_s$, and $R_c$
-- Client send a message to switch over to using the $MS$ for symmetric encryption
-  - Server confirms switching over to using the $MS$ for encryption
-- Both sides terminate the SSL handshake, and use $MS$ as the symmetric encryption key
-  </textarea>
-</section>
-
-<section><img alt="tls 1.2 protocol" src="images/web-security/SSL_handshake_with_two_way_authentication_with_certificates.svg" class="stretch"><br><a href="https://commons.wikimedia.org/wiki/File:SSL_handshake_with_two_way_authentication_with_certificates.svg">source</a>, <a href='https://upload.wikimedia.org/wikipedia/commons/a/ae/SSL_handshake_with_two_way_authentication_with_certificates.svg'>bigger</a></section>
-
-<section data-markdown data-separator="^\n\n\n">
-  <textarea data-template>
-## Is TLS 1.2 forward-secret?
-
-
-
-## Is TLS 1.2 forward-secret?
-- No, it is not (generally)
-- Depending on the ciphers used, if the keys are later made available, then it is *NOT* forward-secret
-- Let's review the [TLS 1.2 protocol](https://upload.wikimedia.org/wikipedia/commons/a/ae/SSL_handshake_with_two_way_authentication_with_certificates.svg)
-- What would make it forward-secret?
-  - Adding in Diffe-Hellman Key Exchange (DHE)
-  - *Some* allowed TLS 1.2 protocols have DHE, but not all
-    - And it's not required
-
-
-
-## TLS 1.3
-- Main improvement:
-  - Only allow public enryption protocols that are forward-secret (meaning: they use DHE)
-- Other imrpovements:
-  - Send more of the information as a single message, so there is less back-and-forth to the handshake
-  - Can initiate the connection in 4 messages rather than 6
-
-
-
-## TLS Ciphers Supported
-- In version 1.3, for key exchange, only forward-secret public key systems are supported
-  - Mostly RSA variants with a secure DH key exchange
-  - Version 1.2 allows many other algorithms
-- Once the channel is configured, multiple algorithms are supported, the most common being AES
-
-
-
-## [TLS key exchange protocols](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
-
-<img alt="TLS key exchange protocols" src="images/web-security/tls-protocols-1.webp" class="stretch">
-
-
-
-## [TLS session protocols](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
-
-<img alt="TLS session protocols" src="images/web-security/tls-protocols-2.png" class="stretch">
-</textarea>
-</section>
-
-<section>
-  <h2>Initialization Vectors (IVs)</h2>
-  <p>Each successive encrypted block depends on the previous one, so that two encrypted blocks that are the same plaintext will have different ciphertext</p>
-<img class="stretch" alt="IVs" src="images/web-security/IVs.svg"></p>
-</section>
-
-
-<section data-markdown data-separator="^\n\n\n">
-  <textarea data-template>
-<h2 class="r-fit-text">Message authentication code (MAC)</h2>
-
-- It's "a short piece of information used to authenticate a message" ([Wikipedia](https://en.wikipedia.org/wiki/Message_authentication_code))
-- Like a digital signature, but:
-  - uses a shared *secret* key, so it is faster
-- Like a hash, but:
-  - provides authentication, not just a message digest
-  - includes the secret key, so two different connections' MAC of the same text will be different due to different secret keys
-
-
-
-## A possible MAC
-- Given a message $m$ and a secret key $k$:
-  - Create a new value $x = m \cdot k$
-	- That's string concatenation
-  - Hash that message: $h = hash(x)$
-	- Use a good hash function!
-  - Encrypt that hash with $k$: $mac = encrypt(h,k)$
-    - Likely AES (or similar) with the shared secret key
-- In one line: $mac = encrypt(hash(m \cdot k),k)$
-
-
-
-## MAC properties
-- Does not encrypt the message!
-  - If the connection is not encrypted, then the message is eavesdroppable
-- Cannot be forged without the secret key
-  - Any eavesdropper must know the secret key in order to create a valid MAC
-- It is "unforgeable under chosen-message attacks"
-  - Even if Eve can get Bob to send chosen text attacks, she needs the (unknown to her) secret key to generate a valid MAC
-- Provides authentication (since only the other party has the secret key)
-
-
-
-## HMAC
-- A MAC is a general term for a message authentication code
-- A HMAC uses a hash as its algorithm
-- Not all MACs use hashes
-  - A CMAC uses a cipher (AES, DES, etc.) to create the code
-    - Likely truncating it to the first $x$ bits
-- The example algorithm a few slides back was an HMAC
-- Named by their hash algorithm:
-  - HMAC-MD5, HMAC-SHA1, etc.
-
-
-
-<table class="transparent"><tr><td style="vertical-align:middle"><h2>HMAC<br>with<br>SHA1</h2></td><td><a href="https://commons.wikimedia.org/wiki/File:SHAhmac.svg"><img alt="hmac-sha1" src="images/web-security/SHAhmac.svg"></a></td></tr></table>
-
-*i_pad* and *o_pad* have known and non-secret values
-
-
-
-## Authenticated Encryption with Associated Data (AEAD)
-- MACs do not *encrypt* the data, and we want to do so
-- If we combine encryption and a MAC, we get an AEAD
-  - Assuming a few properties about the quality of the encryption and MAC function
-
-
-
-## [TLS MAC protocols](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
-![TLS MAC protocols](images/web-security/tls-protocols-3.png)
-Note that even if the MAC doesn't support encryption (in the first 3 rows), the cipher (likely AES) still does
-</textarea>
-</section>
+<section id="ssl-tls" class="title-slide slide level1 center">
+<h1>SSL &amp; TLS</h1>
 
 </section>
-	
+<section id="ssl-tls-1" class="slide level2">
+<h2>SSL &amp; TLS</h2>
+<ul>
+<li>They are cryptographic protocols used to encrypt network communication</li>
+<li>SSL: Secure Sockets Layer
+<ul>
+<li>v1.0 never released due to flaws</li>
+<li>v2.0 released in 1995; broken and not used</li>
+<li>v3.0 released in 1996; broken and not used</li>
+</ul></li>
+<li>TLS: Transport Layer Security, the successor to SSL
+<ul>
+<li>v1.0 released Jan 1999; currently deprecated</li>
+<li>v1.1 released Apr 2006; currently deprecated</li>
+<li>v1.2 released Aug 2008; in widespread use</li>
+<li>v1.3 released Aug 2018; currently being adopted</li>
+</ul></li>
+</ul>
+</section>
+<section id="tls-usage" class="slide level2">
+<h2>TLS Usage</h2>
+<ul>
+<li>TLS can be implemented on top of just about any protocol</li>
+<li>Most common use: when implemented on top of HTTP, that yields HTTPS</li>
+<li>Also used for encrypting mail (SMTP)</li>
+<li>A programmer can use it for any other purpose</li>
+</ul>
+</section>
+<section id="forward-secrecy-fs" class="slide level2">
+<h2>Forward Secrecy (FS)</h2>
+<ul>
+<li>Also known as perfect forward secrecy (PFS)</li>
+<li>The concept that a compromise of keys…
+<ul>
+<li>… including the server’s private keys…</li>
+</ul></li>
+<li>Will <em>not</em> allow decryption of past sessions</li>
+<li>Solution: generate a unique <em>session key</em> for each encrypted connection
+<ul>
+<li>And discard once done</li>
+</ul></li>
+<li>That session key can be communicated via public key cryptography</li>
+</ul>
+</section>
+<section id="public-vs.-symmetric-cryptography" class="slide level2">
+<h2>Public vs.&nbsp;Symmetric Cryptography</h2>
+<ul>
+<li>Public key cryptosystems (such as RSA) are:
+<ul>
+<li>Very secure: one message will take all the computers in the world longer than the life of the universe to crack</li>
+<li>Very slow: not feasible for real-time data transmission (downloading a large file, streaming, etc.)</li>
+</ul></li>
+<li>They are typically used for key exchange, and then symmetric key cryptography is used for the rest of the communication</li>
+</ul>
+</section>
+<section id="tls-1.2-handshake-part-1" class="slide level2">
+<h2>TLS 1.2 Handshake, part 1</h2>
+<ul>
+<li>Client opens a network connection to server</li>
+<li>Client sends <em>hello</em>, including a random number <span class="math inline">\(R_c\)</span> and supported ciphers</li>
+<li>Server responds with <em>hello</em>, including a random number <span class="math inline">\(R_s\)</span>, selection of which client-supported cipher to use, its certificate, and requests client certificate</li>
+<li>Client checks server certificate, and sends its own cert, and a signature of all previous messages sent
+<ul>
+<li>Signed with the client certificate’s private key</li>
+</ul></li>
+<li>Server checks client certificate and signature</li>
+</ul>
+</section>
+<section id="tls-1.2-handshake-part-2" class="slide level2">
+<h2>TLS 1.2 Handshake, part 2</h2>
+<ul>
+<li>Client generates <span class="math inline">\(PMS\)</span> (Pre-Master Secret) – a session key – and sends it to server, encrypted with server’s public key</li>
+<li>Both sides compute <span class="math inline">\(MS\)</span> (Master Secret) from <span class="math inline">\(PMS\)</span>, <span class="math inline">\(R_s\)</span>, and <span class="math inline">\(R_c\)</span></li>
+<li>Client send a message to switch over to using the <span class="math inline">\(MS\)</span> for symmetric encryption
+<ul>
+<li>Server confirms switching over to using the <span class="math inline">\(MS\)</span> for encryption</li>
+</ul></li>
+<li>Both sides terminate the SSL handshake, and use <span class="math inline">\(MS\)</span> as the symmetric encryption key</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="">
+<p><a href="https://upload.wikimedia.org/wikipedia/commons/a/ae/SSL_handshake_with_two_way_authentication_with_certificates.svg"><img data-src="images/web-security/SSL_handshake_with_two_way_authentication_with_certificates.svg"></a></p>
+</div>
+</section>
+<section id="is-tls-1.2-forward-secret" class="slide level2">
+<h2>Is TLS 1.2 forward-secret?</h2>
+</section>
+<section id="is-tls-1.2-forward-secret-1" class="slide level2">
+<h2>Is TLS 1.2 forward-secret?</h2>
+<ul>
+<li>No, it is not (generally)</li>
+<li>Depending on the ciphers used, if the keys are later made available, then it is <em>NOT</em> forward-secret</li>
+<li>Let’s review the <a href="https://upload.wikimedia.org/wikipedia/commons/a/ae/SSL_handshake_with_two_way_authentication_with_certificates.svg">TLS 1.2 protocol</a></li>
+<li>What would make it forward-secret?
+<ul>
+<li>Adding in Diffe-Hellman Key Exchange (DHE)</li>
+<li><em>Some</em> allowed TLS 1.2 protocols have DHE, but not all
+<ul>
+<li>And it’s not required</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="tls-1.3" class="slide level2">
+<h2>TLS 1.3</h2>
+<ul>
+<li>Main improvement:
+<ul>
+<li>Only allow public enryption protocols that are forward-secret (meaning: they use DHE)</li>
+</ul></li>
+<li>Other imrpovements:
+<ul>
+<li>Send more of the information as a single message, so there is less back-and-forth to the handshake</li>
+<li>Can initiate the connection in 4 messages rather than 6</li>
+</ul></li>
+</ul>
+</section>
+<section id="tls-ciphers-supported" class="slide level2">
+<h2>TLS Ciphers Supported</h2>
+<ul>
+<li>In version 1.3, for key exchange, only forward-secret public key systems are supported
+<ul>
+<li>Mostly RSA variants with a secure DH key exchange</li>
+<li>Version 1.2 allows many other algorithms</li>
+</ul></li>
+<li>Once the channel is configured, multiple algorithms are supported, the most common being AES</li>
+</ul>
+</section>
+<section id="tls-key-exchange-protocols" class="slide level2">
+<h2><a href="https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement">TLS key exchange protocols</a></h2>
+
+<img data-src="images/web-security/tls-protocols-1.webp" class="r-stretch"><p>Updated version <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement">here</a></p>
+</section>
+<section id="tls-session-protocols" class="slide level2">
+<h2><a href="https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement">TLS session protocols</a></h2>
+
+<img data-src="images/web-security/tls-protocols-2.png" class="r-stretch"><p>Updated version <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement">here</a></p>
+</section>
+<section id="initialization-vectors-ivs" class="slide level2">
+<h2>Initialization Vectors (IVs)</h2>
+<p>Each successive encrypted block depends on the previous one, so that two encrypted blocks that are the same plaintext will have different ciphertext</p>
+<div style="zoom:200%">
+<p><img data-src="images/web-security/IVs.svg"></p>
+</div>
+</section>
+<section id="message-authentication-code-mac" class="slide level2">
+<h2>Message authentication code (MAC)</h2>
+<ul>
+<li>It’s “a short piece of information used to authenticate a message” (<a href="https://en.wikipedia.org/wiki/Message_authentication_code">Wikipedia</a>)</li>
+<li>Like a digital signature, but:
+<ul>
+<li>uses a shared <em>secret</em> key, so it is faster</li>
+</ul></li>
+<li>Like a hash, but:
+<ul>
+<li>provides authentication, not just a message digest</li>
+<li>includes the secret key, so two different connections’ MAC of the same text will be different due to different secret keys</li>
+</ul></li>
+</ul>
+</section>
+<section id="a-possible-mac" class="slide level2">
+<h2>A possible MAC</h2>
+<ul>
+<li>Given a message <span class="math inline">\(m\)</span> and a secret key <span class="math inline">\(k\)</span>:
+<ul>
+<li>Create a new value <span class="math inline">\(x = m \cdot k\)</span>
+<ul>
+<li>That’s string concatenation</li>
+</ul></li>
+<li>Hash that message: <span class="math inline">\(h = hash(x)\)</span>
+<ul>
+<li>Use a good hash function!</li>
+</ul></li>
+<li>Encrypt that hash with <span class="math inline">\(k\)</span>: <span class="math inline">\(mac = encrypt(h,k)\)</span>
+<ul>
+<li>Likely AES (or similar) with the shared secret key</li>
+</ul></li>
+</ul></li>
+<li>In one line: <span class="math inline">\(mac = encrypt(hash(m \cdot k),k)\)</span></li>
+</ul>
+</section>
+<section id="mac-properties" class="slide level2">
+<h2>MAC properties</h2>
+<ul>
+<li>Does not encrypt the message!
+<ul>
+<li>If the connection is not encrypted, then the message is eavesdroppable</li>
+</ul></li>
+<li>Cannot be forged without the secret key
+<ul>
+<li>Any eavesdropper must know the secret key in order to create a valid MAC</li>
+</ul></li>
+<li>It is “unforgeable under chosen-message attacks”
+<ul>
+<li>Even if Eve can get Bob to send chosen text attacks, she needs the (unknown to her) secret key to generate a valid MAC</li>
+</ul></li>
+<li>Provides authentication (since only the other party has the secret key)</li>
+</ul>
+</section>
+<section id="hmac" class="slide level2">
+<h2>HMAC</h2>
+<ul>
+<li>A MAC is a general term for a message authentication code</li>
+<li>A HMAC uses a hash as its algorithm</li>
+<li>Not all MACs use hashes
+<ul>
+<li>A CMAC uses a cipher (AES, DES, etc.) to create the code
+<ul>
+<li>Likely truncating it to the first <span class="math inline">\(x\)</span> bits</li>
+</ul></li>
+</ul></li>
+<li>The example algorithm a few slides back was an HMAC</li>
+<li>Named by their hash algorithm:
+<ul>
+<li>HMAC-MD5, HMAC-SHA1, etc.</li>
+</ul></li>
+</ul>
+</section>
+<section id="hmac-with-sha1" class="slide level2">
+<h2>HMAC with SHA1</h2>
+<div class="img-size-900">
+<p><a href="https://commons.wikimedia.org/wiki/File:SHAhmac.svg"><img data-src="images/web-security/SHAhmac.svg"></a></p>
+</div>
+<p><em>i_pad</em> and <em>o_pad</em> have known and non-secret values</p>
+</section>
+<section id="authenticated-encryption-with-associated-data-aead" class="slide level2">
+<h2>Authenticated Encryption with Associated Data (AEAD)</h2>
+<ul>
+<li>MACs do not <em>encrypt</em> the data, and we want to do so</li>
+<li>If we combine encryption and a MAC, we get an AEAD
+<ul>
+<li>Assuming a few properties about the quality of the encryption and MAC function</li>
+</ul></li>
+</ul>
+</section>
+<section id="tls-mac-protocols" class="slide level2">
+<h2><a href="https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement">TLS MAC protocols</a></h2>
+<p><img data-src="images/web-security/tls-protocols-3.png" alt="TLS MAC protocols"> Note that even if the MAC doesn’t support encryption (in the first 3 rows), the cipher (likely AES) still does</p>
+<p>Updated version <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement">here</a></p>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
+</section></section>
 <section>
+<section id="attacking-https" class="title-slide slide level1 center">
+<h1>Attacking HTTPS</h1>
 
-<section data-markdown id="attacks" class="center">
-  <textarea data-template>
-# Attacking HTTPS
-  </textarea>
 </section>
-    
-<section data-markdown data-separator="^\n\n\n">
-  <textarea data-template>
-## Attacks on HTTPS
-- Most are attacks on TLS in some form
-- Like the attacks on RSA, they tend to focus on attacking the *protocol*, and not cracking the encryption
-  - Although there are some exceptions...
-
-
-
-## Heartbleed (2012)
-<!-- .slide: class="right-float-img-800" -->
-![heartbleed icon](images/web-security/Heartbleed.svg)
-- A problem in *one* implementation of the TLS protocol
-  - Specifically the OpenSSL library implementation
-- Affected about one sixth of all websites
-
-
-
-## Heartbleed
-- [RFC 6520](https://tools.ietf.org/html/rfc6520) allows a client to send a *Heartbeat Request* message -- like a ping -- to the server
-  - It consists of a string and its size (as a 16-bit int)
-- The server sends that message back
-- In OpenSSL, the library did not check the size of the message
-  - So if you sent "bird" and 65,536, it would send 64Kb of data back
-    - Which would be a 64Kb dump of the server's memory
-
-
-</textarea>
+<section id="attacks-on-https" class="slide level2">
+<h2>Attacks on HTTPS</h2>
+<ul>
+<li>Most are attacks on TLS in some form</li>
+<li>Like the attacks on RSA, they tend to focus on attacking the <em>protocol</em>, and not cracking the encryption
+<ul>
+<li>Although there are some exceptions…</li>
+</ul></li>
+</ul>
 </section>
-
-<section>
+<section id="heartbleed-2012" class="slide level2">
+<h2>Heartbleed (2012)</h2>
+<div class="right-float-img img-size-800">
+<p><img data-src="images/web-security/Heartbleed.svg"></p>
+</div>
+<ul>
+<li>A problem in <em>one</em> implementation of the TLS protocol
+<ul>
+<li>Specifically the OpenSSL library implementation</li>
+</ul></li>
+<li>Affected about one sixth of all websites</li>
+</ul>
+</section>
+<section id="heartbleed" class="slide level2">
+<h2>Heartbleed</h2>
+<ul>
+<li><a href="https://tools.ietf.org/html/rfc6520">RFC 6520</a> allows a client to send a <em>Heartbeat Request</em> message – like a ping – to the server
+<ul>
+<li>It consists of a string and its size (as a 16-bit int)</li>
+</ul></li>
+<li>The server sends that message back</li>
+<li>In OpenSSL, the library did not check the size of the message
+<ul>
+<li>So if you sent “bird” and 65,536, it would send 64Kb of data back
+<ul>
+<li>Which would be a 64Kb dump of the server’s memory</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="xkcd-on-heartbleed-1354" class="slide level2">
 <h2>xkcd on Heartbleed (<a href="https://xkcd.com/1354/"># 1354</a>)</h2>
-<img class="stretch" alt="xkcd heartbleed" src="images/web-security/heartbleed_explanation_2x-a.png">
-</section>
 
-<section>
+<img data-src="images/web-security/heartbleed_explanation_2x-a.png" class="r-stretch"></section>
+<section id="xkcd-on-heartbleed-1354-1" class="slide level2">
 <h2>xkcd on Heartbleed (<a href="https://xkcd.com/1354/"># 1354</a>)</h2>
-<img class="stretch" alt="xkcd heartbleed" src="images/web-security/heartbleed_explanation_2x-b.png">
-</section>
 
-<section>
+<img data-src="images/web-security/heartbleed_explanation_2x-b.png" class="r-stretch"></section>
+<section id="xkcd-on-heartbleed-1354-2" class="slide level2">
 <h2>xkcd on Heartbleed (<a href="https://xkcd.com/1354/"># 1354</a>)</h2>
-<img class="stretch" alt="xkcd heartbleed" src="images/web-security/heartbleed_explanation_2x-c.png">
+
+<img data-src="images/web-security/heartbleed_explanation_2x-c.png" class="r-stretch"></section>
+<section id="mining-your-ps-and-qs-2012" class="slide level2">
+<h2>Mining Your Ps and Qs (2012)</h2>
+<ul>
+<li>In 2012 it was found that 5% of TLS servers and 9% of SSH servers shared common key material
+<ul>
+<li>Also, one could compute keys for about 0.5% of TLS hosts (64,000) an 1% of SSH hosts (108,000)</li>
+<li>Most were headless or embedded devices</li>
+</ul></li>
+<li>Reference: <a href="https://factorable.net/weakkeys12.extended.pdf">Mining Your Ps and Qs: Detection of Widespread Weak Keys in Network Devices</a>, USENIX ’12</li>
+<li>But why?</li>
+</ul>
 </section>
-
-
-<section data-markdown data-separator="^\n\n\n">
-  <textarea data-template>
-## Mining Your Ps and Qs (2012)
-- In 2012 it was found that 5% of TLS servers and 9% of SSH servers shared common key material
-  - Also, one could compute keys for about 0.5% of TLS hosts (64,000) an 1% of SSH hosts (108,000)
-  - Most were headless or embedded devices
-- Reference: [Mining Your Ps and Qs: Detection of Widespread Weak Keys in Network Devices](https://factorable.net/weakkeys12.extended.pdf), USENIX '12
-- But why?
-
-
-
-## Mining Your Ps and Qs
-- These devices generated their TLS and/or SSH keys at boot-up
-  - Either the first time they were powered on or each time they powered up
-- Recall that for RSA, $n = p*q$
-- The pseudo-random number generator (PRG) on Linux is of very low quality at boot-up
-  - It takes about a minute after boot-up to create good quality keys
-</textarea>
+<section id="mining-your-ps-and-qs" class="slide level2">
+<h2>Mining Your Ps and Qs</h2>
+<ul>
+<li>These devices generated their TLS and/or SSH keys at boot-up
+<ul>
+<li>Either the first time they were powered on or each time they powered up</li>
+</ul></li>
+<li>Recall that for RSA, <span class="math inline">\(n = p*q\)</span></li>
+<li>The pseudo-random number generator (PRG) on Linux is of very low quality at boot-up
+<ul>
+<li>It takes about a minute after boot-up to create good quality keys</li>
+</ul></li>
+</ul>
 </section>
+<section id="boot-up-time-versus-prg-quality" class="slide level2">
+<h2>Boot-up time versus PRG quality</h2>
 
-<section>
-<h2 class="r-fit-text">Boot-up time versus PRG quality</h2>
-<img class="stretch" src="images/web-security/weakkeys12.extended.svg">
-<p>Source: <a href="https://factorable.net/weakkeys12.extended.pdf">Mining Your Ps and Qs: Detection of Widespread Weak Keys in Network Devices</a></p>
+<img data-src="images/web-security/weakkeys12.extended.svg" class="r-stretch"><p>Source: <a href="https://factorable.net/weakkeys12.extended.pdf">Mining Your Ps and Qs: Detection of Widespread Weak Keys in Network Devices</a></p>
 </section>
-
-
-<section data-markdown data-separator="^\n\n\n">
-  <textarea data-template>
-## Apple Goto Fail (Feb 2014)
-- A stray `goto` statement kept the Apple libraries from properly checking certificates for almost a year
-
-<pre class="codesmall"><code>hashOut.data = hashes + SSL_MD5_DIGEST_LEN;
-hashOut.length = SSL_SHA1_DIGEST_LEN;
-if ((err = SSLFreeBuffer(&hashCtx)) != 0)
-    goto fail;
-if ((err = ReadyHash(&SSLHashSHA1, &hashCtx)) != 0)
-    goto fail;
-if ((err = SSLHashSHA1.update(&hashCtx, &clientRandom)) != 0)
-    goto fail;
-if ((err = SSLHashSHA1.update(&hashCtx, &serverRandom)) != 0)
-    goto fail;
-if ((err = SSLHashSHA1.update(&hashCtx, &signedParams)) != 0)
-    goto fail;
-    goto fail;  /* MISTAKE! THIS LINE SHOULD NOT BE HERE */
-if ((err = SSLHashSHA1.final(&hashCtx, &hashOut)) != 0)
-    goto fail;
-
-err = sslRawVerify(...)
-</code></pre>
-
-
-
-## Null Prefix Attack (2009)
-- String types
-  - C strings end in a NUL byte ('\0')
-  - Pascal style strings have the length at the beginning
-    - NUL characters are valid in these strings
-- X.509 certificates use Pascal-style strings
-- Consider obtaining a certificate for:
-```
-gmail.com\0.mydomain.com
-```
-- The CA sees some sub-domain off of mydomain.com
-- Browsers see a certificate for gmail.com
-
-
-
-## More attacks
-- Wikipedia [lists a dozen or so](https://en.wikipedia.org/wiki/Transport_Layer_Security#Attacks_against_TLS/SSL)
-
-
-</textarea>
+<section id="apple-goto-fail-feb-2014" class="slide level2">
+<h2>Apple Goto Fail (Feb 2014)</h2>
+<ul>
+<li>A stray <code>goto</code> statement kept the Apple libraries from properly checking certificates for almost a year</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href=""></a>hashOut<span class="op">.</span>data <span class="op">=</span> hashes <span class="op">+</span> SSL_MD5_DIGEST_LEN<span class="op">;</span></span>
+<span id="cb1-2"><a href=""></a>hashOut<span class="op">.</span>length <span class="op">=</span> SSL_SHA1_DIGEST_LEN<span class="op">;</span></span>
+<span id="cb1-3"><a href=""></a><span class="cf">if</span> <span class="op">((</span>err <span class="op">=</span> SSLFreeBuffer<span class="op">(&amp;</span>hashCtx<span class="op">))</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="cf">goto</span> fail<span class="op">;</span></span>
+<span id="cb1-5"><a href=""></a><span class="cf">if</span> <span class="op">((</span>err <span class="op">=</span> ReadyHash<span class="op">(&amp;</span>SSLHashSHA1<span class="op">,</span> <span class="op">&amp;</span>hashCtx<span class="op">))</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb1-6"><a href=""></a>    <span class="cf">goto</span> fail<span class="op">;</span></span>
+<span id="cb1-7"><a href=""></a><span class="cf">if</span> <span class="op">((</span>err <span class="op">=</span> SSLHashSHA1<span class="op">.</span>update<span class="op">(&amp;</span>hashCtx<span class="op">,</span> <span class="op">&amp;</span>clientRandom<span class="op">))</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb1-8"><a href=""></a>    <span class="cf">goto</span> fail<span class="op">;</span></span>
+<span id="cb1-9"><a href=""></a><span class="cf">if</span> <span class="op">((</span>err <span class="op">=</span> SSLHashSHA1<span class="op">.</span>update<span class="op">(&amp;</span>hashCtx<span class="op">,</span> <span class="op">&amp;</span>serverRandom<span class="op">))</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb1-10"><a href=""></a>    <span class="cf">goto</span> fail<span class="op">;</span></span>
+<span id="cb1-11"><a href=""></a><span class="cf">if</span> <span class="op">((</span>err <span class="op">=</span> SSLHashSHA1<span class="op">.</span>update<span class="op">(&amp;</span>hashCtx<span class="op">,</span> <span class="op">&amp;</span>signedParams<span class="op">))</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb1-12"><a href=""></a>    <span class="cf">goto</span> fail<span class="op">;</span></span>
+<span id="cb1-13"><a href=""></a>    <span class="cf">goto</span> fail<span class="op">;</span>  <span class="co">/* MISTAKE! THIS LINE SHOULD NOT BE HERE */</span></span>
+<span id="cb1-14"><a href=""></a><span class="cf">if</span> <span class="op">((</span>err <span class="op">=</span> SSLHashSHA1<span class="op">.</span>final<span class="op">(&amp;</span>hashCtx<span class="op">,</span> <span class="op">&amp;</span>hashOut<span class="op">))</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb1-15"><a href=""></a>    <span class="cf">goto</span> fail<span class="op">;</span></span>
+<span id="cb1-16"><a href=""></a></span>
+<span id="cb1-17"><a href=""></a>err <span class="op">=</span> sslRawVerify<span class="op">(...)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-
+<section id="null-prefix-attack-2009" class="slide level2">
+<h2>Null Prefix Attack (2009)</h2>
+<ul>
+<li>String types
+<ul>
+<li>C strings end in a NUL byte (‘\0’)</li>
+<li>Pascal style strings have the length at the beginning
+<ul>
+<li>NUL characters are valid in these strings</li>
+</ul></li>
+</ul></li>
+<li>X.509 certificates use Pascal-style strings</li>
+<li>Consider obtaining a certificate for:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href=""></a>gmail<span class="op">.</span>com\<span class="fl">0.</span><span class="er">mydomain.com</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>The CA sees some sub-domain off of mydomain.com</li>
+<li>Browsers see a certificate for gmail.com</li>
+</ul>
 </section>
-	
+<section id="more-attacks" class="slide level2">
+<h2>More attacks</h2>
+<ul>
+<li>Wikipedia <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security#Attacks_against_TLS/SSL">lists a dozen or so</a></li>
+</ul>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
+</section></section>
 <section>
+<section id="privacy" class="title-slide slide level1 center">
+<h1>Privacy</h1>
 
-<section data-markdown id="privacy" class="center">
-  <textarea data-template>
-# Privacy
-  </textarea>
 </section>
-    
-<section data-markdown data-separator="^\n\n\n">
-  <textarea data-template>
-## How are you tracked online?
-- Can you list the ways?
-- I listed 10 different ways...
-
-
-
-## 1. "Standard" cookies
-- All web connections are, by definition, stateless
-- A cookie allows one to "save" state
-  - Remember who you are, for example
-- So when you return to amazon.com, it knows who you are
-- Most sites that log you in use cookies of some sort
-  - Some use server variables, such as UVa's netbadge
-
-
-
-## Cookie exchange
-[![web cookie](images/web-security/800px-HTTP_cookie_exchange.svg.png)](https://commons.wikimedia.org/wiki/File:HTTP_cookie_exchange.svg)
-
-
-
-## What a cookie stores
-<!-- .slide: class="right-float-img-800" -->
-[![http cookie](images/web-security/HTTP-Cookie-Google.svg)](https://commons.wikimedia.org/wiki/File:HTTP-Cookie-Google.svg)
-- The URL the cookie<br>applies to (domain<br>and path)
-- An information string
-- An expiration date
-
-Modern browsers limit cookie viewing to the domain (or URL) that issued the cookie
-
-
-
-## 2. Cross-domain content
-- Website A can include an image (or script, or CSS file) from website B
-  - Now both A and B can leave cookies
-  - This request includes the referring website!  So B can see where you have been
-- Part of the headers of any [Stack Overflow](https://stackoverflow.com) page:
-```
-<script
-src="https://ajax.googleapis.com/.../jquery.min.js">
-</script>
-```
-- So Google now knows what sites you've visited
-
-
-
+<section id="how-are-you-tracked-online" class="slide level2">
+<h2>How are you tracked online?</h2>
+<ul>
+<li>Can you list the ways?</li>
+<li>I listed 10 different ways…</li>
+</ul>
+</section>
+<section id="standard-cookies" class="slide level2">
+<h2>1. “Standard” cookies</h2>
+<ul>
+<li>All web connections are, by definition, stateless</li>
+<li>A cookie allows one to “save” state
+<ul>
+<li>Remember who you are, for example</li>
+</ul></li>
+<li>So when you return to amazon.com, it knows who you are</li>
+<li>Most sites that log you in use cookies of some sort
+<ul>
+<li>Some use server variables, such as UVa’s netbadge</li>
+</ul></li>
+</ul>
+</section>
+<section id="cookie-exchange" class="slide level2">
+<h2>Cookie exchange</h2>
+<p><a href="https://commons.wikimedia.org/wiki/File:HTTP_cookie_exchange.svg"><img data-src="images/web-security/800px-HTTP_cookie_exchange.svg.png"></a></p>
+</section>
+<section id="what-a-cookie-stores" class="slide level2">
+<h2>What a cookie stores</h2>
+<div class="right-float-img" style="zoom:200%">
+<p><a href="https://commons.wikimedia.org/wiki/File:HTTP-Cookie-Google.svg"><img data-src="images/web-security/HTTP-Cookie-Google.svg"></a></p>
+</div>
+<ul>
+<li>The URL the cookie<br>applies to (domain<br>and path)</li>
+<li>An information string</li>
+<li>An expiration date</li>
+</ul>
+<p>Modern browsers limit cookie viewing to the domain (or URL) that issued the cookie</p>
+</section>
+<section id="cross-domain-content" class="slide level2">
+<h2>2. Cross-domain content</h2>
+<ul>
+<li>Website A can include an image (or script, or CSS file) from website B
+<ul>
+<li>Now both A and B can leave cookies</li>
+<li>This request includes the referring website! So B can see where you have been</li>
+</ul></li>
+<li>Part of the headers of any <a href="https://stackoverflow.com">Stack Overflow</a> page:</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb3-1"><a href=""></a><span class="dt">&lt;</span><span class="kw">script</span></span>
+<span id="cb3-2"><a href=""></a><span class="ot">src</span><span class="op">=</span><span class="st">"https://ajax.googleapis.com/.../jquery.min.js"</span><span class="dt">&gt;</span></span>
+<span id="cb3-3"><a href=""></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>So Google now knows what sites you’ve visited</li>
+</ul>
 <!-- .slide: class="max-pre-400" -->
-## An example close to home...
-- A recent [cavalier daily article](http://www.cavalierdaily.com/article/2018/10/early-voting-numbers-show-sharp-increase-from-last-off-year-midterm-elections) loaded 347 (sic) different pieces of content from 52 different domains (33 unique TLDs)
-```
-adsafeprotected.com
-adsrvr.org
-bootstrapcdn.com
-cavalierdaily.com
-cloudfront.net
-digitru.st
-doubleclick.net
-everesttech.net
-facebook.com
-facebook.net
-google-analytics.com
-googleapis.com
-google.com
-googlesyndication.com
-googletagmanager.com
-gstatic.com
-iasds01.com
-imgix.net
-mathtag.com
-moatads.com
-moatpixel.com
-openx.net
-quantcount.com
-quantserve.com
-rfihub.com
-serving-sys.com
-sitescout.com
-spotxcdn.com
-spotxchange.com
-spotx.tv
-thesn.net
-turn.com
-yahoo.com
-```
-
-
-
-
-## 3. "Tracking" cookies
-- A cookie from a known domain that attempts to track you across multiple sites
-  - The difference is that it is known that this particular domain does lots of tracking
-  - It is ultimately no different than a regular cookie
-- Considered spyware, they are flagged (and removed) by modern anti-virus scanners
-
-
-
-## 4. Social media comment boxes
-- Those tiny little icons to encourage you to share that page on social media: <img alt="social media comments" src="images/web-security/social-media-comments.png" style="width:600px">
-- It's actually an [iframe](https://www.w3schools.com/tags/tag_iframe.asp) with FB content, and obviously includes the referrer
-- Now Facebook knows what articles you read
-- Many social media widgets are similar
-
-
-
-## 5. Javascript tracking code
-- Javascript is basically somebody else's code running in your (sandboxed) browser
-- One can easily include code to track users, such as via [Google analytics](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
-- Google Analytics is included from http://www.virginia.edu (along with a twitter widget)
-
-
-
-## 6. Non-digital purchases
-- Brick-and-mortar retailers have gotten in on the tracking game also:
-  - Grocery store "loyalty cards"
-  - Coupons, such as Bed Bath & Beyond's 20% off coupons
-    - They connect it to you even if you pay cash!
-
-
-
-## 7. Canvas elements
-- The [canvas element](https://www.w3schools.com/html/html5_canvas.asp) allows graphic-based mark-up, rendering of fonts, etc.
-  - The element can be hidden
-- So create a hidden canvas element, and render some text
-  - Each browser / OS / set of fonts will render this slightly differently
-- This creates a partial *signature* to help identify you
-  - We'll see one in a bit...
-- There are canvas blocker extensions available for every major browser
-
-
-
-## 8. Browser fingerprint
-- When you visit a website, your browser sends information about your host system
-  - OS (including version), browser (including version), etc.
-- Combine that with a few other things, such as canvas-rendered text ...
-- ... and you get a possibly unique signature of you
-
-
-
-## More on browser fingerprints
-- These can be used to track you even *after* you have cleared your cookies
-  - And they can link you to previous visits
-- Is yours unique?  Check out https://amiunique.org
-  - It shows a canvas-based text rendering
-
-
-
-## 9. Financial payments
-- If you use PayPal, then it knows a lot about what you buy
-  - Likewise amazon pay, venmo, etc.
-- These sites have differing levels of privacy statements
-
-
-
-## 10. Geo-location
-- For a device without a GPS, this is easy, but rough
-  - Go to https://www.iplocation.net/; they were within 2.2 miles for me
-- For any mobile device with a GPS, this is trivial
-  - And *very* precise -- which store you just visited, whose house you are at, etc.
-  - And, likely, who else is there with you
-- Google continues to track your mobile device even after you have signed out or opted out ([reference](https://www.pcmag.com/news/363068/report-google-tracks-location-data-even-if-youve-opted-out))
-  </textarea>
 </section>
-
+<section id="an-example-close-to-home" class="slide level2">
+<h2>An example close to home…</h2>
+<ul>
+<li>A recent <a href="http://www.cavalierdaily.com/article/2018/10/early-voting-numbers-show-sharp-increase-from-last-off-year-midterm-elections">cavalier daily article</a> loaded 347 (sic) different pieces of content from 52 different domains (33 unique TLDs)</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>adsafeprotected.com</span>
+<span id="cb4-2"><a href=""></a>adsrvr.org</span>
+<span id="cb4-3"><a href=""></a>bootstrapcdn.com</span>
+<span id="cb4-4"><a href=""></a>cavalierdaily.com</span>
+<span id="cb4-5"><a href=""></a>cloudfront.net</span>
+<span id="cb4-6"><a href=""></a>digitru.st</span>
+<span id="cb4-7"><a href=""></a>doubleclick.net</span>
+<span id="cb4-8"><a href=""></a>everesttech.net</span>
+<span id="cb4-9"><a href=""></a>facebook.com</span>
+<span id="cb4-10"><a href=""></a>facebook.net</span>
+<span id="cb4-11"><a href=""></a>google-analytics.com</span>
+<span id="cb4-12"><a href=""></a>googleapis.com</span>
+<span id="cb4-13"><a href=""></a>google.com</span>
+<span id="cb4-14"><a href=""></a>googlesyndication.com</span>
+<span id="cb4-15"><a href=""></a>googletagmanager.com</span>
+<span id="cb4-16"><a href=""></a>gstatic.com</span>
+<span id="cb4-17"><a href=""></a>iasds01.com</span>
+<span id="cb4-18"><a href=""></a>imgix.net</span>
+<span id="cb4-19"><a href=""></a>mathtag.com</span>
+<span id="cb4-20"><a href=""></a>moatads.com</span>
+<span id="cb4-21"><a href=""></a>moatpixel.com</span>
+<span id="cb4-22"><a href=""></a>openx.net</span>
+<span id="cb4-23"><a href=""></a>quantcount.com</span>
+<span id="cb4-24"><a href=""></a>quantserve.com</span>
+<span id="cb4-25"><a href=""></a>rfihub.com</span>
+<span id="cb4-26"><a href=""></a>serving-sys.com</span>
+<span id="cb4-27"><a href=""></a>sitescout.com</span>
+<span id="cb4-28"><a href=""></a>spotxcdn.com</span>
+<span id="cb4-29"><a href=""></a>spotxchange.com</span>
+<span id="cb4-30"><a href=""></a>spotx.tv</span>
+<span id="cb4-31"><a href=""></a>thesn.net</span>
+<span id="cb4-32"><a href=""></a>turn.com</span>
+<span id="cb4-33"><a href=""></a>yahoo.com</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-	
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	
+<section id="tracking-cookies" class="slide level2">
+<h2>3. “Tracking” cookies</h2>
+<ul>
+<li>A cookie from a known domain that attempts to track you across multiple sites
+<ul>
+<li>The difference is that it is known that this particular domain does lots of tracking</li>
+<li>It is ultimately no different than a regular cookie</li>
+</ul></li>
+<li>Considered spyware, they are flagged (and removed) by modern anti-virus scanners</li>
+</ul>
+</section>
+<section id="social-media-comment-boxes" class="slide level2">
+<h2>4. Social media comment boxes</h2>
+<ul>
+<li>Those tiny little icons to encourage you to share that page on social media: <img alt="social media comments" src="images/web-security/social-media-comments.png" style="width:600px"></li>
+<li>It’s actually an <a href="https://www.w3schools.com/tags/tag_iframe.asp">iframe</a> with FB content, and obviously includes the referrer</li>
+<li>Now Facebook knows what articles you read</li>
+<li>Many social media widgets are similar</li>
+</ul>
+</section>
+<section id="javascript-tracking-code" class="slide level2">
+<h2>5. Javascript tracking code</h2>
+<ul>
+<li>Javascript is basically somebody else’s code running in your (sandboxed) browser</li>
+<li>One can easily include code to track users, such as via <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/">Google analytics</a></li>
+<li>Google Analytics is included from http://www.virginia.edu (along with a twitter widget)</li>
+</ul>
+</section>
+<section id="non-digital-purchases" class="slide level2">
+<h2>6. Non-digital purchases</h2>
+<ul>
+<li>Brick-and-mortar retailers have gotten in on the tracking game also:
+<ul>
+<li>Grocery store “loyalty cards”</li>
+<li>Coupons, such as Bed Bath &amp; Beyond’s 20% off coupons
+<ul>
+<li>They connect it to you even if you pay cash!</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="canvas-elements" class="slide level2">
+<h2>7. Canvas elements</h2>
+<ul>
+<li>The <a href="https://www.w3schools.com/html/html5_canvas.asp">canvas element</a> allows graphic-based mark-up, rendering of fonts, etc.
+<ul>
+<li>The element can be hidden</li>
+</ul></li>
+<li>So create a hidden canvas element, and render some text
+<ul>
+<li>Each browser / OS / set of fonts will render this slightly differently</li>
+</ul></li>
+<li>This creates a partial <em>signature</em> to help identify you
+<ul>
+<li>We’ll see one in a bit…</li>
+</ul></li>
+<li>There are canvas blocker extensions available for every major browser</li>
+</ul>
+</section>
+<section id="browser-fingerprint" class="slide level2">
+<h2>8. Browser fingerprint</h2>
+<ul>
+<li>When you visit a website, your browser sends information about your host system
+<ul>
+<li>OS (including version), browser (including version), etc.</li>
+</ul></li>
+<li>Combine that with a few other things, such as canvas-rendered text …</li>
+<li>… and you get a possibly unique signature of you</li>
+</ul>
+</section>
+<section id="more-on-browser-fingerprints" class="slide level2">
+<h2>More on browser fingerprints</h2>
+<ul>
+<li>These can be used to track you even <em>after</em> you have cleared your cookies
+<ul>
+<li>And they can link you to previous visits</li>
+</ul></li>
+<li>Is yours unique? Check out https://amiunique.org
+<ul>
+<li>It shows a canvas-based text rendering</li>
+</ul></li>
+</ul>
+</section>
+<section id="financial-payments" class="slide level2">
+<h2>9. Financial payments</h2>
+<ul>
+<li>If you use PayPal, then it knows a lot about what you buy
+<ul>
+<li>Likewise amazon pay, venmo, etc.</li>
+</ul></li>
+<li>These sites have differing levels of privacy statements</li>
+</ul>
+</section>
+<section id="geo-location" class="slide level2">
+<h2>10. Geo-location</h2>
+<ul>
+<li>For a device without a GPS, this is easy, but rough
+<ul>
+<li>Go to <a href="https://www.iplocation.net/">https://www.iplocation.net/</a>; they were within 2.2 miles for me</li>
+</ul></li>
+<li>For any mobile device with a GPS, this is trivial
+<ul>
+<li>And <em>very</em> precise – which store you just visited, whose house you are at, etc.</li>
+<li>And, likely, who else is there with you</li>
+</ul></li>
+<li>Google continues to track your mobile device even after you have signed out or opted out (<a href="https://www.pcmag.com/news/363068/report-google-tracks-location-data-even-if-youve-opted-out">reference</a>)</li>
+</ul>
+<div class="quarto-auto-generated-content">
+<p><img src="images/quarto.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://aaronbloomfield.github.io/ics" class="uri">https://aaronbloomfield.github.io/ics</a></p>
 </div>
 </div>
-<script src="../slides/reveal.js/dist/reveal.js"></script>
-<script src="../slides/reveal.js/plugin/zoom/zoom.js"></script>
-<script src="../slides/reveal.js/plugin/notes/notes.js"></script>
-<script src="../slides/reveal.js/plugin/search/search.js"></script>
-<script src="../slides/reveal.js/plugin/markdown/markdown.js"></script>
-<script src="../slides/reveal.js/plugin/highlight/highlight.js"></script>
-<script src="../slides/reveal.js/plugin/math/math.js"></script>
-<script src="settings.js"></script>
-</body>
-</html>
+</section></section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="quarto_files/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="quarto_files/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="quarto_files/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="quarto_files/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="quarto_files/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="quarto_files/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="quarto_files/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="quarto_files/revealjs/plugin/notes/notes.js"></script>
+  <script src="quarto_files/revealjs/plugin/search/search.js"></script>
+  <script src="quarto_files/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="quarto_files/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":false},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'h.v',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

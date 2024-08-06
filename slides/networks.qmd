@@ -1,0 +1,318 @@
+---
+title: "Networks"
+---
+
+
+# Networking Model
+
+
+## OSI model
+- "Open Systems Interconnection" model, developed starting in 1977
+- Everybody (including many textbooks!) uses the OSI model diagrams (see next slide), and talks about TCP/IP
+  - But they are not the same!
+  - TCP/IP does not fit perfectly into the OSI model
+  - We don't care too much about the differences here, so we'll do that as well
+  - See [here](http://en.wikipedia.org/wiki/OSI_model#Comparison_with_TCP.2FIP) for details
+
+
+
+## OSI Model
+[![](images/networks/OSI_Model_v1.svg)](https://commons.wikimedia.org/wiki/File:OSI_Model_v1.svg)
+
+
+
+## Protocol stack: physical layer
+::: {.right-float-img .img-size-800}
+[![Ethernet cable](images/networks/ethernet-cable.jpg)](https://commons.wikimedia.org/wiki/File:Ethernet_cable._SAM.jpg)
+:::
+- Is charged with getting data<br>from one end of the 'wire'<br>to the other end
+- Examples:
+  - copper wire
+  - fiber optic cable
+  - wireless transmission<br>(WiFi, Bluetooth, satellite<br>communication), etc.
+
+
+
+## Protocol stack: data link layer
+- Is charged with getting one packet of data from one host to another connected host
+  - Via the next layer down
+- Most common example is Ethernet
+  - Other examples: ARP, ISDN, PPP, ATM, FDDI
+- Although you may use Ethernet, your data will travel over others to its destination, including fiber optic
+  - Such as ATM and FDDI
+[![Ethernet packet](images/networks/ethernet-packet.svg)](https://commons.wikimedia.org/wiki/File:Ethernet_Type_II_Frame_format.svg)
+
+
+
+## Protocol stack: network layer
+- Is charged with getting a *single* packet of data from one computer to another (via the next layer down), 'routing' the computer between various nodes
+  - This is the routing in 'router'
+- In TCP/IP, called the "Internet" or "Internet Protocol" (hence "IP") layer
+- Example protocols: IP, ICMP (used for 'ping'), IPsec (for VPNs)
+
+
+
+## Internet Protocol (IP)
+- This is the TCP/IP version of the OSI network layer
+- IPv4 has addresses that are 32 bits: four 8-bit numbers
+- IPv6 has addresses that are 128 bits
+[![IPv4 header](images/networks/ip-header.png)](https://commons.wikimedia.org/wiki/File:IPv4_header_%281%29.png)
+
+
+
+## Protocol stack: transport layer
+- Is charged with taking a large piece of data, splitting it into smaller packets, sending each packet to the destination (via the next layer down), and (probably) reassembling it at the destination
+  - It will (typically) request a missed packet to be re-sent
+  - Will assemble the packets in order
+- Example protocols: TCP, UDP
+
+
+
+## Transport Control Protocol (TCP)
+- This is the TCP/IP version of the OSI transport layer
+- TCP will ensure any lost packet is re-sent: used for sending files
+- UDP doesn't bother: if a packet doesn't arrive, continue on: used for live streams
+[![TCP header](images/networks/tcp-header.png)](https://commons.wikimedia.org/wiki/File:TCP_header.png)
+
+
+
+## Protocol stack: session & presentation layers
+- Are charged with such tasks as managing network sockets, compressing/encoding/ encrypting the data, etc.
+- These layers do not exist in the TCP/IP model!
+  - This functionality is included in the TCP/IP application layer
+- Example protocols: TLS, SSL, NetBIOS
+
+
+
+## Protocol stack: application layer
+- Is the top-level protocol used to communicate to the application on the other end
+- Example protocols: DHCP, DNS, FTP, HTTP, IMAP, NTP, POP, SMTP, SSH
+
+
+
+## More about TCP/IP
+- TCP/IP, more accurately called the Internet Protocol Suite, is a full *suite* of protocols
+- Application layer: <a href="https://en.wikipedia.org/wiki/Border_Gateway_Protocol" title="Border Gateway Protocol">BGP</a>, <a href="https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol" title="Dynamic Host Configuration Protocol">DHCP</a>, <a href="https://en.wikipedia.org/wiki/Domain_Name_System" title="Domain Name System">DNS</a>, <a href="https://en.wikipedia.org/wiki/File_Transfer_Protocol" title="File Transfer Protocol">FTP</a>, <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" title="Hypertext Transfer Protocol">HTTP</a>, <a href="https://en.wikipedia.org/wiki/HTTPS" title="HTTPS">HTTPS</a>, <a href="https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol" title="Internet Message Access Protocol">IMAP</a>, <a href="https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol" title="Lightweight Directory Access Protocol">LDAP</a>, <a href="https://en.wikipedia.org/wiki/Media_Gateway_Control_Protocol" title="Media Gateway Control Protocol">MGCP</a>, <a href="https://en.wikipedia.org/wiki/MQTT" title="MQTT">MQTT</a>, <a href="https://en.wikipedia.org/wiki/Network_News_Transfer_Protocol" title="Network News Transfer Protocol">NNTP</a>, <a href="https://en.wikipedia.org/wiki/Network_Time_Protocol" title="Network Time Protocol">NTP</a>, <a href="https://en.wikipedia.org/wiki/Post_Office_Protocol" title="Post Office Protocol">POP</a>, <a href="https://en.wikipedia.org/wiki/Open_Network_Computing_Remote_Procedure_Call" title="Open Network Computing Remote Procedure Call">ONC/RPC</a>, <a href="https://en.wikipedia.org/wiki/Real-time_Transport_Protocol" title="Real-time Transport Protocol">RTP</a>, <a href="https://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol" title="Real Time Streaming Protocol">RTSP</a>, <a href="https://en.wikipedia.org/wiki/Routing_Information_Protocol" title="Routing Information Protocol">RIP</a>, <a href="https://en.wikipedia.org/wiki/Session_Initiation_Protocol" title="Session Initiation Protocol">SIP</a>, <a href="https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol" title="Simple Mail Transfer Protocol">SMTP</a>, <a href="https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol" title="Simple Network Management Protocol">SNMP</a>, <a href="https://en.wikipedia.org/wiki/Secure_Shell" title="Secure Shell">SSH</a>, <a href="https://en.wikipedia.org/wiki/Telnet" title="Telnet">Telnet</a>, <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security" title="Transport Layer Security">TLS/SSL</a>, <a href="https://en.wikipedia.org/wiki/XMPP" title="XMPP">XMPP</a>, etc.
+- Transport layer: <a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol" title="Transmission Control Protocol">TCP</a>, <a href="https://en.wikipedia.org/wiki/User_Datagram_Protocol" title="User Datagram Protocol">UDP</a>, <a href="https://en.wikipedia.org/wiki/Datagram_Congestion_Control_Protocol" title="Datagram Congestion Control Protocol">DCCP</a>, <a href="https://en.wikipedia.org/wiki/Stream_Control_Transmission_Protocol" title="Stream Control Transmission Protocol">SCTP</a>, <a href="https://en.wikipedia.org/wiki/Resource_Reservation_Protocol" title="Resource Reservation Protocol">RSVP</a>, etc.
+- Internet layer: <a href="https://en.wikipedia.org/wiki/Internet_Protocol" title="Internet Protocol">IP</a>, <a href="https://en.wikipedia.org/wiki/IPv4" title="IPv4">IPv4</a>, <a href="https://en.wikipedia.org/wiki/IPv6" title="IPv6">IPv6</a>, <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol" title="Internet Control Message Protocol">ICMP</a>, <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6" title="Internet Control Message Protocol for IPv6">ICMPv6</a>, <a href="https://en.wikipedia.org/wiki/Explicit_Congestion_Notification" title="Explicit Congestion Notification">ECN</a>, <a href="https://en.wikipedia.org/wiki/Internet_Group_Management_Protocol" title="Internet Group Management Protocol">IGMP</a>, <a href="https://en.wikipedia.org/wiki/IPsec" title="IPsec">IPsec</a>, etc.
+- Link layer: <a href="https://en.wikipedia.org/wiki/Link_layer" title="Link layer">Link layer</a></th></tr><tr><td style="padding:0 0.1em 0.4em">, <a href="https://en.wikipedia.org/wiki/Address_Resolution_Protocol" title="Address Resolution Protocol">ARP</a>, <a href="https://en.wikipedia.org/wiki/Neighbor_Discovery_Protocol" title="Neighbor Discovery Protocol">NDP</a>, <a href="https://en.wikipedia.org/wiki/Open_Shortest_Path_First" title="Open Shortest Path First">OSPF</a>, <a href="https://en.wikipedia.org/wiki/Tunneling_protocol" title="Tunneling protocol">Tunnels</a>, <a href="https://en.wikipedia.org/wiki/Layer_2_Tunneling_Protocol" title="Layer 2 Tunneling Protocol">L2TP</a>, <a href="https://en.wikipedia.org/wiki/Point-to-Point_Protocol" title="Point-to-Point Protocol">PPP</a>, <a href="https://en.wikipedia.org/wiki/Medium_access_control" title="Medium access control">MAC</a>, <a href="https://en.wikipedia.org/wiki/Ethernet" title="Ethernet">Ethernet</a>, <a href="https://en.wikipedia.org/wiki/Digital_subscriber_line" title="Digital subscriber line">DSL</a>, <a href="https://en.wikipedia.org/wiki/Integrated_Services_Digital_Network" title="Integrated Services Digital Network">ISDN</a>, <a href="https://en.wikipedia.org/wiki/Fiber_Distributed_Data_Interface" title="Fiber Distributed Data Interface">FDDI</a>, etc.
+
+
+
+## Network device terminology
+- Node: any device on a network
+- Switch: a node that connects networks on the *data link layer* only
+  - Also called a bridge
+- Router: a node that connects networks on the *network layer*
+- Gateway: a node that connects two networks that (potentially) use different protocols
+  - Also translates addresses, etc.
+- Firewall: blocks 'bad' traffic (more on this in a few slides)
+
+
+----
+
+![networking diagram](https://phoenix.cs.virginia.edu/~aaron/network-encapsulation.svg)
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+# Basic Network Security
+
+
+## Firewall
+- A firewall prevents unrequested network connections from outside hosts
+  - Typically part of a residential 'gateway' or 'router'
+  - It isolates the 'inside' network and the 'outside' network
+  - If you request data (a http connection), the sent data is then 'requested' data, and is allowed to pass through
+  - You can 'poke a hole' in a firewall to allow access to a certain port (such as ssh)
+
+
+
+## Firewall types
+1. Packet filter: removes packets based on the information in their TCP packet (source, destination, port, etc) - can filter out individual hosts this way
+2. Circuit-level gateway: forces all data to a given host or network to go through a single gateway, which manages security
+3. Application-level gateway: only allows specific application-level data through (ssh, but not http, for example)
+
+
+
+## Firewall types
+- Residential 'firewalls' do all three
+  - 1 (packet filter) is usually not done by the typical user
+  - 2 (circuit-level gateway) is by their very design
+  - 3 (application-level gateway) is what most people do when configuring their residential firewalls
+
+
+
+## TCP attacks
+- Imagine Alice is sending something to Bob
+- A host between Alice and Bob, Mallory, can intercept (and potentially discard) these packets
+  - Similar to a man-in-the-middle attack
+- But to modify the packets, the attacker would have to know the TCP state
+  - Starting sequence numbers, port numbers, etc.
+  - These are often easily guessable
+    - Ports are well-known
+    - Sequence numbers are often predictable
+
+
+
+## TCP attacks
+- If Mallory can guess the state, then s/he can impersonate one or the other (or both), thus hijacking the connection
+- Instead of downloading a valid program from a trusted website, instead you are now downloading some type of malware
+- How can we prevent this?
+  - By keeping anybody from figuring out the state of the TCP connection
+  - This state is discernible from the TCP packet headers
+
+
+
+## IP Security (IPsec)
+- IPsec is a protocol suite designed to allow encryption of IP packets (at the Network level)
+  - Other similar ones exist: TLS (Transport Layer Security) does something similar at the Transport level
+    - SSL (Secure Sockets Layer) is the predecessor to TLS
+- Allows for authentication, exchange of cryptographic keys, and encryption/decryption of IP data packets
+  - Encryption is via AES
+
+
+
+## Virtual Private Network (VPN)
+- A firewall differentiates between 'inside' and 'outside' to allow more access to those 'inside'
+  - How, then, does a (valid) user have that level of access from the 'outside'?
+  - Example: using UVa's library's access for online books and what-not
+    - It's allowed on-grounds (technically, for any computer in the virginia.edu domain)
+    - But not off-grounds (such as from va-67-76-91-214.dyn.embarqhsd.net)
+- The answer: VPNs
+
+
+
+## Virtual Private Network (VPN)
+- A VPN makes potentially vastly separated IP addresses appear to be a single (virtual) private network
+  - Then, the access is provided to that private network
+- Keeps one from having to construct one's own private network (expensive)
+- It matters not what type of ISP the user is on
+- Typically requires a setting or two in a residential 'gateway' (specifically, IPsec)
+
+
+
+## WiFi encryption
+- This encrypts all data sent over a wireless network
+  - This encryption is done at the network or data-link level
+  - Application-level encryption (https, ssh, imaps, etc.) is on top of WiFi encryption
+- There are two types
+  - Wired Equivalent Privacy (WEP)
+  - WiFi Protected Access (WPA and WPA2)
+
+
+
+## Wired Equivalent Privacy (WEP)
+- It does *not* stand for "Wireless Encryption Protocol"
+- Created in 1997 to provide confidentiality comparable to that of a traditional wired network
+- Security weaknesses were identified in 2001
+- In 2003, WEP was replaced by WPA (and, later, WPA2)
+
+
+
+## WEP weaknesses
+- It uses a stream (aka character) cipher RC4 to encrypt each packet
+- RC4 is (essentially) secure, but one weakness is that repeated keys can allow an RC4 encoded message to be cracked
+  - There is one RC4 key, and many different initialization vectors or IVs; one IV for each packet
+
+
+
+## Encryption without IVs
+[![](images/networks/ECB_encryption.svg)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation)
+
+
+
+## Encryption with IVs
+(at least what should happen)
+[![](images/networks/CBC_encryption.svg)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation)
+
+
+
+## WEP weaknesses
+- WEP uses 24-bit IVs
+  - Because of the way the IVs are used, there is a 50% chance of a key being repeated after 5,000 packets
+  - This can lead to cracking the RC4 key, and reading all the WEP encrypted data
+  - On a busy network, this can happen in under 1 minute
+
+
+
+## WiFi Protected Access (WPA & WPA2)
+- In 2003, it was announced that WEP had been superseded by WPA
+- WPA2 followed the following year (2004)
+- WPA uses RC4 (character cipher); WPA2 uses AES (block cipher) for the data encryption 
+- Corresponds to IEEE standard 802.11 (for WPA) or 802.11i (for WPA2)
+- Still considered 'secure' for WiFi encryption
+
+
+
+## WPA(2) weaknesses
+- Password cracking due to weak passwords
+  - Look-up tables exist for a million different WPA/WPA2 passwords
+- Brute force attacks can crack moderate passwords
+  - A truly random password of 13 characters (from the 95 available) can prevent brute-force attacks
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+# Denial of Service (DoS) attacks
+
+
+## Denial-of-service (DoS) attack
+- A website (or other network resource) attempts to provide a *service* to authorized users
+- If one can stop the website or resource, then service is being denied to the proper users
+  - Hence the name
+- It typically is done via flooding the website or resource with network packets, using up its bandwidth
+  - If done from one host, the site can easily packet-filter out that host
+
+
+
+## Denial-of-service (DoS) attack
+- Thus, it is most often done from many sites
+  - This is a *distributed* denial of service (DDoS) attack
+  - Often done via a zombie botnet
+
+
+
+## DoS attacks: ping flood
+- ICMP is protocol on the Network level, along with IP, and is used for the 'ping' command
+  - A ping flood attack (can only be run as root on most UNIX systems)
+  - It sends as many pings out as the bandwidth can support
+  - The (combined) bandwidth of the attacker must be greater than the (combined) bandwidth of the target
+
+
+
+## DoS attacks: SYN flood
+- In TCP (transport level), a SYN packet starts a 'handshake' to open up a connection
+  - Response is an 'ACK' acknowledging the SYN
+  - Then another ACK acknowledging the first ACK
+
+
+
+## DoS attacks: SYN flood
+- A SYN flood attack sends a TCP SYN packet with a forged 'from' field
+  - Each SYN packet is treated like a connection request
+  - The target site will span a half-open connection, send a ACK, and wait until it (never) arrives
+  - This saturates the number of connections the attacked server can make, causing it to be unresponsive to the legitimate users
+
+
+
+## DoS attacks: reflected attack
+- Instead of forging a non-existent source address, make the source be the target machine
+- Then, when the target sends a reply (which is automatically done with many types of network datagrams), it goes back to the target, using up their bandwidth a second time
+
+
+
+## DoS attacks: teardrop attacks
+- Sending mangled IP fragments with overlapping, over-sized payloads to the target
+- Due to a bug in the TCP/IP fragmentation re-assembly code, this would crash the operating system
+  - This bug has long since been patched (in 1999/2000), but was existent on Windows 3.1x, 95, and NT, as well as Linux versions prior to 2.0.32 and 2.1.63
+- This means that just sending a "bad" network packet to a computer would crash that computer!
+
+
+
+## DoS attacks: brute force
+- Not very elegant, but very effective
+- Just flood the machine with requests, such as http GET
+- This does not require much knowledge, just access to a lot of computers
+  - Probably via a zombie botnet

@@ -12,3 +12,9 @@ format:
     navigation-mode: vertical
     footer: <https://aaronbloomfield.github.io/ics>
     controls: false
+    template-partials:
+      - title-slide.html
+      - toc-slide.html
+    toc: true
+    toc-depth: 1
+    toc-title: Contents

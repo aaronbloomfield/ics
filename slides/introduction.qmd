@@ -1,6 +1,5 @@
 ---
-title: "Intro to Cybersecurity:<br>Course Introduction"
-subtitle: "(subtitle)"
+title: "Course Introduction"
 ---
 
 
@@ -29,7 +28,7 @@ subtitle: "(subtitle)"
 
 
 ## Malware Costs: Example 1
-::: {.right-float-img-nb-500}
+::: {.right-float-img .img-size-500 .no-img-corner-radius}
 ![](https://upload.wikimedia.org/wikipedia/commons/0/07/CIH.png)
 :::
 <!-- -->
@@ -44,7 +43,7 @@ subtitle: "(subtitle)"
 
 
 ## Malware Costs: Example 2
-::: {.right-float-img-nb-500}
+::: {.right-float-img .img-size-500}
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Anna_Kournikova-Bagram_Airfield_2009.jpg/548px-Anna_Kournikova-Bagram_Airfield_2009.jpg)
 :::
 
@@ -59,7 +58,7 @@ subtitle: "(subtitle)"
 
 
 ## Malware Costs: Example 3
-::: {.right-float-img-nb-500}
+::: {.right-float-img .img-size-500}
 ![](images/stuxnet/960px-Gas_centrifuge_cascade.jpg)
 :::
 - 2010 / 2011: [Stuxnet worm](http://en.wikipedia.org/wiki/Stuxnet)
@@ -83,7 +82,7 @@ subtitle: "(subtitle)"
 
 
 ## Malware Costs: Example 5
-::: {.right-float-img-nb-500}
+::: {.right-float-img .img-size-500}
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Vote_Here_sign_in_Taft%2C_Texas.jpg/891px-Vote_Here_sign_in_Taft%2C_Texas.jpg)
 :::
 - [2016 US election hacks](https://en.wikipedia.org/wiki/Russian_interference_in_the_2016_United_States_elections)
@@ -96,7 +95,7 @@ subtitle: "(subtitle)"
 
 
 ## Malware Costs: Example 6
-::: {.right-float-img-nb-500}
+::: {.right-float-img .img-size-500}
 ![](https://upload.wikimedia.org/wikipedia/commons/6/65/2017_Petya_cyberattack_screenshot.png)
 :::
 - [NotPetya](https://en.wikipedia.org/wiki/Petya_%28malware%29) in 2017
@@ -108,7 +107,7 @@ subtitle: "(subtitle)"
 
 
 ## Malware Costs: Example 7
-::: {.right-float-img-nb-500}
+::: {.right-float-img .img-size-500}
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Pumpspeicherwerk_Geesthacht_Rohre.jpg/800px-Pumpspeicherwerk_Geesthacht_Rohre.jpg)
 :::
 - The [Colonial Pipeline shutdown](https://en.wikipedia.org/wiki/Colonial_Pipeline_cyberattack)
@@ -136,25 +135,22 @@ subtitle: "(subtitle)"
 
 
 ## A UVa hack (2013)
-
-<img class="stretch" src="images/introduction/root-the-box-uva-hack.png" alt="uva hack image">
-(<a href="http://www.c-ville.com/anatomy-of-a-hack-examining-root-the-boxs-attack-on-uvas-website/#.WZz6w3XythE">source</a>)
+::: {.img-size-700}
+[![](images/introduction/root-the-box-uva-hack.png)](http://www.c-ville.com/anatomy-of-a-hack-examining-root-the-boxs-attack-on-uvas-website/#.WZz6w3XythE)
+:::
 
 
 
 ## Another UVa hack (2015)
-
-<img class="stretch" src="images/introduction/uva-chinese-hack.png" alt="uva hack image">
-(<a href="http://www.thedailybeast.com/chinese-hackers-target-us-university-with-government-ties">source</a>)
-
+::: {.img-size-700}
+[![](images/introduction/uva-chinese-hack.png)](http://www.thedailybeast.com/chinese-hackers-target-us-university-with-government-ties)
+:::
 
 
 ## Yet another UVa hack (2016)
-
-
-<img class="stretch" src="images/introduction/uva-phishing-hack.png" alt="uva hack image">
-(<a href="https://www.washingtonpost.com/news/grade-point/wp/2016/01/22/phishing-hack-at-the-university-of-virginia-compromises-employee-computer-records/">source</a>)
-
+::: {.img-size-700}
+[![](images/introduction/uva-phishing-hack.png)](https://www.washingtonpost.com/news/grade-point/wp/2016/01/22/phishing-hack-at-the-university-of-virginia-compromises-employee-computer-records/)
+:::
 
 
 ## Cybersecurity and gov't shutdowns
@@ -164,7 +160,7 @@ subtitle: "(subtitle)"
 - Thus, cybersecurity is one of many things hurt by the shutdown
 - [source](https://www.rollcall.com/news/cybersecurity-efforts-may-suffer-shutdown-persists)
 
-<!-- ------------------------------------------------------------ -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 # Course Information
 
@@ -345,7 +341,7 @@ subtitle: "(subtitle)"
   - It turns out that generative AI is not all that useful for most of our assignments
 
 
-<!-- ------------------------------------------------------------ -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 # Ethics
 
@@ -374,7 +370,7 @@ subtitle: "(subtitle)"
 
 
 ## Example: [1988 Morris Worm](http://en.wikipedia.org/wiki/Morris_worm)
-::: {.right-float-img-nb-500}
+::: {.right-float-img .img-size-500}
 ![](https://upload.wikimedia.org/wikipedia/commons/b/b6/Morris_Worm.jpg)
 :::
 - Creator rationalized that the worm did no damage
@@ -415,7 +411,7 @@ subtitle: "(subtitle)"
 
 
 ## ACM Code of Ethics
-::: {.right-float-img-nb-400}
+::: {.right-float-img .img-size-400}
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Association_for_Computing_Machinery_%28ACM%29_logo.svg/768px-Association_for_Computing_Machinery_%28ACM%29_logo.svg.png)
 :::
 - ACM is the primary professional organization for computer scientists

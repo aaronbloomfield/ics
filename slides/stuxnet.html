@@ -1,342 +1,1135 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8"><base target="_blank">
-    <title>ICS: Stuxnet</title>
-    <meta name="description" content="A set of slides for a course on Introduction to Cybersecurity">
-    <meta name="author" content="Aaron Bloomfield">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="../slides/reveal.js/dist/reset.css">
-    <link rel="stylesheet" href="../slides/reveal.js/dist/reveal.css">
-    <link rel="stylesheet" href="../slides/reveal.js/dist/theme/black.css" id="theme">
-    <link rel="stylesheet" href="../slides/ics.css">
-    <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="../slides/reveal.js/plugin/highlight/zenburn.css">
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.scss' : '../slides/reveal.js/css/print/paper.scss';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
-    <!--[if lt IE 9]>
-	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
-	<![endif]-->
-  </head>
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="quarto_files/clipboard/clipboard.min.js"></script>
+<script src="quarto_files/quarto-html/tabby.min.js"></script>
+<script src="quarto_files/quarto-html/popper.min.js"></script>
+<script src="quarto_files/quarto-html/tippy.umd.min.js"></script>
+<link href="quarto_files/quarto-html/tippy.css" rel="stylesheet">
+<link href="quarto_files/quarto-html/light-border.css" rel="stylesheet">
+<link href="quarto_files/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="quarto_files/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.56">
 
-  <body>
-    <div class="reveal">
-      <div class="slides">
+  <title>Stuxnet</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="quarto_files/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="quarto_files/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="quarto_files/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="ics.css">
+  <link href="quarto_files/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="quarto_files/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="quarto_files/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="quarto_files/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="quarto_files/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="quarto_files/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
 
-<section data-markdown id="cover"><script type="text/template">
-# CS 3710
-&nbsp;  
-### Introduction to Cybersecurity
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
 
-<p class='titlep'>&nbsp;</p>
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-markdown="" class="center">
+  <h1 class="title">CS 3710</h1>
+  <h2 class="subtitle">Introduction to Cybersecurity</h2>
+
+<p class="titlep">&nbsp;</p>
 <div class="titlesmall"><p>
 <a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
-<a href="http://github.com/aaronbloomfield/ccc">@github</a> | <a href="index.html">&uarr;</a> | <a href="?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png" style="top:0px;vertical-align:middle"></a>
+<a href="http://github.com/aaronbloomfield/ccc">@github</a> | <a href="index.html">↑</a> | <a href="?print-pdf"><img class="print" width="20" src="images/print-icon.png" style="top:0px;vertical-align:middle"></a>
 </p></div>
-<p class='titlep'>&nbsp;</p>
+<p class="titlep">&nbsp;</p>
 
-## Stuxnet
-</script></section>
+  <h2 class="subtitle">Stuxnet</h2>
 
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-<section data-markdown><textarea data-template>
-# Contents
-&nbsp;  
-[Background](#/background)  
-[Overview](#/overview)  
-[Fallout](#/fallout)  
-[Aftermath](#/aftermath)  
-	</textarea></section>
-
-	<section>
-     
-	  <section data-markdown id="background" class="center"><textarea data-template>
-# Background
-	  </textarea></section>
-	  
-	  <section data-markdown data-separator="^\n$"><textarea data-template>
-## Definition: PLC
-- PLC: Programmable Logic Controller
- - A "computer used for automation of electromechanical processes"
-  - Typically used in assembly lines, amusement rides, light fixtures, etc.
-  - Often has many more inputs and outputs than a typical PC might have
-  - Often hardened against the environment (dust, water, vibration, etc.)
-  - Programmed via a PL on a PC, then the program is transferred over to the PLC
-
-
-## Definition: SCADA
-- Supervisory Control And Data Acquisition
-- A industrial control system to monitor some industrial process (such as uranium enrichment)
-- Components:
-  - A human-machine interface for human monitoring
-  - Supervisory computer control system
-  - Sensors and actuators
-  - PLCs that are between the sensors and actuators
-  - Etc.
-
-
-## Uranium enrichment
-- Uranium comes in six isotopes, two of which we care about for this lecture:
-  - Uranium 238: 99.27%
-  - Uranium 235: 0.71%
-- While all are radioactive, and all are unstable, U-235 is the most usable in nuclear (fission) reactions
-- A typical nuclear reactor requires 3.5% U-235 to sustain a reaction
-	- A nuclear weapon requires 90% U-235
-- But the isotopes are intermixed; how to separate them?
-
-
-## Uranium enrichment
-- After the uranium is mined, it is converted into a gas: uranium hexafluoride (UF$_6$)
-  - (well, it's gas at 134 degrees Fahrenheit)
-- The UF$_6$ is then put into a centrifuge, and spun around at high speeds
-	- The heavier U-238 moves to the outside, the lighter U-235 moves to the inside
-- This is done repeatedly until the appropriate concentration of U-235 is reached
-</textarea></section>
-
-	  <section>
-<h2>Uranium enrichment</h2>
-<img alt="uranium centrifuges" class="stretch" src="images/stuxnet/960px-Gas_centrifuge_cascade.jpg">
+</section><section id="TOC">
+<nav role="doc-toc"> 
+<h2 id="toc-title">Contents</h2>
+<ul>
+<li><a href="#/background" id="/toc-background">Background</a></li>
+<li><a href="#/overview" id="/toc-overview">Overview</a></li>
+<li><a href="#/fallout" id="/toc-fallout">Fallout</a></li>
+<li><a href="#/aftermath" id="/toc-aftermath">Aftermath</a></li>
+</ul>
+</nav>
 </section>
+<section>
+<section id="background" class="title-slide slide level1 center">
+<h1>Background</h1>
 
-<section data-markdown data-separator="^\n$"><textarea data-template>
-## Peaceful uranium enrichment?
-- The technology to produce weapons-grade uranium is the same as to produce reactor-grade uranium
-  - It just takes a LOT more money and time (and produces much more waste)
-- One of the jobs of the IAEA (International Atomic Energy Agency) - a UN organization - is to monitor countries to ensure that they are enriching uranium for peaceful means
-  - I.e., only to a 3.5% U-235 concentration
+</section>
+<section id="definition-plc" class="slide level2">
+<h2>Definition: PLC</h2>
+<ul>
+<li>PLC: Programmable Logic Controller</li>
+<li>A “computer used for automation of electromechanical processes”</li>
+<li>Typically used in assembly lines, amusement rides, light fixtures, etc.</li>
+<li>Often has many more inputs and outputs than a typical PC might have</li>
+<li>Often hardened against the environment (dust, water, vibration, etc.)</li>
+<li>Programmed via a PL on a PC, then the program is transferred over to the PLC</li>
+</ul>
+</section>
+<section id="definition-scada" class="slide level2">
+<h2>Definition: SCADA</h2>
+<ul>
+<li>Supervisory Control And Data Acquisition</li>
+<li>A industrial control system to monitor some industrial process (such as uranium enrichment)</li>
+<li>Components:
+<ul>
+<li>A human-machine interface for human monitoring</li>
+<li>Supervisory computer control system</li>
+<li>Sensors and actuators</li>
+<li>PLCs that are between the sensors and actuators</li>
+<li>Etc.</li>
+</ul></li>
+</ul>
+</section>
+<section id="uranium-enrichment" class="slide level2">
+<h2>Uranium enrichment</h2>
+<ul>
+<li>Uranium comes in six isotopes, two of which we care about for this lecture:
+<ul>
+<li>Uranium 238: 99.27%</li>
+<li>Uranium 235: 0.71%</li>
+</ul></li>
+<li>While all are radioactive, and all are unstable, U-235 is the most usable in nuclear (fission) reactions</li>
+<li>A typical nuclear reactor requires 3.5% U-235 to sustain a reaction
+<ul>
+<li>A nuclear weapon requires 90% U-235</li>
+</ul></li>
+<li>But the isotopes are intermixed; how to separate them?</li>
+</ul>
+</section>
+<section id="uranium-enrichment-1" class="slide level2">
+<h2>Uranium enrichment</h2>
+<ul>
+<li>After the uranium is mined, it is converted into a gas: uranium hexafluoride (UF<span class="math inline">\(_6\)</span>)
+<ul>
+<li>(well, it’s gas at 134 degrees Fahrenheit)</li>
+</ul></li>
+<li>The UF<span class="math inline">\(_6\)</span> is then put into a centrifuge, and spun around at high speeds
+<ul>
+<li>The heavier U-238 moves to the outside, the lighter U-235 moves to the inside</li>
+</ul></li>
+<li>This is done repeatedly until the appropriate concentration of U-235 is reached</li>
+</ul>
+</section>
+<section id="uranium-enrichment-2" class="slide level2">
+<h2>Uranium enrichment</h2>
 
+<img data-src="images/stuxnet/960px-Gas_centrifuge_cascade.jpg" class="r-stretch"></section>
+<section id="peaceful-uranium-enrichment" class="slide level2">
+<h2>Peaceful uranium enrichment?</h2>
+<ul>
+<li>The technology to produce weapons-grade uranium is the same as to produce reactor-grade uranium
+<ul>
+<li>It just takes a LOT more money and time (and produces much more waste)</li>
+</ul></li>
+<li>One of the jobs of the IAEA (International Atomic Energy Agency) - a UN organization - is to monitor countries to ensure that they are enriching uranium for peaceful means
+<ul>
+<li>I.e., only to a 3.5% U-235 concentration</li>
+</ul></li>
+</ul>
+</section>
+<section id="political-background" class="slide level2">
+<h2>Political background</h2>
+<ul>
+<li>These slides are meant as a neutral but honest assessment, and is not taking a stand one way or the other</li>
+<li>Recently, many countries have been trying to develop “the bomb”
+<ul>
+<li><del>North Korea</del>, Iran, <del>Pakistan</del>, <del>India</del>, etc.</li>
+</ul></li>
+</ul>
+</section>
+<section id="political-background-1" class="slide level2">
+<h2>Political background</h2>
+<ul>
+<li>Iran and North Korea (DPRK) are considered to being “close” to achieving this
+<ul>
+<li>(DPRK has it, depending on your definition)</li>
+<li>And they have repeatedly threatened the US (and, in Iran’s case, Israel, a close US ally)</li>
+<li>And the US doesn’t have any (direct) diplomatic relations with either them
+<ul>
+<li>And they have rebuffed IAEA monitoring (although Iran allowed some in rather recently)</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="irans-nuclear-program" class="slide level2">
+<h2>Iran’s nuclear program</h2>
+<ul>
+<li>Started in the 1950’s, it had significant US assistance until the 1979 Iranian revolution</li>
+<li>Primary uranium enrichment facility is at Natanz</li>
+<li>The first nuclear reactor went online in September 2011
+<ul>
+<li>The reactor was built with Russian assistance</li>
+</ul></li>
+<li>Iran has “undertaken research and experiments geared to developing a nuclear weapons capability”
+<ul>
+<li>From an IAEA report in November 2011</li>
+</ul></li>
+</ul>
+</section>
+<section id="zero-day-exploit" class="slide level2">
+<h2>Zero-day exploit</h2>
+<ul>
+<li>A zero-day attack is an exploit against some system that:
+<ul>
+<li>Is unknown to many, possibly including the developer</li>
+<li>Typically has no patch available to fix the vulnerability</li>
+</ul></li>
+<li>Note that this is an <em>exploit</em>, not just a <em>vulnerability</em></li>
+<li>You can <em>easily</em> fetch a million dollars on the black market for such an exploit</li>
+<li>Term etymology is because it occurs “on or before the zeroth day of developer awareness”</li>
+</ul>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+</section></section>
+<section>
+<section id="overview" class="title-slide slide level1 center">
+<h1>Overview</h1>
 
-## Political background
-- These slides are meant as a neutral but honest assessment, and is not taking a stand one way or the other
-- Recently, many countries have been trying to develop "the bomb"
-  - ~~North Korea~~, Iran, ~~Pakistan~~, ~~India~~, etc.
+</section>
+<section id="overview-1" class="slide level2">
+<h2>Overview</h2>
+<ul>
+<li>Stuxnet infected the computers in Iran that controlled the uranium centrifuges
+<ul>
+<li>It recorded what a “proper” reading would be</li>
+<li>Then caused them to spin out of control</li>
+</ul></li>
+<li>This caused significant damage to Iran’s ability to enrich uranium</li>
+<li>First identified in June 2010, it was estimated that it started spreading in March or April of 2010
+<ul>
+<li>1.5 years before Iran’s first nuclear reactor went online</li>
+</ul></li>
+</ul>
+</section>
+<section id="target" class="slide level2">
+<h2>Target</h2>
+<ul>
+<li>Stuxnet had little affect on systems that were not running Siemen’s SCADA software for uranium enrichment
+<ul>
+<li>It would try to propagate a certain number of times (3), and then become inert</li>
+</ul></li>
+<li>And it only did anything malicious on systems with the VERY specific configuration that Iran’s systems used</li>
+<li>The target seemed to have been Iran’s uranium enrichment facility at Natanz</li>
+</ul>
+</section>
+<section id="four-4-windows-zero-day-attacks" class="slide level2">
+<h2>Four (4!) Windows zero-day attacks!</h2>
+<ul>
+<li>There were FOUR separate zero-day attacks against Windows
+<ul>
+<li>Plus two vulnerabilities that were already known, but not everybody had patched against</li>
+<li>Using four was unprecedented</li>
+<li>Malware writers typically will only use one at a time</li>
+</ul></li>
+</ul>
+</section>
+<section id="rootkit-capability-take-1" class="slide level2">
+<h2>Rootkit capability, take 1</h2>
+<ul>
+<li>After using one of the 6 exploits…
+<ul>
+<li>The 4 zero-day attacks or the 2 known attacks…</li>
+</ul></li>
+<li>… it installs both a kernel-level and application-level rootkit on Windows
+<ul>
+<li>The device drivers have been digitally signed with stolen certificates from real companies in Taiwan
+<ul>
+<li>Those two certificates have since been revoked by Verisign</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="rootkit-capability-take-2" class="slide level2">
+<h2>Rootkit capability, take 2</h2>
+<ul>
+<li>The Siemens SCADA system used for uranium enrichment used PLCs</li>
+<li>And Stuxnet contained a rootkit for these PLCs
+<ul>
+<li>But only PLCs from two vendors: a Finnish company and an Iranian company</li>
+</ul></li>
+<li>These PLCs are used to control the speed of the motors of the centrifuges</li>
+<li>The rootkit does the actual changing of the motor speeds</li>
+</ul>
+</section>
+<section id="windows---plc-communication" class="slide level2">
+<h2>Windows &lt;-&gt; PLC communication</h2>
+<ul>
+<li>Stuxnet subverts the DLL that is used to communicate with the PLCs
+<ul>
+<li>This was done through yet another zero-day exploit on the SCADA software (a hard-coded DB password)</li>
+</ul></li>
+<li>This modified DLL allows the reprogramming of the PLC (with the PLC rootkit) without detection by any of the other security software</li>
+</ul>
+</section>
+<section id="man-in-the-middle-attack" class="slide level2">
+<h2>Man-in-the-middle attack</h2>
+<ul>
+<li>Stuxnet modified the PLC communication DLL</li>
+<li>And then installed a rootkit on the PLCs</li>
+<li>This was thus a man-in-the-middle attack
+<ul>
+<li>And this complexity is “unusual” for malware</li>
+</ul></li>
+</ul>
+</section>
+<section id="metamorphism" class="slide level2">
+<h2>Metamorphism</h2>
+<ul>
+<li>And it mutates, as well!</li>
+<li>Little information is available on this, but my best guess is that it is metamorphic (i.e., body polymorphic)
+<ul>
+<li>That capability was available over a decade ago</li>
+<li>And it’s not like the creators lacked technical ability…</li>
+</ul></li>
+</ul>
+</section>
+<section id="how-to-classify-stuxnet" class="slide level2">
+<h2>How to classify Stuxnet?</h2>
+<ul>
+<li>It’s a worm (one of the ways it spreads)</li>
+<li>It has viral infection capabilities (when it infects the PLC communication DLL)</li>
+<li>It was two rootkits (against Windows and the PLC)</li>
+</ul>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+</section></section>
+<section>
+<section id="fallout" class="title-slide slide level1 center">
+<h1>Fallout</h1>
+<p>(pun intended)</p>
+</section>
+<section id="identification" class="slide level2">
+<h2>Identification</h2>
+<ul>
+<li>Stuxnet took longer to identify than almost any other piece of malware
+<ul>
+<li>Meaning once they started analyzing it</li>
+<li>Partly due to the necessity to have the Siemens hardware to fully analyze it</li>
+</ul></li>
+<li>Even today, its full capabilities are not fully understood</li>
+</ul>
+</section>
+<section id="countries-affected" class="slide level2">
+<h2>Countries affected</h2>
+<ul>
+<li>Iran: 59.8%</li>
+<li>Indonesia: 18.2%</li>
+<li>India: 8.3%</li>
+<li>Azerbaijan: 2.6%</li>
+<li>United States: 1.6%</li>
+<li>Pakistan: 1.3%</li>
+<li>Others: 9.2%</li>
+</ul>
+</section>
+<section id="stuxnet-firsts" class="slide level2">
+<h2>Stuxnet firsts…</h2>
+<ul>
+<li>Use of 4 zero-day exploits on Windows</li>
+<li>A rootkit against a PLC</li>
+<li>Attacking SCADA software</li>
+<li>Causing this much physical damage</li>
+<li>Being anything remotely this complex</li>
+</ul>
+</section>
+<section id="effects-on-iran" class="slide level2">
+<h2>Effects on Iran</h2>
+<ul>
+<li>Shutdown the centrifuges at Natanz for a time</li>
+<li>Over the course of a year, the output from Natanz was decreased by 30%
+<ul>
+<li>And was up again the next year, but not to full production capacity</li>
+</ul></li>
+<li>Destroyed 1,000 centrifuges
+<ul>
+<li>But Iran had at least 5,000 there</li>
+<li>Why did it destroy so few? Nobody knows…</li>
+</ul></li>
+<li>Obviously embarrassment for Iran</li>
+<li>But it probably only delayed their enrichment goals by a year (or two, at most)</li>
+</ul>
+</section>
+<section id="whodunit" class="slide level2">
+<h2>Whodunit?</h2>
+<ul>
+<li>Pretty much everybody agrees that this was only done “with nation-state support”</li>
+<li>The US and Israel are the top of the speculation list
+<ul>
+<li>As they had the most reason to want to derail Iran’s nuclear program (and have been trying for some time)</li>
+<li>Many think it was a joint effort between the two</li>
+</ul></li>
+</ul>
+</section>
+<section id="whodunit-1" class="slide level2">
+<h2>Whodunit?</h2>
+<ul>
+<li>A <a href="https://www.wired.com/2013/06/general-keith-alexander-cyberwar/all/">Wired article</a> from 2013 claims it was a joint effort between the NSA, CIA, and Israeli intelligence</li>
+<li><a href="https://www.theregister.co.uk/2013/07/08/snowden_us_israel_stuxnet/">Snowden claimed this also</a> in 2013</li>
+<li>But of course nothing has been (formally) admitted</li>
+</ul>
+</section>
+<section id="final-stuxnet-notes" class="slide level2">
+<h2>Final Stuxnet notes…</h2>
+<ul>
+<li>It deletes itself on June 24, 2012</li>
+<li>Not sure why…</li>
+<li>It is a very LARGE piece of malware: 1/2 Mb</li>
+</ul>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+</section></section>
+<section>
+<section id="aftermath" class="title-slide slide level1 center">
+<h1>Aftermath</h1>
 
-
-## Political background
-- Iran and North Korea (DPRK) are considered to being "close" to achieving this
-  - (DPRK has it, depending on your definition)
-  - And they have repeatedly threatened the US (and, in Iran's case, Israel, a close US ally)
-  - And the US doesn't have any (direct) diplomatic relations with either them
-	- And they have rebuffed IAEA monitoring (although Iran allowed some in rather recently)
-
-
-## Iran's nuclear program
-- Started in the 1950's, it had significant US assistance until the 1979 Iranian revolution
-- Primary uranium enrichment facility is at Natanz
-- The first nuclear reactor went online in September 2011
-  - The reactor was built with Russian assistance
-- Iran has "undertaken research and experiments geared to developing a nuclear weapons capability"
-	- From an IAEA report in November 2011
-
-
-## Zero-day exploit
-- A zero-day attack is an exploit against some system that:
-	- Is unknown to many, possibly including the developer
-    - Typically has no patch available to fix the vulnerability
-- Note that this is an *exploit*, not just a *vulnerability*
-- You can *easily* fetch a million dollars on the black market for such an exploit
-- Term etymology is because it occurs "on or before the zeroth day of developer awareness"
-	  </textarea></section>
-	  
-	</section>
-	
-	<section>
-      
-	  <section data-markdown id="overview" class="center"><textarea data-template>
-# Overview
-	  </textarea></section>
-	  
-	  <section data-markdown data-separator="^\n$"><textarea data-template>
-## Overview
-- Stuxnet infected the computers in Iran that controlled the uranium centrifuges
-  - It recorded what a "proper" reading would be
-  - Then caused them to spin out of control
-- This caused significant damage to Iran's ability to enrich uranium
-- First identified in June 2010, it was estimated that it started spreading in March or April of 2010
-  - 1.5 years before Iran's first nuclear reactor went online
-
-
-## Target
-- Stuxnet had little affect on systems that were not running Siemen's SCADA software for uranium enrichment
-	- It would try to propagate a certain number of times (3), and then become inert
-- And it only did anything malicious on systems with the VERY specific configuration that Iran's systems used
-- The target seemed to have been Iran's uranium enrichment facility at Natanz
-
-
-## Four (4!) Windows zero-day attacks!
-- There were FOUR separate zero-day attacks against Windows
-	- Plus two vulnerabilities that were already known, but not everybody had patched against
-	- Using four was unprecedented
-	- Malware writers typically will only use one at a time
-
-
-## Rootkit capability, take 1
-- After using one of the 6 exploits...
-  - The 4 zero-day attacks or the 2 known attacks...
-- ... it installs both a kernel-level and application-level rootkit on Windows
-  - The device drivers have been digitally signed with stolen certificates from real companies in Taiwan
-	- Those two certificates have since been revoked by Verisign
-
-
-## Rootkit capability, take 2
-- The Siemens SCADA system used for uranium enrichment used PLCs
-- And Stuxnet contained a rootkit for these PLCs
-  - But only PLCs from two vendors: a Finnish company and an Iranian company
-- These PLCs are used to control the speed of the motors of the centrifuges
-- The rootkit does the actual changing of the motor speeds
-
-
-## Windows <-> PLC communication
-- Stuxnet subverts the DLL that is used to communicate with the PLCs
-  - This was done through yet another zero-day exploit on the SCADA software (a hard-coded DB password)
-- This modified DLL allows the reprogramming of the PLC (with the PLC rootkit) without detection by any of the other security software
-
-
-## Man-in-the-middle attack
-- Stuxnet modified the PLC communication DLL
-- And then installed a rootkit on the PLCs
-- This was thus a man-in-the-middle attack
-  - And this complexity is "unusual" for malware
-
-
-## Metamorphism
-- And it mutates, as well!
-- Little information is available on this, but my best guess is that it is metamorphic (i.e., body polymorphic)
-  - That capability was available over a decade ago
-  - And it's not like the creators lacked technical ability...
-
-
-## How to classify Stuxnet?
-- It's a worm (one of the ways it spreads)
-- It has viral infection capabilities (when it infects the PLC communication DLL)
-- It was two rootkits (against Windows and the PLC)
-	  </textarea></section>
-	  
-	</section>
-	
-	<section>
-      
-	  <section data-markdown id="fallout" class="center"><textarea data-template>
-# Fallout
-
-(pun intended)
-	  </textarea></section>
-	  
-	  <section data-markdown data-separator="^\n$"><textarea data-template>
-## Identification
-- Stuxnet took longer to identify than almost any other piece of malware
-  - Meaning once they started analyzing it
-  - Partly due to the necessity to have the Siemens hardware to fully analyze it
-- Even today, its full capabilities are not fully understood
-
-
-## Countries affected
-- Iran: 		59.8%
-- Indonesia:	18.2%
-- India:		8.3%
-- Azerbaijan:	2.6%
-- United States:	1.6%
-- Pakistan:	1.3%
-- Others:		9.2%
-
-
-## Stuxnet firsts...
-- Use of 4 zero-day exploits on Windows
-- A rootkit against a PLC
-- Attacking SCADA software
-- Causing this much physical damage
-- Being anything remotely this complex
-
-
-## Effects on Iran
-- Shutdown the centrifuges at Natanz for a time
-- Over the course of a year, the output from Natanz was decreased by 30%
-  - And was up again the next year, but not to full production capacity
-- Destroyed 1,000 centrifuges
-  - But Iran had at least 5,000 there
-  - Why did it destroy so few?  Nobody knows...
-- Obviously embarrassment for Iran
-- But it probably only delayed their enrichment goals by a year (or two, at most)
-
-
-## Whodunit?
-- Pretty much everybody agrees that this was only done "with nation-state support"
-- The US and Israel are the top of the speculation list
-  - As they had the most reason to want to derail Iran's nuclear program (and have been trying for some time)
-  - Many think it was a joint effort between the two
-
-
-## Whodunit?
-- A [Wired article](https://www.wired.com/2013/06/general-keith-alexander-cyberwar/all/) from 2013 claims it was a joint effort between the NSA, CIA, and Israeli intelligence
-- [Snowden claimed this also](https://www.theregister.co.uk/2013/07/08/snowden_us_israel_stuxnet/) in 2013
-- But of course nothing has been (formally) admitted
-
-
-## Final Stuxnet notes...
-- It deletes itself on June 24, 2012
-- Not sure why...
-- It is a very LARGE piece of malware:  1/2 Mb
-	  </textarea></section>
-	  
-	</section>
-	
-	<section>
-      
-	  <section data-markdown id="aftermath" class="center"><textarea data-template>
-# Aftermath
-	  </textarea></section>
-	  
-	  <section data-markdown data-separator="^\n$"><textarea data-template>
-## Duqu
-- Symantec: "nearly identical to Stuxnet, but with a completely different purpose"
-  - Symantec claims it was built by the same author or by somebody with access to the Stuxnet source code
-
-
-## Similarities with Stuxnet
-- The installer exploits zero-day Windows kernel vulnerability(ies)
-- Components are signed with stolen digital keys
-- Duqu and Stuxnet are both highly targeted and related to the nuclear program of Iran
-
-
-## Zero-day exploit
-- It used a zero-day exploit in Microsoft Word
-  - In the TrueType font parsing engine that allows arbitrary code execution (probably a buffer overflow)
-- This came in the form of a MS Word (.doc) file!
-
-
-## Purpose
-- Apparently it's to capture information, such as digital certificates
-- It removes itself after 36 days, this limiting the ability to detect it
-- The full capabilities of Duqu are not yet known, either
-
-
-## Flame
-- Malware from 2012; most sophisticated at the time
-- Many "modules" for the various "features" of the malware
-- Customizes its behavior based on the anti-virus software installed
-- Mostly information gathering payloads
-</textarea></section>
-
-      </section>
-      
+</section>
+<section id="duqu" class="slide level2">
+<h2>Duqu</h2>
+<ul>
+<li>Symantec: “nearly identical to Stuxnet, but with a completely different purpose”
+<ul>
+<li>Symantec claims it was built by the same author or by somebody with access to the Stuxnet source code</li>
+</ul></li>
+</ul>
+</section>
+<section id="similarities-with-stuxnet" class="slide level2">
+<h2>Similarities with Stuxnet</h2>
+<ul>
+<li>The installer exploits zero-day Windows kernel vulnerability(ies)</li>
+<li>Components are signed with stolen digital keys</li>
+<li>Duqu and Stuxnet are both highly targeted and related to the nuclear program of Iran</li>
+</ul>
+</section>
+<section id="zero-day-exploit-1" class="slide level2">
+<h2>Zero-day exploit</h2>
+<ul>
+<li>It used a zero-day exploit in Microsoft Word
+<ul>
+<li>In the TrueType font parsing engine that allows arbitrary code execution (probably a buffer overflow)</li>
+</ul></li>
+<li>This came in the form of a MS Word (.doc) file!</li>
+</ul>
+</section>
+<section id="purpose" class="slide level2">
+<h2>Purpose</h2>
+<ul>
+<li>Apparently it’s to capture information, such as digital certificates</li>
+<li>It removes itself after 36 days, this limiting the ability to detect it</li>
+<li>The full capabilities of Duqu are not yet known, either</li>
+</ul>
+</section>
+<section id="flame" class="slide level2">
+<h2>Flame</h2>
+<ul>
+<li>Malware from 2012; most sophisticated at the time</li>
+<li>Many “modules” for the various “features” of the malware</li>
+<li>Customizes its behavior based on the anti-virus software installed</li>
+<li>Mostly information gathering payloads</li>
+</ul>
+<div class="quarto-auto-generated-content">
+<p><img src="images/quarto.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://aaronbloomfield.github.io/ics" class="uri">https://aaronbloomfield.github.io/ics</a></p>
+</div>
+</div>
+</section></section>
     </div>
   </div>
-<script src="../slides/reveal.js/dist/reveal.js"></script>
-<script src="../slides/reveal.js/plugin/zoom/zoom.js"></script>
-<script src="../slides/reveal.js/plugin/notes/notes.js"></script>
-<script src="../slides/reveal.js/plugin/search/search.js"></script>
-<script src="../slides/reveal.js/plugin/markdown/markdown.js"></script>
-<script src="../slides/reveal.js/plugin/highlight/highlight.js"></script>
-<script src="../slides/reveal.js/plugin/math/math.js"></script>
-<script src="settings.js"></script> 
-</body>
-</html>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="quarto_files/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="quarto_files/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="quarto_files/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="quarto_files/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="quarto_files/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="quarto_files/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="quarto_files/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="quarto_files/revealjs/plugin/notes/notes.js"></script>
+  <script src="quarto_files/revealjs/plugin/search/search.js"></script>
+  <script src="quarto_files/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="quarto_files/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":false},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'h.v',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

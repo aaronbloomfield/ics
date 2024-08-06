@@ -1,0 +1,783 @@
+---
+title: "Policy"
+---
+
+
+
+# Challenges
+
+
+## Narrowing our focus
+- This slide set focuses on *US* cybersecurity policy
+- Briefly, internationally:
+  - From the UN: [Half of all countries aware but lacking national plan on cybersecurity, UN agency reports](https://news.un.org/en/story/2017/07/560922-half-all-countries-aware-lacking-national-plan-cybersecurity-un-agency-reports) (from July 2017)
+  - The UN has focused on cybersecurity policy, [as early as 2011](http://www.un.org/en/development/desa/news/ecosoc/cybersecurity-demands-global-approach.html)
+    - However, the UN can not dictate policies for individual nations
+
+
+
+## Disclaimer
+- This topic is being presented in a non-partisan way
+  - All sources are non-partisan
+- You are going to see that I have a dim view of some (but not all!) of our elected representatives and their ability to get anything done...
+- Sorry if that offends anybody!
+  - I hope we don't have a child of a senator or representative here...
+
+
+
+## Question...
+- What do you think are the challenges in US cybersecurity policy?
+
+
+
+## Challenge 1: lack of congressional tech savvy
+- Political leaders are not elected based on their computer science knowledge
+  - Some are tech savvy, many are not
+- Consider the recent testimony of Facebook's Mark Zuckerberg before Congress on April 10, 2018
+  - This was in response to the [Cambridge Analytica data scandal](https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal) and Facebook's role in it
+- The video on the next slide is 1:00 long ([direct link](https://www.youtube.com/embed/n2H8wx1aBiQ?rel=0))
+
+
+
+----
+
+<iframe class="stretch" src="https://www.youtube.com/embed/n2H8wx1aBiQ?rel=0" data-autoplay></iframe>
+<p><a href='https://www.youtube.com/embed/n2H8wx1aBiQ?rel=0'>direct link</a></p>
+
+
+
+## Observations
+- That was Senator Orrin Hatch (Utah) questioning Zuckerberg in April 2018
+  - He was then the longest serving senator and was then 84 years old (he retired in 2019)
+- Zuckerberg seemed shocked by the question, and at first didn't know how to respond
+  - His smile after his "we run ads" comment is hilarious...
+- Hatch didn't seem to understand his response, but just said, "I see"
+
+
+
+## "It's a [series of tubes](https://en.wikipedia.org/wiki/Series_of_tubes)!"
+- Consider the late Senator Ted Stevens (Alaska)
+  - On June 28, 2006, he was criticizing an amendment that was effectively an early form of net neutrality
+  - At that time he was the chair for the Commerce, Science, and Transportation committee
+    - The committee in charge of regulating the (US) Internet!
+- I suspect that a staffer was trying to use the "tubes" analogy to explain the Internet to him
+- The video on the next slide is 2:29 long ([direct link](https://www.youtube.com/embed/f99PcP0aFNE?rel=0))
+
+
+
+----
+
+<iframe class="stretch" src="https://www.youtube.com/embed/lTonHRerMC4?rel=0" data-autoplay></iframe>
+<p><a href='https://www.youtube.com/watch?v=lTonHRerMC4?rel=0'>direct link</a></p>
+
+
+
+## Observations
+- Memorable quotes from that clip:
+  - "What happens to your own personal Internet?"
+  - "The Internet provided a new kind of long distance" (telephone service)
+  - "An Internet was sent by my staff" [the other day] which "got tangled up by all these things going on the Internet commercially"
+  - And, of course, [the Internet] is "not a big truck -- it's a series of tubes" that can be "filled"
+
+
+
+## Challenge 1: lack of congressional tech savvy
+- Consider the [Burr-Feinstein Anti-Encryption Bill](https://www.burr.senate.gov/imo/media/doc/BAG16460.pdf) from April of 2016
+  - It would require tech companies to decrypt any communication upon court order
+  - This means that encryption would have to be developed that could be un-encrypted
+- Proper encryption does not work that way!
+- The [bill was declared dead](https://www.eff.org/deeplinks/2016/05/win-one-security-burr-feinstein-proposal-declared-dead-year) in May 2016
+- Sources: [1](https://techcrunch.com/2016/04/13/burr-feinstein-encryption-bill-is-officially-here-in-all-its-scary-glory/), [2](https://www.justsecurity.org/30606/burr-feinstein-crypto-bill-terrible/), [3](https://www.justsecurity.org/30606/burr-feinstein-crypto-bill-terrible/), [4](https://www.techdirt.com/articles/20160408/08381934131/burr-feinstein-release-their-anti-encryption-bill-more-ridiculous-than-expected.shtml), etc.
+
+
+
+## Challenge 2: rapid change in the field
+- This is a challenge for everybody, but especially for those who are not familiar with the field and not keeping up with it
+  - In other words, senators and representatives
+
+
+
+## Challenge 3: slow gov't response
+- The US gov't is slow in response to these things
+- Consider the 2015 [OMB](https://en.wikipedia.org/wiki/Office_of_Management_and_Budget)'s [HTTPS-Only Standard directive](https://obamawhitehouse.archives.gov/sites/default/files/omb/memoranda/2015/m-15-13.pdf):
+  - All federal gov't websites had to move from http to https
+  - They were given to December 31, 2016 -- *18 months later!*
+  - It takes about *18 minutes* to configure Apache with https, and most of that time is waiting for your certificate to be generated and issued
+
+
+
+## Challenge 4: well funded adversaries
+- Other countries have stepped up their cyberwar capabilities
+  - Notably Russia, but also China
+- Many hacks originate from these countries
+  - And many of those are from gov't funded campaigns
+- The US would do this as well, but we aren't as good at doing so...
+
+
+
+## Challenge 5: states' rights
+- From the US Constitution's Bill of Rights, amendment 10:
+> The powers not delegated to the United States by the Constitution, nor prohibited by it to the States, are reserved to the States respectively, or to the people
+- The framers of the constitution, not having foreseen computers and cybersecurity, did not, in fact, delegate cyber *anything* to the US gov't
+
+
+
+## Challenge 5: states' rights
+- Does the federal government still have a role?
+  - Yes -- the security of the country is still in the federal government's powers
+- But many other things are not:
+  - ISP regulation
+  - Election machine security
+  - Currently, net neutrality (kinda...)
+  - Etc.
+
+
+
+## Challenge 6: US gov't working against secure computing
+- Many examples:
+  - Trying to put backdoors into encryption
+  - The NSA collected many exploits and did not tell the OS makers about them
+    - Other malware was exploiting these vulnerabilities as well
+    - When those [tools were leaked](https://en.wikipedia.org/wiki/The_Shadow_Brokers), additional malware made use of these exploits
+  - The [White House eliminated the administration's cybersecurity coordinator](https://www.darkreading.com/vulnerabilities---threats/us-government-cybersecurity-at-a-crossroads/d/d-id/1331815) in May 2018
+
+
+
+## Challenge 7: Who fixes this?
+- Executive branch: the president can issue an [executive order](https://en.wikipedia.org/wiki/Executive_order)
+  - They are limited (by design) in their scope
+  - Some of this power is relegated to certain departments, such as [DHS](https://en.wikipedia.org/wiki/United_States_Department_of_Homeland_Security)
+- Legislative branch: let's face it, they get nothing done, regardless of which party is in power.
+- Judicial branch: they interpret the law, not make it
+- So maybe... the states?
+  - But those problems often tend to occur on the state level as well
+
+
+
+## Challenge 8: lobbying and money in politics
+- [SOPA](https://en.wikipedia.org/wiki/Stop_Online_Piracy_Act) and [PIPA](https://en.wikipedia.org/wiki/Personal_Information_Protection_and_Electronic_Documents_Act) from 2012, which were heavily lobbied by the [MPAA](https://en.wikipedia.org/wiki/Motion_Picture_Association_of_America) and the [RIAA](https://en.wikipedia.org/wiki/Recording_Industry_Association_of_America), would have invalidated [DNSSEC](https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions)
+  - We'll see SOPA, PIPA, and DNSSEC shortly
+  - SOPA and PIPA were indefinitely postponed in 2012
+- Some people in congress will adopt any view if enough money is paid to them...
+
+
+
+## Challenge 9: retaining knowledgeable people
+- In 2018, a typical starting salary for a *good* CS graduate with a bachelor's:
+  - About $120k in the industry
+  - $53k in 2023 with the gov't -- yes, that's fifty-three
+    - A bachelor's is GS-7 (or lower), [calculated](https://www.opm.gov/policy-data-oversight/pay-leave/salaries-wages/2016/general-schedule-gs-salary-calculator/) in the (very expensive!) DC area
+  - Also, the gov't gives very little vacation to start
+
+
+
+## Challenge 9: retaining knowledgeable people
+- This is why the gov't hires contractors, who can pay competitive rates
+  - But that causes lots of other issues, such as:
+    - Increased expense (overhead and profit for the contractor)
+	- Issues like the [Snowden leak](https://en.wikipedia.org/wiki/Snowden_leak)
+	- Contractors lobbying the gov't for unnecessary contracts
+	  - Like the [terrible website roll-out of the Affordable Care Act's HealthCare.gov site](https://en.wikipedia.org/wiki/HealthCare.gov#Concerns_about_the_website)
+
+
+
+## Challenge 10: contradictory gov't response
+- The US supports certain technologies for use by foreign individuals
+  - Example: encryption for use by groups subjugated from oppressive regimes
+- ... but they don't want these to be used by US citizens
+  - Since one cannot search a properly encrypted device
+
+
+
+## Challenge 11: repeated gov't shutdowns
+- The 2018-2019 [government shutdown](https://en.wikipedia.org/wiki/United_States_federal_government_shutdown_of_2018%E2%80%932019) lasted 35 days
+- With skeletal staffs, many gov't agencies cannot do perform basic cybersecurity procedures
+- Thus, cybersecurity is one of many things being hurt by the shutdown
+- Also, gov't agencies can't get new https certificates, so https doesn't work on many gov't websites
+- [source](https://www.rollcall.com/news/cybersecurity-efforts-may-suffer-shutdown-persists)
+
+
+
+## Challenge Summary
+
+1. Lack of congressional tech savvy
+2. Rapid change in the field
+3. Slow government response
+4. Well funded adversaries
+5. States' rights
+6. US government working against secure computing
+7. Who fixes this?
+8. Lobbying and money in politics
+9. Retaining knowledgable people
+10. Contradictory government response
+11. Repeated government shutdowns
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+# Case Study: [SOPA](https://en.wikipedia.org/wiki/Stop_Online_Piracy_Act) & [PIPA](https://en.wikipedia.org/wiki/Personal_Information_Protection_and_Electronic_Documents_Act)
+
+
+## Introduction
+- SOPA = Stop Online Piracy Act (House bill 3261)
+- PIPA = Protect IP Act (Senate Bill 968)
+- Both were promoted in early 2012
+- This presentation focuses on SOPA, but they are pretty similar
+- Much of the content of this presentation (and all the images) comes from [the Wikipedia article](http://en.wikipedia.org/wiki/Stop_Online_Piracy_Act), as well as the pages linked to from there
+
+
+
+## Current status
+- SOPA and PIPA were "postponed" in 2012
+  - Basically, a way to kill the bill without formally admitting to killing it
+  - While these two bills will never become law, Congress does many similar things, which is why this is being discussed
+  - Example: [The Burr-Feinstein anti-encryption bill of 2016](https://www.techdirt.com/articles/20160408/08381934131/burr-feinstein-release-their-anti-encryption-bill-more-ridiculous-than-expected.shtml)
+
+
+
+## Hosting user content
+- To date, sites that host user content...
+  - Editable pages, such as on Wikipedia
+  - User submissions, such as on Reddit
+  - User comments, such as on Slashdot (and many other sites)
+  - User reviews, such as on Amazon
+- ... are not *liable* for an illegal posting ...
+  - Here 'illegal' means posting of copyrighted material
+- *AS LONG AS* the site takes the content down when notified in due course
+
+
+
+## SOPA and such sites
+- Under SOPA, any such site could be taken down for hosting illegal content *without giving them the chance to take it down themselves*
+  - But upon an accusation only; no need for proof!
+	- This is *contrary* to the whole concept of innocent-until-proven-guilty!
+- So one user post could take down an entire *domain*
+- Many sites would no longer be able to exist: etsy, flickr, vimeo, etc.
+
+
+
+## More on website take-down
+- Part of the issue is the wording in the bill is vague
+- [eWeek stated](http://www.eweek.com/cloud/house-sopa-hearings-reveal-anti-internet-bias-on-committee-witness-list):
+> The language of SOPA is so broad, the rules so unconnected to the reality of Internet technology and the penalties so disconnected from the alleged crimes that this bill could effectively kill e-commerce or even normal Internet use.
+
+
+
+## Users could be held criminally liable
+
+- It's fine if you post a Youtube video of yourself
+- But if copyrighted material happens to be in the background...
+  - ... you left the TV on, for example...
+  - ... or you had a can of soda on the table...
+- ... then you would be criminally liable under SOPA
+
+
+
+## Effect on pirate websites...
+- Almost none!
+- They just start posting their numeric IP addresses
+- And US law has no jurisdiction outside of the US, so piratebay.org can keep on operating, just like it has since 2003
+
+
+
+## Background: DNS
+- DNS (Domain Name Service) is what translates "www.cs.virginia.edu" into "128.143.67.11"
+  - Computers only use numerical addresses; it's only us humans that use text-based URLs
+- But how do you know you didn't get a maliciously corrupted response (called DNS cache poisoning)?
+
+
+
+## Background: DNSSEC
+- DNSSEC (DNS SECurity) is a hash-based signature confirming that the response received is from a trusted source
+  - It (mostly) prevents DNS cache poisoning
+- We will see all this in more detail in the encryption and networks slide sets
+
+
+
+## SOPA & DNS
+- SOPA provided a legal means to forcibly remove a site from DNS servers if a website was to be removed
+  - And using DNS circumvention methods (foreign DNS, for example) would become illegal
+- Such a website would bounce to a different website that states that the original one was taken down per SOPA
+  - (the bill sponsor agreed to remove these from the pending bill)
+
+
+
+## DNS failures...
+- Let's say you go to amazon.com...
+  - They do have user content (reviews) after all!
+- ... and you don't get there because of either:
+  - The domain was removed pursuant to SOPA
+  - There was DNS cache poisoning
+    - i.e., somebody inserted an imposter site for amazon.com
+- How could you tell the difference?
+- Answer: you can't.  They are indistinguishable.
+
+
+
+## Irony
+- Online censorship circumvention tools are used by many groups in authoritative countries
+  - And the US supports these tools - both their development, and financial support of their deployment
+- So the US gov't would be supporting these tools for non-free countries, but outlawing them for the US
+
+
+
+## Deep-packet inspection
+- So you manage to bypass this DNS removal
+  - By using the IP address directly, by using a foreign DNS, etc.
+- But now ISPs would be required to inspect EACH packet sent to see what website you are going to
+  - That means https (and Tor and other network levels of encryption) would be illegal to use!
+  - And let's ignore the immense computational task of checking each IP packet against a (very large and dynamically changing) list
+- Those IP addresses would then be blocked
+
+
+
+## Deep-packet inspection arms race
+
+- This will cause people to find circumvention routines (masking the IP addresses, using foreign redirector sites, etc.)
+  - As well as counters against the circumvention routines
+  - An arms race!
+- Savvy users would be able to circumvent these
+  - And the increased surveillance (aimed to catch these savvy users) would fall on the less-savvy users
+
+
+
+## SOPA & DNSSEC
+- DNSSEC requires browsers (really, application-level software) must continue searching DNS servers until it finds one -- possibly overseas -- that provides untampered results
+- But this would be *illegal* under SOPA
+- The attorney general can sue "any entity that knowingly and willfully provides ... a product ... for the circumvention or bypassing of" removed websites
+  - Meaning nobody in the US could provide DNSSEC or use it
+
+
+
+## Internet protest
+- On Wed, Jan 17, 2012, many sites lodged a protest by blacking out logos, headers, content, etc.
+  - Wikipedia, google, reddit, xkcd, the list goes on and on
+- This got *significant* press, and effectively shut down the bill in it's current state
+- But the supporters of the bills have strong lobbyists and deep pockets, so they'll be back...
+- Read [here for more info](http://en.wikipedia.org/wiki/Wikipedia:SOPA_initiative/Learn_more)
+
+
+
+## The bill was killed
+- SOPA and PIPA were "postponed" in 2012
+  - Basically, a way to kill the bill without formally admitting to killing it
+- While these two bills will never become law, Congress does many similar things, which is why this is being discussed
+  - Example: [The Burr-Feinstein anti-encryption bill of 2016](https://www.techdirt.com/articles/20160408/08381934131/burr-feinstein-release-their-anti-encryption-bill-more-ridiculous-than-expected.shtml)
+
+
+## A non-US example
+- The [EU](https://en.wikipedia.org/wiki/European_Union) voted on Sep 12, 2018 for the [Internet Copyright Directive](https://en.wikipedia.org/wiki/Copyright_Directive)
+  - "The directive was subject to unprecedented lobbying and has been cited as a success for copyright industries"
+- Controversial parts:
+  - A "link tax" that for sharing content that would disproportionally harm small websites
+  - Sites with user content would have to "employ automated copyright systems ... at the website owner’s expense"
+    - This would harm Wikipedia, among others
+
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+# History
+
+
+## History
+- A brief history of cybersecurity policy in the US
+  - Sources: [WP article from 2003](http://www.washingtonpost.com/wp-dyn/articles/A50606-2002Jun26.html)
+
+
+
+## 1970's
+- 1977: the [GAO](https://www.gao.gov/) recommends "limiting the number of federal employees who can use a computer as a way to prevent network security breaches"
+- 1977: a [bill](https://www.congress.gov/bill/95th-congress/senate-bill/1766) is introduced which tries to define computer crimes
+  - it fails to become law
+
+
+
+## 1980's
+- 1983: FBI raids homes, confiscating computers for the first time
+- 1983: hearings on the [414s](https://en.wikipedia.org/wiki/The_414s) and their cyberattacks
+- 1987: [Computer Security Act of 1987](https://en.wikipedia.org/wiki/Computer_Security_Act_of_1987) is passed, which intended to improve the security of federal computer systems
+  - Was not particularly effective, and was repealed in 2002
+- 1988: [Morris worm](https://en.wikipedia.org/wiki/Morris_worm) released
+- 1988: In response, [CERT/CC](https://www.ready.gov/community-emergency-response-team) is founded at [CMU](https://www.cmu.edu)
+
+
+
+## 1990's
+- Viruses increase in power, and awareness of them increases
+- People start worrying (later panicking) about [Y2K](https://en.wikipedia.org/wiki/Year_2000_problem)
+  - Much money is spend by the gov't and private companies
+  - Yet no major disasters!
+- Few additional laws passed regarding cybersecurity
+- 1998: the [DMCA](https://en.wikipedia.org/wiki/Digital_Millennium_Copyright_Act) passed to attempt to prevent Internet piracy
+  - It weakened cybersecurity and research ([details](https://en.wikipedia.org/wiki/Digital_Millennium_Copyright_Act#Criticisms))
+
+
+
+## 2000's
+- 2000: Clinton releases the first [cybersecurity strategy](https://clintonwhitehouse4.archives.gov/WH/Work/021600.html) which is generally slammed
+- 2000: Various malware raises awareness, and DDOS attacks take down major websites
+- 2002: [FISMA](https://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002) which focuses on federal agency information security
+- 2003: The 9/11 attacks spurred the creation of [DHS](https://www.dhs.gov/), which created [US-CERT](https://en.wikipedia.org/wiki/United_States_Computer_Emergency_Readiness_Team) based on [CERT/CC](https://en.wikipedia.org/wiki/CERT_Coordination_Center)
+- Decade-long events:
+  - Home user's bandwidth increased dramatically
+  - Various laws passed dealing with cybersecurity
+
+
+
+## 2010's
+- 2010: [Stuxnet](https://en.wikipedia.org/wiki/Stuxnet) released to disable Iran's nuclear enrichment program
+- 2012: [SOPA](https://en.wikipedia.org/wiki/Stop_Online_Piracy_Act) and [PIPA](https://en.wikipedia.org/wiki/Personal_Information_Protection_and_Electronic_Documents_Act)
+- 2013: The Pentagon become more public about [seeking to weaponize cyberspace](https://www.npr.org/2013/02/11/171677247/pentagon-goes-on-the-offensive-against-cyber-attacks)
+- Many laws passed (see [here](https://blog.appknox.com/a-glance-at-the-united-states-cyber-security-laws/) for a list of some)
+  - Limited effect, though
+- Budget cuts resulting from the [great recession](https://en.wikipedia.org/wiki/Great_Recession) resulted in little funding
+
+
+
+## 2020's
+- A bit too early to see any trends, but...
+- AI, especially generative AI, is going to play a big role in both the attacks and how the policies respond
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+# Presidential Actions
+
+## US National Security Strategy
+- Abbreviated herein as "US NSS"
+- By President Trump in December 2017 ([online PDF](https://www.whitehouse.gov/wp-content/uploads/2017/12/NSS-Final-12-18-2017-0905.pdf))
+- Has 4 "pillars", each with multiple parts
+  - Pillar I: Protect the American People, the Homeland, and the American Way of Life
+  - Pillar II: Promote American Prosperity
+  - Pillar III: Preserve Peace through Strength
+  - Pillar IV: Achieve American Influence
+
+
+
+## US NSS: keep us safe
+- Formally, "Keep America Safe in the Cyber Era"
+  - From Pillar I, page 12 of the [US NSS pdf](https://www.whitehouse.gov/wp-content/uploads/2017/12/NSS-Final-12-18-2017-0905.pdf)
+- Priority actions 
+  - Identify and Prioritize Risk
+  - Build Defensible Government Networks
+  - Deter And Disrupt Malicious Cyber Actors
+  - Improve Information Sharing and Sensing
+  - Deploy Layered Defenses
+
+
+
+## US NSS: lead in tech
+- Formally, "Lead in Research, Technology, Invention, and Innovation"
+  - From Pillar II, page 20 of the [US NSS pdf](https://www.whitehouse.gov/wp-content/uploads/2017/12/NSS-Final-12-18-2017-0905.pdf)
+- Priority actions
+  - Understand Worldwide Science and Technology (S&T) Trends
+  - Attract and Retain Inventors and Innovators
+  - Leverage Private Capital and Expertise To Build and Innovate
+  - Rapidly Field Inventions and Innovations
+
+
+
+## US NSS: protect innovation
+- Formally, "Promote and Protect the U.S. National Security Innovation Base"
+  - From Pillar II, page 21 of the [US NSS pdf](https://www.whitehouse.gov/wp-content/uploads/2017/12/NSS-Final-12-18-2017-0905.pdf)
+- Priority actions
+  - Understand the Challenges
+  - Protect Intellectual Property
+  - Tighten Visa Procedures
+  - Protect Data and Underlying Infrastructure
+
+
+
+## US NSS: renew cyberspace capabilities
+
+- Formally, "Renew Capabilities: Cyberspace"
+  - From Pillar III, page 31 of the [US NSS pdf](https://www.whitehouse.gov/wp-content/uploads/2017/12/NSS-Final-12-18-2017-0905.pdf)
+- Priority actions
+  - Improve Attribution, Accountability, and Response
+  - Enhance Cyber Tools and Expertise
+  - Improve Integration and Agility
+
+
+
+## NIST on enhancing cybersecurity
+
+- The charge of [NIST's](https://www.nist.gov/) Commission on Enhancing National Cybersecurity:
+> "[develop] actionable recommendations for securing and growing the digital economy by strengthening cybersecurity in the public and private sectors"
+- Their [report](https://www.nist.gov/sites/default/files/documents/2016/12/02/cybersecurity-commission-report-final-post.pdf) listed 6 imperatives
+
+
+
+## NIST report imperatives
+- Protect, Defend, and Secure Today's Information Infrastructure and Digital Networks
+- Innovate and Accelerate Investment for the Security and Growth of Digital Networks and the Digital Economy
+- Prepare Consumers to Thrive in a Digital Age
+- Build Cybersecurity Workforce Capabilities
+- Better Equip Government to Function Effectively and Securely in the Digital Age
+- Ensure an Open, Fair, Competitive, and Secure Global Digital Economy
+
+
+
+## US's International strategy
+- International Strategy For Cyberspace ([online pdf](https://obamawhitehouse.archives.gov/sites/default/files/rss_viewer/international_strategy_for_cyberspace.pdf)) by President Obama from 2011
+- Seven policy priorities
+  - Economy: Promoting International Standards and Innovative, Open Markets
+  - Protecting Our Networks: Enhancing Security, Reliability, and Resiliency
+  - Law Enforcement: Extending Collaboration and the Rule of Law
+
+
+
+## US's International strategy
+- Seven policy priorities, continued
+  - Military: Preparing for 21st Century Security Challenges
+  - Internet Governance: Promoting Effective and Inclusive Structures
+  - International Development: Building Capacity, Security, and Prosperity
+  - Internet Freedom: Supporting Fundamental Freedoms and Privacy
+
+
+
+## The problem with all of these...
+
+- ... is that funding is limited
+- Ultimately significant funding comes from the House of Representatives
+  - (yes, the president submits a budget, but the House still has to pass it)
+- Little funding has resulted, for multiple reasons:
+  - Lack of understanding of the need
+  - Desire to cut the budget, not increase spending
+  - Other political priorities
+
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+# 3 letter agencies
+
+
+## Relevant 3 letter agencies
+- CIA: the spies in foreign countries
+- FBI: the equivalent of the US national police
+- DHS: overall homeland security
+- DOE: they control the nuclear arsenal
+- NSA: 
+
+Most of these slides deal with the NSA and CIA
+
+
+
+## Today's slides...
+- Are an overview of NSA & CIA cybersecurity incidents
+- ... are going to generate a wide variety of opinions
+- I have done my best to make them politically neutral
+  - If you feel otherwise, please let me know!
+
+
+
+## Chelsea Manning: 2010
+- An army intelligence analyst
+- She leaked classified material to Wikileaks
+- These were known as the [Iraqi war logs](https://en.wikipedia.org/wiki/Iraq_War_documents_leak) and the [Afghan war logs](https://en.wikipedia.org/wiki/Afghan_War_documents_leak)
+
+
+
+## Manning: the reveal
+- 66k civilian deaths out of the 109k recorded deaths
+  - The [Iraq Body Count project](https://www.iraqbodycount.org/) estimates about 80% of all deaths in Iraq were civilian deaths
+- "[US authorities failed to investigate hundreds of reports of abuse, torture, rape and even murder by Iraqi police and soldiers](https://www.theguardian.com/world/2010/oct/22/iraq-war-logs-military-leaks)"
+- Even after [Abu Ghraib](https://en.wikipedia.org/wiki/Abu_Ghraib_torture_and_prisoner_abuse), "abuse of prisoners or detainees by Iraqi security forces continued"
+- Many civilian deaths ([1](https://www.aljazeera.com/secretiraqfiles/2010/10/2010102216241633174.html), [2](https://www.nytimes.com/2010/10/24/world/middleeast/24contractors.html?_r=1&hp&mtrref=en.wikipedia.org&gwh=2CEF6AA1EBD3109426A58FAA502B8F9A&gwt=pay), [3](http://www.iraqwarlogs.com/2010/10/22/us-commits-%E2%80%9Cwar-crime%E2%80%9D-as-apache-helicopter-cleared-to-gun-surrendering-insurgents/), etc.)
+
+
+
+## Manning: errors made
+- She was in crisis due to various reasons
+  - One of which was morally being opposed to the war
+    - She was deployed to Iraq at this time
+- But is all this really avoidable?
+- Ultimately, a person with classified access and morally opposed to a war can do great damage
+
+
+
+## Manning: current status
+- Sentenced to 35 years (from 2010) in 2013
+  - Commuted to 7 years in 2017
+  - Released May, 2017
+- Now released from jail, she earns a living via speaking engagements
+
+
+
+## Edward Snowden: 2013
+- [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden) was a contractor with Booz Allen Hamilton
+  - Did work for the CIA and, later, the NSA
+  - In 2013, he released information about the [NSA's global surveillance](https://en.wikipedia.org/wiki/Global_surveillance_disclosures_(2013%E2%80%93present)
+- He now has asylum in Russia
+  - Of course Putin got a copy of those documents...
+
+
+
+## Snowden: overview
+> Taken together, the [Snowden] revelations have brought to light a global surveillance system that cast off many of its historical restraints after the attacks of Sept. 11, 2001. Secret legal authorities empowered the NSA to sweep in the telephone, Internet and location records of whole populations.
+
+[Washington Post, Dec 23, 2013](https://www.washingtonpost.com/world/national-security/edward-snowden-after-months-of-nsa-revelations-says-his-missions-accomplished/2013/12/23/49fc36de-6c1c-11e3-a523-fe73f0ff6b8d_story.html)
+
+
+
+## Snowden: the reveal
+- The US gov't (NSA) was working on global surveillance
+  - Many other (well over a dozen) foreign gov't agencies were helping by sending surveillance data to the US
+  - Most (but not all!) was of non-US citizens
+
+
+
+## Snowden: the effects
+- Lots of angry people
+- Little effect on surveillance in the long-term
+- Foreign govt's got lots of heat
+  - Most of this is secret anyway, so who would know if it continued?
+  - Some foreign gov'ts actually *increased* their surveillance in some situations (example: [Germany](https://www.theguardian.com/world/2013/nov/02/nsa-portrait-total-surveillance))
+- States are doing their own surveillance
+  - With little oversight
+
+
+
+## Snowden: errors made (1/3)
+- Snowden was a sysadmin, and a very good one
+- Booz Allen Hamilton hired Snowden
+  - His background check was outsourced to [US Investigation Services (USIS)](https://en.wikipedia.org/wiki/USIS_(company)
+  - He was [insufficiently vetted](https://www.dailydot.com/layer8/edward-snowden-vetted-usis-lawsuit-settlement/)
+  - "[USIS did not conduct a thorough or proper investigation into Snowden's background](https://mic.com/articles/50417/edward-snowden-a-private-contractor-gave-snowden-his-security-clearance-and-missed-the-red-flags#.vk3evHgyk)"
+  - Under criminal investigation, USIS closed shop in 2015
+  - Problem #1: Insufficient background checks, and outsourced to contractors
+
+
+
+## Snowden: errors made (2/3)
+- Snowden obtained the login credentials of 2 dozen employees
+  - He claimed he needed them to do his job
+  - Problem #2: No enforced policy against giving out login credentials
+- He was able to access lots of information
+  - Problem #3: Insufficient compartmentalization of data
+  - Granted, only some of the other login credentials could access this...
+
+
+
+## Snowden: errors made (3/3)
+- He then removed the data from the "secure site"
+  - Downloaded? Removed on USB key?  Burned CD-ROM / DVD-ROM?  Unclear...
+  - Problem #4: Data can be removed from "secure sites"
+- Many (but not all!) of these problems were fixed after the Snowden affair
+
+
+
+## Snowden: current status
+- He has asylum status in Russia
+  - And full citizenship
+- He has lots of US arrest warrants out for him...
+
+
+
+## Shadow brokers: 2016
+- A mysterious group that released many NSA cyberweapons in 2016
+  - Name is a reference to the Mass Effect video game
+- Many leaks were zero-day exploits
+- They signed all their messages with PGP
+
+
+
+## Shadow brokers: the effects
+- Some of the cyberweapons were used in major malware in 2017:
+  - [WannaCry ransomware](https://en.wikipedia.org/wiki/WannaCry_ransomware_attack)
+  - [Petya cyberattack](https://en.wikipedia.org/wiki/2017_Petya_cyberattack)
+- [DoublePulsar](https://en.wikipedia.org/wiki/DoublePulsar) infected 200,000 Windows machines in weeks
+  - Many such exploits had patches already released, but not yet applied
+
+
+
+## Shadow brokers: the effects
+- A lot more of very powerful cyberweapons available for *anybody* to download...
+- These weapons were used for the [2019 Baltimore ransomware attack](https://en.wikipedia.org/wiki/2019_Baltimore_ransomware_attack)
+  - And previously Greenville, NC, which used the same tools
+
+
+
+## Shadow brokers: whodunit?
+- Nobody knows! (at least publicly)
+- Suspicion has fallen on [Harold Martin III](https://en.wikipedia.org/wiki/Harold_T._Martin_III), a contractor for [Booz Allen Hamilton](https://en.wikipedia.org/wiki/Booz_Allen_Hamilton)
+  - Yes, the same people as the Snowden leak
+  - Was he digitally hoarding or stealing?  The NSA still isn't sure...
+- But it could have been somebody else
+  - Possibly an inside job...
+
+
+
+## Shadow brokers: errors made
+- On Martin, if he did do it:
+  - [US gov't agencies ... failed to ... respond to a number of issues with Martin's security practices and behaviors over a period of 10 to 20 years](https://en.wikipedia.org/wiki/Harold_T._Martin_III)
+- Since we don't know who did it, it's hard to pinpoint the errors...
+
+
+
+## Shadow brokers: current status
+
+- That group exited the stage after the release
+  - Likely operating under a different name
+- Martin ultimately agreed to plead guilty to *hoarding* in January 2018
+  - Defense claimed it was a mental condition
+  - This is not pleading guilty to releasing the information!
+
+
+## Reality Winner: 2017
+- Employed by a NSA contractor (Pluribus)
+- In 2017, she released a confidential report about the [Russian interference in the 2016 United States elections](https://en.wikipedia.org/wiki/Russian_interference_in_the_2016_United_States_elections)
+- In 2018, she was sentenced to 5 years in jail
+
+
+## Winner: the reveal
+- She leaked the NSA report on Russian election interference to The Intercept
+  - Published on June 5, 2017
+- "[The report suggested that Russian hackers had accessed at least one U.S. voting software supplier](https://en.wikipedia.org/wiki/Reality_Winner)"
+
+
+
+## <a href='https://www.cnn.com/2016/12/26/us/2016-presidential-campaign-hacking-fast-facts/index.html'>Election interference: timeline</a>
+
+- March 2016: John Podesta, of the Clinton campaign, successfully gets phished
+- Summer 2016: hacked DNC emails released on Wikileaks
+- Fall 2016: Russia blamed for hacking DNC emails and "influencing" the campaign in favor of President Trump
+- June 5, 2017: The Intercept publishes [a report on actual hacking of the election](https://theintercept.com/2017/06/05/top-secret-nsa-report-details-russian-hacking-effort-days-before-2016-election/)
+  - Previously it was thought (publicly) to be "influencing" only, not hacking of election machines
+
+
+
+## Election interference: <br> the US does it too!
+- The CIA has long been known to interfere with elections (etc.)
+- The [overthrow of the popular and democratically elected Iranian prime minister in 1953](https://en.wikipedia.org/wiki/1953_Iranian_coup_d%27%C3%A9tat)
+  - The CIA-installed Shah was so unpopular, it lead to the [1979 Iranian revolution](https://en.wikipedia.org/wiki/Iranian_Revolution)
+  - The Iranian gov't still hates us...
+- The [CIA overthrew the democratically elected Guatemalan president in 1954](https://en.wikipedia.org/wiki/1954_Guatemalan_coup_d%27%C3%A9tat)
+- The [list goes on and on](https://en.wikipedia.org/wiki/Foreign_electoral_intervention)...
+
+
+
+## Election interference: <br> are they equivalent?
+- Some would say yes
+- Here is a non-equivalence:
+  - The US / CIA has generally (but not always!) focused on overthrowing authoritarian leaders
+  - Russia has generally focused on hurting democratic regimes
+
+
+
+## Election interference: <br> errors made
+- Election machine safety is controlled by the states
+  - As the US congress has not passed any laws to change or regulate this
+- Many election machines are vulnerable
+  - And often leave no paper trails
+  - They are [regularly exploited at DefCon](https://www.newyorker.com/news/dispatch/election-hacking-lessons-from-the-2018-def-con-hackers-conference)
+- "[local officials have been known to be under the sway of the election-machine manufacturers, who wine and dine and lobby them in an effort to snag their business](https://www.newyorker.com/news/dispatch/election-hacking-lessons-from-the-2018-def-con-hackers-conference)"
+
+
+
+## More election interference
+- [Russia did it again in 2018](https://en.wikipedia.org/wiki/Russian_interference_in_the_2018_United_States_elections)
+  - By generating discord on social media via highlighting social and economic differences
+> On August 2, 2018, the Director of National Intelligence ... announced along with [the] FBI Director ... that Russia is actively interfering in the 2018 elections, saying "It is real. It is ongoing."
+- Buckle up, it's going to be interesting...
+

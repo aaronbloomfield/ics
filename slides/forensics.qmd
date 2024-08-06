@@ -1,0 +1,481 @@
+---
+title: Digital Forensics
+---
+
+
+# Introduction
+
+
+## Forensics
+> **forensics** (plural in form but singular or plural in construction): the application of scientific knowledge to legal problems
+>
+> *especially*: scientific analysis of physical evidence (as from a crime scene)
+
+- [Merriam-Webster](https://www.merriam-webster.com/dictionary/forensic)
+
+
+
+## What is a forensic science?
+- It is any science that can be applied to the *analysis* of an accident or crime scene
+  - Formally, it is any science applied to criminal and civil laws
+- (some of the examples on the following slides are from [here](https://www.pdsd.org/cms/lib6/PA01000989/Centricity/ModuleInstance/1582/Chapter_1.ppt))
+
+
+
+## Forensic science: Pathology
+::: {.right-float-img .img-size-600}
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/13-11-12-rechtsmedizin-berlin-charite-by-RalfR-20.jpg/800px-13-11-12-rechtsmedizin-berlin-charite-by-RalfR-20.jpg)](https://commons.wikimedia.org/wiki/File:13-11-12-rechtsmedizin-berlin-charite-by-RalfR-20.jpg)
+:::
+- How did the person die?
+- This includes:
+  - cause of death
+  - drugs, poisons, alcohol in blood
+  - manner of death
+  - performing an autopsy
+
+
+
+## Forensic science: Anthropology
+::: {.right-float-img .img-size-600}
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Exhumed_skeletal_remains_of_victims_of_the_Isaaq_genocide.jpg/800px-Exhumed_skeletal_remains_of_victims_of_the_Isaaq_genocide.jpg)](https://commons.wikimedia.org/wiki/File:Exhumed_skeletal_remains_of_victims_of_the_Isaaq_genocide.jpg)
+:::
+- For skeletal remains:
+  - are they human?
+  - if so, what is the age, sex, race?
+  - any injuries to the bones?
+  - facial reconstruction based on the skull
+
+
+
+## Forensic science: Odontology
+::: {.right-float-img .img-size-800}
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Dental_X-ray_70.JPG/400px-Dental_X-ray_70.JPG)](https://commons.wikimedia.org/wiki/File:Dental_X-ray_70.JPG)
+:::
+- Odontology == dentistry
+- Identify remains based on dental records
+- Match a suspect to a bite mark injury
+
+
+
+## Forensic science: Engineering
+::: {.right-float-img .img-size-600}
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/1994%EC%84%B1%EC%88%98%EB%8C%80%EA%B5%90_%EB%B6%95%EA%B4%B4_%EC%82%AC%EA%B3%A017.jpg/800px-1994%EC%84%B1%EC%88%98%EB%8C%80%EA%B5%90_%EB%B6%95%EA%B4%B4_%EC%82%AC%EA%B3%A017.jpg)](https://commons.wikimedia.org/wiki/File:1994%EC%84%B1%EC%88%98%EB%8C%80%EA%B5%90_%EB%B6%95%EA%B4%B4_%EC%82%AC%EA%B3%A017.jpg)
+:::
+- Typically for mechanical or structural issues or accidents
+  - Why did it fail?
+- For traffic accidents, reconstruction of the accident
+
+
+
+## Forensic science: Entomology
+::: {.right-float-img .img-size-800}
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Anastrepha_ludens_1322088.jpg/400px-Anastrepha_ludens_1322088.jpg)](https://commons.wikimedia.org/wiki/File:Anastrepha_ludens_1322088.jpg)
+:::
+- Entomology is the study of insects
+- Many insects lay eggs in decaying flesh
+- But different insects do this at different times
+- By studying the insect eggs in a corpse, the time since death can be estimated
+
+
+
+## Forensic science: Biology
+::: {.right-float-img .img-size-600}
+[![](https://upload.wikimedia.org/wikipedia/commons/b/b9/A-B-Z-DNA_Side_View.png)](https://commons.wikimedia.org/wiki/File:A-B-Z-DNA_Side_View.png)
+:::
+- DNA tests, typically of DNA-based evidence
+  - Blood on the victim, or semen in the case of rapes
+  - Even flesh under the fingernails of a victim
+
+
+
+## And many other fields
+- Art history: to determine art forgeries
+- Chemistry: illegal drug analysis
+- Geology: evidence in soils, etc.
+- And, of course, computer science
+- See a full list on Wikipedia's [Forensic science page](https://en.wikipedia.org/wiki/Forensic_science)
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+# Background
+
+
+## Stages
+::: {.right-float-img .img-size-600}
+[![](images/forensics/640px-Portable_forensic_tableau.jpg)](https://commons.wikimedia.org/wiki/File:Portable_forensic_tableau.JPG)
+:::
+1. Acquisition of evidence
+   - Imaging a hard drive or USB key, often via a "write-blocker"
+   - [One is $389 on Amazon](https://www.amazon.com/dp/B00Q76XG5W)
+   - And others...
+2. Analysis
+   - The real work here...
+3. Report
+   - Often must hold up in court!
+
+
+
+## Evidence acquisition
+- Most common is to image a hard drive or USB key
+  - Technically, this is *media forensics*
+- Other possibilities:
+  - Physical evidence of the computer/media
+  - Recording network packets
+  - Social media account analysis
+  - Use of "cloud" services, including smart speakers
+- We will primarily focus on drive images
+
+
+
+## History
+- 1980's: specialized groups of individuals who did this type of analysis
+- 1990's: more national groups, growth of the field, initial tools
+- 2000's: better tools, guidelines, related laws and court rulings, training initiatives
+- 2010's: better AI in tools, use of cloud, better virtualization options
+
+
+
+## Motivating example
+- A corporate exec named Tony is working on a new technology "X"
+  - He leaves to join a competing company
+  - Suddenly, that company has made a lot of advancements in technology "X"
+- Did Tony leave with any documents from your company?
+  - How could you tell?
+
+
+
+## This really happened
+- In January 2016, Anthony Levandowski left Google's self driving car unit
+  - Was immediately hired as head of Otto's self driving car unit
+    - Otto was later acquired by Uber
+- Google sued Uber
+  - Case was settled for $245 million in early 2018
+
+
+
+## Background: filesystems
+- Filesystems keep the file contents and also the *metadata*
+  - Timestamps, owners, permissions, file type, etc.
+  - Plus the directory structure
+- When a file is deleted, typically only the directory entry is removed
+  - The blocks that the file took up are marked as available, but are not wiped
+
+
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+# Techniques
+
+
+## Deleted file recovery
+- Undelete programs search hard drivers sectors for file blocks
+  - If the blocks have not been overwritten, then the file can be successfully restored
+- Some times only parts can be recovered
+- Secure delete programs can (often) solve this
+- Linux: see next slide
+
+
+
+## Deleted file recovery (Linux)
+- Under Linux, use testdisk or photorec
+  - Some programs, such as autopsy, cannot properly undelete files (we'll see autopsy shortly)
+  - [testdisk](https://www.cgsecurity.org/wiki/TestDisk) will be useful to find the file(s) to be undeleted, but cannot undelete them
+  - Use photorec for the undeletion itself -- note that it undeletes *all* files, so you will need about 11 Gb of free space
+    - Then find the file(s) by their extension
+
+
+
+## Password protected files
+- Various password crackers exist for many means of password protecting files
+  - Example: the .zip password cracker used in the [Networks HW](../hws/hw-networks.html)
+- One can encrypt / decrypt files with AES as well:
+    - `openssl aes-256-cbc -a -salt -in input.txt -out input.txt.aes`
+    - `openssl aes-256-cbc -d -a -salt -in input.txt.aes -out output.txt`
+
+
+
+## Image search
+- Some illegal activity involves images and videos
+  - Child porn, in particular
+- While programs exist to find images that look like something else, a manual search is likely the most viable
+  - One can view a page of thumbnails to quickly search through an image library
+- JPEG images also have EXIF data, which has textual information about the image
+  - exiftool and jhead are tools that can extract EXIF data
+
+
+
+## Keyword search
+- Some OSes can do this from a file browser
+  - Windows Explorer, for example
+- Others may require indexing the files
+  - Mac's spotlight search is a good example of this
+  - Linux has baloo which is similar, for indexing
+    - Or `grep` to find text within files
+- Intelligent OSes & applications can read into .zip files, JPEG EXIF data, etc.
+
+
+
+## Browser history
+- Not everybody uses ~~porn~~ privacy mode on their web browser
+- In-browser instructions are [readily available](https://www.wikihow.com/View-Browsing-History)
+- This can be done by the command line as well
+
+
+
+## Browser cache
+- All browsers support searching through this
+  - Firefox: view `about:cache`
+  - Chrome: various [cache viewers exist](https://www.nirsoft.net/utils/chrome_cache_view.html)
+  - Similarly for other browsers
+- The files are also on the hard drive
+  - Windows/Chrome example:  `C:\Users\User\AppData\Local\ Google\Chrome\User Data\Default\Cache`
+
+
+
+## Email search
+- Either a keyword or filesystem search, as above, or...
+  - Just loading up the email client and using that to search
+- A legal warrant can also obtain information from the mail provider
+
+
+
+## Network connection search
+- DNS entries are cached for a period of time
+  - Try running `ipconfig /displaydns` under Windows, for example
+  - This lists websites contacted
+- Many Linux distributions do not do DNS caching by default
+  - Ubuntu, in particular
+
+
+
+## Other places to look
+- In the /tmp folder
+  - This is cleared upon boot, but not upon shutdown
+- In the command history (likely ~/.bash_history)
+- In databases on the drive
+  - You can also view the history of SQL commands, such as in .mysql_history
+
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+# Barriers
+
+
+## Encrypted Drives
+- A properly encrypted drive...
+  - ... meaning a good cipher and a good password...
+- ... cannot reasonably be cracked
+- "In October [2017], FBI Director Christopher Wray said that in an 11-month period, the FBI had been unable to extract data from more than 6,900 devices; that is over half of the devices it had attempted to unlock" ([source](https://www.lawfareblog.com/fifth-amendment-decryption-and-biometric-passcodes))
+
+
+
+
+## Encrypted Drives
+- If you have an encrypted hard drive, and the gov't has a (valid) search warrant...
+  - You can't refuse on 1st amendment (free speech) grounds 
+  - Analogy: you can't refuse to unlock a door on your house if the police have a (valid) search warrant based on free speech grounds
+	- Granted, they have battering rams...
+
+
+
+## Encrypted Drives
+- What about the 5th amendment (can't force self-incrimination)?
+  - This *sometimes* can work
+  - That amendment only applies to *testimonials*, not actions
+	- But is forcing you to decrypt your hard drive an action or a testimonial?
+- That depends on the *foregone conclusion doctrine*
+  - If the gov't already knows what is there (at the time of the attempted search!), then it's an action; if not, it's a testimonial
+
+
+
+## Foregone Conclusion Doctrine
+- In USA vs. Fricosu (2012), the defendant was forced to decrypt
+  - Fricosu admitted on a recorded phone call that there was "stuff" on the machine
+- In USA vs. Doe (2012), the defendant was *not* forced to decrypt
+  - The gov't didn't know what was there
+  - The court rejected the notion "that simply because the devices were encrypted necessarily means that Doe was trying to hide something"
+- Sources: [WaPo](https://www.washingtonpost.com/news/volokh-conspiracy/wp/2016/06/07/the-fifth-amendment-limits-on-forced-decryption-and-applying-the-foregone-conclusion-doctrine/), [EFF](https://www.eff.org/deeplinks/2012/03/tale-two-encryption-cases)
+
+
+
+## Self-incrimination
+- Courts have held that self-incrimination is the act of stating you are guilty
+  - Formally, a *testimonial communication* that is incriminating
+- Using information about you does not qualify
+  - So the 5th amendment does not allow you to prevent biometric scans, fingerprint readers, etc.
+- [Source](https://www.lawfareblog.com/fifth-amendment-decryption-and-biometric-passcodes)
+
+
+
+## Other use of encryption
+- https blocks packet sniffing
+- Tor prevents geolocation based on IP address
+  - And uses https
+  - Tor browsers do not cache files locally (or even write to disk)
+
+
+
+## Mobile device encryption
+- You can configure your phone to delete everything unless a pass code is entered in the first 10 tries
+  - And encrypt it as well
+- It is not viable to crack recent phones secured with this
+
+
+
+## [FBI-Apple encryption dispute](https://en.wikipedia.org/wiki/FBI%E2%80%93Apple_encryption_dispute)
+- A phone from one of the shooters in the [2015 terrorist attack in San Bernardino, CA](https://en.wikipedia.org/wiki/2015_San_Bernardino_attack), that killed 14 people, used an iPhone 5C's encryption
+- The FBI wanted Apple to electronically sign software that would enable the FBI to unlock the phone
+- Apple refused, and it went to court
+
+
+
+## [FBI-Apple encryption dispute](https://en.wikipedia.org/wiki/FBI%E2%80%93Apple_encryption_dispute)
+- Note that the FBI was not asking Apple to unlock that one phone...
+  - ... which is something that Apple had been helping law enforcement do for years (with a proper warrant)
+- Instead, they wanted Apple to put in a backdoor that the FBI could use on *any* iPhone
+  - And without Apple's knowledge or assistance
+  - Note that Apple was already helping them unlock the phone
+
+
+
+## [FBI-Apple encryption dispute](https://en.wikipedia.org/wiki/FBI%E2%80%93Apple_encryption_dispute)
+- The FBI likely felt they had a weak case
+- Right before the hearing, they delayed
+  - The reason: they found a third party that could do this for them
+    - By booting it into "debug mode" via a USB connection
+- Apple fixed this issue in the next release
+- This case never went back to court
+
+
+
+## [FBI-Apple encryption dispute](https://en.wikipedia.org/wiki/FBI%E2%80%93Apple_encryption_dispute)
+- The phone in question had no useful information, as it turned out
+- Other court rulings have generally said that Apple can not be compelled to unlock an iPhone
+- It has been opined that the [reason is more financial](https://www.independent.co.uk/life-style/gadgets-and-tech/news/what-is-the-real-reason-apple-wont-unlock-the-san-bernardino-killers-iphone-a6884581.html) than ethical for Apple in this case
+
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+# System Analysis and Tools
+
+
+## Basic UNIX commands: strings
+- Given a binary file, run `strings` on that file to extract all ASCII strings in that file
+  - By default, it's all consecutive printable ASCII characters of length 4 or greater
+  - The -n option can change this: 
+```console
+strings -n 10 filename
+```
+
+
+
+## Basic UNIX commands: grep
+- Searches a file for text
+```console
+grep foobar filename
+```
+- Case insensitive by adding -i
+- All files *not* matching the string via -v
+- `egrep` uses regular expressions:
+```console
+egrep -i 'apple|banana|orange' *
+```
+
+
+
+## Basic UNIX commands: find
+- Find files in sub-directories based on specific criteria, such as filename:
+```console
+find / -name "*.foo"
+```
+  - That searches the root directory (`/`)
+- or by file contents:
+```console
+find . -type f -exec grep "example" '{}' \; -print
+```
+  - Finds files (`-type f`) and runs `grep` on them to search for `example` within
+  - That searches the current directory (`.`)
+
+
+
+## Modern Forensics Tools
+- There are lots of them out there
+  - A [Google search for "top digital forensics tools"](https://www.google.com/search?q=top+digital+forensics+tools) returns a lot of hits
+- There are [lots of free and open source tools](https://techtalk.gfi.com/top-20-free-digital-forensic-investigation-tools-for-sysadmins/)
+- Wikipedia even has [an article listing many of these tools](https://en.wikipedia.org/wiki/List_of_digital_forensics_tools)
+
+
+
+## Autopsy / Sleuth Kit
+- The tool is [Sleuth Kit](https://en.wikipedia.org/wiki/The_Sleuth_Kit), the GUI is [Autopsy](https://en.wikipedia.org/wiki/Autopsy_%28software%29)
+- They are both open source
+- Due to Java incompatabilities, and software rot, it does not seem to install properly under Linux
+
+
+
+## Old Autopsy / Sleuth Kit
+![](images/forensics/autopsy.png)
+
+
+
+## Current Autopsy / Sleuth Kit
+These recent versions have a Java GUI
+[![autopsy screen shot](images/forensics/autopsy-v4.png)](https://github.com/sleuthkit/autopsy/issues/2855)
+
+
+
+## Other tools
+- To find deleted files, try [debugfs](https://unix.stackexchange.com/questions/80270/unix-linux-undelete-recover-deleted-files) or [testdisk](https://www.cgsecurity.org/wiki/TestDisk) or [photorec](https://www.digitalocean.com/community/tutorials/photorec-recover-deleted-files-in-linux-ubuntu)
+  - I like the latter better, but your mileage may vary
+  - Sometimes they can recover files that autopsy cannot
+- You can use equivalent undelete programs on other operating systems for the [forensics HW](../hws/hw-forensics.html)
+
+	
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+# Case Studies
+
+
+## Some we've seen (or will see)
+- The analysis of [Stuxnet](../slides/stuxnet.html#/)
+- The [FBI-Apple encryption dispute](https://en.wikipedia.org/wiki/FBI%E2%80%93Apple_encryption_dispute)
+- The [Sony BMG rootkit fiasco](https://en.wikipedia.org/wiki/Sony_BMG_copy_protection_rootkit_scandal) from the [rootkits](../slides/rootkits.html#/) slide set
+
+
+
+
+## [Dennis Rader](https://en.wikipedia.org/wiki/Dennis_Rader) (2005)
+- A serial killer on the run for 30 years, he killed at least 10 victims
+  - He killed again in 2005 in Kansas
+- Sent a floppy disk to the police with a letter on it
+  - Because floppies can't be traced
+- A deleted Word file's metadata showed that the last person to edit the file was "Dennis" with a link to the church where he was a deacon
+  - He is now in jail for life
+
+
+
+## Corey Melton (2005)
+- His computer was infected by viruses, so he brought it into the Geek Squad at Best Buy
+- They found it was a prolific infection, and the viruses were "re-attaching themselves to movies"
+  - I have no idea what that means, either
+- Regardless, the Geek Squad looked at the movies, which were child porn
+  - He was arrested and served 10 years in jail
+- [Source](https://resources.infosecinstitute.com/category/computerforensics/introduction/notable-computer-forensics-cases/#gref)
+
+
+
+## Ownership of Facebook (2010)
+- Paul Ceglia sued Mark Zuckerberg, claiming that Paul hired Mark to develop "The Page Book" -- which became facebook -- and thus owned 50%
+- The court allowed facebook to do forensic testing on Ceglia's computer
+- The findings:
+  - An original file of the contract had no mention of "The Page Book"
+  - An apparently forged .tif document of the contract was found
+- The case was dismissed and Ceglia was arrested
+- [source](https://www.digital-strata.com/articles/two-famous-cases-where-digital-evidence-was-key/)
