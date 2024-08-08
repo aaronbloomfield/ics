@@ -897,9 +897,13 @@ $
   - Etc.
 
 
-## <a href="http://xkcd.com/538">Security</a>
-<img class="stretch" src="http://imgs.xkcd.com/comics/security.png" title="Actual actual reality: nobody cares about his secrets.  (Also, I would be hard-pressed to find that wrench for $5.)" alt="Security">
-</textarea></section>
+## Security
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/security.png){title="Actual actual reality: nobody cares about his secrets.  (Also, I would be hard-pressed to find that wrench for $5.)" style='border:10px solid white'}  
+:::
+::: {.r-stack}
+[xkcd \# 538](https://xkcd.com/538)
+:::
 
 ----
 
@@ -1028,9 +1032,13 @@ $
 
 # Randomness
 
-## xkcd: Random Number
-<img src="https://imgs.xkcd.com/comics/random_number.png" title="RFC 1149.5 specifies 4 as the standard IEEE-vetted random number." alt="Random Number"  style="image-orientation:none" class='stretch'>
-<p class='center'><a href='http://xkcd.com/221/'>xkcd # 221</a></p>
+## Random Number
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/random_number.png){title="RFC 1149.5 specifies 4 as the standard IEEE-vetted random number." style='border:10px solid white'}  
+:::
+::: {.r-stack}
+[xkcd \# 221](https://xkcd.com/221)
+:::
 
 
 ## Computers and randomness
@@ -1200,13 +1208,21 @@ $
 
 
 ## Security Holes
-<img src="https://imgs.xkcd.com/comics/security_holes.png" title="True story: I had to try several times to upload this comic because my ssh key was blacklisted." alt="Security Holes"  style="image-orientation:none" class='stretch'>
-<p class='center'><a href='http://xkcd.com/424/'>xkcd # 424</a></p>
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/security_holes.png){title="True story: I had to try several times to upload this comic because my ssh key was blacklisted." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 424](https://xkcd.com/424)
+:::
 
 
 ## Dependency
-<img src="https://imgs.xkcd.com/comics/dependency.png" title="Someday ImageMagick will finally break for good and we&#39;ll have a long period of scrambling as we try to reassemble civilization from the rubble." alt="Dependency" srcset="https://imgs.xkcd.com/comics/dependency_2x.png 2x" style="image-orientation:none" class='stretch'>
-<p class='center'><a href='http://xkcd.com/2347/'>xkcd # 2347</a></p>
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/dependency.png){title="Someday ImageMagick will finally break for good and we&#39;ll have a long period of scrambling as we try to reassemble civilization from the rubble." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/dependency_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2347](https://xkcd.com/2347)
+:::
 
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->

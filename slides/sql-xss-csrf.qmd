@@ -240,10 +240,16 @@ select * from course where
   - And log and notify that error response!!!
 
 
-## [xkcd # 327](https://xkcd.com/327/">xkcd # 327) on SQL injection attacks
 
+
+## [xkcd # 327](https://xkcd.com/327/">xkcd # 327) on SQL injection attacks
 <p style="text-align:center">Exploits of a Mom</p>
-<img title="Her daughter is named &quot;Help I&#39;m trapped in a driver&#39;s license factory&quot;." alt="Exploits of a Mom" src="http://imgs.xkcd.com/comics/exploits_of_a_mom.png" class="stretch">
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/exploits_of_a_mom.png){title="Her daughter is named Help I&#39;m trapped in a driver&#39;s license factory." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/exploits_of_a_mom_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 327](https://xkcd.com/327)
+:::
 
 
 ## A clever hacker tries to clear his/her record...

@@ -1,6 +1,6 @@
 SLIDE_SETS: anonymity.html binary-exploits.html buffer-overflows.html cryptocurrency.html encryption.html ethics.html forensics.html introduction.html networks.html policy.html reflection.html rootkits.html security-mindset.html sql-xss-csrf.html stuxnet.html terminology.html viruses.html vms.html web-security.html
 .SUFFIXES: .qmd .html
-.PHONY: slides
+.PHONY: slides all clean
 
 slides: $(SLIDE_SETS)
 	@echo conversion done
@@ -11,4 +11,6 @@ slides: $(SLIDE_SETS)
 clean:
 	/bin/rm -rf *~ */*~ */*/*~ */*/*/*~
 
-preview:
+all:
+	touch *.qmd
+	make $(SLIDE_SETS)

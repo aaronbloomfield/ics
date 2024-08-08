@@ -5,7 +5,7 @@ format:
   revealjs: 
     slide-number: true
     chalkboard: 
-      buttons: false
+      buttons: true
     preview-links: auto
     logo: images/quarto.png
     css: ics.css
@@ -18,3 +18,4 @@ format:
     toc: true
     toc-depth: 1
     toc-title: Contents
+    theme: dark

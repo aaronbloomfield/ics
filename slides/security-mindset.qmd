@@ -53,10 +53,13 @@ from [Wikipedia](https://en.wikipedia.org/wiki/Security)
 
 
 ## Example: "Unbreakable" RSA
-
-<img class="stretch" src="http://imgs.xkcd.com/comics/security.png" title="Actual actual reality: nobody cares about his secrets.  (Also, I would be hard-pressed to find that wrench for $5.)" alt="Security">
-<p class="center">"Security" from <a href="http://xkcd.com/538/">xkcd # 538</a></p>
-
+<p style="text-align:center">Security</p>
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/security.png){title="Actual actual reality: nobody cares about his secrets.  (Also, I would be hard-pressed to find that wrench for $5.)" style='border:10px solid white'}  
+:::
+::: {.r-stack}
+[xkcd \# 538](https://xkcd.com/538)
+:::
 
 
 ## The key to good security...
