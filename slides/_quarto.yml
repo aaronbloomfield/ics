@@ -19,3 +19,5 @@ format:
     toc-depth: 1
     toc-title: Contents
     theme: dark
+    link-external-newwindow: true
+    link-external-icon: true

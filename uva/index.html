@@ -4,39 +4,43 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>ICS: UVa specific material, summer 2024</title>
+  <title>ICS: UVa specific material, fall 2024</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
-<h1 id="ics-uva-specific-material-summer-2024">ICS: UVa specific material, summer 2024</h1>
+<h1 id="ics-uva-specific-material-fall-2024">ICS: UVa specific material, fall 2024</h1>
 <p><a href="../readme.html">Go up to the main ICS readme</a> (<a href="../readme.md">md</a>)</p>
 <p>Much of the rest of this git repo is meant to be generic to anybody who has a class such as this one. But this page contains details specific to the specific version of the course at the University of Virginia.</p>
 <hr />
 <h2 id="links">Links</h2>
 <p>There are a number of links and other parts of this course that are <strong>NOT</strong> included in this repository. They are:</p>
 <ul>
-<li>Any concerns you have should be handled via a support request; the link is on the <a href="https://canvas.its.virginia.edu/courses/107451">Canvas landing page</a></li>
+<li>Any concerns you have should be handled via a support request; the link is on the <a href="https://canvas.its.virginia.edu/courses/...">Canvas landing page</a></li>
 <li>Assignment submission is through the Gradescope tool in Canvas</li>
-<li>The <a href="https://piazza.com/class/lwe5bspo5os4o8">Piazza forum for this course</a>; Canvas can log you in directly – the Canvas tool link is <a href="https://canvas.its.virginia.edu/courses/107451/external_tools/21">here</a></li>
-<li><a href="https://canvas.its.virginia.edu/courses/107451/external_tools/18084">Apparently anonymous feedback in Canvas</a></li>
+<li>The <a href="https://piazza.com/class/...">Piazza forum for this course</a>; Canvas can log you in directly – the Canvas tool link is <a href="https://canvas.its.virginia.edu/courses/.../external_tools/21">here</a></li>
+<li>Apparently anonymous feedback is not currently available in Canvas</li>
 </ul>
-<!-- no longer available in canvas or no longer used:
+<!-- no longer available in canvas:
 
 - ~~[Email list archive](https://collab.its.virginia.edu/portal/directtool/23262987-1288-4c6d-912f-c1b031973f44/), which is a Collab tool~~
 - ~~[Anonymous feedback](https://collab.its.virginia.edu/portal/directtool/b166e2b1-f967-4df0-8e7e-1b25f58a30e2/), which is a Collab tool~~
-- ~~The link for the VirtualBox image will be available on the [Canvas landing page](https://canvas.its.virginia.edu/courses/107451).  For how to install it, see  [here](https://uva-cs.github.io/pdr/tutorials/01-intro-unix/virtual-box.html).~~
 
 -->
 <p>The parts of this course that are in this repo are:</p>
@@ -48,24 +52,19 @@
 </ul>
 <h2 id="readings">Readings</h2>
 <p>All scholarly articles (such as from the ACM digital library) can be obtained from free from any UVa wireless network. Some of them you will <em>NOT</em> be able to get it for free from your home Internet provider such as Comcast (unless you live in a UVa dorm, of course) without using a UVa VPN. All readings are due by the start of lecture that day.</p>
-<p>To avoid having the due dates having to be listed in too many places, the readings and their due dates are not shown here. The readings can be found on the Canvas landing page and in Canvas Assignments tool.</p>
+<p>None yet!</p>
 <!--
 - Due Friday, September 13th:
     - [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
--->
-<!--
 - Due Wednesday, March 22nd: [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
-
--->
-<!--
-- Due Wednesday, May 22nd:
+- Due Friday, January 27th:
     - [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
     - [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210)
     - [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
 -->
 <h2 id="homeworks">Homeworks</h2>
-<p>Unless otherwise noted, all submissions are due by the end of the day of the due date given – this means by 11:59:59 pm. The late policies are discussed in the <a href="hw-policies.html">homework policies page</a> (<a href="hw-policies.md">md</a>). Submission is through the Gradescope – all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time (1 day / 24 hours in summer terms).</p>
-<p>To avoid having the due dates having to be listed in too many places, the homeworks and their due dates are not shown here. The homeworks themselves can be seen on the <a href="../hws/index.html">Homeworks page</a> (<a href="../hws/index.md">md</a>) – but please don’t start on one until it’s announced in class that it is ready! You can see the due dates in the <a href="daily-announcements.html#/">daily announcements</a> and the <a href="https://canvas.its.virginia.edu/courses/107451">Canvas landing page</a>.</p>
+<p>Unless otherwise noted, all submissions are due by the end of the day of the due date given – this means by 11:59:59 pm. The late policies are discussed in the <a href="hw-policies.html">homework policies page</a> (<a href="hw-policies.md">md</a>). Submission is through the Gradescope – all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time.</p>
+<p>To avoid having the due dates having to be listed in too many places, the homeworks and their due dates are not shown here. The homeworks themselves can be seen on the <a href="../hws/index.html">Homeworks page</a> (<a href="../hws/index.md">md</a>) – but please don’t start on one until it’s announced in class that it is ready! You can see the due dates in the <a href="daily-announcements.html#/">daily announcements</a> and the <a href="https://canvas.its.virginia.edu/courses/...">Canvas landing page</a>.</p>
 <!-- 
 
 - [HW 13: Forensics](../hws/hw-forensics.html) ([md](../hws/hw-forensics.md)) is due Friday, December 6th
@@ -81,51 +80,148 @@
 - [HW 3: Ethics](../hws/hw-ethics.html) ([md](../hws/hw-ethics.md)) is due Friday, September 20th
 
 -->
-<h2 id="lecture-progress">Lecture progress</h2>
-<p>The links to the specific slides sets can be found on the <a href="../slides/index.html">slides page</a> (<a href="../slides/index.md">md</a>).</p>
-<p>Expected lecture progress:</p>
-<ol type="1">
-<li>Mon, May 20: course introduction; security mindset, terminology</li>
-<li>Tue, May 21: terminology, policy, ethics</li>
-<li>Wed, May 22: ethics, encryption</li>
-<li>Thu, May 23: encryption</li>
-<li>Fri, May 24: encryption</li>
-<li>Tue, May 28: encryption, networks</li>
-<li>Wed, May 29: web security</li>
-<li>Thu, May 30: web security, SQL/XSS/CSRF</li>
-<li>Fri, May 31: (midterm)</li>
-<li>Mon, Jun 3: SQL/XSS/CSRF, cryptocurrency</li>
-<li>Tue, Jun 4: anonymity, rootkits</li>
-<li>Wed, Jun 5: rootkits, virtual machines, stuxnet</li>
-<li>Thu, Jun 6: stuxnet, viruses</li>
-<li>Fri, Jun 7: viruses, buffer overflows</li>
-<li>Mon, Jun 10: buffer overflows</li>
-<li>Tue, Jun 11: forensics</li>
-<li>Wed, Jun 12: binary exploits</li>
-<li>Thu, Jun 13: (buffer class)</li>
-<li>Fri, Jun 14: (buffer class)</li>
-</ol>
-<p>Actual lecture progress:</p>
-<ol type="1">
-<li>Mon, May 20: finished course introduction; security mindset to 6.13</li>
-<li>Tue, May 21: finished security mindset; finished terminology; policy to 4.19</li>
-<li>Wed, May 22: finished policy; ethics to 7.12</li>
-<li>Thu, May 23: finished ethics; encryption to 6.17</li>
-<li>Fri, May 24: encryption to 7.13</li>
-<li>Tue, May 28: finished encryption; networks to 3.12</li>
-<li>Wed, May 29: finished networks; web security to 6.8</li>
-<li>Thu, May 30: finished sql/xss/csrf</li>
-<li>Fri, May 31: midterm and HW work day, so no lecture progress</li>
-<li>Mon, Jun 3: finished web security</li>
-<li>Tue, Jun 4: finished cryptocurrency</li>
-<li>Wed, Jun 5: finished anonymity, rootkits to 4.11</li>
-<li>Thu, Jun 6: finished rootkits, finished vms, finished stuxnet</li>
-<li>Fri, Jun 7: viruses to 8.3</li>
-<li>Mon, Jun 10: finished viruses; finished buffer overflows</li>
-<li>Tue, Jun 11: finished forensics</li>
-<li>Wed, Jun 12: finished binary exploits</li>
-<li>Thu, Jun 13: HW work day</li>
-<li>Fri, Jun 14: review session; course reflection</li>
-</ol>
+<h2 id="course-calendar">Course calendar</h2>
+<table>
+<thead>
+<tr>
+<th>Week #</th>
+<th>Week of Monday</th>
+<th>Lecture days</th>
+<th>HWs due</th>
+<th>Expected Topics</th>
+<th>Actual Progress</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Aug 21</td>
+<td>W,F</td>
+<td></td>
+<td><a href="../slides/introduction.html#/">Course introduction</a>, <a href="../slides/security-mindset.html#/">The Security Mindset</a></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Aug 28</td>
+<td>Tu,Th</td>
+<td>Rational Paranoia</td>
+<td><a href="../slides/security-mindset.html#/">The Security Mindset</a>, <a href="../slides/terminology.html#/">Terminology</a>, <a href="../slides/policy.html#/">US Cybersecurity Policy</a></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Sep 4</td>
+<td>Tu,Th</td>
+<td>Policy</td>
+<td><a href="../slides/policy.html#/">US Cybersecurity Policy</a>, <a href="../slides/ethics.html#/">Ethics</a></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Sep 11</td>
+<td>Tu,Th</td>
+<td>Ethics</td>
+<td><a href="../slides/encryption.html#/">Encryption</a></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Sep 18</td>
+<td>Tu,Th</td>
+<td>RSA</td>
+<td><a href="../slides/encryption.html#/">Encryption</a></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Sep 25</td>
+<td>Tu,Th</td>
+<td>Hashing</td>
+<td><a href="../slides/networks.html#/">Networking Overview</a>, <a href="../slides/web-security.html#/">Web Security</a></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Oct 2</td>
+<td>Th</td>
+<td>Networks</td>
+<td><a href="../slides/web-security.html#/">Web Security</a>, <a href="../slides/anonymity.html#/">Anonymity</a></td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Oct 9</td>
+<td>Tu,Th</td>
+<td>(midterm week)</td>
+<td><a href="../slides/sql-xss-csrf.html#/">SQL, XSS, and CSRF</a>, midterm</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Oct 16</td>
+<td>Tu,Th</td>
+<td>Fuzzing</td>
+<td><a href="../slides/cryptocurrency.html#/">Cryptocurrency</a></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Oct 23</td>
+<td>Tu,Th</td>
+<td>SQL/XSS/CSRF</td>
+<td><a href="../slides/rootkits.html#/">Rootkits</a>, <a href="../slides/stuxnet.html#/">Stuxnet</a></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Oct 30</td>
+<td>Tu,Th</td>
+<td>Cryptocurrency</td>
+<td><a href="../slides/viruses.html#/">Viruses</a></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Nov 6</td>
+<td>Tu,Th</td>
+<td>Rootkits</td>
+<td><a href="../slides/buffer-overflows.html#/">Buffer Overflows</a></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Nov 13</td>
+<td>Tu,Th</td>
+<td>Buffer overflow</td>
+<td><a href="../slides/binary-exploits.html#/">Binary Exploits</a></td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Nov 20</td>
+<td>Tu</td>
+<td>(none b/c T-day)</td>
+<td><a href="../slides/forensics.html#/">Digital Forensics</a>, <a href="../slides/vms.html#/">Virtual Machines</a></td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Nov 27</td>
+<td>Tu,Th</td>
+<td></td>
+<td>(catch-up week)</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>Dec 4</td>
+<td>Tu,Th</td>
+<td>Digital forensics</td>
+<td><a href="../slides/reflection.html#/">Course reflection</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </body>
 </html>

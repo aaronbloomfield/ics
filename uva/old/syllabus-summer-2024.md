@@ -1,4 +1,4 @@
-CS 3710: Syllabus for Introduction to Cybersecurity (ICS), fall 2024
+CS 3710: Syllabus for Introduction to Cybersecurity (ICS), summer 2024
 =========================================================
 
 [Go up to the ICS UVa page](index.html) ([md](index.md))
@@ -25,12 +25,11 @@ And now for the really long-winded version...
 
 ### Course Staff ###
 
-- [Aaron Bloomfield](https://www.cs.virginia.edu/~asb) / aaron at virginia dot edu.  Office: Rice Hall, room 402.  Office hours TBA
-- TAs TBA
+- [Aaron Bloomfield](https://www.cs.virginia.edu/~asb) / aaron at virginia dot edu.  Office: Rice Hall, room 402.  Office hours are the hour before class starts (9:30 am - 10:30 am), and by appointment
 
 ### Course Info ###
 
-- Lecture: Tu/Th 9:30-10:45 in ...
+- Lecture: M/Tu/W/Th/F 10:30-12:15 in Rice 340
 - Coordination is through the Canvas workspace at [here](https://canvas.its.virginia.edu/courses/107451)
 - Email: none; fill out a support request instead; the link is on the Canvas landing page
 - Due to the fact that the course meets every day, announcements will be done through the [daily announcements slide set](daily-announcements.html#/) rather than the Canvas announcements tool
@@ -78,8 +77,8 @@ All submissions are through Gradescope, the link to which is on the Canvas landi
 
 **Exams:** There will be one midterm exam (worth 20% of the final grade) and one final exam (worth 25% of the final grade).
 
-- Midterm exam: ???, during lecture
-- Final exam: Tuesday, December 17th, from 2-5 pm
+- Midterm exam: Friday, May 31, during lecture
+- Final exam: Saturday, June 15th, during the normal class time
 
 Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  Since there are no other exams scheduled during that time, it is unlikely that you will have a conflict.
 

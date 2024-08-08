@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"><base target="_blank">
+    <title>CS 3710: daily announcements slide set</title>
+    <meta name="description" content="A set of slides for an Introduction to Cybersecurity course">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/dist/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/ics.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/plugin/highlight/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.scss' : '../slides/reveal.js/css/print/paper.scss';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+  <script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+    <style>
+.reveal li {
+font-size:75%;
+line-height:110%;
+}
+img {
+  padding: 10px;
+}
+    </style>
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <div class="slides">
+
+  <section data-markdown><script type="text/template">
+# CS 3710
+&nbsp;
+### Introduction to Cybersecurity
+
+<p class='titlep'>&nbsp;</p>
+<div class="titlesmall"><p>
+<a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
+<a href="http://github.com/aaronbloomfield/ics">@github</a> | <a href="index.html">&uarr;</a> | <a href="./03-numbers.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png" style="top:0px;vertical-align:middle" class="nopad"></a>
+</p></div>
+<p class='titlep'>&nbsp;</p>
+
+## Daily Announcements
+
+## Summer 2024
+  </script></section>
+
+<!-- xkcd template for cut-and-paste (first two lines are the date and title)
+
+<h2></h2>
+<h4 class="xkcd"></h4> 
+<img class="stretch" src="http://imgs.xkcd.com/comics/.png" title="" alt="">
+<p class="center"><a href="http://xkcd.com/2040/">xkcd # 2040</a></p>
+
+-->
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Final Exam</h2><img src="https://imgs.xkcd.com/comics/final_exam.png" title="For those of you also taking Game Theory, your grade in that class will be based on how close your grade on this exam is to 80% of the average." alt="Final Exam" srcset="https://imgs.xkcd.com/comics/final_exam_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/2385/'>xkcd # 2385</a></p>
+</section>
+
+  <section data-markdown>
+## The End
+- Schedule
+  - Tomorrow, Saturday, June 15th: the final exam at 10:30
+  - Due tomorrow, Saturday: [HW 7: Forensics](../slides/hw-forensics-tabbed)
+- Grading
+  - Graded and returned: HWs 1-4 and 6, quiz 1, midterm
+    - Regrade concerns?  Submit it through Gradescope or email within 1 week
+  - Still to be graded: HW 5 (SQL/XSS/CSRF), midterm regrades
+    - And, shortly, the final and HW 7
+  - Grades are shown in Canvas
+    - But it's buggy: missing assignments don't report as zero, for example
+- I *hope* to have the grades all ready by Sunday night
+- All submission is through Gradescope, which automatically open 72 hours before they are due
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we will have a final exam review session then work through the [course reflection](../slides/reflection.html#/)
+</section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Devotion to Duty</h2><img src="https://imgs.xkcd.com/comics/devotion_to_duty.png" title="The weird sense of duty really good sysadmins have can border on the sociopathic, but it&#39;s nice to know that it stands between the forces of darkness and your cat blog&#39;s servers." alt="Devotion to Duty"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/705/'>xkcd # 705</a></p>
+</section>
+
+  <section data-markdown>
+## Day 17: Wed, Jun 12th
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- Schedule
+  - No reading due this Thursday
+  - Saturday, June 15th: the final exam at 10:30
+  - Due Saturday: [HW 7: Forensics](../slides/hw-forensics-tabbed)
+    - It will be on a different system; details to follow
+- Grading
+  - Graded and returned: HWs 1-4, quiz 1, midterm
+    - Regrade concerns?  Submit it through Gradescope or email within 1 week
+  - Still to be graded: HW 5 (SQL/XSS/CSRF), HW 6 (Cryptocurrency), midterm regrades
+  - Grades are shown in Canvas
+    - But it's buggy: missing assignments don't report as zero, for example
+- All submission is through Gradescope, which automatically open 72 hours before they are due
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we will start on [binary exploits](../slides/binary-exploits.html#/)
+</section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Phone Security</h2><img src="https://imgs.xkcd.com/comics/phone_security.png" title="...wait until they type in payment information, then use it to order yourself a replacement phone." alt="Phone Security" srcset="https://imgs.xkcd.com/comics/phone_security_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1934/'>xkcd # 1934</a></p>
+</section>
+
+  <section data-markdown>
+## Day 16: Tue, Jun 11th
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- Schedule
+  - Due yesterday, Monday, June 10th: [HW 6: Cryptocurrency](../hws/hw-cryptocurrency-tabbed.html): how did it go?
+    - Grades can be released in a few days
+  - No reading due this Thursday
+  - Saturday, June 15th: the final exam at 10:30
+  - Due Saturday: Forensics (not yet ready)
+    - It will be on a different system; details to follow
+- Grading
+  - Graded and returned: HWs 1-4, quiz 1, midterm
+    - Regrade concerns?  Submit it through Gradescope or email within 1 week
+  - Still to be graded: HW 5 (SQL/XSS/CSRF)
+  - Grades are shown in Canvas
+    - But it's buggy: missing assignments don't report as zero, for example
+- All submission is through Gradescope, which automatically open 72 hours before they are due
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we will go over [forensics](../slides/forensics.html#/)
+  - Then back to [binary exploits](../slides/binary-exploits.html#/)
+</section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>How Hacking Works</h2><img src="https://imgs.xkcd.com/comics/how_hacking_works.png" title="If only somebody had warned them that the world would roll them like this." alt="How Hacking Works" srcset="https://imgs.xkcd.com/comics/how_hacking_works_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/2176/'>xkcd # 2176</a></p>
+</section>
+
+  <section data-markdown>
+## Day 15: Mon, Jun 10th
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- Schedule
+  - Due today, Monday, June 10th: [HW 6: Cryptocurrency](../hws/hw-cryptocurrency-tabbed.html)
+  - No reading due this Thursday
+  - Saturday, June 15th: the final exam
+  - Due late next week (Saturday?): HW 7: Forensics (not yet ready)
+    - When should it be due?
+- Grading
+  - Graded and returned: HWs 1-4, quiz 1, midterm
+    - Regrade concerns?  Submit it through Gradescope or email within 1 week
+  - Still to be graded: HW 5 (SQL/XSS/CSRF)
+  - Grades are shown in Canvas
+    - But it's buggy: missing assignments don't report as zero, for example
+- All submission is through Gradescope, which automatically open 72 hours before they are due
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we will continue with the binary exploits module: [viruses](../slides/viruses.html#/) (starting on 8.3), [buffer overflows](../slides/buffer-overflows.html#/), and [binary exploits](../slides/binary-exploits.html#/)
+</section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>API</h2><img src="https://imgs.xkcd.com/comics/api.png" title="ACCESS LIMITS: Clients may maintain connections to the server for no more than 86,400 seconds per day. If you need additional time, you may contact IERS to file a request for up to one additional second." alt="API" srcset="https://imgs.xkcd.com/comics/api_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1481/'>xkcd # 1481</a></p>
+</section>
+
+  <section data-markdown>
+## Day 14: Fri, Jun 7th
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- [Midterm](../exams/midterm-sum24.pdf) is graded and returned; regrades due by the end of the week
+  - Average was 35.5/48 (73.9%) with a stdev of 7.0 (14.7%)
+- Schedule
+  - Due Monday, June 10th: [HW 6: Cryptocurrency](../hws/hw-cryptocurrency-tabbed.html)
+  - Due Thursday, June 13th: a reading, details TBA
+  - Saturday, June 15th: the final exam
+  - due late next week (Saturday?): HW 7: Forensics (not yet ready)
+- Grading
+  - Graded and returned: everything so far (HWs 1-4, quiz 1, midterm)
+    - Regrade concerns?  Submit it through Gradescope or email within 1 week
+  - Still to be graded: HW 5 (SQL/XSS/CSRF), but that can't start for a day or two
+  - Grades are shown in Canvas
+    - But it's buggy: missing assignments don't report as zero, for example
+- All submission is through Gradescope, which automatically open 72 hours before they are due
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we will start on the binary exploits module: [viruses](../slides/viruses.html#/), [buffer overflows](../slides/buffer-overflows.html#/), and [binary exploits](../slides/binary-exploits.html#/)
+</section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Protocol</h2><img src="https://imgs.xkcd.com/comics/protocol.png" title="Changing the names would be easier, but if you&#39;re not comfortable lying, try only making friends with people named Alice, Bob, Carol, etc." alt="Protocol" srcset="https://imgs.xkcd.com/comics/protocol_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1323/'>xkcd # 1323</a></p>
+</section>
+
+  <section data-markdown>
+## Day 13: Thu, Jun 6th
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- [Midterm](../exams/midterm-sum24.pdf) is graded and returned; regrades due by the end of the week
+  - Average was 35.5/48 (73.9%) with a stdev of 7.0 (14.7%)
+- Schedule
+  - Due yesterday, Wednesday, Jun 5th: [HW 5: SQL/XSS/CSRF](../hws/hw-sql-xss-csrf-tabbed.html): how did it go?
+  - Due Monday, June 10th: [HW 6: Cryptocurrency](../hws/hw-cryptocurrency-tabbed.html)
+- Reading: due today, Thursday, June 6th: Listen to [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+- Grading
+  - Graded and returned: everything so far (HWs 1-4, quiz 1, midterm)
+    - Regrade concerns?  Submit it through Gradescope or email within 1 week
+  - Still to be graded: HW 5 (SQL/XSS/CSRF), but that can't start for a few days
+  - Grades are shown in Canvas
+    - But it's buggy: missing assignments don't report as zero, for example
+- All submission is through Gradescope, which automatically open 72 hours before they are due
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we will continue with the modern topics module: [Rootkits](../slides/rootkits.html#/) (starting at 4.11), [Virtual Machines](../slides/vms.html#/), [Stuxnet](../slides/stuxnet.html#/)
+</section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Modern OSI Model</h2><img src="https://imgs.xkcd.com/comics/modern_osi_model.png" title="In retrospect, I shouldn&#39;t have used each layer of the OSI model as one of my horcruxes." alt="Modern OSI Model" srcset="https://imgs.xkcd.com/comics/modern_osi_model_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/2105/'>xkcd # 2105</a></p>
+</section>
+
+  <section data-markdown>
+## Day 12: Wed, Jun 5th
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- [Midterm](../exams/midterm-sum24.pdf) is graded and returned; regrades due by the end of the week
+  - Average was 35.5/48 (73.9%) with a stdev of 7.0 (14.7%)
+- Schedule
+  - Due today, Wednesday, Jun 5th: [HW 5: SQL/XSS/CSRF](../hws/hw-sql-xss-csrf-tabbed.html)
+  - Due Monday, June 10th: [HW 6: Cryptocurrency](../hws/hw-cryptocurrency-tabbed.html)
+- Reading: due tomorrow, Thursday, June 6th: Listen to [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+- Grading
+  - Graded and returned: everything so far (HWs 1-4, quiz 1, midterm)
+    - Regrade concerns?  Submit it through Gradescope within 1 week
+  - Still to be graded: HW 5 (SQL/XSS/CSRF), but that can't start for a few days
+  - Grades are shown in Canvas
+    - But it's buggy: missing assignments don't report as zero, for example
+- All submission is through Gradescope, which automatically open 72 hours before they are due
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we will continue with the modern topics module: [Anonymity](../slides/anonymity.html#/), [Rootkits](../slides/rootkits.html#/), [Virtual Machines](../slides/vms.html#/), [Stuxnet](../slides/stuxnet.html#/)
+</section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Hacking</h2><img src="https://imgs.xkcd.com/comics/hacking.png" title="The dump also contains a list of millions of prime factors, a 0-day Tamagotchi exploit, and a technique for getting gcc and bash to execute arbitrary code." alt="Hacking" srcset="https://imgs.xkcd.com/comics/hacking_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1808/'>xkcd # 1808</a></p>
+</section>
+
+  <section data-markdown>
+## Day 11: Tue, Jun 4th
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- [Midterm](../exams/midterm-sum24.pdf) is graded and returned; regrades due by the end of the week
+  - Average was 35.5/48 (73.9%) with a stdev of 7.0 (14.7%)
+- Schedule
+  - Due tomorrow, Wednesday, Jun 5th: [HW 5: SQL/XSS/CSRF](../hws/hw-sql-xss-csrf-tabbed.html)
+  - The following HW due on Monday, Jun 10th
+- About listing due dates in three places...
+- Grading
+  - Graded and returned: HW 1 (rational paranoia), quiz 1, HW 3 (RSA), midterm
+    - Regrade concerns?  Submit it through Gradescope within 1 week
+  - Still to be graded: HW 2 (ethics), soon HW 4 (fuzzer)
+- All submission is through Gradescope
+  - The assignments should automatically open 72 hours before they are due
+- Everybody has to sign the Ethics Honor Pledge
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we will continue with the modern topics module: [Cryptocurrency](../slides/cryptocurrency.html#/), [Anonymity](../slides/anonymity.html#/), [Rootkits](../slides/rootkits.html#/), [Virtual Machines](../slides/vms.html#/), [Stuxnet](../slides/stuxnet.html#/)
+</section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Encryption</h2><img src="https://imgs.xkcd.com/comics/encryption.png" title="WARNING: PEOPLE NAMED EVE ARE PROHIBITED FROM INSTALLING THIS APP!" alt="Encryption" srcset="https://imgs.xkcd.com/comics/encryption_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/2691/'>xkcd # 2691</a></p>
+</section>
+
+  <section data-markdown>
+## Day 10: Mon, Jun 3rd
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- [Midterm](../exams/midterm-sum24.pdf) is graded and returned; we'll go over it today
+  - Average was 35.5/48 (73.9%) with a stdev of 7.0 (14.7%); about regrades...
+- Schedule
+  - Due this past Saturday, Jun 1st: [HW 4: Fuzzing](../hws/hw-fuzzing-tabbed.html): how was it?
+  - Due this Wednesday, Jun 5th: [HW 5: SQL/XSS/CSRF](../hws/hw-sql-xss-csrf-tabbed.html)
+  - Next HW due on Monday, Jun 10th
+- About listing due dates in three places...
+- Grading
+  - Graded and returned: HW 1 (rational paranoia), quiz 1, HW 3 (RSA), midterm
+    - Regrade concerns?  Submit it through Gradescope within 1 week
+  - Still to be graded: HW 2 (ethics)
+- All submission is through Gradescope
+  - The assignments should automatically open 72 hours before they are due
+- Everybody has to sign the Ethics Honor Pledge
+  - I emailed those who have not yet signed it
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we continue with [web security](../slides/web-security.html#/), starting on 6.8
+  - Next up: onto Modern topics: [Cryptocurrency](../slides/cryptocurrency.html#/), [Anonymity](../slides/anonymity.html#/), [Rootkits](../slides/rootkits.html#/), [Virtual Machines](../slides/vms.html#/), [Stuxnet](../slides/stuxnet.html#/)
+</section>
+
+<section data-markdown>
+## ICS topics in the news recently
+- VPNs: May 28th: [US sanctions operators of “free VPN” that routed crime traffic through user PCs](https://arstechnica.com/security/2024/05/us-sanctions-operators-of-free-vpn-that-routed-crime-traffic-through-user-pcs/)
+- DoS attacks: May 29th: [Internet Archive, aka the Wayback Machine, is under sustained DDoS attack](https://9to5mac.com/2024/05/29/internet-archive-ddos-attack/)
+  - No apparent news updates in about 5 days
+- For Stuxnet: May 27th: [Iran further increases its stockpile of uranium enriched to near weapons-grade levels, watchdog says](https://apnews.com/article/iaea-iran-nuclear-enrichment-stockpile-2190f0d7247a6160fb13f28304d4b6ad)
+</section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>PGP</h2><img src="https://imgs.xkcd.com/comics/pgp.png" title="If you want to be extra safe, check that there&#39;s a big block of jumbled characters at the bottom." alt="PGP" srcset="https://imgs.xkcd.com/comics/pgp_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1181/'>xkcd # 1181</a></p>
+</section>
+
+  <section data-markdown>
+## Day 8: Thu, May 30th
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- Schedule
+  - Due today, May 30th: watch [Last Week Tonight with John Oliver: Data Brokers](https://www.youtube.com/watch?v=wqn3gR1WTcA)
+    - It's free on Youtube (possibly with a few ads)
+  - Tomorrow, Friday, May 31st: midterm (at the start of class)
+    - How to handle tomorrow, after the midterm?
+  - Due Saturday, Jun 1st: [HW 4: Fuzzing](../hws/hw-fuzzing-tabbed.html)
+  - Due Wednesday, Jun 5th: [HW 5: SQL/XSS/CSRF](../hws/hw-sql-xss-csrf-tabbed.html), which is *mostly* ready
+- About listing due dates in three places...
+- Grading
+  - Graded and returned: HW 1 (rational paranoia) and quiz 1
+    - Regrade concerns?  Submit it through Gradescope within 1 week
+  - Still to be graded: HW 2 (ethics), HW 3 (RSA)
+- All submission is through Gradescope
+  - The assignments should automatically open 72 hours before they are due
+- Everybody has to sign the Ethics Honor Pledge
+  - I emailed those who have not yet signed it
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we will go through [SQL, XSS, & CSRF](../slides/sql-xss-csrf.html#/)
+  - Do we want to have a Q&A review session later in class today?
+  - Later we will go back to [web security](../slides/web-security.html#/), starting on 6.8
+</section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Authorization</h2><img src="https://imgs.xkcd.com/comics/authorization.png" title="Before you say anything, no, I know not to leave my computer sitting out logged in to all my accounts. I have it set up so after a few minutes of inactivity it automatically switches to my brother&#39;s." alt="Authorization" srcset="https://imgs.xkcd.com/comics/authorization_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1200/'>xkcd # 1200</a></p>
+</section>
+
+  <section data-markdown>
+## Day 7: Wed, May 29th
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- Schedule
+  - Due yesterday, Tuesday, May 28th: [HW 3: RSA](../hws/hw-rsa-tabbed.html): how did it go?
+  - Due this Thursday, May 30th: watch [Last Week Tonight with John Oliver: Data Brokers](https://www.youtube.com/watch?v=wqn3gR1WTcA)
+    - It's free on Youtube (possibly with a few ads)
+  - This Friday, May 31st: midterm (at the start of class)
+  - Due Saturday, Jun 1st: [HW 4: Fuzzing](../hws/hw-fuzzing-tabbed.html)
+- About listing due dates in three places...
+- Grading
+  - Graded and returned: HW 1 (rational paranoia) and quiz 1
+    - Regrade concerns?  Submit it through Gradescope within 1 week
+  - Still to be graded: HW 2 (ethics)
+- All submission is through Gradescope
+  - The assignments should automatically open 72 hours before they are due
+- Everybody has to sign the Ethics Honor Pledge
+  - I emailed those who have not yet signed it
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we will continue with [networks](../slides/networks.html#/), starting on 3.12
+  - Next up: [web security](../slides/web-security.html#/)
+</section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Bag Check</h2><img src="https://imgs.xkcd.com/comics/bag_check.png" title="A laptop battery contains roughly the stored energy of a hand grenade, and if shorted it ... hey!  You can&#39;t arrest me if I prove your rules inconsistent!" alt="Bag Check"  style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/651/'>xkcd # 651</a></p>
+</section>
+
+  <section data-markdown>
+## Day 6: Tue, May 28th
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- Schedule
+  - Due today, Tuesday, May 28th: [HW 3: RSA](../hws/hw-rsa-tabbed.html): how is it going?
+    - If you want to do it in a language other than Python, let's chat first
+  - Due this Thursday, May 30th: watch [Last Week Tonight with John Oliver: Data Brokers](https://www.youtube.com/watch?v=wqn3gR1WTcA)
+    - It's free on Youtube (possibly with a few ads)
+  - This Friday, May 31st: midterm (at the start of class)
+  - Due Saturday, Jun 1st: [HW 4: Fuzzing](../hws/hw-fuzzing-tabbed.html)
+- About listing due dates in three places...
+- Grading
+  - Graded and returned: HW 1 (rational paranoia) and quiz 1
+    - Regrade concerns?  Submit it through Gradescope within 1 week
+  - Still to be graded: HW 2 (ethics)
+- All submission is through Gradescope
+  - The assignments should automatically open 72 hours before they are due
+- Everybody has to sign the Ethics Honor Pledge
+  - I emailed those who have not yet signed it
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we will continue with [encryption](../slides/encryption.html#/), starting on 7.13
+  - Next up: [networks](../slides/networks.html#/)
+</section>
+
+
+  <section data-markdown>
+## Rational Paranoia Scenarios
+- Securing of own apartment
+- Small hospital physical security
+- Remote workers personal network security
+- Medical system security
+- Remote workers: company privacy versus personal device privacy
+- Safety of dorm during the summer
+- Securing local cafe network
+- Hosting a kid's friend
+- Payment systems in retail stores
+- Physical security at Pride events
+- Management of gov't center for classified documents
+- Bank security (x3)
+- Security for a pirate themed amusement park
+
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Smart Home Security</h2><img src="https://imgs.xkcd.com/comics/smart_home_security.png" title="If they&#39;re getting valuable enough stuff from you, at least the organized crime folks have an incentive to issue regular updates to keep the appliance working after the manufacturer discontinues support." alt="Smart Home Security" srcset="https://imgs.xkcd.com/comics/smart_home_security_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1966/'>xkcd # 1966</a></p>
+</section>
+
+  <section data-markdown>
+## Day 5: Fri, May 24th
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- Schedule
+  - Due today, Friday, May 24th, by midnight: [HW 2: Ethics](../hws/hw-ethics-tabbed.html)
+  - No class on Monday, May 27th (Memorial Day)
+  - Due next Tuesday, May 28th: [HW 3: RSA](../hws/hw-rsa-tabbed.html)
+    - If you want to do it in a language other than Python, let's chat first
+  - Due next Thursday, May 30th: watch a John Oliver episode video (about 25 min)
+  - Next Friday, May 31st: midterm
+  - Due next Saturday, Jun 1st: HW 4: Fuzzing
+- Grading
+  - To be graded: quiz 1, HW 1 (paranoia)
+- All submission is through Gradescope
+  - The assignments should automatically open 72 hours before they are due
+- Everybody has to sign the Ethics Honor Pledge
+  - I emailed those who have not yet signed it
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we will continue with [encryption](../slides/encryption.html#/), starting on 6.18
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Trolley Problem</h2><img src="https://imgs.xkcd.com/comics/trolley_problem.png" title="For $5 I promise not to orchestrate this situation, and for $25 I promise not to take further advantage of this ability to create incentives." alt="Trolley Problem" srcset="https://imgs.xkcd.com/comics/trolley_problem_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1455/'>xkcd # 1455</a></p>
+</section>
+
+  <section data-markdown>
+## Day 4: Thu, May 23rd
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- Schedule
+  - Due yesterday: [HW 1: Rational Paranoia](../hws/hw-paranoia-tabbed.html): how did it go?
+    - I hope to have it graded by the start of next week
+  - Due today, by the start of class: read the [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), and the [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+    - [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210) is also in the Canvas Files tool
+  - Due tomorrow, Friday, May 24th, by midnight: [HW 2: Ethics](../hws/hw-ethics-tabbed.html)
+  - No class this Monday, May 27th (Memorial Day)
+  - Due next Tuesday, May 28th: [HW 3: RSA](../hws/hw-rsa-tabbed.html)
+    - If you want to do it in a language other than Python, let's chat first
+  - Due next Thursday, May 30th: watch a John Oliver episode video (about 25 min)
+  - Next Friday, May 31st: midterm
+  - Due next Saturday, Jun 1st: HW 4: Fuzzing
+- All submission is through Gradescope
+  - The assignments should automatically open 72 hours before they are due
+- Everybody has to sign the Ethics Honor Pledge
+  - I emailed those who have not yet signed it
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we will finish [ethics](../slides/ethics.html#/) (starting on 7.12) and start on [encryption](../slides/encryption.html#/)
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Security Advice</h2><img src="https://imgs.xkcd.com/comics/security_advice.png" title="Never give your password or bank account number to anyone who doesn&#39;t have a blue check mark next to their name." alt="Security Advice" srcset="https://imgs.xkcd.com/comics/security_advice_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1820/'>xkcd # 1820</a></p>
+</section>
+
+  <section data-markdown>
+## Day 3: Wed, May 22nd
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+- Schedule
+  - Due Wednesday, May 22th (today) by midnight: [HW 1: Rational Paranoia](../hws/hw-paranoia-tabbed.html)
+  - Due Thursday, May 23rd, by the start of class: read the [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), and the [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+    - [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210) is also in the Canvas Files tool
+  - Due Friday, May 24th, by midnight: [HW 2: Ethics](../hws/hw-ethics-tabbed.html)
+  - No class on Monday (Memorial Day)
+  - Due next week, likely Tuesday: HW 3: RSA (not yet ready)
+- All submission is through Gradescope
+  - The assignments should automatically open 72 hours before they are due
+- Everybody has to sign the Ethics Honor Pledge; link on the Canvas landing page
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+  - Today we will finish [policy](../slides/policy.html#/) and start on [ethics](../slides/ethics.html#/)
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
+<h2 class='xkcd'>Security Question</h2><img class='stretch' src="https://imgs.xkcd.com/comics/security_question.png" title="Let&#39;s invite him to a party and play &#39;I never&#39;.  Okay, I never hid any bodies SOUTH of Main Street. ... he&#39;s taking a drink!" alt="Security Question" ><p class='center'><a href='http://xkcd.com/565/'>xkcd # 565</a></p>
+</section>
+
+  <section data-markdown>
+## Day 2: Tuesday, May 21st
+- Office hours are weekdays from 9:30-10:25 in Rice 402
+  - More will be made available as needed
+- Schedule
+  - Due Wednesday, May 22th (tomorrow) by midnight: [HW 1: Rational Paranoia](../hws/hw-paranoia-tabbed.html)
+  - Due Thursday, May 23rd, by the start of class: read the [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), and the [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+    - [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210) is also in the Canvas Files tool
+  - Due Friday, May 24th, by midnight: [HW 2: Ethics](../hws/hw-ethics-tabbed.html)
+  - No class on Monday (Memorial Day)
+  - Due next week, likely Tuesday: HW 3: RSA (not yet ready)
+- Lecture progress can be seen on the [repo's UVA page](http://aaronbloomfield.github.io/ics/uva/)
+- Today we'll finish [security mindset](../slides/security-mindset.html#/), go through [terminology](../slides/terminology.html#/), and start on [policy](../slides/policy.html#/)
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+      </div>
+
+    </div>
+
+<script src="../slides/reveal.js/dist/reveal.js"></script>
+<script src="../slides/reveal.js/plugin/zoom/zoom.js"></script>
+<script src="../slides/reveal.js/plugin/notes/notes.js"></script>
+<script src="../slides/reveal.js/plugin/search/search.js"></script>
+<script src="../slides/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="../slides/reveal.js/plugin/highlight/highlight.js"></script>
+<script src="../slides/reveal.js/plugin/math/math.js"></script>
+    <!-- You cannot, apparently, include this from another directory, hence why settings.js is reproduced here in full -->
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controlsTutorial: false,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      slideNumber: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+    hash: true,
+
+    math: {
+      mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+      config: 'TeX-AMS_HTML-full',
+      // pass other options into `MathJax.Hub.Config()`
+      TeX: { Macros: { RR: "{\\bf R}" } }
+    },
+
+    // Learn about plugins: https://revealjs.com/plugins/
+    plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath ],
+
+      });
+    </script>
+
+  </body>
+</html>

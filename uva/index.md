@@ -1,4 +1,4 @@
-ICS: UVa specific material, summer 2024
+ICS: UVa specific material, fall 2024
 =======================================
 
 [Go up to the main ICS readme](../readme.html) ([md](../readme.md))
@@ -12,16 +12,15 @@ Links
 
 There are a number of links and other parts of this course that are **NOT** included in this repository.  They are:
 
-- Any concerns you have should be handled via a support request; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/107451)
+- Any concerns you have should be handled via a support request; the link is on the [Canvas landing page][1]
 - Assignment submission is through the Gradescope tool in Canvas
-- The [Piazza forum for this course](https://piazza.com/class/lwe5bspo5os4o8); Canvas can log you in directly -- the Canvas tool link is [here](https://canvas.its.virginia.edu/courses/107451/external_tools/21)
-- [Apparently anonymous feedback in Canvas](https://canvas.its.virginia.edu/courses/107451/external_tools/18084)
+- The [Piazza forum for this course](https://piazza.com/class/...); Canvas can log you in directly -- the Canvas tool link is [here](https://canvas.its.virginia.edu/courses/.../external_tools/21)
+- Apparently anonymous feedback is not currently available in Canvas
 
-<!-- no longer available in canvas or no longer used:
+<!-- no longer available in canvas:
 
 - ~~[Email list archive](https://collab.its.virginia.edu/portal/directtool/23262987-1288-4c6d-912f-c1b031973f44/), which is a Collab tool~~
 - ~~[Anonymous feedback](https://collab.its.virginia.edu/portal/directtool/b166e2b1-f967-4df0-8e7e-1b25f58a30e2/), which is a Collab tool~~
-- ~~The link for the VirtualBox image will be available on the [Canvas landing page](https://canvas.its.virginia.edu/courses/107451).  For how to install it, see  [here](https://uva-cs.github.io/pdr/tutorials/01-intro-unix/virtual-box.html).~~
 
 -->
 
@@ -38,19 +37,13 @@ Readings
 
 All scholarly articles (such as from the ACM digital library) can be obtained from free from any UVa wireless network.  Some of them you will *NOT* be able to get it for free from your home Internet provider such as Comcast (unless you live in a UVa dorm, of course) without using a UVa VPN.  All readings are due by the start of lecture that day.
 
-To avoid having the due dates having to be listed in too many places, the readings and their due dates are not shown here.  The readings can be found on the Canvas landing page and in Canvas Assignments tool.
+None yet!
 
 <!--
 - Due Friday, September 13th:
     - [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
--->
-
-<!--
 - Due Wednesday, March 22nd: [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
-
--->
-<!--
-- Due Wednesday, May 22nd:
+- Due Friday, January 27th:
 	- [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
     - [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210)
 	- [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
@@ -59,9 +52,9 @@ To avoid having the due dates having to be listed in too many places, the readin
 Homeworks
 -----------
 
-Unless otherwise noted, all submissions are due by the end of the day of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the Gradescope -- all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time (1 day / 24 hours in summer terms).
+Unless otherwise noted, all submissions are due by the end of the day of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the Gradescope -- all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time.
 
-To avoid having the due dates having to be listed in too many places, the homeworks and their due dates are not shown here.  The homeworks themselves can be seen on the [Homeworks page](../hws/index.html) ([md](../hws/index.md)) -- but please don't start on one until it's announced in class that it is ready!  You can see the due dates in the [daily announcements](daily-announcements.html#/) and the [Canvas landing page](https://canvas.its.virginia.edu/courses/107451).
+To avoid having the due dates having to be listed in too many places, the homeworks and their due dates are not shown here.  The homeworks themselves can be seen on the [Homeworks page](../hws/index.html) ([md](../hws/index.md)) -- but please don't start on one until it's announced in class that it is ready!  You can see the due dates in the [daily announcements](daily-announcements.html#/) and the [Canvas landing page][1].
 
 <!-- 
 
@@ -79,54 +72,26 @@ To avoid having the due dates having to be listed in too many places, the homewo
 
 -->
 
+Course calendar
+---------------
 
+| Week # | Week of Monday | Lecture days | HWs due | Expected Topics | Actual Progress |
+|----|----|----|----|----|----|
+| 1  | Aug 21 | W,F    |                   | [Course introduction](../slides/introduction.html#/), [The Security Mindset](../slides/security-mindset.html#/) | |
+| 2  | Aug 28 | Tu,Th  | Rational Paranoia | [The Security Mindset](../slides/security-mindset.html#/), [Terminology](../slides/terminology.html#/), [US Cybersecurity Policy](../slides/policy.html#/) | |
+| 3  | Sep 4  | Tu,Th  | Policy            | [US Cybersecurity Policy](../slides/policy.html#/), [Ethics](../slides/ethics.html#/) |  |
+| 4  | Sep 11 | Tu,Th  | Ethics            | [Encryption](../slides/encryption.html#/) |  |
+| 5  | Sep 18 | Tu,Th  | RSA               | [Encryption](../slides/encryption.html#/) |  |
+| 6  | Sep 25 | Tu,Th  | Hashing           | [Networking Overview](../slides/networks.html#/), [Web Security](../slides/web-security.html#/) |  |
+| 7  | Oct 2  | Th     | Networks          | [Web Security](../slides/web-security.html#/), [Anonymity](../slides/anonymity.html#/) |  |
+| 8  | Oct 9  | Tu,Th  | (midterm week)    | [SQL, XSS, and CSRF](../slides/sql-xss-csrf.html#/), midterm |  |
+| 9  | Oct 16 | Tu,Th  | Fuzzing           | [Cryptocurrency](../slides/cryptocurrency.html#/) |  |
+| 10 | Oct 23 | Tu,Th  | SQL/XSS/CSRF      | [Rootkits](../slides/rootkits.html#/), [Stuxnet](../slides/stuxnet.html#/) | |
+| 11 | Oct 30 | Tu,Th  | Cryptocurrency    | [Viruses](../slides/viruses.html#/)|  |
+| 12 | Nov 6  | Tu,Th  | Rootkits          | [Buffer Overflows](../slides/buffer-overflows.html#/) | |
+| 13 | Nov 13 | Tu,Th  | Buffer overflow   | [Binary Exploits](../slides/binary-exploits.html#/) |  |
+| 14 | Nov 20 | Tu     | (none b/c T-day)  | [Digital Forensics](../slides/forensics.html#/), [Virtual Machines](../slides/vms.html#/) |  |
+| 14 | Nov 27 | Tu,Th  |                   | (catch-up week) |   |
+| 15 | Dec 4  | Tu,Th  | Digital forensics | [Course reflection](../slides/reflection.html#/) |  |
 
-Lecture progress
--------------------------
-
-The links to the specific slides sets can be found on the [slides page](../slides/index.html) ([md](../slides/index.md)).
-
-Expected lecture progress:
-
-1. Mon, May 20: course introduction; security mindset, terminology
-2. Tue, May 21: terminology, policy, ethics
-3. Wed, May 22: ethics, encryption
-4. Thu, May 23: encryption
-5. Fri, May 24: encryption
-6. Tue, May 28: encryption, networks
-7. Wed, May 29: web security
-8. Thu, May 30: web security, SQL/XSS/CSRF
-9. Fri, May 31: (midterm)
-10. Mon, Jun 3: SQL/XSS/CSRF, cryptocurrency
-11. Tue, Jun 4: anonymity, rootkits
-12. Wed, Jun 5: rootkits, virtual machines, stuxnet
-13. Thu, Jun 6: stuxnet, viruses
-14. Fri, Jun 7: viruses, buffer overflows
-15. Mon, Jun 10: buffer overflows
-16. Tue, Jun 11: forensics
-17. Wed, Jun 12: binary exploits
-18. Thu, Jun 13: (buffer class)
-19. Fri, Jun 14: (buffer class)
-
-Actual lecture progress:
-
-1. Mon, May 20: finished course introduction; security mindset to 6.13
-2. Tue, May 21: finished security mindset; finished terminology; policy to 4.19
-3. Wed, May 22: finished policy; ethics to 7.12
-4. Thu, May 23: finished ethics; encryption to 6.17
-5. Fri, May 24: encryption to 7.13
-6. Tue, May 28: finished encryption; networks to 3.12
-7. Wed, May 29: finished networks; web security to 6.8
-8. Thu, May 30: finished sql/xss/csrf
-9. Fri, May 31: midterm and HW work day, so no lecture progress
-10. Mon, Jun 3: finished web security
-11. Tue, Jun 4: finished cryptocurrency
-12. Wed, Jun 5: finished anonymity, rootkits to 4.11
-13. Thu, Jun 6: finished rootkits, finished vms, finished stuxnet
-14. Fri, Jun 7: viruses to 8.3
-15. Mon, Jun 10: finished viruses; finished buffer overflows
-16. Tue, Jun 11: finished forensics
-17. Wed, Jun 12: finished binary exploits
-18. Thu, Jun 13: HW work day
-19. Fri, Jun 14: review session; course reflection
-
+[1]: https://canvas.its.virginia.edu/courses/...
