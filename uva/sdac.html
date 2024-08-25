@@ -8,16 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="sdac-accommodations">SDAC Accommodations</h1>
@@ -25,21 +30,21 @@
 <p>Some students will have SDAC (<a href="https://www.studenthealth.virginia.edu/SDAC">Student Disabilities Access Center</a>) accommodations. Below is how I handle these accommodations in this course. Obviously, only the accommodations determined by SDAC apply to you.</p>
 <p>I am committed to ensuring that my classes are accessible to all. If you feel that the below explanations do not address your accommodation, please get in touch with me.</p>
 <ul>
-<li><strong>Extra time on exams:</strong> the midterm(s) are taken during the lecture time, whereas the final has a specific scheduled time. As the next class will need to use the classroom right after our class, you should arrange to take the midterms at SDAC. Also for the final exam as well, since that classroom is used after our scheduled final exam period. The dates of the exams – midterms and final – are on the <a href="syllabus.html">course syllabus</a> (<a href="syllabus.md">md</a>).</li>
+<li><strong>Extra time on exams:</strong> the quizz(es) midterm(s) are taken during the lecture time, whereas the final has a specific scheduled time. As the next class will need to use the classroom right after our class, you should arrange to take the midterms at SDAC. Also for the final exam as well, since that classroom is used after our scheduled final exam period. The dates of the exams – midterms and final – are on the <a href="syllabus.html">course syllabus</a> (<a href="syllabus.md">md</a>). You have to take the SDAC quiz or exam on the SAME DAY as the regularly scheduled exam. SDAC exam slots fill up early, so schedule it as soon as you can.</li>
 <li><strong>Reduced distraction environment for exams:</strong> please arrange to take it at the SDAC office, and I will submit the exam to them in time. The dates of the exams – midterms and final – are on the <a href="syllabus.html">course syllabus</a> (<a href="syllabus.md">md</a>).</li>
 <li><strong>Permission to type during an exam:</strong> if this applies to you, we should have a chat about it. This is a very rare accommodation.</li>
 <li><strong>Permission to use a calculator on an exam:</strong> if this applies to you, we should have a chat about it. This is a very rare accommodation. And note that the exams are specifically designed to not require any arithmetic that would necessitate a calculator.</li>
 <li><strong>Permission to use a computer to either type or use other assistive technology:</strong> during lecture, that’s totally fine, as anybody is welcome to use a computer (or similar) during lecture. If this will apply during an exam, let’s chat about it, as we don’t want anybody to think you are cheating on an exam because of this.</li>
 <li><strong>Computerized and printed copy of an exam:</strong> Please arrange to take the exam at SDAC, and they will be able to provide you with both the printed copy and PDF copy, as necessary.</li>
 <li><strong>Advanced copies of lecture recordings:</strong> all the lectures for the entire semester are available in the git repo (we’ll see the git repo on the first day of class), so you can see all the lectures on the first day of class. Note that I always make minor updates and tweaks the night before a given lecture. The recordings are made during the lecture time itself, so it is not possible to get those early.</li>
-<li><strong>Reasonable modification of assignment deadlines:</strong> if you need a reasonable extension on an assignment, then just submit a support request asking for more time. Be sure to state that this is part of your SDAC accommodations in that support request. The only concern is that we don’t want one assignment to be so late that it causes future ones to also be late – but if this becomes an issue, we can discuss your particular case. Note that this accommodation does not apply to exams.</li>
+<li><strong>Reasonable modification of assignment deadlines:</strong> our extension policy should hanbdle these (free 5 day extensions for everybody). If it does not, and if you need a reasonable extension on an assignment, then contact the course staff. Be sure to state that this is part of your SDAC accommodations when you contact the course staff. Note that this accommodation does not apply to exams.</li>
 <li><strong>Permission to record classes or access class recordings:</strong> I record – and post – all the lectures, so this accommodation does not apply to this class.</li>
-<li><strong>Typing essay portions of exams:</strong> I do not have essay portions on our exams, so this accommodation does not apply.</li>
+<li><strong>Typing essay portions of exams:</strong> I do not have essay portions on our exams, so this accommodation does not apply. Sometimes you have to describe an algorithm – if you feel you need this accommodation for such questions, please have a chat with us BEFORE the exam.</li>
 <li><strong>Note-taking:</strong> historically students have not wanted this particular accommodation, as the course structure provides a limited form of notes via the slides, and due to the recordings of the lectures. If this accommodation applies to you, and you want it, please let me know.</li>
 <li><strong>Classroom breaks:</strong> anybody is free to take whatever breaks they feel they need during lecture.</li>
 <li><strong>Ability to take breaks during an exam:</strong> no problem. Let the us know about this, and that it’s an SDAC accommodation. This typically comes with extra time as well, and most students who have this accommodation are taking the exam at the SDAC office.</li>
 <li><strong>Access to cell phone for medical purposes:</strong> no problem. If this is during an exam, let us know why you are using your cell phone. But if it is a medical emergency, we can handle the explanations afterward.</li>
-<li><strong>Final exam reschedule:</strong> please let me know if the first month of classes if you need to take the final exam at a different time. You can do this via a support request. You cannot take the exam early, but can take it late. This accommodation cannot be provided if you wait until the last minute to let us know.</li>
+<li><strong>Final exam reschedule:</strong> please let us know if the first month of classes if you need to take the final exam at a different time. You cannot take the exam early, but can take it late. This accommodation cannot be provided if you wait until the last minute to let us know.</li>
 <li><strong>One exam per day:</strong> similar to the previous bullet point, please let me know if the first month of classes if you need to take the final exam at a different time. You cannot take the exam early, but can take it late. This accommodation cannot be provided if you wait until the last minute to let us know.</li>
 <li><strong>Reasonable modification of course attendance policy:</strong> if attendance is required, then there will be a means to indicate that you are missing class for a valid reason; some courses do not require attendance. If the course does require attendance, you have to submit the missing class excuse for each class you miss – even if you are missing it due to your SDAC accommodation. You can do this afterward (within a reasonable amount of time) as necessary. Be sure to mention that this is an SDAC reason. If this occurs during an exam, let us know as soon as possible.</li>
 <li><strong>E-Text:</strong> this is where all readings are available in electronic format in a form accessible to the student, and SDAC will convert them to an accessible format as necessary. I do not use textbooks nor printed material in my class, and all readings are available electronically. The presumption here is that the student and SDAC can convert the online readings as necessary.</li>
