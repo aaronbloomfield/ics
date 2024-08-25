@@ -125,7 +125,7 @@ From [dictionary.com](https://www.dictionary.com/browse/hack?s=t):
 
 
 ## Virus
-::: {.right-float-img .img-size-500}
+::: {.right-float-img .img-size-400}
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Coronavirus._SARS-CoV-2.png/768px-Coronavirus._SARS-CoV-2.png)
 :::
 - Self-replicating:		yes 
