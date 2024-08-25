@@ -12,9 +12,9 @@ Links
 
 There are a number of links and other parts of this course that are **NOT** included in this repository.  They are:
 
-- Any concerns you have should be handled via a support request; the link is on the [Canvas landing page][1]
+- Any concerns you have should be handled via a support request; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
 - Assignment submission is through the Gradescope tool in Canvas
-- The [Piazza forum for this course](https://piazza.com/class/...); Canvas can log you in directly -- the Canvas tool link is [here](https://canvas.its.virginia.edu/courses/.../external_tools/21)
+- The Piazza forum for this course can be accessed via the Canvas workspace
 - Apparently anonymous feedback is not currently available in Canvas
 
 <!-- no longer available in canvas:
@@ -77,21 +77,20 @@ Course calendar
 
 | Week # | Week of Monday | Lecture days | HWs due | Expected Topics | Actual Progress |
 |----|----|----|----|----|----|
-| 1  | Aug 21 | W,F    |                   | [Course introduction](../slides/introduction.html#/), [The Security Mindset](../slides/security-mindset.html#/) | |
-| 2  | Aug 28 | Tu,Th  | Rational Paranoia | [The Security Mindset](../slides/security-mindset.html#/), [Terminology](../slides/terminology.html#/), [US Cybersecurity Policy](../slides/policy.html#/) | |
-| 3  | Sep 4  | Tu,Th  | Policy            | [US Cybersecurity Policy](../slides/policy.html#/), [Ethics](../slides/ethics.html#/) |  |
-| 4  | Sep 11 | Tu,Th  | Ethics            | [Encryption](../slides/encryption.html#/) |  |
-| 5  | Sep 18 | Tu,Th  | RSA               | [Encryption](../slides/encryption.html#/) |  |
-| 6  | Sep 25 | Tu,Th  | Hashing           | [Networking Overview](../slides/networks.html#/), [Web Security](../slides/web-security.html#/) |  |
-| 7  | Oct 2  | Th     | Networks          | [Web Security](../slides/web-security.html#/), [Anonymity](../slides/anonymity.html#/) |  |
-| 8  | Oct 9  | Tu,Th  | (midterm week)    | [SQL, XSS, and CSRF](../slides/sql-xss-csrf.html#/), midterm |  |
-| 9  | Oct 16 | Tu,Th  | Fuzzing           | [Cryptocurrency](../slides/cryptocurrency.html#/) |  |
-| 10 | Oct 23 | Tu,Th  | SQL/XSS/CSRF      | [Rootkits](../slides/rootkits.html#/), [Stuxnet](../slides/stuxnet.html#/) | |
-| 11 | Oct 30 | Tu,Th  | Cryptocurrency    | [Viruses](../slides/viruses.html#/)|  |
-| 12 | Nov 6  | Tu,Th  | Rootkits          | [Buffer Overflows](../slides/buffer-overflows.html#/) | |
-| 13 | Nov 13 | Tu,Th  | Buffer overflow   | [Binary Exploits](../slides/binary-exploits.html#/) |  |
-| 14 | Nov 20 | Tu     | (none b/c T-day)  | [Digital Forensics](../slides/forensics.html#/), [Virtual Machines](../slides/vms.html#/) |  |
-| 14 | Nov 27 | Tu,Th  |                   | (catch-up week) |   |
-| 15 | Dec 4  | Tu,Th  | Digital forensics | [Course reflection](../slides/reflection.html#/) |  |
+| 1  | Aug 26 | Tu,Th  |                   | [Course introduction](../slides/introduction.html#/), [The Security Mindset](../slides/security-mindset.html#/) | |
+| 2  | Sep 2  | Tu,Th  | Rational Paranoia | [The Security Mindset](../slides/security-mindset.html#/), [Terminology](../slides/terminology.html#/), [Ethics](../slides/ethics.html#/) | |
+| 3  | Sep 9  | Tu,Th  | Ethics            | [Encryption](../slides/encryption.html#/) |  |
+| 4  | Sep 16 | Tu,Th  | RSA               | [Encryption](../slides/encryption.html#/) |  |
+| 5  | Sep 23 | Tu,Th  | Hashing           | [Networking Overview](../slides/networks.html#/), [Web Security](../slides/web-security.html#/) |  |
+| 6  | Sep 30 | Tu,Th  | Networks          | [Web Security](../slides/web-security.html#/), [Anonymity](../slides/anonymity.html#/) |  |
+| 7  | Oct 7  | Tu,Th  | (midterm week)    | [SQL, XSS, and CSRF](../slides/sql-xss-csrf.html#/), midterm |  |
+| 8  | Oct 14 | Th     | Fuzzing           | [Cryptocurrency](../slides/cryptocurrency.html#/) |  |
+| 9  | Oct 21 | Tu,Th  | SQL/XSS/CSRF      | [Rootkits](../slides/rootkits.html#/), [Stuxnet](../slides/stuxnet.html#/) | |
+| 10 | Oct 28 | Tu,Th  | Cryptocurrency    | [Viruses](../slides/viruses.html#/)|  |
+| 11 | Nov 4  | Th     | Rootkits          | [Buffer Overflows](../slides/buffer-overflows.html#/) | |
+| 12 | Nov 11 | Tu,Th  | Tricky Jump       | [Binary Exploits](../slides/binary-exploits.html#/) |  |
+| 13 | Nov 18 | Tu,Th  | Buffer overflow   | (catch-up week) | |
+| 14 | Nov 25 | Tu     | (none b/c T-day)  | [Virtual Machines](../slides/vms.html#/), [Digital Forensics](../slides/forensics.html#/) | |
+| 14 | Dec 2  | Tu,Th  | Digital forensics | [US Cybersecurity Policy](../slides/policy.html#/), [Course reflection](../slides/reflection.html#/) |  |
 
 [1]: https://canvas.its.virginia.edu/courses/...
