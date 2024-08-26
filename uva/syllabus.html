@@ -8,21 +8,16 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
+    ul.task-list{list-style: none;}
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="cs-3710-syllabus-for-introduction-to-cybersecurity-ics-fall-2024">CS 3710: Syllabus for Introduction to Cybersecurity (ICS), fall 2024</h1>
@@ -119,8 +114,42 @@
 <p><strong>Honor pledge:</strong> The UVA Honor Code is in effect for this course. There is one course specific addition: You may not look at any other student’s code for ANY reason, period. Not to debug, not to help, not to learn. You may not let another student look at <em>your</em> code for any reason. Needless to say, you cannot copy code from online sources unless the assignment specifically allows it (and in those cases, you must cite your source). The next paragraph describes this more.</p>
 <p>Students are encouraged to discuss programs and assignments in general. However, helping others find bugs in existing programs, using another person’s code, or writing code for someone else is cheating and a violation of the University’s Honor System. Basically, you should not be looking at another person’s code for <strong>ANY</strong> reason (obviously you can after BOTH have submitted the assignment, or if there is a group project). This includes consulting programming solutions to assignments from previous years. This also includes looking up solutions online. Any honor violation or cheating will be referred to the honor committee, and will result in an <em>immediate failure for the course</em>, regardless of the outcome of the honor trial or your other grades. No exceptions! I am very strict on this, and one have successfully raised honor charges against students in the past due to violations of this policy - and I’ve blocked people from graduation because of honor offenses.</p>
 <p><strong>Generative AI:</strong> Unless stated otherwise, you may NOT use any generative AI tools, such as ChatGPT, to write the code of the assignments. Note that there is one assignment (Ethics) where you are specifically instructed to do so. If you want to figure out how to do something small, such as how to perform a substring in Python, that’s fine, as that is analogous to looking it up on stackoverflow. You must cite any and all generative AI that you use in such a manner (a one-line comment above the line you got this way is sufficient).</p>
-<p><strong>Your Well Being:</strong> The Engineering School proudly serves as a safe space for its students and aims to promote their well being. If you are feeling overwhelmed, stressed, or isolated, there are many individuals here who are ready and wanting to help. In addition to the course instructors, you can seek help through the Engineering Undergraduate office (Thornton A122), or Alex Hall (aec5d, 924-7601) who is the assistant dean of students for the Engineering school.</p>
-<p>Alternatively, there are also other University of Virginia resources available. The Student Health Center offers Counseling and Psychological Services (CAPS) for its students. Call 434-243-5150 (or 434-972-7004 for after hours and weekend crisis assistance) to get started and schedule an appointment. If you prefer to speak anonymously and confidentially over the phone, call Madison House’s HELP Line at any hour of any day: 434-295-8255.</p>
-<p>If you or someone you know is struggling with gender, sexual, or domestic violence, there are many community and University of Virginia resources available. The Office of the Dean of Students, Sexual Assault Resource Agency (SARA), Shelter for Help in Emergency (SHE), and UVA Women’s Center are ready and eager to help. Contact the Director of Sexual and Domestic Violence Services at 434-982-2774.</p>
+<hr />
+<h2 id="student-support">Student Support</h2>
+<p>Bad things happen. People forget things and make mistakes. Bad days coincide with due dates. etc. We aim to have our extension policy, above, help to cover these types of issues. If you believe that circumstances warrant an change in deadline, a second chance, or some other accommodation in order to more accurately synchronize grade with knowledge, come talk to your professor and we’ll resolve the situation as best we can. Note that there needs to be a significant reason for this, as we already are providing a free 4 day extension.</p>
+<h3 id="students-with-disabilities-or-learning-needs">Students with disabilities or learning needs</h3>
+<p>It is our goal to create a learning experience that is as accessible as possible. If you anticipate any issues related to the format, materials, or requirements of this course, please meet with one of us outside of class so we can explore potential options. Students with disabilities may also wish to work with the Student Disability Access Center (SDAC) to discuss a range of options to removing barriers in this course, including official accommodations. We are fortunate to have an SDAC advisor, Courtney MacMasters, physically located in Engineering. You may email her at <a href="mailto:cmacmasters@virginia.edu">cmacmasters@virginia.edu</a> to schedule an appointment. For general questions please visit the <a href="https://sdac.studenthealth.virginia.edu">SDAC website</a>. If you have already been approved for accommodations through SDAC, please send us your accommodation letter and meet with me so we can develop an implementation plan together.</p>
+<p>Note that we expect most (or perhaps all) accommodation requests will be handled by our extension policy, above.</p>
+<h3 id="religious-accommodations">Religious accommodations</h3>
+<p>It is the University’s long-standing policy and practice to reasonably accommodate students so that they do not experience an adverse academic consequence when sincerely held religious beliefs or observances conflict with academic requirements.</p>
+<p>As with the previous section, we expect most (or perhaps all) accommodation requests will be handled by our extension policy, above.</p>
+<p>Students who wish to request academic accommodation for a religious observance should submit their request to us by email as far in advance as possible. Students who have questions or concerns about academic accommodations for religious observance or religious beliefs may contact the <a href="https://eocr.virginia.edu/">University’s Office for Equal Opportunity and Civil Rights</a> (EOCR) at <a href="mailto:UVAEOCR@virginia.edu">UVAEOCR@virginia.edu</a> or 434-924-3200.</p>
+<h3 id="harassment-discrimination-and-interpersonal-violence">Harassment, Discrimination, and Interpersonal Violence</h3>
+<p>The University of Virginia is dedicated to providing a safe and equitable learning environment for all students. If you or someone you know has been affected by power-based personal violence, more information can be found on the <a href="http://www.virginia.edu/sexualviolence">UVA Sexual Violence website</a> that describes reporting options and resources available.</p>
+<p>The same resources and options for individuals who experience sexual misconduct are available for discrimination, harassment, and retaliation. <a href="https://uvapolicy.virginia.edu/policy/HRM-009">UVA prohibits discrimination and harassment</a> based on age, color, disability, family medical or genetic information, gender identity or expression, marital status, military status, national or ethnic origin, political affiliation, pregnancy (including childbirth and related conditions), race, religion, sex, sexual orientation, or veteran status. <a href="https://uvapolicy.virginia.edu/policy/HRM-010">UVA policy</a> also prohibits retaliation for reporting such behavior.</p>
+<p>If you witness or are aware of someone who has experienced prohibited conduct, you are encouraged to submit a report to <a href="https://justreportit.virginia.edu">Just Report It</a> or <a href="mailto:UVAEOCR@virginia.edu">contact EOCR</a>, the office of Equal Opportunity and Civil Rights.</p>
+<p>If you would prefer to disclose such conduct to a confidential resource where what you share is not reported to the University, you can turn to <a href="https://www.studenthealth.virginia.edu/caps">Counseling &amp; Psychological Services (“CAPS”)</a> and <a href="https://womenscenter.virginia.edu/counseling/our-counseling-services">Women’s Center Counseling Staff and Confidential Advocates</a> (for students of all genders).</p>
+<p>As your professors and as people, know that we care about you and your well-being and stand ready to provide support and resources as we can. As a faculty member, we are responsible employees, which means that we are required by University policy and by federal law to report certain kinds of conduct that you report to me to the University’s Title IX Coordinator. The Title IX Coordinator’s job is to ensure that the reporting student receives the resources and support that they need, while also determining whether further action is necessary to ensure survivor safety and the safety of the University community.</p>
+<h3 id="support-for-your-career-development">Support for your career development</h3>
+<p>Engaging in your career development is an important part of your student experience. For example, presenting at a research conference, attending an interview for a job or internship, or participating in an extern/shadowing experience are not only necessary steps on your path but are also invaluable lessons in and of themselves. I wish to encourage and support you in activities related to your career development. To that end, please notify me by email as far in advance as possible to arrange for appropriate accommodations.</p>
+<h3 id="student-support-team">Student support team</h3>
+<p>You have many resources available to you when you experience academic or personal stresses. In addition to your professor, the School of Engineering and Applied Science has staff members located in Thornton Hall who you can contact to help manage academic or personal challenges. Please do not wait until the end of the semester to ask for help!</p>
+<h3 id="learning">Learning</h3>
+<ul>
+<li><a href="mailto:ll4uu@virginia.edu">Lisa Lampe</a>, Assistant Dean for Undergraduate Affairs</li>
+<li><a href="mailto:gnembhard@virginia.edu">Georgina Nembhard</a>, Director of Student Success</li>
+<li><a href="mailto:cmacmasters@virginia.edu">Courtney MacMasters</a>, Accessibility Specialist</li>
+<li><a href="https://engineering.virginia.edu/current-students/current-undergraduate-students/student-support/tutoring">Free tutoring</a> is available for most classes.</li>
+</ul>
+<h3 id="health-and-well-being">Health and Well-being</h3>
+<ul>
+<li><a href="mailto:mwu5gs@virginia.edu">Kelly Garrett</a>, Assistant Dean of Students, Student Safety and Support<br />
+</li>
+<li>Elizabeth Ramirez-Weaver, CAPS counselor</li>
+<li>Katie Fowler, CAPS counselor</li>
+</ul>
+<p>You may schedule time with the CAPS counselors through <a href="https://www.studenthealth.virginia.edu/getting-started-caps">Student Health</a>. When scheduling, be sure to specify that you are an Engineering student. You are also urged to use <a href="https://www.studenthealth.virginia.edu/timelycare">TimelyCare</a> for either scheduled or on-demand 24/7 mental health care.</p>
+<h3 id="community-and-identity">Community and Identity</h3>
+<p>The <a href="https://engineering.virginia.edu/about/diversity-and-engagement/center-diversity-engineering">Center for Diversity in Engineering</a> (CDE) is a student space dedicated to advocating for underrepresented groups in STEM. It exists to connect students with the academic, financial, health, and community resources they need to thrive both at UVA and in the world. The CDE includes an open study area, event space, and staff members on site. Through this space, we affirm and empower equitable participation toward intercultural fluency and provide the resources necessary for students to be successful during their academic journey and future careers.</p>
 </body>
 </html>

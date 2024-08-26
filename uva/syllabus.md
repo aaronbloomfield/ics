@@ -113,8 +113,65 @@ Students are encouraged to discuss programs and assignments in general. However,
 
 **Generative AI:** Unless stated otherwise, you may NOT use any generative AI tools, such as ChatGPT, to write the code of the assignments.  Note that there is one assignment (Ethics) where you are specifically instructed to do so.  If you want to figure out how to do something small, such as how to perform a substring in Python, that's fine, as that is analogous to looking it up on stackoverflow.  You must cite any and all generative AI that you use in such a manner (a one-line comment above the line you got this way is sufficient).
 
-**Your Well Being:** The Engineering School proudly serves as a safe space for its students and aims to promote their well being. If you are feeling overwhelmed, stressed, or isolated, there are many individuals here who are ready and wanting to help.   In addition to the course instructors, you can seek help through the Engineering Undergraduate office (Thornton A122), or Alex Hall (aec5d, 924-7601) who is the assistant dean of students for the Engineering school.
+----
 
-Alternatively, there are also other University of Virginia resources available. The Student Health Center offers Counseling and Psychological Services (CAPS) for its students. Call 434-243-5150 (or 434-972-7004 for after hours and weekend crisis assistance) to get started and schedule an appointment. If you prefer to speak anonymously and confidentially over the phone, call Madison House's HELP Line at any hour of any day: 434-295-8255.
 
-If you or someone you know is struggling with gender, sexual, or domestic violence, there are many community and University of Virginia resources available. The Office of the Dean of Students, Sexual Assault Resource Agency (SARA), Shelter for Help in Emergency (SHE), and UVA Women's Center are ready and eager to help. Contact the Director of Sexual and Domestic Violence Services at 434-982-2774.
+## Student Support
+
+Bad things happen. People forget things and make mistakes. Bad days coincide with due dates. etc.  We aim to have our extension policy, above, help to cover these types of issues.  If you believe that circumstances warrant an change in deadline, a second chance, or some other accommodation in order to more accurately synchronize grade with knowledge, come talk to your professor and we'll resolve the situation as best we can.  Note that there needs to be a significant reason for this, as we already are providing a free 4 day extension.
+
+
+
+### Students with disabilities or learning needs
+
+It is our goal to create a learning experience that is as accessible as possible. If you anticipate any issues related to the format, materials, or requirements of this course, please meet with one of us outside of class so we can explore potential options. Students with disabilities may also wish to work with the Student Disability Access Center (SDAC) to discuss a range of options to removing barriers in this course, including official accommodations. We are fortunate to have an SDAC advisor, Courtney MacMasters, physically located in Engineering. You may email her at [cmacmasters@virginia.edu](mailto:cmacmasters@virginia.edu) to schedule an appointment. For general questions please visit the [SDAC website](https://sdac.studenthealth.virginia.edu). If you have already been approved for accommodations through SDAC, please send us your accommodation letter and meet with me so we can develop an implementation plan together.
+
+Note that we expect most (or perhaps all) accommodation requests will be handled by our extension policy, above.
+
+### Religious accommodations
+
+It is the University's long-standing policy and practice to reasonably accommodate students so that they do not experience an adverse academic consequence when sincerely held religious beliefs or observances conflict with academic requirements.
+
+As with the previous section, we expect most (or perhaps all) accommodation requests will be handled by our extension policy, above.
+
+Students who wish to request academic accommodation for a religious observance should submit their request to us by email as far in advance as possible. Students who have questions or concerns about academic accommodations for religious observance or religious beliefs may contact the [University's Office for Equal Opportunity and Civil Rights](https://eocr.virginia.edu/) (EOCR) at [UVAEOCR@virginia.edu](mailto:UVAEOCR@virginia.edu) or 434-924-3200.
+
+### Harassment, Discrimination, and Interpersonal Violence
+
+The University of Virginia is dedicated to providing a safe and equitable learning environment for all students. If you or someone you know has been affected by power-based personal violence, more information can be found on the [UVA Sexual Violence website](http://www.virginia.edu/sexualviolence) that describes reporting options and resources available.  
+
+The same resources and options for individuals who experience sexual misconduct are available for discrimination, harassment, and retaliation.  [UVA prohibits discrimination and harassment](https://uvapolicy.virginia.edu/policy/HRM-009) based on age, color, disability, family medical or genetic information, gender identity or expression, marital status, military status, national or ethnic origin, political affiliation, pregnancy (including childbirth and related conditions), race, religion, sex, sexual orientation, or veteran status. [UVA policy](https://uvapolicy.virginia.edu/policy/HRM-010) also prohibits retaliation for reporting such behavior. 
+
+If you witness or are aware of someone who has experienced prohibited conduct, you are encouraged to submit a report to [Just Report It](https://justreportit.virginia.edu) or [contact EOCR](mailto:UVAEOCR@virginia.edu), the office of Equal Opportunity and Civil Rights.
+
+If you would prefer to disclose such conduct to a confidential resource where what you share is not reported to the University, you can turn to [Counseling & Psychological Services ("CAPS")](https://www.studenthealth.virginia.edu/caps) and [Women's Center Counseling Staff and Confidential Advocates](https://womenscenter.virginia.edu/counseling/our-counseling-services) (for students of all genders).
+
+As your professors and as people, know that we care about you and your well-being and stand ready to provide support and resources as we can. As a faculty member, we are responsible employees, which means that we are required by University policy and by federal law to report certain kinds of conduct that you report to me to the University's Title IX Coordinator. The Title IX Coordinator's job is to ensure that the reporting student receives the resources and support that they need, while also determining whether further action is necessary to ensure survivor safety and the safety of the University community. 
+
+### Support for your career development
+
+Engaging in your career development is an important part of your student experience. For example, presenting at a research conference, attending an interview for a job or internship, or participating in an extern/shadowing experience are not only necessary steps on your path but are also invaluable lessons in and of themselves. I wish to encourage and support you in activities related to your career development. To that end, please notify me by email as far in advance as possible to arrange for appropriate accommodations.
+
+### Student support team
+
+You have many resources available to you when you experience academic or personal stresses. In addition to your professor, the School of Engineering and Applied Science has staff members located in Thornton Hall who you can contact to help manage academic or personal challenges. Please do not wait until the end of the semester to ask for help! 
+
+### Learning
+
+- [Lisa Lampe](mailto:ll4uu@virginia.edu), Assistant Dean for Undergraduate Affairs
+- [Georgina Nembhard](mailto:gnembhard@virginia.edu), Director of Student Success 
+- [Courtney MacMasters](mailto:cmacmasters@virginia.edu), Accessibility Specialist
+- [Free tutoring](https://engineering.virginia.edu/current-students/current-undergraduate-students/student-support/tutoring) is available for most classes.
+
+### Health and Well-being
+
+- [Kelly Garrett](mailto:mwu5gs@virginia.edu), Assistant Dean of Students, Student Safety and Support  
+- Elizabeth Ramirez-Weaver, CAPS counselor
+- Katie Fowler, CAPS counselor
+
+You may schedule time with the CAPS counselors through [Student Health](https://www.studenthealth.virginia.edu/getting-started-caps). When scheduling, be sure to specify that you are an Engineering student. You are also urged to use [TimelyCare](https://www.studenthealth.virginia.edu/timelycare) for either scheduled or on-demand 24/7 mental health care. 
+
+### Community and Identity
+
+The [Center for Diversity in Engineering](https://engineering.virginia.edu/about/diversity-and-engagement/center-diversity-engineering) (CDE) is a student space dedicated to advocating for underrepresented groups in STEM. It exists to connect students with the academic, financial, health, and community resources they need to thrive both at UVA and in the world.  The CDE includes an open study area, event space, and staff members on site. Through this space, we affirm and empower equitable participation toward intercultural fluency and provide the resources necessary for students to be successful during their academic journey and future careers.
+
