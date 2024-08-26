@@ -12,7 +12,7 @@ I realize that not everybody reads these through.  So the TL;DR version:
 	- It's a horrible exam time, but everybody has to be present to take it
 - Grades are 45% homeworks, 20% midterm, 25% final exam, and 10% participation (quizzes & attendance)
 - Most things are going to be auto-graded, but you can submit multiple times; the grades won't be known until the late due date has passed
-- We have a very different extension policy -- anybody can request a 5 day extension for any reason.  Read the details (and disclaimers and specifics) below.
+- We have a very different extension policy -- anybody can request a 4 day extension for any reason.  Read the details (and disclaimers and specifics) below.
 - If you encounter any rough spots in the course -- please be patient, and provide constructive feedback, and I'll do my best to get it all fixed
 - There will be both larger programming homeworks and smaller tutorial-style  homeworks or readings -- sometimes one of each will be assigned at any given time
 - Lecture attendance is required, and occasional attendance quizzes will be taken to ensure that
@@ -77,7 +77,7 @@ I *expect* that grades will follow the standard decade curve: 90 and above is an
 **Special Circumstances:** Students with special circumstances (athletics, extra time required on exams, final exam conflicts, SDAC considerations, etc.) need to let me know as soon as possible.  General SDAC accommodations are handles as per our [SDAC Accommodations](sdac.html) ([md](sdac.md)) page.
 
 
-**Extensions:**  You may request an extension on any homework assignment for any reason.  That extension is up to 5 days.  To do so, you will have to fill out an extension request form, the link to which will be provided on the Canvas landing page.  You can assume that the extension will be automatically provided by filling out the form.
+**Extensions:**  You may request an extension on any homework assignment for any reason.  That extension is up to 4 days.  To do so, you will have to fill out an extension request form, the link to which will be provided on the Canvas landing page.  You can assume that the extension will be automatically provided by filling out the form.
 
 This extension rule does not apply to quizzes, exams, or any in-class activities.  It only applies to homework assignments.
 
@@ -86,9 +86,9 @@ However, there are a few specifics to this extension rule:
 - The extension request must be in *before* the due date; you can't request an extension after the due date.
     - Note that the Google Forms form will allow submissions at any time, and does not know the due date for the assignment you are requesting an extension for.  We will filter out late extension requests ourselves. 
 - This extension time covers any and all situations -- being sick, busy, exam or homework congestion, your dog ate your homework, etc.
-- We are not expecting to allow any further extensions beyond this 5 days, unless there are considerable extenuating circumstances -- basically, something that would have granted an extension for more than 5 days in the first place.  If you get busy or sick at the end of your 5 day extension request, then that's your tough luck.
+- We are not expecting to allow any further extensions beyond this 4 days, unless there are considerable extenuating circumstances -- basically, something that would have granted an extension for more than 4 days in the first place.  If you get busy or sick at the end of your 4 day extension request, then that's your tough luck.
 - After you extension ends, the late penalty (above) kicks in for the next three days.
-- This policy *already includes* SDAC accommodations less than 5 days (we are just extending these accommodations to everybody).  Likewise, religious accommodations of a short time (a few days) are handled by this policy as well.  
+- This policy *already includes* SDAC accommodations less than 4 days (we are just extending these accommodations to everybody).  Likewise, religious accommodations of a short time (a few days) are handled by this policy as well.  
 - If there is a valid need for an extended accommodation -- SDAC, religious, health, etc. -- please chat with one of the instructors, and we'd be happy to discuss it with you.
 - For written assignments, if you turn your assignment in on time, then that will be the version graded -- you can't turn it in on time, then file an extension, then submit it later, and expect the later version to be graded.  We will have already started grading the on-time submissions, and we just don't have the staffing capacity to grade multiple submissions from students.
 - This means that any written assignment turned in after the due date, whether late or via an extension, will end up taking much longer to be graded.
