@@ -242,8 +242,7 @@ title: "Course Introduction"
     - Unless that reason would have been a more than 5 day extension in the first place
   - If you get busy at the end of your extension, then that's your tough luck
   - Note that TA office hours are optimized for the actual on-time date
-- You also get a 5% bonus if you get the assignment in on time
-- Full details in the [../uva/syllabus](syllabus.html)
+- Full details in the [course syllabus](../uva/syllabus.html)
 
 
 

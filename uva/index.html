@@ -8,21 +8,16 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
+    ul.task-list{list-style: none;}
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="ics-uva-specific-material-fall-2024">ICS: UVa specific material, fall 2024</h1>
@@ -83,7 +78,7 @@
 <h2 id="course-calendar">Course calendar</h2>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>Week #</th>
 <th>Week of Monday</th>
 <th>Lecture days</th>
@@ -93,15 +88,15 @@
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>1</td>
 <td>Aug 26</td>
 <td>Tu,Th</td>
 <td></td>
 <td><a href="../slides/introduction.html#/">Course introduction</a>, <a href="../slides/security-mindset.html#/">The Security Mindset</a></td>
-<td></td>
+<td>Tue: finished introduction, security mindset to 4.9</td>
 </tr>
-<tr>
+<tr class="even">
 <td>2</td>
 <td>Sep 2</td>
 <td>Tu,Th</td>
@@ -109,7 +104,7 @@
 <td><a href="../slides/security-mindset.html#/">The Security Mindset</a>, <a href="../slides/terminology.html#/">Terminology</a>, <a href="../slides/ethics.html#/">Ethics</a></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>3</td>
 <td>Sep 9</td>
 <td>Tu,Th</td>
@@ -117,7 +112,7 @@
 <td><a href="../slides/encryption.html#/">Encryption</a></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>4</td>
 <td>Sep 16</td>
 <td>Tu,Th</td>
@@ -125,7 +120,7 @@
 <td><a href="../slides/encryption.html#/">Encryption</a></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>5</td>
 <td>Sep 23</td>
 <td>Tu,Th</td>
@@ -133,7 +128,7 @@
 <td><a href="../slides/networks.html#/">Networking Overview</a>, <a href="../slides/web-security.html#/">Web Security</a></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>6</td>
 <td>Sep 30</td>
 <td>Tu,Th</td>
@@ -141,7 +136,7 @@
 <td><a href="../slides/web-security.html#/">Web Security</a>, <a href="../slides/anonymity.html#/">Anonymity</a></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>7</td>
 <td>Oct 7</td>
 <td>Tu,Th</td>
@@ -149,7 +144,7 @@
 <td><a href="../slides/sql-xss-csrf.html#/">SQL, XSS, and CSRF</a>, midterm</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>8</td>
 <td>Oct 14</td>
 <td>Th</td>
@@ -157,7 +152,7 @@
 <td><a href="../slides/cryptocurrency.html#/">Cryptocurrency</a></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>9</td>
 <td>Oct 21</td>
 <td>Tu,Th</td>
@@ -165,7 +160,7 @@
 <td><a href="../slides/rootkits.html#/">Rootkits</a>, <a href="../slides/stuxnet.html#/">Stuxnet</a></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>10</td>
 <td>Oct 28</td>
 <td>Tu,Th</td>
@@ -173,7 +168,7 @@
 <td><a href="../slides/viruses.html#/">Viruses</a></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>11</td>
 <td>Nov 4</td>
 <td>Th</td>
@@ -181,7 +176,7 @@
 <td><a href="../slides/buffer-overflows.html#/">Buffer Overflows</a></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>12</td>
 <td>Nov 11</td>
 <td>Tu,Th</td>
@@ -189,7 +184,7 @@
 <td><a href="../slides/binary-exploits.html#/">Binary Exploits</a></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>13</td>
 <td>Nov 18</td>
 <td>Tu,Th</td>
@@ -197,7 +192,7 @@
 <td>(catch-up week)</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>14</td>
 <td>Nov 25</td>
 <td>Tu</td>
@@ -205,7 +200,7 @@
 <td><a href="../slides/vms.html#/">Virtual Machines</a>, <a href="../slides/forensics.html#/">Digital Forensics</a></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>14</td>
 <td>Dec 2</td>
 <td>Tu,Th</td>
