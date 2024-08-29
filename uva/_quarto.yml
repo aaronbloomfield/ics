@@ -4,6 +4,8 @@ project:
 format:
   revealjs: 
     slide-number: false
+    chalkboard: 
+      buttons: false
     preview-links: auto
     logo: ../slides/images/quarto.png
     css: ../slides/ics.css
@@ -12,7 +14,12 @@ format:
     controls: false
     template-partials:
       - ../slides/title-slide.html
+      - ../slides/toc-slide.html
+    toc: false
+    toc-depth: 1
+    toc-title: Contents
     theme: dark
     menu: false
     center: false
     link-external-newwindow: true
+    link-external-icon: true

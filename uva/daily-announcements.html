@@ -35,6 +35,8 @@
   <link href="../slides/quarto_files/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../slides/quarto_files/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../slides/quarto_files/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../slides/quarto_files/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../slides/quarto_files/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="../slides/quarto_files/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -332,7 +334,7 @@
   <p class="titlep">&nbsp;</p>
   <div class="titlesmall"><p>
     <a href="http://www.cs.virginia.edu/~asb">Aaron Bloomfield</a> (aaron@virginia.edu)<br>
-    <a href="http://github.com/aaronbloomfield/ccc">@github</a> | <a href="index.html">↑</a> | <a href="?print-pdf"><img class="print" width="20" src="images/print-icon.svg" style="top:0px;vertical-align:middle;background-color:transparent"></a>
+    <a href="http://github.com/aaronbloomfield/ccc">@github</a> | <a href="index.html">↑</a> | <a href="?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.svg" style="top:0px;vertical-align:middle;background-color:transparent"></a>
   </p></div>
   <p class="titlep">&nbsp;</p>
   <h2 class="subtitle">Daily Announcements</h2>
@@ -358,7 +360,7 @@
 <li>Homework due next Thursday (September 5th) by midnight: <a href="../hws/hw-paranoia-tabbed.html">HW 1: Rational Paranoia</a>
 <ul>
 <li>You have to follow the formatting guidelines described therein!</li>
-<li>You will likely want to wait until we finish the <a href="../../slides/security-mindset.html#/">security mindset slide set</a> slide set</li>
+<li>You will likely want to wait until we finish the <a href="../slides/security-mindset.html#/">security mindset slide set</a> slide set</li>
 <li>Submission on Gradescope will open up three days (72 hours) before it is due</li>
 </ul></li>
 <li>The second homework will be on Ethics, due the follwoing Thursday (Sep 12)
@@ -370,7 +372,7 @@
 <ul>
 <li>Due next Thursday, September 5th: <a href="https://www.acm.org/code-of-ethics">ACM Code of Ethics</a>, <a href="https://dl.acm.org/citation.cfm?id=358210">Reflections on Trusting Trust</a>, <a href="https://en.wikipedia.org/wiki/Morris_worm">Morris Worm Wikipedia page</a></li>
 </ul></li>
-<li>Everybody has to sign the Ethics Honor Pledge; the link is on the <a href="https://canvas.its.virginia.edu/courses/59093">Canvas landing page</a></li>
+<li>Everybody has to sign the Ethics Honor Pledge; the link is on the <a href="https://canvas.its.virginia.edu/courses/136577">Canvas landing page</a></li>
 <li>Today we will continue with the <a href="../slides/security-mindset.html#/">security mindset slide set</a>, starting on 5.1
 <ul>
 <li>Next up: the <a href="../slides/terminology.html#/">terminology slide set</a>, then <a href="../slides/ethics.html#/">ethics</a></li>
@@ -393,6 +395,7 @@
   <script src="../slides/quarto_files/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="../slides/quarto_files/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="../slides/quarto_files/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../slides/quarto_files/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../slides/quarto_files/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -413,7 +416,8 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'chalkboard': {"buttons":false},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -584,7 +588,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,
@@ -701,6 +705,8 @@
               if (link.getAttribute("rel") === null) {
                 link.setAttribute("rel", "noopener");
               }
+              // default icon
+              link.classList.add("external");
           }
         }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

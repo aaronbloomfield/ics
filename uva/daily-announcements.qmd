@@ -21,12 +21,12 @@ css: daily-announcements.css
 - Homeworks
   - Homework due next Thursday (September 5th) by midnight: [HW 1: Rational Paranoia](../hws/hw-paranoia-tabbed.html)
     - You have to follow the formatting guidelines described therein!
-    - You will likely want to wait until we finish the [security mindset slide set](../../slides/security-mindset.html#/) slide set
+    - You will likely want to wait until we finish the [security mindset slide set](../slides/security-mindset.html#/) slide set
     - Submission on Gradescope will open up three days (72 hours) before it is due
   - The second homework will be on Ethics, due the follwoing Thursday (Sep 12)
   	- It's ready, but we'll ChatGPT about it early next week
 - Readings
   - Due next Thursday, September 5th: [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
-- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/59093)
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
 - Today we will continue with the [security mindset slide set](../slides/security-mindset.html#/), starting on 5.1
   - Next up: the [terminology slide set](../slides/terminology.html#/), then [ethics](../slides/ethics.html#/)
