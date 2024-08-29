@@ -63,6 +63,11 @@ Much of the material in this slide set came from [An Introduction to Cybersecuri
 
 
 
+## Trolley Problem Fun
+- A variant take: [Absurd Trolley Problems](https://neal.fun/absurd-trolley-problems/)
+
+
+
 ## Question 3: Another variation
 - Imagine you somehow knew that an individual would inadvertently kill another person
 - Would you kill them to prevent this?

@@ -25,13 +25,22 @@ Answer each of the above in the form of a bulleted list, with brief justificatio
 
 Pick two of the following scenarios.
 
+- You are now in charge of ensuring that UVA students can express their first amendment rights through protest, while also ensuring the safety of the protesters and the UVA community.
+	- NOTE: This is a *security* analysis, not a chance for political opining.  Regardless of what side you are on, focus on the security aspects.  There are many great ways to express your political opinions, but doing so in the answer to this question on this homework is not one of them.  As long as you focus on the security aspects, any political views that come out will have zero effect on your grade for this question.
+- You are in charge of designing a new TSA airport checking process.
+- You are tasked with creating a policy to ensure the secure voting in the 2024 presidential election.
+	- Again, like the first scenario, keep politics out of your answer, please.
+- You are in charge of protecting the water supply to a town or city, which is sourced from a reservoir that is publicly usable and easily accessible.
+
+
+<!-- from summer 2024:
 - You are trying to secure your home network.  You have dozens of IoT devices, and individuals who install a lot of sketchy apps on their mobile phones.  How do you secure this home network?
 - You are now in charge of ensuring that UVA protesters can express their first amendment rights through protest, while also ensuring the safety of bot the protesters and the UVA community.  How do you do this?
 	- NOTE: This is a *security* analysis, not a chance for political opining.  Regardless of what side you are on, focus on the security aspects.  There are many great ways to express your political opinions, but doing so in the answer to this question on this homework is not one of them.  As long as you focus on the security aspects, any political views that come out will have zero effect on your grade for this question.
 - There is a [privacy rights bill](https://www.commerce.senate.gov/2024/4/committee-chairs-cantwell-mcmorris-rodgers-unveil-historic-draft-comprehensive-data-privacy-legislation) that is currently under consideration (as of May 2024) in Congress.  How do you ensure the privacy of Americans through this act, while not harming Internet security and ensuring that online businesses can properly function?
 	- Again, this is meant to be a security analysis, not your personal views about data mongering (which we'll talk about later this semester)
 - The [North Anna Nuclear Generating Station](https://en.wikipedia.org/wiki/North_Anna_Nuclear_Generating_Station) supplies about half of the electricity for Charlottesville; the other half is from a local coal plant.  The cooling lake for that nuclear plant, [Lake Anna](https://en.wikipedia.org/wiki/Lake_Anna), is a popular location for recreational boating.  How would you secure the plant?  This should take into account both the fact that it is on a well-used lake, as well as any terrorism concerns; this should not focus on the securing of their computer network, nor the [earthquake whose epicenter was only 11 miles away](https://en.wikipedia.org/wiki/North_Anna_Nuclear_Generating_Station#2011_Virginia_earthquake).
-
+-->
 
 <!-- from fall 2023:
 - A high profile political candidate is being arraigned for a series of alleged crimes.  How would you ensure that this person does not cause any "problems" via his/her social media postings.  Note: this needs to be an *apolitical* discussion.
