@@ -4,6 +4,36 @@ css: daily-announcements.css
 ---
 
 
+## Security Advice
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/security_advice.png){title="Never give your password or bank account number to anyone who doesn&#39;t have a blue check mark next to their name." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/security_advice_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1820](https://xkcd.com/1820)
+:::
+
+
+
+## Lecture 3: Tue, Sep 3rd
+- Office hours start today (Tuesday)
+  - My office hours are Tu/Th 1:30-3:00 in Rice 402 (but not today)
+  - TA office hours are Mon 1:00-2:30, Tue 2:00-4:00, Wed 1:00-2:30, Thu 2:00-4:00 & 5:00-7:00
+  - TA office hours room is Rice 442; you can see the TAs [here](https://andromeda.cs.virginia.edu/ics/tas/)
+  - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Homeworks (Gradescope opens up 72 hours before it's due)
+  - Homework due this Thursday (September 5th) by midnight: [HW 1: Rational Paranoia](../hws/hw-paranoia-tabbed.html)
+    - You have to follow the formatting guidelines described therein!
+  - The second homework is [HW 2: Ethics](../hws/hw-ethics-tabbed.html), due the follwoing Thursday (Sep 12)
+    - It's ready, and we'll talk about ChatGPT today
+- Readings
+  - Due this Thursday, September 5th: [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will continue with [terminology](../slides/terminology.html#/), starting on 5.1, then onto [ethics](../slides/ethics.html#/)
+  - Next up is [encryption](../slides/encryption.html#/) so we get to it in time for the HW
+  - We will come back to [policy](../slides/policy.html#/) later in the semester
+
+
+
 # Security Question
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/security_question.png){title="Let&#39;s invite him to a party and play &#39;I never&#39;.  Okay, I never hid any bodies SOUTH of Main Street. ... he&#39;s taking a drink!" style='border:10px solid white'  }
@@ -24,7 +54,7 @@ css: daily-announcements.css
     - You will likely want to wait until we finish the [security mindset slide set](../slides/security-mindset.html#/) slide set
     - Submission on Gradescope will open up three days (72 hours) before it is due
   - The second homework will be on Ethics, due the follwoing Thursday (Sep 12)
-  	- It's ready, but we'll ChatGPT about it early next week
+  	- It's ready, but we'll talk about ChatGPT early next week
 - Readings
   - Due next Thursday, September 5th: [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
 - Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
