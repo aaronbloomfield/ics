@@ -4,7 +4,37 @@ css: daily-announcements.css
 ---
 
 
-## Security Advice
+## Smart Home Security
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/smart_home_security.png){title="If they&#39;re getting valuable enough stuff from you, at least the organized crime folks have an incentive to issue regular updates to keep the appliance working after the manufacturer discontinues support." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/smart_home_security_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1966](https://xkcd.com/1966)
+:::
+
+
+
+## Lecture 4: Thu, Sep 5th
+- Office hours have started
+  - My office hours are Tu/Th 1:30-3:00 in Rice 402 (but not today)
+  - TA office hours are Mon 1:00-2:30, Tue 2:00-4:00, Wed 1:00-2:30, Thu 2:00-4:00 & 5:00-7:00
+  - TA office hours room is Rice 442; you can see the TAs [here](https://andromeda.cs.virginia.edu/ics/tas/)
+  - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Homeworks (Gradescope opens up 72 hours before it's due)
+  - Homework due today by midnight: [HW 1: Rational Paranoia](../hws/hw-paranoia-tabbed.html)
+    - You have to follow the formatting guidelines described therein!
+  - The second homework is [HW 2: Ethics](../hws/hw-ethics-tabbed.html), due next Thursday (Sep 12)
+    - It's ready, and we'll talk about it today
+- Readings
+  - Due today: [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will finish [ethics](../slides/ethics.html#/) (starting on 7.8)
+  - We will come back to [policy](../slides/policy.html#/) later in the semester
+  - Next up is [encryption](../slides/encryption.html#/) so we get to it in time for the HW
+
+
+
+# Security Advice
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/security_advice.png){title="Never give your password or bank account number to anyone who doesn&#39;t have a blue check mark next to their name." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/security_advice_2x.png 2x" }
 :::

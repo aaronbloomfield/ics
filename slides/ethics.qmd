@@ -124,7 +124,7 @@ Much of the material in this slide set came from [An Introduction to Cybersecuri
 - Question 4: FBI & Apple
   - Allowing a "crack" on encryption can have unintended consequences
   - Companies that state they are making the ethical choice may only be making the best financial choice
-- Question 5: 
+- Question 5: Gov't leaks 
   - Reasonable people will have different views as to what is "ethical"
 	
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -156,7 +156,7 @@ Much of the material in this slide set came from [An Introduction to Cybersecuri
 
 ## With Great Power Comes Great Responsibility
 ::: {.right-float-img .img-size-800}
-![spider man image](https://images-na.ssl-images-amazon.com/images/I/61yJKZIJqjL.jpg)
+![](https://images-na.ssl-images-amazon.com/images/I/61yJKZIJqjL.jpg)
 :::
 - Technology gives us great<br>power
   - To accomplish a lot,<br>to harm others
