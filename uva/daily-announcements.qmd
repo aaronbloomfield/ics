@@ -4,7 +4,7 @@ css: daily-announcements.css
 ---
 
 
-## Smart Home Security
+# Smart Home Security
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/smart_home_security.png){title="If they&#39;re getting valuable enough stuff from you, at least the organized crime folks have an incentive to issue regular updates to keep the appliance working after the manufacturer discontinues support." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/smart_home_security_2x.png 2x" }
 :::
