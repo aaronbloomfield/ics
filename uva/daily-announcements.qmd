@@ -4,6 +4,32 @@ css: daily-announcements.css
 ---
 
 
+# Bag Check
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/bag_check.png){title="A laptop battery contains roughly the stored energy of a hand grenade, and if shorted it ... hey!  You can&#39;t arrest me if I prove your rules inconsistent!" style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 651](https://xkcd.com/651)
+:::
+
+## Lecture 5: Tue, Sep 10th
+- Office hours are underway
+  - My office hours are Tu/Th 1:00-2:30 in Rice 402 
+    - Note the change!  Now 30 minutes earlier
+  - TA office hours are Mon 1:00-2:30, Tue 2:00-3:30, Wed 1:00-2:30, Thu 2:00-3:30 & 5:00-7:00
+    - Note the change: Tu/Th now ends at 3:30
+  - TA office hours room is Rice 442; you can see the TAs [here](https://andromeda.cs.virginia.edu/ics/tas/)
+  - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Homeworks (Gradescope opens up 72 hours before it's due)
+  - Due this Thursday: [HW 2: Ethics](../hws/hw-ethics-tabbed.html), due next Thursday (Sep 12)
+  - Due the following Thursday (9/19): HW 3: RSA (not yet ready)
+- Readings
+  - Due Thursday, September 19th: [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will continue with [encryption](../slides/encryption.html#/), starting on 5.1
+
+
+
 # Smart Home Security
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/smart_home_security.png){title="If they&#39;re getting valuable enough stuff from you, at least the organized crime folks have an incentive to issue regular updates to keep the appliance working after the manufacturer discontinues support." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/smart_home_security_2x.png 2x" }
@@ -16,7 +42,7 @@ css: daily-announcements.css
 
 ## Lecture 4: Thu, Sep 5th
 - Office hours have started
-  - My office hours are Tu/Th 1:30-3:00 in Rice 402 (but not today)
+  - My office hours are Tu/Th 1:30-3:00 in Rice 402
   - TA office hours are Mon 1:00-2:30, Tue 2:00-4:00, Wed 1:00-2:30, Thu 2:00-4:00 & 5:00-7:00
   - TA office hours room is Rice 442; you can see the TAs [here](https://andromeda.cs.virginia.edu/ics/tas/)
   - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
