@@ -25,6 +25,7 @@ css: daily-announcements.css
   - Due the following Thursday (9/19): HW 3: RSA (not yet ready)
 - Readings
   - Due Thursday, September 19th: [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+- Grading: HW 1 (paranoia), soon HW 2 (ethics), quiz 1
 - Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
 - Today we will continue with [encryption](../slides/encryption.html#/), starting on 5.1
 
