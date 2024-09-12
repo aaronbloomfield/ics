@@ -317,6 +317,91 @@ W . . . E . . . C . . . R . . . L . . . T . . . E
 
 
 
+## AES Overview
+1. Determine number of rounds, $r$:
+   - 10, 12, or 14 rounds for 128-bit, 192-bit, and 256-bit keys
+1. KeyExpansion: derive round keys from Key Round Schedule
+2. Round 1: AddRoundKey: XOR with round key
+3. Rounds 2 through $r-1$:
+   - SubBytes, ShiftRows, MixColumns, AddRoundKey
+4. Final round $r$:
+   - SubBytes, ShiftRows, AddRoundKey
+
+
+
+## Key Round Schedule
+[![](https://upload.wikimedia.org/wikipedia/commons/b/be/AES-Key_Schedule_128-bit_key.svg){style="width:500px;float:right;margin:10px;border:10px solid white"}](https://commons.wikimedia.org/wiki/File:AES-Key_Schedule_128-bit_key.svg)
+
+- Let:
+  - $N$: key length in 32-bit words (4, 6, or 8)
+  - $K_0, K_1, \ldots K_{N-1}$: 32-bit words of the key
+  - `RotWord` is a left rotation by 1
+  - `SubWord` is a lookup
+  - $R_{con}$ is a fixed round constant
+- Then repeat the image many times
+- It's fixed for that one key, so only has to be computed once
+
+
+
+## AES: SubBytes step
+
+<a href='https://commons.wikimedia.org/wiki/File:AES-SubBytes.svg'><img src='https://upload.wikimedia.org/wikipedia/commons/a/a4/AES-SubBytes.svg' style="width:70%"></a>
+
+- Input is mapped to its mult. inverse in a finite field
+- Bytes are replaced based on a fixed substitution table
+  - Fixed for all of AES
+- Called the [Rijndael S-box](https://en.wikipedia.org/wiki/Rijndael_S-box)
+
+
+
+## AES: ShiftRows step
+[![](https://upload.wikimedia.org/wikipedia/commons/6/66/AES-ShiftRows.svg)](https://commons.wikimedia.org/wiki/File:AES-ShiftRows.svg)
+
+- Rows are shifted cyclically to the left
+- This provides *diffusion*
+
+
+
+<!-- .slide: class="right-float-img-600" -->
+## AES: MixColumns step
+[![](https://upload.wikimedia.org/wikipedia/commons/7/76/AES-MixColumns.svg)](https://commons.wikimedia.org/wiki/File:AES-MixColumns.svg)
+
+- The values are transformed according to the following matrix operation
+- This also provides *diffusion*
+
+<br clear='all'>
+<div style="font-size:0.75em">
+
+$\begin{bmatrix} b_{0,j} \\\ b_{1,j} \\\ b_{2,j} \\\ b_{3,j} \end{bmatrix} =
+\begin{bmatrix} 2&3&1&1 \\\ 1&2&3&1 \\\ 1&1&2&3 \\\ 3&1&1&2 \end{bmatrix}
+\begin{bmatrix} a_{0,j} \\\ a_{1,j} \\\ a_{2,j} \\\ a_{3,j} \end{bmatrix}
+\text{ for }0 \le j \le 3
+$
+</div>
+
+
+
+<!-- .slide: class="right-float-img-800" -->
+## AES: AddRoundKey step
+[![](https://upload.wikimedia.org/wikipedia/commons/a/ad/AES-AddRoundKey.svg){style="width:600px;float:right;margin:10px;border:10px solid white"}](https://commons.wikimedia.org/wiki/File:AES-AddRoundKey.svg)
+
+- Derive a subkey from the main key via the AES key schedule
+- Subkey is then XOR'ed with the state
+
+
+
+
+
+## AES Overview
+1. Determine number of rounds, $r$:
+   - 10, 12, or 14 rounds for 128-bit, 192-bit, and 256-bit keys
+1. KeyExpansion: derive round keys from the AES Key Round Schedule
+2. Round 1: AddRoundKey: XOR with round key
+3. Rounds 2 through $r-1$:
+   - SubBytes, ShiftRows, MixColumns, AddRoundKey
+4. Final round $r$:
+   - SubBytes, ShiftRows, AddRoundKey
+
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 
@@ -359,7 +444,7 @@ repeat k times:
 return probably prime
 ```
 - Let $n = 101$
- - Iteration 1: $a = 55: 55^{100} \text{ mod } 101 = 1$
+  - Iteration 1: $a = 55: 55^{100} \text{ mod } 101 = 1$
   - Iteration 2: $a = 60: 60^{100} \text{ mod } 101 = 1$
   - Iteration 3: $a = 14: 14^{100} \text{ mod } 101 = 1$
   - Iteration 4: $a = 73: 73^{100} \text{ mod } 101 = 1$
@@ -1243,7 +1328,7 @@ $
 - Hash goals:
   - Changing even a single bit has a dramatic effect on the hash code
 - Pigeon hole principle:
-  - If we use a 128-bit hash, that yields $2^{128} \approx 3.4 \* 10^{38}$ possible values
+  - If we use a 128-bit hash, that yields $2^{128} \approx 3.4 * 10^{38}$ possible values
   - If we have files that are 129+ bits, then there will be more possible files than there are hashes
   - Thus, multiple files will provide the same hash
   - This will hold for *all* hashes, as long as the hash code is of a finite length
@@ -1291,15 +1376,15 @@ $
 
 ## Collision resistant hashes
 - Due to the birthday paradox, one will typically have to brute force $2^{n/2}$ attempted values before a collision is found
-  - For MD5 (128 bits): $2^{128/2} = 2^{64} = 1.84 \* 10^{19}$ attempts
-    - Computing 1 million a second takes $5.85 \* 10^{11}$ years
+  - For MD5 (128 bits): $2^{128/2} = 2^{64} = 1.84 * 10^{19}$ attempts
+    - Computing 1 million a second takes $5.85 * 10^{11}$ years
     - But a better attack can achieve this in under a minute
     - (MD5 is *not* collision resistant, as described later)
 
 
 ## Collision resistant hashes
-- For SHA-256 (256 bits): $2^{256/2} = 2^{128} = 3.40 \* 10^{38}$ attempts
-  - Computing 1 million a second takes $1.08 \* 10^{31}$ years
+- For SHA-256 (256 bits): $2^{256/2} = 2^{128} = 3.40 * 10^{38}$ attempts
+  - Computing 1 million a second takes $1.08 * 10^{31}$ years
 - [reference](http://en.wikipedia.org/wiki/Collision_resistant )
 
 

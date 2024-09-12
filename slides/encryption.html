@@ -873,6 +873,105 @@ This example from <a href="https://crypto.stackexchange.com/questions/59/taking-
 </ul></li>
 <li><a href="http://en.wikipedia.org/wiki/Advanced_Encryption_Standard">Reference</a></li>
 </ul>
+</section>
+<section id="aes-overview" class="slide level2">
+<h2>AES Overview</h2>
+<ol type="1">
+<li>Determine number of rounds, <span class="math inline">\(r\)</span>:
+<ul>
+<li>10, 12, or 14 rounds for 128-bit, 192-bit, and 256-bit keys</li>
+</ul></li>
+<li>KeyExpansion: derive round keys from Key Round Schedule</li>
+<li>Round 1: AddRoundKey: XOR with round key</li>
+<li>Rounds 2 through <span class="math inline">\(r-1\)</span>:
+<ul>
+<li>SubBytes, ShiftRows, MixColumns, AddRoundKey</li>
+</ul></li>
+<li>Final round <span class="math inline">\(r\)</span>:
+<ul>
+<li>SubBytes, ShiftRows, AddRoundKey</li>
+</ul></li>
+</ol>
+</section>
+<section id="key-round-schedule" class="slide level2">
+<h2>Key Round Schedule</h2>
+<p><a href="https://commons.wikimedia.org/wiki/File:AES-Key_Schedule_128-bit_key.svg"><img data-src="https://upload.wikimedia.org/wikipedia/commons/b/be/AES-Key_Schedule_128-bit_key.svg" style="width:500px;float:right;margin:10px;border:10px solid white"></a></p>
+<ul>
+<li>Let:
+<ul>
+<li><span class="math inline">\(N\)</span>: key length in 32-bit words (4, 6, or 8)</li>
+<li><span class="math inline">\(K_0, K_1, \ldots K_{N-1}\)</span>: 32-bit words of the key</li>
+<li><code>RotWord</code> is a left rotation by 1</li>
+<li><code>SubWord</code> is a lookup</li>
+<li><span class="math inline">\(R_{con}\)</span> is a fixed round constant</li>
+</ul></li>
+<li>Then repeat the image many times</li>
+<li>It’s fixed for that one key, so only has to be computed once</li>
+</ul>
+</section>
+<section id="aes-subbytes-step" class="slide level2">
+<h2>AES: SubBytes step</h2>
+<p><a href="https://commons.wikimedia.org/wiki/File:AES-SubBytes.svg"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/AES-SubBytes.svg" style="width:70%"></a></p>
+<ul>
+<li>Input is mapped to its mult. inverse in a finite field</li>
+<li>Bytes are replaced based on a fixed substitution table
+<ul>
+<li>Fixed for all of AES</li>
+</ul></li>
+<li>Called the <a href="https://en.wikipedia.org/wiki/Rijndael_S-box">Rijndael S-box</a></li>
+</ul>
+</section>
+<section id="aes-shiftrows-step" class="slide level2">
+<h2>AES: ShiftRows step</h2>
+<p><a href="https://commons.wikimedia.org/wiki/File:AES-ShiftRows.svg"><img data-src="https://upload.wikimedia.org/wikipedia/commons/6/66/AES-ShiftRows.svg"></a></p>
+<ul>
+<li>Rows are shifted cyclically to the left</li>
+<li>This provides <em>diffusion</em></li>
+</ul>
+<!-- .slide: class="right-float-img-600" -->
+</section>
+<section id="aes-mixcolumns-step" class="slide level2">
+<h2>AES: MixColumns step</h2>
+<p><a href="https://commons.wikimedia.org/wiki/File:AES-MixColumns.svg"><img data-src="https://upload.wikimedia.org/wikipedia/commons/7/76/AES-MixColumns.svg"></a></p>
+<ul>
+<li>The values are transformed according to the following matrix operation</li>
+<li>This also provides <em>diffusion</em></li>
+</ul>
+<br clear="all">
+<div style="font-size:0.75em">
+<p><span class="math inline">\(\begin{bmatrix} b_{0,j} \\\ b_{1,j} \\\ b_{2,j} \\\ b_{3,j} \end{bmatrix} =
+\begin{bmatrix} 2&amp;3&amp;1&amp;1 \\\ 1&amp;2&amp;3&amp;1 \\\ 1&amp;1&amp;2&amp;3 \\\ 3&amp;1&amp;1&amp;2 \end{bmatrix}
+\begin{bmatrix} a_{0,j} \\\ a_{1,j} \\\ a_{2,j} \\\ a_{3,j} \end{bmatrix}
+\text{ for }0 \le j \le 3\)</span></p>
+</div>
+<!-- .slide: class="right-float-img-800" -->
+</section>
+<section id="aes-addroundkey-step" class="slide level2">
+<h2>AES: AddRoundKey step</h2>
+<p><a href="https://commons.wikimedia.org/wiki/File:AES-AddRoundKey.svg"><img data-src="https://upload.wikimedia.org/wikipedia/commons/a/ad/AES-AddRoundKey.svg" style="width:600px;float:right;margin:10px;border:10px solid white"></a></p>
+<ul>
+<li>Derive a subkey from the main key via the AES key schedule</li>
+<li>Subkey is then XOR’ed with the state</li>
+</ul>
+</section>
+<section id="aes-overview-1" class="slide level2">
+<h2>AES Overview</h2>
+<ol type="1">
+<li>Determine number of rounds, <span class="math inline">\(r\)</span>:
+<ul>
+<li>10, 12, or 14 rounds for 128-bit, 192-bit, and 256-bit keys</li>
+</ul></li>
+<li>KeyExpansion: derive round keys from the AES Key Round Schedule</li>
+<li>Round 1: AddRoundKey: XOR with round key</li>
+<li>Rounds 2 through <span class="math inline">\(r-1\)</span>:
+<ul>
+<li>SubBytes, ShiftRows, MixColumns, AddRoundKey</li>
+</ul></li>
+<li>Final round <span class="math inline">\(r\)</span>:
+<ul>
+<li>SubBytes, ShiftRows, AddRoundKey</li>
+</ul></li>
+</ol>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 </section></section>
 <section>
@@ -922,12 +1021,14 @@ This example from <a href="https://crypto.stackexchange.com/questions/59/taking-
 <span id="cb5-3"><a href=""></a>    if a^{n-1} mod n != 1 then return composite</span>
 <span id="cb5-4"><a href=""></a>return probably prime</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Let <span class="math inline">\(n = 101\)</span></li>
+<li>Let <span class="math inline">\(n = 101\)</span>
+<ul>
 <li>Iteration 1: <span class="math inline">\(a = 55: 55^{100} \text{ mod } 101 = 1\)</span></li>
 <li>Iteration 2: <span class="math inline">\(a = 60: 60^{100} \text{ mod } 101 = 1\)</span></li>
 <li>Iteration 3: <span class="math inline">\(a = 14: 14^{100} \text{ mod } 101 = 1\)</span></li>
 <li>Iteration 4: <span class="math inline">\(a = 73: 73^{100} \text{ mod } 101 = 1\)</span></li>
 <li>At this point, 101 has a <span class="math inline">\((1/2)^4 = 1/16\)</span> chance of still being composite</li>
+</ul></li>
 </ul>
 </section>
 <section id="more-on-the-fermat-primality-test" class="slide level2">
@@ -2161,7 +2262,7 @@ This example from <a href="https://crypto.stackexchange.com/questions/59/taking-
 </ul></li>
 <li>Pigeon hole principle:
 <ul>
-<li>If we use a 128-bit hash, that yields <span class="math inline">\(2^{128} \approx 3.4 \* 10^{38}\)</span> possible values</li>
+<li>If we use a 128-bit hash, that yields <span class="math inline">\(2^{128} \approx 3.4 * 10^{38}\)</span> possible values</li>
 <li>If we have files that are 129+ bits, then there will be more possible files than there are hashes</li>
 <li>Thus, multiple files will provide the same hash</li>
 <li>This will hold for <em>all</em> hashes, as long as the hash code is of a finite length</li>
@@ -2229,9 +2330,9 @@ This example from <a href="https://crypto.stackexchange.com/questions/59/taking-
 <ul>
 <li>Due to the birthday paradox, one will typically have to brute force <span class="math inline">\(2^{n/2}\)</span> attempted values before a collision is found
 <ul>
-<li>For MD5 (128 bits): <span class="math inline">\(2^{128/2} = 2^{64} = 1.84 \* 10^{19}\)</span> attempts
+<li>For MD5 (128 bits): <span class="math inline">\(2^{128/2} = 2^{64} = 1.84 * 10^{19}\)</span> attempts
 <ul>
-<li>Computing 1 million a second takes <span class="math inline">\(5.85 \* 10^{11}\)</span> years</li>
+<li>Computing 1 million a second takes <span class="math inline">\(5.85 * 10^{11}\)</span> years</li>
 <li>But a better attack can achieve this in under a minute</li>
 <li>(MD5 is <em>not</em> collision resistant, as described later)</li>
 </ul></li>
@@ -2241,9 +2342,9 @@ This example from <a href="https://crypto.stackexchange.com/questions/59/taking-
 <section id="collision-resistant-hashes-2" class="slide level2">
 <h2>Collision resistant hashes</h2>
 <ul>
-<li>For SHA-256 (256 bits): <span class="math inline">\(2^{256/2} = 2^{128} = 3.40 \* 10^{38}\)</span> attempts
+<li>For SHA-256 (256 bits): <span class="math inline">\(2^{256/2} = 2^{128} = 3.40 * 10^{38}\)</span> attempts
 <ul>
-<li>Computing 1 million a second takes <span class="math inline">\(1.08 \* 10^{31}\)</span> years</li>
+<li>Computing 1 million a second takes <span class="math inline">\(1.08 * 10^{31}\)</span> years</li>
 </ul></li>
 <li><a href="http://en.wikipedia.org/wiki/Collision_resistant">reference</a></li>
 </ul>
