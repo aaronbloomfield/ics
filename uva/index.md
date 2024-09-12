@@ -79,7 +79,7 @@ Course calendar
 |----|----|----|----|----|----|
 | 1  | Aug 26 | Tu,Th  |                   | [Course introduction](../slides/introduction.html#/), [The Security Mindset](../slides/security-mindset.html#/) | Tue: finished introduction, security mindset to 4.9; Thu: finished security mindset, terminology to 4.16 |
 | 2  | Sep 2  | Tu,Th  | Rational Paranoia | [The Security Mindset](../slides/security-mindset.html#/), [Terminology](../slides/terminology.html#/), [Ethics](../slides/ethics.html#/) | Tue: finished terminology, ethics to 7.7; Thu: finished ethics, encryption to 4.24 |
-| 3  | Sep 9  | Tu,Th  | Ethics            | [Encryption](../slides/encryption.html#/) | Tue: encryption to 7.32 |
+| 3  | Sep 9  | Tu,Th  | Ethics            | [Encryption](../slides/encryption.html#/) | Tue: encryption to 7.32; Thu: encryption to 8.8 |
 | 4  | Sep 16 | Tu,Th  | RSA               | [Encryption](../slides/encryption.html#/) |  |
 | 5  | Sep 23 | Tu,Th  | Hashing           | [Networking Overview](../slides/networks.html#/), [Web Security](../slides/web-security.html#/) |  |
 | 6  | Sep 30 | Tu,Th  | Networks          | [Web Security](../slides/web-security.html#/), [Anonymity](../slides/anonymity.html#/) |  |
