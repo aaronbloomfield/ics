@@ -16,9 +16,7 @@ You should be familiar with how the RSA algorithm works from the [the encryption
 
 ### Changelog
 
-Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  <!-- So far there aren't any significant changes to report. -->
-
-- Tue, Sep 12th: fixed the `showPandQ = True` line in `main()` in rsa.py
+Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here. So far there aren't any significant changes to report.
 
 
 ### Links
