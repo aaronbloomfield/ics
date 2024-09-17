@@ -16,5 +16,5 @@ clean:
 csspretty:
 	@# requires installation of cssbeautify as per https://prefetch.net/blog/2017/12/02/formatting-css-from-the-linux-command-line/
 	@# awk command from https://www.linuxquestions.org/questions/programming-9/remove-css-comments-with-sed-776853-print/
-	cat slides/quarto_files/revealjs/dist/theme/quarto.css | tr --delete '\n' | awk -vRS="*/" '{gsub(/\/\*.*/,"")}1' | node_modules/.bin/cssbeautify-cli -s -w css.out
+	cat slides/quarto_files/revealjs/dist/theme/quarto.css | tr -d '\n' | awk -vRS="*/" '{gsub(/\/\*.*/,"")}1' | node_modules/.bin/cssbeautify-cli -s -w css.out
 	/bin/mv -f css.out slides/quarto_files/revealjs/dist/theme/quarto.css

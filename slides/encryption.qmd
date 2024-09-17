@@ -1200,7 +1200,7 @@ $
 ## LCG parameters in use
 - [RANDU](https://en.wikipedia.org/wiki/RANDU) used $a=65539$, $c=0$, and $m=2^{31}$
   - Used from the 1960's, it created a very easy to calculate sequence on old hardware
-  - But a *very* poor random sequence
+  - See [Why RANDU is a bad random number generator](https://www.reddit.com/r/dataisbeautiful/comments/gv4fhr/oc_why_randu_is_a_bad_random_number_generator/)
 - It does *NOT* cycle through all possible numbers
   - $\gcd(2^{31},0)\neq 1$, as $\gcd(a,0)=a$
   - $a-1=65538$ is not divisible by 4 whereas $m=2^{31}$ is
