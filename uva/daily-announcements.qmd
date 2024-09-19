@@ -3,6 +3,35 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+# Phone Security
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/phone_security.png){title="...wait until they type in payment information, then use it to order yourself a replacement phone." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/phone_security_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1934](https://xkcd.com/1934)
+:::
+
+## Lecture 8: Thu, Sep 19th
+- Office hours are underway
+  - My office hours are now Tu 1:00-2:30 and Thu 2-3 in Rice 402 
+    - Note the change!  Thursday starts 30 minutes later now
+  - TA office hours are Mon 1:00-2:30, Tue 2:00-3:30, Wed 1:00-2:30, Thu 2:00-3:30 & 5:00-7:00
+  - TA office hours room is Rice 442; you can see the TAs [here](https://andromeda.cs.virginia.edu/ics/tas/)
+  - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Homeworks (Gradescope opens up 72 hours before it's due)
+  - Due today: [HW 3: RSA](../hws/hw-rsa-tabbed.html)
+  - Out later today, and due next Thursday: HW 4: Hashing (not yet ready)
+- Readings
+  - Due today: [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+- Grading: HW 1 (paranoia), HW 2 (ethics), quiz 1
+  - Two are graded, and should be back "soon"
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will finish with [encryption](../slides/encryption.html#/), starting on 10.1?
+  - Next up: [networking](../slides/networks.html#/)
+
+
+
+
 # Voting Software
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/voting_software.png){title="There are lots of very smart people doing fascinating work on cryptographic voting protocols. We should be funding and encouraging them, and doing all our elections with paper ballots until everyone currently working in that field has retired." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/voting_software_2x.png 2x" }
