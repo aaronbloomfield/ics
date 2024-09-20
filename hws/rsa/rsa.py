@@ -101,7 +101,7 @@ def generate_prime(bits, k):
 	count = 0
 	while True:
 		# generate a number, make sure it's odd
-		n = random.randint(1,2**(bits+1)-1)
+		n = random.randint(2,2**(bits+1)-1)
 		if n % 2 == 0:
 			n += 1
 		count += 1
