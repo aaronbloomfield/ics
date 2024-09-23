@@ -8,10 +8,18 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
@@ -37,9 +45,6 @@
     evt.currentTarget.className += " active";
   }
   </script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="ics-programming-hw-hashing">ICS: Programming HW: Hashing</h1>
@@ -133,12 +138,11 @@ $ </code></pre>
 <p>For this part, we are only using SHA-256 hashes. This part may be written in any programming language.</p>
 <h4 id="set-up">Set-up</h4>
 <p>A password file will be provided in the following format:</p>
-<pre><code>hayden 36a095da4e23a3b35db038092aef1b8c3dbd4eb7068d3fdc869af10849476f82
+<pre><code>aaron 1d06b71965f3c7466467c7a89dd1aadfffe9da9f409017c1fa363b49312d70f4
+abby 36a095da4e23a3b35db038092aef1b8c3dbd4eb7068d3fdc869af10849476f82
+akira f9c6b88c040ec9388f78d50a06d2da92362f9d9a219a3180fde59c768da3f366
 alexander 553c165c0199e45e6c44ea743650d7f48a62c82357d46a03179b86719d670b2a
-chase 83352f28d732fa2a255d6c69d5c332f6b9f421d89bacb2ed334b0841bfce6661
-megan f9c6b88c040ec9388f78d50a06d2da92362f9d9a219a3180fde59c768da3f366
-sam 1d06b71965f3c7466467c7a89dd1aadfffe9da9f409017c1fa363b49312d70f4
-lindsey 226f7f2a65158d441748b1ce9543b5027af1a7438314371d3dfccf12fba85edf</code></pre>
+feyona 83352f28d732fa2a255d6c69d5c332f6b9f421d89bacb2ed334b0841bfce6661</code></pre>
 <p>The file is ASCII, and all usernames will be alphanumeric strings. There is exactly one space between the two tokens on any given line. The hashes shown are SHA-256 hashes. The passwords used to generate those hashes are shown in the execution run, below.</p>
 <p>The dictionary file we will use is located at /usr/share/dict/words on most Linux systems (assuming that the <code>wamerican</code> package has been installed); you can find a copy in Canvas’ Files. It contains about 100,000 words. The file has one word per line, with no whitespace. We have a version stored on Canvas’ Files, and you should use that (the one in /usr/share/dict/words is UTF-8, and we want it to be ASCII; the one on Canvas’ Files was converted to ASCII for this assignment).</p>
 <p>You are welcome to create your own versions of these files – meaning you can create a file with only 100 (or so) words to use for testing. If you want to find the SHA-256 password for a string, try running: <code>echo -n banana | sha256sum</code> in Linux or Mac OS X. Note that the <code>-n</code> part is important in that echo statement – it ensures that there is no return (<code>\n</code>) put at the end of the string that you are taking the SHA-256 hash of. You can also use any online SHA-256 generator (the hash of <code>banana</code>, by the way, is b493d48364afe44d11c0165cf470a4164d1e2609911ef998be868d46ade3de4e).</p>
@@ -147,12 +151,11 @@ lindsey 226f7f2a65158d441748b1ce9543b5027af1a7438314371d3dfccf12fba85edf</code><
 <p>You may write this in any programming language (although you have to let us know two days ahead of time if you want to use a language that the autograder is not already configured for). You are expected to use the SHA-256 routines in your language. Because we do not know the language you are using, you will have to provide a Makefile and a <code>dictionary.sh</code> shell script to compile and run the program.</p>
 <p>Your program should print out one line for the passwords that it finds. Here is a sample execution run for the password file shown above:</p>
 <pre><code>$ ./dictionary.sh words passwords.txt _l337_h4x0r
-password for chase is: astound
-password for sam is: flotation
+password for feyona is: astound
+password for aaron is: flotation
 password for alexander is: patois
-password for hayden is: plastic
-password for lindsey is: reunification
-password for megan is: spade
+password for abby is: plastic
+password for feyona is: spade
 $ 
 </code></pre>
 <p>The order you print it out does not matter (we are going to sort your output), but the exact text on each line does, as we are going to have it graded by an auto-grader. Not all the passwords may be found in the words file. We will not give you invalid input (meaning files that do not exist, a wrong number of command-line parameters, etc.). Both the words file and the password file will be ASCII files with at least 1 line in each file. The salt will only be alphanumeric characters and underscores.</p>

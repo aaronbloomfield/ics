@@ -117,12 +117,11 @@ For this part, we are only using SHA-256 hashes.  This part may be written in an
 A password file will be provided in the following format:
 
 ```
-hayden 36a095da4e23a3b35db038092aef1b8c3dbd4eb7068d3fdc869af10849476f82
+aaron 1d06b71965f3c7466467c7a89dd1aadfffe9da9f409017c1fa363b49312d70f4
+abby 36a095da4e23a3b35db038092aef1b8c3dbd4eb7068d3fdc869af10849476f82
+akira f9c6b88c040ec9388f78d50a06d2da92362f9d9a219a3180fde59c768da3f366
 alexander 553c165c0199e45e6c44ea743650d7f48a62c82357d46a03179b86719d670b2a
-chase 83352f28d732fa2a255d6c69d5c332f6b9f421d89bacb2ed334b0841bfce6661
-megan f9c6b88c040ec9388f78d50a06d2da92362f9d9a219a3180fde59c768da3f366
-sam 1d06b71965f3c7466467c7a89dd1aadfffe9da9f409017c1fa363b49312d70f4
-lindsey 226f7f2a65158d441748b1ce9543b5027af1a7438314371d3dfccf12fba85edf
+feyona 83352f28d732fa2a255d6c69d5c332f6b9f421d89bacb2ed334b0841bfce6661
 ```
 
 The file is ASCII, and all usernames will be alphanumeric strings.  There is exactly one space between the two tokens on any given line.  The hashes shown are SHA-256 hashes.  The passwords used to generate those hashes are shown in the execution run, below.
@@ -141,12 +140,11 @@ Your program should print out one line for the passwords that it finds.  Here is
 
 ```
 $ ./dictionary.sh words passwords.txt _l337_h4x0r
-password for chase is: astound
-password for sam is: flotation
+password for feyona is: astound
+password for aaron is: flotation
 password for alexander is: patois
-password for hayden is: plastic
-password for lindsey is: reunification
-password for megan is: spade
+password for abby is: plastic
+password for feyona is: spade
 $ 
 
 ```
