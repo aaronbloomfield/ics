@@ -212,6 +212,10 @@ p.blankline { height:1em; }
   padding: 0 !important;
 }
 
+.img-padding img {
+  padding: 20px !important;
+}
+
 .img-square-corners img {
   border-radius: 0 !important;
 }

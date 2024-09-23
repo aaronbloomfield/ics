@@ -54,7 +54,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchan
 
 ----
 
-::: {.right-float-img}
+::: {.right-float-img .img-padding}
 [![](images/web-security/Diffie-Hellman_Key_Exchange.svg)](https://commons.wikimedia.org/wiki/File:Diffie-Hellman_Key_Exchange.svg)
 :::
 <h2>DH key<br>exchange<br>example<br>as colors</h2>
@@ -106,7 +106,7 @@ If that doesn't work, try the [direct Youtube link](http://youtu.be/YEBfamv-_do?
 
 
 ## Certificate usage
-::: {.right-float-img .img-size-800}
+::: {.right-float-img .img-size-600}
 ![](images/web-security/ServerCertificate.png)
 :::
 - All websites that support https provide such a certificate to any client
@@ -357,7 +357,7 @@ Updated version [here](https://en.wikipedia.org/wiki/Transport_Layer_Security#Ke
 
 
 ## Heartbleed (2012)
-::: {.right-float-img .img-size-800}
+::: {.right-float-img .img-size-600}
 ![](images/web-security/Heartbleed.svg)
 :::
 - A problem in *one* implementation of the TLS protocol

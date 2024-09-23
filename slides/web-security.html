@@ -500,7 +500,7 @@ Alice and Bob now share a secret (the number 18)
 </section>
 <section class="slide level2">
 
-<div class="right-float-img">
+<div class="right-float-img img-padding">
 <p><a href="https://commons.wikimedia.org/wiki/File:Diffie-Hellman_Key_Exchange.svg"><img data-src="images/web-security/Diffie-Hellman_Key_Exchange.svg"></a></p>
 </div>
 <h2>
@@ -561,7 +561,7 @@ DH key<br>exchange<br>example<br>as colors
 <img data-src="images/web-security/x.509-cert.svg" class="r-stretch"></section>
 <section id="certificate-usage" class="slide level2">
 <h2>Certificate usage</h2>
-<div class="right-float-img img-size-800">
+<div class="right-float-img img-size-600">
 <p><img data-src="images/web-security/ServerCertificate.png"></p>
 </div>
 <ul>
@@ -880,7 +880,7 @@ DH key<br>exchange<br>example<br>as colors
 </section>
 <section id="heartbleed-2012" class="slide level2">
 <h2>Heartbleed (2012)</h2>
-<div class="right-float-img img-size-800">
+<div class="right-float-img img-size-600">
 <p><img data-src="images/web-security/Heartbleed.svg"></p>
 </div>
 <ul>
@@ -1530,13 +1530,6 @@ DH key<br>exchange<br>example<br>as colors
             if (link.dataset.originalHref !== undefined) {
               link.href = link.dataset.originalHref;
             }
-              // target, if specified
-              link.setAttribute("target", "_blank");
-              if (link.getAttribute("rel") === null) {
-                link.setAttribute("rel", "noopener");
-              }
-              // default icon
-              link.classList.add("external");
           }
         }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

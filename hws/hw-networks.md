@@ -56,6 +56,8 @@ This file contains my password, so I wanted to ensure that it was properly prote
 
 In all cases, you will need to understand what it does - just running it with very few parameters will just spew out gibberish to the screen.
 
+Update: as fcrackzip has issues with Windows, we are revealing the password: `abcdez`.
+
 #### tcpdump
 
 A packet sniffing utility would run tcpdump, and parse the contents in real-time.  We can write such programs using Python or, for more speed, C or C++.  For this assignment, you won't need to write a program, but can instead just search for the data using any text-search mechanism (including opening it up in your favorite editor and searching the data).  The data was collected using the following command:
@@ -212,6 +214,6 @@ The best way to test this is to launch it in one terminal or window, and start t
 
 You should submit two files to Gradescope:
 
-- `networks.pdf, which is your report for parts 1 (Tor) and 2 (packet sniffing).  Answers to all the questions in those parts should be in that file.  So that it is viable for us to read, please clearly label the various sections of the file.
-- `keylogger.py`: from part 3 (packet sniffing)
+- `networks.pdf`, which is your report for parts 1 (Tor) and 2 (packet sniffing).  Answers to all the questions in those parts should be in that file.  So that it is viable for us to read, please clearly label the various sections of the file.
+- `keylogger.py`: from part 3 (keyboard logger)
 

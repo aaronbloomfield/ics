@@ -45,7 +45,6 @@
     evt.currentTarget.className += " active";
   }
   </script>
-  
 </head>
 <body>
 <h1 id='ics-programming-homework-networks'>ICS: Programming Homework: Networks</h1>
@@ -92,6 +91,7 @@
 <li>Linux: you can install on your Linux VirtualBox image via <code>sudo apt-get install fcrackzip</code></li>
 </ul>
 <p>In all cases, you will need to understand what it does - just running it with very few parameters will just spew out gibberish to the screen.</p>
+<p>Update: as fcrackzip has issues with Windows, we are revealing the password: <code>abcdez</code>.</p>
 <h4 id='tcpdump'>tcpdump</h4>
 <p>A packet sniffing utility would run tcpdump, and parse the contents in real-time. We can write such programs using Python or, for more speed, C or C++. For this assignment, you won’t need to write a program, but can instead just search for the data using any text-search mechanism (including opening it up in your favorite editor and searching the data). The data was collected using the following command:</p>
 <pre><code>tcpdump -A -l -s 10000 -i eth0</code></pre>
@@ -199,8 +199,8 @@ hello world</code></pre>
 </div><div id='tsubmission' class='tabcontent'><h3 id='submission'>Submission</h3>
 <p>You should submit two files to Gradescope:</p>
 <ul>
-<li>`networks.pdf, which is your report for parts 1 (Tor) and 2 (packet sniffing). Answers to all the questions in those parts should be in that file. So that it is viable for us to read, please clearly label the various sections of the file.</li>
-<li><code>keylogger.py</code>: from part 3 (packet sniffing)</li>
+<li><code>networks.pdf</code>, which is your report for parts 1 (Tor) and 2 (packet sniffing). Answers to all the questions in those parts should be in that file. So that it is viable for us to read, please clearly label the various sections of the file.</li>
+<li><code>keylogger.py</code>: from part 3 (keyboard logger)</li>
 </ul>
 </div><script>document.getElementById('defaultOpen').click();</script></body>
 </html>

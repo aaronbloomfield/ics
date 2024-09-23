@@ -111,7 +111,7 @@ title: "Networks"
 
 ----
 
-![networking diagram](https://phoenix.cs.virginia.edu/~aaron/network-encapsulation.svg)
+![](https://andromeda.cs.virginia.edu/ics/network-encapsulation.svg)
 
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->

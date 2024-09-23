@@ -3,6 +3,36 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+# Constructive
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/constructive.png){title="And what about all the people who won&#39;t be able to join the community because they&#39;re terrible at making helpful and constructive co-- ... oh." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 810](https://xkcd.com/810)
+:::
+
+## Lecture 9: Tue, Sep 24th
+- Office hours are underway
+  - My office hours are now Tu 1:00-2:30 and Thu 2-3 in Rice 402 
+  - TA office hours are Mon 1:00-2:30, Tue 2:00-3:30, Wed 1:00-2:30, Thu 2:00-3:30 & 5:00-7:00
+  - TA office hours room is Rice 442; you can see the TAs [here](https://andromeda.cs.virginia.edu/ics/tas/)
+  - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Homeworks (Gradescope opens up 72 hours before it's due)
+  - Due last week: [HW 3: RSA](../hws/hw-rsa-tabbed.html): how was it?
+  - Due this Thursday, Sep 26th (?): [HW 4: Hashing](../hws/hw-hashing-tabbed.html)
+  - Due next Thursday, Oct 3rd: [HW 5: Networks](../hws/hw-networks-tabbed.html)
+  - The following Thursday (Oct 10) is the midterm, so no homework due that week
+- Readings
+  - Due Thu, Oct 3rd: watch [Last Week Tonight with John Oliver: Data Brokers](https://www.youtube.com/watch?v=wqn3gR1WTcA) (25:09 long)
+- Grading: 
+  - Almost done: HW 1 (paranoia), HW 2 (ethics), quiz 1
+  - To be returned later this week: HW 3 (RSA)
+- Be sure to sign the Ethics Honor Pledge; [link on the Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will continue with [networking](../slides/networks.html#/), starting on 3.14
+  - Next up: [web security](../slides/web-security.html#/)
+
+
+
 # Phone Security
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/phone_security.png){title="...wait until they type in payment information, then use it to order yourself a replacement phone." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/phone_security_2x.png 2x" }
