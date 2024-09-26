@@ -3,6 +3,37 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+# Networking Problems
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/networking_problems.png){title="LOOK, THE LATENCY FALLS EVERY TIME YOU CLAP YOUR HANDS AND SAY YOU BELIEVE" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/networking_problems_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2259](https://xkcd.com/2259)
+:::
+
+
+## Lecture 10: Thu, Sep 26th
+- Office hours are underway
+  - My office hours are now Tu 1:00-2:30 and Thu 2-3 in Rice 402 
+  - TA office hours are Mon 1:00-2:30, Tue 2:00-3:30, Wed 1:00-2:30, Thu 2:00-3:30 & 5:00-7:00
+  - TA office hours room is Rice 442; you can see the TAs [here](https://andromeda.cs.virginia.edu/ics/tas/)
+  - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Homeworks (Gradescope opens up 72 hours before it's due)
+  - Due last week: [HW 3: RSA](../hws/hw-rsa-tabbed.html): how was it?
+  - Due this Sunday, Sep 29th: [HW 4: Hashing](../hws/hw-hashing-tabbed.html)
+  - Due next Thursday, Oct 3rd (?): [HW 5: Networks](../hws/hw-networks-tabbed.html)
+  - The following Thursday (Oct 10) is the midterm, so no homework due that week
+- Readings
+  - Due Thu, Oct 3rd: watch [Last Week Tonight with John Oliver: Data Brokers](https://www.youtube.com/watch?v=wqn3gR1WTcA) (25:09 long)
+- Tomorrow is a [CAE National Cybersecurity Virtual Career Fair](https://caecommunity.6connex.com/event/virtual/students/login) if you are interested
+- Grading: 
+  - Almost done: HW 1 (paranoia), HW 2 (ethics), quiz 1
+  - To be returned later this week: HW 3 (RSA)
+- Be sure to sign the Ethics Honor Pledge; [link on the Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will continue with [web security](../slides/web-security.html#/)
+
+
+
 # Constructive
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/constructive.png){title="And what about all the people who won&#39;t be able to join the community because they&#39;re terrible at making helpful and constructive co-- ... oh." style='border:10px solid white'  }
