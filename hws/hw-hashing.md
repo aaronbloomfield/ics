@@ -21,7 +21,7 @@ Any changes to this page will be put here for easy reference.  Typo fixes and mi
 
 Your job is to write a program that, when given an input file and a CRC checksum, will modify that message, and ensure that the modified version matches the provided CRC checksum.  We are using CRC-16 here for speed, but the concepts are the exact same as for CRC-32, which would be much slower.
 
-While you can use any language, we provide some sample code in Python.  You will have to install the "crc" library -- you can do this via `pip install crc` or `pip3 install crc`.  If you are using PyCharm, you should do this through PyCharm's terminal shell: View -> Tool Windows -> Terminal, and then run the `pip` command from above.
+While you can use any language, we provide some sample code in Python.  You will have to install the [crc library](https://pypi.org/project/crc/) (documentation is [here](https://nicoretti.github.io/crc/)) -- you can do this via `pip install crc` or `pip3 install crc`.  If you are using PyCharm, you should do this through PyCharm's terminal shell: View -> Tool Windows -> Terminal, and then run the `pip` command from above.
 
 #### Getting the CRC-16 checksum
 
