@@ -3,6 +3,36 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+# Devotion to Duty
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/devotion_to_duty.png){title="The weird sense of duty really good sysadmins have can border on the sociopathic, but it&#39;s nice to know that it stands between the forces of darkness and your cat blog&#39;s servers." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 705](https://xkcd.com/705)
+:::
+
+## Lecture 12: Thu, Oct 3rd
+- Office hours are underway; details on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+  - My office hours are now Tu 1:00-2:30 and Thu 2-3 in Rice 402
+  - TA office hours are Mon 1:00-2:30, Tue 2:00-3:30, Wed 1:00-2:30, Thu 2:00-3:30 & 5:00-7:00
+  - TA office hours room is Rice 442; you can see the TAs [here](https://andromeda.cs.virginia.edu/ics/tas/)
+- Grading
+  - Grades returned for HWs 1 (Rational Paranoia), 2 (Ethics), and 3 (RSA)
+  - Regrades for HWs 1 & 2: submit via Gradescope, but do not abuse this!
+  - Regrades for auto-graded assignments, such as HW 3: chat with me in person
+  - All regrades due within 1 week(ish)
+- Homeworks (Gradescope opens up 72 hours before it's due)
+  - Due tomorrow, Fri, Oct 4th: [HW 5: Networks](../hws/hw-networks-tabbed.html)
+  - Next week on Thu (Oct 10) is the midterm, so no homework due next week
+- Midterm next Thursday, during lecture
+  - Past exams in the repo; about the topic coverage...
+- Readings
+  - Due today, Thu, Oct 3rd: watch [Last Week Tonight with John Oliver: Data Brokers](https://www.youtube.com/watch?v=wqn3gR1WTcA) (25:09 long)
+- Be sure to sign the Ethics Honor Pledge; [link on the Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will continue with [web security](../slides/web-security.html#/), starting on 8.12
+  - Next up: [anonymity](../slides/anonymity.html#/)
+
+
 # API
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/api.png){title="ACCESS LIMITS: Clients may maintain connections to the server for no more than 86,400 seconds per day. If you need additional time, you may contact IERS to file a request for up to one additional second." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/api_2x.png 2x" }
