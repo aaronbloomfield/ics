@@ -3,6 +3,38 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+
+# Authorization
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/authorization.png){title="Before you say anything, no, I know not to leave my computer sitting out logged in to all my accounts. I have it set up so after a few minutes of inactivity it automatically switches to my brother&#39;s." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/authorization_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1200](https://xkcd.com/1200)
+:::
+
+## Lecture 13: Tue, Oct 5th
+- Office hours are underway; details on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+  - My office hours are now Tu 1:00-2:30 and Thu 2-3 in Rice 402
+  - TA office hours are Mon 1:00-2:30, Tue 2:00-3:30, Wed 1:00-2:30, Thu 2:00-3:30 & 5:00-7:00
+  - TA office hours room is Rice 442; you can see the TAs [here](https://andromeda.cs.virginia.edu/ics/tas/)
+  - TA office hours will be cancelled this Thursday through next Tuesday
+- Grading
+  - Grades returned through HW 4 (hashing)
+  - Regrades for written assignments: submit via Gradescope, but do not abuse this!
+  - Regrades for auto-graded assignments: chat with me in person
+  - All regrades due within 1 week(ish)
+- Homeworks (Gradescope opens up 72 hours before it's due)
+  - Due *next Friday*, Oct 18th: [HW 6: Fuzzing](../hws/hw-fuzzing-tabbed.html)
+- Midterm this Thursday, during lecture
+  - Past exams in the repo; about the topic coverage...
+- Readings: none currently assigned
+- Be sure to sign the Ethics Honor Pledge; [link on the Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will finish [anonymity](../slides/anonymity.html#/), starting on 6.1
+  - Then go back to the [Wireshark section of Networks](../slides/networks.html#/wireshark)
+  - Then onto [SQL, XSS, & CSRF](../slides/sql-xss-csrf.html)
+
+
+
 # Devotion to Duty
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/devotion_to_duty.png){title="The weird sense of duty really good sysadmins have can border on the sociopathic, but it&#39;s nice to know that it stands between the forces of darkness and your cat blog&#39;s servers." style='border:10px solid white'  }

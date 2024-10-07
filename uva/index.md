@@ -81,8 +81,8 @@ Course calendar
 | 2  | Sep 2  | Tu,Th  | Rational Paranoia | [The Security Mindset](../slides/security-mindset.html#/), [Terminology](../slides/terminology.html#/), [Ethics](../slides/ethics.html#/) | Tue: finished terminology, ethics to 7.7; Thu: finished ethics, encryption to 4.24 |
 | 3  | Sep 9  | Tu,Th  | Ethics            | [Encryption](../slides/encryption.html#/) | Tue: encryption to 7.32; Thu: encryption to 8.8 |
 | 4  | Sep 16 | Tu,Th  | RSA               | [Encryption](../slides/encryption.html#/) |  Tue: encryption to 9.22; Thu: finished encryption, networks to 3.14 |
-| 5  | Sep 23 | Tu,Th  | Hashing           | [Networking Overview](../slides/networks.html#/), [Web Security](../slides/web-security.html#/) | Tue: finished networks, web security to 4.6; Thu: web security to 6.11 |
-| 6  | Sep 30 | Tu,Th  | Networks          | [Web Security](../slides/web-security.html#/), [Anonymity](../slides/anonymity.html#/) |  |
+| 5  | Sep 23 | Tu,Th  | Hashing           | [Networking Overview](../slides/networks.html#/), [Web Security](../slides/web-security.html#/) | Tue: networks to 5.9, web security to 4.6; Thu: web security to 6.11 |
+| 6  | Sep 30 | Tu,Th  | Networks          | [Web Security](../slides/web-security.html#/), [Anonymity](../slides/anonymity.html#/) | Tue: web security to 8.11; Thu: finished web security, anonymity to 5.22 |
 | 7  | Oct 7  | Tu,Th  | (midterm week)    | [SQL, XSS, and CSRF](../slides/sql-xss-csrf.html#/), midterm |  |
 | 8  | Oct 14 | Th     | Fuzzing           | [Cryptocurrency](../slides/cryptocurrency.html#/) |  |
 | 9  | Oct 21 | Tu,Th  | SQL/XSS/CSRF      | [Rootkits](../slides/rootkits.html#/), [Stuxnet](../slides/stuxnet.html#/) | |
