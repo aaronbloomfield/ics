@@ -344,6 +344,7 @@
 <li><a href="#/networking-model" id="/toc-networking-model">Networking Model</a></li>
 <li><a href="#/basic-network-security" id="/toc-basic-network-security">Basic Network Security</a></li>
 <li><a href="#/denial-of-service-dos-attacks" id="/toc-denial-of-service-dos-attacks">Denial of Service (DoS) attacks</a></li>
+<li><a href="#/wireshark" id="/toc-wireshark">Wireshark</a></li>
 </ul>
 </nav>
 </section>
@@ -772,6 +773,64 @@
 <li>This does not require much knowledge, just access to a lot of computers
 <ul>
 <li>Probably via a zombie botnet</li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="wireshark" class="title-slide slide level1 center">
+<h1>Wireshark</h1>
+<!-- .slide: class="no-border" -->
+</section>
+<section id="obtaining-wireshark" class="slide level2">
+<h2>Obtaining Wireshark</h2>
+<ul>
+<li>Download it at <a href="https://www.wireshark.org/download.html">wireshark.org/download.html</a>; the Windows version that runs without a full install is <a href="https://2.na.dl.wireshark.org/win64/WiresharkPortable64_4.2.2.paf.exe">here</a></li>
+</ul>
+<p><a href="https://commons.wikimedia.org/wiki/File:Wireshark_Network_Analyzer_Screen.png"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Wireshark_Network_Analyzer_Screen.png" style="height:450px"></a></p>
+</section>
+<section id="normal-pcaps" class="slide level2">
+<h2>“Normal” pcaps</h2>
+<ul>
+<li>Example http request: <a href="pcaps/http.pcap">http.pcap</a> (from <a href="https://wiki.wireshark.org/SampleCaptures#hypertext-transport-protocol-http">here</a>)</li>
+<li>Telnet (from <a href="https://wiki.wireshark.org/SampleCaptures#telnet">here</a>):
+<ul>
+<li>In “cooked” (per-line) mode: <a href="pcaps/telnet-cooked.pcap">telnet-cooked.pcap</a></li>
+<li>In “raw” (per-character) mode: <a href="pcaps/telnet-raw.pcap">telnet-raw.pcap</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="http-webmail-login" class="slide level2">
+<h2>http webmail login</h2>
+<ul>
+<li><a href="https://www.google.com/search?q=inurl%3A%22http%3A%2F%2Fwebmail%22">Google search for: inurl:“http://webmail”</a>
+<ul>
+<li>Then find one that allows login via http (many redirect to https)</li>
+</ul></li>
+<li>Start up wireshark, set your filter
+<ul>
+<li>Example: <code>ip.src==1.2.3.4 and http</code></li>
+<li>Use your IP, of course</li>
+</ul></li>
+<li>See <a href="pcaps/http-webmail.pcap">http-webmail.pcap</a></li>
+</ul>
+</section>
+<section id="malicious-pcaps" class="slide level2">
+<h2>Malicious pcaps</h2>
+<ul>
+<li><a href="network-layer.html#/teardrop">Teardrop attack</a>: <a href="pcaps/teardrop.pcap">teardrop.pcap</a>; packets 8 and 9 overlap (from <a href="https://wiki.wireshark.org/SampleCaptures#crack-traces">here</a>)</li>
+<li><a href="transport-layer.html#/syn-flood">SYN flood</a>: <a href="pcaps/syn-flood.pcap">syn-flood.pcap</a> (from <a href="pcaps/syn-flood.pcap">here</a>)</li>
+</ul>
+</section>
+<section id="obtaining-pcaps" class="slide level2">
+<h2>Obtaining pcaps</h2>
+<ul>
+<li><a href="https://wiki.wireshark.org/SampleCaptures">Wireshark’s sample captures page</a>
+<ul>
+<li>Has both links to other sites (may outdated) and many pcaps</li>
+</ul></li>
+<li><a href="https://www.netresec.com/?page=PcapFiles">https://www.netresec.com/?page=PcapFiles</a>
+<ul>
+<li>Mostly lists to other sites, but a large list of other sites</li>
 </ul></li>
 </ul>
 <div class="quarto-auto-generated-content">

@@ -316,3 +316,46 @@ title: "Networks"
 - Just flood the machine with requests, such as http GET
 - This does not require much knowledge, just access to a lot of computers
   - Probably via a zombie botnet
+
+
+
+# Wireshark
+    
+
+<!-- .slide: class="no-border" -->
+## Obtaining Wireshark
+- Download it at [wireshark.org/download.html](https://www.wireshark.org/download.html); the Windows version that runs without a full install is [here](https://2.na.dl.wireshark.org/win64/WiresharkPortable64_4.2.2.paf.exe)
+
+<a href='https://commons.wikimedia.org/wiki/File:Wireshark_Network_Analyzer_Screen.png'><img src='https://upload.wikimedia.org/wikipedia/commons/3/34/Wireshark_Network_Analyzer_Screen.png' style="height:450px"></a>
+
+
+
+## "Normal" pcaps
+- Example http request: [http.pcap](pcaps/http.pcap) (from [here](https://wiki.wireshark.org/SampleCaptures#hypertext-transport-protocol-http))
+- Telnet (from [here](https://wiki.wireshark.org/SampleCaptures#telnet)):
+  - In "cooked" (per-line) mode: [telnet-cooked.pcap](pcaps/telnet-cooked.pcap)
+  - In "raw" (per-character) mode: [telnet-raw.pcap](pcaps/telnet-raw.pcap)
+
+
+
+## http webmail login
+- [Google search for: inurl:"http://webmail"](https://www.google.com/search?q=inurl%3A"http%3A%2F%2Fwebmail")
+  - Then find one that allows login via http (many redirect to https)
+- Start up wireshark, set your filter
+  - Example: `ip.src==1.2.3.4 and http`
+  - Use your IP, of course
+- See [http-webmail.pcap](pcaps/http-webmail.pcap)
+
+
+
+## Malicious pcaps
+- [Teardrop attack](network-layer.html#/teardrop): [teardrop.pcap](pcaps/teardrop.pcap); packets 8 and 9 overlap (from [here](https://wiki.wireshark.org/SampleCaptures#crack-traces))
+- [SYN flood](transport-layer.html#/syn-flood): [syn-flood.pcap](pcaps/syn-flood.pcap) (from [here](pcaps/syn-flood.pcap))
+
+
+
+## Obtaining pcaps
+- [Wireshark's sample captures page](https://wiki.wireshark.org/SampleCaptures)
+  - Has both links to other sites (may outdated) and many pcaps
+- [https://www.netresec.com/?page=PcapFiles](https://www.netresec.com/?page=PcapFiles)
+  - Mostly lists to other sites, but a large list of other sites
