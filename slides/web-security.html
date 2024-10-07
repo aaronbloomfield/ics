@@ -1126,7 +1126,7 @@ DH key<br>exchange<br>example<br>as colors
 <ul>
 <li>Javascript is basically somebody else’s code running in your (sandboxed) browser</li>
 <li>One can easily include code to track users, such as via <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/">Google analytics</a></li>
-<li>Google Analytics is included from http://www.virginia.edu (along with a twitter widget)</li>
+<li>Google Analytics is included from <a href="http://www.virginia.edu">http://www.virginia.edu</a> (along with a twitter widget)</li>
 </ul>
 </section>
 <section id="non-digital-purchases" class="slide level2">
@@ -1178,7 +1178,7 @@ DH key<br>exchange<br>example<br>as colors
 <ul>
 <li>And they can link you to previous visits</li>
 </ul></li>
-<li>Is yours unique? Check out https://amiunique.org
+<li>Is yours unique? Check out <a href="https://amiunique.org">https://amiunique.org</a>
 <ul>
 <li>It shows a canvas-based text rendering</li>
 </ul></li>
@@ -1530,6 +1530,13 @@ DH key<br>exchange<br>example<br>as colors
             if (link.dataset.originalHref !== undefined) {
               link.href = link.dataset.originalHref;
             }
+              // target, if specified
+              link.setAttribute("target", "_blank");
+              if (link.getAttribute("rel") === null) {
+                link.setAttribute("rel", "noopener");
+              }
+              // default icon
+              link.classList.add("external");
           }
         }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

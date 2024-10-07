@@ -567,7 +567,7 @@ yahoo.com
 ## 5. Javascript tracking code
 - Javascript is basically somebody else's code running in your (sandboxed) browser
 - One can easily include code to track users, such as via [Google analytics](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
-- Google Analytics is included from http://www.virginia.edu (along with a twitter widget)
+- Google Analytics is included from [http://www.virginia.edu](http://www.virginia.edu) (along with a twitter widget)
 
 
 
@@ -601,7 +601,7 @@ yahoo.com
 ## More on browser fingerprints
 - These can be used to track you even *after* you have cleared your cookies
   - And they can link you to previous visits
-- Is yours unique?  Check out https://amiunique.org
+- Is yours unique?  Check out [https://amiunique.org](https://amiunique.org)
   - It shows a canvas-based text rendering
 
 

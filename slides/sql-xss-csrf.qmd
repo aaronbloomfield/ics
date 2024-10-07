@@ -513,7 +513,7 @@ Output: Hello Aaron! Your account balance is 1000000
 
 ## An XSS attack in a long URL
 - Our new (and rather long) URL:
-  - http://www.nowhere.abc/printinfo.php?name=%3cscript%3e%0abalance%3d1000000%3b%0a%3c%2fscript%3eAaron   
+  - http://www.nowhere.abc/printinfo.php?name=%3cscript%3e%0abalance%3d1000000%3b%0a%3c %2fscript%3eAaron   
 - This contains an XSS attack in a URL!
 
 
