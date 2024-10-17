@@ -4,6 +4,46 @@ css: daily-announcements.css
 ---
 
 
+# Privacy Opinions
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/privacy_opinions.png){title="I'm the Philosopher until someone hands me a burrito." style='border:10px solid white' srcset="https:///imgs.xkcd.com/comics/privacy_opinions_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1269](https://xkcd.com/1269)
+:::
+
+
+## Lecture 15: Thu, Oct 17th
+- Office hours are underway; details on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+  - My office hours are now Tu 1:00-2:30 and Thu 2-3 in Rice 402
+  - TA office hours are Mon 1:00-2:30, Tue 2:00-3:30, Wed 1:00-2:30, Thu 2:00-3:30 & 5:00-7:00
+  - TA office hours room is Rice 442; you can see the TAs [here](https://andromeda.cs.virginia.edu/ics/tas/)
+  - TA office hours will be cancelled this Thursday through next Tuesday
+- Grading
+  - Grades returned through HW 4 (hashing); HW 5 (networks) should be back soon
+  - Regrades for written assignments: submit via Gradescope, but do not abuse this!
+  - Regrades for auto-graded assignments: chat with me in person
+  - All regrades due within 1 week(ish)
+- Homeworks (Gradescope opens up 72 hours before it's due)
+  - Due this *Friday*, Oct 18th: [HW 6: Fuzzing](../hws/hw-fuzzing-tabbed.html)
+  - Due next Thursday, Oct 24th: [HW 7: SQL, CSRF, and XSS](../hws/hw-sql-xss-csrf-tabbed.html) (not yet ready)
+- The [midterm](../exams/midterm-f24.pdf) was last Thursday
+  - We'll go over it today; regrades will open tonight
+- Readings: none currently assigned
+- Be sure to sign the Ethics Honor Pledge; [link on the Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will continue with [SQL, XSS, & CSRF](../slides/sql-xss-csrf.html)
+  - Next up: [cryptocurrency](../slides/cryptocurrency.html#/)
+
+
+
+# Midterm
+
+The midterm was on Thu, Oct 10th.
+
+And Tue, Oct 15th was fall break
+
+
+
 # Authorization
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/authorization.png){title="Before you say anything, no, I know not to leave my computer sitting out logged in to all my accounts. I have it set up so after a few minutes of inactivity it automatically switches to my brother&#39;s." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/authorization_2x.png 2x" }
@@ -12,7 +52,7 @@ css: daily-announcements.css
 [xkcd \# 1200](https://xkcd.com/1200)
 :::
 
-## Lecture 13: Tue, Oct 5th
+## Lecture 13: Tue, Oct 8th
 - Office hours are underway; details on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
   - My office hours are now Tu 1:00-2:30 and Thu 2-3 in Rice 402
   - TA office hours are Mon 1:00-2:30, Tue 2:00-3:30, Wed 1:00-2:30, Thu 2:00-3:30 & 5:00-7:00

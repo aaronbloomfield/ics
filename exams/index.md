@@ -5,6 +5,7 @@ ICS: Exams
 
 These are all the exams from the current and previous semesters of the course.  No solutions are provided, nor are the grading guidelines.  Currently they are all in PDF format.  They were all developed using LaTeX.
 
+- Fall 2024: [midterm](midterm-f24.pdf)
 - Summer 2024: [midterm](midterm-sum24.pdf), [final](final-f24.pdf)
 - Fall 2023: [midterm](midterm-f23.pdf), [final](final-f23.pdf)
 - Summer 2023: [midterm](midterm-sum23.pdf), [final](final-sum23.pdf)
