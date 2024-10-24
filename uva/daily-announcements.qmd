@@ -18,20 +18,18 @@ css: daily-announcements.css
   - TA office hours are Mon 1:00-2:30, Tue 2:00-3:30, Wed 1:00-2:30, Thu 2:00-3:30 & 5:00-7:00
   - TA office hours room is Rice 442; you can see the TAs [here](https://andromeda.cs.virginia.edu/ics/tas/)
 - Grading
-  - Grades returned through HW 4 (hashing); HW 5 (networks) and HW 6 (fuzzing) should be back soon
-  - Regrades for written assignments: submit via Gradescope, but do not abuse this!
-  - Regrades for auto-graded assignments: chat with me in person
-  - All regrades due within 1 week(ish)
+  - Grades returned through HW 4 (hashing); HW 5 (networks) and HW 6 (fuzzing) back soon
+  - Regrades within 1 week: for written assignments via Gradescope, auto-graded assignments: chat with me in person
 - Homeworks (Gradescope opens up 72 hours before it's due)
   - Due today, Thursday, Oct 24th: [HW 7: SQL, CSRF, and XSS](../hws/hw-sql-xss-csrf-tabbed.html)
   - Due next Thursday, Oct 31st: HW 8: Cryptocurrency (not yet ready)
-    - Yes, it's Halloween, but you get free extensions
-- The [midterm](../exams/midterm-f24.pdf) was last Thursday
-  - Regrades due in the next few days
+- The [midterm](../exams/midterm-f24.pdf) was last Thursday; regrades due in the next few days
 - Readings: none currently assigned
 - Be sure to sign the Ethics Honor Pledge; [link on the Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
-- Today we will continue with [cryptocurrency](../slides/cryptocurrency.html#/)
-  - Next up: [rootkits](../slides/rootkits.html#/)
+- News
+  - Remeber the [Beale ciphers](../slides/encryption.html#/beale-ciphers)?  Some now [claim to have cracked them](https://podcasts.apple.com/fus/podcast/a-200-year-old-cipher-promising-millions-in/id1708072320?i=1000673473216) (Apple only)
+  - Clouldflare is reporting a [record-breaking DDoS attack](https://www.pcmag.com/news/cloudflare-latest-record-breaking-ddos-attack-hits-42tbps)
+- Today we will continue with [cryptocurrency](../slides/cryptocurrency.html#/); next up: [rootkits](../slides/rootkits.html#/)
 
 # 2010 and 2020
 ::: {.stretch}
