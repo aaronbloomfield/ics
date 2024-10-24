@@ -4,6 +4,35 @@ css: daily-announcements.css
 ---
 
 
+# Blockchain
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/blockchain_2x.png){title="Blockchains are like grappling hooks, in that it&#39;s extremely cool when you encounter a problem for which they&#39;re the right solution, but it happens way too rarely in real life." style='border:10px solid white' srcset="https:///imgs.xkcd.com/comics/blockchain_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2267](https://xkcd.com/2267)
+:::
+
+## Lecture 17: Thu, Oct 24th
+- Office hours are underway; details on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+  - My office hours are now Tu 1:00-2:30 and Thu 2-3 in Rice 402
+  - TA office hours are Mon 1:00-2:30, Tue 2:00-3:30, Wed 1:00-2:30, Thu 2:00-3:30 & 5:00-7:00
+  - TA office hours room is Rice 442; you can see the TAs [here](https://andromeda.cs.virginia.edu/ics/tas/)
+- Grading
+  - Grades returned through HW 4 (hashing); HW 5 (networks) and HW 6 (fuzzing) should be back soon
+  - Regrades for written assignments: submit via Gradescope, but do not abuse this!
+  - Regrades for auto-graded assignments: chat with me in person
+  - All regrades due within 1 week(ish)
+- Homeworks (Gradescope opens up 72 hours before it's due)
+  - Due today, Thursday, Oct 24th: [HW 7: SQL, CSRF, and XSS](../hws/hw-sql-xss-csrf-tabbed.html)
+  - Due next Thursday, Oct 31st: HW 8: Cryptocurrency (not yet ready)
+    - Yes, it's Halloween, but you get free extensions
+- The [midterm](../exams/midterm-f24.pdf) was last Thursday
+  - Regrades due in the next few days
+- Readings: none currently assigned
+- Be sure to sign the Ethics Honor Pledge; [link on the Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will continue with [cryptocurrency](../slides/cryptocurrency.html#/)
+  - Next up: [rootkits](../slides/rootkits.html#/)
+
 # 2010 and 2020
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/2010_and_2020.png){title="2030: &quot;I just bought a house for one bitcoin. No, it&#39;s the equivalent of a dollar. Houses are often transferred for a nominal fee because the buyer is taking responsibility for containing the holo-banshees in the attic.&quot;" style='border:10px solid white' srcset="https:///imgs.xkcd.com/comics/2010_and_2020_2x.png 2x" }
