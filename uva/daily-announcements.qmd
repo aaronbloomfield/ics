@@ -18,6 +18,7 @@ css: daily-announcements.css
   - TA office hours room is Rice 442; you can see the TAs [here](https://andromeda.cs.virginia.edu/ics/tas/)
 - Grading
   - Grades returned through HW 6 (fuzzing); HW 7 (sql/xss/csrf) is out being graded
+    - Late networks submissions still need to get the PDF graded
   - Regrades within 1 week: for written assignments via Gradescope, auto-graded assignments: chat with me in person
 - Homeworks (Gradescope opens up 72 hours before it's due)
   - Due Thursday, Oct 31st: [HW 8: Cryptocurrency](../hws/hw-cryptocurrency-tabbed.html)
