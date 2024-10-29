@@ -3,6 +3,34 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+# Voting Machines
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/voting_machines.png){title="And that&#39;s *another* crypto conference I&#39;ve been kicked out of.  C&#39;mon, it&#39;s a great analogy!" style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 463](https://xkcd.com/463)
+:::
+
+## Lecture 18: Tue, Oct 29th
+- Office hours are underway; details on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+  - My office hours are now Tu 1:00-2:30 and Thu 2-3 in Rice 402
+  - TA office hours are Mon 1:00-2:30, Tue 2:00-3:30, Wed 1:00-2:30, Thu 2:00-3:30 & 5:00-7:00
+  - TA office hours room is Rice 442; you can see the TAs [here](https://andromeda.cs.virginia.edu/ics/tas/)
+- Grading
+  - Grades returned through HW 6 (fuzzing); HW 7 (sql/xss/csrf) is out being graded
+  - Regrades within 1 week: for written assignments via Gradescope, auto-graded assignments: chat with me in person
+- Homeworks (Gradescope opens up 72 hours before it's due)
+  - Due Thursday, Oct 31st: [HW 8: Cryptocurrency](../hws/hw-cryptocurrency-tabbed.html)
+  - Due next Thursday, Nov 7th: HW 9: Rootkits (not yet ready)
+- No class next Tuesday, Nov 5th, due to it being election day
+- The [midterm](../exams/midterm-f24.pdf) was two Thursdays ago; regrades due in the next few days
+- Readings: none currently assigned
+- Be sure to sign the Ethics Honor Pledge; [link on the Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will finish: [rootkits](../slides/rootkits.html#/)
+  - Next up: [Stuxnet](../slides/stuxnet.html#/)
+
+
+
 
 # Blockchain
 ::: {.stretch}
