@@ -18,9 +18,7 @@ We are not responsible if you render your computer inoperable because you did no
 
 ### Changelog
 
-Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.   <!-- So far there aren't any significant changes to report. -->
-
-- Mon, 11/6: Clarified the `system()` function call for `lsb_release`
+Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
 
 
 <!--
