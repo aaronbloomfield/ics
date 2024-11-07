@@ -3,6 +3,36 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+# Network
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/network.png){title="Viruses so far have been really disappointing on the &#39;disable the internet&#39; front, and time is running out.  When Linux/Mac win in a decade or so the game will be over." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 350](https://xkcd.com/350)
+:::
+
+## Lecture 20: Thursday, November 7th
+- Office hours are underway; details on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+  - My office hours are now Tu 1:00-2:30 and Thu 2-3 in Rice 402
+  - TA office hours are Mon 1:00-2:30, Tue 2:00-3:30, Wed 1:00-2:30, Thu 2:00-3:30 & 5:00-7:00
+  - TA office hours room is Rice 442; you can see the TAs [here](https://andromeda.cs.virginia.edu/ics/tas/)
+- Grading
+  - Grades returned through HW 6 (fuzzing); HW 7 (sql/xss/csrf) was just finished, HW 8 (Cryptocurrency) should be back soon
+    - Late networks submissions still need to get the PDF graded
+  - Regrades within 1 week: for written assignments via Gradescope, auto-graded assignments: chat with me in person
+- Homeworks (Gradescope opens up 72 hours before it's due)
+  - Due today: [HW 8: Cryptocurrency](../hws/hw-cryptocurrency-tabbed.html)
+  - Due next ???: [HW 9: Rootkits](../hws/hw-rootkits-tabbed.html): when should this be due, being as it got out late?
+  - Out next: HW 10: Tricky Jump, then HW 11: Buffer Overflow, then HW 12: Forensics
+- No class Tuesday, Nov 5th, due to it being election day
+- The [midterm](../exams/midterm-f24.pdf) was two Thursdays ago; regrades due in the next few days
+- Be sure to sign the Ethics Honor Pledge; [link on the Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will continue with on [viruses](../slides/viruses.html#/)
+  - Next up: [buffer overflows](../slides/buffer-overflows.html#/)
+  - We'll be coming back to [virtual machines](../slides/vms.html#/), [Stuxnet](../slides/stuxnet.html#/), and [policy](../slides/policy.html#/)
+
+
+
 # Sandboxing Cycle
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/sandboxing_cycle.png){title="All I want is a secure system where it&#39;s easy to do anything I want. Is that so much to ask?" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/sandboxing_cycle_2x.png 2x" }
