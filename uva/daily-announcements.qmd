@@ -3,6 +3,34 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+# Retro Virus
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/retro_virus.png){title="He says this is the year of Linux on the desktop! The world of Windows will fade any moment now!" style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 694](https://xkcd.com/694)
+:::
+
+
+## Lecture 22: Tuesday, November 24th
+- Office hours are underway; details on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+  - My office hours are now Tu 1:00-2:30 and Thu 2-3 in Rice 402
+  - TA office hours are Mon 1:00-2:30, Tue 2:00-3:30, Wed 1:00-2:30, Thu 2:00-3:30 & 5:00-7:00
+  - TA office hours room is Rice 442; you can see the TAs [here](https://andromeda.cs.virginia.edu/ics/tas/)
+- Grading
+  - Grades returned through HW 8 (Cryptocurrency)
+  - Regrades within 1 week: for written assignments via Gradescope, auto-graded assignments: chat with me in person
+- Homeworks (Gradescope opens up 72 hours before it's due)
+  - Due this past Sunday: [HW 9: Rootkits](../hws/hw-rootkits-tabbed.html)
+  - Due this Friday (?), (11/15): [HW 10: Tricky Jump](../hw-tricky-jump-tabbed.html)
+  - Due next Friday (?), (11/22): HW 11: Buffer Overflow
+  - Due Friday, 12/6: HW 12: Forensics
+- Be sure to sign the Ethics Honor Pledge; [link on the Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will continue with [buffer overflows](../slides/buffer-overflows.html#/)
+  - We'll be coming back to [virtual machines](../slides/vms.html#/), [Stuxnet](../slides/stuxnet.html#/), and [policy](../slides/policy.html#/)
+
+
+
 # Virus Venn Diagram
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/virus_venn_diagram.png){title="Within five minutes of the Singularity appearing, somebody will suggest defragging it." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/virus_venn_diagram_2x.png 2x" }
