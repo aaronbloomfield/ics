@@ -8,10 +8,18 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel='stylesheet' href='../markdown.css'></link>
@@ -37,7 +45,6 @@
     evt.currentTarget.className += " active";
   }
   </script>
-  
 </head>
 <body>
 <h1 id='ics-programming-homework-buffer-overflow'>ICS: Programming Homework: Buffer Overflow</h1>
@@ -60,15 +67,13 @@
 <div id='tpurpose' class='tabcontent'><h3 id='purpose'>Purpose</h3>
 <p>This assignment will have you implement a shellcode-based buffer overflow attack against a program executable. You will need to be familiar with the content in the <a href='../slides/buffer-overflows.html#/'>buffer overflow slide set</a>, specifically the <a href='../slides/buffer-overflows.html#/how2doit'>how to do it</a> column of slides. That and the lecture recordings will guide you through many of the steps of this assignment.</p>
 <p>This assignment has five parts (or tasks), and are meant to be done in order, as that will help guide you through the assignment. In any case, be sure to do task 5 – a brief write-up – as that will help us tell how far you got in the assignment.</p>
+<p>Please read the write-up section, as that describes the screen shots that you need to take. It will be <em>FAR</em> easier to take them as you are developing the code, rather than having to go back afterward to get the screenshots.</p>
 <h4 id='getting-stuck'>Getting stuck?</h4>
 <p>There are many parts of this assignment where it is easy to get stuck. You can look at the troubleshooting section, and the end of this page, for some hints. We provide a <em>lot</em> of details in each section – try reading through those again. We know it’s a lot to read (and to read repeatedly), but one can easily miss something the first time (or two) through it.</p>
 <h4 id='reference-platform'>Reference platform</h4>
-<p>This program must run on the Cyber Range account. You are welcome to develop it on your own machine, but make sure it works there before you submit it. And if it isn’t working on your machine, try it on the Cyber Range to see if that allows it to work.</p>
+<p>This program must run on the Cyber Range account. You are welcome to develop it on your own machine, but make sure it works there before you submit it. And if it isn’t working on your machine, try it on the Cyber Range to see if that allows it to work. See the <a href='hw-rootkits-tabbed.html'>Rootkits assignment</a> for how to sign into the Virginia Cyber Range, if you have not already done so in previous assignments. You should use the same Linux environment from the last assignment. For tips on getting data in and out of the Cyber Range, see <a href='https://kb.virginiacyberrange.org/features/copy-paste-upload-download.html'>here</a>.</p>
 </div><div id='tchangelog' class='tabcontent'><h3 id='changelog'>Changelog</h3>
-<p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. </p>
-<ul>
-<li>Mon, 11/13: updated the code to read in address.txt at the end of the ‘buffer address’ section</li>
-</ul>
+<p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
 </div><div id='tplatform' class='tabcontent'><h3 id='platform'>Platform</h3>
 <p>We will be using the Virginia Cyber Range at <a href='https://www.virginiacyberrange.org/'>https://www.virginiacyberrange.org/</a>. This site allows you to run a remote virtual environment; we are using Ubunmtu 22.04.</p>
 <p>Go to <a href='https://www.virginiacyberrange.org/'>https://www.virginiacyberrange.org/</a>. You should have already signed up for the last assignment; if not, see that one for how to do so.</p>
@@ -441,7 +446,7 @@ Albert Einstein, your grade on this assignment is an A
 $</code></pre>
 <p>Notice that the end prompt is on the next line <em>after</em> the output.</p>
 </div><div id='ttask-5-write-up' class='tabcontent'><h3 id='task-5-write-up'>Task 5: Write-up</h3>
-<p>This is a <em>brief</em> write-up, and should be in the <a href='buffer/buffer.py.html'>buffer.py</a> (<a href='buffer/buffer.py'>src</a>) file – just fill in the blanks as necessary.</p>
+<p>There are two parts to this write-up. The first is to complete <a href='buffer/buffer.py.html'>buffer.py</a> (<a href='buffer/buffer.py'>src</a>) file – just fill in the blanks as indicated in that file.</p>
 <p>Please include the following information:</p>
 <ul>
 <li>Your name and userid
@@ -455,13 +460,14 @@ $</code></pre>
 <li>Any additional information that you would like to include (how far you got on a given task, etc.)</li>
 </ul>
 <p>We are not looking for any significant length here, just candid answers.</p>
+<p>The second is to create a <code>buffer.pdf</code> file, which should contain screenshots of your program working. You do not need to write a long-winded text for this (we aren’t going to read it). But please caption the screenshots so we know what is what. The reason for this is because it is often hard (or impossible) to recreate the exact environment that you code ran in, so the screenshots are another form of evidence that your code worked as expected. These can be screen shots of the debugger state, the program after execution, etc. No more than, say, half a dozen, please.</p>
 </div><div id='ttroubleshooting' class='tabcontent'><h3 id='troubleshooting'>Troubleshooting</h3>
 <p>You are likely to run into problems, which will probably be segmentation faults. Here are some ideas about how to solve that.</p>
 <p>Recall that gcc often leaves some extra space between the buffer and the return address. How much? You have to figure that out yourself. You can look at the assembly generated for grade.c (run <code>gcc -S -o grade.s grade.c</code>) to start.</p>
 <p>One issue is to figure out whether you are setting the return address correctly – if not, that would be the cause of the segfault. First, we need to find what the return address should be. To do this, we first need to find the return address from <code>vulnerable()</code> back to <code>main()</code>. Run <code>objdump -d grade</code>, and find the line <em>after</em> the call (in <code>main()</code>) to <code>vulnerable()</code> – that is the return address from vulnerable. Next, load up the executable in gdb, and set up a break point right when you enter into the <code>vulnerable()</code> function. You can list the stack with a command such as, <code>x/100xw $rsp</code>. This will print out 100 hex values, each one being 4 bytes. A typical gdb display will list four 32-bit (4 byte) values per line, which is 16 bytes per line. Since you know the size of the buffer (200 bytes), the return address is likely to be about 200/16 lines down, or about a dozen lines down. Keep in mind that a return address is 64 bits, which will be <em>two</em> of the 32-bit values listed in this display. That return address should (more or less) match the value you gleaned from the objdump command. Once you have the return address, figure out the command to just print out that return address: <code>x/2xw 0x7fffffffdcc0</code> might work (if the return address were located at 0x7fffffffdcc0). Next, set up a break point for the <em>end</em> of the <code>vulnerable()</code> function. Check that return address value again – it should look similar to (but not the exact same value as) the value in the rsp register (<code>print $rsp</code>). When split among two values, it will list like, <code>0xffffde00 0x00007fff</code>. Once you see that value, it should be the exact address of the <code>name</code> buffer. If not, then your program is going to seg fault.</p>
 <p>If you are sure the return address is set correctly, the next step is to trace the injected assembly. Set a break point for the end of the <code>vulnerable()</code> function. If you set it <em>before</em> the last function call (the <code>strncpy()</code> call), hit <code>n</code> to step over that function. You will then start using <code>stepi</code> to single-step through the assembly instructions. Running <code>layout asm</code> will help the trace. You should step through your assembly code to make sure it works – presumably there will be the nop sled, then your injected code. Note that x86 instructions are of a different lengths, so if your jump is off, it may jump to the middle of an instruction, and you will get an illegal instruction error. You can disassemble a region of memory with a command such as <code>disassemble 0x7fffffffdcb0,0x7fffffffdd30</code>. Also note that when you are disassembling the contents of the stack, gdb will attempt to map the string (that you should receive, presumably, an A) to x86 instructions, many of which will be invalid. But if you do a disassembly from the start of your shell code (which is the target of your initial jump), you should see the assembly that you wrote.</p>
 </div><div id='tsubmission' class='tabcontent'><h3 id='submission'>Submission</h3>
-<p>You are going to submit five files:</p>
+<p>You are going to submit six files:</p>
 <ul>
 <li><code>Makefile</code>: this calls four compilation lines (three from task 2, and one from task 3; the line for task 3 will also apply to tasks 4 and 5).
 <ul>
@@ -474,6 +480,7 @@ $</code></pre>
 <ul>
 <li>Make sure the <code>name</code> variable matches the name printed out by the shellcode, as Gradescope will check for this</li>
 </ul></li>
+<li>The <code>buffer.pdf</code> file, which contains your screenshots</li>
 </ul>
 <p>If you did not get to a section, you will still have to submit the required files, as the submission will check that all 5 files are present. You can just create an empty file (or a file with <code>hello world</code> in it) if you did not get to that part.</p>
 </div><script>document.getElementById('defaultOpen').click();</script></body>

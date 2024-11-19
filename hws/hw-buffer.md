@@ -10,6 +10,8 @@ This assignment will have you implement a shellcode-based buffer overflow attack
 
 This assignment has five parts (or tasks), and are meant to be done in order, as that will help guide you through the assignment.  In any case, be sure to do task 5 -- a brief write-up -- as that will help us tell how far you got in the assignment.
 
+Please read the write-up section, as that describes the screen shots that you need to take.  It will be *FAR* easier to take them as you are developing the code, rather than having to go back afterward to get the screenshots.
+
 #### Getting stuck?
 
 There are many parts of this assignment where it is easy to get stuck. You can look at the troubleshooting section, and the end of this page, for some hints.  We provide a *lot* of details in each section -- try reading through those again.  We know it's a lot to read (and to read repeatedly), but one can easily miss something the first time (or two) through it.
@@ -17,14 +19,12 @@ There are many parts of this assignment where it is easy to get stuck. You can l
 
 #### Reference platform
 
-This program must run on the Cyber Range account.  You are welcome to develop it on your own machine, but make sure it works there before you submit it.  And if it isn't working on your machine, try it on the Cyber Range to see if that allows it to work.
-
+This program must run on the Cyber Range account.  You are welcome to develop it on your own machine, but make sure it works there before you submit it.  And if it isn't working on your machine, try it on the Cyber Range to see if that allows it to work.  See the [Rootkits assignment](hw-rootkits-tabbed.html) for how to sign into the Virginia Cyber Range, if you have not already done so in previous assignments.  You should use the same Linux environment from the last assignment.  For tips on getting data in and out of the Cyber Range, see [here](https://kb.virginiacyberrange.org/features/copy-paste-upload-download.html).
 
 ### Changelog
 
-Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  <!-- So far there aren't any significant changes to report. -->
+Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
 
-- Mon, 11/13: updated the code to read in address.txt at the end of the 'buffer address' section
 
 ### Platform
 
@@ -583,7 +583,7 @@ Notice that the end prompt is on the next line *after* the output.
 
 ### Task 5: Write-up
 
-This is a *brief* write-up, and should be in the [buffer.py](buffer/buffer.py.html) ([src](buffer/buffer.py)) file -- just fill in the blanks as necessary.
+There are two parts to this write-up.  The first is to complete [buffer.py](buffer/buffer.py.html) ([src](buffer/buffer.py)) file -- just fill in the blanks as indicated in that file.
 
 Please include the following information:
 
@@ -598,6 +598,8 @@ Please include the following information:
 We are not looking for any significant length here, just candid answers.
 
 
+The second is to create a `buffer.pdf` file, which should contain screenshots of your program working.  You do not need to write a long-winded text for this (we aren't going to read it).  But please caption the screenshots so we know what is what.  The reason for this is because it is often hard (or impossible) to recreate the exact environment that you code ran in, so the screenshots are another form of evidence that your code worked as expected.  These can be screen shots of the debugger state, the program after execution, etc.  No more than, say, half a dozen, please.
+
 ### Troubleshooting
 
 You are likely to run into problems, which will probably be segmentation faults.  Here are some ideas about how to solve that.
@@ -610,7 +612,7 @@ If you are sure the return address is set correctly, the next step is to trace t
 
 ### Submission
 
-You are going to submit five files:
+You are going to submit six files:
 
 - `Makefile`: this calls four compilation lines (three from task 2, and one from task 3; the line for task 3 will also apply to tasks 4 and 5).
     - Make sure that things are compiled to the right names! shellcode.s should compile to shellcode.o, all of task 2 should compile into the `shellcode_test` executable, and the code from task 3 should compile into the `attack_shellcode` executable.
@@ -619,5 +621,6 @@ You are going to submit five files:
 - `attack_shellcode.c` from task 3 & 4 (if you completed task 4, just submit that version, as that shows you also completed task 3)
 - `buffer.py` from task 5
   - Make sure the `name` variable matches the name printed out by the shellcode, as Gradescope will check for this
+- The `buffer.pdf` file, which contains your screenshots
 
 If you did not get to a section, you will still have to submit the required files, as the submission will check that all 5 files are present.  You can just create an empty file (or a file with `hello world` in it) if you did not get to that part.

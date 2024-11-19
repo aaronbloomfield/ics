@@ -8,10 +8,18 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel='stylesheet' href='../markdown.css'></link>
@@ -37,7 +45,6 @@
     evt.currentTarget.className += " active";
   }
   </script>
-  
 </head>
 <body>
 <h1 id='ics-programming-homework-tricky-jump'>ICS: Programming Homework: Tricky Jump</h1>
@@ -58,7 +65,7 @@
 </div><div id='tchangelog' class='tabcontent'><h3 id='changelog'>Changelog</h3>
 <p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
 </div><div id='tplatform' class='tabcontent'><h3 id='platform'>Platform</h3>
-<p>This assignment will be reading in ELF binaries used in Linux operating systems. You can develop this on any platform that you want; however, the binary file will only be Linux ELF, and will only run on a Linux system. It should run on WSL (Windows Subsystem for Linux) as well, since that system can run ELF files. If you do not have access to a Linux machine, you can use the <a href='https://www.virginiacyberrange.org/'>Virginia Cyber Range</a> to test your modified ELF files to ensure that they work. See the <a href='hw-rootkits-tabbed.html'>Rootkits assignment</a> for how to sign into the Virginia Cyber Range, if you have not already done so in previous assignments.</p>
+<p>This assignment will be reading in ELF binaries used in Linux operating systems. You can develop this on any platform that you want; however, the binary file will only be Linux ELF, and will only run on a Linux system. It should run on WSL (Windows Subsystem for Linux) as well, since that system can run ELF files. If you do not have access to a Linux machine, you can use the <a href='https://www.virginiacyberrange.org/'>Virginia Cyber Range</a> to test your modified ELF files to ensure that they work. See the <a href='hw-rootkits-tabbed.html'>Rootkits assignment</a> for how to sign into the Virginia Cyber Range, if you have not already done so in previous assignments. You should use the same Linux environment from the last assignment. For tips on getting data in and out of the Cyber Range, see <a href='https://kb.virginiacyberrange.org/features/copy-paste-upload-download.html'>here</a>.</p>
 <p>You can use any Ubuntu 22.04 system – both the Rootkits homework and the Buffer Overflow homework use that system. You can transfer the files back and forth by using a cloud file service, such as UVABox (which is free), Google Drive, etc.</p>
 <p><strong>WARNING:</strong> This site is free to use for <em>class purposes</em> for all students in the course. Using it for non-class purposes is an honor violation, and will be dealt with as such. Anything outside the reasonable bounds of an assignment in this course is considered a non-class purpose.</p>
 <p>The Cyber Range is a great resource, but it is a <em>finite</em> resource. If you decide to wait to the last minute to start the assignment, and the rest of your class-mates do so as well, it’s going to be slooooooow. You cannot get an extension because you waited until the last minute along with everybody else, and the system was slow as a result.</p>
@@ -256,69 +263,69 @@ $</code></pre>
 <p>The <code>pop</code> instruction can take a few forms:</p>
 <table>
 <thead>
-<tr class='header'>
+<tr>
 <th>Instruction</th>
 <th>Hex encoding</th>
 </tr>
 </thead>
 <tbody>
-<tr class='odd'>
+<tr>
 <td>pop %rax</td>
 <td>58</td>
 </tr>
-<tr class='even'>
+<tr>
 <td>pop %rbx</td>
 <td>5b</td>
 </tr>
-<tr class='odd'>
+<tr>
 <td>pop %rcx</td>
 <td>59</td>
 </tr>
-<tr class='even'>
+<tr>
 <td>pop %rdx</td>
 <td>5a</td>
 </tr>
-<tr class='odd'>
+<tr>
 <td>pop %rbp</td>
 <td>5d</td>
 </tr>
-<tr class='even'>
+<tr>
 <td>pop %rdi</td>
 <td>5f</td>
 </tr>
-<tr class='odd'>
+<tr>
 <td>pop %rsi</td>
 <td>5e</td>
 </tr>
-<tr class='even'>
+<tr>
 <td>pop %r8</td>
 <td>41 58</td>
 </tr>
-<tr class='odd'>
+<tr>
 <td>pop %r9</td>
 <td>41 59</td>
 </tr>
-<tr class='even'>
+<tr>
 <td>pop %r10</td>
 <td>41 5a</td>
 </tr>
-<tr class='odd'>
+<tr>
 <td>pop %r11</td>
 <td>41 5b</td>
 </tr>
-<tr class='even'>
+<tr>
 <td>pop %r12</td>
 <td>41 5c</td>
 </tr>
-<tr class='odd'>
+<tr>
 <td>pop %r13</td>
 <td>41 5d</td>
 </tr>
-<tr class='even'>
+<tr>
 <td>pop %r14</td>
 <td>41 5e</td>
 </tr>
-<tr class='odd'>
+<tr>
 <td>pop %r15</td>
 <td>41 5f</td>
 </tr>
