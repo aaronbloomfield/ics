@@ -3,6 +3,33 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+# The Mother of All Suspicious Files
+
+<img src="https://imgs.xkcd.com/comics/the_mother_of_all_suspicious_files.png" title="Better change the URL to &#39;https&#39; before downloading." alt="The Mother of All Suspicious Files" srcset="https://imgs.xkcd.com/comics/the_mother_of_all_suspicious_files_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1247/'>xkcd # 1247</a></p>
+
+
+## Lecture 23: Thu, Nov 26th
+- Office hours are underway; details on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+  - My office hours are now Tu 1:00-2:30 and Thu 2-3 in Rice 402
+  - TA office hours are Mon 1:00-2:30, Tue 2:00-3:30, Wed 1:00-2:30, Thu 2:00-3:30 & 5:00-7:00
+  - TA office hours room is Rice 442; you can see the TAs [here](https://andromeda.cs.virginia.edu/ics/tas/)
+  - No office hours after Monday until we return from Thanksgiving
+- Grading
+  - Grades returned through HW 8 (Cryptocurrency)
+  - Regrades within 1 week: for written assignments via Gradescope, auto-graded assignments: chat with me in person
+- Homeworks (Gradescope opens up 72 hours before it's due)
+  - Due this past Sunday: [HW 10: Tricky Jump](../hws/hw-tricky-jump-tabbed.html) (about that due date...)
+  - Due this upcoming Sunday (11/24): [HW 11: Buffer Overflow](../hws/hw-buffer-tabbed.html)
+  - Due Friday, 12/6: HW 12: Forensics
+- Be sure to sign the Ethics Honor Pledge; [link on the Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- How many people will be here next Tuesday?
+- Today we will finish [binary exploits](../slides/binary-exploits.html#/)
+  - Next up: [forensics](../slides/forensics.html#/)
+  - We'll be coming back to [virtual machines](../slides/vms.html#/), [Stuxnet](../slides/stuxnet.html#/), and [policy](../slides/policy.html#/)
+
+
+
+
 # Students
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/students.png){title="The same goes for the one where you&#39;re wrestling the Green Ranger in the swimming pool full of Crisco.  You guys all have that dream, right?  It&#39;s not just me.  Right?" style='border:10px solid white'}
