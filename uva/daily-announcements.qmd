@@ -3,12 +3,40 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+
+# Thanksgiving Arguments
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/thanksgiving_arguments.png){title="An occasional source of mild Thanksgiving tension in my family is that my mother is a die-hard fan of The Core (2003), and various family members sometimes have differing levels of enthusiasm for her annual tradition of watching it." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/thanksgiving_arguments_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2858](https://xkcd.com/2858)
+:::
+
+
+## Lecture 23: Tue, Nov 26th
+- Office hours are underway; details on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+  - My office hours are now Tu 1:00-2:30 and Thu 2-3 in Rice 402
+  - TA office hours are Mon 1:00-2:30, Tue 2:00-3:30, Wed 1:00-2:30, Thu 2:00-3:30 & 5:00-7:00
+  - TA office hours room is Rice 442; you can see the TAs [here](https://andromeda.cs.virginia.edu/ics/tas/)
+  - Today's TA OH are 2-3:30, and then none until after break
+- Grading
+  - Grades returned through HW 8 (Cryptocurrency)
+  - Regrades within 1 week: for written assignments via Gradescope, auto-graded assignments: chat with me in person
+- Homeworks (Gradescope opens up 72 hours before it's due)
+  - Due this past Sunday: [HW 11: Buffer Overflow](../hws/hw-buffer-tabbed.html)
+  - Due Friday, 12/6, and out soon: HW 12: Forensics
+- Be sure to sign the Ethics Honor Pledge; [link on the Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will finish [forensics](../slides/forensics.html#/)
+  - We'll be coming back to [virtual machines](../slides/vms.html#/), [Stuxnet](../slides/stuxnet.html#/), and [policy](../slides/policy.html#/)
+
+
+
 # The Mother of All Suspicious Files
 
 <img src="https://imgs.xkcd.com/comics/the_mother_of_all_suspicious_files.png" title="Better change the URL to &#39;https&#39; before downloading." alt="The Mother of All Suspicious Files" srcset="https://imgs.xkcd.com/comics/the_mother_of_all_suspicious_files_2x.png 2x" style="image-orientation:none" class='stretch'><p class='center'><a href='http://xkcd.com/1247/'>xkcd # 1247</a></p>
 
 
-## Lecture 23: Thu, Nov 26th
+## Lecture 23: Thu, Nov 21st
 - Office hours are underway; details on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
   - My office hours are now Tu 1:00-2:30 and Thu 2-3 in Rice 402
   - TA office hours are Mon 1:00-2:30, Tue 2:00-3:30, Wed 1:00-2:30, Thu 2:00-3:30 & 5:00-7:00
@@ -39,7 +67,7 @@ css: daily-announcements.css
 :::
 
 
-## Lecture 22: Tuesday, November 24th
+## Lecture 22: Tuesday, November 19th
 - Office hours are underway; details on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
   - My office hours are now Tu 1:00-2:30 and Thu 2-3 in Rice 402
   - TA office hours are Mon 1:00-2:30, Tue 2:00-3:30, Wed 1:00-2:30, Thu 2:00-3:30 & 5:00-7:00
@@ -67,7 +95,7 @@ css: daily-announcements.css
 :::
 
 
-## Lecture 22: Tuesday, November 24th
+## Lecture 22: Tuesday, November 14th
 - Office hours are underway; details on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
   - My office hours are now Tu 1:00-2:30 and Thu 2-3 in Rice 402
   - TA office hours are Mon 1:00-2:30, Tue 2:00-3:30, Wed 1:00-2:30, Thu 2:00-3:30 & 5:00-7:00
