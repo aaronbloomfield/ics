@@ -4,6 +4,32 @@ css: daily-announcements.css
 ---
 
 
+# X
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/x.png){title="The worst is when you run out of monospaced fonts and have to use variable-width variables." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/x_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2309](https://xkcd.com/2309)
+:::
+
+
+## Lecture 24: Tue, Dec 3rd
+- Office hours are underway; details on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+  - My office hours are now Tu 1:00-2:30 and Thu 2-3 in Rice 402
+  - TA office hours are Mon 1:00-2:30, Tue 2:00-3:30, Wed 1:00-2:30, Thu 2:00-3:30 & 5:00-7:00
+  - TA office hours room is Rice 442; you can see the TAs [here](https://andromeda.cs.virginia.edu/ics/tas/)
+  - We are going to have OH during finals week; details TBA
+- Grading
+  - Grades returned through HW 8 (Cryptocurrency)
+  - Regrades within 1 week: for written assignments via Gradescope, auto-graded assignments: chat with me in person
+- Homeworks (Gradescope opens up 72 hours before it's due)
+  - About the buffer overflow submission...
+  - Due this Friday, 12/6, and out soon: HW 12: Forensics
+- Be sure to sign the Ethics Honor Pledge; [link on the Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will work through [virtual machines](../slides/vms.html#/), [Stuxnet](../slides/stuxnet.html#/), and [policy](../slides/policy.html#/)
+
+
+
 # Thanksgiving Arguments
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/thanksgiving_arguments.png){title="An occasional source of mild Thanksgiving tension in my family is that my mother is a die-hard fan of The Core (2003), and various family members sometimes have differing levels of enthusiasm for her annual tradition of watching it." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/thanksgiving_arguments_2x.png 2x" }
