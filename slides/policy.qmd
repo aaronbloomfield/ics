@@ -260,6 +260,7 @@ title: "Policy"
 ## More on website take-down
 - Part of the issue is the wording in the bill is vague
 - [eWeek stated](http://www.eweek.com/cloud/house-sopa-hearings-reveal-anti-internet-bias-on-committee-witness-list):
+
 > The language of SOPA is so broad, the rules so unconnected to the reality of Internet technology and the penalties so disconnected from the alleged crimes that this bill could effectively kill e-commerce or even normal Internet use.
 
 
@@ -502,7 +503,9 @@ title: "Policy"
 ## NIST on enhancing cybersecurity
 
 - The charge of [NIST's](https://www.nist.gov/) Commission on Enhancing National Cybersecurity:
+
 > "[develop] actionable recommendations for securing and growing the digital economy by strengthening cybersecurity in the public and private sectors"
+
 - Their [report](https://www.nist.gov/sites/default/files/documents/2016/12/02/cybersecurity-commission-report-final-post.pdf) listed 6 imperatives
 
 
@@ -614,6 +617,7 @@ Most of these slides deal with the NSA and CIA
 
 
 ## Snowden: overview
+
 > Taken together, the [Snowden] revelations have brought to light a global surveillance system that cast off many of its historical restraints after the attacks of Sept. 11, 2001. Secret legal authorities empowered the NSA to sweep in the telephone, Internet and location records of whole populations.
 
 [Washington Post, Dec 23, 2013](https://www.washingtonpost.com/world/national-security/edward-snowden-after-months-of-nsa-revelations-says-his-missions-accomplished/2013/12/23/49fc36de-6c1c-11e3-a523-fe73f0ff6b8d_story.html)
@@ -778,6 +782,8 @@ Most of these slides deal with the NSA and CIA
 ## More election interference
 - [Russia did it again in 2018](https://en.wikipedia.org/wiki/Russian_interference_in_the_2018_United_States_elections)
   - By generating discord on social media via highlighting social and economic differences
+
 > On August 2, 2018, the Director of National Intelligence ... announced along with [the] FBI Director ... that Russia is actively interfering in the 2018 elections, saying "It is real. It is ongoing."
+
 - Buckle up, it's going to be interesting...
 

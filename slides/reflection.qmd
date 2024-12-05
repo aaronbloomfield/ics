@@ -58,7 +58,7 @@ A series of (mostly unrelated) topics relating to computing security
   - Hidden (and passed!) in the federal budget passed in December 2015
 
 
-## [Compliance with Court Orders Act of 2016](https://techcrunch.com/2016/04/13/burr-feinstein-encryption-bill-is-officially-here-in-all-its-scary-glory/)
+## [Compliance with Court Orders Act of 2016](https://techcrunch.com/2016/04/13/burr-feinstein-encryption-bill-is-officially-here-in-all-its-scary-glory/){.r-fit-text}
 - They are still at it...
 - Only a bill, and didn't go anywhere
 - It would require all "communications services" to put back doors in their software
@@ -219,17 +219,18 @@ There were six "modules" this semester:
 
 ## Follow-on courses
 - Ethics & policy: a STS 2500 course was supposed to be taught on this...
-- Encryption: CS 4501/6501 offerings on cryptography, including one this upcoming spring
+- Encryption: CS 4501/6501 offerings on cryptography, but none this upcoming spring
 - Binary exploits: CS 4630, Defense Against the Dark Arts, this upcoming spring
 - Networks: CS 4760, Network Security, this upcoming spring
-- Modern topics: CS 4501 oferings: Cybersecurity and Elections, Cryptocurrency, Privacy and the Internet Age, etc.
-- Forensics: a CS 4501/6501, Digital Forensics, is occassionally offered
+- Modern topics: CS 4501 oferings: Cybersecurity and Elections, Cryptocurrency, Data Pricacy, etc.
+- Forensics: a CS 4501/6501, Digital Forensics, is occasionally offered
 
 
 ## What was new this semester / term
 
-- Not much, as there isn't much time in a summer term to change things
-- The auto-graders were updated, though
+- *VERY* small enrollment, due to the course being added in late August
+- A very high TA-to-student ratio, which made grading much easier
+- The auto-graders were updated
 
 <!-- 
 other new things used in the past:
@@ -266,12 +267,12 @@ other new things used in the past:
 
 ----
 
-<h2>Spring homework comments</h2>
+<h2>Spring/fall  homework comments</h2>
 <table class="transparent">
 <tr><td><ul>
 <li><a href='../hws/hw-forensics.html'>HW 12: Forensics</a></li>
-<li><a href='../hws/hw-tricky-jump.html'>HW 11: Tricky Jump</a></li>
-<li><a href='../hws/hw-buffer.html'>HW 10: Buffer Overflow</a></li>
+<li><a href='../hws/hw-buffer.html'>HW 11: Buffer Overflow</a></li>
+<li><a href='../hws/hw-tricky-jump.html'>HW 10: Tricky Jump</a></li>
 <li><a href='../hws/hw-rootkits.html'>HW 9: Rootkits</a></li>
 <li><a href='../hws/hw-cryptocurrency.html'>HW 8: Cryptocurrency</a></li>
 <li><a href='../hws/hw-sql-xss-csrf.html'>HW 7: SQL / XSS / CSRF</a></li>
@@ -290,13 +291,14 @@ other new things used in the past:
 other things that didn't work well in the past:
 
 - The Networks homework was a bit of a flop
+- Slow grading for the written homeworks, mostly SQL/XSS/CSRF
 
 -->
 
 
 
 ## What didn't work well
-- Slow grading for the written homeworks, mostly SQL/XSS/CSRF
+- Slow grading on the last few homeworks
 - Homework difficulty was not as even as I would have liked, although I'm not sure how to solve this
 
 

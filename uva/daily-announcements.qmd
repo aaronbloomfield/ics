@@ -3,6 +3,33 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+# Final Exam
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/final_exam.png){title="For those of you also taking Game Theory, your grade in that class will be based on how close your grade on this exam is to 80% of the average." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/final_exam_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2385](https://xkcd.com/2385)
+:::
+
+## The End
+- Office hours
+  - Today's OH (2-3:30 and 5-7) are still on
+  - During finals week, TA OH are: Mon 1:30-2:30, Tue 2-3:30, Wed 1:30-2:30, Thu 2-3:30 & 5-7
+  - Professor OH TBA
+- Grading
+  - Grades returned through HW 8 (Cryptocurrency)
+  - Remaining grades will trickle back over the next week or so
+  - Regrades within 1 week: for written assignments via Gradescope, auto-graded assignments: chat with me in person
+- Homeworks (Gradescope opens up 72 hours before it's due)
+  - About the buffer overflow submission...
+  - Due today Friday, 12/6: [HW 12: Forensics](../hws/hw-forensics-tabbed.html)
+    - AES decryption: try adding the `-pbkdf2` flag
+- Final exam: Tue, Dec 17th, from 2-5 (the *last* period)
+  - Cumulative, but with more of a focus since the midterm
+- Be sure to sign the Ethics Honor Pledge; [link on the Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will finish [policy](../slides/policy.html#/), [Stuxnet](../slides/stuxnet.html#/), and [policy](../slides/policy.html#/), and the [course conclusion]
+
+
 
 # X
 ::: {.stretch}
