@@ -300,7 +300,7 @@ other things that didn't work well in the past:
 ## What didn't work well
 - Slow grading on the last few homeworks
 - Homework difficulty was not as even as I would have liked, although I'm not sure how to solve this
-
+- A few recent auto-graders had lots of issues
 
 <!--
 
