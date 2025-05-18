@@ -7,6 +7,12 @@ This page contains the relevant pages from the uva/ directory in this repository
 
 With the switch-over to using [Quarto](https://quarto.org) to design the slides, the daily announcements from summer 2024 and before will not render as slides, although all the content will still be present.
 
+### Fall 2024
+
+- [Main UVa page](index-fall-2024.html) ([md](index-fall-2024.md))
+- [Course syllabus](syllabus-fall-2024.html) ([md](syllabus-fall-2024.md))
+- [Daily announcements](daily-announcements-fall-2024.html)
+
 ### Summer 2024
 
 - [Main UVa page](index-summer-2024.html) ([md](index-summer-2024.md))
