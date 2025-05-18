@@ -9,7 +9,9 @@ http://www.gnu.org/software/src-highlite">
 <title>sample.py</title>
 </head>
 <body bgcolor="white">
-<pre><tt><b><font color="#000080">import</font></b> hashlib
+<pre><tt><i><font color="#9A1900"># ICS Cryptocurrency assignment</font></i>
+
+<b><font color="#000080">import</font></b> hashlib
 <b><font color="#000080">import</font></b> binascii
 <b><font color="#000080">import</font></b> rsa
 
@@ -50,6 +52,29 @@ http://www.gnu.org/software/src-highlite">
         file<font color="#990000">.</font><b><font color="#000000">write</font></b><font color="#990000">(</font>pubkeyString<font color="#990000">)</font>
         file<font color="#990000">.</font><b><font color="#000000">write</font></b><font color="#990000">(</font>privkeyString<font color="#990000">)</font>
     <b><font color="#0000FF">return</font></b>
-</tt></pre>
+
+
+<i><font color="#9A1900"># some code snippets for how to use the rsa module</font></i>
+<i><font color="#9A1900">#</font></i>
+<i><font color="#9A1900"># ----------------------------------------</font></i>
+<i><font color="#9A1900"># signing a transaction statement: let:</font></i>
+<i><font color="#9A1900">#</font></i>
+<i><font color="#9A1900"># - 'keystring' be the contents of the saved key file</font></i>
+<i><font color="#9A1900"># - 'message' be what we are verifying: the first four lines of the transaction statement</font></i>
+<i><font color="#9A1900">#</font></i>
+<i><font color="#9A1900"># privkey = rsa.PrivateKey.load_pkcs1(keystring)</font></i>
+<i><font color="#9A1900"># sig = rsa.sign(bytes(message.encode('ascii')), privkey, 'SHA-256')</font></i>
+<i><font color="#9A1900">#</font></i>
+<i><font color="#9A1900"># You can write the signature to the file as `sig.hex()`</font></i>
+<i><font color="#9A1900">#</font></i>
+<i><font color="#9A1900"># ----------------------------------------</font></i>
+<i><font color="#9A1900"># verifying a signature: let:</font></i>
+<i><font color="#9A1900">#</font></i>
+<i><font color="#9A1900"># - 'keystring' be the contents of the saved key file</font></i>
+<i><font color="#9A1900"># - 'sig' be the signature in the transaction statement, which is a series of hex characters</font></i>
+<i><font color="#9A1900"># - 'message' be what we are verifying: the first four lines of the transaction statement (note that this code takes the hash for you)</font></i>
+<i><font color="#9A1900">#</font></i>
+<i><font color="#9A1900"># pubkey = rsa.PublicKey.load_pkcs1(keystring)</font></i>
+<i><font color="#9A1900"># rsa.verify(bytes(message.encode('ascii')), bytes.fromhex(sig), pubkey)</font></i></tt></pre>
 </body>
 </html>

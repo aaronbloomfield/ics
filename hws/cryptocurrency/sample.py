@@ -1,3 +1,5 @@
+# ICS Cryptocurrency assignment
+
 import hashlib
 import binascii
 import rsa
@@ -39,3 +41,27 @@ def saveWallet(pubkey, privkey, filename):
         file.write(pubkeyString)
         file.write(privkeyString)
     return
+
+
+# some code snippets for how to use the rsa module
+#
+# ----------------------------------------
+# signing a transaction statement: let:
+#
+# - 'keystring' be the contents of the saved key file
+# - 'message' be what we are verifying: the first four lines of the transaction statement
+#
+# privkey = rsa.PrivateKey.load_pkcs1(keystring)
+# sig = rsa.sign(bytes(message.encode('ascii')), privkey, 'SHA-256')
+#
+# You can write the signature to the file as `sig.hex()`
+#
+# ----------------------------------------
+# verifying a signature: let:
+#
+# - 'keystring' be the contents of the saved key file
+# - 'sig' be the signature in the transaction statement, which is a series of hex characters
+# - 'message' be what we are verifying: the first four lines of the transaction statement (note that this code takes the hash for you)
+#
+# pubkey = rsa.PublicKey.load_pkcs1(keystring)
+# rsa.verify(bytes(message.encode('ascii')), bytes.fromhex(sig), pubkey)

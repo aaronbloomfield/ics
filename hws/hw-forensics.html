@@ -118,6 +118,7 @@ Lastly, you can run autopsy on your own machine, and use the Cyber Range to deal
 <li>The <code>,ro</code> part adds the read-only attribute. If you are having problems with this, you can remove it (so the option is just <code>-o loop</code>), and then you can write to the file system. You can download it again if needed (but delete the other one first – there isn’t a lot of disk space on the Cyber Range system, and you don’t want to have excess disk images hanging around on your own machine)</li>
 </ul></li>
 <li>Autopsy sometimes crashes. You should be able to restart it, and it will pick up where it left off.</li>
+<li>If there is an AES encrypted message (some scenarios have it, some do not), you have to add the <code>-pbkdf2</code> flag to the <a href="../slides/forensics.html#/password-protected-files">decryption line</a>.</li>
 </ul>
 <h4 id="mounting-the-disk-image">Mounting the disk image</h4>
 <p>You can also mount the disk image directly from the CyberRange system. To do so:</p>

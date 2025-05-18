@@ -106,7 +106,7 @@ A few notes to help you through the process:
 	- Play around with that command a bit -- your OS may not support the ext4 file system, and you can try to remove the `-t ext4` part.  You have to create the `/mnt` directory first, of course.
 	- The `,ro` part adds the read-only attribute.  If you are having problems with this, you can remove it (so the option is just `-o loop`), and then you can write to the file system.  You can download it again if needed (but delete the other one first -- there isn't a lot of disk space on the Cyber Range system, and you don't want to have excess disk images hanging around on your own machine)
 - Autopsy sometimes crashes.  You should be able to restart it, and it will pick up where it left off.
-
+- If there is an AES encrypted message (some scenarios have it, some do not), you have to add the `-pbkdf2` flag to the [decryption line](../slides/forensics.html#/password-protected-files).
 
 #### Mounting the disk image
 
