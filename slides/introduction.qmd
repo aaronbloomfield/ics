@@ -197,12 +197,22 @@ title: "Course Introduction"
 - Prerequisites: CS 2100 (DSA1) and CS 2130 (CSO1), each with a grade of C- or higher
   - If you are on the old curriculum, then CS 2150 (PDR) with a grade of C- or higher
 - Grades
-  - One midterm (20%) (date on [syllabus](../uva/syllabus.html))
-  - Final exam (25%) (date on [syllabus](../uva/syllabus.html))
-  - Homeworks (45%)
-  - Class participation, pop quizzes (10%)
+  - One midterm (15%) (date on [syllabus](../uva/syllabus.html))
+  - Final exam (20%) (date on [syllabus](../uva/syllabus.html))
+  - Homeworks (40%)
+  - Class participation, pop quizzes (30%)
 - I reserve the right to adjust the percentages based on the number of assignments and quizzes, and other factors
 
+
+## Participation
+- Summer is a rough time -- 5 days a week of lecture for 2 hours and 15 minutes
+- You will get full participation points if you:
+  - Attend each lecture
+  - Stay awake
+  - Stay off your screens
+  - Participate
+- That's a Boolean AND
+- Any day missed is 2 (of 30) points off
 
 
 ## More on that pre-requisite
@@ -215,10 +225,9 @@ title: "Course Introduction"
  
 ## Exams
 - As mentioned, one midterm:
-  - Thursday, October 10th, during lecture
+  - Friday, May 30th, during lecture
 - Final exam
-  - It's on Tuesday, December 17, from 2pm to 5pm
-    - Yes, it's a horrible exam time
+  - Saturday, June 14th, during lecture
   - You can't take it early, so please don't ask
   - You can't take it late, either
 
@@ -234,6 +243,7 @@ title: "Course Introduction"
 
 
 
+<!--
 ## Extensions
 - You can request an extension, up to 5 days, on any and all assignments
   - There is a Google form, linked to from the Canvas landing page, for this reason
@@ -243,13 +253,22 @@ title: "Course Introduction"
   - If you get busy at the end of your extension, then that's your tough luck
   - Note that TA office hours are optimized for the actual on-time date
 - Full details in the [course syllabus](../uva/syllabus.html)
+-->
 
 
-
+<!--
 ## Us and you
 - All office hours are posted on the Canvas landing page
 - I avoid e-mailing the class; announcements will be discussed each day in lecture and posted to Canvas / Piazza
 - To contact me, please use the course contact tool (linked to from the main Canvas page)
+- We also have Piazza as well for questions
+-->
+
+## Us and you
+- Office hours are the hour before class starts
+  - And by appointment
+- I avoid e-mailing the class; announcements will be discussed each day in lecture and posted to Canvas / Piazza
+- To contact me, chat with me before, during, or after class
 - We also have Piazza as well for questions
 
 
@@ -270,7 +289,7 @@ title: "Course Introduction"
 - Encryption (2 weeks): encryption, hashes
 - Networks (2 weeks): networks, web security
 - Binary manipulation (2 weeks): viruses, buffer overflows, binary exploits
-- Modern topics (3 weeks): SQL/XSS/CSRF, anonymity, cryptocurrency, stuxnet, rootkits, VMs
+- Modern topics (3 weeks): SQL/XSS/CSRF, anonymity, cryptocurrency, Stuxnet, rootkits, VMs
 - Digital forensics (1 week): forensics
 - Note that for the summer, one semester week is about 1.25 summer lecture days
 

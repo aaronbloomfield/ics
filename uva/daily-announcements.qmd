@@ -1,0 +1,18 @@
+---
+title: "Daily Announcements"
+css: daily-announcements.css
+---
+
+
+# Security Question
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/security_question.png){title="Let&#39;s invite him to a party and play &#39;I never&#39;.  Okay, I never hid any bodies SOUTH of Main Street. ... he&#39;s taking a drink!" style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 565](https://xkcd.com/565)
+:::
+
+
+
+## Lecture 2: Tue, May 20th
+- ...

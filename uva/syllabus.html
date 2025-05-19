@@ -4,42 +4,42 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>CS 3710: Syllabus for Introduction to Cybersecurity (ICS), fall 2024</title>
+  <title>CS 3710: Syllabus for Introduction to Cybersecurity (ICS), summer 2025</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../markdown.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
-<h1 id="cs-3710-syllabus-for-introduction-to-cybersecurity-ics-fall-2024">CS 3710: Syllabus for Introduction to Cybersecurity (ICS), fall 2024</h1>
+<h1 id="cs-3710-syllabus-for-introduction-to-cybersecurity-ics-summer-2025">CS 3710: Syllabus for Introduction to Cybersecurity (ICS), summer 2025</h1>
 <p><a href="index.html">Go up to the ICS UVa page</a> (<a href="index.md">md</a>)</p>
 <h2 id="quick-version">Quick version</h2>
 <p>I realize that not everybody reads these through. So the TL;DR version:</p>
 <ul>
 <li>This course organized through Canvas, and the Canvas workspace is <a href="https://canvas.its.virginia.edu/courses/136577">here</a></li>
-<li>One midterm, on Thursday, October 10th, during class; one final, on Tuesday, December 17, from 2-5
-<ul>
-<li>It’s a horrible exam time, but everybody has to be present to take it</li>
-</ul></li>
-<li>Grades are 45% homeworks, 20% midterm, 25% final exam, and 10% participation (quizzes &amp; attendance)</li>
+<li><strong>The course has a uncommon participation grade – be sure you are familiar with it</strong></li>
+<li>One midterm, on Friday, May 30th, during class; one final, on Saturday, June 14th</li>
+<li>Grades are 35% homeworks, 15% midterm, 20% final exam, and 30% participation</li>
 <li>Most things are going to be auto-graded, but you can submit multiple times; the grades won’t be known until the late due date has passed</li>
-<li>We have a very different extension policy – anybody can request a 4 day extension for any reason. Read the details (and disclaimers and specifics) below.</li>
 <li>If you encounter any rough spots in the course – please be patient, and provide constructive feedback, and I’ll do my best to get it all fixed</li>
 <li>There will be both larger programming homeworks and smaller tutorial-style homeworks or readings – sometimes one of each will be assigned at any given time</li>
-<li>Lecture attendance is required, and occasional attendance quizzes will be taken to ensure that</li>
 <li>Readings will typically have in-class quizzes when they are due</li>
 <li>Attendance quizzes and reading quizzes may be online, so bring a connected device (phone is fine)</li>
-<li>Due to the size of the course, please contact me via the course contact system; the link will be on the Canvas landing page</li>
-<li>Office hours are (or will be) posted on the Canvas landing page</li>
+<li>Office hours are the hour before lecture, or by appointment</li>
 <li>I want you to succeed in this course and enjoy it – if you are having any problems (personal, academic, what-not) that I can help with, please let me know</li>
 </ul>
 <p>And now for the really long-winded version…</p>
@@ -71,12 +71,15 @@
 <p><strong>Prerequisites:</strong> CS 2100 (Data Structures and Algorithms 1) and CS 2130 (Computer Systems Organization 1), each with a grade of C- or above. (If you are on the old curriculum, then CS 2150 (Program and Data Representation) – with a grade of C- or above – is a sufficient pre-req). As per departmental policy, this pre-req will be checked, and if it is not met, you will be de-registered from the course.</p>
 <p><strong>Grades:</strong> Grades will be calculated by the following formula:</p>
 <ul>
-<li>Programming and written assignments (45%)</li>
-<li>Midterm (20%)</li>
-<li>Final exam (25%)</li>
-<li>Class participation, pop quizzes (10%)</li>
+<li>Programming and written assignments (35%)</li>
+<li>Midterm (15%)</li>
+<li>Final exam (20%)</li>
+<li>Class participation, pop quizzes (30%)</li>
 </ul>
 <p>I <em>expect</em> that grades will follow the standard decade curve: 90 and above is an A of some sort (A-, A, or A+), 80 and above is some sort of a B, etc. <strong>Note:</strong> I reserve the right to modify the weighting (changing the curve, adding pop quizzes, etc.), especially if attendance drops off significantly. In particular, if the grade averages are very high, then you will need higher than a 90 to get an A-.</p>
+<p><strong>Participation:</strong> The participation grade is handled very differently depending on whether it’s a spring/fall semester or a summer term.</p>
+<p>For a spring or fall semester, participation is based on quiz grades and occasional attendance checks. These attendance checks may become more frequent if the lecture attendance drops off significantly.</p>
+<p>Summer is a very different situation – it’s 5 days a week for 2 hours and 15 minutes. Also, participation is worth 30% of the grade (versus 10% during a fall or spring semester). During a summer term, everybody will get full participation grade (30/30) if they attend every lecture, stay off of their laptop (or other screen), stay awake, and participate in lecture. This a Boolean AND, so it has to be all four to get points for that day. Any day that you do not get credit will be 2 points off your participation grade.</p>
 <p><strong>Assignments:</strong> During a regular (fall or spring) semester, the intent is for there to be one assignment due every week (except the week of the midterm and Thanksgiving week). A typical module will have two assignments. During a summer term, there will be less than that. The written homeworks will be submitted as a PDF, and will consist of writing, math, and short programs. All submissions are through Gradescope, the link to which is on the Canvas landing page. Due to the class size, and the limited TA support, all the programming assignments will be auto-graded. You will need to be familiar with the <a href="hw-policies.html">homework policies</a> (<a href="hw-policies.md">md</a>), as you will be bound by them on the assignments.</p>
 <p><strong>Course rules:</strong> You are fully responsible for all material presented in class and on the required readings. Exams and due dates are scheduled in advance. A grade of zero will be recorded for missed exams and late assignments unless prior arrangements are made (see below for details) or there are truly extenuating circumstances (which will require appropriate documentation). Assignments turned in after the due date are penalized 25% per day (or fraction thereof) late; this means a maximum of 3 days (i.e. 72 hours) late. In most cases, you are free to develop assignments on any language/platform/OS you wish. Some assignments may require a specific operating system setup, or a particular required programming language, which will be provided if necessary. However, you are responsible for porting your code to the system the class is using and ensuring that it runs correctly for us when we grade your assignment. Our reference system will specified for each assignment, but will generally be Ubuntu Linux. The Gradescope submission auto-grader will verify this upon submission (and immediately report the results back to you). Most assignments will be graded by automated testing.</p>
 <p><strong>Disabilities:</strong> The University of Virginia strives to provide accessibility to all students. If you require an accommodation to fully access this course, please contact the Student Disability Access Center (SDAC) at (434) 243-5180 or sdac@virginia.edu. If you are unsure if you require an accommodation, or to learn more about their services, you may contact the SDAC at the number above or by visiting their website at http://studenthealth.virginia.edu/student-disability-access-center/faculty-staff.</p>

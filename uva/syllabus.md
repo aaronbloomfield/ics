@@ -1,4 +1,4 @@
-CS 3710: Syllabus for Introduction to Cybersecurity (ICS), fall 2024
+CS 3710: Syllabus for Introduction to Cybersecurity (ICS), summer 2025
 =========================================================
 
 [Go up to the ICS UVa page](index.html) ([md](index.md))
@@ -8,18 +8,15 @@ CS 3710: Syllabus for Introduction to Cybersecurity (ICS), fall 2024
 I realize that not everybody reads these through.  So the TL;DR version:
 
 - This course organized through Canvas, and the Canvas workspace is [here](https://canvas.its.virginia.edu/courses/136577)
-- One midterm, on Thursday, October 10th, during class; one final, on Tuesday, December 17, from 2-5
-	- It's a horrible exam time, but everybody has to be present to take it
-- Grades are 45% homeworks, 20% midterm, 25% final exam, and 10% participation (quizzes & attendance)
+- **The course has a uncommon participation grade -- be sure you are familiar with it**
+- One midterm, on Friday, May 30th, during class; one final, on Saturday, June 14th
+- Grades are 35% homeworks, 15% midterm, 20% final exam, and 30% participation
 - Most things are going to be auto-graded, but you can submit multiple times; the grades won't be known until the late due date has passed
-- We have a very different extension policy -- anybody can request a 4 day extension for any reason.  Read the details (and disclaimers and specifics) below.
 - If you encounter any rough spots in the course -- please be patient, and provide constructive feedback, and I'll do my best to get it all fixed
 - There will be both larger programming homeworks and smaller tutorial-style  homeworks or readings -- sometimes one of each will be assigned at any given time
-- Lecture attendance is required, and occasional attendance quizzes will be taken to ensure that
 - Readings will typically have in-class quizzes when they are due
 - Attendance quizzes and reading quizzes may be online, so bring a connected device (phone is fine)
-- Due to the size of the course, please contact me via the course contact system; the link will be on the Canvas landing page
-- Office hours are (or will be) posted on the Canvas landing page
+- Office hours are the hour before lecture, or by appointment
 - I want you to succeed in this course and enjoy it -- if you are having any problems (personal, academic, what-not) that I can help with, please let me know
 
 And now for the really long-winded version...
@@ -61,12 +58,18 @@ The course objectives are:
 
 **Grades:** Grades will be calculated by the following formula:
 
-- Programming and written assignments (45%)
-- Midterm (20%)
-- Final exam (25%)
-- Class participation, pop quizzes (10%)
+- Programming and written assignments (35%)
+- Midterm (15%)
+- Final exam (20%)
+- Class participation, pop quizzes (30%)
 
 I *expect* that grades will follow the standard decade curve: 90 and above is an A of some sort (A-, A, or A+), 80 and above is some sort of a B, etc.  **Note:** I reserve the right to modify the weighting (changing the curve, adding pop quizzes, etc.), especially if attendance drops off significantly.  In particular, if the grade averages are very high, then you will need higher than a 90 to get an A-.
+
+**Participation:** The participation grade is handled very differently depending on whether it's a spring/fall semester or a summer term.
+
+For a spring or fall semester, participation is based on quiz grades and occasional attendance checks.  These attendance checks may become more frequent if the lecture attendance drops off significantly.
+
+Summer is a very different situation -- it's 5 days a week for 2 hours and 15 minutes.  Also, participation is worth 30% of the grade (versus 10% during a fall or spring semester).  During a summer term, everybody will get full participation grade (30/30) if they attend every lecture, stay off of their laptop (or other screen), stay awake, and participate in lecture.  This a Boolean AND, so it has to be all four to get points for that day.  Any day that you do not get credit will be 2 points off your participation grade.
 
 **Assignments:** During a regular (fall or spring) semester, the intent is for there to be one assignment due every week (except the week of the midterm and Thanksgiving week).  A typical module will have two assignments.  During a summer term, there will be less than that.  The written homeworks will be submitted as a PDF, and will consist of writing, math, and short programs.   All submissions are through Gradescope, the link to which is on the Canvas landing page.  Due to the class size, and the limited TA support, all the programming assignments will be auto-graded.  You will need to be familiar with the [homework policies](hw-policies.html) ([md](hw-policies.md)), as you will be bound by them on the assignments.
 
@@ -75,7 +78,6 @@ I *expect* that grades will follow the standard decade curve: 90 and above is an
 **Disabilities:**  The University of Virginia strives to provide accessibility to all students. If you require an accommodation to fully access this course, please contact the Student Disability Access Center (SDAC) at (434) 243-5180 or sdac@virginia.edu. If you are unsure if you require an accommodation, or to learn more about their services, you may contact the SDAC at the number above or by visiting their website at http://studenthealth.virginia.edu/student-disability-access-center/faculty-staff.
 
 **Special Circumstances:** Students with special circumstances (athletics, extra time required on exams, final exam conflicts, SDAC considerations, etc.) need to let me know as soon as possible.  General SDAC accommodations are handles as per our [SDAC Accommodations](sdac.html) ([md](sdac.md)) page.
-
 
 **Extensions:**  You may request an extension on any homework assignment for any reason.  That extension is up to 4 days.  To do so, you will have to fill out an extension request form, the link to which will be provided on the Canvas landing page.  You can assume that the extension will be automatically provided by filling out the form.
 
