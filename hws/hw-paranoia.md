@@ -25,13 +25,19 @@ Answer each of the above in the form of a bulleted list, with brief justificatio
 
 Pick two of the following scenarios.
 
+- You are in charge of security for a political individual (politician, judge, candidate) who has received threats in this politically divisive era
+- You are the head of computing security for a corporation that is being targeted by foreign actors who want to steal your technological intellectual property
+- Threats have been made against interior hydrological structures, specifically dams, and you are now responsible for their security
+- You are the computing security individual in charge at a company who handles military contracts with the US government, and as a result of the recent invasion of Ukraine by Russia, you are a target for Russian hackers
+
+<!-- from fall 2024:
 - You are now in charge of ensuring that UVA students can express their first amendment rights through protest, while also ensuring the safety of the protesters and the UVA community.
 	- NOTE: This is a *security* analysis, not a chance for political opining.  Regardless of what side you are on, focus on the security aspects.  There are many great ways to express your political opinions, but doing so in the answer to this question on this homework is not one of them.  As long as you focus on the security aspects, any political views that come out will have zero effect on your grade for this question.
 - You are in charge of designing a new TSA airport checking process.
 - You are tasked with creating a policy to ensure the secure voting in the 2024 presidential election.
 	- Again, like the first scenario, keep politics out of your answer, please.
 - You are in charge of protecting the water supply to a town or city, which is sourced from a reservoir that is publicly usable and easily accessible.
-
+-->
 
 <!-- from summer 2024:
 - You are trying to secure your home network.  You have dozens of IoT devices, and individuals who install a lot of sketchy apps on their mobile phones.  How do you secure this home network?
