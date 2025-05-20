@@ -15,4 +15,34 @@ css: daily-announcements.css
 
 
 ## Lecture 2: Tue, May 20th
-- ...
+- Office hours are M-F 9:30-10:20, or by appointment
+- Items due soon
+  - Tomorrow (Wednesday, 5/21) by the start of class: [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+  - Tomorrow (Wednesday, 5/21) by midnight: [HW 1: Rational Paranoia](../hws/hw-paranoia-tabbed.html)
+    - You have to follow the formatting guidelines described therein!
+    - Submission on Gradescope will open up shortly
+  - Friday, 5/23: [HW 2: Ethics](../hws/hw-ethics-tabbed.html)
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/141242)
+- Today we will finish with the [terminology slide set](../slides/terminology.html#/), then onto [ethics](../slides/ethics.html#/)
+  - We may skip [policy](../slides/policy.html#/) for now, as we have to get through [encryption](../slides/encryption.html#/) in time for HW 3
+
+
+
+## Expected summer term schedule
+
+- Week 1 (Mon, 5/19 - Fri, 5/23)
+  - Due Wed: reading (ACM ethics / Thompson article / Morris worm)
+  - Due Wed: HW 1 (rational paranoia)
+  - Due Fri: HW 2 (ethics)
+- Week 2 (Tue, 5/26 - Fri, 5/30)
+  - Due Tue: HW 3 (RSA)
+  - Due Thu: "reading" (Youtube video)
+  - On Friday: midterm
+  - Due Sat: HW 4 (fuzzing?)
+- Week 3 (Mon, 6/2 - Fri, 6/6)
+  - Due Wed: HW 5 (SQL/XSS/CSRF)
+  - Due Thu: "reading" (podcast)
+- Week 4 (Mon, 6/9 - Sat, 6/14)
+  - Due Mon: HW 6 (cryptocurrency?)
+  - Due Fri: HW 7 (forensics)
+  - On Sat: final exam
