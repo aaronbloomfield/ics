@@ -3,6 +3,31 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+# Security Advice
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/security_advice.png){title="Never give your password or bank account number to anyone who doesn&#39;t have a blue check mark next to their name." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/security_advice_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1820](https://xkcd.com/1820)
+:::
+
+## Lecture 3: Wed, May 21st
+- Office hours are M-F 9:30-10:20, or by appointment
+- Items due soon
+  - Today (Wednesday, 5/21) by the start of class: [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+  - Today (Wednesday, 5/21) by midnight: [HW 1: Rational Paranoia](../hws/hw-paranoia-tabbed.html)
+    - You have to follow the formatting guidelines described therein!
+    - Submission on Gradescope will open up shortly
+  - Friday, 5/23: [HW 2: Ethics](../hws/hw-ethics-tabbed.html)
+  - Tuesday, 5/27: HW 3: RSA (not yet ready)
+- Gradescope submissions are open, and everything *should* be configured correctly
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/141242)
+- Today we will finish with [ethics](../slides/ethics.html#/)
+  - We will skip [policy](../slides/policy.html#/) for now, and come back to it later
+  - Next up: [encryption](../slides/encryption.html#/)
+
+
+
 
 # Security Question
 ::: {.stretch}

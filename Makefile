@@ -18,3 +18,9 @@ csspretty:
 	@# awk command from https://www.linuxquestions.org/questions/programming-9/remove-css-comments-with-sed-776853-print/
 	cat slides/quarto_files/revealjs/dist/theme/quarto.css | tr -d '\n' | awk -vRS="*/" '{gsub(/\/\*.*/,"")}1' | node_modules/.bin/cssbeautify-cli -s -w css.out
 	/bin/mv -f css.out slides/quarto_files/revealjs/dist/theme/quarto.css
+
+all:
+	make
+	cd slides && make
+	cd uva && make
+	

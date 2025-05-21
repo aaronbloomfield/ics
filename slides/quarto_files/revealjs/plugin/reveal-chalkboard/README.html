@@ -34,7 +34,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -97,26 +97,41 @@
 </ul>
 <p>The main use case in mind when implementing the plugin is classroom usage in which you may want to explain some course content and quickly need to make some notes.</p>
 <p>The plugin records all drawings made so that they can be play backed using the <code>autoSlide</code> feature or the <code>audio-slideshow</code> plugin.</p>
-<p><a href="https://rajgoel.github.io/reveal.js-demos/chalkboard-demo.html">Check out the live demo</a></p>
-<p>The chalkboard effect is based on <a href="https://github.com/mmoustafa/Chalkboard">Chalkboard</a> by Mohamed Moustafa.</p>
-<h2 id="installation">Installation</h2>
-<p>Copy the file <code>plugin.js</code> and the <code>img</code> directory into the plugin folder of your reveal.js presentation, i.e. <code>plugin/chalkboard</code> and load the plugin as shown below.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;plugin/chalkboard/plugin.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;plugin/customcontrols/plugin.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="dt">&gt;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    Reveal<span class="op">.</span><span class="fu">initialize</span>({</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">plugins</span><span class="op">:</span> [ RevealChalkboard<span class="op">,</span> RevealCustomControls ]<span class="op">,</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
-<p>The following stylesheet</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;plugin/chalkboard/style.css&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;plugin/customcontrols/style.css&quot;</span><span class="dt">&gt;</span></span></code></pre></div>
-<p>has to be included to the <code>head</code> section of you HTML-file.</p>
+<p><a href="https://rajgoel.github.io/reveal.js-demos/?topic=chalkboard">Check out the demo</a></p>
+<h2 id="setup">Setup</h2>
+<p>To use the plugin include</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Font awesome is required for the chalkboard plugin --&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span> <span class="er">src</span><span class="ot">=</span><span class="st">&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span> <span class="er">rel</span><span class="ot">=</span><span class="st">&quot;stylesheet&quot;</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Custom controls plugin is used to for opening and closing annotation modes. --&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span> <span class="er">src</span><span class="ot">=</span><span class="st">&quot;https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span> <span class="er">rel</span><span class="ot">=</span><span class="st">&quot;stylesheet&quot;</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Chalkboard plugin --&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span> <span class="er">src</span><span class="ot">=</span><span class="st">&quot;https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span> <span class="er">rel</span><span class="ot">=</span><span class="st">&quot;stylesheet&quot;</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css&quot;</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>to the header of your presentation and configure reveal.js and the plugin by</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Reveal<span class="op">.</span><span class="fu">initialize</span>({</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">customcontrols</span><span class="op">:</span> {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">controls</span><span class="op">:</span> [</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>      { <span class="dt">icon</span><span class="op">:</span> <span class="st">&#39;&lt;i class=&quot;fa fa-pen-square&quot;&gt;&lt;/i&gt;&#39;</span><span class="op">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">title</span><span class="op">:</span> <span class="st">&#39;Toggle chalkboard (B)&#39;</span><span class="op">,</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">action</span><span class="op">:</span> <span class="st">&#39;RevealChalkboard.toggleChalkboard();&#39;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      }<span class="op">,</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      { <span class="dt">icon</span><span class="op">:</span> <span class="st">&#39;&lt;i class=&quot;fa fa-pen&quot;&gt;&lt;/i&gt;&#39;</span><span class="op">,</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="dt">title</span><span class="op">:</span> <span class="st">&#39;Toggle notes canvas (C)&#39;</span><span class="op">,</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="dt">action</span><span class="op">:</span> <span class="st">&#39;RevealChalkboard.toggleNotesCanvas();&#39;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">chalkboard</span><span class="op">:</span> {</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">// add configuration here</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">// ...</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">plugins</span><span class="op">:</span> [ RevealChalkboard<span class="op">,</span> RevealCustomControls ]<span class="op">,</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="co">// ...</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
 <p>In order to include buttons for opening and closing the notes canvas or the chalkboard you should make sure that <code>font-awesome</code> is available. The easiest way is to include</p>
-<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css&quot;&gt;</code></pre>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/reveal.js-plugins/menu/font-awesome/css/fontawesome.css&quot;&gt;</code></pre>
 <p>to the <code>head</code> section of you HTML-file.</p>
 <h2 id="usage">Usage</h2>
 <h3 id="mouse-or-touch">Mouse or touch</h3>
@@ -127,7 +142,6 @@
 <li>Click the left mouse button and drag to write on notes canvas or chalkboard</li>
 <li>Click the right mouse button and drag to wipe away previous drawings</li>
 <li>Touch and move to write on notes canvas or chalkboard</li>
-<li>Touch and hold for half a second, then move to wipe away previous drawings</li>
 </ul>
 <h3 id="keyboard">Keyboard</h3>
 <ul>
@@ -200,23 +214,13 @@
 <span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>                { <span class="dt">color</span><span class="op">:</span> <span class="st">&#39;rgba(255,220,0,0.5)&#39;</span><span class="op">,</span> <span class="dt">cursor</span><span class="op">:</span> <span class="st">&#39;url(&#39;</span> <span class="op">+</span> path <span class="op">+</span> <span class="st">&#39;img/chalk-yellow.png), auto&#39;</span>}</span>
 <span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>        ]</span>
 <span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="dt">customcontrols</span><span class="op">:</span> {</span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>        <span class="dt">controls</span><span class="op">:</span> [</span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>            { <span class="dt">icon</span><span class="op">:</span> <span class="st">&#39;&lt;i class=&quot;fa fa-pen-square&quot;&gt;&lt;/i&gt;&#39;</span><span class="op">,</span></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>              <span class="dt">title</span><span class="op">:</span> <span class="st">&#39;Toggle chalkboard (B)&#39;</span><span class="op">,</span></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>              <span class="dt">action</span><span class="op">:</span> <span class="st">&#39;RevealChalkboard.toggleChalkboard();&#39;</span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>            }<span class="op">,</span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>            { <span class="dt">icon</span><span class="op">:</span> <span class="st">&#39;&lt;i class=&quot;fa fa-pen&quot;&gt;&lt;/i&gt;&#39;</span><span class="op">,</span></span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>              <span class="dt">title</span><span class="op">:</span> <span class="st">&#39;Toggle notes canvas (C)&#39;</span><span class="op">,</span></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>              <span class="dt">action</span><span class="op">:</span> <span class="st">&#39;RevealChalkboard.toggleNotesCanvas();&#39;</span></span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>            }</span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>        ]</span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ...</span></span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ...</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<h2 id="credits">Credits</h2>
+<p>The chalkboard effect is based on <a href="https://github.com/mmoustafa/Chalkboard">Chalkboard</a> by Mohamed Moustafa.</p>
 <h2 id="license">License</h2>
 <p>MIT licensed</p>
-<p>Copyright (C) 2021 Asvin Goel</p>
+<p>Copyright (C) 2023 Asvin Goel</p>
 </body>
 </html>
