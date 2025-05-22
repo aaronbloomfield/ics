@@ -3,6 +3,28 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+# Trolley Problem
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/trolley_problem.png){title="For $5 I promise not to orchestrate this situation, and for $25 I promise not to take further advantage of this ability to create incentives." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/trolley_problem_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1455](https://xkcd.com/1455)
+:::
+
+## Lecture 4: Thu, May 22nd
+- Office hours are M-F 9:30-10:20, or by appointment
+  - But not tomorrow: those will be *after* class, not before
+- [HW 1: Rational Paranoia](../hws/hw-paranoia-tabbed.html) was due yesterday -- how did it go?
+- Items due soon
+  - Friday, 5/23: [HW 2: Ethics](../hws/hw-ethics-tabbed.html)
+  - Tuesday, 5/27: [HW 3: RSA](../hws/hw-rsa-tabbed.html); we'll go over it today
+- Gradescope submissions are open, and everything *should* be configured correctly
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/141242)
+- Today we will continue with [encryption](../slides/encryption.html#/)
+
+
+
+
 # Security Advice
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/security_advice.png){title="Never give your password or bank account number to anyone who doesn&#39;t have a blue check mark next to their name." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/security_advice_2x.png 2x" }

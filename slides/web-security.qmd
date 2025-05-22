@@ -6,7 +6,7 @@ title: Web Security
 ## Credit Where Credit is Due
 
 Much of the material in this slide set, including some of the images, was obtained from [EECS 388](https://www.eecs.umich.edu/courses/eecs388/) from the [CS department at the University of Michigan](https://www.cse.umich.edu/).  That course material was released under a [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0/deed.en_US) license.  Other images are from [Wikipedia](https://en.wikipedia.org), and each of those images is linked to its source on Wikipedia.
-  
+
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 # Key Exchange
@@ -620,3 +620,49 @@ yahoo.com
   - And *very* precise -- which store you just visited, whose house you are at, etc.
   - And, likely, who else is there with you
 - Google continues to track your mobile device even after you have signed out or opted out ([reference](https://www.pcmag.com/news/363068/report-google-tracks-location-data-even-if-youve-opted-out))
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+# Two-Factor Authentication
+
+
+## Motivation
+- If 2 means are needed to authenticate, then somebody knowing your password will not, by itself, allow them access
+- Variations:
+  - SMS-based codes
+  - Email-based codes
+  - Codes via a phone call
+  - 2FA apps with authenticator codes
+    - What UVA uses this via Duo Mobile
+  - Biometrics (fingerprint, face scan, etc.)
+    - Apple devices use these
+
+## SMS-based versions
+
+## Email-based versions
+
+## Google Authenticator
+- https://security.stackexchange.com/questions/35157/how-does-google-authenticator-work
+
+## HOTP
+
+## TOTP
+
+## TOTP Algorithm
+
+## TOTP Diagram
+
+## TOTP Example
+
+## Attacking 2FA
+
+## 2FA Exhaustion Attack
+
+## Other 2FA Attacks
+
+## Final Warning
+
+Somebody is going to set up 2FA on your accounts.  It should probably be you.
+
+If you wait to long, it will be somebody else.

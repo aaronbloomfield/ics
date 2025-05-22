@@ -468,6 +468,17 @@ return probably prime
 - [Reference](http://en.wikipedia.org/wiki/Fermat_primality_test)
 
 
+## Why does this work?
+- Fermat's little theorem: $a^p-a \mod p=0$, but only if $p$ is prime
+  - Equivalent phrasing: $a^p \equiv a (\text{mod } p)$
+  - Equivalent phrasing: $a^{p-1} \equiv 1 (\text{mod } p)$
+- If $p$ is not prime, then that equality will not hold if $a$ and $p$ share factors
+  - Consider $a=2$ and $p=6$
+    - $2^{6-1} \equiv 1 (\text{mod } p)$ yields $32 \equiv 1 (\text{mod } p)$, but $32 \text{ mod } 6=2$
+- But how and why does Fermat's little theorem work?
+  - There is an entire [Wikipedia page](https://en.wikipedia.org/wiki/Proofs_of_Fermat%27s_little_theorem) on the proofs of it
+
+
 <!-- .slide: class="no-border" -->
 ## Google's recruitment campaign
 ![](https://statisticallyinsignificant.files.wordpress.com/2011/05/google.jpg)
