@@ -3,6 +3,27 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+# Smart Home Security
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/smart_home_security.png){title="If they&#39;re getting valuable enough stuff from you, at least the organized crime folks have an incentive to issue regular updates to keep the appliance working after the manufacturer discontinues support." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/smart_home_security_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1966](https://xkcd.com/1966)
+:::
+
+## Lecture 5: Fri, May 23rd
+- Office hours are M-F 9:30-10:20, or by appointment
+  - But today they are right after class
+- Items due soon
+  - Today, Friday, 5/23: [HW 2: Ethics](../hws/hw-ethics-tabbed.html)
+  - Tuesday, 5/27: [HW 3: RSA](../hws/hw-rsa-tabbed.html); we'll go over it today
+- Gradescope submissions are open, and everything *should* be configured correctly
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/141242)
+- Today we will continue with [encryption](../slides/encryption.html#/)
+
+
+
+
 # Trolley Problem
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/trolley_problem.png){title="For $5 I promise not to orchestrate this situation, and for $25 I promise not to take further advantage of this ability to create incentives." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/trolley_problem_2x.png 2x" }
