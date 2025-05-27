@@ -1039,30 +1039,108 @@ DH key<br>exchange<br>example<br>as colors
 </section>
 <section id="sms-based-versions" class="slide level2">
 <h2>SMS-based versions</h2>
+<ul>
+<li>A code is sent, via SMS, to your phone</li>
+<li>Very insecure!</li>
+<li>Phone jacking:
+<ul>
+<li>Attacker asks phone company to transfer service to a new number, provides SSN (last 4), fake ID, etc.
+<ul>
+<li>Or asks for a new SIM to be issued</li>
+<li>See <a href="https://us.norton.com/blog/emerging-threats/phone-hijacking-when-criminals-take-over-your-phone-and-everything-in-it">here</a> and <a href="https://lifehacker.com/tech/spot-a-sim-swap-attack-and-what-to-do-next">here</a> for tips how to prevent</li>
+</ul></li>
+<li>All 2FA codes via SMS are now visible
+<ul>
+<li>Biometric security (face scans, etc.) will not stop this, since that is phone-specific, and the attacker has a new phone</li>
+</ul></li>
+</ul></li>
+</ul>
 </section>
 <section id="email-based-versions" class="slide level2">
 <h2>Email-based versions</h2>
+<ul>
+<li>Similar to the SMS version, but slightly more secure
+<ul>
+<li>Unless somebody has access to your email</li>
+</ul></li>
+</ul>
 </section>
 <section id="google-authenticator" class="slide level2">
 <h2>Google Authenticator</h2>
 <ul>
-<li>https://security.stackexchange.com/questions/35157/how-does-google-authenticator-work</li>
+<li>This is what Duo Mobile uses; see <a href="https://security.stackexchange.com/questions/35157/how-does-google-authenticator-work">here</a> for more details</li>
+<li>A one-time code (typically 6 digits) is needed for the 2FA</li>
+<li>Two types:
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/HMAC-based_one-time_password">HOTP</a>: HMAC-based one-time password
+<ul>
+<li>Used with the hardware tokens</li>
+</ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Time-based_one-time_password">TOTP</a>: Time-based one-time password</li>
+</ul></li>
+<li>These are the cornerstones of OATH</li>
+<li>The <em>service</em> sets the parameters, and provides a QR code
+<ul>
+<li>The <em>client</em> accepts those parameters (or not)</li>
+</ul></li>
 </ul>
 </section>
-<section id="hotp" class="slide level2">
-<h2>HOTP</h2>
+<section id="hotp-hmac-based-one-time-password" class="slide level2">
+<h2><span class="r-fit-text">HOTP: HMAC-based one-time password</span></h2>
+<ul>
+<li>Four values are set:
+<ul>
+<li><span class="math inline">\(H\)</span>: A hashing algorithm, typically SHA-1</li>
+<li><span class="math inline">\(k\)</span>: A secret key (random byte string)</li>
+<li><span class="math inline">\(c\)</span>: Counter starting from 0</li>
+<li><span class="math inline">\(d\)</span>: the number of digits provided in the 2FA code</li>
+</ul></li>
+<li>Algorithm:
+<ul>
+<li><span class="math inline">\(HOTPvalue = HOTP(k,c) \mod 10^d\)</span></li>
+<li><span class="math inline">\(HOTP(k,c)=truncate(HMAC_H(k,c))\)</span></li>
+<li><span class="math inline">\(truncate(MAC) = extract31(MAC, MAC[(19 × 8 + 4):(19 × 8 + 7)])\)</span></li>
+<li><span class="math inline">\(extract31(MAC, i) = MAC[(i × 8 + 1):(i × 8 + 4 × 8 − 1)]\)</span></li>
+<li>increment <span class="math inline">\(c\)</span> afterward</li>
+</ul></li>
+</ul>
 </section>
-<section id="totp" class="slide level2">
-<h2>TOTP</h2>
+<section id="hotp-synchronization-issues" class="slide level2">
+<h2>HOTP synchronization issues</h2>
+<ul>
+<li>Each side may increment independently
+<ul>
+<li>The authenticator will try the next few counters just in case</li>
+</ul></li>
+<li>A resynchronization protocol is defined in <a href="https://www.rfc-editor.org/rfc/rfc4226">RFC 4226</a></li>
+<li>To prevent exploiting this via a brute-force attack:
+<ul>
+<li>Throttle attempts: block after too many failed attempts or linearly increase the delay after each failed attempt</li>
+</ul></li>
+</ul>
 </section>
-<section id="totp-algorithm" class="slide level2">
-<h2>TOTP Algorithm</h2>
-</section>
-<section id="totp-diagram" class="slide level2">
-<h2>TOTP Diagram</h2>
-</section>
-<section id="totp-example" class="slide level2">
-<h2>TOTP Example</h2>
+<section id="totp-time-based-one-time-password" class="slide level2">
+<h2><span class="r-fit-text">TOTP: Time-based one-time password</span></h2>
+<ul>
+<li>Uses the UNIX timestamp (number of seconds since January 1, 1970); we are currently around 1.7 billion (see <a href="https://www.unixtimestamp.com/">here</a>)</li>
+<li>Six values are set:
+<ul>
+<li>The 4 HOTP values (<span class="math inline">\(H\)</span>, <span class="math inline">\(k\)</span>, <span class="math inline">\(c\)</span>, and <span class="math inline">\(d\)</span>)</li>
+<li>The “start time” <span class="math inline">\(T_0\)</span> (typically 0)</li>
+<li>The time interval <span class="math inline">\(T_x\)</span>, tyipcally 30 seconds</li>
+</ul></li>
+<li>Algorithm
+<ul>
+<li>Uses the HOTP algorithm, but replaces the counter with <span class="math inline">\(C_T\)</span>, a non-decreasing value based on the current time
+<ul>
+<li>If <span class="math inline">\(T\)</span> is the current UNIX timestamp, then <span class="math inline">\(C_T\)</span> is:
+<ul>
+<li><span class="math inline">\(C_T=T-T \mod 30 = \lfloor \frac{T-T_0}{T_x} \rfloor\)</span></li>
+<li><span class="math inline">\(TOTPvalue(k) = HOTPvalue(k,C_T)\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 </section>
 <section id="attacking-2fa" class="slide level2">
 <h2>Attacking 2FA</h2>
@@ -1072,6 +1150,17 @@ DH key<br>exchange<br>example<br>as colors
 </section>
 <section id="other-2fa-attacks" class="slide level2">
 <h2>Other 2FA Attacks</h2>
+</section>
+<section id="advice" class="slide level2">
+<h2>Advice</h2>
+<ul>
+<li>Use Duo Mobile (or another authenticator) instead of SMS for your 2FA
+<ul>
+<li>SIM jacking does not work, since codes are not sent via SMS</li>
+<li>It’s on your phonse, so requires biometrics to access</li>
+<li>The data is sent encrypted, unlike SMS</li>
+</ul></li>
+</ul>
 </section>
 <section id="final-warning" class="slide level2">
 <h2>Final Warning</h2>

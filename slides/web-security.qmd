@@ -639,27 +639,73 @@ yahoo.com
     - Apple devices use these
 
 ## SMS-based versions
+- A code is sent, via SMS, to your phone
+- Very insecure!
+- Phone jacking:
+  - Attacker asks phone company to transfer service to a new number, provides SSN (last 4), fake ID, etc.
+    - Or asks for a new SIM to be issued
+    - See [here](https://us.norton.com/blog/emerging-threats/phone-hijacking-when-criminals-take-over-your-phone-and-everything-in-it) and [here](https://lifehacker.com/tech/spot-a-sim-swap-attack-and-what-to-do-next) for tips how to prevent
+  - All 2FA codes via SMS are now visible
+    - Biometric security (face scans, etc.) will not stop this, since that is phone-specific, and the attacker has a new phone
 
 ## Email-based versions
+- Similar to the SMS version, but slightly more secure
+  - Unless somebody has access to your email
 
 ## Google Authenticator
-- https://security.stackexchange.com/questions/35157/how-does-google-authenticator-work
+- This is what Duo Mobile uses; see [here](https://security.stackexchange.com/questions/35157/how-does-google-authenticator-work) for more details
+- A one-time code (typically 6 digits) is needed for the 2FA
+- Two types: 
+  - [HOTP](https://en.wikipedia.org/wiki/HMAC-based_one-time_password): HMAC-based one-time password
+    - Used with the hardware tokens
+  - [TOTP](https://en.wikipedia.org/wiki/Time-based_one-time_password): Time-based one-time password
+- These are the cornerstones of OATH
+- The *service* sets the parameters, and provides a QR code
+  - The *client* accepts those parameters (or not)
 
-## HOTP
+## [HOTP: HMAC-based one-time password]{.r-fit-text}
+- Four values are set:
+  - $H$: A hashing algorithm, typically SHA-1
+  - $k$: A secret key (random byte string)
+  - $c$: Counter starting from 0
+  - $d$: the number of digits provided in the 2FA code
+- Algorithm: 
+  - $HOTPvalue = HOTP(k,c) \mod 10^d$
+  - $HOTP(k,c)=truncate(HMAC_H(k,c))$
+  - $truncate(MAC) = extract31(MAC, MAC[(19 × 8 + 4):(19 × 8 + 7)])$
+  - $extract31(MAC, i) = MAC[(i × 8 + 1):(i × 8 + 4 × 8 − 1)]$
+  - increment $c$ afterward
 
-## TOTP
+## HOTP synchronization issues
+- Each side may increment independently
+  - The authenticator will try the next few counters just in case
+- A resynchronization protocol is defined in [RFC 4226](https://www.rfc-editor.org/rfc/rfc4226)
+- To prevent exploiting this via a brute-force attack:
+  - Throttle attempts: block after too many failed attempts or linearly increase the delay after each failed attempt
 
-## TOTP Algorithm
-
-## TOTP Diagram
-
-## TOTP Example
+## [TOTP: Time-based one-time password]{.r-fit-text}
+- Uses the UNIX timestamp (number of seconds since January 1, 1970); we are currently around 1.7 billion (see [here](https://www.unixtimestamp.com/))
+- Six values are set:
+  - The 4 HOTP values ($H$, $k$, $c$, and $d$)
+  - The "start time" $T_0$ (typically 0)
+  - The time interval $T_x$, tyipcally 30 seconds
+- Algorithm
+  - Uses the HOTP algorithm, but replaces the counter with $C_T$, a non-decreasing value based on the current time
+    - If $T$ is the current UNIX timestamp, then $C_T$ is:
+      - $C_T=T-T \mod 30 = \lfloor \frac{T-T_0}{T_x} \rfloor$
+      - $TOTPvalue(k) = HOTPvalue(k,C_T)$
 
 ## Attacking 2FA
 
 ## 2FA Exhaustion Attack
 
 ## Other 2FA Attacks
+
+## Advice
+- Use Duo Mobile (or another authenticator) instead of SMS for your 2FA
+  - SIM jacking does not work, since codes are not sent via SMS
+  - It's on your phonse, so requires biometrics to access
+  - The data is sent encrypted, unlike SMS
 
 ## Final Warning
 

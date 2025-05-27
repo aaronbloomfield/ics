@@ -3,6 +3,32 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+
+
+# Bag Check
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/bag_check.png){title="A laptop battery contains roughly the stored energy of a hand grenade, and if shorted it ... hey!  You can&#39;t arrest me if I prove your rules inconsistent!" style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 651](https://xkcd.com/651)
+:::
+
+## Lecture 6: Tue, May 27th
+- Office hours are M-F 9:30-10:20, or by appointment
+- Items due soon
+  - Due Tuesday, May 27th, by midnight: [HW 3: RSA](https://aaronbloomfield.github.io/ics/hws/hw-rsa-tabbed.html)
+  - Due Thursday, May 29th by the start of class: watch [Last Week Tonight with John Oliver: Data Brokers](https://www.youtube.com/watch?v=wqn3gR1WTcA){class='inline_disabled'}; it's free on Youtube (possibly with a few ads)
+  - Due Saturday, May 31st, by midnight: [HW 4: Fuzzing](https://aaronbloomfield.github.io/ics/hws/hw-fuzzing-tabbed.html)
+- The midterm is Friday, May 30th, at the start of class
+  - Old miterms are in the repo on the [exams page](../exams/index.html)
+- Gradescope submissions are open, and everything *should* be configured correctly
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/141242)
+  - We are missing 1...
+- Today we will finish with [encryption](../slides/encryption.html#/)
+  - Next up: [networks](../slides/networks.html#/) and then [web security](../slides/web-security.html#/)
+
+
+
 # Smart Home Security
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/smart_home_security.png){title="If they&#39;re getting valuable enough stuff from you, at least the organized crime folks have an incentive to issue regular updates to keep the appliance working after the manufacturer discontinues support." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/smart_home_security_2x.png 2x" }
