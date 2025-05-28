@@ -4,6 +4,26 @@ css: daily-announcements.css
 ---
 
 
+# Authorization
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/authorization.png){title="Before you say anything, no, I know not to leave my computer sitting out logged in to all my accounts. I have it set up so after a few minutes of inactivity it automatically switches to my brother&#39;s." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/authorization_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1200](https://xkcd.com/1200)
+:::
+
+## Lecture 6: Tue, May 27th
+- Office hours are M-F 9:30-10:20, or by appointment
+- Items due soon
+  - Due yesterday: [HW 3: RSA](https://aaronbloomfield.github.io/ics/hws/hw-rsa-tabbed.html); how did it go?
+  - Due tomorrow, Thursday, May 29th by the start of class: watch [Last Week Tonight with John Oliver: Data Brokers](https://www.youtube.com/watch?v=wqn3gR1WTcA){class='inline_disabled'}; it's free on Youtube (possibly with a few ads)
+  - Due Saturday, May 31st, by midnight: [HW 4: Fuzzing](https://aaronbloomfield.github.io/ics/hws/hw-fuzzing-tabbed.html)
+- The midterm is Friday, May 30th, at the start of class
+  - Old miterms are in the repo on the [exams page](../exams/index.html)
+- Gradescope submissions are open, and everything *should* be configured correctly
+- Today we will finish with [networks](../slides/networks.html#/) and start [web security](../slides/web-security.html#/)
+
+
 
 # Bag Check
 ::: {.stretch}
