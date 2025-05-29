@@ -3,6 +3,30 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+# PGP
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/pgp.png){title="If you want to be extra safe, check that there&#39;s a big block of jumbled characters at the bottom." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/pgp_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1181](https://xkcd.com/1181)
+:::
+
+
+## Lecture 8: Thu, May 29th
+- Office hours are M-F 9:30-10:20, or by appointment
+- Items due soon
+  - Due today by the start of class: watch [Last Week Tonight with John Oliver: Data Brokers](https://www.youtube.com/watch?v=wqn3gR1WTcA){class='inline_disabled'}; it's free on Youtube (possibly with a few ads)
+  - Due Saturday, May 31st, by midnight: [HW 4: Fuzzing](https://aaronbloomfield.github.io/ics/hws/hw-fuzzing-tabbed.html)
+- The midterm is this Friday, May 30th, at the start of class
+  - Old miterms are in the repo on the [exams page](../exams/index.html)
+- Gradescope submissions are open, and everything *should* be configured correctly
+  - Fuzzing will open up later today
+  - Due next Wednesday: SQL/XSS/CSRF (not yet ready)
+- Today we will finish [web security](../slides/web-security.html#/)
+  - Then onto [SQL/XSS/CSRF](../slides/sql-xss-csrf.html#/)
+
+
+
 
 # Authorization
 ::: {.stretch}
@@ -12,7 +36,7 @@ css: daily-announcements.css
 [xkcd \# 1200](https://xkcd.com/1200)
 :::
 
-## Lecture 6: Tue, May 27th
+## Lecture 7: Wed, May 28th
 - Office hours are M-F 9:30-10:20, or by appointment
 - Items due soon
   - Due yesterday: [HW 3: RSA](https://aaronbloomfield.github.io/ics/hws/hw-rsa-tabbed.html); how did it go?

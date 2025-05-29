@@ -385,7 +385,20 @@ DH key<br>exchange<br>example<br>as colors
 </section>
 <section id="certificate-chains" class="slide level2">
 <h2>Certificate Chains</h2>
-<p><a href="https://commons.wikimedia.org/wiki/File:Chain_of_trust.svg"><img data-src="images/web-security/Chain_of_trust.svg" alt="certificate chain"></a> An entity (such as virginia.edu) can hold an <em>intermediate</em> certificate, which allows it to sign for entities in its division (such as news.virginia.edu)</p>
+<p><a href="https://commons.wikimedia.org/wiki/File:Chain_of_trust_v2.svg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Chain_of_trust_v2.svg/1024px-Chain_of_trust_v2.svg.png" style="width:80%;padding:10px"></a></p>
+<p>An entity (such as virginia.edu) can hold an <em>intermediate</em> certificate, which allows it to sign for entities in its division (such as news.virginia.edu)</p>
+</section>
+<section id="trusting-trust" class="slide level2">
+<h2>Trusting Trust</h2>
+<ul>
+<li>A server’s certificate is signed by a Certificate Authority
+<ul>
+<li>Perhaps through an intermediary certificate</li>
+</ul></li>
+<li>So we trust the server’s certificate because the CA vouches for it</li>
+<li>And we trust the CA because… everybody else does?</li>
+<li>At some point, we have to trust that the system is well designed and that it works</li>
+</ul>
 </section>
 <section id="certificate-authorities-cas" class="slide level2">
 <h2>Certificate Authorities (CAs)</h2>
@@ -414,6 +427,26 @@ DH key<br>exchange<br>example<br>as colors
 </ul></li>
 <li>They were sold under the umbrella of Symantec, so Symantec was party at fault as well</li>
 </ul></li>
+</ul>
+</section>
+<section id="trusted-root-cert-count" class="slide level2">
+<h2>Trusted root cert count</h2>
+<ul>
+<li>For <a href="https://support.apple.com/en-us/105116">Apple devices</a>: 159 as of Feb 21, 2024</li>
+<li>For <a href="https://wiki.mozilla.org/CA/Included_Certificates">Mozilla / Firefox</a>: 170 as of Feb 21, 2024</li>
+<li>For <a href="https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT">Microsoft</a>: 487 as of Feb 21, 2024</li>
+<li>Other platforms (Chrome, Android, etc.) only seem to list how to find it on the browser (Chrome) or device (Android)</li>
+</ul>
+</section>
+<section id="uvas-certificate-authority" class="slide level2">
+<h2>UVA’s Certificate Authority</h2>
+<p><img src="images/web-security/uva-cert-trust.webp" style="float:right;width:250px;margin-left:20px;height:unset"></p>
+<ul>
+<li>If you ran UVA’s Network Setup Tool, it will have installed it’s certificate provider as a trusted certificate authority
+<ul>
+<li>Note that the image shows how to make it “fully” trusted; it’s still (mostly) trusted without the slider switch on</li>
+</ul></li>
+<li>This allows your device to automatically accept UVA certificates without dealing with separate signatures</li>
 </ul>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 </section></section>
@@ -1015,7 +1048,7 @@ DH key<br>exchange<br>example<br>as colors
 <section>
 <section id="two-factor-authentication" class="title-slide slide level1 center">
 <h1>Two-Factor Authentication</h1>
-
+<p>aka Multi-Factor Authentication</p>
 </section>
 <section id="motivation" class="slide level2">
 <h2>Motivation</h2>
@@ -1041,7 +1074,11 @@ DH key<br>exchange<br>example<br>as colors
 <h2>SMS-based versions</h2>
 <ul>
 <li>A code is sent, via SMS, to your phone</li>
-<li>Very insecure!</li>
+<li>Very insecure!
+<ul>
+<li>SMS is not encrypted</li>
+<li>It uses a different spectrum, but sniffers are available</li>
+</ul></li>
 <li>Phone jacking:
 <ul>
 <li>Attacker asks phone company to transfer service to a new number, provides SSN (last 4), fake ID, etc.
@@ -1062,13 +1099,16 @@ DH key<br>exchange<br>example<br>as colors
 <li>Similar to the SMS version, but slightly more secure
 <ul>
 <li>Unless somebody has access to your email</li>
+<li>Or if the email is not sent via encryption, and somebody can eavesdrop on the connection</li>
 </ul></li>
 </ul>
 </section>
 <section id="google-authenticator" class="slide level2">
 <h2>Google Authenticator</h2>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Aegis_Authenticator_3.2_screenshot.png" style="float:right;margin-left:20px;width:250px;height:unset"></p>
 <ul>
 <li>This is what Duo Mobile uses; see <a href="https://security.stackexchange.com/questions/35157/how-does-google-authenticator-work">here</a> for more details</li>
+<li>Google created the standard, they don’t manage the system</li>
 <li>A one-time code (typically 6 digits) is needed for the 2FA</li>
 <li>Two types:
 <ul>
@@ -1079,10 +1119,6 @@ DH key<br>exchange<br>example<br>as colors
 <li><a href="https://en.wikipedia.org/wiki/Time-based_one-time_password">TOTP</a>: Time-based one-time password</li>
 </ul></li>
 <li>These are the cornerstones of OATH</li>
-<li>The <em>service</em> sets the parameters, and provides a QR code
-<ul>
-<li>The <em>client</em> accepts those parameters (or not)</li>
-</ul></li>
 </ul>
 </section>
 <section id="hotp-hmac-based-one-time-password" class="slide level2">
@@ -1107,6 +1143,7 @@ DH key<br>exchange<br>example<br>as colors
 </section>
 <section id="hotp-synchronization-issues" class="slide level2">
 <h2>HOTP synchronization issues</h2>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wells_Fargo_2FA_RSA_Token_-_Two_Factor_Authentication_-_Six_Digit_Code_%2853370207137%29.jpg/960px-Wells_Fargo_2FA_RSA_Token_-_Two_Factor_Authentication_-_Six_Digit_Code_%2853370207137%29.jpg" style="float:right;margin-left:20px;height:unset;width:400px"></p>
 <ul>
 <li>Each side may increment independently
 <ul>
@@ -1117,6 +1154,7 @@ DH key<br>exchange<br>example<br>as colors
 <ul>
 <li>Throttle attempts: block after too many failed attempts or linearly increase the delay after each failed attempt</li>
 </ul></li>
+<li>Often used in hardware keys</li>
 </ul>
 </section>
 <section id="totp-time-based-one-time-password" class="slide level2">
@@ -1142,14 +1180,33 @@ DH key<br>exchange<br>example<br>as colors
 </ul></li>
 </ul>
 </section>
+<section id="fa-qr-codes" class="slide level2">
+<h2>2FA QR Codes</h2>
+<p><img src="https://docs.swrve.com/wp-content/uploads/2018/10/QRcode-replace.jpg" style="float:right;width:400px;height:unset;margin-left:20px;padding:10px"></p>
+<ul>
+<li>The <em>service</em> sets the parameters, and provides a QR code</li>
+<li>The <em>client</em> accepts those parameters (or not)</li>
+<li>You can create your own <a href="https://stefansundin.github.io/2fa-qr/">here</a></li>
+</ul>
+</section>
 <section id="attacking-2fa" class="slide level2">
 <h2>Attacking 2FA</h2>
-</section>
-<section id="fa-exhaustion-attack" class="slide level2">
-<h2>2FA Exhaustion Attack</h2>
-</section>
-<section id="other-2fa-attacks" class="slide level2">
-<h2>Other 2FA Attacks</h2>
+<ul>
+<li>The wrench method</li>
+<li>SIM jacking</li>
+<li>Stealing the phone</li>
+<li>Setting up 2FA before you do</li>
+<li>Social engineering</li>
+<li><a href="https://en.wikipedia.org/wiki/Multi-factor_authentication#Fatigue_attack">Fatigue Attack</a>
+<ul>
+<li>Keep logging in with the user’s password
+<ul>
+<li>Each time it prompts a 2FA request</li>
+</ul></li>
+<li>Eventually the user becomes so fatigued that they click “accept” to shut the thing up</li>
+<li>This happened at UVA a few years ago (2023 or so)</li>
+</ul></li>
+</ul>
 </section>
 <section id="advice" class="slide level2">
 <h2>Advice</h2>
@@ -1158,12 +1215,12 @@ DH key<br>exchange<br>example<br>as colors
 <ul>
 <li>SIM jacking does not work, since codes are not sent via SMS</li>
 <li>It’s on your phonse, so requires biometrics to access</li>
-<li>The data is sent encrypted, unlike SMS</li>
+<li>The data is sent encrypted, unlike SMS or (possibly) email</li>
 </ul></li>
 </ul>
 </section>
-<section id="final-warning" class="slide level2">
-<h2>Final Warning</h2>
+<section id="fa-warning" class="slide level2">
+<h2>2FA Warning</h2>
 <p>Somebody is going to set up 2FA on your accounts. It should probably be you.</p>
 <p>If you wait to long, it will be somebody else.</p>
 

@@ -124,8 +124,19 @@ If that doesn't work, try the [direct Youtube link](http://youtu.be/YEBfamv-_do?
 
 
 ## Certificate Chains
-[![certificate chain](images/web-security/Chain_of_trust.svg)](https://commons.wikimedia.org/wiki/File:Chain_of_trust.svg)
+
+<a href='https://commons.wikimedia.org/wiki/File:Chain_of_trust_v2.svg'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Chain_of_trust_v2.svg/1024px-Chain_of_trust_v2.svg.png' style='width:80%;padding:10px'></a>
+
 An entity (such as virginia.edu) can hold an *intermediate* certificate, which allows it to sign for entities in its division (such as news.virginia.edu)
+
+
+
+## Trusting Trust
+- A server's certificate is signed by a Certificate Authority
+  - Perhaps through an intermediary certificate
+- So we trust the server's certificate because the CA vouches for it
+- And we trust the CA because... everybody else does?
+- At some point, we have to trust that the system is well designed and that it works
 
 
 
@@ -146,7 +157,24 @@ An entity (such as virginia.edu) can hold an *intermediate* certificate, which a
     - They still had the private keys (a big no-no)
   - They were sold under the umbrella of Symantec, so Symantec was party at fault as well
 
-	
+
+
+
+## Trusted root cert count
+- For [Apple devices](https://support.apple.com/en-us/105116): 159 as of Feb 21, 2024
+- For [Mozilla / Firefox](https://wiki.mozilla.org/CA/Included_Certificates): 170 as of Feb 21, 2024
+- For [Microsoft](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT): 487 as of Feb 21, 2024
+- Other platforms (Chrome, Android, etc.) only seem to list how to find it on the browser (Chrome) or device (Android)
+
+
+## UVA's Certificate Authority
+
+<img src="images/web-security/uva-cert-trust.webp" style="float:right;width:250px;margin-left:20px;height:unset">
+
+- If you ran UVA's Network Setup Tool, it will have installed it's certificate provider as a trusted certificate authority
+  - Note that the image shows how to make it "fully" trusted; it's still (mostly) trusted without the slider switch on
+- This allows your device to automatically accept UVA certificates without dealing with separate signatures 
+
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 
@@ -626,6 +654,8 @@ yahoo.com
 
 # Two-Factor Authentication
 
+aka Multi-Factor Authentication
+
 
 ## Motivation
 - If 2 means are needed to authenticate, then somebody knowing your password will not, by itself, allow them access
@@ -641,6 +671,8 @@ yahoo.com
 ## SMS-based versions
 - A code is sent, via SMS, to your phone
 - Very insecure!
+  - SMS is not encrypted
+  - It uses a different spectrum, but sniffers are available
 - Phone jacking:
   - Attacker asks phone company to transfer service to a new number, provides SSN (last 4), fake ID, etc.
     - Or asks for a new SIM to be issued
@@ -651,17 +683,21 @@ yahoo.com
 ## Email-based versions
 - Similar to the SMS version, but slightly more secure
   - Unless somebody has access to your email
+  - Or if the email is not sent via encryption, and somebody can eavesdrop on the connection
 
 ## Google Authenticator
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Aegis_Authenticator_3.2_screenshot.png" style="float:right;margin-left:20px;width:250px;height:unset">
+
 - This is what Duo Mobile uses; see [here](https://security.stackexchange.com/questions/35157/how-does-google-authenticator-work) for more details
+- Google created the standard, they don't manage the system
 - A one-time code (typically 6 digits) is needed for the 2FA
 - Two types: 
   - [HOTP](https://en.wikipedia.org/wiki/HMAC-based_one-time_password): HMAC-based one-time password
     - Used with the hardware tokens
   - [TOTP](https://en.wikipedia.org/wiki/Time-based_one-time_password): Time-based one-time password
 - These are the cornerstones of OATH
-- The *service* sets the parameters, and provides a QR code
-  - The *client* accepts those parameters (or not)
+
 
 ## [HOTP: HMAC-based one-time password]{.r-fit-text}
 - Four values are set:
@@ -677,11 +713,15 @@ yahoo.com
   - increment $c$ afterward
 
 ## HOTP synchronization issues
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wells_Fargo_2FA_RSA_Token_-_Two_Factor_Authentication_-_Six_Digit_Code_%2853370207137%29.jpg/960px-Wells_Fargo_2FA_RSA_Token_-_Two_Factor_Authentication_-_Six_Digit_Code_%2853370207137%29.jpg" style="float:right;margin-left:20px;height:unset;width:400px">
+
 - Each side may increment independently
   - The authenticator will try the next few counters just in case
 - A resynchronization protocol is defined in [RFC 4226](https://www.rfc-editor.org/rfc/rfc4226)
 - To prevent exploiting this via a brute-force attack:
   - Throttle attempts: block after too many failed attempts or linearly increase the delay after each failed attempt
+- Often used in hardware keys
 
 ## [TOTP: Time-based one-time password]{.r-fit-text}
 - Uses the UNIX timestamp (number of seconds since January 1, 1970); we are currently around 1.7 billion (see [here](https://www.unixtimestamp.com/))
@@ -695,19 +735,35 @@ yahoo.com
       - $C_T=T-T \mod 30 = \lfloor \frac{T-T_0}{T_x} \rfloor$
       - $TOTPvalue(k) = HOTPvalue(k,C_T)$
 
+
+## 2FA QR Codes
+
+<img src="https://docs.swrve.com/wp-content/uploads/2018/10/QRcode-replace.jpg" style="float:right;width:400px;height:unset;margin-left:20px;padding:10px">
+
+- The *service* sets the parameters, and provides a QR code
+- The *client* accepts those parameters (or not)
+- You can create your own [here](https://stefansundin.github.io/2fa-qr/)
+
+
 ## Attacking 2FA
-
-## 2FA Exhaustion Attack
-
-## Other 2FA Attacks
+- The wrench method
+- SIM jacking
+- Stealing the phone
+- Setting up 2FA before you do
+- Social engineering
+- [Fatigue Attack](https://en.wikipedia.org/wiki/Multi-factor_authentication#Fatigue_attack)
+  - Keep logging in with the user's password
+    - Each time it prompts a 2FA request
+  - Eventually the user becomes so fatigued that they click "accept" to shut the thing up
+  - This happened at UVA a few years ago (2023 or so)
 
 ## Advice
 - Use Duo Mobile (or another authenticator) instead of SMS for your 2FA
   - SIM jacking does not work, since codes are not sent via SMS
   - It's on your phonse, so requires biometrics to access
-  - The data is sent encrypted, unlike SMS
+  - The data is sent encrypted, unlike SMS or (possibly) email
 
-## Final Warning
+## 2FA Warning
 
 Somebody is going to set up 2FA on your accounts.  It should probably be you.
 
