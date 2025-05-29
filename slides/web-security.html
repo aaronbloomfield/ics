@@ -1147,12 +1147,12 @@ DH key<br>exchange<br>example<br>as colors
 <ul>
 <li>Each side may increment independently
 <ul>
-<li>The authenticator will try the next few counters just in case</li>
+<li>The authenticator will try the next few counter values just in case</li>
 </ul></li>
 <li>A resynchronization protocol is defined in <a href="https://www.rfc-editor.org/rfc/rfc4226">RFC 4226</a></li>
 <li>To prevent exploiting this via a brute-force attack:
 <ul>
-<li>Throttle attempts: block after too many failed attempts or linearly increase the delay after each failed attempt</li>
+<li>Throttle the attempts: block after too many failed attempts or linearly increase the delay after each failed attempt</li>
 </ul></li>
 <li>Often used in hardware keys</li>
 </ul>
@@ -1173,7 +1173,7 @@ DH key<br>exchange<br>example<br>as colors
 <ul>
 <li>If <span class="math inline">\(T\)</span> is the current UNIX timestamp, then <span class="math inline">\(C_T\)</span> is:
 <ul>
-<li><span class="math inline">\(C_T=T-T \mod 30 = \lfloor \frac{T-T_0}{T_x} \rfloor\)</span></li>
+<li><span class="math inline">\(C_T=T-(T \mod 30) = \lfloor \frac{T-T_0}{T_x} \rfloor\)</span></li>
 <li><span class="math inline">\(TOTPvalue(k) = HOTPvalue(k,C_T)\)</span></li>
 </ul></li>
 </ul></li>

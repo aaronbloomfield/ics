@@ -717,10 +717,10 @@ aka Multi-Factor Authentication
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wells_Fargo_2FA_RSA_Token_-_Two_Factor_Authentication_-_Six_Digit_Code_%2853370207137%29.jpg/960px-Wells_Fargo_2FA_RSA_Token_-_Two_Factor_Authentication_-_Six_Digit_Code_%2853370207137%29.jpg" style="float:right;margin-left:20px;height:unset;width:400px">
 
 - Each side may increment independently
-  - The authenticator will try the next few counters just in case
+  - The authenticator will try the next few counter values just in case
 - A resynchronization protocol is defined in [RFC 4226](https://www.rfc-editor.org/rfc/rfc4226)
 - To prevent exploiting this via a brute-force attack:
-  - Throttle attempts: block after too many failed attempts or linearly increase the delay after each failed attempt
+  - Throttle the attempts: block after too many failed attempts or linearly increase the delay after each failed attempt
 - Often used in hardware keys
 
 ## [TOTP: Time-based one-time password]{.r-fit-text}
@@ -732,7 +732,7 @@ aka Multi-Factor Authentication
 - Algorithm
   - Uses the HOTP algorithm, but replaces the counter with $C_T$, a non-decreasing value based on the current time
     - If $T$ is the current UNIX timestamp, then $C_T$ is:
-      - $C_T=T-T \mod 30 = \lfloor \frac{T-T_0}{T_x} \rfloor$
+      - $C_T=T-(T \mod 30) = \lfloor \frac{T-T_0}{T_x} \rfloor$
       - $TOTPvalue(k) = HOTPvalue(k,C_T)$
 
 
