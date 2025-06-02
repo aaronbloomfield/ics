@@ -3,6 +3,26 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+# Encryption
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/encryption.png){title="WARNING: PEOPLE NAMED EVE ARE PROHIBITED FROM INSTALLING THIS APP!" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/encryption_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2691](https://xkcd.com/2691)
+:::
+
+
+## Lecture 10: Mon, June 1st
+- Office hours are M-F 9:30-10:20, or by appointment
+- Items due soon
+  - Due yesterday (Sunday), by midnight: [HW 4: Fuzzing](https://aaronbloomfield.github.io/ics/hws/hw-fuzzing-tabbed.html)
+  - Due Wednesday, June 4th, by midnight: [HW 5: SQL/XSS/CSRF](https://aaronbloomfield.github.io/ics/hws/hw-sql-xss-csrf-tabbed.html)
+  - Due Thursday, June 6th: Listen to [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+- The midterm was last Friday, May 30th, at the start of class; how did it go?
+- Gradescope submissions are open, and everything *should* be configured correctly
+- Today we will detour into [SQL/XSS/CSRF](../slides/sql-xss-csrf.html#/) and then finish [web security](../slides/web-security.html#/)
+
+
 # PGP
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/pgp.png){title="If you want to be extra safe, check that there&#39;s a big block of jumbled characters at the bottom." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/pgp_2x.png 2x" }
