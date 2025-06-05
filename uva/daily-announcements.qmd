@@ -3,6 +3,50 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+
+# How Hacking Works
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/how_hacking_works.png){title="If only somebody had warned them that the world would roll them like this." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/how_hacking_works_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2176](https://xkcd.com/2176)
+:::
+
+
+## Lecture 13: Thu, June 5th
+- Office hours are M-F 9:30-10:20, or by appointment
+- Items due soon
+  - Due yesterday: [HW 5: SQL/XSS/CSRF](https://aaronbloomfield.github.io/ics/hws/hw-sql-xss-csrf-tabbed.html); how did it go?
+  - Due today, Thursday, June 6th: Listen to [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+  - Due early next week: [HW 6: Cryptocurrency](../hws/hw-cryptocurrency-tabbed.html) (it's ready, but due date not yet set)
+  - The last homework, on Forensics, will be due the day of the final (next Saturday)
+- The midterm was last Friday, May 30th; regrades open until the end of this week
+- Gradescope submissions are open, and everything *should* be configured correctly
+- Today we will finish [cryptocurrency](../slides/cryptocurrency.html#/) and start on [anonymity](../slides/anonymity.html#/)
+
+
+
+# Blockchain
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/blockchain.png){title="Blockchains are like grappling hooks, in that it&#39;s extremely cool when you encounter a problem for which they&#39;re the right solution, but it happens way too rarely in real life." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/blockchain_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2267](https://xkcd.com/2267)
+:::
+
+
+## Lecture 12: Wed, June 4th
+- Office hours are M-F 9:30-10:20, or by appointment
+- Items due soon
+  - Due Wednesday, June 4th, by midnight: [HW 5: SQL/XSS/CSRF](https://aaronbloomfield.github.io/ics/hws/hw-sql-xss-csrf-tabbed.html)
+  - Due Thursday, June 6th: Listen to [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+  - Due next week: HW ???
+- The midterm was last Friday, May 30th; regrades open until the end of this week
+- Gradescope submissions are open, and everything *should* be configured correctly
+- Today we will start on [cryptocurrency](../slides/cryptocurrency.html#/)
+
+
+
 # Hacking
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/hacking.png){title="The dump also contains a list of millions of prime factors, a 0-day Tamagotchi exploit, and a technique for getting gcc and bash to execute arbitrary code." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/hacking_2x.png 2x" }
