@@ -4,6 +4,26 @@ css: daily-announcements.css
 ---
 
 
+# Phone Security
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/phone_security.png){title="...wait until they type in payment information, then use it to order yourself a replacement phone." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/phone_security_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1934](https://xkcd.com/1934)
+:::
+
+
+## Lecture 14: Fri, June 6th
+- Office hours are M-F 9:30-10:20, or by appointment
+- Items due soon
+  - Due Tuesday, June 10th: [HW 6: Cryptocurrency](../hws/hw-cryptocurrency-tabbed.html)
+  - The last homework, on Forensics, will be due the day of the final (next Saturday)
+- The midterm was last Friday, May 30th; regrades open until the end of this week
+- Gradescope submissions are open, and everything *should* be configured correctly
+- Today we will finish [anonymity](../slides/anonymity.html#/) and then go back to [policy](../slides/policy.html#/)
+
+
+
 # How Hacking Works
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/how_hacking_works.png){title="If only somebody had warned them that the world would roll them like this." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/how_hacking_works_2x.png 2x" }
