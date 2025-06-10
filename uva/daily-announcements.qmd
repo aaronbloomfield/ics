@@ -4,6 +4,29 @@ css: daily-announcements.css
 ---
 
 
+# Devotion to Duty
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/devotion_to_duty.png){title="The weird sense of duty really good sysadmins have can border on the sociopathic, but it&#39;s nice to know that it stands between the forces of darkness and your cat blog&#39;s servers." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 705](https://xkcd.com/705)
+:::
+
+
+## Lecture 16: Tue, June 10th
+- Office hours are M-F 9:30-10:20, or by appointment
+- Items due soon
+  - Due today, Tuesday, June 10th: [HW 6: Cryptocurrency](../hws/hw-cryptocurrency-tabbed.html)
+  - The last homework, on Forensics, will be due the day of the final (Saturday)
+- Grading
+  - Everything other than SQL/XSS/CSRF has been returned
+  - A note about your Ethics and Rational Paranoia grades...
+- The final is this Saturday starting at 10:30
+- Gradescope submissions are open, and everything *should* be configured correctly
+- Today we will finish [rootkits](../slides/rootkits.html#/), then onto [VMs](../slides/vms.html#/) and [Stuxnet](../slides/stuxnet.html#/)
+
+
+
 # API
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/api.png){title="ACCESS LIMITS: Clients may maintain connections to the server for no more than 86,400 seconds per day. If you need additional time, you may contact IERS to file a request for up to one additional second." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/api_2x.png 2x" }
