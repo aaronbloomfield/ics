@@ -4,6 +4,31 @@ css: daily-announcements.css
 ---
 
 
+# Network
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/network.png){title="Viruses so far have been really disappointing on the &#39;disable the internet&#39; front, and time is running out.  When Linux/Mac win in a decade or so the game will be over." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 350](https://xkcd.com/350)
+:::
+
+
+## Lecture 18: Thu, June 12th
+- Office hours are M-F 9:30-10:20, or by appointment
+- Items due soon
+  - [HW 7: Forensics](../hws/hw-forensics-tabbed.html) is out, and due Saturday, June 14, by midnight
+    - Details on the Canvas landing page
+    - Please start it before the final on Saturday!
+- Grading
+  - Everything other than SQL/XSS/CSRF and Cryptocurrency has been returned
+  - A note about your Ethics and Rational Paranoia grades...
+- The final is this Saturday starting at 10:30
+- Gradescope submissions are open, and everything *should* be configured correctly
+- Today we will continue with [viruses](../slides/viruses.html#/) then onto [buffer overflows](../slides/buffer-overflows.html#/)
+
+
+
+
 # Virus Venn Diagram
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/virus_venn_diagram.png){title="Within five minutes of the Singularity appearing, somebody will suggest defragging it." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/virus_venn_diagram_2x.png 2x" }
@@ -24,6 +49,7 @@ css: daily-announcements.css
 - The final is this Saturday starting at 10:30
 - Gradescope submissions are open, and everything *should* be configured correctly
 - Today we will go through [digital forensics](../slides/forensics.html#/) and then onto [viruses](../slides/viruses.html#/)
+
 
 
 # Devotion to Duty
