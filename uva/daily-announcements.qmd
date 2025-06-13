@@ -4,6 +4,29 @@ css: daily-announcements.css
 ---
 
 
+# Final Exam
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/final_exam.png){title="For those of you also taking Game Theory, your grade in that class will be based on how close your grade on this exam is to 80% of the average." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/final_exam_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2385](https://xkcd.com/2385)
+:::
+
+## The End
+- Office hours are M-F 9:30-10:20, or by appointment
+- Items due soon
+  - [HW 7: Forensics](../hws/hw-forensics-tabbed.html) is out, and due tomorrow, Saturday, June 14, by midnight
+    - Details on the Canvas landing page
+    - Please start it before the final on Saturday!
+- Grading
+  - Everything other than SQL/XSS/CSRF and Cryptocurrency has been returned
+  - A note about your Ethics and Rational Paranoia grades...
+- The final is tomorrow starting at 10:30
+- Gradescope submissions are open, and everything *should* be configured correctly
+- Today we will finish [buffer overflows](../slides/buffer-overflows.html#/), [binary exploits](../slides/binary-exploits.html#/), and the [course reflection](../slides/reflection.html#/)
+
+
+
 # Network
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/network.png){title="Viruses so far have been really disappointing on the &#39;disable the internet&#39; front, and time is running out.  When Linux/Mac win in a decade or so the game will be over." style='border:10px solid white'  }

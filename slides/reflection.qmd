@@ -228,8 +228,8 @@ There were six "modules" this semester:
 
 ## What was new this semester / term
 
-- *VERY* small enrollment, due to the course being added in late August
-- A very high TA-to-student ratio, which made grading much easier
+- *VERY* small enrollment, due to the course being added late
+<!-- - A very high TA-to-student ratio, which made grading much easier -->
 - The auto-graders were updated
 
 <!-- 
@@ -298,9 +298,11 @@ other things that didn't work well in the past:
 
 
 ## What didn't work well
-- Slow grading on the last few homeworks
+
+- The discussions -- partly due both to the small class size and the participation component
+- Slow grading on a few homeworks (the written ones)
 - Homework difficulty was not as even as I would have liked, although I'm not sure how to solve this
-- A few recent auto-graders had lots of issues
+- A few recent auto-graders had issues
 
 <!--
 
