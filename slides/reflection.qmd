@@ -212,17 +212,17 @@ There were six "modules" this semester:
 - **Ethics & policy**, including the security mindset
 - **Encryption**, including hashing and randomness
 - **Networks**, including web security
-- **Modtern topics**, including SQL/XSS/CSRF, cryptocurrency, anonymity, rootkits, stuxnet, and VMs
+- **Modern topics**, including SQL/XSS/CSRF, cryptocurrency, anonymity, rootkits, Stuxnet, and VMs
 - **Binary exploits**, including viruses and buffer overflows
 - **Digital forensics**
 
 
 ## Follow-on courses
 - Ethics & policy: a STS 2500 course was supposed to be taught on this...
-- Encryption: CS 4501/6501 offerings on cryptography, but none this upcoming spring
-- Binary exploits: CS 4630, Defense Against the Dark Arts, this upcoming spring
-- Networks: CS 4760, Network Security, this upcoming spring
-- Modern topics: CS 4501 oferings: Cybersecurity and Elections, Cryptocurrency, Data Pricacy, etc.
+- Encryption: CS 4501/6501 offerings on cryptography
+- Binary exploits: CS 4630, Defense Against the Dark Arts
+- Networks: CS 4760, Network Security
+- Modern topics: CS 4501 offerings: Cybersecurity and Elections, Cryptocurrency, Data Privacy, etc.
 - Forensics: a CS 4501/6501, Digital Forensics, is occasionally offered
 
 
@@ -299,7 +299,6 @@ other things that didn't work well in the past:
 
 ## What didn't work well
 
-- The discussions -- partly due both to the small class size and the participation component
 - Slow grading on a few homeworks (the written ones)
 - Homework difficulty was not as even as I would have liked, although I'm not sure how to solve this
 - A few recent auto-graders had issues
@@ -316,6 +315,8 @@ other things that worked well in the past:
 	  
 
 ## What did work well
+
+- The discussions -- partly due both to the small class size and the participation component
 - The homeworks, even those that were a lot of work
 - I (mostly) kept up with the grading
 - The homeworks matched well with the lectures, even if some were delayed a bit from when they were presented in lecture
@@ -335,4 +336,4 @@ other things that worked well in the past:
 - And please fill out the course surveys!
 
 ## Have a great break!
-![](http://www.adamfishercox.com/calvinandhobbes/pageimages/laststrip.png)
+![](https://www.cs.virginia.edu/~asb2t/laststrip.png)
