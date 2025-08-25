@@ -1,4 +1,4 @@
-CS 3710: Syllabus for Introduction to Cybersecurity (ICS), fall 2025
+CS 3710: Syllabus for Introduction to Cybersecurity (ICS), summer 2025
 =========================================================
 
 [Go up to the ICS UVa page](index.html) ([md](index.md))
@@ -7,15 +7,15 @@ CS 3710: Syllabus for Introduction to Cybersecurity (ICS), fall 2025
 
 I realize that not everybody reads these through.  So the TL;DR version:
 
-- This course organized through Canvas, and the Canvas workspace is [here](https://canvas.its.virginia.edu/courses/146744)
-- Two midterms: Thursday, October 2nd and Thursday, November 6th, both in lecture
-- The final is Monday, December 15, 2024 from 9am to noon
-- We have a fairly unique extension system used in this class -- be sure you understand it (and the limitations)
-- Grades are 15% each midterm, 25% final exam, 40% homeworks, and 5% participation
+- This course organized through Canvas, and the Canvas workspace is [here](https://canvas.its.virginia.edu/courses/136577)
+- **The course has a uncommon participation grade -- be sure you are familiar with it**
+- One midterm, on Friday, May 30th, during class; one final, on Saturday, June 14th
+- Grades are 35% homeworks, 15% midterm, 20% final exam, and 30% participation
 - Most things are going to be auto-graded, but you can submit multiple times; the grades won't be known until the late due date has passed
 - If you encounter any rough spots in the course -- please be patient, and provide constructive feedback, and I'll do my best to get it all fixed
 - There will be both larger programming homeworks and smaller tutorial-style  homeworks or readings -- sometimes one of each will be assigned at any given time
 - Readings will typically have in-class quizzes when they are due
+- Attendance quizzes and reading quizzes may be online, so bring a connected device (phone is fine)
 - Office hours are the hour before lecture, or by appointment
 - I want you to succeed in this course and enjoy it -- if you are having any problems (personal, academic, what-not) that I can help with, please let me know
 
@@ -24,15 +24,15 @@ And now for the really long-winded version...
 
 ### Course Staff ###
 
-- [Aaron Bloomfield](https://www.cs.virginia.edu/~asb) / aaron at virginia dot edu.  Office: Rice Hall, room 402.  Office hours will be posted on the Canvas landing page
+- [Aaron Bloomfield](https://www.cs.virginia.edu/~asb) / aaron at virginia dot edu.  Office: Rice Hall, room 402.  Office hours TBA
 - TA information can be found on the Canvas landing page
 
 ### Course Info ###
 
-- Lecture: Tu/Th 11:00-12:15 in Rice 130
+- Lecture: Tu/Th 9:30-10:45 in Thornton Hall, room E316
 - Coordination is through [our Canvas workspace](https://canvas.its.virginia.edu/courses/136577)
-- Email: please use the course contact email (listed on the Canvas landing page)
-- Announcements will be typically done through the [daily announcements slide set](daily-announcements.html#/) or Piazza, rather than the Canvas announcements tool
+- Email: please use the course contact system (details TBA) rather than email; if you do have to email, please start the subject line with "ICS: "
+- Announcements will be done through the [daily announcements slide set](daily-announcements.html#/) rather than the Canvas announcements tool
 
 
 **Course content:** All the course content is available free online at [http://aaronbloomfield.github.io/ics](http://aaronbloomfield.github.io/ics), which is from a public Github repository: [https://github.com/aaronbloomfield/ics](https://github.com/aaronbloomfield/ics).  All the source code in that repository is released under a [GPL 3.0 license](https://www.gnu.org/licenses/gpl-3.0.en.html), and all the non-source code material in that repository is released under a [Creative Commons license](https://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA).  Note that this license and the public availability does NOT apply to the lecture videos.
@@ -58,10 +58,10 @@ The course objectives are:
 
 **Grades:** Grades will be calculated by the following formula:
 
-- Programming and written assignments (40%)
-- Midterms (15% each)
-- Final exam (25%)
-- Class participation, pop quizzes (5%)
+- Programming and written assignments (35%)
+- Midterm (15%)
+- Final exam (20%)
+- Class participation, pop quizzes (30%)
 
 I *expect* that grades will follow the standard decade curve: 90 and above is an A of some sort (A-, A, or A+), 80 and above is some sort of a B, etc.  **Note:** I reserve the right to modify the weighting (changing the curve, adding pop quizzes, etc.), especially if attendance drops off significantly.  In particular, if the grade averages are very high, then you will need higher than a 90 to get an A-.
 
@@ -79,17 +79,15 @@ Summer is a very different situation -- it's 5 days a week for 2 hours and 15 mi
 
 **Special Circumstances:** Students with special circumstances (athletics, extra time required on exams, final exam conflicts, SDAC considerations, etc.) need to let me know as soon as possible.  General SDAC accommodations are handles as per our [SDAC Accommodations](sdac.html) ([md](sdac.md)) page.
 
-**Extensions and late submissions:** Assignments turned in after the due date are penalized 25% per day (or fraction thereof) late; this means a maximum of 3 days (i.e. 72 hours) late.  For example, anywhere from 1 second late to 24 hours late receives 25% percent off.
+**Extensions:**  You may request an extension on any homework assignment for any reason.  That extension is up to 4 days.  To do so, you will have to fill out an extension request form, the link to which will be provided on the Canvas landing page.  You can assume that the extension will be automatically provided by filling out the form.
 
-You may request an extension on any assignment (PA or PS) for any reason -- there is an automated system, linked to from the Canvas landing page, for this.  That extension is 4 days.  HOWEVER, you only have 8 such "free late passes" during the semester -- once they are used up, there will not be any more.  An extension will delay the onset of the late penalty -- so if you get an extension, then the late penalty does not kick in until the 5th day after the due date.
-
-This extension rule does not apply to quizzes, exams, or any in-class activities.  It only applies to programming assignments (PAs) and written assignments (PSs).
+This extension rule does not apply to quizzes, exams, or any in-class activities.  It only applies to homework assignments.
 
 However, there are a few specifics to this extension rule:
 
-- As mentioned above, you only have 8 such free late passes to use throughout the semester
-- The extension request must be submitted no later than 3 days after the (regular) due date.  We will not consider anybody that misses this date (it actually should be in before the due date itself, but we are giving you 3 days to submit after that point).
-- This extension time covers any and all situations:     travel, holidays, being busy, family emergencies, SDAC (generally), dog ate your homework, religious observances, interviews, thunderstorms, power outages, temporal dislocation, etc.
+- The extension request must be in *before* the due date; you can't request an extension after the due date.
+    - Note that the Google Forms form will allow submissions at any time, and does not know the due date for the assignment you are requesting an extension for.  We will filter out late extension requests ourselves. 
+- This extension time covers any and all situations -- being sick, busy, exam or homework congestion, your dog ate your homework, etc.
 - We are not expecting to allow any further extensions beyond this 4 days, unless there are considerable extenuating circumstances -- basically, something that would have granted an extension for more than 4 days in the first place.  If you get busy or sick at the end of your 4 day extension request, then that's your tough luck.
 - After you extension ends, the late penalty (above) kicks in for the next three days.
 - This policy *already includes* SDAC accommodations less than 4 days (we are just extending these accommodations to everybody).  Likewise, religious accommodations of a short time (a few days) are handled by this policy as well.  
@@ -97,11 +95,15 @@ However, there are a few specifics to this extension rule:
 - For written assignments, if you turn your assignment in on time, then that will be the version graded -- you can't turn it in on time, then file an extension, then submit it later, and expect the later version to be graded.  We will have already started grading the on-time submissions, and we just don't have the staffing capacity to grade multiple submissions from students.
 - This means that any written assignment turned in after the due date, whether late or via an extension, will end up taking much longer to be graded.
 - TA and instructor office hours are optimized for the actual due date -- if you file for an extension, there may not be sufficient office hours available for when you plan to submit it.  Also, the next week's office hours will have to focus on the assignment due that week.
-
+- If you get the assignment in on time (no extension, no lateness), you will receive a 5% bonus on that assignment.
 
 **Grading:** Programming assignments are auto-graded, and will be returned after the end of the extension and late period -- which means after 8 days after the due date.  The provided input and required output will be clearly specified in the assignment write-up.  When you submit your assignment, a few *acceptance* tests will be run.  These tests are meant to ensure that your program works with the required input and output.  They will test the provided examples in the assignment write-up, but they are ***NOT*** meant to be comprehensive.  Your grade will ***NOT*** be based on the acceptance tests -- instead, there will be a separate battery of comprehensive tests that will be used to determine your grade.  These tests (and their results) will not be revealed until the homework is returned -- if they were, then one could just write a program with only `print()` statements to pass all those tests.
 
-**Exams:** There will be two midterms and a final exam.  Dates are shown above and on the Canvas landing page.
+**Exams:** There will be one midterm exam (worth 20% of the final grade) and one final exam (worth 25% of the final grade).
+
+- Midterm exam: Thursday, October 10th, during lecture
+- Final exam: Tuesday, December 17th, from 2-5 pm
+	- We know that's a terrible exam time -- it certainly wasn't our choice.  We don't like that exam time, either.
 
 Under **NO** circumstances will anybody be allowed to take the final exam early.  You may **ONLY** request to take the final exam at a different time if you have a final exam **CONFLICT**, not a busy final exam schedule.  Since there are no other exams scheduled during that time, it is unlikely that you will have a conflict.  You have to be present, in person, at the final exam period.
 
@@ -115,16 +117,16 @@ Students are encouraged to discuss programs and assignments in general. However,
 
 ----
 
-## Life
+
+## Student Support
 
 Bad things happen. People forget things and make mistakes. Bad days coincide with due dates. etc.  We aim to have our extension policy, above, help to cover these types of issues.  If you believe that circumstances warrant an change in deadline, a second chance, or some other accommodation in order to more accurately synchronize grade with knowledge, come talk to your professor and we'll resolve the situation as best we can.  Note that there needs to be a significant reason for this, as we already are providing a free 4 day extension.
 
 
 
-
 ### Students with disabilities or learning needs
 
-It is my goal to create a learning experience that is as accessible as possible. If you anticipate any issues related to the format, materials, or requirements of this course, please meet with me outside of class so we can explore potential options. Students with disabilities may also wish to work with the Student Disability Access Center (SDAC) to discuss a range of options to removing barriers in this course, including official accommodations. We are fortunate to have an SDAC advisor, Courtney MacMasters, physically located in Engineering. You may email her at [cmacmasters@virginia.edu](mailto:cmacmasters@virginia.edu) to schedule an appointment. For general questions please visit the [SDAC website](https://sdac.studenthealth.virginia.edu). If you have already been approved for accommodations through SDAC, please send me your accommodation letter and meet with me so we can develop an implementation plan together.
+It is our goal to create a learning experience that is as accessible as possible. If you anticipate any issues related to the format, materials, or requirements of this course, please meet with one of us outside of class so we can explore potential options. Students with disabilities may also wish to work with the Student Disability Access Center (SDAC) to discuss a range of options to removing barriers in this course, including official accommodations. We are fortunate to have an SDAC advisor, Courtney MacMasters, physically located in Engineering. You may email her at [cmacmasters@virginia.edu](mailto:cmacmasters@virginia.edu) to schedule an appointment. For general questions please visit the [SDAC website](https://sdac.studenthealth.virginia.edu). If you have already been approved for accommodations through SDAC, please send us your accommodation letter and meet with me so we can develop an implementation plan together.
 
 Note that we expect most (or perhaps all) accommodation requests will be handled by our extension policy, above.
 
@@ -132,55 +134,46 @@ Note that we expect most (or perhaps all) accommodation requests will be handled
 
 It is the University's long-standing policy and practice to reasonably accommodate students so that they do not experience an adverse academic consequence when sincerely held religious beliefs or observances conflict with academic requirements.
 
-Students who wish to request academic accommodation for a religious observance should submit their request to me by email as far in advance as possible. Students who have questions or concerns about academic accommodations for religious observance or religious beliefs may contact the [University's Office for Equal Opportunity and Civil Rights](https://eocr.virginia.edu/) (EOCR) at [UVAEOCR@virginia.edu](mailto:UVAEOCR@virginia.edu) or 434-924-3200.
+As with the previous section, we expect most (or perhaps all) accommodation requests will be handled by our extension policy, above.
+
+Students who wish to request academic accommodation for a religious observance should submit their request to us by email as far in advance as possible. Students who have questions or concerns about academic accommodations for religious observance or religious beliefs may contact the [University's Office for Equal Opportunity and Civil Rights](https://eocr.virginia.edu/) (EOCR) at [UVAEOCR@virginia.edu](mailto:UVAEOCR@virginia.edu) or 434-924-3200.
 
 ### Harassment, Discrimination, and Interpersonal Violence
 
-The University of Virginia is dedicated to providing a safe and equitable learning environment for all students. If you or someone you know has been affected by power-based personal violence, more information can be found on the [UVA Sexual Violence website](https://www.virginia.edu/sexualviolence) that describes reporting options and resources available.
+The University of Virginia is dedicated to providing a safe and equitable learning environment for all students. If you or someone you know has been affected by power-based personal violence, more information can be found on the [UVA Sexual Violence website](http://www.virginia.edu/sexualviolence) that describes reporting options and resources available.  
 
 The same resources and options for individuals who experience sexual misconduct are available for discrimination, harassment, and retaliation.  [UVA prohibits discrimination and harassment](https://uvapolicy.virginia.edu/policy/HRM-009) based on age, color, disability, family medical or genetic information, gender identity or expression, marital status, military status, national or ethnic origin, political affiliation, pregnancy (including childbirth and related conditions), race, religion, sex, sexual orientation, or veteran status. [UVA policy](https://uvapolicy.virginia.edu/policy/HRM-010) also prohibits retaliation for reporting such behavior. 
 
-If you witness or are aware of someone who has experienced prohibited conduct, you are encouraged to submit a report to [Just Report It](justreportit.virginia.edu) or [contact EOCR](mailto:uvaeocr@virginia.edu), the office of Equal Opportunity and Civil Rights.
+If you witness or are aware of someone who has experienced prohibited conduct, you are encouraged to submit a report to [Just Report It](https://justreportit.virginia.edu) or [contact EOCR](mailto:UVAEOCR@virginia.edu), the office of Equal Opportunity and Civil Rights.
 
-If you would prefer to disclose such conduct to a confidential resource where what you share is not reported to the University, you can turn to [Counseling & Psychological Services ("CAPS")](https://sites.studenthealth.virginia.edu/CAPS) and [Women's Center Counseling Staff and Confidential Advocates](https://womenscenter.virginia.edu/counseling/our-counseling-services) (for students of all genders).
+If you would prefer to disclose such conduct to a confidential resource where what you share is not reported to the University, you can turn to [Counseling & Psychological Services ("CAPS")](https://www.studenthealth.virginia.edu/caps) and [Women's Center Counseling Staff and Confidential Advocates](https://womenscenter.virginia.edu/counseling/our-counseling-services) (for students of all genders).
 
-As your professors and as people, know that we care about you and your well-being and stand ready to provide support and resources as I can. As a faculty member, I am a responsible employee, which means that I am required by University policy and by federal law to report certain kinds of conduct that you report to me to the University's Title IX Coordinator. The Title IX Coordinator's job is to ensure that the reporting student receives the resources and support that they need, while also determining whether further action is necessary to ensure survivor safety and the safety of the University community. 
+As your professors and as people, know that we care about you and your well-being and stand ready to provide support and resources as we can. As a faculty member, we are responsible employees, which means that we are required by University policy and by federal law to report certain kinds of conduct that you report to me to the University's Title IX Coordinator. The Title IX Coordinator's job is to ensure that the reporting student receives the resources and support that they need, while also determining whether further action is necessary to ensure survivor safety and the safety of the University community. 
 
 ### Support for your career development
 
 Engaging in your career development is an important part of your student experience. For example, presenting at a research conference, attending an interview for a job or internship, or participating in an extern/shadowing experience are not only necessary steps on your path but are also invaluable lessons in and of themselves. I wish to encourage and support you in activities related to your career development. To that end, please notify me by email as far in advance as possible to arrange for appropriate accommodations.
 
-### General CS Student Support
+### Student support team
 
-Please do not wait until the end of the semester to ask for help! 
+You have many resources available to you when you experience academic or personal stresses. In addition to your professor, the School of Engineering and Applied Science has staff members located in Thornton Hall who you can contact to help manage academic or personal challenges. Please do not wait until the end of the semester to ask for help! 
 
-At UVA, you have many resources available to you when you experience academic or personal stress, and we understand that it's hard to know where to go, especially for CS students as our undergraduates span both the College of Arts and Sciences (BACS) and SEAS (BSCS). 
+### Learning
 
- In addition to your professor, the Computer Science department has staff members located in Rice Hall who you can contact to help talk through your academic or personal challenges and get you connected to the right resources. You may reach out directly to either SJ Jimenez-Calhoun ([smj4z@virginia.edu](mailto:smj4z@virginia.edu)) or Sheri Grimes ([prk2zq@virginia.edu](mailto:prk2zq@virginia.edu)), or visit during walk-in advising hours posted here: [https://uvacsadvising.org/](https://uvacsadvising.org/).
+- [Lisa Lampe](mailto:ll4uu@virginia.edu), Assistant Dean for Undergraduate Affairs
+- [Georgina Nembhard](mailto:gnembhard@virginia.edu), Director of Student Success 
+- [Courtney MacMasters](mailto:cmacmasters@virginia.edu), Accessibility Specialist
+- [Free tutoring](https://engineering.virginia.edu/current-students/current-undergraduate-students/student-support/tutoring) is available for most classes.
 
+### Health and Well-being
 
-#### Academic Support
+- [Kelly Garrett](mailto:mwu5gs@virginia.edu), Assistant Dean of Students, Student Safety and Support  
+- Elizabeth Ramirez-Weaver, CAPS counselor
+- Katie Fowler, CAPS counselor
 
-- [Lisa Lampe, Assistant Dean for Undergraduate Affairs](https://engineering.virginia.edu/undergraduate-study/contact-us)
-- [Georgina Nembhard, Director of Student Success](https://engineering.virginia.edu/undergraduate-study/contact-us)
-- [Free tutoring](https://engineering.virginia.edu/undergraduate-study/student-support/tutoring) is available for many CS and Engineering classes  in addition to more [academic support programs around Grounds](https://academicsupport.virginia.edu/) for a variety of other courses.
-
-#### Mental Health
-
-- You may schedule time with the CAPS counselors at [this link](https://sites.studenthealth.virginia.edu/mental-health/getting-started-scheduling).
-- If you need immediate assistance, call (434) 243-5150 to speak with an on-call clinician. 
- Accommodations
-- [Learn about the process of applying for Student Disability Access Center (SDAC)](https://disabilityservices.studenthealth.virginia.edu/application-process) services, completing an online application, submitting documentation, undergoing a review, and attending an appointment to establish accommodations
+You may schedule time with the CAPS counselors through [Student Health](https://www.studenthealth.virginia.edu/getting-started-caps). When scheduling, be sure to specify that you are an Engineering student. You are also urged to use [TimelyCare](https://www.studenthealth.virginia.edu/timelycare) for either scheduled or on-demand 24/7 mental health care. 
 
 ### Community and Identity
 
-The Center for Connection (The Connect) is a dedicated student space within UVA Engineering that fosters academic success and personal growth. Through its programs and initiatives, The Connect helps students strengthen their engineering identity while providing resources to help them thrive during their studies and beyond. Our work centers on three key areas: student belonging and development, academic support, and community programming grounded in intentional, data-driven strategies.
+The [Center for Diversity in Engineering](https://engineering.virginia.edu/about/diversity-and-engagement/center-diversity-engineering) (CDE) is a student space dedicated to advocating for underrepresented groups in STEM. It exists to connect students with the academic, financial, health, and community resources they need to thrive both at UVA and in the world.  The CDE includes an open study area, event space, and staff members on site. Through this space, we affirm and empower equitable participation toward intercultural fluency and provide the resources necessary for students to be successful during their academic journey and future careers.
 
-The Connect features an open study area, a flexible event space, and on-site staff who provide direct support and advising to students. It is part of the [Office of Community, Opportunity, and Engagement](https://engineering.virginia.edu/offices-programs/office-community-opportunity-and-engagement). 
-
-
-----
-
-## Additional Notes
-
-**Syllabus Note**: This syllabus is to be considered a reference document that may be adjusted throughout the course of the semester to address necessary changes. This syllabus can be changed at any time without notification; we will announce any major changes. Final authority on any decision in this course rests with the professors, not with this document.

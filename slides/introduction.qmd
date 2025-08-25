@@ -197,12 +197,28 @@ title: "Course Introduction"
 - Prerequisites: CS 2100 (DSA1) and CS 2130 (CSO1), each with a grade of C- or higher
   - If you are on the old curriculum, then CS 2150 (PDR) with a grade of C- or higher
 - Grades
+  - Two midterms (15% each) (dates in [syllabus](../uva/syllabus.html))
+  - Final exam (25%) (date on [syllabus](../uva/syllabus.html))
+  - Homeworks (40%)
+  - Class participation, pop quizzes (5%)
+- I reserve the right to adjust the percentages based on the number of assignments and quizzes, and other factors
+
+
+<!--
+
+## Class Information
+- Prerequisites: CS 2100 (DSA1) and CS 2130 (CSO1), each with a grade of C- or higher
+  - If you are on the old curriculum, then CS 2150 (PDR) with a grade of C- or higher
+- Grades
   - One midterm (15%) (date on [syllabus](../uva/syllabus.html))
   - Final exam (20%) (date on [syllabus](../uva/syllabus.html))
   - Homeworks (40%)
   - Class participation, pop quizzes (30%)
 - I reserve the right to adjust the percentages based on the number of assignments and quizzes, and other factors
 
+-->
+
+<!--
 
 ## Participation
 - Summer is a rough time -- 5 days a week of lecture for 2 hours and 15 minutes
@@ -214,6 +230,8 @@ title: "Course Introduction"
 - That's a Boolean AND
 - Any day missed is 2 (of 30) points off
 
+-->
+
 
 ## More on that pre-requisite
 - If you are are a transfer student (or a non-UVA student during the summer term), then your pre-req is all of the following:
@@ -224,10 +242,10 @@ title: "Course Introduction"
 
  
 ## Exams
-- As mentioned, one midterm:
-  - Friday, May 30th, during lecture
+- As mentioned, two midterms
+  - Thu, Oct 2 and Thu, Nov 6, both in class
 - Final exam
-  - Saturday, June 14th, during lecture
+  - Monday, December 15th from 9am to noon
   - You can't take it early, so please don't ask
   - You can't take it late, either
 
@@ -241,6 +259,13 @@ title: "Course Introduction"
   - Some "hard" ones will have a bit more time
 - Note that the difficulty level of the homeworks varies considerably
 
+## Extensions
+
+- You can get 6 extensions for homeworks throughout the semester
+  - Each one adds 4 days to the due date; late penalties would kick in after
+- There is no bonus for not having used them all
+- This is done through an online extensions system; link on Canvas landing page
+- This covers ***ALL*** accommodations: travel, holidays, being busy, family emergencies, SDAC (generally), dog ate your homework, religious observances, interviews, thunderstorms, power outages, temporal dislocation, etc.
 
 
 <!--

@@ -1,4 +1,4 @@
-ICS: UVa specific material, fall 2025
+ICS: UVa specific material, summer 2025
 =======================================
 
 [Go up to the main ICS readme](../readme.html) ([md](../readme.md))
@@ -38,8 +38,6 @@ Readings
 
 All scholarly articles (such as from the ACM digital library) can be obtained from free from any UVa wireless network.  Some of them you will *NOT* be able to get it for free from your home Internet provider such as Comcast (unless you live in a UVa dorm, of course) without using a UVa VPN.  All readings are due by the start of lecture that day.
 
-Readings are listed on the Canvas landing page.
-
 <!--
 - Due Friday, September 13th:
     - [An Introduction to Cybersecurity Ethics](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf): you can skip the questions (the blue boxes therein); once you remove those, the table of contents, and the appendices, it's about 35 typed pages
@@ -50,14 +48,11 @@ Readings are listed on the Canvas landing page.
 
 -->
 
-<!--
-
 - Due Wednesday, May 21st:
 	- [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
     - [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210)
 	- [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
 
--->
 
 Homeworks
 -----------
@@ -65,8 +60,6 @@ Homeworks
 Unless otherwise noted, all submissions are due by the end of the day of the due date given -- this means by 11:59:59 pm.  The late policies are discussed in the [homework policies page](hw-policies.html) ([md](hw-policies.md)).  Submission is through the Gradescope -- all submissions should open up 3 days (i.e., 72 hours) prior to the due date/time (1 day / 24 hours in summer terms).
 
 To avoid having the due dates having to be listed in too many places, the homeworks and their due dates are not shown here.  The homeworks themselves can be seen on the [Homeworks page](../hws/index.html) ([md](../hws/index.md)) -- but please don't start on one until it's announced in class that it is ready!  You can see the due dates in the [daily announcements](daily-announcements.html#/) and the [Canvas landing page][1].
-
-Homeworks are listed on the Canvas landing page.
 
 <!-- 
 
@@ -83,3 +76,31 @@ Homeworks are listed on the Canvas landing page.
 - [HW 3: Ethics](../hws/hw-ethics.html) ([md](../hws/hw-ethics.md)) is due Friday, September 20th
 
 -->
+
+
+
+Expected lecture progress
+-------------------------
+
+The links to the specific slides sets can be found on the [slides page](../slides/index.html) ([md](../slides/index.md)).
+
+1. Mon, May 19: course introduction; security mindset, terminology
+2. Tue, May 20: terminology, policy, ethics
+3. Wed, May 21: ethics, encryption
+4. Thu, May 22: encryption
+5. Fri, May 23: encryption
+6. Tue, May 27: encryption, networks
+7. Wed, May 28: web security
+8. Thu, May 29: web security, SQL/XSS/CSRF
+9. Fri, May 30: (midterm)
+10. Mon, Jun 2: SQL/XSS/CSRF, cryptocurrency
+11. Tue, Jun 3: anonymity, rootkits
+12. Wed, Jun 4: rootkits, virtual machines, stuxnet
+13. Thu, Jun 5: stuxnet, viruses
+14. Fri, Jun 6: viruses, buffer overflows
+15. Mon, Jun 9: buffer overflows
+16. Tue, Jun 10: forensics
+17. Wed, Jun 11: binary exploits
+18. Thu, Jun 12: (buffer class)
+19. Fri, Jun 13: (buffer class)
+
