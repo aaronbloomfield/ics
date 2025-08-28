@@ -23,12 +23,23 @@ For each of the three total scenarios (two from our list, one of your own, as ex
 	
 Answer each of the above in the form of a bulleted list, with brief justifications or explanations as necessary. State any critical assumptions you decide to make. Your grade will be based on the thoroughness, realism, and thoughtfulness of your analysis.  We are more interested in quality than quantity.  But if you want a length estimate, then one or two sentences for each "brief_explanation", below, is reasonable.  That being said, as long as you are being concise and not adding in fluff (see [here](../uva/hw-policies.html) ([md](../uva/hw-policies.md)) for a definition of fluff), they can be longer.
 
-Pick two of the following scenarios.
+The following scenario is required:
 
+- UVA is starting to use mobile ID cards, and the company they are contracting with ([Atrium Campus Connect](https://atriumcampus.com)) has a [sketchy and self-contradictory privacy policy that indicates they will sell the information they collect](https://atriumcampus.com/privacy-policy/) (see section 2.5: they can disclose your private information to companies with which they have "joint marketing agreements"; also section 2.7).  How do you preserve your privacy when UVA is using such a system?
+
+
+Pick one of the following scenarios.
+
+- You are the chief of police for a university where there are expected to be protests, both peaceful and less than peaceful.  How do you keep the students safe while allowing freedom of expression?
+- You are trying to secure your home network.  You have dozens of IoT devices, and individuals who install a lot of sketchy apps on their mobile phones.  How do you secure this home network?
+- UVA data breach!  The 2FA (two factor authentication) that UVA uses is exploitable.  A fix is in the works, but that will take two weeks to implement.  In the mean time, how do you secure UVA's logins?
+
+<!-- from summer 2025:
 - You are in charge of security for a political individual (politician, judge, candidate) who has received threats in this politically divisive era
 - You are the head of computing security for a corporation that is being targeted by foreign actors who want to steal your technological intellectual property
 - Threats have been made against interior hydrological structures, specifically dams, and you are now responsible for their security
 - You are the computing security individual in charge at a company who handles military contracts with the US government, and as a result of the recent invasion of Ukraine by Russia, you are a target for Russian hackers
+-->
 
 <!-- from fall 2024:
 - You are now in charge of ensuring that UVA students can express their first amendment rights through protest, while also ensuring the safety of the protesters and the UVA community.

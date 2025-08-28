@@ -254,7 +254,7 @@ title: "Course Introduction"
 ## Homeworks
 - Late homework is docked 25% per day (or fraction thereof)
   - Thus, more than 72 hours late will receive a zero 
-- Homeworks will generally be given out two per week
+- Homeworks will generally be given out, one per week
   - Some "easy" ones will be more often
   - Some "hard" ones will have a bit more time
 - Note that the difficulty level of the homeworks varies considerably
@@ -290,7 +290,7 @@ title: "Course Introduction"
 -->
 
 ## Us and you
-- Office hours are the hour before class starts
+- Office hours will be posted on the Canvas landing page
   - And by appointment
 - I avoid e-mailing the class; announcements will be discussed each day in lecture and posted to Canvas / Piazza
 - To contact me, chat with me before, during, or after class
