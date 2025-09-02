@@ -5,6 +5,33 @@ css: daily-announcements.css
 
 
 
+# Security Advice
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/security_advice.png){title="Never give your password or bank account number to anyone who doesn&#39;t have a blue check mark next to their name." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/security_advice_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1820](https://xkcd.com/1820)
+:::
+
+## Lecture 3: Tue, Sep 2nd
+- Office hours start this week
+  - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
+  - TA office hours are ...
+    - TA pictures linked to from the Canvas landing page
+  - This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+- Homeworks
+  - Homework due this Thursday (September 4th) by midnight: [HW 1: Rational Paranoia](../hws/hw-paranoia-tabbed.html)
+    - You have to follow the formatting guidelines described therein!
+    - You will likely want to wait until we finish the [security mindset slide set](../slides/security-mindset.html#/) slide set
+    - Submission on Gradescope will open up three days (72 hours) before it is due
+  - The second homework, out later this week, will be on Ethics, due next Thursday (Sep 11th)
+    - It's ready, but we need to go through the [ethics slide set](../slides/ethics.html#/) first
+- Readings
+  - Due this Thursday, September 4th: [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will continue with [terminology slide set](../slides/terminology.html#/), then onto [ethics](../slides/ethics.html#/)
+
+
 # Security Question
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/security_question.png){title="Let&#39;s invite him to a party and play &#39;I never&#39;.  Okay, I never hid any bodies SOUTH of Main Street. ... he&#39;s taking a drink!" style='border:10px solid white'  }
@@ -12,8 +39,6 @@ css: daily-announcements.css
 ::: {.r-stack}
 [xkcd \# 565](https://xkcd.com/565)
 :::
-
-
 
 ## Lecture 2: Thu, Aug 28th
 - Office hours start next week
@@ -25,7 +50,7 @@ css: daily-announcements.css
     - You will likely want to wait until we finish the [security mindset slide set](../slides/security-mindset.html#/) slide set
     - Submission on Gradescope will open up three days (72 hours) before it is due
   - The second homework will be on Ethics, due the following Thursday (Sep 11th)
-  	- It's ready, but we need to go through the [ethics slide set](../slides/ethics.html#/) first
+    - It's ready, but we need to go through the [ethics slide set](../slides/ethics.html#/) first
 - Readings
   - Due next Thursday, September 4th: [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
 - Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
