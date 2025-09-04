@@ -5,6 +5,34 @@ css: daily-announcements.css
 
 
 
+# Password Strength
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/password_strength.png){title="To anyone who understands information theory and security and is in an infuriating argument with someone who does not (possibly involving mixed case), I sincerely apologize." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/password_strength_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 936](https://xkcd.com/936)
+:::
+
+## Lecture 4: Tue, Sep 4th
+- Office hours have started, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+  - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
+  - TA office hours are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Thursdays 12:30-2:30 (Matt), and Fridays 11-1 (Eddie)
+    - TA pictures linked to from the Canvas landing page
+- Homeworks
+  - Homework due today (Thursday, September 4th) by midnight: [HW 1: Rational Paranoia](../hws/hw-paranoia-tabbed.html)
+    - You have to follow the formatting guidelines described therein!
+    - The extension system is linked to from the Canvas landing page
+    - Extensions can be submitted up to 3 days after the (original) due date
+  - [HW 2: Ethics](../hws/hw-ethics-tabbed.html) is out, and due next Thursday (September 11th)
+    - Submission on Gradescope will open up three days (72 hours) before it is due
+- Readings
+  - Due today, Thursday, September 4th: [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will start on [encryption](../slides/encryption.html#/)
+  - We'll come back to [policy](../slides/policy.html#/) later
+
+
+
 # Security Advice
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/security_advice.png){title="Never give your password or bank account number to anyone who doesn&#39;t have a blue check mark next to their name." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/security_advice_2x.png 2x" }
@@ -30,6 +58,7 @@ css: daily-announcements.css
   - Due this Thursday, September 4th: [ACM Code of Ethics](https://www.acm.org/code-of-ethics), [Reflections on Trusting Trust](https://dl.acm.org/citation.cfm?id=358210), [Morris Worm Wikipedia page](https://en.wikipedia.org/wiki/Morris_worm)
 - Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
 - Today we will continue with [terminology slide set](../slides/terminology.html#/), then onto [ethics](../slides/ethics.html#/)
+
 
 
 # Security Question
