@@ -16,7 +16,7 @@ css: daily-announcements.css
 ## Lecture 4: Tue, Sep 4th
 - Office hours have started, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
   - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
-  - TA office hours are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Thursdays 12:30-2:30 (Matt), and Fridays 11-1 (Eddie)
+  - TA office hours are all in Rice 442 and are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Thursdays 12:30-2:30 (Matt), and Fridays 11-1 (Eddie)
     - TA pictures linked to from the Canvas landing page
 - Homeworks
   - Homework due today (Thursday, September 4th) by midnight: [HW 1: Rational Paranoia](../hws/hw-paranoia-tabbed.html)
