@@ -4,6 +4,34 @@ css: daily-announcements.css
 ---
 
 
+# Smart Home Security
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/smart_home_security.png){title="If they&#39;re getting valuable enough stuff from you, at least the organized crime folks have an incentive to issue regular updates to keep the appliance working after the manufacturer discontinues support." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/smart_home_security_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1966](https://xkcd.com/1966)
+:::
+
+## Lecture 6: Thu, Sep 11th
+- Office hours have started, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+  - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
+  - TA office hours are all in Rice 442 and are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Thursdays 12:30-2:30 (Matt), and Fridays 11-1 (Eddie)
+    - TA pictures linked to from the Canvas landing page
+- Homeworks
+  - Homework due today (Thu, Sep 11th), by midnight: [HW 2: Ethics](../hws/hw-ethics-tabbed.html)
+    - You have to follow the formatting guidelines described therein!
+    - The extension system is linked to from the Canvas landing page
+    - Extensions can be submitted up to 3 days after the (original) due date
+  - [HW 3: RSA](../hws/hw-rsa-tabbed.html) is out, and due next Thursday (Sep 18th) by midnight
+    - Submission on Gradescope will open up three days (72 hours) before it is due
+    - This is not the easiest assignment, so please do not wait until the last minute to start it!
+- Readings: none currently assigned
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will continue with [encryption](../slides/encryption.html#/)
+  - We'll come back to [policy](../slides/policy.html#/) later
+
+
+
 # Cyberintelligence
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/cyberintelligence.png){title="We had gathered that raw information, but had yet to put it all together." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/cyberintelligence_2x.png 2x" }
@@ -18,7 +46,7 @@ css: daily-announcements.css
   - TA office hours are all in Rice 442 and are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Thursdays 12:30-2:30 (Matt), and Fridays 11-1 (Eddie)
     - TA pictures linked to from the Canvas landing page
 - Homeworks
-  - Homework due this Thursday, September 1th, by midnight: [HW 2: Ethics](../hws/hw-ethics-tabbed.html)
+  - Homework due this Thursday, September 11th, by midnight: [HW 2: Ethics](../hws/hw-ethics-tabbed.html)
     - You have to follow the formatting guidelines described therein!
     - The extension system is linked to from the Canvas landing page
     - Extensions can be submitted up to 3 days after the (original) due date
