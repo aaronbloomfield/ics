@@ -4,6 +4,33 @@ css: daily-announcements.css
 ---
 
 
+# How Hacking Works
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/how_hacking_works.png){title="If only somebody had warned them that the world would roll them like this." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/how_hacking_works_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2176](https://xkcd.com/2176)
+:::
+
+## Lecture 8: Thu, Sep 18th
+- Office hours are ongoing, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+  - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
+  - TA office hours are all in Rice 442 and are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Thursdays 12:30-2:30 (Matt), and Fridays 11-1 (Eddie)
+    - TA pictures linked to from the Canvas landing page
+- Homeworks
+  - [HW 3: RSA](../hws/hw-rsa-tabbed.html) is due this Thursday, Sep 18th, by midnight
+    - Submission on Gradescope is open
+    - This is not the easiest assignment, so please do not wait until the last minute to start it!
+  - [HW 4: Hashing](../hws/hw-hashing-tabbed.html) will be ready later today (I'll post on Piazza when)
+- Readings: 
+  - Due next Thu, Sep 25th: watch [Last Week Tonight with John Oliver: Data Brokers](https://www.youtube.com/watch?v=wqn3gR1WTcA) (25:09 long)
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will continue with [networks](../slides/networks.html#/), then on to [web security](../slides/web-security.html#/)
+  - We'll come back to [policy](../slides/policy.html#/) later
+
+
+
+
 # Bag Check
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/bag_check.png){title="A laptop battery contains roughly the stored energy of a hand grenade, and if shorted it ... hey!  You can&#39;t arrest me if I prove your rules inconsistent!" style='border:10px solid white'  }
