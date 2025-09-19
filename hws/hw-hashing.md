@@ -118,10 +118,10 @@ A password file will be provided in the following format:
 
 ```
 aaron 1d06b71965f3c7466467c7a89dd1aadfffe9da9f409017c1fa363b49312d70f4
-abby 36a095da4e23a3b35db038092aef1b8c3dbd4eb7068d3fdc869af10849476f82
-akira f9c6b88c040ec9388f78d50a06d2da92362f9d9a219a3180fde59c768da3f366
-alexander 553c165c0199e45e6c44ea743650d7f48a62c82357d46a03179b86719d670b2a
-feyona 83352f28d732fa2a255d6c69d5c332f6b9f421d89bacb2ed334b0841bfce6661
+eddie f9c6b88c040ec9388f78d50a06d2da92362f9d9a219a3180fde59c768da3f366
+fiona 83352f28d732fa2a255d6c69d5c332f6b9f421d89bacb2ed334b0841bfce6661
+matt 553c165c0199e45e6c44ea743650d7f48a62c82357d46a03179b86719d670b2a
+varun 36a095da4e23a3b35db038092aef1b8c3dbd4eb7068d3fdc869af10849476f82
 ```
 
 The file is ASCII, and all usernames will be alphanumeric strings.  There is exactly one space between the two tokens on any given line.  The hashes shown are SHA-256 hashes.  The passwords used to generate those hashes are shown in the execution run, below.
@@ -140,11 +140,11 @@ Your program should print out one line for the passwords that it finds.  Here is
 
 ```
 $ ./dictionary.sh words passwords.txt _l337_h4x0r
-password for feyona is: astound
+password for fiona is: astound
 password for aaron is: flotation
-password for alexander is: patois
-password for abby is: plastic
-password for feyona is: spade
+password for matt is: patois
+password for varun is: plastic
+password for eddie is: spade
 $ 
 
 ```
