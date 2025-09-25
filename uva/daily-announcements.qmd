@@ -3,6 +3,35 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+
+# Authorization
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/authorization.png){title="Before you say anything, no, I know not to leave my computer sitting out logged in to all my accounts. I have it set up so after a few minutes of inactivity it automatically switches to my brother&#39;s." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/authorization_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1200](https://xkcd.com/1200)
+:::
+
+## Lecture 10: Thu, Sep 25th
+- Office hours are ongoing, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+  - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
+  - TA office hours are all in Rice 442 and are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Wednesday 11-1 (Eddie), and Thursdays 12:30-2:30 (Matt)
+    - Note the Fri 11-1 has now moved to Wed 11-1
+    - TA pictures linked to from the Canvas landing page
+- Homeworks
+  - [HW 4: Hashing](../hws/hw-hashing-tabbed.html) is due tonight
+  - Next HW will be Networks (to be posted soon), then Fuzzing
+- Readings: 
+  - Due today: watch [Last Week Tonight with John Oliver: Data Brokers](https://www.youtube.com/watch?v=wqn3gR1WTcA) (25:09 long)
+- Midterm is, um, next week!
+  - Past exams can be found on the [past exams page](https://aaronbloomfield.github.io/ics/exams/index.html)
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will continue with [web security](../slides/web-security.html#/)
+  - We'll come back to [policy](../slides/policy.html#/) later
+
+
+
+
 # Trolley Problem
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/trolley_problem.png){title="For $5 I promise not to orchestrate this situation, and for $25 I promise not to take further advantage of this ability to create incentives." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/trolley_problem_2x.png 2x" }
