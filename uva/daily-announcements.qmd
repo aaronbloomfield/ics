@@ -23,6 +23,7 @@ css: daily-announcements.css
   - Next HW will be Networks (to be posted soon), then Fuzzing
 - Readings: 
   - Due today: watch [Last Week Tonight with John Oliver: Data Brokers](https://www.youtube.com/watch?v=wqn3gR1WTcA) (25:09 long)
+- Most things are graded (paranoia, ethics, rsa), but we are working to ensure that the extensions and late penalties are computed properly before returning them.  Expect them all within a week.
 - Midterm is, um, next week!
   - Past exams can be found on the [past exams page](https://aaronbloomfield.github.io/ics/exams/index.html)
 - Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
