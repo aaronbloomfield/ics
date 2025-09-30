@@ -3,6 +3,33 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+# Code Talkers
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/code_talkers.png){title="As far as I can tell, Navajo doesn&#39;t have a common word for &#39;zero&#39;.  do-neh-lini means &#39;neutral&#39;." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 257](https://xkcd.com/257)
+:::
+
+## Lecture 11: Tue, Sep 30th
+- Office hours are ongoing, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+  - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
+  - TA office hours are all in Rice 442 and are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Wednesday 11-1 (Eddie), and Thursdays 12:30-2:30 (Matt)
+    - Note the Fri 11-1 has now moved to Wed 11-1
+    - TA pictures linked to from the Canvas landing page
+- Homeworks
+  - [HW 4: Hashing](../hws/hw-hashing-tabbed.html) was due last week -- how was it?
+  - Next HW will be Networks (to be posted soon), then Fuzzing
+- Readings: 
+  - Due last week: watch [Last Week Tonight with John Oliver: Data Brokers](https://www.youtube.com/watch?v=wqn3gR1WTcA) (25:09 long)
+- Most things are graded (paranoia, ethics, rsa), but we are working to ensure that the extensions and late penalties are computed properly before returning them.  Expect them all within a week.
+- Midterm is this week week!
+  - Past exams can be found on the [past exams page](https://aaronbloomfield.github.io/ics/exams/index.html)
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will finish with [web security](../slides/web-security.html#/) and then return to [policy](../slides/policy.html#/)
+
+
+
 
 # Authorization
 ::: {.stretch}
