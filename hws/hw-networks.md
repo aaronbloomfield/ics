@@ -25,15 +25,9 @@ You will need to install (and, briefly, use) Tor.  You can find out out Tor [her
 
 Load up the Tor browser and visit [https://whatismyipaddress.com/](https://whatismyipaddress.com/) again to get your IP address.  Hit reload a couple of times, and note how the IP address changes each time.  These are the IP addresses of the Tor *exit nodes*.
 
-Visit a ***LEGAL*** Tor hidden service.  You can Google for a list of Tor hidden services -- their URL will always end in ".onion".  One such site is [https://thehiddenwiki.org/](https://thehiddenwiki.org/).  As an example of a ***LEGAL*** sites to visit, consider [https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/](https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/), which is the DuckDuckGo search engine.
+Visit a ***LEGAL*** Tor hidden service.  You can Google for a list of Tor hidden services -- their URL will always end in ".onion".  One such site is [https://thehiddenwiki.org/](https://thehiddenwiki.org/).  As an example of a ***LEGAL*** sites to visit, consider [https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/](https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/), which is the DuckDuckGo search engine.  Also take a look at the [Hidden Wiki](http://zqktlwiuavvvqqt4ybvgvi7tyo4hjl5xgfuvpdf6otjiycgwqbym2qad.onion/wiki/index.php/Main_Page), which has many links to hidden sites.
 
 Visit another website that is not a hidden service.  Note how much slower it is to view this website.  Can you stream a video from Youtube via a Tor connection?
-
-Note that Tor is a service as well as a web browser.  You may (or may not) want to stop the Tor service when you are done.  
-
-- Under Ubuntu Linux, that's `sudo service tor stop`.  This will stop it for that one time only -- and on the next reboot, it will reactivate.  To disable it for good, you can run `sudo systemctl stop tor` (or just uninstall it).  
-- For Mac OS X: ... (to be filled in)
-- For Windows: ... (to be filled in)
 
 In the report, you should include:
 
