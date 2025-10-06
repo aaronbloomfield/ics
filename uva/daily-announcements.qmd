@@ -3,6 +3,33 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+
+# PGP
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/pgp.png){title="If you want to be extra safe, check that there&#39;s a big block of jumbled characters at the bottom." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/pgp_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1181](https://xkcd.com/1181)
+:::
+
+## Lecture 13: Tue, Oct 6th
+- Office hours are ongoing, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+  - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
+  - TA office hours are all in Rice 442 and are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Wednesday 11-1 (Eddie), and Thursdays 12:30-2:30 (Matt)
+    - Note the Fri 11-1 has now moved to Wed 11-1
+  - No OH next Monday or Tuesday because of fall break
+  - TA pictures linked to from the Canvas landing page
+- Midterm last week; we hopefully will have it graded by Thursday
+- Homeworks
+  - [HW 5: Networks](../hws/hw-networks-tabbed.html) is due Thursday
+  - Next HW will Fuzzing, out Thursday
+- Readings: none currently assigned
+- Most past HWs graded in Gradescope; regrades only open for a limited amount of time
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will finish with [policy](../slides/web-security.html#/) and then start ...
+
+
+
 # Code Talkers
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/code_talkers.png){title="As far as I can tell, Navajo doesn&#39;t have a common word for &#39;zero&#39;.  do-neh-lini means &#39;neutral&#39;." style='border:10px solid white'  }
