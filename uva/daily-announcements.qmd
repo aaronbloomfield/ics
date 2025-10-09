@@ -3,6 +3,38 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+# Encryption
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/encryption.png){title="WARNING: PEOPLE NAMED EVE ARE PROHIBITED FROM INSTALLING THIS APP!" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/encryption_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2691](https://xkcd.com/2691)
+:::
+
+<div style="font-size:90%">
+
+## Lecture 14: Tue, Oct 9th
+- Office hours are ongoing, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+  - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
+  - TA office hours are all in Rice 442 and are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Wednesday 11-1 (Eddie), and Thursdays 12:30-2:30 (Matt)
+    - Note the Fri 11-1 has now moved to Wed 11-1
+  - No TA OH next Monday or Tuesday because of fall break
+  - I will not have OH today
+  - TA pictures linked to from the Canvas landing page
+- Midterm last week; we hopefully will have it graded by Thursday
+  - Currently 80% graded; we hope to have it back before Tuesday (SEAS drop date)
+- Homeworks
+  - [HW 5: Networks](../hws/hw-networks-tabbed.html) is due today
+  - [HW 6: Fuzzing](../hws/hw-fuzzing-tabbed.html) is due next Thursday (Oct 16)
+  - HW 7: SQL/XSS/CSRF (not yet ready) will be due Oct 23
+- Readings: none currently assigned
+- Most past HWs graded in Gradescope; regrades only open for a limited amount of time
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will start on [SQL, XSS, & CSRF](../slides/sql-xss-csrf.html)
+
+</div>
+
+
 
 # PGP
 ::: {.stretch}
@@ -12,7 +44,7 @@ css: daily-announcements.css
 [xkcd \# 1181](https://xkcd.com/1181)
 :::
 
-## Lecture 13: Tue, Oct 6th
+## Lecture 13: Tue, Oct 7th
 - Office hours are ongoing, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
   - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
   - TA office hours are all in Rice 442 and are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Wednesday 11-1 (Eddie), and Thursdays 12:30-2:30 (Matt)
