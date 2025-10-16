@@ -21,6 +21,7 @@ css: daily-announcements.css
   - TA pictures linked to from the Canvas landing page
 - Midterm last week, was graded and returned
   - Average was a 36.8/48 (76.7%)
+  - We'll go over it today, then regrades will be opened
 - Homeworks
   - [HW 5: Networks](../hws/hw-networks-tabbed.html) is due today
   - [HW 6: Fuzzing](../hws/hw-fuzzing-tabbed.html) is due... today?
