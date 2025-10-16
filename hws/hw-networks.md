@@ -124,7 +124,7 @@ You are going to see how easy it is to build a keyboard logger.  We will use the
 
 This works on the three major platforms:
 
-- Mac OS X: install the package via `pip install pynput`.  When you run the software, it will prompt you to change a setting to allow Terminal to monitor the keyboard.  Be sure to change it back once this assignment is done!
+- Mac OS X: install the package via `pip install pynput`; you may have to use `pip3 install pynput` instead.  When you run the software, it will prompt you to change a setting to allow Terminal to monitor the keyboard.  Be sure to change it back once this assignment is done!
 - Windows: It should work out of the box.  If Windows Defender is blocking it ("operation did not complete successfully because the file contains a virus or potentially unwanted software"), you may have to turn off real-time protection in Windows Defender to complete this part.  Be sure to turn it back on once done!
 - Linux: It should work out of the box.
 

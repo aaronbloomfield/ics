@@ -3,6 +3,38 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+# CIA
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/cia.png){title="It was their main recruiting poster, hung nearly ten feet up a wall! This means the hackers have LADDER technology! Are we headed for a future where everyone has to pay $50 for one of those locked plexiglass poster covers? More after the break ..." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 932](https://xkcd.com/932)
+:::
+
+
+<div style="font-size:90%">
+
+## Lecture 15: Thu, Oct 16th
+- Office hours are ongoing, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+  - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
+  - TA office hours are all in Rice 442 and are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Wednesday 11-1 (Eddie), and Thursdays 12:30-2:30 (Matt)
+  - TA pictures linked to from the Canvas landing page
+- Midterm last week, was graded and returned
+  - Average was a 36.8/48 (76.7%)
+- Homeworks
+  - [HW 5: Networks](../hws/hw-networks-tabbed.html) is due today
+  - [HW 6: Fuzzing](../hws/hw-fuzzing-tabbed.html) is due... today?
+  - HW 7: SQL/XSS/CSRF (not yet ready) will be due next Thursday, Oct 23
+- Readings: none currently assigned
+- Most past HWs graded in Gradescope; regrades only open for a limited amount of time
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will finish [SQL, XSS, & CSRF](../slides/sql-xss-csrf.html) and start on [anonymity](../slides/anonymity.html#/)
+
+</div>
+
+
+
+
 # Encryption
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/encryption.png){title="WARNING: PEOPLE NAMED EVE ARE PROHIBITED FROM INSTALLING THIS APP!" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/encryption_2x.png 2x" }
