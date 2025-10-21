@@ -3,6 +3,39 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+
+# Hacking
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/hacking.png){title="The dump also contains a list of millions of prime factors, a 0-day Tamagotchi exploit, and a technique for getting gcc and bash to execute arbitrary code." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/hacking_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1808](https://xkcd.com/1808)
+:::
+
+
+<div style="font-size:90%">
+
+## Lecture 15: Thu, Oct 16th
+- Office hours are ongoing, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+  - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
+  - TA office hours are all in Rice 442 and are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Wednesday 11-1 (Eddie), and Thursdays 12:30-2:30 (Matt)
+  - TA pictures linked to from the Canvas landing page
+- Midterm last week, was graded and returned; regrades open for a week or so
+- Homeworks
+  - [HW 5: Networks](../hws/hw-networks-tabbed.html) was due yesterday
+  - [HW 6: Fuzzing](../hws/hw-fuzzing-tabbed.html) was due yesterday
+  - [HW 7: SQL/XSS/CSRF](../hws/hw-sql-xss-csrf-tabbed.html) is due Sunday
+- Readings: 
+  - Due Thursday, October 30th: Listen to [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+- Most past HWs graded in Gradescope; regrades only open for a limited amount of time
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will finish [anonymity](../slides/anonymity.html#/) and start on [cryptocurrency](../slides/cryptocurrency.html#/)
+
+</div>
+
+
+
+
 # CIA
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/cia.png){title="It was their main recruiting poster, hung nearly ten feet up a wall! This means the hackers have LADDER technology! Are we headed for a future where everyone has to pay $50 for one of those locked plexiglass poster covers? More after the break ..." style='border:10px solid white'  }
