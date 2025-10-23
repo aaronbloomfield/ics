@@ -4,6 +4,38 @@ css: daily-announcements.css
 ---
 
 
+# Modern OSI Model
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/modern_osi_model.png){title="In retrospect, I shouldn&#39;t have used each layer of the OSI model as one of my horcruxes." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/modern_osi_model_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2105](https://xkcd.com/2105)
+:::
+
+
+
+<div style="font-size:90%">
+
+## Lecture 17: Thu, Oct 23rd
+- Office hours are ongoing, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+  - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
+  - TA office hours are all in Rice 442 and are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Wednesday 11-1 (Eddie), and Thursdays 12:30-2:30 (Matt)
+  - TA pictures linked to from the Canvas landing page
+- Midterm last week, was graded and returned; regrades open for a week or so
+- Homeworks
+  - [HW 7: SQL/XSS/CSRF](../hws/hw-sql-xss-csrf-tabbed.html) is due Sunday
+  - HW 8, on cryptocurrency, will be out after today
+- Readings: 
+  - Due Thursday, October 30th: Listen to [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+- Most past HWs graded in Gradescope; regrades only open for a limited amount of time
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will work through [cryptocurrency](../slides/cryptocurrency.html#/)
+
+</div>
+
+
+
+
 # Hacking
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/hacking.png){title="The dump also contains a list of millions of prime factors, a 0-day Tamagotchi exploit, and a technique for getting gcc and bash to execute arbitrary code." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/hacking_2x.png 2x" }
@@ -15,7 +47,7 @@ css: daily-announcements.css
 
 <div style="font-size:90%">
 
-## Lecture 15: Thu, Oct 16th
+## Lecture 16: Tue, Oct 21st
 - Office hours are ongoing, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
   - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
   - TA office hours are all in Rice 442 and are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Wednesday 11-1 (Eddie), and Thursdays 12:30-2:30 (Matt)
