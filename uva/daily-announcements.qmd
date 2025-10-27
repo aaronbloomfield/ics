@@ -4,6 +4,38 @@ css: daily-announcements.css
 ---
 
 
+# Alice and Bob
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/alice_and_bob.png){title="Yet one more reason I&#39;m barred from speaking at crypto conferences." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 177](https://xkcd.com/177)
+:::
+
+
+<div style="font-size:90%">
+
+## Lecture 18: Tue, Oct 28th
+- Office hours are ongoing, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+  - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
+  - TA office hours are all in Rice 442 and are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Wednesday 11-1 (Eddie), and Thursdays 12:30-2:30 (Matt)
+  - TA pictures linked to from the Canvas landing page
+- Homeworks
+  - [HW 7: SQL/XSS/CSRF](../hws/hw-sql-xss-csrf-tabbed.html) was due Sunday
+  - [HW 8: Cryptocurrency](../hws/hw-cryptocurrency-tabbed.html) is due... Saturday?
+- Readings: 
+  - Due this Thursday, October 30th: Listen to [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+- Exam 2 is Thursday of next week!
+  - Old exams on the [exams page](../exams/index.html) in the repo
+- Most past HWs graded in Gradescope; regrades only open for a limited amount of time
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will start on [rootkits](../slides/cryptocurrency.html#/), then onto [VMs](../slides/vms.html#/)
+
+</div>
+
+
+
+
 # Modern OSI Model
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/modern_osi_model.png){title="In retrospect, I shouldn&#39;t have used each layer of the OSI model as one of my horcruxes." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/modern_osi_model_2x.png 2x" }
