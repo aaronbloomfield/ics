@@ -4,6 +4,39 @@ css: daily-announcements.css
 ---
 
 
+# Protocol
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/protocol.png){title="Changing the names would be easier, but if you&#39;re not comfortable lying, try only making friends with people named Alice, Bob, Carol, etc." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/protocol_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1323](https://xkcd.com/1323)
+:::
+
+
+<div style="font-size:90%">
+
+## Lecture 19: Thu, Oct 30th
+- Office hours are ongoing, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+  - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
+  - TA office hours are all in Rice 442 and are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Wednesday 11-1 (Eddie), and Thursdays 12:30-2:30 (Matt)
+  - TA pictures linked to from the Canvas landing page
+- Homeworks
+  - [HW 8: Cryptocurrency](../hws/hw-cryptocurrency-tabbed.html) is due Monday
+  - HW 9, on Rootkits, will be out today, and is due.... when?
+- Readings: 
+  - Due today, October 30th: Listen to [NPR's Planet Monday podcast episode 908: I Am Not A Robot](https://www.npr.org/sections/money/2019/04/24/716854013/episode-908-i-am-not-a-robot)
+- Exam 2 is Thursday of next week!
+  - Old exams on the [exams page](../exams/index.html) in the repo
+- No class next Tuesday because of Election Day (please go vote!)
+- Most past HWs graded in Gradescope; regrades only open for a limited amount of time
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will start [VMs](../slides/vms.html#/) then [Stuxnet](../slides/stuxnet.html#/)
+
+</div>
+
+
+
+
 # Alice and Bob
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/alice_and_bob.png){title="Yet one more reason I&#39;m barred from speaking at crypto conferences." style='border:10px solid white'  }
