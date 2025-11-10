@@ -80,13 +80,13 @@ Some of these commands will require to to execute them as the root user.  You ca
 
 **Kernel level rootkit:** Recall that a Linux kernel level rootkit installs a loadable kernel module (LKM) that gives the attacker more privileges on the compromised machine.  We are going to build such a module here. There are two tasks to be done for the kernel level rootkit aspect of this assignment.
 
-Follow [this tutorial at 0x00SEC](https://0x00sec.org/t/kernel-rootkits-getting-your-hands-dirty/1485). It is not necessary to read the two sub-tutorials ([1](http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/) and [2](http://derekmolloy.ie/writing-a-linux-kernel-module-part-2-a-character-device/)), if you do not want to. This rootkit will allow you to gain root access on the machine from a non-root user.  Note: the sub-tutorials (if you want to read them) should be used to understand what is happening on [the main tutorial at 0x00SEC page](https://0x00sec.org/t/kernel-rootkits-getting-your-hands-dirty/1485); they do not all compile at this point.
+Follow [this tutorial at 0x00SEC](https://0x00sec.org/t/kernel-rootkits-getting-your-hands-dirty/1485) (use the [archive.org link](https://web.archive.org/web/20250130102443/https://0x00sec.org/t/kernel-rootkits-getting-your-hands-dirty/1485)). It is not necessary to read the two sub-tutorials ([1](http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/) (use the [archive.org link](https://web.archive.org/web/20250123183501/http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/)) and [2](http://derekmolloy.ie/writing-a-linux-kernel-module-part-2-a-character-device/) (use the [archive.org link](https://web.archive.org/web/20250112200039/http://derekmolloy.ie/writing-a-linux-kernel-module-part-2-a-character-device/))), if you do not want to. This rootkit will allow you to gain root access on the machine from a non-root user.  Note: the sub-tutorials (if you want to read them) should be used to understand what is happening on [the main tutorial at 0x00SEC page](https://0x00sec.org/t/kernel-rootkits-getting-your-hands-dirty/1485) (use the [archive.org link](https://web.archive.org/web/20250130102443/https://0x00sec.org/t/kernel-rootkits-getting-your-hands-dirty/1485)); they do not all compile at this point.
 
 A few notes from those tutorials:
 
-- You don't have to install the package that the [first sub-tutorial](http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/) states (the one obtained via `wget` and installed via `dpkg -i`), nor clone the git repo
+- You don't have to install the package that the [first sub-tutorial](http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/) (use the [archive.org link](https://web.archive.org/web/20250123183501/http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/)) states (the one obtained via `wget` and installed via `dpkg -i`), nor clone the git repo
 - When creating the Makefile, recall that the indentation must be a tab, not a space (if you copy-and-paste it, it pastes as a space)
-- For the [second sub-tutorial](http://derekmolloy.ie/writing-a-linux-kernel-module-part-2-a-character-device/), you have to save both ebbchar.c and testebbchar.c before the Makefile will work
+- For the [second sub-tutorial](http://derekmolloy.ie/writing-a-linux-kernel-module-part-2-a-character-device/) (use the [archive.org link](https://web.archive.org/web/20250112200039/http://derekmolloy.ie/writing-a-linux-kernel-module-part-2-a-character-device/)), you have to save both ebbchar.c and testebbchar.c before the Makefile will work
 
 The first task for this assignment is to create this rootkit as specified in the tutorial.
 
@@ -105,7 +105,7 @@ The second task for this assignment is to investigate other things that rootkits
 
 - *root access*: by writing a known string to a character device, one can allow a non-root user to gain root access
 
-How many to find?  That's up to you.  If you have a bunch, and you are not finding anymore, then you are done.  You can use Google searches, look at rootkit code online -- take a look [here](https://github.com/f0rb1dd3n/Reptile) to start.  That source code lists 12 different functionalities (one of which being giving root access to non-root users).  Thus, we would expect a list of 20 or more.
+How many to find?  That's up to you.  If you have a bunch, and you are not finding anymore, then you are done.  You can use Google searches, look at rootkit code online -- take a look [here](https://github.com/f0rb1dd3n/Reptile) (use the [archive.org link](https://web.archive.org/web/20250223051159/https://github.com/f0rb1dd3n/Reptile)) to start.  That source code lists 12 different functionalities (one of which being giving root access to non-root users).  Thus, we would expect a list of 20 or more.
 
 This part should be put into a PDF called `kernel-rootkits.pdf`; note that there will also be content in that file from the first task.
 
@@ -147,7 +147,7 @@ Obviously, your hash is expected to be different.
 
 You can do this in any language that you want:
 
-- A bash shell script will be the shortest, but familiarize yourself with how to deal command-line parameters in bash -- you can see the cryptmoney.sh shell script in the [cryptocurrency](hw-cryptocurrency.html) ([md](hw-cryptocurrency.md)) homework for examples
+- A bash shell script will be the shortest, but familiarize yourself with how to deal command-line parameters in bash -- you can see the cryptmoney.sh shell script in the [cryptocurrency](hw-cryptocurrency-tabbed.html) ([md](hw-cryptocurrency.md)) homework for examples
 - C/C++ program: if you need a refresher as to how to parse command-line parameters, see [this slide from CS 2150](https://uva-cs.github.io/pdr/slides/04-arrays-bigoh.html#/cmdlineparams) and the source code linked to on that page; to execute another program, you will want to use the [execl()](https://www.systutorials.com/docs/linux/man/3-exec/) C function, which is in the `<unistd.h>` library.
 - We can't use Java -- we need the executable name to be `sha224sum`, not `sha224sum.class`
 - Python 3 is fine -- be sure to put `#!/usr/bin/python3` and run `chmod 755 <scriptfilename>` on the file
