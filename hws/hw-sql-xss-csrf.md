@@ -61,7 +61,7 @@ There are six XSS attacks that you must do against this page.  While it seems li
 In your report, you should list the following:
 
 - The data used in your XSS attack, and whether it was a GET or POST attack
-- The 'special' thing that happens when you execute the attack well
+- The 'special' thing that happens when you execute the attack well -- there is something that you can then buy when your balance is high enough
 - The **exact** time stamp for each of the attacks.  This allows us to verify it against the log file.  The time stamp is listed at the bottom of the page, and is the time stamp of the page that was served in response to your attack.
 
 A few notes:

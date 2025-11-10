@@ -4,6 +4,37 @@ css: daily-announcements.css
 ---
 
 
+# Blockchain
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/blockchain.png){title="Blockchains are like grappling hooks, in that it&#39;s extremely cool when you encounter a problem for which they&#39;re the right solution, but it happens way too rarely in real life." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/blockchain_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2267](https://xkcd.com/2267)
+:::
+
+
+<div style="font-size:90%">
+
+## Lecture 21: Tue, Nov 11th
+- Office hours are ongoing, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+  - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
+  - TA office hours are all in Rice 442 and are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Wednesday 11-1 (Eddie), and Thursdays 12:30-2:30 (Matt)
+  - TA pictures linked to from the Canvas landing page
+- Homeworks
+  - [HW 9: Rootkits](../hws/hw-rootkits-tabbed.html) is out, and due Thursday
+    - The links have been fixed, and mirrors are available from the Canvas landing page
+  - The next homework will be Tricky Jump (most likely)
+- Readings: 
+  - None currently assigned
+- Grading
+  - We should have all caught up with the grading within a week or so
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will quickly finish [Stuxnet](../slides/stuxnet.html#/), then onto [viruses](../slides/viruses.html#/)
+
+</div>
+
+
+
 # Protocol
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/protocol.png){title="Changing the names would be easier, but if you&#39;re not comfortable lying, try only making friends with people named Alice, Bob, Carol, etc." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/protocol_2x.png 2x" }

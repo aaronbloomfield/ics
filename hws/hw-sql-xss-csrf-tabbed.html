@@ -6,12 +6,23 @@
   <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=yes'></meta>
   <title>ICS: Programming Homework: SQL, CSRF, and XSS</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel='stylesheet' href='../markdown.css'></link>
@@ -37,7 +48,6 @@
     evt.currentTarget.className += " active";
   }
   </script>
-  
 </head>
 <body>
 <h1 id='ics-programming-homework-sql-csrf-and-xss'>ICS: Programming Homework: SQL, CSRF, and XSS</h1>
@@ -89,7 +99,7 @@
 <p>In your report, you should list the following:</p>
 <ul>
 <li>The data used in your XSS attack, and whether it was a GET or POST attack</li>
-<li>The ‘special’ thing that happens when you execute the attack well</li>
+<li>The ‘special’ thing that happens when you execute the attack well – there is something that you can then buy when your balance is high enough</li>
 <li>The <strong>exact</strong> time stamp for each of the attacks. This allows us to verify it against the log file. The time stamp is listed at the bottom of the page, and is the time stamp of the page that was served in response to your attack.</li>
 </ul>
 <p>A few notes:</p>
