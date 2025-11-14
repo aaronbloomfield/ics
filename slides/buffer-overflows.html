@@ -794,6 +794,23 @@
 <span id="cb16-6"><a href=""></a>  18:   c3                      retq   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that nothing is 64-bit (even when compiled with <code>-f elf64</code>)</p>
 </section>
+<section id="removing-the-.data-section" class="slide level2">
+<h2>Removing the .data section</h2>
+<p>The previous code had a .data section, which we can remove:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource asm number-lines code-with-copy"><code class="sourceCode fasm"><span id="cb17-1"><a href=""></a><span class="bu">section</span> <span class="op">.</span>text</span>
+<span id="cb17-2"><a href=""></a><span class="fu">mysyscall:</span></span>
+<span id="cb17-3"><a href=""></a>    <span class="cf">jmp</span> afterString</span>
+<span id="cb17-4"><a href=""></a><span class="fu">string:</span></span>
+<span id="cb17-5"><a href=""></a>    <span class="dt">db</span> <span class="st">"You have been infected with a virus!"</span><span class="op">,</span> <span class="bn">0x0a</span></span>
+<span id="cb17-6"><a href=""></a><span class="fu">afterString:</span>  </span>
+<span id="cb17-7"><a href=""></a>    <span class="bu">mov</span> <span class="kw">eax</span><span class="op">,</span> <span class="dv">1</span>        <span class="co">; syscall function (sys_write)</span></span>
+<span id="cb17-8"><a href=""></a>    <span class="bu">mov</span> <span class="kw">edi</span><span class="op">,</span> <span class="dv">1</span>        <span class="co">; print to stdout</span></span>
+<span id="cb17-9"><a href=""></a>    <span class="bu">lea</span> <span class="kw">esi</span><span class="op">,</span> <span class="op">[</span>string<span class="op">]</span> <span class="co">; buffer to print</span></span>
+<span id="cb17-10"><a href=""></a>    <span class="bu">mov</span> <span class="kw">edx</span><span class="op">,</span> <span class="dv">37</span>       <span class="co">; size of buffer</span></span>
+<span id="cb17-11"><a href=""></a>    <span class="cf">syscall</span></span>
+<span id="cb17-12"><a href=""></a>    <span class="cf">ret</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This can be compiled the same way as the previous example.</p>
+</section>
 <section id="note-about-registers" class="slide level2">
 <h2>Note about registers</h2>
 <ul>
@@ -809,33 +826,34 @@
 <h2>Problem: crashes after <code>syscall</code></h2>
 <ul>
 <li>We need to gracefully exit</li>
+<li>Note we are back to using the .data section</li>
 <li>So we use <code>syscall</code> to do so:</li>
 </ul>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource asm number-lines code-with-copy"><code class="sourceCode fasm"><span id="cb17-1"><a href=""></a>global mysyscall</span>
-<span id="cb17-2"><a href=""></a><span class="bu">section</span> <span class="op">.</span>data</span>
-<span id="cb17-3"><a href=""></a>  string <span class="dt">db</span> <span class="st">"You have been infected with a virus!"</span><span class="op">,</span> <span class="bn">0x0a</span></span>
-<span id="cb17-4"><a href=""></a><span class="bu">section</span> <span class="op">.</span>text</span>
-<span id="cb17-5"><a href=""></a>  <span class="fu">mysyscall:</span></span>
-<span id="cb17-6"><a href=""></a>    <span class="bu">mov</span> <span class="kw">eax</span><span class="op">,</span> <span class="dv">1</span>        <span class="co">; syscall function (sys_write)</span></span>
-<span id="cb17-7"><a href=""></a>    <span class="bu">mov</span> <span class="kw">edi</span><span class="op">,</span> <span class="dv">1</span>        <span class="co">; print to stdout</span></span>
-<span id="cb17-8"><a href=""></a>    <span class="bu">lea</span> <span class="kw">esi</span><span class="op">,</span> <span class="op">[</span>string<span class="op">]</span> <span class="co">; buffer to print</span></span>
-<span id="cb17-9"><a href=""></a>    <span class="bu">mov</span> <span class="kw">edx</span><span class="op">,</span> <span class="dv">37</span>       <span class="co">; size of buffer</span></span>
-<span id="cb17-10"><a href=""></a>    <span class="cf">syscall</span></span>
-<span id="cb17-11"><a href=""></a>    <span class="bu">mov</span> <span class="kw">eax</span><span class="op">,</span> <span class="dv">60</span>       <span class="co">; syscall function (sys_exit)</span></span>
-<span id="cb17-12"><a href=""></a>    <span class="bu">xor</span> <span class="kw">edi</span><span class="op">,</span> <span class="kw">edi</span>      <span class="co">; exit value (0)</span></span>
-<span id="cb17-13"><a href=""></a>    <span class="cf">syscall</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource asm number-lines code-with-copy"><code class="sourceCode fasm"><span id="cb18-1"><a href=""></a>global mysyscall</span>
+<span id="cb18-2"><a href=""></a><span class="bu">section</span> <span class="op">.</span>data</span>
+<span id="cb18-3"><a href=""></a>  string <span class="dt">db</span> <span class="st">"You have been infected with a virus!"</span><span class="op">,</span> <span class="bn">0x0a</span></span>
+<span id="cb18-4"><a href=""></a><span class="bu">section</span> <span class="op">.</span>text</span>
+<span id="cb18-5"><a href=""></a>  <span class="fu">mysyscall:</span></span>
+<span id="cb18-6"><a href=""></a>    <span class="bu">mov</span> <span class="kw">eax</span><span class="op">,</span> <span class="dv">1</span>        <span class="co">; syscall function (sys_write)</span></span>
+<span id="cb18-7"><a href=""></a>    <span class="bu">mov</span> <span class="kw">edi</span><span class="op">,</span> <span class="dv">1</span>        <span class="co">; print to stdout</span></span>
+<span id="cb18-8"><a href=""></a>    <span class="bu">lea</span> <span class="kw">esi</span><span class="op">,</span> <span class="op">[</span>string<span class="op">]</span> <span class="co">; buffer to print</span></span>
+<span id="cb18-9"><a href=""></a>    <span class="bu">mov</span> <span class="kw">edx</span><span class="op">,</span> <span class="dv">37</span>       <span class="co">; size of buffer</span></span>
+<span id="cb18-10"><a href=""></a>    <span class="cf">syscall</span></span>
+<span id="cb18-11"><a href=""></a>    <span class="bu">mov</span> <span class="kw">eax</span><span class="op">,</span> <span class="dv">60</span>       <span class="co">; syscall function (sys_exit)</span></span>
+<span id="cb18-12"><a href=""></a>    <span class="bu">xor</span> <span class="kw">edi</span><span class="op">,</span> <span class="kw">edi</span>      <span class="co">; exit value (0)</span></span>
+<span id="cb18-13"><a href=""></a>    <span class="cf">syscall</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="calling-sys_write-sys_exit" class="slide level2">
 <h2>Calling sys_write &amp; sys_exit</h2>
 <p>The machine code:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb18-1"><a href=""></a>   0:   b8 01 00 00 00          mov    $0x1,%eax</span>
-<span id="cb18-2"><a href=""></a>   5:   bf 01 00 00 00          mov    $0x1,%edi</span>
-<span id="cb18-3"><a href=""></a>   a:   8d 34 25 00 00 00 00    lea    0x0,%esi</span>
-<span id="cb18-4"><a href=""></a>  11:   ba 25 00 00 00          mov    $0x25,%edx</span>
-<span id="cb18-5"><a href=""></a>  16:   0f 05                   syscall </span>
-<span id="cb18-6"><a href=""></a>  18:   b8 3c 00 00 00          mov    $0x3c,%eax</span>
-<span id="cb18-7"><a href=""></a>  1d:   31 ff                   xor    %edi,%edi</span>
-<span id="cb18-8"><a href=""></a>  1f:   0f 05                   syscall </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb19-1"><a href=""></a>   0:   b8 01 00 00 00          mov    $0x1,%eax</span>
+<span id="cb19-2"><a href=""></a>   5:   bf 01 00 00 00          mov    $0x1,%edi</span>
+<span id="cb19-3"><a href=""></a>   a:   8d 34 25 00 00 00 00    lea    0x0,%esi</span>
+<span id="cb19-4"><a href=""></a>  11:   ba 25 00 00 00          mov    $0x25,%edx</span>
+<span id="cb19-5"><a href=""></a>  16:   0f 05                   syscall </span>
+<span id="cb19-6"><a href=""></a>  18:   b8 3c 00 00 00          mov    $0x3c,%eax</span>
+<span id="cb19-7"><a href=""></a>  1d:   31 ff                   xor    %edi,%edi</span>
+<span id="cb19-8"><a href=""></a>  1f:   0f 05                   syscall </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>How do we use this as input to the program?</p>
 </section>
 <section id="scanf-and-s" class="slide level2">
@@ -876,36 +894,36 @@
 </section>
 <section id="shellcode-without-0x00-1" class="slide level2">
 <h2>Shellcode without 0x00</h2>
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource asm number-lines code-with-copy"><code class="sourceCode fasm"><span id="cb19-1"><a href=""></a><span class="bu">section</span> <span class="op">.</span>text</span>
-<span id="cb19-2"><a href=""></a><span class="fu">mysyscall:</span></span>
-<span id="cb19-3"><a href=""></a>    <span class="cf">jmp</span> afterString</span>
-<span id="cb19-4"><a href=""></a><span class="fu">string:</span></span>
-<span id="cb19-5"><a href=""></a>    <span class="dt">db</span> <span class="st">"You have been infected with a virus!"</span></span>
-<span id="cb19-6"><a href=""></a><span class="fu">afterString:</span>    </span>
-<span id="cb19-7"><a href=""></a>    <span class="bu">xor</span> <span class="kw">eax</span><span class="op">,</span> <span class="kw">eax</span></span>
-<span id="cb19-8"><a href=""></a>    <span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="dv">1</span></span>
-<span id="cb19-9"><a href=""></a>    <span class="bu">mov</span> <span class="kw">edi</span><span class="op">,</span> <span class="kw">eax</span></span>
-<span id="cb19-10"><a href=""></a>    <span class="bu">lea</span> <span class="kw">esi</span><span class="op">,</span> <span class="op">[</span>rel string<span class="op">]</span></span>
-<span id="cb19-11"><a href=""></a>    <span class="bu">xor</span> <span class="kw">edx</span><span class="op">,</span> <span class="kw">edx</span></span>
-<span id="cb19-12"><a href=""></a>    <span class="bu">mov</span> <span class="kw">dl</span><span class="op">,</span> <span class="dv">36</span></span>
-<span id="cb19-13"><a href=""></a>    <span class="cf">syscall</span></span>
-<span id="cb19-14"><a href=""></a>    <span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="dv">60</span></span>
-<span id="cb19-15"><a href=""></a>    <span class="bu">xor</span> <span class="kw">edi</span><span class="op">,</span> <span class="kw">edi</span></span>
-<span id="cb19-16"><a href=""></a>    <span class="cf">syscall</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource asm number-lines code-with-copy"><code class="sourceCode fasm"><span id="cb20-1"><a href=""></a><span class="bu">section</span> <span class="op">.</span>text</span>
+<span id="cb20-2"><a href=""></a><span class="fu">mysyscall:</span></span>
+<span id="cb20-3"><a href=""></a>    <span class="cf">jmp</span> afterString</span>
+<span id="cb20-4"><a href=""></a><span class="fu">string:</span></span>
+<span id="cb20-5"><a href=""></a>    <span class="dt">db</span> <span class="st">"You have been infected with a virus!"</span></span>
+<span id="cb20-6"><a href=""></a><span class="fu">afterString:</span>    </span>
+<span id="cb20-7"><a href=""></a>    <span class="bu">xor</span> <span class="kw">eax</span><span class="op">,</span> <span class="kw">eax</span></span>
+<span id="cb20-8"><a href=""></a>    <span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="dv">1</span></span>
+<span id="cb20-9"><a href=""></a>    <span class="bu">mov</span> <span class="kw">edi</span><span class="op">,</span> <span class="kw">eax</span></span>
+<span id="cb20-10"><a href=""></a>    <span class="bu">lea</span> <span class="kw">esi</span><span class="op">,</span> <span class="op">[</span>rel string<span class="op">]</span></span>
+<span id="cb20-11"><a href=""></a>    <span class="bu">xor</span> <span class="kw">edx</span><span class="op">,</span> <span class="kw">edx</span></span>
+<span id="cb20-12"><a href=""></a>    <span class="bu">mov</span> <span class="kw">dl</span><span class="op">,</span> <span class="dv">36</span></span>
+<span id="cb20-13"><a href=""></a>    <span class="cf">syscall</span></span>
+<span id="cb20-14"><a href=""></a>    <span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="dv">60</span></span>
+<span id="cb20-15"><a href=""></a>    <span class="bu">xor</span> <span class="kw">edi</span><span class="op">,</span> <span class="kw">edi</span></span>
+<span id="cb20-16"><a href=""></a>    <span class="cf">syscall</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="shellcode-without-0x00-2" class="slide level2">
 <h2>Shellcode without 0x00</h2>
 <p>The assembly on the previous slide results in:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb20-1"><a href=""></a>  26:   31 c0                   xor    %eax,%eax</span>
-<span id="cb20-2"><a href=""></a>  28:   b0 01                   mov    $0x1,%al</span>
-<span id="cb20-3"><a href=""></a>  2a:   89 c7                   mov    %eax,%edi</span>
-<span id="cb20-4"><a href=""></a>  2c:   8d 35 d0 ff ff ff       lea    -0x30(%rip),%esi</span>
-<span id="cb20-5"><a href=""></a>  32:   31 d2                   xor    %edx,%edx</span>
-<span id="cb20-6"><a href=""></a>  34:   b2 24                   mov    $0x24,%dl</span>
-<span id="cb20-7"><a href=""></a>  36:   0f 05                   syscall </span>
-<span id="cb20-8"><a href=""></a>  38:   b0 3c                   mov    $0x3c,%al</span>
-<span id="cb20-9"><a href=""></a>  3a:   31 ff                   xor    %edi,%edi</span>
-<span id="cb20-10"><a href=""></a>  3c:   0f 05                   syscall </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb21-1"><a href=""></a>  26:   31 c0                   xor    %eax,%eax</span>
+<span id="cb21-2"><a href=""></a>  28:   b0 01                   mov    $0x1,%al</span>
+<span id="cb21-3"><a href=""></a>  2a:   89 c7                   mov    %eax,%edi</span>
+<span id="cb21-4"><a href=""></a>  2c:   8d 35 d0 ff ff ff       lea    -0x30(%rip),%esi</span>
+<span id="cb21-5"><a href=""></a>  32:   31 d2                   xor    %edx,%edx</span>
+<span id="cb21-6"><a href=""></a>  34:   b2 24                   mov    $0x24,%dl</span>
+<span id="cb21-7"><a href=""></a>  36:   0f 05                   syscall </span>
+<span id="cb21-8"><a href=""></a>  38:   b0 3c                   mov    $0x3c,%al</span>
+<span id="cb21-9"><a href=""></a>  3a:   31 ff                   xor    %edi,%edi</span>
+<span id="cb21-10"><a href=""></a>  3c:   0f 05                   syscall </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that the <code>lea</code> loads an negative offset, which has no 0x00 bytes</p>
 </section>
 <section id="we-removed-the-.data-section" class="slide level2">
@@ -944,19 +962,19 @@
 <li>We can make our shellcode easier for ‘guessing’</li>
 <li>Normal shell code:</li>
 </ul>
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource asm number-lines code-with-copy"><code class="sourceCode fasm"><span id="cb21-1"><a href=""></a>    <span class="bu">xor</span> <span class="kw">eax</span><span class="op">,</span> <span class="kw">eax</span></span>
-<span id="cb21-2"><a href=""></a>    <span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="dv">1</span></span>
-<span id="cb21-3"><a href=""></a>    ... (rest of shellcode<span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource asm number-lines code-with-copy"><code class="sourceCode fasm"><span id="cb22-1"><a href=""></a>    <span class="bu">xor</span> <span class="kw">eax</span><span class="op">,</span> <span class="kw">eax</span></span>
+<span id="cb22-2"><a href=""></a>    <span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="dv">1</span></span>
+<span id="cb22-3"><a href=""></a>    ... (rest of shellcode<span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>More ‘guessable’ shellcode starts with many nops:</li>
 </ul>
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource asm number-lines code-with-copy"><code class="sourceCode fasm"><span id="cb22-1"><a href=""></a>    <span class="bu">nop</span></span>
-<span id="cb22-2"><a href=""></a>    <span class="bu">nop</span></span>
-<span id="cb22-3"><a href=""></a>    ... (fill the buffer with nops<span class="op">)</span></span>
-<span id="cb22-4"><a href=""></a>    <span class="bu">nop</span></span>
-<span id="cb22-5"><a href=""></a>    <span class="bu">xor</span> <span class="kw">eax</span><span class="op">,</span> <span class="kw">eax</span></span>
-<span id="cb22-6"><a href=""></a>    <span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="dv">1</span></span>
-<span id="cb22-7"><a href=""></a>    ... (rest of shellcode<span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource asm number-lines code-with-copy"><code class="sourceCode fasm"><span id="cb23-1"><a href=""></a>    <span class="bu">nop</span></span>
+<span id="cb23-2"><a href=""></a>    <span class="bu">nop</span></span>
+<span id="cb23-3"><a href=""></a>    ... (fill the buffer with nops<span class="op">)</span></span>
+<span id="cb23-4"><a href=""></a>    <span class="bu">nop</span></span>
+<span id="cb23-5"><a href=""></a>    <span class="bu">xor</span> <span class="kw">eax</span><span class="op">,</span> <span class="kw">eax</span></span>
+<span id="cb23-6"><a href=""></a>    <span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="dv">1</span></span>
+<span id="cb23-7"><a href=""></a>    ... (rest of shellcode<span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="the-result" class="slide level2">
 <h2>The result</h2>
@@ -1032,7 +1050,7 @@
 <ul>
 <li>To disable the two previous OS protections, you run:</li>
 </ul>
-<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource console number-lines code-with-copy"><code class="sourceCode"><span id="cb23-1"><a href=""></a>setarch x86_64 -v -LR bash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource console number-lines code-with-copy"><code class="sourceCode"><span id="cb24-1"><a href=""></a>setarch x86_64 -v -LR bash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>You can run any program, but <code>bash</code> is the shell, and you don’t have to run the <code>setarch</code> command each time you want to run a program</li>
 <li>Recall that <code>-R</code> disables ASLR, and <code>-L</code> allows execution on the stack</li>

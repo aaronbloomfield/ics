@@ -357,6 +357,29 @@ The hex code:
 Note that nothing is 64-bit (even when compiled with `-f elf64`)
 
 
+
+## Removing the .data section
+
+The previous code had a .data section, which we can remove:
+
+``` asm
+section .text
+mysyscall:
+    jmp afterString
+string:
+    db "You have been infected with a virus!", 0x0a
+afterString:  
+    mov eax, 1        ; syscall function (sys_write)
+    mov edi, 1        ; print to stdout
+    lea esi, [string] ; buffer to print
+    mov edx, 37       ; size of buffer
+    syscall
+    ret
+```
+This can be compiled the same way as the previous example.
+
+
+
 ## Note about registers
 - `syscall` reads the *entire* 64-bit rax register
   - So you should really do a `mov rax, 1`, not a `mov eax, 1`
@@ -366,6 +389,7 @@ Note that nothing is 64-bit (even when compiled with `-f elf64`)
 
 ## Problem: crashes after `syscall`
 - We need to gracefully exit
+- Note we are back to using the .data section
 - So we use `syscall` to do so:
 ``` asm
 global mysyscall

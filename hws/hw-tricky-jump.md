@@ -50,9 +50,18 @@ All of the programs just print "hello world".
 
 ### Step 1: Payload
 
-For this assignment, we are just going to insert a small assembly routine that prints out "Not a virus", with a newline at the end.  You should create an assembly file, called `print.s`, that does this.  This output should be done with the `syscall` opcode, as was done in the Buffer Overflow assigment and the sample code [in the buffer overflow slides](../slides/buffer-overflows.html#/4/10).   However, this code has both a `.data` section and a `.text` section -- you need to put it all in the `.text` section, as shown on [this slide](../slides/buffer-overflows.html#/4/17).  You need to modify that code to print out the required string ("Not a virus" with a newline) -- the `0x0a` at the end of that string is the newline.  Note that for this assignment, you don't have to remove null bytes (0x00) or newlines (0x0a), as we are not having this machine code read in via a `scanf()` call.
+For this assignment, we are just going to insert a small assembly routine that prints out "Not a virus", with a newline at the end.  You should create an assembly file, called `print.s`, that does this.  
 
-As we want to return to the main program after our assembly routine runs, you need to end that `print` assembly subroutine with a `ret`.
+This output should be done with the `syscall` opcode, as was done in the Buffer Overflow slide set and the sample code [in the buffer overflow slides](../slides/buffer-overflows.html#/removing-the-.data-section).   Depending on when you start this assignment, we may not have gone over those slides yet in lecture, so here is a quick primer:
+
+- Put this code as-is into a `print.s` file.  Pause these steps, and skip to the text below it to put it into a `part1.c`, along with a `Makefile`, to ensure it works.  Once it does, come back to these steps.
+- Modify the string to whatever you want it to be, but it must be something reasonably different than what's on the slide (meaning you can't just change a few characters, for example).
+- Change the string length, from 37, to the length of your new string plus one
+- Compile the program, and make sure it runs; it should create a `part1` executable
+- Run `objdump -d part1`.  Toward the end of that output, you will see your function.  
+	- Note that there are three "sections" -- the part before the `afterString`, the `afterString` part itself, and the part right below it (this will be more clear when you are viewing the `objdump` output).  Specifically, your function starts at the `jmp` opcode, and ends with the `ret` opcode
+	- Copy the hex code from those three sections.  The hex code is the bytes between the address (likely a 0x400??? number) and the opcode itself.  You can put these hex values into an array in your code.
+
 
 Put that assembly code into a file called `print.s`, and create a `part1.c` file:
 

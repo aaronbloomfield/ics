@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>ICS: Programming Homework: Tricky Jump</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -75,8 +78,19 @@
 <p>All of the programs just print “hello world”.</p>
 <!-- ============================================================= -->
 <h3 id="step-1-payload">Step 1: Payload</h3>
-<p>For this assignment, we are just going to insert a small assembly routine that prints out “Not a virus”, with a newline at the end. You should create an assembly file, called <code>print.s</code>, that does this. This output should be done with the <code>syscall</code> opcode, as was done in the Buffer Overflow assigment and the sample code <a href="../slides/buffer-overflows.html#/4/10">in the buffer overflow slides</a>. However, this code has both a <code>.data</code> section and a <code>.text</code> section – you need to put it all in the <code>.text</code> section, as shown on <a href="../slides/buffer-overflows.html#/4/17">this slide</a>. You need to modify that code to print out the required string (“Not a virus” with a newline) – the <code>0x0a</code> at the end of that string is the newline. Note that for this assignment, you don’t have to remove null bytes (0x00) or newlines (0x0a), as we are not having this machine code read in via a <code>scanf()</code> call.</p>
-<p>As we want to return to the main program after our assembly routine runs, you need to end that <code>print</code> assembly subroutine with a <code>ret</code>.</p>
+<p>For this assignment, we are just going to insert a small assembly routine that prints out “Not a virus”, with a newline at the end. You should create an assembly file, called <code>print.s</code>, that does this.</p>
+<p>This output should be done with the <code>syscall</code> opcode, as was done in the Buffer Overflow slide set and the sample code <a href="../slides/buffer-overflows.html#/removing-the-.data-section">in the buffer overflow slides</a>. Depending on when you start this assignment, we may not have gone over those slides yet in lecture, so here is a quick primer:</p>
+<ul>
+<li>Put this code as-is into a <code>print.s</code> file. Pause these steps, and skip to the text below it to put it into a <code>part1.c</code>, along with a <code>Makefile</code>, to ensure it works. Once it does, come back to these steps.</li>
+<li>Modify the string to whatever you want it to be, but it must be something reasonably different than what’s on the slide (meaning you can’t just change a few characters, for example).</li>
+<li>Change the string length, from 37, to the length of your new string plus one</li>
+<li>Compile the program, and make sure it runs; it should create a <code>part1</code> executable</li>
+<li>Run <code>objdump -d part1</code>. Toward the end of that output, you will see your function.
+<ul>
+<li>Note that there are three “sections” – the part before the <code>afterString</code>, the <code>afterString</code> part itself, and the part right below it (this will be more clear when you are viewing the <code>objdump</code> output). Specifically, your function starts at the <code>jmp</code> opcode, and ends with the <code>ret</code> opcode</li>
+<li>Copy the hex code from those three sections. The hex code is the bytes between the address (likely a 0x400??? number) and the opcode itself. You can put these hex values into an array in your code.</li>
+</ul></li>
+</ul>
 <p>Put that assembly code into a file called <code>print.s</code>, and create a <code>part1.c</code> file:</p>
 <pre><code>extern void print();
 int main() {
