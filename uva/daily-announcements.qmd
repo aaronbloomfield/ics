@@ -19,7 +19,7 @@ css: daily-announcements.css
   - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
   - TA office hours are all in Rice 442 and are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Wednesday 11-1 (Eddie), and Thursdays 12:30-2:30 (Matt)
   - TA pictures linked to from the Canvas landing page
-- Office hours next week: none for Bloomfield, TAs.... ???
+- Office hours next week: none for Bloomfield, none for the TAs
 - Homeworks
   - [HW 10: Tricky Jump](../hws/hw-tricky-jump-tabbed.html) is out, and due today
   - No HW due next week (of course)
