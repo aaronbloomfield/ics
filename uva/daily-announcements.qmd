@@ -3,6 +3,39 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+# Retro Virus
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/retro_virus.png){title="He says this is the year of Linux on the desktop! The world of Windows will fade any moment now!" style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 694](https://xkcd.com/694)
+:::
+
+
+<div style="font-size:90%">
+
+## Lecture 24: Thu, Nov 20th
+- Office hours are ongoing, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+  - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
+  - TA office hours are all in Rice 442 and are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Wednesday 11-1 (Eddie), and Thursdays 12:30-2:30 (Matt)
+  - TA pictures linked to from the Canvas landing page
+- Office hours next week: none for Bloomfield, TAs.... ???
+- Homeworks
+  - [HW 10: Tricky Jump](../hws/hw-tricky-jump-tabbed.html) is out, and due today
+  - No HW due next week (of course)
+  - The last HW, on Forensics, will be out after Thanksgiving
+- Readings: 
+  - None currently assigned
+- [Midterm 2](../exams/exam2-f25.pdf) grades returned, regrades open for about a week; we'll go over it today
+  - Average was 34.3/48 (71.4%), stdev was 8.2 (17%)
+- Grading
+  - We should have all caught up with the grading this week
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will finish [buffer overflows](../slides/buffer-overflows.html), then onto [binary exploits](../slides/binary-exploits.html#/)
+
+</div>
+
+
 
 # Network
 ::: {.stretch}
