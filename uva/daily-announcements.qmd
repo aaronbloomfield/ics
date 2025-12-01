@@ -3,6 +3,40 @@ title: "Daily Announcements"
 css: daily-announcements.css
 ---
 
+
+# Virus Venn Diagram
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/virus_venn_diagram.png){title="Within five minutes of the Singularity appearing, somebody will suggest defragging it." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/virus_venn_diagram_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1180](https://xkcd.com/1180)
+:::
+
+<div style="font-size:90%">
+
+## Lecture 26: Tue, Dec 2nd
+- Office hours are ongoing, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+  - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
+  - TA office hours are all in Rice 442 and are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Wednesday 11-1 (Eddie), and Thursdays 12:30-2:30 (Matt)
+  - TA pictures linked to from the Canvas landing page
+- Homeworks
+  - [HW 11: Forensics](../hws/hw-forensics-tabbed.html) is out, due next TUESDAY (not Wednesday)
+    - It's the last assignment of the semester
+- Grades
+  - All grades returned except:
+    - HW 7: SQL/XSS/CSRF (out being graded)
+    - HW 9: Rootkits (we need to chat about that first)
+    - HW 10: Tricky Jump (everybody is failing one test, unclear why)
+- Readings: none currently assigned
+- [Midterm 2](../exams/exam2-f25.pdf) grades returned, regrades open for a few more days
+  - Average was 34.3/48 (71.4%), stdev was 8.2 (17%)
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will start on [digital forensics](../slides/forensics.html#/), then come back to finish [binary exploits](../slides/binary-exploits.html#/)
+
+</div>
+
+
+
 # Retro Virus
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/retro_virus.png){title="He says this is the year of Linux on the desktop! The world of Windows will fade any moment now!" style='border:10px solid white'  }
