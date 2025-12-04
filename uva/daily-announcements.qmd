@@ -4,6 +4,40 @@ css: daily-announcements.css
 ---
 
 
+# Phone Security
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/phone_security.png){title="...wait until they type in payment information, then use it to order yourself a replacement phone." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/phone_security_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1934](https://xkcd.com/1934)
+:::
+
+
+<div style="font-size:90%">
+
+## Lecture 27: Thu, Dec 4th
+- Office hours are ongoing, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+  - Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
+  - TA office hours are all in Rice 442 and are Mondays 5-7 (Varun), Tuesdays 5-7 (Fiona), Wednesday 11-1 (Eddie), and Thursdays 12:30-2:30 (Matt)
+  - TA pictures linked to from the Canvas landing page
+  - Office hours will end with the end of classes
+- Homeworks
+  - [HW 11: Forensics](../hws/hw-forensics-tabbed.html) is out, due next TUESDAY (not Wednesday)
+    - It's the last assignment of the semester
+- Grades
+  - Can you see the Ethics grades now in Gradescope?
+  - All grades returned except:
+    - HW 7: SQL/XSS/CSRF (out being graded)
+    - HW 10: Tricky Jump (everybody is failing one test, unclear why)
+- Final exam: Mon, Dec 15 from 9-noon in the lecture classroom
+- Readings: none currently assigned
+- Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
+- Today we will finish [binary exploits](../slides/binary-exploits.html#/)
+
+</div>
+
+
+
 # Virus Venn Diagram
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/virus_venn_diagram.png){title="Within five minutes of the Singularity appearing, somebody will suggest defragging it." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/virus_venn_diagram_2x.png 2x" }
