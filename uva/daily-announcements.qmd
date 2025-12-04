@@ -22,17 +22,20 @@ css: daily-announcements.css
   - TA pictures linked to from the Canvas landing page
   - Office hours will end with the end of classes
 - Homeworks
-  - [HW 11: Forensics](../hws/hw-forensics-tabbed.html) is out, due next TUESDAY (not Wednesday)
+  - [HW 11: Forensics](../hws/hw-forensics-tabbed.html) is out, due TUESDAY (not Thursday)
     - It's the last assignment of the semester
+    - Details on the Canvas landing page
 - Grades
   - Can you see the Ethics grades now in Gradescope?
   - All grades returned except:
     - HW 7: SQL/XSS/CSRF (out being graded)
+    - HW 9: Rootkits (auto-grader needs updating)
     - HW 10: Tricky Jump (everybody is failing one test, unclear why)
 - Final exam: Mon, Dec 15 from 9-noon in the lecture classroom
 - Readings: none currently assigned
 - Everybody has to sign the Ethics Honor Pledge; the link is on the [Canvas landing page](https://canvas.its.virginia.edu/courses/136577)
 - Today we will finish [binary exploits](../slides/binary-exploits.html#/)
+  - Tuesday: final Q&A review period, then course conclusion
 
 </div>
 
