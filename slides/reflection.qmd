@@ -59,7 +59,7 @@ A series of (mostly unrelated) topics relating to computing security
 
 
 ## [Compliance with Court Orders Act of 2016](https://techcrunch.com/2016/04/13/burr-feinstein-encryption-bill-is-officially-here-in-all-its-scary-glory/){.r-fit-text}
-- They are still at it...
+- They didn't give up...
 - Only a bill, and didn't go anywhere
 - It would require all "communications services" to put back doors in their software
 - Because what could go wrong with that?
@@ -228,8 +228,8 @@ There were six "modules" this semester:
 
 ## What was new this semester / term
 
-- *VERY* small enrollment, due to the course being added late
-<!-- - A very high TA-to-student ratio, which made grading much easier -->
+- A very high TA-to-student ratio, which made grading much easier
+- Revised a few assignments (tricky jump was much smoother this time around)
 - The auto-graders were updated
 
 <!-- 
@@ -271,7 +271,7 @@ other new things used in the past:
 <table class="transparent">
 <tr><td><ul>
 <li><a href='../hws/hw-forensics.html'>HW 12: Forensics</a></li>
-<li><a href='../hws/hw-buffer.html'>HW 11: Buffer Overflow</a></li>
+<li><strike><a href='../hws/hw-buffer.html'>HW 11: Buffer Overflow</a></strike></li>
 <li><a href='../hws/hw-tricky-jump.html'>HW 10: Tricky Jump</a></li>
 <li><a href='../hws/hw-rootkits.html'>HW 9: Rootkits</a></li>
 <li><a href='../hws/hw-cryptocurrency.html'>HW 8: Cryptocurrency</a></li>
