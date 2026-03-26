@@ -148,7 +148,7 @@ Obviously, your hash is expected to be different.
 You can do this in any language that you want:
 
 - A bash shell script will be the shortest, but familiarize yourself with how to deal command-line parameters in bash -- you can see the cryptmoney.sh shell script in the [cryptocurrency](hw-cryptocurrency-tabbed.html) ([md](hw-cryptocurrency.md)) homework for examples
-- C/C++ program: if you need a refresher as to how to parse command-line parameters, see [this slide from CS 2150](https://uva-cs.github.io/pdr/slides/04-arrays-bigoh.html#/cmdlineparams) and the source code linked to on that page; to execute another program, you will want to use the [execl()](https://www.systutorials.com/docs/linux/man/3-exec/) C function, which is in the `<unistd.h>` library.
+- C/C++ program: if you need a refresher as to how to parse command-line parameters, see [this slide from CS 2150](https://uva-cs.github.io/pdr/slides/04-arrays-bigoh.html#/cmdlineparams) and the source code linked to on that page; to execute another program, you will want to use the [excel()](https://www.systutorials.com/docs/linux/man/3-exec/) C function, which is in the `<unistd.h>` library.
 - We can't use Java -- we need the executable name to be `sha224sum`, not `sha224sum.class`
 - Python 3 is fine -- be sure to put `#!/usr/bin/python3` and run `chmod 755 <scriptfilename>` on the file
 
@@ -164,7 +164,7 @@ For this task, we will attack the `sha384sum` binary, for similar reasons as the
 
 First, *BACK UP THE PROGRAM*.  For example: `sudo cp /usr/bin/sha384sum /usr/bin/sha384sum.bak`.  This way if you mess up, you can easily restore it.
 
-For this task we are going to modify the source code to insert our compromise into the program itself.  Linux is open source, and all of the core utilities are GNU, so their source code is freely available.  You can download the latest (highest-numbered) version from [https://ftp.gnu.org/gnu/coreutils/](https://ftp.gnu.org/gnu/coreutils/) -- although there are likely later verions, **we are going to version 8.31**.  The specific file to download is [here](https://ftp.gnu.org/gnu/coreutils/coreutils-8.31.tar.xz).  The coreutils are the basic utilities used by all Linux systems -- ls, cp, mv, etc.  Once you've downloaded it, uncompress it (`tar xfa coreutils-8.31.tar.xz`). Once in that directory, run `./configure` then `make`.  This will work on the Virginia Cyber Range -- you are on your own if you are using your own computer's OS.
+For this task we are going to modify the source code to insert our compromise into the program itself.  Linux is open source, and all of the core utilities are GNU, so their source code is freely available.  You can download the latest (highest-numbered) version from [https://ftp.gnu.org/gnu/coreutils/](https://ftp.gnu.org/gnu/coreutils/) -- although there are likely later versions, **we are going to version 8.31**.  The specific file to download is [here](https://ftp.gnu.org/gnu/coreutils/coreutils-8.31.tar.xz).  The coreutils are the basic utilities used by all Linux systems -- ls, cp, mv, etc.  Once you've downloaded it, uncompress it (`tar xfa coreutils-8.31.tar.xz`). Once in that directory, run `./configure` then `make`.  This will work on the Virginia Cyber Range -- you are on your own if you are using your own computer's OS.
 
 The source code for the various files in coreutils is all inter-dependent on each other, and it's not worth our time for this assignment to figure out the details or try to separate it.  So you are going to edit the appropriate files in the coreutils archive and compile it with the Makefile that the archive provides.  The `main()` function for the sha384sum binary is in src/md5sum.c (SHA-1 was originally added as an "extension" of MD5, and it stayed that way as successive SHA versions were created).  Once you modify that file, you can run `make src/sha384sum`.
 
@@ -196,7 +196,7 @@ From the C code, you will need to execute a command-line program and capture the
   - A better way would be: `system("lsb_release -a > output.txt 2> /dev/null");` -- this saves the output to `output.txt`, but the error message ("No LSB modules are available.") is not displayed to the screen.
 - You can call the command directly (without redirecting it to a file) from C -- see the code [here](https://stackoverflow.com/questions/7292642/grabbing-output-from-exec) for how to do this (you can copy the code at that link for this assignment).  This is a lot harder, though.
 
-You will then need to transmit this over the network.  To simplify it, you just call a URL, which is shwown on the Canvas landing page.  In that URL, mst3k is your userid and the `...` is the data you are sending. You can do this via a `wget` call (executing a command-line program from the C/C++ program via [system()](https://www.systutorials.com/docs/linux/man/3-system): `wget <URL>`.  This puts the information into the apache web server log.  There are more efficient ways to do this, but putting it into the apache log is fine for this assignment.  Note that you should supress the output from the `wget` call -- you can do this with the `-q` flag.
+You will then need to transmit this over the network.  To simplify it, you just call a URL, which is shwown on the Canvas landing page.  In that URL, mst3k is your userid and the `...` is the data you are sending. You can do this via a `wget` call (executing a command-line program from the C/C++ program via [system()](https://www.systutorials.com/docs/linux/man/3-system): `wget <URL>`.  This puts the information into the apache web server log.  There are more efficient ways to do this, but putting it into the apache log is fine for this assignment.  Note that you should surpress the output from the `wget` call -- you can do this with the `-q` flag.
 
 You may also want to familiarize yourself with the [system()](https://www.systutorials.com/docs/linux/man/3-system) function.
 
@@ -216,7 +216,7 @@ We've collected a few of these here...
 - The `which` command in linux tells you where the specified system binary is in the filesystem; for example, if you enter 'which ls', the path to the ls binary (/bin/ls) should be printed out
 - Similarly, the `PATH` environment variable indicates all the possible locations that the system looks for when you want to execute a command. You can view it with `echo $PATH`
 - If you finished the backdoored `sha224sum` rootkit, but it's not printing out anything, consider flushing out stdout to force print the contents in the stdout buffer.
-- `exec()` refers to a family of functions that can execute other processes; we recommend using `execl()` for this assignment (though you are free to do otherwise!)
+- `exec()` refers to a family of functions that can execute other processes; we recommend using `excel()` for this assignment (though you are free to do otherwise!)
 - If `make` does not work, you can try running `sudo apt install --fix-missing`  and then run `make` again to see if that fixes the problem
 
 ### Submission

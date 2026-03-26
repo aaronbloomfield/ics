@@ -263,7 +263,7 @@ Cypherpunks remailers can be used to send messages to email addresses or to Usen
 - B and C are just *relays*
   - Some are well known, others are kept secret
 - As for S:
-  - If the detination is *outside* of Tor, then it sends the data (via TLS) to the destination, and S is called the *exit relay*
+  - If the destination is *outside* of Tor, then it sends the data (via TLS) to the destination, and S is called the *exit relay*
   - If the destination is *inside* of Tor, then S is the *hidden service*
 
 

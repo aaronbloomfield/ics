@@ -438,7 +438,7 @@ One you have entered the breakpoint, you can examine the state of the program:
 - `bt` (for backtrace) shows the set of function calls that got to that point
 - `list` shows the line of source code that the program is paused on, and the few lines before and after
 
-Below is an example of running the debugger using those commands.  This is using the shellcode_test.c, from above, and there is only one local variable.  There are a number of lines of information printed when the debugger starts; these have been omitted below and replaced with an elipsis (...).
+Below is an example of running the debugger using those commands.  This is using the shellcode_test.c, from above, and there is only one local variable.  There are a number of lines of information printed when the debugger starts; these have been omitted below and replaced with an ellipsis (...).
 
 
 ```

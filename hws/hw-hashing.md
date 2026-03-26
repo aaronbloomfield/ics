@@ -230,7 +230,7 @@ Each of the three parts will have to have its own shell script.  All these shell
 #!/bin/bash
 ```
 
-The name of the shell script and the second line will depend on which shell script and what programming language.  You are welcome to name your source code anything reaosnale; be sure to change the second line in your shell scripts accordingly.  Here are some examples of the second line:
+The name of the shell script and the second line will depend on which shell script and what programming language.  You are welcome to name your source code anything reasonable; be sure to change the second line in your shell scripts accordingly.  Here are some examples of the second line:
 
 - Task 1: `crc16crack.sh`:
     - Python: `python3 crc16crack.py $@`

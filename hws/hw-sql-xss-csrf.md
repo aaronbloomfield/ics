@@ -19,7 +19,7 @@ Any changes to this page will be put here for easy reference.  Typo fixes and mi
 
 First, you should be familiar with SQL and SQL injection attacks.  For review, look at the first half of the [SQL, XSS, and CSRF slide set](../slides/sql-xss-csrf.html#/).
 
-I've already determined your grades for this part!  And you all got an F.  So sorry!  Those grades have been stored in a database.  Whatever grade is in that database at the end of this assignment is your grade for htis part.
+I've already determined your grades for this part!  And you all got an F.  So sorry!  Those grades have been stored in a database.  Whatever grade is in that database at the end of this assignment is your grade for this part.
 
 View SQL injection attack web page, the URL of which is shown on the Canvas landing page - note that you will have to log in via Netbadge to view this page.  From this page, you will need to execute an SQL injection attack.  Note that the only confidential data in that database is the names and userids of the participants, and all of that information is considered "public" knowledge to the participants of the course (FERPA allows release of names; all students in this course are in the [UVa LDAP server](http://www.virginia.edu/cgi-local/ldapweb?asb2t), and the ID numbers were randomly generated).
 

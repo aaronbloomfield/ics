@@ -266,8 +266,8 @@ An entity (such as virginia.edu) can hold an *intermediate* certificate, which a
 
 ## TLS 1.3
 - Main improvement:
-  - Only allow public enryption protocols that are forward-secret (meaning: they use DHE)
-- Other imrpovements:
+  - Only allow public encryption protocols that are forward-secret (meaning: they use DHE)
+- Other improvements:
   - Send more of the information as a single message, so there is less back-and-forth to the handshake
   - Can initiate the connection in 4 messages rather than 6
 

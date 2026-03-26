@@ -171,7 +171,7 @@ A series of (mostly unrelated) topics relating to computing security
 - The accepted "best practice" is to notify the vendor / creator of the software about the vulnerability, and let them publish the patch
   - Then it is publicized and the "finders" can claim credit
 - It doesn't always happen that way...
-  - Some want to embarass a company
+  - Some want to embarrass a company
   - Companies don't patch it in reasonable amount of time: [Google discloses Microsoft Edge security flaw before a patch is ready](https://www.theverge.com/2018/2/19/17027138/google-microsoft-edge-security-flaw-disclosure)
     - Microsoft had 90 days notice, but didn't patch it
 

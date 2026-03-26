@@ -97,7 +97,7 @@ title: "Encryption"
   - There are only 26 possibilities!
     - Well, 25 really -- nobody would encrypt with a key of 0 or 26...
   - A program could do this in a matter of microseconds; a person in a matter of minutes
-  - Example: crack "s psxn iyeb vkmu yp pksdr nscdeblsxq" online [here](http://md5decrypt.net/en/Caesar/) (select 'bruteforce')
+  - Example: crack "s psxn iyeb vkmu yp pksdr nscdeblsxq" online [here](http://md5decrypt.net/en/Caesar/) (select 'brute force')
 - Substitution ciphers can be more complex
   - Having a mapping, rather than a rotation
 
@@ -570,7 +570,7 @@ return probably prime
 
 ## Public key cryptography
 - Everybody has a key that encrypts and a separate key that decrypts
- - They are not interchangable!
+ - They are not interchangeable!
 - The encryption key is made public
 - The decryption key is kept private
 
@@ -696,7 +696,7 @@ False
   - $85 = 5*17$
   - $\text{gcd}(85, 10176) = 1$
 - Thus, 85 and 10176 are relatively prime
-  - Even though 85 is compisite
+  - Even though 85 is composite
 
 
 ## Key generation, step 3
@@ -1266,7 +1266,7 @@ $
 - Examples:
   - Run it a bagillion times and see if the distributions of the numbers is uniform across the range
   - See if the numbers follow a [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution) (when run through the correct formulas)
-  - Interpret the numbers as 5 card stud poker hands, and see if the distrubtion of hands is the expected distribution
+  - Interpret the numbers as 5 card stud poker hands, and see if the distribution of hands is the expected distribution
   - And many others...
 
 
@@ -1274,7 +1274,7 @@ $
 - A bit of background first...
 - Open source software is maintained by certain individuals
   - Here called the "upstream developers"
-- Different Linux distrubtions will package them for easy installation
+- Different Linux distributions will package them for easy installation
   - Example: `sudo apt-get install openssl`
   - Volunteers, called "package maintainers" do this work
     - They are typically *not* the upstream developers
@@ -1459,7 +1459,7 @@ afe68f753a65f773a591bcf6f9ce3c63  message1.txt
 ## [SHA-3](http://en.wikipedia.org/wiki/SHA-3)
 - Intent is for it NOT to derive (or be similar to) SHA-2
   - So if the SHA-1 vulnerability exists in SHA-2, it thus will not affect SHA-3
-- NIST (National Institute for Standards and Technology) had an open solicitation / compettion for the algorithm
+- NIST (National Institute for Standards and Technology) had an open solicitation / competition for the algorithm
   - The particular one selected was [Keccak](https://en.wikipedia.org/wiki/SHA-3)
 
 

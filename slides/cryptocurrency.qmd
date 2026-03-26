@@ -31,7 +31,7 @@ title: Cryptocurrency
 - Commodity currency: made from actual valuable commodities, such as gold
   - "gold pieces" in role-playing games
 - Representative currency: one that is backed up by a valuable "thing", such as gold
-  - When the US dollor was on the "[gold standard](https://en.wikipedia.org/wiki/Gold_standard)"
+  - When the US dollar was on the "[gold standard](https://en.wikipedia.org/wiki/Gold_standard)"
 - Fiat currency: established by the government "by fiat"
   - What the US dollar is (now)
 - Cryptocurrency (obviously)

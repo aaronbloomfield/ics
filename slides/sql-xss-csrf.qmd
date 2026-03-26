@@ -380,7 +380,7 @@ We've all seen HTML forms:
 - Attributes:
   - `action="/action_page.php"`: specifies the script to receive the form data
   - `method="post"`: how the data is sent
-    - GET means it's a long URL: http://server.com/foo.php?username=abcd&password=123
+    - GET means it's a long URL: http://server.com/foo.php?username=userid&password=123
 	  - There are limits to the data size sent
 	  - And lots of security issues for sensitive data
 	- POST means it's sent, but not in the URL
@@ -573,12 +573,12 @@ Output: Hello Aaron! Your account balance is 1000000
 ## CSRF example
 - An example link: 
 ``` html
-https://site.com/post.php?title=abcd&content=Lorem.ipsum
+https://site.com/post.php?title=MyTitle&content=Lorem.ipsum
 ```
 - One can imagine a form as well (that is not on site.com):
 ``` html
  <form action="https://site.com/post.php" method="post">
-  <input type="hidden" name="title" value="abcd">
+  <input type="hidden" name="title" value="MyTitle">
   <input type="hidden" name="content" 
          value="Lorem.ipsum">
   <input type="submit" value="Submit">
