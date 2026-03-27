@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
-<html>
+<html lang='en'>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <meta name="GENERATOR" content="GNU source-highlight 3.1.9
@@ -9,7 +9,13 @@ http://www.gnu.org/software/src-highlite">
 <title>Makefile</title>
 </head>
 <body bgcolor="white">
-<pre><tt><font color="#009900">CC 		=</font> gcc
+<pre><tt>ifeq <font color="#990000">(</font><font color="#009900">$(</font>shell uname<font color="#990000">),</font>Darwin<font color="#990000">)</font>
+        <font color="#009900">SED</font><font color="#990000">=</font>sed -i .todel
+<b><font color="#0000FF">else</font></b>
+        <font color="#009900">SED</font><font color="#990000">=</font>sed -i
+endif
+
+<font color="#009900">CC 		=</font> gcc
 <font color="#009900">TARGETS =</font> test1 test2 test3
 <font color="#009900">CFLAGS	=</font> -m<font color="#993399">64</font> -fomit-frame-pointer -fno-stack-protector -g -no-pie -O<font color="#993399">0</font>
 
@@ -41,6 +47,8 @@ http://www.gnu.org/software/src-highlite">
 	hexdump -C test5 <font color="#990000">&gt;</font> test5.hexdump.txt
 	readelf -e test5 <font color="#990000">&gt;</font> test5.readelf.txt
 	source-highlight -d <font color="#990000">*</font>.c <font color="#990000">*</font>.s <font color="#990000">*</font>.cpp Makefile
+	<font color="#009900">$(SED)</font> s<font color="#990000">/</font><font color="#FF0000">"&lt;html&gt;"</font><font color="#990000">/</font><font color="#FF0000">"&lt;html lang='en'&gt;"</font>/g <font color="#990000">*</font>.c.html <font color="#990000">*</font>.s.html <font color="#990000">*</font>.cpp.html Makefile.html
+	/bin/rm -f <font color="#990000">*</font>.todel
 	/bin/rm -f <font color="#990000">*</font>.o
 </tt></pre>
 </body>

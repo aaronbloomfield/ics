@@ -1,3 +1,9 @@
+ifeq ($(shell uname),Darwin)
+        SED=sed -i .todel
+else
+        SED=sed -i
+endif
+
 CC 		= gcc
 TARGETS = test1 test2 test3
 CFLAGS	= -m64 -fomit-frame-pointer -fno-stack-protector -g -no-pie -O0
@@ -30,4 +36,6 @@ all: $(TARGETS)
 	hexdump -C test5 > test5.hexdump.txt
 	readelf -e test5 > test5.readelf.txt
 	source-highlight -d *.c *.s *.cpp Makefile
+	$(SED) s/"<html>"/"<html lang='en'>"/g *.c.html *.s.html *.cpp.html Makefile.html
+	/bin/rm -f *.todel
 	/bin/rm -f *.o
