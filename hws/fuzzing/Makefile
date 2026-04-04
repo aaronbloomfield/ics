@@ -4,7 +4,9 @@ else
         SED=sed -i
 endif
 
-doc:
-	@source-highlight -d *.py
-	@$(SED) s/"<html>"/"<html lang='en'>"/g *.py.html
-	@/bin/rm -f *.todel
+source:
+	source-highlight -d *.py Makefile
+	$(SED) s/"<html>"/"<html lang='en'>"/ *.py.html Makefile.html
+	$(SED) s/"<pre>"/"<main><pre>"/ *.py.html Makefile.html
+	$(SED) s_"</pre>"_"</pre></main>"_ *.py.html Makefile.html
+	/bin/rm -f *.todel

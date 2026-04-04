@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html lang='en'>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>Makefile</title>
+</head>
+<body bgcolor="white">
+<main><pre><tt>ifeq <font color="#990000">(</font><font color="#009900">$(</font>shell uname<font color="#990000">),</font>Darwin<font color="#990000">)</font>
+        <font color="#009900">SED</font><font color="#990000">=</font>sed -i .todel
+<b><font color="#0000FF">else</font></b>
+        <font color="#009900">SED</font><font color="#990000">=</font>sed -i
+endif
+
+<font color="#990000">all:</font>
+	gcc -o stack_addr stack_addr.c 
+	gcc -fno-stack-protector -m<font color="#993399">64</font> -fomit-frame-pointer -o grade grade.c
+	nasm -g -f elf64 -o shellcode.o shellcode.s
+	gcc -g -m<font color="#993399">64</font> -c shellcode_test.c
+	gcc -g -no-pie -m<font color="#993399">64</font> -o shellcode_test shellcode.o shellcode_test.o
+	gcc -o read-buffer-address read-buffer-address.c
+	make <b><font color="#0000FF">source</font></b>
+
+<font color="#990000">source:</font>
+	source-highlight -d <font color="#990000">*</font>.c <font color="#990000">*</font>.s <font color="#990000">*</font>.py Makefile
+	<font color="#009900">$(SED)</font> s<font color="#990000">/</font><font color="#FF0000">"&lt;html&gt;"</font><font color="#990000">/</font><font color="#FF0000">"&lt;html lang='en'&gt;"</font><font color="#990000">/</font> <font color="#990000">*</font>.c.html <font color="#990000">*</font>.s.html <font color="#990000">*</font>.py.html Makefile.html
+	<font color="#009900">$(SED)</font> s<font color="#990000">/</font><font color="#FF0000">"&lt;pre&gt;"</font><font color="#990000">/</font><font color="#FF0000">"&lt;main&gt;&lt;pre&gt;"</font><font color="#990000">/</font> <font color="#990000">*</font>.c.html <font color="#990000">*</font>.s.html <font color="#990000">*</font>.py.html Makefile.html
+	<font color="#009900">$(SED)</font> s_<font color="#FF0000">"&lt;/pre&gt;"</font>_<font color="#FF0000">"&lt;/pre&gt;&lt;/main&gt;"</font>_ <font color="#990000">*</font>.c.html <font color="#990000">*</font>.s.html <font color="#990000">*</font>.py.html Makefile.html
+	/bin/rm -f <font color="#990000">*</font>.todel
+</tt></pre></main>
+</body>
+</html>

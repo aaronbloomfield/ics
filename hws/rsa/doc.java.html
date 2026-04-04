@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html lang='en'>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>doc.java</title>
+</head>
+<body bgcolor="white">
+<main><pre><tt><i><font color="#9A1900">/** </font></i><font color="#009900">@mainpage</font><i><font color="#9A1900"> Main Page</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * This documentation describes three classes provided in the skeleton</font></i>
+<i><font color="#9A1900"> * code for the </font></i><b><font color="#0000FF">&lt;a</font></b>
+ * <font color="#009900">href</font><font color="#990000">=</font><font color="#FF0000">"https://aaronbloomfield.github.io/ics/hws/rsa.html"</font><b><font color="#0000FF">&gt;</font></b><i><font color="#9A1900">RSA</font></i>
+<i><font color="#9A1900"> * homework</font></i><b><font color="#0000FF">&lt;/a&gt;</font></b><i><font color="#9A1900">.</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * - {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> CipherText}: a class to hold the cipher text for any RSA</font></i>
+<i><font color="#9A1900"> *   encrypted data</font></i>
+<i><font color="#9A1900"> * - {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSAKey}: a class to hold a public or private (or both) key</font></i>
+<i><font color="#9A1900"> * - {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSA}: the main class that implementes RSA.  There are six</font></i>
+<i><font color="#9A1900"> *   methods within that need to be completed for this assignment:</font></i>
+<i><font color="#9A1900"> *   {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSA.generateKeys()}, {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSA.encrypt()}, {</font></i><font color="#009900">@link</font>
+<i><font color="#9A1900"> *   RSA.decrypt()}, {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSA.sign()}, {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSA.checkSign()}, and</font></i>
+<i><font color="#9A1900"> *   {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSA.crack()}.</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * Lastly, the command line parameters are specified at {</font></i><font color="#009900">@link</font>
+<i><font color="#9A1900"> * cmdparam}.</font></i>
+<i><font color="#9A1900"> */</font></i>
+
+<i><font color="#9A1900">/** </font></i><font color="#009900">@page</font><i><font color="#9A1900"> cmdparam Command Line Parameters</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * The {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSA.main()} methods accepts the following command-line</font></i>
+<i><font color="#9A1900"> * parameters:</font></i>
+<i><font color="#9A1900"> * </font></i>
+<i><font color="#9A1900"> * - `-keygen </font></i><b><font color="#0000FF">&lt;bitsize&gt;</font></b><i><font color="#9A1900">`: this will generate RSA public/private keys of</font></i>
+<i><font color="#9A1900"> *   the specified bit size. The base name for the file to store the keys</font></i>
+<i><font color="#9A1900"> *   in will be specified by the `-key` parameter; see details below as</font></i>
+<i><font color="#9A1900"> *   to the file names and file format. You can divide by 3.321928, which</font></i>
+<i><font color="#9A1900"> *   is roughly log(10)/log(2), to get the number of decimal digits. The</font></i>
+<i><font color="#9A1900"> *   number of bits provided is for *p* (as well as *q*); *n* is roughly</font></i>
+<i><font color="#9A1900"> *   twice as many bits.  Note that *d* and *e* need to be roughly the</font></i>
+<i><font color="#9A1900"> *   same bit size (i.e. you can't have *e* be about the size of *p* and</font></i>
+<i><font color="#9A1900"> *   *q*, and *d* be about the size of *n*).  See the -key parameter,</font></i>
+<i><font color="#9A1900"> *   below, for how to write the key to a file.</font></i>
+<i><font color="#9A1900"> * - `-output </font></i><b><font color="#0000FF">&lt;filename&gt;</font></b><i><font color="#9A1900">`: this specifies the file name to save the</font></i>
+<i><font color="#9A1900"> *   results in. It can be the output from an encryption or</font></i>
+<i><font color="#9A1900"> *   decryption. The key file format is described in the {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSA.writeKeyToFile()}</font></i>
+<i><font color="#9A1900"> *   method.  A encrypted message file will</font></i>
+<i><font color="#9A1900"> *   follow the format described in the {</font></i><font color="#009900">@link</font>
+<i><font color="#9A1900"> *   RSA.writeCipherTextToFile()} method. If not specified, it should</font></i>
+<i><font color="#9A1900"> *   default to "output.txt".</font></i>
+<i><font color="#9A1900"> * - `-input </font></i><b><font color="#0000FF">&lt;filename&gt;</font></b><i><font color="#9A1900">`: the input file to be used to encrypt, decrypt,</font></i>
+<i><font color="#9A1900"> *   sign, check the sign of, or crack. This input file is specifically</font></i>
+<i><font color="#9A1900"> *   the plaintext, cipher text, or the signature, depending on what</font></i>
+<i><font color="#9A1900"> *   function is being called.  Note that the key would be specified by the `-key`</font></i>
+<i><font color="#9A1900"> *   parameter.  If not specified, it should default to "input.txt".</font></i>
+<i><font color="#9A1900"> * - `-showpandq`: this flag will cause the key generation to print out</font></i>
+<i><font color="#9A1900"> *   (to the screen only!) the values for the prime numbers *p* and *q*</font></i>
+<i><font color="#9A1900"> *   during the key generation phase - this is done for debugging</font></i>
+<i><font color="#9A1900"> *   purposes, and so we can check your code.</font></i>
+<i><font color="#9A1900"> * - `-key </font></i><b><font color="#0000FF">&lt;keyfile&gt;</font></b><i><font color="#9A1900">`: the key file.  For encryption, this is the public</font></i>
+<i><font color="#9A1900"> *   key file; for decryption, this is the private key file; for key</font></i>
+<i><font color="#9A1900"> *   generation, the file name to write the keys to; for cracking a</font></i>
+<i><font color="#9A1900"> *   message, this specifies the public key file. Note that this only</font></i>
+<i><font color="#9A1900"> *   specifies the key prefix name (such as 'alice' or 'bob') - to get</font></i>
+<i><font color="#9A1900"> *   the full key name, `-private.key`, `-public.key`, or</font></i>
+<i><font color="#9A1900"> *   `-cracked-private.key` is appended to the name.  If not specified,</font></i>
+<i><font color="#9A1900"> *   it should default to "key".</font></i>
+<i><font color="#9A1900"> * - `-encrypt`: this will use the public key (specified by the `-key`</font></i>
+<i><font color="#9A1900"> *   parameter) and encrypt the plaintext file (specified by the `-input`</font></i>
+<i><font color="#9A1900"> *   parameter), writing the ciphertext to another file (specified by the</font></i>
+<i><font color="#9A1900"> *   `-output` parameter).</font></i>
+<i><font color="#9A1900"> * - `-decrypt`: this will use the private key (specified by the `-key`</font></i>
+<i><font color="#9A1900"> *   parameter) and encrypt the ciphertext file (specified by the</font></i>
+<i><font color="#9A1900"> *   `-input` parameter), writing the plaintext to another file</font></i>
+<i><font color="#9A1900"> *   (specified by the `-output` parameter).</font></i>
+<i><font color="#9A1900"> * - `-verbose`: this flag need not do anything, but is used for</font></i>
+<i><font color="#9A1900"> *   debugging: a normal execution should not output anything (unless the</font></i>
+<i><font color="#9A1900"> *   signature doesn't match with `-checksign`); with this option, you</font></i>
+<i><font color="#9A1900"> *   can output all the status and debugging information that you would</font></i>
+<i><font color="#9A1900"> *   like.</font></i>
+<i><font color="#9A1900"> * - `-crack`: this will take the public key (specified by the `-key`</font></i>
+<i><font color="#9A1900"> *   parameter) and proceed to crack the RSA encryption by factoring *n*</font></i>
+<i><font color="#9A1900"> *   into *p* and *q*.  The output key (*d*,*n*) is written to</font></i>
+<i><font color="#9A1900"> *   \</font></i><b><font color="#0000FF">&lt;foo</font></b>\<b><font color="#0000FF">&gt;</font></b><i><font color="#9A1900">-cracked-private.key, where \</font></i><b><font color="#0000FF">&lt;foo</font></b>\<b><font color="#0000FF">&gt;</font></b><i><font color="#9A1900"> is specified by the</font></i>
+<i><font color="#9A1900"> *   `-key` parameter.</font></i>
+<i><font color="#9A1900"> * - `-sign`: this will sign a message; given the message (specified by</font></i>
+<i><font color="#9A1900"> *   `-input`) and the private key (specified by `-key`), it will write</font></i>
+<i><font color="#9A1900"> *   the RSA‐encrypted MD5 hash to the output file. We assume it writes</font></i>
+<i><font color="#9A1900"> *   the sign to a file called \</font></i><b><font color="#0000FF">&lt;filename</font></b>\<b><font color="#0000FF">&gt;</font></b><i><font color="#9A1900">.sign, where \</font></i><b><font color="#0000FF">&lt;filename</font></b>\<b><font color="#0000FF">&gt;</font></b><i><font color="#9A1900"> is</font></i>
+<i><font color="#9A1900"> *   the name given to the `-input` parameter - this can overwrite the</font></i>
+<i><font color="#9A1900"> *   existing \</font></i><b><font color="#0000FF">&lt;filename</font></b>\<b><font color="#0000FF">&gt;</font></b><i><font color="#9A1900">.sign, if it exists.  A signature is just an</font></i>
+<i><font color="#9A1900"> *   encryption of the MD5 hash.  See the `java.security.MessageDigest`</font></i>
+<i><font color="#9A1900"> *   class for easy computation of MD5 hashes.  Also see the supplied</font></i>
+<i><font color="#9A1900"> *   Java code, below.</font></i>
+<i><font color="#9A1900"> * - `-checksign`: this will check a signed message; given the message</font></i>
+<i><font color="#9A1900"> *   (specified by `-input`) and the public key (specified by `-key`), it</font></i>
+<i><font color="#9A1900"> *   will verify the RSA encrypted MD5 hash to the signature</font></i>
+<i><font color="#9A1900"> *   file. Similar to the `-sign` parameter, the key is assumed to be in</font></i>
+<i><font color="#9A1900"> *   the \</font></i><b><font color="#0000FF">&lt;filename</font></b>\<b><font color="#0000FF">&gt;</font></b><i><font color="#9A1900">.sign file.  This will print "signatures do not</font></i>
+<i><font color="#9A1900"> *   match" (or similar) ONLY if the signatures do not match; if they do</font></i>
+<i><font color="#9A1900"> *   match, then nothing is printed.</font></i>
+<i><font color="#9A1900"> */</font></i>
+</tt></pre></main>
+</body>
+</html>

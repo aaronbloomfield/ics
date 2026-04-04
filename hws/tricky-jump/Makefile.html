@@ -9,7 +9,7 @@ http://www.gnu.org/software/src-highlite">
 <title>Makefile</title>
 </head>
 <body bgcolor="white">
-<pre><tt>ifeq <font color="#990000">(</font><font color="#009900">$(</font>shell uname<font color="#990000">),</font>Darwin<font color="#990000">)</font>
+<main><pre><tt>ifeq <font color="#990000">(</font><font color="#009900">$(</font>shell uname<font color="#990000">),</font>Darwin<font color="#990000">)</font>
         <font color="#009900">SED</font><font color="#990000">=</font>sed -i .todel
 <b><font color="#0000FF">else</font></b>
         <font color="#009900">SED</font><font color="#990000">=</font>sed -i
@@ -46,10 +46,17 @@ endif
 	objdump -d test5 <font color="#990000">&gt;</font> test5.objdump.txt
 	hexdump -C test5 <font color="#990000">&gt;</font> test5.hexdump.txt
 	readelf -e test5 <font color="#990000">&gt;</font> test5.readelf.txt
-	source-highlight -d <font color="#990000">*</font>.c <font color="#990000">*</font>.s <font color="#990000">*</font>.cpp Makefile
 	<font color="#009900">$(SED)</font> s<font color="#990000">/</font><font color="#FF0000">"&lt;html&gt;"</font><font color="#990000">/</font><font color="#FF0000">"&lt;html lang='en'&gt;"</font>/g <font color="#990000">*</font>.c.html <font color="#990000">*</font>.s.html <font color="#990000">*</font>.cpp.html Makefile.html
 	/bin/rm -f <font color="#990000">*</font>.todel
 	/bin/rm -f <font color="#990000">*</font>.o
-</tt></pre>
+	make <b><font color="#0000FF">source</font></b>
+
+<font color="#990000">source:</font>
+	source-highlight -d <font color="#990000">*</font>.c <font color="#990000">*</font>.s <font color="#990000">*</font>.cpp Makefile
+	<font color="#009900">$(SED)</font> s<font color="#990000">/</font><font color="#FF0000">"&lt;html&gt;"</font><font color="#990000">/</font><font color="#FF0000">"&lt;html lang='en'&gt;"</font><font color="#990000">/</font> <font color="#990000">*</font>.c.html <font color="#990000">*</font>.s.html <font color="#990000">*</font>.cpp.html Makefile.html
+	<font color="#009900">$(SED)</font> s<font color="#990000">/</font><font color="#FF0000">"&lt;pre&gt;"</font><font color="#990000">/</font><font color="#FF0000">"&lt;main&gt;&lt;pre&gt;"</font><font color="#990000">/</font> <font color="#990000">*</font>.c.html <font color="#990000">*</font>.s.html <font color="#990000">*</font>.cpp.html Makefile.html
+	<font color="#009900">$(SED)</font> s_<font color="#FF0000">"&lt;/pre&gt;"</font>_<font color="#FF0000">"&lt;/pre&gt;&lt;/main&gt;"</font>_ <font color="#990000">*</font>.c.html <font color="#990000">*</font>.s.html <font color="#990000">*</font>.cpp.html Makefile.html
+	/bin/rm -f <font color="#990000">*</font>.todel
+</tt></pre></main>
 </body>
 </html>

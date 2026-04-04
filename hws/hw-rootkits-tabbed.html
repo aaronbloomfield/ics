@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html xmlns='http://www.w3.org/1999/xhtml' lang='' xml:lang=''>
+<html xmlns='http://www.w3.org/1999/xhtml' lang='en' xml:lang='en'>
 <head>
   <meta charset='utf-8'></meta>
   <meta name='generator' content='pandoc'></meta>
   <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=yes'></meta>
   <title>ICS: Programming Homework: Rootkits</title>
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
@@ -47,6 +49,7 @@
   </script>
 </head>
 <body>
+<main>
 <h1 id='ics-programming-homework-rootkits'>ICS: Programming Homework: Rootkits</h1>
 <p><a href='index.html'>Go up to the ICS HW page</a> (<a href='index.md'>md</a>) | <a href='hw-rootkits.html'>view one-page version</a></p><div class='tab'>
 <button class='tablinks' onclick="openTab(event,'toverview')" id='defaultOpen'>Overview</button>
@@ -209,6 +212,7 @@ all:
 clean:
     make -C /lib/modules/$(shell uname -r)/build/ M=$(PWD) clean</code></pre>
 <p>Recall that the sha224sum compilation (or copy) line will vary based on the language used.</p>
+</main>
 </div><script>document.getElementById('defaultOpen').click();</script></body>
 </html>
 

@@ -35,7 +35,14 @@ all: $(TARGETS)
 	objdump -d test5 > test5.objdump.txt
 	hexdump -C test5 > test5.hexdump.txt
 	readelf -e test5 > test5.readelf.txt
-	source-highlight -d *.c *.s *.cpp Makefile
 	$(SED) s/"<html>"/"<html lang='en'>"/g *.c.html *.s.html *.cpp.html Makefile.html
 	/bin/rm -f *.todel
 	/bin/rm -f *.o
+	make source
+
+source:
+	source-highlight -d *.c *.s *.cpp Makefile
+	$(SED) s/"<html>"/"<html lang='en'>"/ *.c.html *.s.html *.cpp.html Makefile.html
+	$(SED) s/"<pre>"/"<main><pre>"/ *.c.html *.s.html *.cpp.html Makefile.html
+	$(SED) s_"</pre>"_"</pre></main>"_ *.c.html *.s.html *.cpp.html Makefile.html
+	/bin/rm -f *.todel

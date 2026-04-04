@@ -22,7 +22,7 @@ Any changes to this page will be put here for easy reference.  Typo fixes and mi
 
 We are going to use the ChatGPT generative AI tool for this assignment.  You can create an account at [https://chat.openai.com/](https://chat.openai.com/).
 
-Play around a bit with ChatGPT to get the hang of how it works.  Give it a prompt, or use one of the prompts they provide.  In particular, once it generates a response, you can then modify that response ("make the answer longer" or "phrase that answer in the style of dr. suess", "phrase that answer in iambic pentameter", etc.).
+Play around a bit with ChatGPT to get the hang of how it works.  Give it a prompt, or use one of the prompts they provide.  In particular, once it generates a response, you can then modify that response ("make the answer longer" or "phrase that answer in the style of Dr. Seuss", "phrase that answer in iambic pentameter", etc.).
 
 
 ### Part 2: Choose challenge

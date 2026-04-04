@@ -7,8 +7,11 @@ markdown:
 
 .md.html:
 	pathprefix=`echo $< | tr -d -c '/' | sed -r 's/\//..\//g'` && \
-		pandoc --metadata lang="en" --standalone -V "pagetitle:$$(head -1 $<)" -f markdown -c $$pathprefix"markdown.css" --columns=9999 -t html5 -o $@ $<
+		pandoc --template `git rev-parse --show-toplevel`/pandoc-template.html --metadata lang="en" --standalone -V "pagetitle:$$(head -1 $<)" -f markdown -c $$pathprefix"markdown.css" --columns=9999 -t html5 -o $@ $<
 	@echo wrote $@
+
+touchall:
+	find . | grep "\.md$$" | awk '{print "touch "$$1}' | bash
 
 clean:
 	/bin/rm -rf *~ */*~ */*/*~ */*/*/*~

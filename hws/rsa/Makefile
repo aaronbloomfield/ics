@@ -6,10 +6,11 @@ endif
 
 convert:
 	astyle --style=java --pad-header RSA.java
-	source-highlight -d RSA.java
-	source-highlight -d rsa.py
-	source-highlight -d test-rsa.sh test-rsa.bat
-	$(SED) s/"<html>"/"<html lang='en'>"/g RSA.java.html rsa.py.html test-rsa.sh.html test-rsa.bat.html
-	/bin/rm -f *.todel
+	make source
 
-	#doxygen
+source:
+	source-highlight -d *.java *.py *.sh *.bat Makefile
+	$(SED) s/"<html>"/"<html lang='en'>"/ *.java.html *.py.html *.sh.html *.bat.html Makefile.html
+	$(SED) s/"<pre>"/"<main><pre>"/ *.java.html *.py.html *.sh.html *.bat.html Makefile.html
+	$(SED) s_"</pre>"_"</pre></main>"_ *.java.html *.py.html *.sh.html *.bat.html Makefile.html
+	/bin/rm -f *.todel
