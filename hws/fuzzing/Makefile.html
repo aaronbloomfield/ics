@@ -16,11 +16,7 @@ http://www.gnu.org/software/src-highlite">
 endif
 
 <font color="#990000">source:</font>
-	source-highlight -d <font color="#990000">*</font>.py Makefile
-	<font color="#009900">$(SED)</font> s<font color="#990000">/</font><font color="#FF0000">"&lt;html&gt;"</font><font color="#990000">/</font><font color="#FF0000">"&lt;html lang='en'&gt;"</font><font color="#990000">/</font> <font color="#990000">*</font>.py.html Makefile.html
-	<font color="#009900">$(SED)</font> s<font color="#990000">/</font><font color="#FF0000">"&lt;pre&gt;"</font><font color="#990000">/</font><font color="#FF0000">"&lt;main&gt;&lt;pre&gt;"</font><font color="#990000">/</font> <font color="#990000">*</font>.py.html Makefile.html
-	<font color="#009900">$(SED)</font> s_<font color="#FF0000">"&lt;/pre&gt;"</font>_<font color="#FF0000">"&lt;/pre&gt;&lt;/main&gt;"</font>_ <font color="#990000">*</font>.py.html Makefile.html
-	/bin/rm -f <font color="#990000">*</font>.todel
+	custom-source-highlight.sh <font color="#990000">*</font>.py Makefile
 </tt></pre></main>
 </body>
 </html>

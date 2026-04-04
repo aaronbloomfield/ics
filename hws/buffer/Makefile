@@ -14,8 +14,4 @@ all:
 	make source
 
 source:
-	source-highlight -d *.c *.s *.py Makefile
-	$(SED) s/"<html>"/"<html lang='en'>"/ *.c.html *.s.html *.py.html Makefile.html
-	$(SED) s/"<pre>"/"<main><pre>"/ *.c.html *.s.html *.py.html Makefile.html
-	$(SED) s_"</pre>"_"</pre></main>"_ *.c.html *.s.html *.py.html Makefile.html
-	/bin/rm -f *.todel
+	custom-source-highlight.sh *.c *.s *.py Makefile

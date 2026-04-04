@@ -41,8 +41,4 @@ all: $(TARGETS)
 	make source
 
 source:
-	source-highlight -d *.c *.s *.cpp Makefile
-	$(SED) s/"<html>"/"<html lang='en'>"/ *.c.html *.s.html *.cpp.html Makefile.html
-	$(SED) s/"<pre>"/"<main><pre>"/ *.c.html *.s.html *.cpp.html Makefile.html
-	$(SED) s_"</pre>"_"</pre></main>"_ *.c.html *.s.html *.cpp.html Makefile.html
-	/bin/rm -f *.todel
+	custom-source-highlight.sh *.c *.s *.cpp Makefile

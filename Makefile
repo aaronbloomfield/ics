@@ -26,4 +26,11 @@ all:
 	make
 	cd slides && make
 	cd uva && make
-	
+
+all-source-highlight:
+	cd hws/buffer/ && make source && cd ../..
+	cd hws/fuzzing/ && make source && cd ../..
+	cd hws/rsa/ && make source && cd ../..
+	cd hws/tricky-jump/ && make source && cd ../..
+	cd slides/code/buffer-overflows/ && make source && cd ../../..
+	cd slides/code/exploits/ && make source && cd ../../..
