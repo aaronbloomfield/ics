@@ -9,29 +9,29 @@ http://www.gnu.org/software/src-highlite">
 <title>doc.java</title>
 </head>
 <body bgcolor="white">
-<main><pre><tt><i><font color="#9A1900">/** </font></i><font color="#009900">@mainpage</font><i><font color="#9A1900"> Main Page</font></i>
+<main><pre><tt><i><font color="#9A1900">/** </font></i><font color="#008A00">@mainpage</font><i><font color="#9A1900"> Main Page</font></i>
 <i><font color="#9A1900"> *</font></i>
 <i><font color="#9A1900"> * This documentation describes three classes provided in the skeleton</font></i>
 <i><font color="#9A1900"> * code for the </font></i><b><font color="#0000FF">&lt;a</font></b>
- * <font color="#009900">href</font><font color="#990000">=</font><font color="#FF0000">"https://aaronbloomfield.github.io/ics/hws/rsa.html"</font><b><font color="#0000FF">&gt;</font></b><i><font color="#9A1900">RSA</font></i>
+ * <font color="#008A00">href</font><font color="#990000">=</font><font color="#EF0000">"https://aaronbloomfield.github.io/ics/hws/rsa.html"</font><b><font color="#0000FF">&gt;</font></b><i><font color="#9A1900">RSA</font></i>
 <i><font color="#9A1900"> * homework</font></i><b><font color="#0000FF">&lt;/a&gt;</font></b><i><font color="#9A1900">.</font></i>
 <i><font color="#9A1900"> *</font></i>
-<i><font color="#9A1900"> * - {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> CipherText}: a class to hold the cipher text for any RSA</font></i>
+<i><font color="#9A1900"> * - {</font></i><font color="#008A00">@link</font><i><font color="#9A1900"> CipherText}: a class to hold the cipher text for any RSA</font></i>
 <i><font color="#9A1900"> *   encrypted data</font></i>
-<i><font color="#9A1900"> * - {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSAKey}: a class to hold a public or private (or both) key</font></i>
-<i><font color="#9A1900"> * - {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSA}: the main class that implementes RSA.  There are six</font></i>
+<i><font color="#9A1900"> * - {</font></i><font color="#008A00">@link</font><i><font color="#9A1900"> RSAKey}: a class to hold a public or private (or both) key</font></i>
+<i><font color="#9A1900"> * - {</font></i><font color="#008A00">@link</font><i><font color="#9A1900"> RSA}: the main class that implementes RSA.  There are six</font></i>
 <i><font color="#9A1900"> *   methods within that need to be completed for this assignment:</font></i>
-<i><font color="#9A1900"> *   {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSA.generateKeys()}, {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSA.encrypt()}, {</font></i><font color="#009900">@link</font>
-<i><font color="#9A1900"> *   RSA.decrypt()}, {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSA.sign()}, {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSA.checkSign()}, and</font></i>
-<i><font color="#9A1900"> *   {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSA.crack()}.</font></i>
+<i><font color="#9A1900"> *   {</font></i><font color="#008A00">@link</font><i><font color="#9A1900"> RSA.generateKeys()}, {</font></i><font color="#008A00">@link</font><i><font color="#9A1900"> RSA.encrypt()}, {</font></i><font color="#008A00">@link</font>
+<i><font color="#9A1900"> *   RSA.decrypt()}, {</font></i><font color="#008A00">@link</font><i><font color="#9A1900"> RSA.sign()}, {</font></i><font color="#008A00">@link</font><i><font color="#9A1900"> RSA.checkSign()}, and</font></i>
+<i><font color="#9A1900"> *   {</font></i><font color="#008A00">@link</font><i><font color="#9A1900"> RSA.crack()}.</font></i>
 <i><font color="#9A1900"> *</font></i>
-<i><font color="#9A1900"> * Lastly, the command line parameters are specified at {</font></i><font color="#009900">@link</font>
+<i><font color="#9A1900"> * Lastly, the command line parameters are specified at {</font></i><font color="#008A00">@link</font>
 <i><font color="#9A1900"> * cmdparam}.</font></i>
 <i><font color="#9A1900"> */</font></i>
 
-<i><font color="#9A1900">/** </font></i><font color="#009900">@page</font><i><font color="#9A1900"> cmdparam Command Line Parameters</font></i>
+<i><font color="#9A1900">/** </font></i><font color="#008A00">@page</font><i><font color="#9A1900"> cmdparam Command Line Parameters</font></i>
 <i><font color="#9A1900"> *</font></i>
-<i><font color="#9A1900"> * The {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSA.main()} methods accepts the following command-line</font></i>
+<i><font color="#9A1900"> * The {</font></i><font color="#008A00">@link</font><i><font color="#9A1900"> RSA.main()} methods accepts the following command-line</font></i>
 <i><font color="#9A1900"> * parameters:</font></i>
 <i><font color="#9A1900"> * </font></i>
 <i><font color="#9A1900"> * - `-keygen </font></i><b><font color="#0000FF">&lt;bitsize&gt;</font></b><i><font color="#9A1900">`: this will generate RSA public/private keys of</font></i>
@@ -46,9 +46,9 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900"> *   below, for how to write the key to a file.</font></i>
 <i><font color="#9A1900"> * - `-output </font></i><b><font color="#0000FF">&lt;filename&gt;</font></b><i><font color="#9A1900">`: this specifies the file name to save the</font></i>
 <i><font color="#9A1900"> *   results in. It can be the output from an encryption or</font></i>
-<i><font color="#9A1900"> *   decryption. The key file format is described in the {</font></i><font color="#009900">@link</font><i><font color="#9A1900"> RSA.writeKeyToFile()}</font></i>
+<i><font color="#9A1900"> *   decryption. The key file format is described in the {</font></i><font color="#008A00">@link</font><i><font color="#9A1900"> RSA.writeKeyToFile()}</font></i>
 <i><font color="#9A1900"> *   method.  A encrypted message file will</font></i>
-<i><font color="#9A1900"> *   follow the format described in the {</font></i><font color="#009900">@link</font>
+<i><font color="#9A1900"> *   follow the format described in the {</font></i><font color="#008A00">@link</font>
 <i><font color="#9A1900"> *   RSA.writeCipherTextToFile()} method. If not specified, it should</font></i>
 <i><font color="#9A1900"> *   default to "output.txt".</font></i>
 <i><font color="#9A1900"> * - `-input </font></i><b><font color="#0000FF">&lt;filename&gt;</font></b><i><font color="#9A1900">`: the input file to be used to encrypt, decrypt,</font></i>

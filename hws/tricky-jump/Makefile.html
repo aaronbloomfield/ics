@@ -9,44 +9,44 @@ http://www.gnu.org/software/src-highlite">
 <title>Makefile</title>
 </head>
 <body bgcolor="white">
-<main><pre><tt>ifeq <font color="#990000">(</font><font color="#009900">$(</font>shell uname<font color="#990000">),</font>Darwin<font color="#990000">)</font>
-        <font color="#009900">SED</font><font color="#990000">=</font>sed -i .todel
+<main><pre><tt>ifeq <font color="#990000">(</font><font color="#008A00">$(</font>shell uname<font color="#990000">),</font>Darwin<font color="#990000">)</font>
+        <font color="#008A00">SED</font><font color="#990000">=</font>sed -i .todel
 <b><font color="#0000FF">else</font></b>
-        <font color="#009900">SED</font><font color="#990000">=</font>sed -i
+        <font color="#008A00">SED</font><font color="#990000">=</font>sed -i
 endif
 
-<font color="#009900">CC 		=</font> gcc
-<font color="#009900">TARGETS =</font> test1 test2 test3
-<font color="#009900">CFLAGS	=</font> -m<font color="#993399">64</font> -fomit-frame-pointer -fno-stack-protector -g -no-pie -O<font color="#993399">0</font>
+<font color="#008A00">CC 		=</font> gcc
+<font color="#008A00">TARGETS =</font> test1 test2 test3
+<font color="#008A00">CFLAGS	=</font> -m<font color="#993399">64</font> -fomit-frame-pointer -fno-stack-protector -g -no-pie -O<font color="#993399">0</font>
 
-<font color="#990000">all:</font> <font color="#009900">$(TARGETS)</font>
+<font color="#990000">all:</font> <font color="#008A00">$(TARGETS)</font>
 	nasm -g -f elf64 -o nops.o nops.s
-	gcc -c <font color="#009900">$(CFLAGS)</font> test1.c
-	gcc -o test1 <font color="#009900">$(CFLAGS)</font> test1.o nops.o
+	gcc -c <font color="#008A00">$(CFLAGS)</font> test1.c
+	gcc -o test1 <font color="#008A00">$(CFLAGS)</font> test1.o nops.o
 	objdump -d test1 <font color="#990000">&gt;</font> test1.objdump.txt
 	hexdump -C test1 <font color="#990000">&gt;</font> test1.hexdump.txt
 	readelf -e test1 <font color="#990000">&gt;</font> test1.readelf.txt
-	gcc -c <font color="#009900">$(CFLAGS)</font> test2.c
-	gcc -o test2 <font color="#009900">$(CFLAGS)</font> test2.o nops.o
+	gcc -c <font color="#008A00">$(CFLAGS)</font> test2.c
+	gcc -o test2 <font color="#008A00">$(CFLAGS)</font> test2.o nops.o
 	objdump -d test2 <font color="#990000">&gt;</font> test2.objdump.txt
 	hexdump -C test2 <font color="#990000">&gt;</font> test2.hexdump.txt
 	readelf -e test2 <font color="#990000">&gt;</font> test2.readelf.txt
-	gcc -c <font color="#009900">$(CFLAGS)</font> test3.c
-	gcc -o test3 <font color="#009900">$(CFLAGS)</font> test3.o nops.o
+	gcc -c <font color="#008A00">$(CFLAGS)</font> test3.c
+	gcc -o test3 <font color="#008A00">$(CFLAGS)</font> test3.o nops.o
 	objdump -d test3 <font color="#990000">&gt;</font> test3.objdump.txt
 	hexdump -C test3 <font color="#990000">&gt;</font> test3.hexdump.txt
 	readelf -e test3 <font color="#990000">&gt;</font> test3.readelf.txt
-	gcc -c <font color="#009900">$(CFLAGS)</font> test4.c
-	gcc -o test4 <font color="#009900">$(CFLAGS)</font> test4.o nops.o
+	gcc -c <font color="#008A00">$(CFLAGS)</font> test4.c
+	gcc -o test4 <font color="#008A00">$(CFLAGS)</font> test4.o nops.o
 	objdump -d test4 <font color="#990000">&gt;</font> test4.objdump.txt
 	hexdump -C test4 <font color="#990000">&gt;</font> test4.hexdump.txt
 	readelf -e test4 <font color="#990000">&gt;</font> test4.readelf.txt
-	g<font color="#990000">++</font> -c <font color="#009900">$(CFLAGS)</font> test5.cpp
-	g<font color="#990000">++</font> -o test5 <font color="#009900">$(CFLAGS)</font> test5.o nops.o
+	g<font color="#990000">++</font> -c <font color="#008A00">$(CFLAGS)</font> test5.cpp
+	g<font color="#990000">++</font> -o test5 <font color="#008A00">$(CFLAGS)</font> test5.o nops.o
 	objdump -d test5 <font color="#990000">&gt;</font> test5.objdump.txt
 	hexdump -C test5 <font color="#990000">&gt;</font> test5.hexdump.txt
 	readelf -e test5 <font color="#990000">&gt;</font> test5.readelf.txt
-	<font color="#009900">$(SED)</font> s<font color="#990000">/</font><font color="#FF0000">"&lt;html&gt;"</font><font color="#990000">/</font><font color="#FF0000">"&lt;html lang='en'&gt;"</font>/g <font color="#990000">*</font>.c.html <font color="#990000">*</font>.s.html <font color="#990000">*</font>.cpp.html Makefile.html
+	<font color="#008A00">$(SED)</font> s<font color="#990000">/</font><font color="#EF0000">"&lt;html&gt;"</font><font color="#990000">/</font><font color="#EF0000">"&lt;html lang='en'&gt;"</font>/g <font color="#990000">*</font>.c.html <font color="#990000">*</font>.s.html <font color="#990000">*</font>.cpp.html Makefile.html
 	/bin/rm -f <font color="#990000">*</font>.todel
 	/bin/rm -f <font color="#990000">*</font>.o
 	make <b><font color="#0000FF">source</font></b>

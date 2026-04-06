@@ -23,49 +23,49 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900"> * To run it, be sure to invoke `setarch x86_64 -v -LR bash` first</font></i>
 <i><font color="#9A1900"> */</font></i>
 
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdio.h&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdlib.h&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string.h&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;sys/mman.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#EF0000">&lt;stdio.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#EF0000">&lt;stdlib.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#EF0000">&lt;string.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#EF0000">&lt;sys/mman.h&gt;</font>
 
 <i><font color="#9A1900">// used to indicate if we are printing the buffer address</font></i>
-<font color="#009900">int</font> print_buffer_address <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#008A00">int</font> print_buffer_address <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
 
 <i><font color="#9A1900">// we use this to pass the name back from the vulnerable() function to</font></i>
 <i><font color="#9A1900">// main()</font></i>
-<font color="#009900">char</font> global_name<font color="#990000">[</font><font color="#993399">100</font><font color="#990000">];</font>
+<font color="#008A00">char</font> global_name<font color="#990000">[</font><font color="#993399">100</font><font color="#990000">];</font>
 
 <i><font color="#9A1900">// the vulnerable function</font></i>
-<font color="#009900">void</font> <b><font color="#000000">vulnerable</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
-  <font color="#009900">char</font> name<font color="#990000">[</font><font color="#993399">200</font><font color="#990000">];</font>
-  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> print_buffer_address <font color="#990000">)</font> <font color="#FF0000">{</font>
-    <font color="#009900">unsigned</font> <font color="#009900">long</font> addr <font color="#990000">=</font> <font color="#990000">(</font><font color="#009900">unsigned</font> <font color="#009900">long</font><font color="#990000">)</font> name <font color="#990000">+</font> <font color="#993399">0x20</font><font color="#990000">;</font>
-    <b><font color="#000000">printf</font></b><font color="#990000">(</font><font color="#FF0000">"%lx</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font>addr<font color="#990000">);</font>
+<font color="#008A00">void</font> <b><font color="#000000">vulnerable</font></b><font color="#990000">()</font> <font color="#EF0000">{</font>
+  <font color="#008A00">char</font> name<font color="#990000">[</font><font color="#993399">200</font><font color="#990000">];</font>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> print_buffer_address <font color="#990000">)</font> <font color="#EF0000">{</font>
+    <font color="#008A00">unsigned</font> <font color="#008A00">long</font> addr <font color="#990000">=</font> <font color="#990000">(</font><font color="#008A00">unsigned</font> <font color="#008A00">long</font><font color="#990000">)</font> name <font color="#990000">+</font> <font color="#993399">0x20</font><font color="#990000">;</font>
+    <b><font color="#000000">printf</font></b><font color="#990000">(</font><font color="#EF0000">"%lx</font><font color="#CC33CC">\n</font><font color="#EF0000">"</font><font color="#990000">,</font>addr<font color="#990000">);</font>
     <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
-  <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
-    <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"Please enter your name:</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">);</font>
+  <font color="#EF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#EF0000">{</font>
+    <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#EF0000">"Please enter your name:</font><font color="#CC33CC">\n</font><font color="#EF0000">"</font><font color="#990000">);</font>
     <b><font color="#000000">fgets</font></b> <font color="#990000">(</font>name<font color="#990000">,</font> <font color="#993399">1000000</font><font color="#990000">,</font> stdin<font color="#990000">);</font>
     <b><font color="#000000">strncpy</font></b> <font color="#990000">(</font>global_name<font color="#990000">,</font> name<font color="#990000">,</font> <font color="#993399">199</font><font color="#990000">);</font> <i><font color="#9A1900">// look, ma, no buffer overflow possible here!</font></i>
-  <font color="#FF0000">}</font>
+  <font color="#EF0000">}</font>
   <b><font color="#0000FF">return</font></b><font color="#990000">;</font> <i><font color="#9A1900">// not necessary, but useful to set a breakpoint at grade.c:38</font></i>
-<font color="#FF0000">}</font>
+<font color="#EF0000">}</font>
 
 
-<font color="#009900">void</font> <b><font color="#000000">main</font></b><font color="#990000">(</font><font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">*</font>argv<font color="#990000">[])</font> <font color="#FF0000">{</font>
+<font color="#008A00">void</font> <b><font color="#000000">main</font></b><font color="#990000">(</font><font color="#008A00">int</font> argc<font color="#990000">,</font> <font color="#008A00">char</font> <font color="#990000">*</font>argv<font color="#990000">[])</font> <font color="#EF0000">{</font>
 
-  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>argc <font color="#990000">==</font> <font color="#993399">2</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(!</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">],</font><font color="#FF0000">"--print-buffer-address"</font><font color="#990000">))</font> <font color="#990000">)</font>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>argc <font color="#990000">==</font> <font color="#993399">2</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(!</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">],</font><font color="#EF0000">"--print-buffer-address"</font><font color="#990000">))</font> <font color="#990000">)</font>
     print_buffer_address <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
 
   <i><font color="#9A1900">// we use this to help find the address of the stack in the next command</font></i>
-  <font color="#009900">int</font> on_stack<font color="#990000">;</font>
+  <font color="#008A00">int</font> on_stack<font color="#990000">;</font>
 
   <i><font color="#9A1900">// we set the stack to allow execution; it already allows reading</font></i>
   <i><font color="#9A1900">// and writing</font></i>
-  <b><font color="#000000">mprotect</font></b><font color="#990000">((</font><font color="#009900">char</font> <font color="#990000">*)((</font><font color="#009900">long</font><font color="#990000">)&amp;</font>on_stack <font color="#990000">&amp;</font> <font color="#990000">-</font><font color="#993399">0x1000</font><font color="#990000">),</font> <font color="#993399">1</font><font color="#990000">,</font> PROT_READ <font color="#990000">|</font> PROT_WRITE <font color="#990000">|</font> PROT_EXEC<font color="#990000">);</font>
+  <b><font color="#000000">mprotect</font></b><font color="#990000">((</font><font color="#008A00">char</font> <font color="#990000">*)((</font><font color="#008A00">long</font><font color="#990000">)&amp;</font>on_stack <font color="#990000">&amp;</font> <font color="#990000">-</font><font color="#993399">0x1000</font><font color="#990000">),</font> <font color="#993399">1</font><font color="#990000">,</font> PROT_READ <font color="#990000">|</font> PROT_WRITE <font color="#990000">|</font> PROT_EXEC<font color="#990000">);</font>
 
   <i><font color="#9A1900">// we set the executable code (the .text section) to be writable; it</font></i>
   <i><font color="#9A1900">// already allws reading and execution</font></i>
-  <b><font color="#000000">mprotect</font></b><font color="#990000">((</font><font color="#009900">char</font> <font color="#990000">*)((</font><font color="#009900">long</font><font color="#990000">)&amp;</font>main <font color="#990000">&amp;</font> <font color="#990000">-</font><font color="#993399">0x1000</font><font color="#990000">),</font> <font color="#993399">1</font><font color="#990000">,</font> PROT_READ <font color="#990000">|</font> PROT_WRITE <font color="#990000">|</font> PROT_EXEC<font color="#990000">);</font>
+  <b><font color="#000000">mprotect</font></b><font color="#990000">((</font><font color="#008A00">char</font> <font color="#990000">*)((</font><font color="#008A00">long</font><font color="#990000">)&amp;</font>main <font color="#990000">&amp;</font> <font color="#990000">-</font><font color="#993399">0x1000</font><font color="#990000">),</font> <font color="#993399">1</font><font color="#990000">,</font> PROT_READ <font color="#990000">|</font> PROT_WRITE <font color="#990000">|</font> PROT_EXEC<font color="#990000">);</font>
 
   <i><font color="#9A1900">// call the vulnerable function</font></i>
   <b><font color="#000000">vulnerable</font></b><font color="#990000">();</font>
@@ -74,8 +74,8 @@ http://www.gnu.org/software/src-highlite">
   global_name<font color="#990000">[</font><b><font color="#000000">strlen</font></b><font color="#990000">(</font>global_name<font color="#990000">)-</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
 
   <i><font color="#9A1900">// print the grade</font></i>
-  <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">%s, your grade on this assignment is a F</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font> global_name<font color="#990000">);</font>
-<font color="#FF0000">}</font>
+  <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#EF0000">"</font><font color="#CC33CC">\n</font><font color="#EF0000">%s, your grade on this assignment is a F</font><font color="#CC33CC">\n</font><font color="#EF0000">"</font><font color="#990000">,</font> global_name<font color="#990000">);</font>
+<font color="#EF0000">}</font>
 </tt></pre></main>
 </body>
 </html>

@@ -6,11 +6,20 @@
 
 for file in "$@"
 do
+	# sed operates differently on different systems
 	SED="sed -i"
 	if [ x`uname` == x"Darwin" ]; then
 		SED="sed -i .todel"
 	fi
-	source-highlight -d $file
+
+	# source-highlight does not know about Solidity files, and they should be
+	# formatted like C++ files
+	extension=${file: -4}
+	if [ x$extension == x.sol ]; then
+		source-highlight -d -s cpp $file
+	else
+		source-highlight -d $file
+	fi
 
 	# ensure that the <html> tag has a lang='en' attribute
 	$SED s/"<html>"/"<html lang='en'>"/ $file.html

@@ -17,20 +17,20 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900"># uvicorn server:app --reload --port 5000</font></i>
 
 <i><font color="#9A1900"># The URLs to respond with a 200 to</font></i>
-urls <font color="#990000">=</font> <font color="#990000">[</font> <font color="#FF0000">'/employers'</font><font color="#990000">,</font> <font color="#FF0000">'/.gitignore'</font><font color="#990000">,</font> <font color="#FF0000">'/~admin'</font> <font color="#990000">]</font>
+urls <font color="#990000">=</font> <font color="#990000">[</font> <font color="#EF0000">'/employers'</font><font color="#990000">,</font> <font color="#EF0000">'/.gitignore'</font><font color="#990000">,</font> <font color="#EF0000">'/~admin'</font> <font color="#990000">]</font>
 
 <b><font color="#0000FF">async</font></b> <b><font color="#0000FF">def</font></b> <b><font color="#000000">app</font></b><font color="#990000">(</font>scope<font color="#990000">,</font> receive<font color="#990000">,</font> send<font color="#990000">):</font>
-    <b><font color="#0000FF">assert</font></b> scope<font color="#990000">[</font><font color="#FF0000">'type'</font><font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">'http'</font>
+    <b><font color="#0000FF">assert</font></b> scope<font color="#990000">[</font><font color="#EF0000">'type'</font><font color="#990000">]</font> <font color="#990000">==</font> <font color="#EF0000">'http'</font>
     <b><font color="#0000FF">await</font></b> <b><font color="#000000">send</font></b><font color="#990000">({</font>
-        <font color="#FF0000">'type'</font><font color="#990000">:</font> <font color="#FF0000">'http.response.start'</font><font color="#990000">,</font>
-        <font color="#FF0000">'status'</font><font color="#990000">:</font> <font color="#993399">200</font> <b><font color="#0000FF">if</font></b> scope<font color="#990000">[</font><font color="#FF0000">'path'</font><font color="#990000">]</font> <b><font color="#0000FF">in</font></b> urls <b><font color="#0000FF">else</font></b> <font color="#993399">404</font><font color="#990000">,</font>
-        <font color="#FF0000">'headers'</font><font color="#990000">:</font> <font color="#990000">[</font>
-            <font color="#990000">[</font>b<font color="#FF0000">'content-type'</font><font color="#990000">,</font> b<font color="#FF0000">'text/plain'</font><font color="#990000">],</font>
+        <font color="#EF0000">'type'</font><font color="#990000">:</font> <font color="#EF0000">'http.response.start'</font><font color="#990000">,</font>
+        <font color="#EF0000">'status'</font><font color="#990000">:</font> <font color="#993399">200</font> <b><font color="#0000FF">if</font></b> scope<font color="#990000">[</font><font color="#EF0000">'path'</font><font color="#990000">]</font> <b><font color="#0000FF">in</font></b> urls <b><font color="#0000FF">else</font></b> <font color="#993399">404</font><font color="#990000">,</font>
+        <font color="#EF0000">'headers'</font><font color="#990000">:</font> <font color="#990000">[</font>
+            <font color="#990000">[</font>b<font color="#EF0000">'content-type'</font><font color="#990000">,</font> b<font color="#EF0000">'text/plain'</font><font color="#990000">],</font>
         <font color="#990000">],</font>
     <font color="#990000">})</font>
     <b><font color="#0000FF">await</font></b> <b><font color="#000000">send</font></b><font color="#990000">({</font>
-        <font color="#FF0000">'type'</font><font color="#990000">:</font> <font color="#FF0000">'http.response.body'</font><font color="#990000">,</font>
-        <font color="#FF0000">'body'</font><font color="#990000">:</font> b<font color="#FF0000">'Hello, world!'</font><font color="#990000">,</font>
+        <font color="#EF0000">'type'</font><font color="#990000">:</font> <font color="#EF0000">'http.response.body'</font><font color="#990000">,</font>
+        <font color="#EF0000">'body'</font><font color="#990000">:</font> b<font color="#EF0000">'Hello, world!'</font><font color="#990000">,</font>
     <font color="#990000">})</font>
 </tt></pre></main>
 </body>
