@@ -1,21 +1,21 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html lang='en'>
-<head>
+<head><meta name='description' content='This page contains the source code for the test-rsa.sh file'>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <meta name="GENERATOR" content="GNU source-highlight 3.1.9
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
-<title>test-rsa.sh</title>
+<title>Source code for test-rsa.sh (via source-highlight)</title>
 </head>
 <body bgcolor="white">
-<main><pre><tt><i><font color="#9A1900">#!/bin/bash</font></i>
+<main><h1>Source code for test-rsa.sh (via source-highlight)</h1><pre><tt><i><font color="#9A1900">#!/bin/bash</font></i>
 <i><font color="#9A1900"># setup: create the message1.txt and message2.txt files</font></i>
 /bin/rm -f message<font color="#990000">[</font><font color="#993399">12</font><font color="#990000">].</font>txt
-echo <font color="#EF0000">"Two things are infinite: the universe and human stupidity;"</font> <font color="#990000">&gt;</font> message1<font color="#990000">.</font>txt
-echo <font color="#EF0000">"and I'm not sure about the the universe."</font> <font color="#990000">&gt;&gt;</font> message1<font color="#990000">.</font>txt
-echo <font color="#EF0000">"by Albert Einstein"</font> <font color="#990000">&gt;&gt;</font> message1<font color="#990000">.</font>txt
-echo <font color="#EF0000">"The quick brown fox jumped over the lazy dog."</font> <font color="#990000">&gt;</font> message2<font color="#990000">.</font>txt
+echo <font color="#DF0000">"Two things are infinite: the universe and human stupidity;"</font> <font color="#990000">&gt;</font> message1<font color="#990000">.</font>txt
+echo <font color="#DF0000">"and I'm not sure about the the universe."</font> <font color="#990000">&gt;&gt;</font> message1<font color="#990000">.</font>txt
+echo <font color="#DF0000">"by Albert Einstein"</font> <font color="#990000">&gt;&gt;</font> message1<font color="#990000">.</font>txt
+echo <font color="#DF0000">"The quick brown fox jumped over the lazy dog."</font> <font color="#990000">&gt;</font> message2<font color="#990000">.</font>txt
 <i><font color="#9A1900"># 1: create keys alice-public.key and alice-private.key</font></i>
 <font color="#990000">.</font>/rsa<font color="#990000">.</font>sh -key alice -keygen <font color="#993399">200</font>
 <i><font color="#9A1900"># 2: create keys bob-public.key and bob-private.key</font></i>

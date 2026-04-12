@@ -1,15 +1,15 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html lang='en'>
-<head>
+<head><meta name='description' content='This page contains the source code for the grade.c file'>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <meta name="GENERATOR" content="GNU source-highlight 3.1.9
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
-<title>grade.c</title>
+<title>Source code for grade.c (via source-highlight)</title>
 </head>
 <body bgcolor="white">
-<main><pre><tt><i><font color="#9A1900">/*</font></i>
+<main><h1>Source code for grade.c (via source-highlight)</h1><pre><tt><i><font color="#9A1900">/*</font></i>
 <i><font color="#9A1900"> * grade.c</font></i>
 <i><font color="#9A1900"> *</font></i>
 <i><font color="#9A1900"> * by Aaron Bloomfield, 2018.  This is part of the aaronbloomfield/ics</font></i>
@@ -23,10 +23,10 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900"> * To run it, be sure to invoke `setarch x86_64 -v -LR bash` first</font></i>
 <i><font color="#9A1900"> */</font></i>
 
-<b><font color="#000080">#include</font></b> <font color="#EF0000">&lt;stdio.h&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#EF0000">&lt;stdlib.h&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#EF0000">&lt;string.h&gt;</font>
-<b><font color="#000080">#include</font></b> <font color="#EF0000">&lt;sys/mman.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#DF0000">&lt;stdio.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#DF0000">&lt;stdlib.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#DF0000">&lt;string.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#DF0000">&lt;sys/mman.h&gt;</font>
 
 <i><font color="#9A1900">// used to indicate if we are printing the buffer address</font></i>
 <font color="#008A00">int</font> print_buffer_address <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
@@ -36,24 +36,24 @@ http://www.gnu.org/software/src-highlite">
 <font color="#008A00">char</font> global_name<font color="#990000">[</font><font color="#993399">100</font><font color="#990000">];</font>
 
 <i><font color="#9A1900">// the vulnerable function</font></i>
-<font color="#008A00">void</font> <b><font color="#000000">vulnerable</font></b><font color="#990000">()</font> <font color="#EF0000">{</font>
+<font color="#008A00">void</font> <b><font color="#000000">vulnerable</font></b><font color="#990000">()</font> <font color="#DF0000">{</font>
   <font color="#008A00">char</font> name<font color="#990000">[</font><font color="#993399">200</font><font color="#990000">];</font>
-  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> print_buffer_address <font color="#990000">)</font> <font color="#EF0000">{</font>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> print_buffer_address <font color="#990000">)</font> <font color="#DF0000">{</font>
     <font color="#008A00">unsigned</font> <font color="#008A00">long</font> addr <font color="#990000">=</font> <font color="#990000">(</font><font color="#008A00">unsigned</font> <font color="#008A00">long</font><font color="#990000">)</font> name <font color="#990000">+</font> <font color="#993399">0x20</font><font color="#990000">;</font>
-    <b><font color="#000000">printf</font></b><font color="#990000">(</font><font color="#EF0000">"%lx</font><font color="#CC33CC">\n</font><font color="#EF0000">"</font><font color="#990000">,</font>addr<font color="#990000">);</font>
+    <b><font color="#000000">printf</font></b><font color="#990000">(</font><font color="#DF0000">"%lx</font><font color="#CC33CC">\n</font><font color="#DF0000">"</font><font color="#990000">,</font>addr<font color="#990000">);</font>
     <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
-  <font color="#EF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#EF0000">{</font>
-    <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#EF0000">"Please enter your name:</font><font color="#CC33CC">\n</font><font color="#EF0000">"</font><font color="#990000">);</font>
+  <font color="#DF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#DF0000">{</font>
+    <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#DF0000">"Please enter your name:</font><font color="#CC33CC">\n</font><font color="#DF0000">"</font><font color="#990000">);</font>
     <b><font color="#000000">fgets</font></b> <font color="#990000">(</font>name<font color="#990000">,</font> <font color="#993399">1000000</font><font color="#990000">,</font> stdin<font color="#990000">);</font>
     <b><font color="#000000">strncpy</font></b> <font color="#990000">(</font>global_name<font color="#990000">,</font> name<font color="#990000">,</font> <font color="#993399">199</font><font color="#990000">);</font> <i><font color="#9A1900">// look, ma, no buffer overflow possible here!</font></i>
-  <font color="#EF0000">}</font>
+  <font color="#DF0000">}</font>
   <b><font color="#0000FF">return</font></b><font color="#990000">;</font> <i><font color="#9A1900">// not necessary, but useful to set a breakpoint at grade.c:38</font></i>
-<font color="#EF0000">}</font>
+<font color="#DF0000">}</font>
 
 
-<font color="#008A00">void</font> <b><font color="#000000">main</font></b><font color="#990000">(</font><font color="#008A00">int</font> argc<font color="#990000">,</font> <font color="#008A00">char</font> <font color="#990000">*</font>argv<font color="#990000">[])</font> <font color="#EF0000">{</font>
+<font color="#008A00">void</font> <b><font color="#000000">main</font></b><font color="#990000">(</font><font color="#008A00">int</font> argc<font color="#990000">,</font> <font color="#008A00">char</font> <font color="#990000">*</font>argv<font color="#990000">[])</font> <font color="#DF0000">{</font>
 
-  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>argc <font color="#990000">==</font> <font color="#993399">2</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(!</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">],</font><font color="#EF0000">"--print-buffer-address"</font><font color="#990000">))</font> <font color="#990000">)</font>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>argc <font color="#990000">==</font> <font color="#993399">2</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(!</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">],</font><font color="#DF0000">"--print-buffer-address"</font><font color="#990000">))</font> <font color="#990000">)</font>
     print_buffer_address <font color="#990000">=</font> <font color="#993399">1</font><font color="#990000">;</font>
 
   <i><font color="#9A1900">// we use this to help find the address of the stack in the next command</font></i>
@@ -74,8 +74,8 @@ http://www.gnu.org/software/src-highlite">
   global_name<font color="#990000">[</font><b><font color="#000000">strlen</font></b><font color="#990000">(</font>global_name<font color="#990000">)-</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
 
   <i><font color="#9A1900">// print the grade</font></i>
-  <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#EF0000">"</font><font color="#CC33CC">\n</font><font color="#EF0000">%s, your grade on this assignment is a F</font><font color="#CC33CC">\n</font><font color="#EF0000">"</font><font color="#990000">,</font> global_name<font color="#990000">);</font>
-<font color="#EF0000">}</font>
+  <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#DF0000">"</font><font color="#CC33CC">\n</font><font color="#DF0000">%s, your grade on this assignment is a F</font><font color="#CC33CC">\n</font><font color="#DF0000">"</font><font color="#990000">,</font> global_name<font color="#990000">);</font>
+<font color="#DF0000">}</font>
 </tt></pre></main>
 </body>
 </html>
