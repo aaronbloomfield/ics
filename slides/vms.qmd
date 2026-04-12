@@ -246,7 +246,7 @@ From [wikipedia](https://en.wikipedia.org/wiki/Application_binary_interface)
 
 ## VMs and kernel mode
 - VMs tend to run the guest OS in user mode
-  - But the OSs think they are running on hardware, so they will attempt to do "priviledged" things (like access hardware directly)
+  - But the OSs think they are running on hardware, so they will attempt to do "privileged" things (like access hardware directly)
 - The Virtual Machine Monitor (VMM) handles this
   - It is typically a device driver running in kernel mode
 - Exceptions from the OS are passed, through the VMM, back to the VM

@@ -1,15 +1,15 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html lang='en'>
-<head>
+<head><meta name='description' content='This page contains the source code for the hws/cryptocurrency/sample.py file'>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <meta name="GENERATOR" content="GNU source-highlight 3.1.9
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite">
-<title>sample.py</title>
+<title>Source code for hws/cryptocurrency/sample.py (via source-highlight)</title>
 </head>
 <body bgcolor="white">
-<pre><tt><i><font color="#9A1900"># ICS Cryptocurrency assignment</font></i>
+<main><h1>Source code for hws/cryptocurrency/sample.py (via source-highlight)</h1><pre><tt><i><font color="#9A1900"># ICS Cryptocurrency assignment</font></i>
 
 <b><font color="#000080">import</font></b> hashlib
 <b><font color="#000080">import</font></b> binascii
@@ -18,8 +18,8 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900"># gets the hash of a file; from https://stackoverflow.com/a/44873382</font></i>
 <b><font color="#0000FF">def</font></b> <b><font color="#000000">hashFile</font></b><font color="#990000">(</font>filename<font color="#990000">):</font>
     h <font color="#990000">=</font> hashlib<font color="#990000">.</font><b><font color="#000000">sha256</font></b><font color="#990000">()</font>
-    with <b><font color="#000000">open</font></b><font color="#990000">(</font>filename<font color="#990000">,</font> <font color="#FF0000">'rb'</font><font color="#990000">,</font> buffering<font color="#990000">=</font><font color="#993399">0</font><font color="#990000">)</font> as f<font color="#990000">:</font>
-        <b><font color="#0000FF">for</font></b> b <b><font color="#0000FF">in</font></b> <b><font color="#000000">iter</font></b><font color="#990000">(</font><b><font color="#0000FF">lambda</font></b> <font color="#990000">:</font> f<font color="#990000">.</font><b><font color="#000000">read</font></b><font color="#990000">(</font><font color="#993399">128</font><font color="#990000">*</font><font color="#993399">1024</font><font color="#990000">),</font> b<font color="#FF0000">''</font><font color="#990000">):</font>
+    with <b><font color="#000000">open</font></b><font color="#990000">(</font>filename<font color="#990000">,</font> <font color="#DF0000">'rb'</font><font color="#990000">,</font> buffering<font color="#990000">=</font><font color="#993399">0</font><font color="#990000">)</font> as f<font color="#990000">:</font>
+        <b><font color="#0000FF">for</font></b> b <b><font color="#0000FF">in</font></b> <b><font color="#000000">iter</font></b><font color="#990000">(</font><b><font color="#0000FF">lambda</font></b> <font color="#990000">:</font> f<font color="#990000">.</font><b><font color="#000000">read</font></b><font color="#990000">(</font><font color="#993399">128</font><font color="#990000">*</font><font color="#993399">1024</font><font color="#990000">),</font> b<font color="#DF0000">''</font><font color="#990000">):</font>
             h<font color="#990000">.</font><b><font color="#000000">update</font></b><font color="#990000">(</font>b<font color="#990000">)</font>
     <b><font color="#0000FF">return</font></b> h<font color="#990000">.</font><b><font color="#000000">hexdigest</font></b><font color="#990000">()</font>
 
@@ -33,7 +33,7 @@ http://www.gnu.org/software/src-highlite">
 
 <i><font color="#9A1900"># Load the wallet keys from a filename</font></i>
 <b><font color="#0000FF">def</font></b> <b><font color="#000000">loadWallet</font></b><font color="#990000">(</font>filename<font color="#990000">):</font>
-    with <b><font color="#000000">open</font></b><font color="#990000">(</font>filename<font color="#990000">,</font> mode<font color="#990000">=</font><font color="#FF0000">'rb'</font><font color="#990000">)</font> as file<font color="#990000">:</font>
+    with <b><font color="#000000">open</font></b><font color="#990000">(</font>filename<font color="#990000">,</font> mode<font color="#990000">=</font><font color="#DF0000">'rb'</font><font color="#990000">)</font> as file<font color="#990000">:</font>
         keydata <font color="#990000">=</font> file<font color="#990000">.</font><b><font color="#000000">read</font></b><font color="#990000">()</font>
     privkey <font color="#990000">=</font> rsa<font color="#990000">.</font>PrivateKey<font color="#990000">.</font><b><font color="#000000">load_pkcs1</font></b><font color="#990000">(</font>keydata<font color="#990000">)</font>
     pubkey <font color="#990000">=</font> rsa<font color="#990000">.</font>PublicKey<font color="#990000">.</font><b><font color="#000000">load_pkcs1</font></b><font color="#990000">(</font>keydata<font color="#990000">)</font>
@@ -42,13 +42,13 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900"># save the wallet to a file</font></i>
 <b><font color="#0000FF">def</font></b> <b><font color="#000000">saveWallet</font></b><font color="#990000">(</font>pubkey<font color="#990000">,</font> privkey<font color="#990000">,</font> filename<font color="#990000">):</font>
     <i><font color="#9A1900"># Save the keys to a key format (outputs bytes)</font></i>
-    pubkeyBytes <font color="#990000">=</font> pubkey<font color="#990000">.</font><b><font color="#000000">save_pkcs1</font></b><font color="#990000">(</font>format<font color="#990000">=</font><font color="#FF0000">'PEM'</font><font color="#990000">)</font>
-    privkeyBytes <font color="#990000">=</font> privkey<font color="#990000">.</font><b><font color="#000000">save_pkcs1</font></b><font color="#990000">(</font>format<font color="#990000">=</font><font color="#FF0000">'PEM'</font><font color="#990000">)</font>
+    pubkeyBytes <font color="#990000">=</font> pubkey<font color="#990000">.</font><b><font color="#000000">save_pkcs1</font></b><font color="#990000">(</font>format<font color="#990000">=</font><font color="#DF0000">'PEM'</font><font color="#990000">)</font>
+    privkeyBytes <font color="#990000">=</font> privkey<font color="#990000">.</font><b><font color="#000000">save_pkcs1</font></b><font color="#990000">(</font>format<font color="#990000">=</font><font color="#DF0000">'PEM'</font><font color="#990000">)</font>
     <i><font color="#9A1900"># Convert those bytes to strings to write to a file (gibberish, but a string...)</font></i>
-    pubkeyString <font color="#990000">=</font> pubkeyBytes<font color="#990000">.</font><b><font color="#000000">decode</font></b><font color="#990000">(</font><font color="#FF0000">'ascii'</font><font color="#990000">)</font>
-    privkeyString <font color="#990000">=</font> privkeyBytes<font color="#990000">.</font><b><font color="#000000">decode</font></b><font color="#990000">(</font><font color="#FF0000">'ascii'</font><font color="#990000">)</font>
+    pubkeyString <font color="#990000">=</font> pubkeyBytes<font color="#990000">.</font><b><font color="#000000">decode</font></b><font color="#990000">(</font><font color="#DF0000">'ascii'</font><font color="#990000">)</font>
+    privkeyString <font color="#990000">=</font> privkeyBytes<font color="#990000">.</font><b><font color="#000000">decode</font></b><font color="#990000">(</font><font color="#DF0000">'ascii'</font><font color="#990000">)</font>
     <i><font color="#9A1900"># Write both keys to the wallet file</font></i>
-    with <b><font color="#000000">open</font></b><font color="#990000">(</font>filename<font color="#990000">,</font> <font color="#FF0000">'w'</font><font color="#990000">)</font> as file<font color="#990000">:</font>
+    with <b><font color="#000000">open</font></b><font color="#990000">(</font>filename<font color="#990000">,</font> <font color="#DF0000">'w'</font><font color="#990000">)</font> as file<font color="#990000">:</font>
         file<font color="#990000">.</font><b><font color="#000000">write</font></b><font color="#990000">(</font>pubkeyString<font color="#990000">)</font>
         file<font color="#990000">.</font><b><font color="#000000">write</font></b><font color="#990000">(</font>privkeyString<font color="#990000">)</font>
     <b><font color="#0000FF">return</font></b>
@@ -75,6 +75,6 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900"># - 'message' be what we are verifying: the first four lines of the transaction statement (note that this code takes the hash for you)</font></i>
 <i><font color="#9A1900">#</font></i>
 <i><font color="#9A1900"># pubkey = rsa.PublicKey.load_pkcs1(keystring)</font></i>
-<i><font color="#9A1900"># rsa.verify(bytes(message.encode('ascii')), bytes.fromhex(sig), pubkey)</font></i></tt></pre>
+<i><font color="#9A1900"># rsa.verify(bytes(message.encode('ascii')), bytes.fromhex(sig), pubkey)</font></i></tt></pre></main>
 </body>
 </html>

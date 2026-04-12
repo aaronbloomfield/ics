@@ -34,3 +34,4 @@ all-source-highlight:
 	cd hws/tricky-jump/ && make source && cd ../..
 	cd slides/code/buffer-overflows/ && make source && cd ../../..
 	cd slides/code/exploits/ && make source && cd ../../..
+	custom-source-highlight.sh hws/cryptocurrency/sample.py hws/cryptocurrency/Sample.java hws/cryptocurrency/basic-test.sh
