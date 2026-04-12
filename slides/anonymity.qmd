@@ -326,7 +326,7 @@ Cypherpunks remailers can be used to send messages to email addresses or to Usen
   - "The FBI has claimed that the real IP address of the Silk Road server was found via data leaked directly from the site's CAPTCHA"
   - Security researchers believe that the PHP login page was manipulated to output its server variables, including the IP address
 - Ross Ulbricht, alleged to be DPR, was arrested in Oct 2, 2013
-  - The FBI siezed about $90 million in bitcoins
+  - The FBI seized about $90 million in bitcoins
   - He was sentenced to life in prison w/out parole
 
 
@@ -386,7 +386,7 @@ Cypherpunks remailers can be used to send messages to email addresses or to Usen
 
 
 ## Tor: The Drawbacks
-- This is how evil stuff is propogated online
+- This is how evil stuff is propagated online
   - Child pornography, snuff films, torture films, rape videos, etc.
   - The real stuff, not fake films done by actors for entertainment
 

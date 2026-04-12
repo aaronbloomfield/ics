@@ -415,7 +415,7 @@ find . -type f -exec grep "example" '{}' \; -print
 ## Autopsy / Sleuth Kit
 - The tool is [Sleuth Kit](https://en.wikipedia.org/wiki/The_Sleuth_Kit), the GUI is [Autopsy](https://en.wikipedia.org/wiki/Autopsy_%28software%29)
 - They are both open source
-- Due to Java incompatabilities, and software rot, it does not seem to install properly under Linux
+- Due to Java incompatibilities, and software rot, it does not seem to install properly under Linux
 
 
 

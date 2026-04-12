@@ -728,7 +728,7 @@ aka Multi-Factor Authentication
 - Six values are set:
   - The 4 HOTP values ($H$, $k$, $c$, and $d$)
   - The "start time" $T_0$ (typically 0)
-  - The time interval $T_x$, tyipcally 30 seconds
+  - The time interval $T_x$, typically 30 seconds
 - Algorithm
   - Uses the HOTP algorithm, but replaces the counter with $C_T$, a non-decreasing value based on the current time
     - If $T$ is the current UNIX timestamp, then $C_T$ is:
@@ -760,7 +760,7 @@ aka Multi-Factor Authentication
 ## Advice
 - Use Duo Mobile (or another authenticator) instead of SMS for your 2FA
   - SIM jacking does not work, since codes are not sent via SMS
-  - It's on your phonse, so requires biometrics to access
+  - It's on your phone, so requires biometrics to access
   - The data is sent encrypted, unlike SMS or (possibly) email
 
 ## 2FA Warning

@@ -784,7 +784,7 @@ Formula is $c = m^e\text{ mod }n$
 
 ## About the modified ASCII codes
 - I modify the ASCII codes for this example
- - By subracting 30 from each value
+ - By subtracting 30 from each value
 - This is just so this example in the slides can use smaller values for $p$ and $q$
 - You should ***NOT*** be using modified ASCII codes in [the RSA homework](../hws/hw-rsa.html)!
 
@@ -973,7 +973,7 @@ $
 
 ## RSA vulnerabilities
 - If $e$ is small, and $m$ is small (such that $m^e < n$), then the ciphertext can be easily decrypted
-- If multiple receivers share the same $e$, but different $p$, $q$, and $n$, then the same clear text message encrypted for the multiple receivers can be cracked via the Chinese remainder thoerem
+- If multiple receivers share the same $e$, but different $p$, $q$, and $n$, then the same clear text message encrypted for the multiple receivers can be cracked via the Chinese remainder theorem
 - RSA is vulnerable to chosen plaintext attacks (where you encrypt likely plain texts and compare it to the cipher text)
 - Etc.
 
@@ -1373,7 +1373,7 @@ $
 
 ## Pigeonhole principle
 - An MD5 hash is 128 bits; SHA hashes go up to 512 bits
-- There are more files possibilites of 129 bits (or 513 bits) than there are possible hashes
+- There are more files possibilities of 129 bits (or 513 bits) than there are possible hashes
 - Thus, as per the pigeonhole principle, there will be multiple inputs for a given hash
 - So how do you know how to go *back* from a hash?
   - Answer: you don't
@@ -1799,7 +1799,7 @@ $
 :::
 - An entire book in a secret script that is at least 400 years old
   - 272 pages, although about 30 are missing
-- Lists unidentified plants, as well as herbal recipies, astrological diagrams
+- Lists unidentified plants, as well as herbal recopies, astrological diagrams
 - Has an 'alphabet' of 20-30 glyphs
 - Written in a 'confident' style - perhaps a hoax
 - Nobody has deciphered a single word

@@ -438,7 +438,7 @@ How do we use this as input to the program?
 
 ## Shellcode without 0x00
 - To remove these values we:
-  - Use smaller reigster 'parts' to eliminate extra 0x00's
+  - Use smaller register 'parts' to eliminate extra 0x00's
 	- We may have to zero out the register first
   - Use relative offsets (especially negative) instead of absolute addresses (which are likely to have 0x00 in it)
     - See [here](https://www.tortall.net/projects/yasm/manual/html/nasm-effaddr.html) for how to do this in nasm
