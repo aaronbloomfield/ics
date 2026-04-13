@@ -324,7 +324,7 @@ title: "Networks"
 
 <!-- .slide: class="no-border" -->
 ## Obtaining Wireshark
-- Download it at [wireshark.org/download.html](https://www.wireshark.org/download.html); the Windows version that runs without a full install is [here](https://2.na.dl.wireshark.org/win64/WiresharkPortable64_4.2.2.paf.exe)
+- Download it at [wireshark.org/download.html](https://www.wireshark.org/download.html)
 
 <a href='https://commons.wikimedia.org/wiki/File:Wireshark_Network_Analyzer_Screen.png'><img src='https://upload.wikimedia.org/wikipedia/commons/3/34/Wireshark_Network_Analyzer_Screen.png' style="height:450px"></a>
 

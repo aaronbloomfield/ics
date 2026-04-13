@@ -338,7 +338,7 @@ Where to start?
 
 #### Removing invalid characters
 
-As discussed in [the slides](slides/buffer-overflows.html#/how2doit), we are going to have to remove all end-of-string characters.  There are a number of characters can cause problems: newlines (0x0a), carriage returns (0x0d), tabs (0x09), vertical tab (0x0b), and spaces (0x20).  The real issue, however, is removing null bytes (0x00).  The slides discuss how to do this.  You can check your assembly subroutine with `objdump -d` to verify that these bytes do not occur.  Once you make these modifications, recompile `shellcode_test` to make sure it still works as intended after those changes.
+As discussed in [the slides](../slides/buffer-overflows.html#/how2doit), we are going to have to remove all end-of-string characters.  There are a number of characters can cause problems: newlines (0x0a), carriage returns (0x0d), tabs (0x09), vertical tab (0x0b), and spaces (0x20).  The real issue, however, is removing null bytes (0x00).  The slides discuss how to do this.  You can check your assembly subroutine with `objdump -d` to verify that these bytes do not occur.  Once you make these modifications, recompile `shellcode_test` to make sure it still works as intended after those changes.
 
 #### Execution
 

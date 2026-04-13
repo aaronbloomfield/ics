@@ -6,9 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>ICS: Programming Homework: SQL, CSRF, and XSS</title>
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
+    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
@@ -60,7 +58,7 @@
 <h3 id="part-1-sql-injection-attack">Part 1: SQL Injection Attack</h3>
 <p>First, you should be familiar with SQL and SQL injection attacks. For review, look at the first half of the <a href="../slides/sql-xss-csrf.html#/">SQL, XSS, and CSRF slide set</a>.</p>
 <p>I’ve already determined your grades for this part! And you all got an F. So sorry! Those grades have been stored in a database. Whatever grade is in that database at the end of this assignment is your grade for this part.</p>
-<p>View SQL injection attack web page, the URL of which is shown on the Canvas landing page - note that you will have to log in via Netbadge to view this page. From this page, you will need to execute an SQL injection attack. Note that the only confidential data in that database is the names and userids of the participants, and all of that information is considered “public” knowledge to the participants of the course (FERPA allows release of names; all students in this course are in the <a href="http://www.virginia.edu/cgi-local/ldapweb?asb2t">UVa LDAP server</a>, and the ID numbers were randomly generated).</p>
+<p>View SQL injection attack web page, the URL of which is shown on the Canvas landing page - note that you will have to log in via Netbadge to view this page. From this page, you will need to execute an SQL injection attack. Note that the only confidential data in that database is the names and userids of the participants, and all of that information is considered “public” knowledge to the participants of the course.</p>
 <p>Your task is to execute at least two SQL injection attacks using this page. The first is a read-only attack, and from it you must obtain a piece of hidden information that is not otherwise displayed from the script. For the second, you must make a modification to <strong>your entry</strong> in the table. What modification you make is up to you. However, the grade listed in the DB after this assignment is completed will be the grade you receive on this part of the assignment.</p>
 <p>A note about comments: the slides stated that <code>--</code> (dash-dash-space) was how you start a comment in SQL, analogous to <code>//</code> in C++. If that doesn’t work (it varies by SQL version), try just <code>--</code> (dash-dash).</p>
 <p>In your report, you should list the following:</p>

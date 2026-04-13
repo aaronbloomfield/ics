@@ -194,7 +194,7 @@ title: "Policy"
 - With skeletal staffs, many gov't agencies cannot do perform basic cybersecurity procedures
 - Thus, cybersecurity is one of many things being hurt by the shutdown
 - Also, gov't agencies can't get new https certificates, so https doesn't work on many gov't websites
-- [source](https://www.rollcall.com/news/cybersecurity-efforts-may-suffer-shutdown-persists)
+- [source](https://rollcall.com/2019/01/10/cybersecurity-may-suffer-as-shutdown-persists/)
 
 
 

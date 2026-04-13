@@ -162,7 +162,7 @@ title: "Course Introduction"
 - The [government shutdown](https://en.wikipedia.org/wiki/United_States_federal_government_shutdown_of_2018%E2%80%932019) from early 2019 lasted 35 days
 - With skeletal staffs, many gov't agencies could not perform basic cybersecurity procedures
 - Thus, cybersecurity is one of many things hurt by the shutdown
-- [source](https://www.rollcall.com/news/cybersecurity-efforts-may-suffer-shutdown-persists)
+- [source](https://rollcall.com/2019/01/10/cybersecurity-may-suffer-as-shutdown-persists/)
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 

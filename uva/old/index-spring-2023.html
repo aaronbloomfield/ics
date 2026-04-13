@@ -6,9 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>ICS: UVa specific material, spring 2023</title>
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
+    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
@@ -90,7 +88,7 @@
 <h2 id="course-calendar">Course calendar</h2>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>Week #</th>
 <th>Week of Monday</th>
 <th>Lecture days</th>
@@ -100,7 +98,7 @@
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>1</td>
 <td>Jan 16</td>
 <td>W,F</td>
@@ -108,7 +106,7 @@
 <td><a href="../slides/introduction.html#/">Course introduction</a>, <a href="../slides/security-mindset.html#/">The Security Mindset</a></td>
 <td>Wed: finished course intro; Fri: security mindset to 6.13</td>
 </tr>
-<tr>
+<tr class="even">
 <td>2</td>
 <td>Jan 23</td>
 <td>M,W,F</td>
@@ -116,7 +114,7 @@
 <td><a href="../slides/security-mindset.html#/">The Security Mindset</a>, <a href="../slides/terminology.html#/">Terminology</a>, <a href="../slides/policy.html#/">US Cybersecurity Policy</a></td>
 <td>Mon: finished security mindset, terminology to 4.13; Wed: finished terminology, policy to 3.18; Fri: policy to 6.11</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>3</td>
 <td>Jan 30</td>
 <td>M,W,F</td>
@@ -124,7 +122,7 @@
 <td><a href="../slides/policy.html#/">US Cybersecurity Policy</a>, <a href="../slides/ethics.html#/">Ethics</a></td>
 <td>Mon: finished policy; Wed: ethics to 6.6; Fri: finished ethics, encryption to 3.9</td>
 </tr>
-<tr>
+<tr class="even">
 <td>4</td>
 <td>Feb 6</td>
 <td>M,W,F</td>
@@ -132,7 +130,7 @@
 <td><a href="../slides/encryption.html#/">Encryption</a></td>
 <td>Mon: encryption to 6.3; Wed: encryption to 6.38; Fri: encryption to 6.51</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>5</td>
 <td>Feb 13</td>
 <td>M,W,F</td>
@@ -140,7 +138,7 @@
 <td><a href="../slides/encryption.html#/">Encryption</a></td>
 <td>Mon: encryption to 7.14; Wed: encryption to 8.20; Fri: finished encryption, networks to 3.9</td>
 </tr>
-<tr>
+<tr class="even">
 <td>6</td>
 <td>Feb 20</td>
 <td>M,W,F</td>
@@ -148,7 +146,7 @@
 <td><a href="../slides/networks.html#/">Networking Overview</a>, <a href="../slides/web-security.html#/">Web Security</a></td>
 <td>Mon: networks to 4.9; Wed: finished networks, web security to 4.3; Fri: web security to 6.8</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>7</td>
 <td>Feb 27</td>
 <td>M,W,F</td>
@@ -156,7 +154,7 @@
 <td><a href="../slides/web-security.html#/">Web Security</a>, midterm</td>
 <td>Mon: web security to 7.11; Wed: midterm; Fri: finished web security</td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td>Mar 6</td>
 <td>(none)</td>
@@ -164,7 +162,7 @@
 <td>(spring break)</td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>8</td>
 <td>Mar 13</td>
 <td>M,W,F</td>
@@ -172,7 +170,7 @@
 <td><a href="../slides/sql-xss-csrf.html#/">SQL, XSS, and CSRF</a>, <a href="../slides/cryptocurrency.html#/">Cryptocurrency</a></td>
 <td>Mon: sql/xss/csrf to 5.8; Wed: finished sql/xss/csrf (recording); Fri: started and finished virtual machines (recording)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>9</td>
 <td>Mar 20</td>
 <td>M,W,F</td>
@@ -180,7 +178,7 @@
 <td><a href="../slides/cryptocurrency.html#/">Cryptocurrency</a>, <a href="../slides/anonymity.html#/">Anonymity</a></td>
 <td>Mon: cryptocurrency to 5.4; Wed: finished cryptocurrency; Fri: anonymity to 6.4</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>10</td>
 <td>Mar 27</td>
 <td>M,W,F</td>
@@ -188,7 +186,7 @@
 <td><a href="../slides/rootkits.html#/">Rootkits</a>, <a href="../slides/stuxnet.html#/">Stuxnet</a></td>
 <td>Mon: finished anonymity; Wed: rootkits to 4.7; Fri: finished rootkits, stuxnet to 3.7</td>
 </tr>
-<tr>
+<tr class="even">
 <td>11</td>
 <td>Apr 3</td>
 <td>M,W,F</td>
@@ -196,7 +194,7 @@
 <td><a href="../slides/viruses.html#/">Viruses</a></td>
 <td>Mon: finished stuxnet, viruses to 4.4; Wed: viruses to 7.3; Fri: viruses to 8.3</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>12</td>
 <td>Apr 10</td>
 <td>M,W,F</td>
@@ -204,7 +202,7 @@
 <td><a href="../slides/buffer-overflows.html#/">Buffer Overflows</a>, guest lecture (Wed)</td>
 <td>Mon: finished viruses, buffer overflows to 4.8; Wed: guest lecture; Fri: buffer overflow to 5.19</td>
 </tr>
-<tr>
+<tr class="even">
 <td>13</td>
 <td>Apr 17</td>
 <td>M,W,F</td>
@@ -212,7 +210,7 @@
 <td><a href="../slides/binary-exploits.html#/">Binary Exploits</a></td>
 <td>Mon: finished buffer overflow, binary exploits to 4.4; Wed: binary exploits to 5.14; Fri: forensics to 6.2</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>14</td>
 <td>Apr 24</td>
 <td>M,W,F</td>
@@ -220,7 +218,7 @@
 <td><a href="../slides/forensics.html#/">Digital Forensics</a>, <a href="../slides/vms.html#/">Virtual Machines</a></td>
 <td>Mon: finished forensics; binary exploits to slide 5.15; Wed: finished binary exploits; Fri: review session</td>
 </tr>
-<tr>
+<tr class="even">
 <td>15</td>
 <td>May 1</td>
 <td>M</td>
