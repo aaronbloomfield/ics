@@ -134,21 +134,21 @@ From [`objdump -d overflow.exe`](code/buffer-overflows/overflow.exe.objdump.txt)
 
 ## Stack for vulnerable()
 ::: {.right-float-img .noboxshadow}
-![](images/buffer-overflows/overflow-stack-1.png)
+![a diagram of the stack before the buffer overflow](images/buffer-overflows/overflow-stack-1.png)
 :::
 Before `scanf()` is called:
 
 
 ## Stack for vulnerable()
 ::: {.right-float-img .noboxshadow}
-![](images/buffer-overflows/overflow-stack-2.png)
+![a diagram of the stack part-way through the buffer overflow](images/buffer-overflows/overflow-stack-2.png)
 :::
 After `scanf()` is called: the buffer hath overflowed:
 
 
 ## Stack for vulnerable()
 ::: {.right-float-img .noboxshadow}
-![](images/buffer-overflows/overflow-stack-3.png)
+![a diagram of the stack after the buffer overflow](images/buffer-overflows/overflow-stack-3.png)
 :::
 The return address (and beyond) has also been overwritten:
 
@@ -195,7 +195,7 @@ $1 = (char (*)[100]) 0x7fffffffdce0
 
 ## Stack for vulnerable()
 ::: {.right-float-img .noboxshadow}
-![](images/buffer-overflows/return-to-stack.png)
+![a diagram showing a return address to a stack location](images/buffer-overflows/return-to-stack.png)
 :::
 After a successful buffer overflow exploit:
 
@@ -525,7 +525,7 @@ Note that the `lea` loads an negative offset, which has no 0x00 bytes
 
 ## The result
 ::: {.right-float-img .noboxshadow}
-![](images/buffer-overflows/return-to-stack.png)
+![a diagram showing a return address to a stack location](images/buffer-overflows/return-to-stack.png)
 :::
 We put all that together, and we get:
 

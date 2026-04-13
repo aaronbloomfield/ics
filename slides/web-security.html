@@ -303,7 +303,12 @@ Alice and Bob now share a secret (the number 18)
 <section class="slide level2">
 
 <div class="right-float-img img-padding">
-<p><a href="https://commons.wikimedia.org/wiki/File:Diffie-Hellman_Key_Exchange.svg"><img data-src="images/web-security/Diffie-Hellman_Key_Exchange.svg"></a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://commons.wikimedia.org/wiki/File:Diffie-Hellman_Key_Exchange.svg"><img data-src="images/web-security/Diffie-Hellman_Key_Exchange.svg" alt="Image of mixing paint colors"></a></p>
+<figcaption>Image of mixing paint colors</figcaption>
+</figure>
+</div>
 </div>
 <h2>
 DH key<br>exchange<br>example<br>as colors
@@ -360,11 +365,16 @@ DH key<br>exchange<br>example<br>as colors
 <section id="diagram-of-an-x.509-cert" class="slide level2">
 <h2>Diagram of an X.509 cert</h2>
 
-<img data-src="images/web-security/x.509-cert.svg" class="r-stretch"></section>
+<img data-src="images/web-security/x.509-cert.svg" class="r-stretch quarto-figure-center"><p class="caption">Diagram of an X.509 certificate for google.com</p></section>
 <section id="certificate-usage" class="slide level2">
 <h2>Certificate usage</h2>
 <div class="right-float-img img-size-600">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="images/web-security/ServerCertificate.png"></p>
+<figcaption>Screenshot of a Firefox pop-up of wikipedia.com’s certificate</figcaption>
+</figure>
+</div>
 </div>
 <ul>
 <li>All websites that support https provide such a certificate to any client</li>
@@ -385,7 +395,7 @@ DH key<br>exchange<br>example<br>as colors
 </section>
 <section id="certificate-chains" class="slide level2">
 <h2>Certificate Chains</h2>
-<p><a href="https://commons.wikimedia.org/wiki/File:Chain_of_trust_v2.svg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Chain_of_trust_v2.svg/1024px-Chain_of_trust_v2.svg.png" style="width:80%;padding:10px"></a></p>
+<p><a href="https://commons.wikimedia.org/wiki/File:Chain_of_trust_v2.svg"><img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Chain_of_trust_v2.svg" style="width:80%;padding:10px" alt="image of a https certificate chain"></a></p>
 <p>An entity (such as virginia.edu) can hold an <em>intermediate</em> certificate, which allows it to sign for entities in its division (such as news.virginia.edu)</p>
 </section>
 <section id="trusting-trust" class="slide level2">
@@ -440,7 +450,7 @@ DH key<br>exchange<br>example<br>as colors
 </section>
 <section id="uvas-certificate-authority" class="slide level2">
 <h2>UVA’s Certificate Authority</h2>
-<p><img src="images/web-security/uva-cert-trust.webp" style="float:right;width:250px;margin-left:20px;height:unset"></p>
+<p>&lt;img src=“images/web-security/uva-cert-trust.webp” style=“float:right;width:250px;margin-left:20px;height:unset” alt=‘iPhone screenshot of certificate trust for UVA’s certificate’&gt;</p>
 <ul>
 <li>If you ran UVA’s Network Setup Tool, it will have installed it’s certificate provider as a trusted certificate authority
 <ul>
@@ -538,7 +548,12 @@ DH key<br>exchange<br>example<br>as colors
 <section class="slide level2">
 
 <div class="">
-<p><a href="https://upload.wikimedia.org/wikipedia/commons/a/ae/SSL_handshake_with_two_way_authentication_with_certificates.svg"><img data-src="images/web-security/SSL_handshake_with_two_way_authentication_with_certificates.svg"></a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://upload.wikimedia.org/wikipedia/commons/a/ae/SSL_handshake_with_two_way_authentication_with_certificates.svg"><img data-src="images/web-security/SSL_handshake_with_two_way_authentication_with_certificates.svg" alt="TLS protocol diagram"></a></p>
+<figcaption>TLS protocol diagram</figcaption>
+</figure>
+</div>
 </div>
 </section>
 <section id="is-tls-1.2-forward-secret" class="slide level2">
@@ -588,18 +603,23 @@ DH key<br>exchange<br>example<br>as colors
 <section id="tls-key-exchange-protocols" class="slide level2">
 <h2><a href="https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement">TLS key exchange protocols</a></h2>
 
-<img data-src="images/web-security/tls-protocols-1.webp" class="r-stretch"><p>Updated version <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement">here</a></p>
+<img data-src="images/web-security/tls-protocols-1.webp" class="r-stretch quarto-figure-center"><p class="caption">a list of TLS key exchange protocols</p><p>Updated version <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement">here</a></p>
 </section>
 <section id="tls-session-protocols" class="slide level2">
 <h2><a href="https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement">TLS session protocols</a></h2>
 
-<img data-src="images/web-security/tls-protocols-2.png" class="r-stretch"><p>Updated version <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement">here</a></p>
+<img data-src="images/web-security/tls-protocols-2.png" class="r-stretch quarto-figure-center"><p class="caption">a list of TLS session protocols</p><p>Updated version <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement">here</a></p>
 </section>
 <section id="initialization-vectors-ivs" class="slide level2">
 <h2>Initialization Vectors (IVs)</h2>
 <p>Each successive encrypted block depends on the previous one, so that two encrypted blocks that are the same plaintext will have different ciphertext</p>
 <div style="zoom:200%">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="images/web-security/IVs.svg"></p>
+<figcaption>a diagram of the use of IVs (initialization vector) in encryption</figcaption>
+</figure>
+</div>
 </div>
 </section>
 <section id="message-authentication-code-mac" class="slide level2">
@@ -678,7 +698,12 @@ DH key<br>exchange<br>example<br>as colors
 <section id="hmac-with-sha1" class="slide level2">
 <h2>HMAC with SHA1</h2>
 <div class="img-size-900">
-<p><a href="https://commons.wikimedia.org/wiki/File:SHAhmac.svg"><img data-src="images/web-security/SHAhmac.svg"></a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://commons.wikimedia.org/wiki/File:SHAhmac.svg"><img data-src="images/web-security/SHAhmac.svg" alt="how an HMAC with SHA1 is encoded"></a></p>
+<figcaption>how an HMAC with SHA1 is encoded</figcaption>
+</figure>
+</div>
 </div>
 <p><em>i_pad</em> and <em>o_pad</em> have known and non-secret values</p>
 </section>
@@ -716,7 +741,12 @@ DH key<br>exchange<br>example<br>as colors
 <section id="heartbleed-2012" class="slide level2">
 <h2>Heartbleed (2012)</h2>
 <div class="right-float-img img-size-600">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="images/web-security/Heartbleed.svg"></p>
+<figcaption>the heartbleed attack logo</figcaption>
+</figure>
+</div>
 </div>
 <ul>
 <li>A problem in <em>one</em> implementation of the TLS protocol
@@ -746,15 +776,15 @@ DH key<br>exchange<br>example<br>as colors
 <section id="xkcd-on-heartbleed-1354" class="slide level2">
 <h2>xkcd on Heartbleed (<a href="https://xkcd.com/1354/"># 1354</a>)</h2>
 
-<img data-src="images/web-security/heartbleed_explanation_2x-a.png" class="r-stretch"></section>
+<img data-src="images/web-security/heartbleed_explanation_2x-a.png" class="r-stretch quarto-figure-center"><p class="caption">xkcd heartbleed comic, first third</p></section>
 <section id="xkcd-on-heartbleed-1354-1" class="slide level2">
 <h2>xkcd on Heartbleed (<a href="https://xkcd.com/1354/"># 1354</a>)</h2>
 
-<img data-src="images/web-security/heartbleed_explanation_2x-b.png" class="r-stretch"></section>
+<img data-src="images/web-security/heartbleed_explanation_2x-b.png" class="r-stretch quarto-figure-center"><p class="caption">xkcd heartbleed comic, second third</p></section>
 <section id="xkcd-on-heartbleed-1354-2" class="slide level2">
 <h2>xkcd on Heartbleed (<a href="https://xkcd.com/1354/"># 1354</a>)</h2>
 
-<img data-src="images/web-security/heartbleed_explanation_2x-c.png" class="r-stretch"></section>
+<img data-src="images/web-security/heartbleed_explanation_2x-c.png" class="r-stretch quarto-figure-center"><p class="caption">xkcd heartbleed comic, third third</p></section>
 <section id="mining-your-ps-and-qs-2012" class="slide level2">
 <h2>Mining Your Ps and Qs (2012)</h2>
 <ul>
@@ -784,7 +814,7 @@ DH key<br>exchange<br>example<br>as colors
 <section id="boot-up-time-versus-prg-quality" class="slide level2">
 <h2>Boot-up time versus PRG quality</h2>
 
-<img data-src="images/web-security/weakkeys12.extended.svg" class="r-stretch"><p>Source: <a href="https://factorable.net/weakkeys12.extended.pdf">Mining Your Ps and Qs: Detection of Widespread Weak Keys in Network Devices</a></p>
+<img data-src="images/web-security/weakkeys12.extended.svg" class="r-stretch quarto-figure-center"><p class="caption">a graph showing boot-up time versus PRG quality</p><p>Source: <a href="https://factorable.net/weakkeys12.extended.pdf">Mining Your Ps and Qs: Detection of Widespread Weak Keys in Network Devices</a></p>
 </section>
 <section id="apple-goto-fail-feb-2014" class="slide level2">
 <h2>Apple Goto Fail (Feb 2014)</h2>
@@ -865,12 +895,22 @@ DH key<br>exchange<br>example<br>as colors
 </section>
 <section id="cookie-exchange" class="slide level2">
 <h2>Cookie exchange</h2>
-<p><a href="https://commons.wikimedia.org/wiki/File:HTTP_cookie_exchange.svg"><img data-src="images/web-security/800px-HTTP_cookie_exchange.svg.png"></a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://commons.wikimedia.org/wiki/File:HTTP_cookie_exchange.svg"><img data-src="images/web-security/800px-HTTP_cookie_exchange.svg.png" alt="a diagram showing the communication involved in cookie exchange"></a></p>
+<figcaption>a diagram showing the communication involved in cookie exchange</figcaption>
+</figure>
+</div>
 </section>
 <section id="what-a-cookie-stores" class="slide level2">
 <h2>What a cookie stores</h2>
 <div class="right-float-img" style="zoom:200%">
-<p><a href="https://commons.wikimedia.org/wiki/File:HTTP-Cookie-Google.svg"><img data-src="images/web-security/HTTP-Cookie-Google.svg"></a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://commons.wikimedia.org/wiki/File:HTTP-Cookie-Google.svg"><img data-src="images/web-security/HTTP-Cookie-Google.svg" alt="a screenshot of HTTP headers which shows the cookie data"></a></p>
+<figcaption>a screenshot of HTTP headers which shows the cookie data</figcaption>
+</figure>
+</div>
 </div>
 <ul>
 <li>The URL the cookie<br>applies to (domain<br>and path)</li>
@@ -950,7 +990,7 @@ DH key<br>exchange<br>example<br>as colors
 <section id="social-media-comment-boxes" class="slide level2">
 <h2>4. Social media comment boxes</h2>
 <ul>
-<li>Those tiny little icons to encourage you to share that page on social media: <img alt="social media comments" src="images/web-security/social-media-comments.png" style="width:600px"></li>
+<li>Those tiny little icons to encourage you to share that page on social media: <img src="images/web-security/social-media-comments.png" style="width:600px" alt="a facebook comment box"></li>
 <li>It’s actually an <a href="https://www.w3schools.com/tags/tag_iframe.asp">iframe</a> with FB content, and obviously includes the referrer</li>
 <li>Now Facebook knows what articles you read</li>
 <li>Many social media widgets are similar</li>
@@ -1105,7 +1145,7 @@ DH key<br>exchange<br>example<br>as colors
 </section>
 <section id="google-authenticator" class="slide level2">
 <h2>Google Authenticator</h2>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Aegis_Authenticator_3.2_screenshot.png" style="float:right;margin-left:20px;width:250px;height:unset"></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Aegis_Authenticator_3.2_screenshot.png" style="float:right;margin-left:20px;width:250px;height:unset" alt="a screenshot of a 2FA application on an iPhone"></p>
 <ul>
 <li>This is what Duo Mobile uses; see <a href="https://security.stackexchange.com/questions/35157/how-does-google-authenticator-work">here</a> for more details</li>
 <li>Google created the standard, they don’t manage the system</li>
@@ -1143,7 +1183,7 @@ DH key<br>exchange<br>example<br>as colors
 </section>
 <section id="hotp-synchronization-issues" class="slide level2">
 <h2>HOTP synchronization issues</h2>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wells_Fargo_2FA_RSA_Token_-_Two_Factor_Authentication_-_Six_Digit_Code_%2853370207137%29.jpg/960px-Wells_Fargo_2FA_RSA_Token_-_Two_Factor_Authentication_-_Six_Digit_Code_%2853370207137%29.jpg" style="float:right;margin-left:20px;height:unset;width:400px"></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wells_Fargo_2FA_RSA_Token_-_Two_Factor_Authentication_-_Six_Digit_Code_%2853370207137%29.jpg/960px-Wells_Fargo_2FA_RSA_Token_-_Two_Factor_Authentication_-_Six_Digit_Code_%2853370207137%29.jpg" style="float:right;margin-left:20px;height:unset;width:400px" alt="a picture of an RSA key for 2FA"></p>
 <ul>
 <li>Each side may increment independently
 <ul>
@@ -1182,7 +1222,7 @@ DH key<br>exchange<br>example<br>as colors
 </section>
 <section id="fa-qr-codes" class="slide level2">
 <h2>2FA QR Codes</h2>
-<p><img src="https://docs.swrve.com/wp-content/uploads/2018/10/QRcode-replace.jpg" style="float:right;width:400px;height:unset;margin-left:20px;padding:10px"></p>
+<p><img src="https://docs.swrve.com/wp-content/uploads/2018/10/QRcode-replace.jpg" style="float:right;width:400px;height:unset;margin-left:20px;padding:10px" alt="a QR code for configuring 2FA authentication"></p>
 <ul>
 <li>The <em>service</em> sets the parameters, and provides a QR code</li>
 <li>The <em>client</em> accepts those parameters (or not)</li>

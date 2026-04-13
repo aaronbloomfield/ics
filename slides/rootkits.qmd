@@ -111,7 +111,7 @@ title: Rootkits
 (from Mark Russinovich's [blog entry](https://techcommunity.microsoft.com/t5/windows-blog-archive/sony-rootkits-and-digital-rights-management-gone-too-far/ba-p/723442))
 
 ::: {style="zoom:125%"}
-![](images/rootkits/120874iADC4E49896E0D0DA.webp)
+![a screenshot of hidden files in RootkitRevealer](images/rootkits/120874iADC4E49896E0D0DA.webp)
 :::
 Note that these files were hidden (last column) and many started with `$`sys`$`
 
@@ -127,7 +127,7 @@ Note that these files were hidden (last column) and many started with `$`sys`$`
 (from Mark Russinovich's [blog entry](https://techcommunity.microsoft.com/t5/windows-blog-archive/sony-rootkits-and-digital-rights-management-gone-too-far/ba-p/723442))
 
 ::: {style="zoom:150%"}
-![](images/rootkits/120875i356D5B86892D50CA.webp)
+![a screenshot of the kernel function pointers with a few clearly indicated as being out of the expected range](images/rootkits/120875i356D5B86892D50CA.webp)
 :::
 The circled function pointers are clearly different than the others
 
@@ -137,7 +137,7 @@ The circled function pointers are clearly different than the others
 - Sure enough, there were the rootkit device drivers and other files:
 
 ::: {style="zoom:150%"}
-![](images/rootkits/120877iF162AA11C8819F51.webp)
+![a screenshot of a windows command prompt showing the device driver files](images/rootkits/120877iF162AA11C8819F51.webp)
 :::
 
 
@@ -160,7 +160,7 @@ The circled function pointers are clearly different than the others
 
 ## Sony Fiasco: The Plot Thickens
 - Russinovich recalled having just recently bought and played a Sony/BMG CD (ironically, entitled *Get Right with the Man*) that required you to install its media player in order to play it on a PC
-![image](https://m.media-amazon.com/images/I/81GEYZrDJBL._SS500_.jpg)
+![the CD album cover that caused all of this](https://m.media-amazon.com/images/I/81GEYZrDJBL._SS500_.jpg)
 
 
 ## Sony Fiasco: The Plot Thickens
@@ -168,7 +168,7 @@ The circled function pointers are clearly different than the others
 - The Services tab of Process Explorer identified the app as "Plug and Play Device Manager," which is an obvious attempt to mislead the user into thinking that this is a core Windows service, which it is not:
 
 ::: {style="zoom:150%"}
-![](images/rootkits/120882iB7E2EE5C2ABE9DA1.webp)
+![a screenshot of how the DRMServer.exe application appears in Windows' task manager](images/rootkits/120882iB7E2EE5C2ABE9DA1.webp)
 :::
 
 
@@ -220,7 +220,7 @@ by Thomas Hesse, President, Global Digital Business, Sony/BMG
 - Immediately after installing it, Russinovich noticed a new entry called MediaJam in the Add/Remove Programs list:
 
 ::: {style="zoom:150%"}
-![](images/rootkits/120890i6BD0152633D058EB.webp)
+![a screenshot of MediaJam in add-or-remove-programs in windows](images/rootkits/120890i6BD0152633D058EB.webp)
 :::
 
 (from his [second blog entry](https://techcommunity.microsoft.com/t5/windows-blog-archive/more-on-sony-dangerous-decloaking-patch-eulas-and-phoning-home/ba-p/723452))

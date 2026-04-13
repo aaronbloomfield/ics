@@ -354,21 +354,36 @@
 <section id="stack-for-vulnerable" class="slide level2">
 <h2>Stack for vulnerable()</h2>
 <div class="right-float-img noboxshadow">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="images/buffer-overflows/overflow-stack-1.png"></p>
+<figcaption>a diagram of the stack before the buffer overflow</figcaption>
+</figure>
+</div>
 </div>
 <p>Before <code>scanf()</code> is called:</p>
 </section>
 <section id="stack-for-vulnerable-1" class="slide level2">
 <h2>Stack for vulnerable()</h2>
 <div class="right-float-img noboxshadow">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="images/buffer-overflows/overflow-stack-2.png"></p>
+<figcaption>a diagram of the stack part-way through the buffer overflow</figcaption>
+</figure>
+</div>
 </div>
 <p>After <code>scanf()</code> is called: the buffer hath overflowed:</p>
 </section>
 <section id="stack-for-vulnerable-2" class="slide level2">
 <h2>Stack for vulnerable()</h2>
 <div class="right-float-img noboxshadow">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="images/buffer-overflows/overflow-stack-3.png"></p>
+<figcaption>a diagram of the stack after the buffer overflow</figcaption>
+</figure>
+</div>
 </div>
 <p>The return address (and beyond) has also been overwritten:</p>
 </section>
@@ -419,7 +434,12 @@
 <section id="stack-for-vulnerable-3" class="slide level2">
 <h2>Stack for vulnerable()</h2>
 <div class="right-float-img noboxshadow">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="images/buffer-overflows/return-to-stack.png"></p>
+<figcaption>a diagram showing a return address to a stack location</figcaption>
+</figure>
+</div>
 </div>
 <p>After a successful buffer overflow exploit:</p>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -780,7 +800,12 @@
 <section id="the-result" class="slide level2">
 <h2>The result</h2>
 <div class="right-float-img noboxshadow">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="images/buffer-overflows/return-to-stack.png"></p>
+<figcaption>a diagram showing a return address to a stack location</figcaption>
+</figure>
+</div>
 </div>
 <p>We put all that together, and we get:</p>
 </section>

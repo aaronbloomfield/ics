@@ -315,7 +315,12 @@
 <h2>What RKR revealed</h2>
 <p>(from Mark Russinovich’s <a href="https://techcommunity.microsoft.com/t5/windows-blog-archive/sony-rootkits-and-digital-rights-management-gone-too-far/ba-p/723442">blog entry</a>)</p>
 <div style="zoom:125%">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="images/rootkits/120874iADC4E49896E0D0DA.webp"></p>
+<figcaption>a screenshot of hidden files in RootkitRevealer</figcaption>
+</figure>
+</div>
 </div>
 <p>Note that these files were hidden (last column) and many started with <code>$</code>sys<code>$</code></p>
 </section>
@@ -334,7 +339,12 @@
 <h2>What RKR revealed</h2>
 <p>(from Mark Russinovich’s <a href="https://techcommunity.microsoft.com/t5/windows-blog-archive/sony-rootkits-and-digital-rights-management-gone-too-far/ba-p/723442">blog entry</a>)</p>
 <div style="zoom:150%">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="images/rootkits/120875i356D5B86892D50CA.webp"></p>
+<figcaption>a screenshot of the kernel function pointers with a few clearly indicated as being out of the expected range</figcaption>
+</figure>
+</div>
 </div>
 <p>The circled function pointers are clearly different than the others</p>
 </section>
@@ -345,7 +355,12 @@
 <li>Sure enough, there were the rootkit device drivers and other files:</li>
 </ul>
 <div style="zoom:150%">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="images/rootkits/120877iF162AA11C8819F51.webp"></p>
+<figcaption>a screenshot of a windows command prompt showing the device driver files</figcaption>
+</figure>
+</div>
 </div>
 </section>
 <section id="sony-cd-fiasco-continued-2" class="slide level2">
@@ -376,7 +391,7 @@
 <section id="sony-fiasco-the-plot-thickens-1" class="slide level2">
 <h2>Sony Fiasco: The Plot Thickens</h2>
 <ul>
-<li>Russinovich recalled having just recently bought and played a Sony/BMG CD (ironically, entitled <em>Get Right with the Man</em>) that required you to install its media player in order to play it on a PC <img data-src="https://m.media-amazon.com/images/I/81GEYZrDJBL._SS500_.jpg" alt="image"></li>
+<li>Russinovich recalled having just recently bought and played a Sony/BMG CD (ironically, entitled <em>Get Right with the Man</em>) that required you to install its media player in order to play it on a PC <img data-src="https://m.media-amazon.com/images/I/81GEYZrDJBL._SS500_.jpg" alt="the CD album cover that caused all of this"></li>
 </ul>
 </section>
 <section id="sony-fiasco-the-plot-thickens-2" class="slide level2">
@@ -386,7 +401,12 @@
 <li>The Services tab of Process Explorer identified the app as “Plug and Play Device Manager,” which is an obvious attempt to mislead the user into thinking that this is a core Windows service, which it is not:</li>
 </ul>
 <div style="zoom:150%">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="images/rootkits/120882iB7E2EE5C2ABE9DA1.webp"></p>
+<figcaption>a screenshot of how the DRMServer.exe application appears in Windows’ task manager</figcaption>
+</figure>
+</div>
 </div>
 </section>
 <section id="sony-fiasco-the-plot-thickens-3" class="slide level2">
@@ -457,7 +477,12 @@
 <li>Immediately after installing it, Russinovich noticed a new entry called MediaJam in the Add/Remove Programs list:</li>
 </ul>
 <div style="zoom:150%">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="images/rootkits/120890i6BD0152633D058EB.webp"></p>
+<figcaption>a screenshot of MediaJam in add-or-remove-programs in windows</figcaption>
+</figure>
+</div>
 </div>
 <p>(from his <a href="https://techcommunity.microsoft.com/t5/windows-blog-archive/more-on-sony-dangerous-decloaking-patch-eulas-and-phoning-home/ba-p/723452">second blog entry</a>) <!-- (from his [second blog entry](http://blogs.technet.com/markrussinovich/archive/2005/11/04/more-on-sony-dangerous-decloaking-patch-eulas-and-phoning-home.aspx)) --></p>
 </section>

@@ -55,7 +55,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchan
 ----
 
 ::: {.right-float-img .img-padding}
-[![](images/web-security/Diffie-Hellman_Key_Exchange.svg)](https://commons.wikimedia.org/wiki/File:Diffie-Hellman_Key_Exchange.svg)
+[![Image of mixing paint colors](images/web-security/Diffie-Hellman_Key_Exchange.svg)](https://commons.wikimedia.org/wiki/File:Diffie-Hellman_Key_Exchange.svg)
 :::
 <h2>DH key<br>exchange<br>example<br>as colors</h2>
 
@@ -101,13 +101,13 @@ If that doesn't work, try the [direct Youtube link](http://youtu.be/YEBfamv-_do?
 
 
 ## Diagram of an X.509 cert
-![](images/web-security/x.509-cert.svg)
+![Diagram of an X.509 certificate for google.com](images/web-security/x.509-cert.svg)
 
 
 
 ## Certificate usage
 ::: {.right-float-img .img-size-600}
-![](images/web-security/ServerCertificate.png)
+![Screenshot of a Firefox pop-up of wikipedia.com's certificate](images/web-security/ServerCertificate.png)
 :::
 - All websites that support https provide such a certificate to any client
 - Browsers can display certificate info, such as shown here
@@ -125,7 +125,7 @@ If that doesn't work, try the [direct Youtube link](http://youtu.be/YEBfamv-_do?
 
 ## Certificate Chains
 
-<a href='https://commons.wikimedia.org/wiki/File:Chain_of_trust_v2.svg'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Chain_of_trust_v2.svg/1024px-Chain_of_trust_v2.svg.png' style='width:80%;padding:10px'></a>
+<a href='https://commons.wikimedia.org/wiki/File:Chain_of_trust_v2.svg'><img src='https://upload.wikimedia.org/wikipedia/commons/8/87/Chain_of_trust_v2.svg' style='width:80%;padding:10px' alt='image of a https certificate chain'></a>
 
 An entity (such as virginia.edu) can hold an *intermediate* certificate, which allows it to sign for entities in its division (such as news.virginia.edu)
 
@@ -169,7 +169,7 @@ An entity (such as virginia.edu) can hold an *intermediate* certificate, which a
 
 ## UVA's Certificate Authority
 
-<img src="images/web-security/uva-cert-trust.webp" style="float:right;width:250px;margin-left:20px;height:unset">
+<img src="images/web-security/uva-cert-trust.webp" style="float:right;width:250px;margin-left:20px;height:unset" alt='iPhone screenshot of certificate trust for UVA's certificate'>
 
 - If you ran UVA's Network Setup Tool, it will have installed it's certificate provider as a trusted certificate authority
   - Note that the image shows how to make it "fully" trusted; it's still (mostly) trusted without the slider switch on
@@ -244,7 +244,7 @@ An entity (such as virginia.edu) can hold an *intermediate* certificate, which a
 ----
 
 ::: {.stretch}
-[![](images/web-security/SSL_handshake_with_two_way_authentication_with_certificates.svg)](https://upload.wikimedia.org/wikipedia/commons/a/ae/SSL_handshake_with_two_way_authentication_with_certificates.svg)
+[![TLS protocol diagram](images/web-security/SSL_handshake_with_two_way_authentication_with_certificates.svg)](https://upload.wikimedia.org/wikipedia/commons/a/ae/SSL_handshake_with_two_way_authentication_with_certificates.svg)
 :::
 
 
@@ -283,14 +283,14 @@ An entity (such as virginia.edu) can hold an *intermediate* certificate, which a
 
 ## [TLS key exchange protocols](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
 ::: {.stretch}
-![](images/web-security/tls-protocols-1.webp)
+![a list of TLS key exchange protocols](images/web-security/tls-protocols-1.webp)
 :::
 Updated version [here](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
 
 
 ## [TLS session protocols](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
 ::: {.stretch}
-![](images/web-security/tls-protocols-2.png)
+![a list of TLS session protocols](images/web-security/tls-protocols-2.png)
 :::
 Updated version [here](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
 
@@ -299,7 +299,7 @@ Updated version [here](https://en.wikipedia.org/wiki/Transport_Layer_Security#Ke
 Each successive encrypted block depends on the previous one, so that two encrypted blocks that are the same plaintext will have different ciphertext
 
 ::: {style="zoom:200%"}
-![](images/web-security/IVs.svg)
+![a diagram of the use of IVs (initialization vector) in encryption](images/web-security/IVs.svg)
 :::
 
 
@@ -351,7 +351,7 @@ Each successive encrypted block depends on the previous one, so that two encrypt
 
 ## HMAC with SHA1
 ::: {.stretch .img-size-900}
-[![](images/web-security/SHAhmac.svg)](https://commons.wikimedia.org/wiki/File:SHAhmac.svg)
+[![how an HMAC with SHA1 is encoded](images/web-security/SHAhmac.svg)](https://commons.wikimedia.org/wiki/File:SHAhmac.svg)
 :::
 
 *i_pad* and *o_pad* have known and non-secret values
@@ -386,7 +386,7 @@ Updated version [here](https://en.wikipedia.org/wiki/Transport_Layer_Security#Ke
 
 ## Heartbleed (2012)
 ::: {.right-float-img .img-size-600}
-![](images/web-security/Heartbleed.svg)
+![the heartbleed attack logo](images/web-security/Heartbleed.svg)
 :::
 - A problem in *one* implementation of the TLS protocol
   - Specifically the OpenSSL library implementation
@@ -405,13 +405,13 @@ Updated version [here](https://en.wikipedia.org/wiki/Transport_Layer_Security#Ke
 
 
 ## xkcd on Heartbleed ([# 1354](https://xkcd.com/1354/))
-![](images/web-security/heartbleed_explanation_2x-a.png)
+![xkcd heartbleed comic, first third](images/web-security/heartbleed_explanation_2x-a.png)
 
 ## xkcd on Heartbleed ([# 1354](https://xkcd.com/1354/))
-![](images/web-security/heartbleed_explanation_2x-b.png)
+![xkcd heartbleed comic, second third](images/web-security/heartbleed_explanation_2x-b.png)
 
 ## xkcd on Heartbleed ([# 1354](https://xkcd.com/1354/))
-![](images/web-security/heartbleed_explanation_2x-c.png)
+![xkcd heartbleed comic, third third](images/web-security/heartbleed_explanation_2x-c.png)
 
 
 ## Mining Your Ps and Qs (2012)
@@ -432,7 +432,7 @@ Updated version [here](https://en.wikipedia.org/wiki/Transport_Layer_Security#Ke
 
 
 ## Boot-up time versus PRG quality
-![](images/web-security/weakkeys12.extended.svg)
+![a graph showing boot-up time versus PRG quality](images/web-security/weakkeys12.extended.svg)
 
 Source: [Mining Your Ps and Qs: Detection of Widespread Weak Keys in Network Devices](https://factorable.net/weakkeys12.extended.pdf)
 
@@ -504,13 +504,13 @@ gmail.com\0.mydomain.com
 
 
 ## Cookie exchange
-[![](images/web-security/800px-HTTP_cookie_exchange.svg.png)](https://commons.wikimedia.org/wiki/File:HTTP_cookie_exchange.svg)
+[![a diagram showing the communication involved in cookie exchange](images/web-security/800px-HTTP_cookie_exchange.svg.png)](https://commons.wikimedia.org/wiki/File:HTTP_cookie_exchange.svg)
 
 
 
 ## What a cookie stores
 ::: {.right-float-img style="zoom:200%"}
-[![](images/web-security/HTTP-Cookie-Google.svg)](https://commons.wikimedia.org/wiki/File:HTTP-Cookie-Google.svg)
+[![a screenshot of HTTP headers which shows the cookie data](images/web-security/HTTP-Cookie-Google.svg)](https://commons.wikimedia.org/wiki/File:HTTP-Cookie-Google.svg)
 :::
 - The URL the cookie<br>applies to (domain<br>and path)
 - An information string
@@ -585,7 +585,7 @@ yahoo.com
 
 
 ## 4. Social media comment boxes
-- Those tiny little icons to encourage you to share that page on social media: <img alt="social media comments" src="images/web-security/social-media-comments.png" style="width:600px">
+- Those tiny little icons to encourage you to share that page on social media: <img src="images/web-security/social-media-comments.png" style="width:600px" alt="a facebook comment box">
 - It's actually an [iframe](https://www.w3schools.com/tags/tag_iframe.asp) with FB content, and obviously includes the referrer
 - Now Facebook knows what articles you read
 - Many social media widgets are similar
@@ -687,7 +687,7 @@ aka Multi-Factor Authentication
 
 ## Google Authenticator
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Aegis_Authenticator_3.2_screenshot.png" style="float:right;margin-left:20px;width:250px;height:unset">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Aegis_Authenticator_3.2_screenshot.png" style="float:right;margin-left:20px;width:250px;height:unset" alt='a screenshot of a 2FA application on an iPhone'>
 
 - This is what Duo Mobile uses; see [here](https://security.stackexchange.com/questions/35157/how-does-google-authenticator-work) for more details
 - Google created the standard, they don't manage the system
@@ -714,7 +714,7 @@ aka Multi-Factor Authentication
 
 ## HOTP synchronization issues
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wells_Fargo_2FA_RSA_Token_-_Two_Factor_Authentication_-_Six_Digit_Code_%2853370207137%29.jpg/960px-Wells_Fargo_2FA_RSA_Token_-_Two_Factor_Authentication_-_Six_Digit_Code_%2853370207137%29.jpg" style="float:right;margin-left:20px;height:unset;width:400px">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wells_Fargo_2FA_RSA_Token_-_Two_Factor_Authentication_-_Six_Digit_Code_%2853370207137%29.jpg/960px-Wells_Fargo_2FA_RSA_Token_-_Two_Factor_Authentication_-_Six_Digit_Code_%2853370207137%29.jpg" style="float:right;margin-left:20px;height:unset;width:400px" alt='a picture of an RSA key for 2FA'>
 
 - Each side may increment independently
   - The authenticator will try the next few counter values just in case
@@ -738,7 +738,7 @@ aka Multi-Factor Authentication
 
 ## 2FA QR Codes
 
-<img src="https://docs.swrve.com/wp-content/uploads/2018/10/QRcode-replace.jpg" style="float:right;width:400px;height:unset;margin-left:20px;padding:10px">
+<img src="https://docs.swrve.com/wp-content/uploads/2018/10/QRcode-replace.jpg" style="float:right;width:400px;height:unset;margin-left:20px;padding:10px" alt='a QR code for configuring 2FA authentication'>
 
 - The *service* sets the parameters, and provides a QR code
 - The *client* accepts those parameters (or not)
