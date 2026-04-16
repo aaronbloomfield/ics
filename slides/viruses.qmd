@@ -42,7 +42,7 @@ title: Viruses
 
 ## Windows PE file format
 ::: {.right-float-img .img-size-800 style="zoom:125%"}
-![](images/viruses/pe-file-format.webp)
+![Windows PE file format image](images/viruses/pe-file-format.webp)
 :::
 - Parts:
   - DOS header
@@ -60,7 +60,7 @@ Image from [here](http://resources.infosecinstitute.com/2-malware-researchers-ha
 
 ## Linux ELF Files
 ::: {.right-float-img .img-size-600 .noboxshadow}
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Elf-layout--en.svg/693px-Elf-layout--en.svg.png)
+![Linux ELF file format](https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Elf-layout--en.svg/693px-Elf-layout--en.svg.png)
 :::
 - Similar in concept to PE files
   - No DOS header, though!
@@ -88,7 +88,7 @@ Image from [here](http://resources.infosecinstitute.com/2-malware-researchers-ha
 
 ## Linking a PE file
 ::: {.right-float-img .img-size-600 .noboxshadow}
-![](images/viruses/pe-linking.png)
+![PE linking image](images/viruses/pe-linking.png)
 :::
 - Compiler produces .o files
 - Each .o has its own sections
@@ -109,7 +109,7 @@ Image from [here](http://resources.infosecinstitute.com/2-malware-researchers-ha
 
 
 ## PE file expansion
-![](images/viruses/pe-expansion.png)
+![PE expansion image](images/viruses/pe-expansion.png)
 
 
 
@@ -538,14 +538,14 @@ mov dword ptr [esi+0004],ecx
 A virus creation kit, which does exactly what it sounds like it does
 
 ::: {style="zoom:125%"}
-![](images/viruses/vcl.png)
+![virus creation laboratory screen shot](images/viruses/vcl.png)
 :::
 
 
 ## NGVCK 
 
 ::: {.right-float-img .img-size-800 style="zoom:125%"}
-![](images/viruses/ngvck.gif)
+![NGVCK screen shot](images/viruses/ngvck.gif)
 :::
 
 Next Generation Virus Creation Kit (2001)

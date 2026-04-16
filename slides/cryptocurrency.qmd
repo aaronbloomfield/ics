@@ -6,7 +6,7 @@ title: Cryptocurrency
 # Introduction
 ## What is money?
 ::: {.right-float-img .img-size-600 .img-square-corners}
-![](images/cryptocurrency/dollar-bill.webp)
+![the US dollar bill](images/cryptocurrency/dollar-bill.webp)
 :::
 
 - Four functions (Jevons, 1875):
@@ -70,7 +70,7 @@ According to Jan Lansky ([source](http://si-journal.org/index.php/JSI/article/vi
 
 ## Consider the AaronDollar (TM)
 ::: {.noboxshadow}
-![](images/cryptocurrency/aaron-dollar.png){style="background-color:transparent;height:400px"}
+![the logo of the AaronDollar(TM)](images/cryptocurrency/aaron-dollar.png){style="background-color:transparent;height:400px"}
 :::
 - Would you pay me 1 dollar for it?  What about &#36;10?  &#36;100?
 <li class="fragment" data-fragment-index="1">If I told you it would buy you an A+ in this course...<ul><li>Would you pay me <code>$</code>100 then?</li></ul></li>
@@ -91,7 +91,7 @@ According to Jan Lansky ([source](http://si-journal.org/index.php/JSI/article/vi
 ::: {.right-float-img .img-size-300 .noboxshadow}
 - Some examples:
   - The US Dollar is the most widely used in international financial transactions
-  - ![](https://upload.wikimedia.org/wikipedia/commons/e/e3/Moneda_1_Bol%C3%ADvar_2021.png){style="background-color:transparent"} Due to the [crisis in Venezuela](https://en.wikipedia.org/wiki/Crisis_in_Venezuela), the Venezuelan [bolivar soberano](https://en.wikipedia.org/wiki/Venezuelan_bol%C3%ADvar) (VEB), and its predecessor the bolivar fuerte, are essentially worthless
+  - ![the Venezuelan Bolivar](https://upload.wikimedia.org/wikipedia/commons/e/e0/Moneda_de_diez_bol%C3%ADvares_anverso_y_reverso_a%C3%B1o_2001.jpg){style="background-color:transparent"} Due to the [crisis in Venezuela](https://en.wikipedia.org/wiki/Crisis_in_Venezuela), the Venezuelan [bolivar soberano](https://en.wikipedia.org/wiki/Venezuelan_bol%C3%ADvar) (VEB), and its predecessor the bolivar fuerte, are essentially worthless
     - The VEB had a 1,698,488% (yes, 1.7 *million* percent) inflation rate in 2018
     - And about 5,000% in 2020
   - El Salvador
@@ -127,13 +127,13 @@ According to Jan Lansky ([source](http://si-journal.org/index.php/JSI/article/vi
 
 # Bitcoin Basics
 ::: {.cclogosubtitle .noboxshadow}
-![](images/cryptocurrency/btc-coin-symbol.svg){style="background-color:transparent"}
+![BTC symbol](images/cryptocurrency/btc-coin-symbol.svg){style="background-color:transparent"}
 :::
 
 <!-- .slide: class="right-float-img .img-size-300" -->
 ## A note about numbers...
 ::: {.right-float-img .img-size-600}
-[![](images/cryptocurrency/bitcoin-coin.webp)](https://commons.wikimedia.org/wiki/File:One_bitcoin_sitting_atop_bundles_of_US_$100_notes.png)
+[![BTC symbol](images/cryptocurrency/bitcoin-coin.webp)](https://commons.wikimedia.org/wiki/File:One_bitcoin_sitting_atop_bundles_of_US_$100_notes.png)
 :::
 - The data in this slide set was all updated for the current semester (as of Oct 22, 2024) <!-- change each semester -->
 - Bitcoin is highly volatile (the value changes so fast) that it is likely to be quite different in a day or two
@@ -145,7 +145,7 @@ According to Jan Lansky ([source](http://si-journal.org/index.php/JSI/article/vi
 
 ## Bitcoin
 ::: {.right-float-img .img-size-500}
-![](https://upload.wikimedia.org/wikipedia/commons/7/77/Satoshi_Nakamoto.jpg)
+![a statue of Satoshi Nakamoto](https://upload.wikimedia.org/wikipedia/commons/7/77/Satoshi_Nakamoto.jpg)
 :::
 - The first viable cryptocurrency, it was created in 2008 by Satoshi Nakamoto
   - That's a pseudonym; nobody knows who the real person (or group) that created it
@@ -178,7 +178,7 @@ From [blockchain.com](https://blockchain.com); BTC peaked at $68,789 in November
 
 ## Wallets
 ::: {.right-float-img .img-size-500}
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Czech_Wallet.jpg/800px-Czech_Wallet.jpg)
+![An image of a leather wallet](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Czech_Wallet.jpg/800px-Czech_Wallet.jpg)
 :::
 - You create a bitcoin *wallet*, which contains (possibly many) public/private key sets
   - Many software programs can create this for you
@@ -232,7 +232,7 @@ From [blockchain.com](https://blockchain.com); BTC peaked at $68,789 in November
 ----
 
 ::: {.right-float-img}
-![](images/cryptocurrency/overview.dot.1.svg)
+![a simple blockchain](images/cryptocurrency/overview.dot.1.svg)
 :::
 
 <h2>Simple Blockchain</h2>
@@ -248,7 +248,7 @@ From [blockchain.com](https://blockchain.com); BTC peaked at $68,789 in November
 
 # Mining
 ::: {.cclogosubtitle .noboxshadow}
-![](images/cryptocurrency/btc-coin-symbol.svg){style="background-color:transparent"}
+![BTC logo](images/cryptocurrency/btc-coin-symbol.svg){style="background-color:transparent"}
 :::
 
 
@@ -274,7 +274,7 @@ From [blockchain.com](https://blockchain.com); BTC peaked at $68,789 in November
 
 ## Target
 ::: {.right-float-img .img-size-500}
-![](https://upload.wikimedia.org/wikipedia/commons/d/dc/WA_archery_target_with_arrows.jpg)
+![archery target with arrows](https://upload.wikimedia.org/wikipedia/commons/d/dc/WA_archery_target_with_arrows.jpg)
 :::
 - The [target](https://en.bitcoin.it/wiki/Target) is the 256-bit number that a blockchain SHA-256 hash must be below
 - Goal: generate a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) (a one-time numerical value) to add to the block that will cause the SHA-256 hash to be below the target
@@ -312,7 +312,7 @@ From [blockchain.com](https://blockchain.com); BTC peaked at $68,789 in November
 
 ## How long this will take
 ::: {.right-float-img .img-size-600}
-![](https://upload.wikimedia.org/wikipedia/commons/4/48/Gigabyte_GTX_970_Windforce.jpg)
+![nvidia graphics card](https://upload.wikimedia.org/wikipedia/commons/4/48/Gigabyte_GTX_970_Windforce.jpg)
 :::
 - A typical CPU can do maybe 10 Mhash/sec (million hashes per second)
   - A very fast CPU today could do about 25 Mhash/sec
@@ -325,7 +325,7 @@ From [blockchain.com](https://blockchain.com); BTC peaked at $68,789 in November
 
 ## Electricity usage
 ::: {.right-float-img .img-size-500}
-![](https://upload.wikimedia.org/wikipedia/commons/6/6b/Electricity_pylons2.jpg)
+![electricity pylons](https://upload.wikimedia.org/wikipedia/commons/6/6b/Electricity_pylons2.jpg)
 :::
 - A graphics card uses about 400 W (watts) (estimated from [here](https://en.bitcoin.it/wiki/Non-specialized_hardware_comparison#Nvidia))
 - Electricity in Charlottesville costs 11.04 cents per kW/h (as per [here](https://www.electricitylocal.com/states/virginia/charlottesville/))
@@ -412,13 +412,13 @@ From [blockchain.com](https://blockchain.com); BTC peaked at $68,789 in November
 From [blockchain.com](https://www.blockchain.com/charts/hash-rate), and for the entire Bitcoin network;<br>E = exa = $10^{18}$
 <!-- change each semester -->
 <!-- formula: hashrate=663*10^18 -->
-![hashes per second](images/cryptocurrency/btc-hashes-per-sec.webp)
+![BTC hashes per second](images/cryptocurrency/btc-hashes-per-sec.webp)
 
 
 
 ## Mining hardware
 ::: {.right-float-img .img-size-500}
-![](https://m.media-amazon.com/images/I/61WsmRwaOaL._AC_SL1000_.jpg)
+![BTC miner from Amazon](https://m.media-amazon.com/images/I/61WsmRwaOaL._AC_SL1000_.jpg)
 :::
 - A whole industry has sprung up: you can find the hardware online (such as [here](https://www.bitcoinmining.com/bitcoin-mining-hardware/))
 - These devices are much faster and use much less electricity

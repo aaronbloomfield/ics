@@ -55,7 +55,7 @@ from [Wikipedia](https://en.wikipedia.org/wiki/Security)
 ## Example: "Unbreakable" RSA
 <p style="text-align:center">Security</p>
 ::: {.stretch}
-![](https://imgs.xkcd.com/comics/security.png){title="Actual actual reality: nobody cares about his secrets.  (Also, I would be hard-pressed to find that wrench for $5.)" style='border:10px solid white'}  
+![xkcd on unbreakable security](https://imgs.xkcd.com/comics/security.png){title="Actual actual reality: nobody cares about his secrets.  (Also, I would be hard-pressed to find that wrench for $5.)" style='border:10px solid white'}  
 :::
 ::: {.r-stack}
 [xkcd \# 538](https://xkcd.com/538)
@@ -120,11 +120,11 @@ from [Wikipedia](https://en.wikipedia.org/wiki/Security)
 
 ----
 
-![](images/security-mindset/road-block.jpg)
+![an image of a terrible road block](images/security-mindset/road-block.jpg)
 
 ----
 
-![](images/security-mindset/lock.jpg)
+![an image of an ineffective lock](images/security-mindset/lock.jpg)
 
 
 
@@ -206,13 +206,13 @@ from [Wikipedia](https://en.wikipedia.org/wiki/Security)
 
 
 ## A pin tumbler lock
-![](images/security-mindset/Pin_tumbler_no_key.svg)
+![an image of a pin tumbler lock](images/security-mindset/Pin_tumbler_no_key.svg)
 
 
 
 ## A pin tumbler lock
 ::: {.right-float-img .img-size-1000}
-![](images/security-mindset/Pin_tumbler_no_key.svg)
+![an image of a pin tumbler lock](images/security-mindset/Pin_tumbler_no_key.svg)
 :::
 - The purple & red rods are<br>the metal *pins*
   - Purple are the *driver pins*,<br>red are the *key pins*
@@ -222,19 +222,19 @@ from [Wikipedia](https://en.wikipedia.org/wiki/Security)
 
 
 ## With a wrong key
-![](images/security-mindset/Pin_tumbler_bad_key.svg)
+![an image of a pin tumbler lock](images/security-mindset/Pin_tumbler_bad_key.svg)
 The pins are not aligned so the plug can't rotate
 
 
 
 ## With the right key
-![](images/security-mindset/Pin_tumbler_with_key.svg)
+![an image of a pin tumbler lock](images/security-mindset/Pin_tumbler_with_key.svg)
 Note that the 'breaks' between the pins are lined up
 
 
 
 ## Unlocked lock
-![](images/security-mindset/Pin_tumbler_unlocked.svg)
+![an image of a pin tumbler lock](images/security-mindset/Pin_tumbler_unlocked.svg)
 
 
 
@@ -269,7 +269,7 @@ Now that you know how easy it is to pick a cylinder lock, how many people feel *
 
 
 ## How to break into this house?
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/California_Bungalow.jpg/1280px-California_Bungalow.jpg)
+![an image of a poorly secured house](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/California_Bungalow.jpg/1280px-California_Bungalow.jpg)
 
 
 
@@ -319,7 +319,7 @@ The image on the next slide shows this happening...
 
 ----
 
-![](images/security-mindset/rally-166.jpg)
+![an image of the unite the right rally in charlottesville in 2017](images/security-mindset/rally-166.jpg)
 
 
 
@@ -333,7 +333,7 @@ The image on the next slide shows this happening...
 
 ----
 
-![](images/security-mindset/rally-183.jpg)
+![an image of the unite the right rally in charlottesville in 2017](images/security-mindset/rally-183.jpg)
 
 
 
@@ -348,7 +348,7 @@ The image on the next slide shows this happening...
 
 ----
 
-![](images/security-mindset/rally-119.jpg)
+![an image of the unite the right rally in charlottesville in 2017](images/security-mindset/rally-119.jpg)
 
 
 

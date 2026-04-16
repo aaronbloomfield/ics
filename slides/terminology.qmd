@@ -76,7 +76,7 @@ From [dictionary.com](https://www.dictionary.com/browse/hack?s=t):
 
 ## Logic bomb
 ::: {.right-float-img .img-size-800}
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Bomb_icon.svg/350px-Bomb_icon.svg.png)
+![an image of a logic bomb](https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Bomb_icon.svg/350px-Bomb_icon.svg.png)
 :::
 - Self-replicating: 	no
 - Population growth: 	zero
@@ -94,7 +94,7 @@ From [dictionary.com](https://www.dictionary.com/browse/hack?s=t):
 
 ## Trojan Horse
 ::: {.right-float-img .img-size-600}
-![](https://s-media-cache-ak0.pinimg.com/originals/98/31/91/983191ca276eb1227fd2f85960215b8c.jpg)
+![an image of a trojan horse](https://s-media-cache-ak0.pinimg.com/originals/98/31/91/983191ca276eb1227fd2f85960215b8c.jpg)
 :::
 - Self-replicating:	no 
 - Population growth: 	zero
@@ -110,7 +110,7 @@ From [dictionary.com](https://www.dictionary.com/browse/hack?s=t):
 
 ## Back door
 ::: {.right-float-img .img-size-600}
-![](http://img11.deviantart.net/8549/i/2012/129/b/b/door_ajar_by_layall-d4z3odw.jpg)
+![an image of a back door](http://img11.deviantart.net/8549/i/2012/129/b/b/door_ajar_by_layall-d4z3odw.jpg)
 :::
 - Self-replicating:	no 
 - Population growth: 	zero
@@ -126,7 +126,7 @@ From [dictionary.com](https://www.dictionary.com/browse/hack?s=t):
 
 ## Virus
 ::: {.right-float-img .img-size-400}
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Coronavirus._SARS-CoV-2.png/768px-Coronavirus._SARS-CoV-2.png)
+![an image of a virus (biological)](https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Coronavirus._SARS-CoV-2.png/768px-Coronavirus._SARS-CoV-2.png)
 :::
 - Self-replicating:		yes 
 - Population growth: 	positive
@@ -145,7 +145,7 @@ From [dictionary.com](https://www.dictionary.com/browse/hack?s=t):
 <!-- .slide: class="right-float-img .img-size-400" -->
 ## Worm
 ::: {.right-float-img .img-size-500}
-![](https://upload.wikimedia.org/wikipedia/commons/3/30/Regenwurm1.jpg)
+![an image of a worm (biological)](https://upload.wikimedia.org/wikipedia/commons/3/30/Regenwurm1.jpg)
 :::
 - Self-replicating:	yes 
 - Population growth: 	positive
@@ -163,7 +163,7 @@ From [dictionary.com](https://www.dictionary.com/browse/hack?s=t):
 <!-- .slide: class="right-float-img .img-size-400" -->
 ## Rabbit
 ::: {.right-float-img .img-size-500}
-![](https://upload.wikimedia.org/wikipedia/commons/3/37/Oryctolagus_cuniculus_Tasmania_2.jpg)
+![an image of a rabbit (biological)](https://upload.wikimedia.org/wikipedia/commons/3/37/Oryctolagus_cuniculus_Tasmania_2.jpg)
 :::
 - Self-replicating:	yes 
 - Population growth: 	zero
@@ -210,7 +210,7 @@ while True:
 
 ## Spyware
 ::: {.right-float-img .img-size-600}
-![](http://4.bp.blogspot.com/-OdK2rCo-g9s/VGRyT8EwP6I/AAAAAAAAAK0/pSxTUYy699g/s1600/spyware.gif)
+![an image of spyware on a computer](http://4.bp.blogspot.com/-OdK2rCo-g9s/VGRyT8EwP6I/AAAAAAAAAK0/pSxTUYy699g/s1600/spyware.gif)
 :::
 - Self-replicating:	no
 - Population growth: 	zero
@@ -228,7 +228,7 @@ while True:
 
 ## Adware
 ::: {.right-float-img .img-size-500}
-![](https://cdn.ttgtmedia.com/rms/onlineImages/security-adware.jpg)
+![an image of adware on a computer](https://cdn.ttgtmedia.com/rms/onlineImages/security-adware.jpg)
 :::
 - Self-replicating:	no 
 - Population growth: 	zero
@@ -246,7 +246,7 @@ while True:
 
 ## Droppers
 ::: {.right-float-img .img-size-500}
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Pipette_tip_over_tube.jpg/548px-Pipette_tip_over_tube.jpg)
+![an image of a dropper](https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Pipette_tip_over_tube.jpg/548px-Pipette_tip_over_tube.jpg)
 :::
 - Self-replicating:	n/a
 - Population growth: 	n/a
@@ -262,7 +262,7 @@ while True:
 
 ## Hybrids
 ::: {.right-float-img .img-size-500}
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Chimera_d%27arezzo%2C_fi%2C_04.JPG/640px-Chimera_d%27arezzo%2C_fi%2C_04.JPG)
+![an image of a chimera](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Chimera_d%27arezzo%2C_fi%2C_04.JPG/640px-Chimera_d%27arezzo%2C_fi%2C_04.JPG)
 :::
 - Self-replicating:	n/a
 - Population growth: 	n/a
@@ -280,7 +280,7 @@ while True:
 
 ## Zombies
 ::: {.right-float-img .img-size-500}
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Zombie_haiti_ill_artlibre_jnl.png/434px-Zombie_haiti_ill_artlibre_jnl.png)
+![an image of a zombie](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Zombie_haiti_ill_artlibre_jnl.png/434px-Zombie_haiti_ill_artlibre_jnl.png)
 :::
 - Self-replicating:	?
 - Population growth: 	?
@@ -299,7 +299,7 @@ while True:
 
 ## Botnet
 ::: {.right-float-img .img-size-600}
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Botnet2.gif/640px-Botnet2.gif)
+![a diagram of a botnet](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Botnet2.gif/640px-Botnet2.gif)
 :::
 - Self-replicating:	N/A
 - Population growth: 	N/A
@@ -317,7 +317,7 @@ while True:
 
 ## Ransomware
 ::: {.right-float-img .img-size-600}
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Ransomware-pic.jpg/640px-Ransomware-pic.jpg)
+![a ransomware screen shot](https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Ransomware-pic.jpg/640px-Ransomware-pic.jpg)
 :::
 - Very common these days
   - It usually is the payload of<br>another attack

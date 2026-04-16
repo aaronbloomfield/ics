@@ -77,8 +77,8 @@ title: Virtual Machines
 
 
 ## JVM diagram
-![jvm](https://qph.fs.quoracdn.net/main-qimg-3a153b45de89cd7ff15062aacd3f2ee4)
-From [here](https://www.quora.com/What-is-difference-between-JDK-JRE-and-JVM)
+![java virtual machine image](https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/JvmSpec7.png/960px-JvmSpec7.png)
+From [here](https://commons.wikimedia.org/wiki/File:JvmSpec7.png)
 
 
 ## Process virtual machine
@@ -127,7 +127,7 @@ From [here](https://www.quora.com/What-is-difference-between-JDK-JRE-and-JVM)
 
 ## OS VM examples
 ::: {.right-float-img .img-size-800}
-![](https://cdn-images-1.medium.com/max/1600/1*V5N9gJdnToIrgAgVJTtl_w.png)
+![docker's structure](https://upload.wikimedia.org/wikipedia/commons/0/09/Docker-linux-interfaces.svg){style="width:600px"}
 :::
 - Docker is popular
   - Also LXC, LXD
@@ -153,7 +153,7 @@ Image from [here](https://medium.freecodecamp.org/a-beginner-friendly-introducti
   - IBM VM/370
 
 ::: {style="zoom:175%"}
-![](http://flylib.com/books/3/275/1/html/2/images/01fig19.jpg)
+![VM/370 structure](http://flylib.com/books/3/275/1/html/2/images/01fig19.jpg)
 :::
 Image from [here](http://flylib.com/books/en/3.275.1.11/1/)
 
@@ -255,7 +255,7 @@ From [wikipedia](https://en.wikipedia.org/wiki/Application_binary_interface)
 
 ## VMM diagram
 ::: {style="zoom:150%"}
-![](http://www.ni.com/cms/images/devzone/tut/HostedVirtualizationSmall_20090325191230.PNG)
+![a virtual machine monitor diagram](http://www.ni.com/cms/images/devzone/tut/HostedVirtualizationSmall_20090325191230.PNG)
 :::
 Image from [here](http://www.ni.com/white-paper/8709/en/)
 
@@ -333,7 +333,7 @@ Image from [here](http://www.ni.com/white-paper/8709/en/)
 	
 
 ## Hosted VM: VMWare
-![](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/images/gallery/thumbnails/tn-workstation-pro-16.jpg)
+![vmware hosting lots of vms](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/images/gallery/thumbnails/tn-workstation-pro-16.jpg)
 
 	
 
@@ -394,7 +394,7 @@ Image from [here](http://www.ni.com/white-paper/8709/en/)
 	
 
 ## virt-what
-![](images/vms/virt-what.png)
+![a screenshot of virt-what](images/vms/virt-what.png)
 
 	
 

@@ -23,9 +23,9 @@ title: Digital Forensics
 
 
 ## Forensic science: Pathology
-::: {.right-float-img .img-size-600}
-[![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/13-11-12-rechtsmedizin-berlin-charite-by-RalfR-20.jpg/800px-13-11-12-rechtsmedizin-berlin-charite-by-RalfR-20.jpg)](https://commons.wikimedia.org/wiki/File:13-11-12-rechtsmedizin-berlin-charite-by-RalfR-20.jpg)
-:::
+
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/13-11-12-rechtsmedizin-berlin-charite-by-RalfR-20.jpg/960px-13-11-12-rechtsmedizin-berlin-charite-by-RalfR-20.jpg){fig-alt="an image of a body in a morgue" style="float:right;width:600px !important;margin-left:10px"}](https://commons.wikimedia.org/wiki/File:13-11-12-rechtsmedizin-berlin-charite-by-RalfR-20.jpg)
+
 - How did the person die?
 - This includes:
   - cause of death
@@ -36,9 +36,9 @@ title: Digital Forensics
 
 
 ## Forensic science: Anthropology
-::: {.right-float-img .img-size-600}
-[![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Exhumed_skeletal_remains_of_victims_of_the_Isaaq_genocide.jpg/800px-Exhumed_skeletal_remains_of_victims_of_the_Isaaq_genocide.jpg)](https://commons.wikimedia.org/wiki/File:Exhumed_skeletal_remains_of_victims_of_the_Isaaq_genocide.jpg)
-:::
+
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Exhumed_skeletal_remains_of_victims_of_the_Isaaq_genocide.jpg/960px-Exhumed_skeletal_remains_of_victims_of_the_Isaaq_genocide.jpg){style="float:right;width:600px !important;margin-left:10px" fig-alt="skeletal remains"}](https://commons.wikimedia.org/wiki/File:Exhumed_skeletal_remains_of_victims_of_the_Isaaq_genocide.jpg)
+
 - For skeletal remains:
   - are they human?
   - if so, what is the age, sex, race?
@@ -48,19 +48,18 @@ title: Digital Forensics
 
 
 ## Forensic science: Odontology
-::: {.right-float-img .img-size-800}
-[![](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Dental_X-ray_70.JPG/400px-Dental_X-ray_70.JPG)](https://commons.wikimedia.org/wiki/File:Dental_X-ray_70.JPG)
-:::
+
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Dental_X-ray_70.JPG/330px-Dental_X-ray_70.JPG){style="float:right;width:400px !important;margin-left:10px" fig-alt="dental x-ray image"}](https://commons.wikimedia.org/wiki/File:Dental_X-ray_70.JPG)
+
 - Odontology == dentistry
 - Identify remains based on dental records
 - Match a suspect to a bite mark injury
 
 
-
 ## Forensic science: Engineering
-::: {.right-float-img .img-size-600}
-[![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/1994%EC%84%B1%EC%88%98%EB%8C%80%EA%B5%90_%EB%B6%95%EA%B4%B4_%EC%82%AC%EA%B3%A017.jpg/800px-1994%EC%84%B1%EC%88%98%EB%8C%80%EA%B5%90_%EB%B6%95%EA%B4%B4_%EC%82%AC%EA%B3%A017.jpg)](https://commons.wikimedia.org/wiki/File:1994%EC%84%B1%EC%88%98%EB%8C%80%EA%B5%90_%EB%B6%95%EA%B4%B4_%EC%82%AC%EA%B3%A017.jpg)
-:::
+
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/1994%EC%84%B1%EC%88%98%EB%8C%80%EA%B5%90_%EB%B6%95%EA%B4%B4_%EC%82%AC%EA%B3%A017.jpg/960px-1994%EC%84%B1%EC%88%98%EB%8C%80%EA%B5%90_%EB%B6%95%EA%B4%B4_%EC%82%AC%EA%B3%A017.jpg){style="float:right;width:600px !important;margin-left:10px" fig-alt="a collapsed bridge"}](https://commons.wikimedia.org/wiki/File:1994%EC%84%B1%EC%88%98%EB%8C%80%EA%B5%90_%EB%B6%95%EA%B4%B4_%EC%82%AC%EA%B3%A017.jpg)
+
 - Typically for mechanical or structural issues or accidents
   - Why did it fail?
 - For traffic accidents, reconstruction of the accident
@@ -68,9 +67,9 @@ title: Digital Forensics
 
 
 ## Forensic science: Entomology
-::: {.right-float-img .img-size-800}
-[![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Anastrepha_ludens_1322088.jpg/400px-Anastrepha_ludens_1322088.jpg)](https://commons.wikimedia.org/wiki/File:Anastrepha_ludens_1322088.jpg)
-:::
+
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Anastrepha_ludens_1322089.jpg/960px-Anastrepha_ludens_1322089.jpg){style="float:right;width:600px !important;margin-left:10px" fig-alt="bugs eating an orange"}](https://commons.wikimedia.org/wiki/File:Anastrepha_ludens_1322088.jpg)
+
 - Entomology is the study of insects
 - Many insects lay eggs in decaying flesh
 - But different insects do this at different times
@@ -79,9 +78,9 @@ title: Digital Forensics
 
 
 ## Forensic science: Biology
-::: {.right-float-img .img-size-600}
-[![](https://upload.wikimedia.org/wikipedia/commons/b/b9/A-B-Z-DNA_Side_View.png)](https://commons.wikimedia.org/wiki/File:A-B-Z-DNA_Side_View.png)
-:::
+
+[![](https://upload.wikimedia.org/wikipedia/commons/b/b9/A-B-Z-DNA_Side_View.png){style="float:right;width:600px !important;margin-left:10px" fig-alt="DNA strands"}](https://commons.wikimedia.org/wiki/File:A-B-Z-DNA_Side_View.png)
+
 - DNA tests, typically of DNA-based evidence
   - Blood on the victim, or semen in the case of rapes
   - Even flesh under the fingernails of a victim
@@ -104,7 +103,7 @@ title: Digital Forensics
 
 ## Stages
 ::: {.right-float-img .img-size-600}
-[![](images/forensics/640px-Portable_forensic_tableau.jpg)](https://commons.wikimedia.org/wiki/File:Portable_forensic_tableau.JPG)
+[![](images/forensics/640px-Portable_forensic_tableau.jpg)](https://commons.wikimedia.org/wiki/File:Portable_forensic_tableau.JPG){fig-alt="a read-only hard drive device"}
 :::
 1. Acquisition of evidence
    - Imaging a hard drive or USB key, often via a "write-blocker"
@@ -420,7 +419,7 @@ find . -type f -exec grep "example" '{}' \; -print
 
 
 ## Old Autopsy / Sleuth Kit
-![](images/forensics/autopsy.png)
+![a screen shot of autopsy](images/forensics/autopsy.png)
 
 
 

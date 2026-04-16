@@ -144,7 +144,7 @@ Lessons learned from Penet:
 
 ## [Cypherpunks Remailers](https://en.wikipedia.org/wiki/Cypherpunk_anonymous_remailer)
 ::: {.right-float-img style="zoom:150%"}
-![](images/anonymity/cypherpunks.jpg)
+![image of a PGP email signature](images/anonymity/cypherpunks.jpg)
 :::
 After Penet, the next generation of remailers was built using *PGP*, a popular email encryption program
 
@@ -311,7 +311,7 @@ Cypherpunks remailers can be used to send messages to email addresses or to Usen
 
 ## The Silk Road
 ::: {.right-float-img .img-size-600 style="zoom:150%"}
-![](images/anonymity/Silk_Road_Marketplace_Item_Screen.jpg)
+![screenshot of the silk road dark web site](images/anonymity/Silk_Road_Marketplace_Item_Screen.jpg)
 :::
 - A Tor hidden serivce at silkroad7rn2puhj.onion
   - Named after the [historical trade route of the same name](https://en.wikipedia.org/wiki/Silk_Road)

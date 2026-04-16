@@ -17,7 +17,7 @@ title: "Networks"
 
 
 ## OSI Model
-[![](images/networks/OSI_Model_v1.svg)](https://commons.wikimedia.org/wiki/File:OSI_Model_v1.svg)
+[![the OSI model](images/networks/OSI_Model_v1.svg)](https://commons.wikimedia.org/wiki/File:OSI_Model_v1.svg)
 
 
 
@@ -111,7 +111,7 @@ title: "Networks"
 
 ----
 
-![](https://andromeda.cs.virginia.edu/ics/network-encapsulation.svg)
+![netowrk encapsulation](https://andromeda.cs.virginia.edu/ics/network-encapsulation.svg)
 
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -219,13 +219,13 @@ title: "Networks"
 
 
 ## Encryption without IVs
-[![](images/networks/ECB_encryption.svg)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation)
+[![ECB encryption image](images/networks/ECB_encryption.svg)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation)
 
 
 
 ## Encryption with IVs
 (at least what should happen)
-[![](images/networks/CBC_encryption.svg)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation)
+[![CBC encryption image](images/networks/CBC_encryption.svg)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation)
 
 
 

@@ -33,7 +33,7 @@ title: "Course Introduction"
 
 ## Malware Costs: Example 1
 ::: {.right-float-img .img-size-500 .no-img-corner-radius}
-![](https://upload.wikimedia.org/wikipedia/commons/0/07/CIH.png)
+![CIH virus pop-up screen shot](https://upload.wikimedia.org/wikipedia/commons/0/07/CIH.png)
 :::
 <!-- -->
 
@@ -48,7 +48,7 @@ title: "Course Introduction"
 
 ## Malware Costs: Example 2
 ::: {.right-float-img .img-size-500}
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Anna_Kournikova-Bagram_Airfield_2009.jpg/548px-Anna_Kournikova-Bagram_Airfield_2009.jpg)
+![Anna Kournikova](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Anna_Kournikova-Bagram_Airfield_2009.jpg/500px-Anna_Kournikova-Bagram_Airfield_2009.jpg)
 :::
 
 - February 2001 mass mailer: [Anna Kournikova virus](https://en.wikipedia.org/wiki/Anna_Kournikova_(computer_virus))
@@ -63,7 +63,7 @@ title: "Course Introduction"
 
 ## Malware Costs: Example 3
 ::: {.right-float-img .img-size-500}
-![](images/stuxnet/960px-Gas_centrifuge_cascade.jpg)
+![uranium gas centrifuges](images/stuxnet/960px-Gas_centrifuge_cascade.jpg)
 :::
 - 2010 / 2011: [Stuxnet worm](http://en.wikipedia.org/wiki/Stuxnet)
   - By far the most advanced piece of malware ever created at that point
@@ -74,7 +74,7 @@ title: "Course Introduction"
 
 
 ## Malware Costs: Example 4
-![](https://upload.wikimedia.org/wikipedia/commons/3/3a/Ashley_madison_logo.png)
+![ashley madison's logo](https://upload.wikimedia.org/wikipedia/commons/3/3a/Ashley_madison_logo.png)
 
 - [Ashley Madison data breach](https://en.wikipedia.org/wiki/Ashley_Madison_data_breach) in 2015
   - This is the site that peddled extra-marital affairs
@@ -87,7 +87,7 @@ title: "Course Introduction"
 
 ## Malware Costs: Example 5
 ::: {.right-float-img .img-size-500}
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Vote_Here_sign_in_Taft%2C_Texas.jpg/891px-Vote_Here_sign_in_Taft%2C_Texas.jpg)
+![an image of a sign saying 'vote here'](https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Vote_Here_sign%2C_Louisiana%2C_March_2025.jpg/500px-Vote_Here_sign%2C_Louisiana%2C_March_2025.jpg)
 :::
 - [2016 US election hacks](https://en.wikipedia.org/wiki/Russian_interference_in_the_2016_United_States_elections)
   - "The US intelligence community has concluded with high confidence that the Russian government interfered in the ... election"
@@ -100,7 +100,7 @@ title: "Course Introduction"
 
 ## Malware Costs: Example 6
 ::: {.right-float-img .img-size-500}
-![](https://upload.wikimedia.org/wikipedia/commons/6/65/2017_Petya_cyberattack_screenshot.png)
+![an image of a notpetya screen shot](https://upload.wikimedia.org/wikipedia/commons/6/65/2017_Petya_cyberattack_screenshot.png)
 :::
 - [NotPetya](https://en.wikipedia.org/wiki/Petya_%28malware%29) in 2017
   - Infected Ukrainian companies through a back door put into a Ukrainian version of a TurboTax-like software
@@ -112,7 +112,7 @@ title: "Course Introduction"
 
 ## Malware Costs: Example 7
 ::: {.right-float-img .img-size-500}
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Pumpspeicherwerk_Geesthacht_Rohre.jpg/800px-Pumpspeicherwerk_Geesthacht_Rohre.jpg)
+![an image of a gas pipeline](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Rohre_des_Pumpspeicherkraftwerks_Geesthacht.JPG/960px-Rohre_des_Pumpspeicherkraftwerks_Geesthacht.JPG)
 :::
 - The [Colonial Pipeline shutdown](https://en.wikipedia.org/wiki/Colonial_Pipeline_cyberattack)
   - Ransomware infected the computers of the company that supplies half of the east coast's oil and gas
@@ -140,20 +140,20 @@ title: "Course Introduction"
 
 ## A UVa hack (2013)
 ::: {.img-size-700}
-[![](images/introduction/root-the-box-uva-hack.png)](http://www.c-ville.com/anatomy-of-a-hack-examining-root-the-boxs-attack-on-uvas-website/#.WZz6w3XythE)
+[![UVA's website after being hacked](images/introduction/root-the-box-uva-hack.png)](http://www.c-ville.com/anatomy-of-a-hack-examining-root-the-boxs-attack-on-uvas-website/#.WZz6w3XythE)
 :::
 
 
 
 ## Another UVa hack (2015)
 ::: {.img-size-700}
-[![](images/introduction/uva-chinese-hack.png)](http://www.thedailybeast.com/chinese-hackers-target-us-university-with-government-ties)
+[![an article about another UVA hack](images/introduction/uva-chinese-hack.png)](http://www.thedailybeast.com/chinese-hackers-target-us-university-with-government-ties)
 :::
 
 
 ## Yet another UVa hack (2016)
 ::: {.img-size-700}
-[![](images/introduction/uva-phishing-hack.png)](https://www.washingtonpost.com/news/grade-point/wp/2016/01/22/phishing-hack-at-the-university-of-virginia-compromises-employee-computer-records/)
+[![yet another article about UVA being hacked](images/introduction/uva-phishing-hack.png)](https://www.washingtonpost.com/news/grade-point/wp/2016/01/22/phishing-hack-at-the-university-of-virginia-compromises-employee-computer-records/)
 :::
 
 
@@ -419,7 +419,7 @@ title: "Course Introduction"
 
 ## Example: [1988 Morris Worm](http://en.wikipedia.org/wiki/Morris_worm)
 ::: {.right-float-img .img-size-500}
-![](https://upload.wikimedia.org/wikipedia/commons/b/b6/Morris_Worm.jpg)
+![an image of the morris worm display at a computer museum](https://upload.wikimedia.org/wikipedia/commons/b/b6/Morris_Worm.jpg)
 :::
 - Creator rationalized that the worm did no damage
   - It only copied itself from system to system over the Internet
@@ -460,7 +460,7 @@ title: "Course Introduction"
 
 ## ACM Code of Ethics
 ::: {.right-float-img .img-size-400}
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Association_for_Computing_Machinery_%28ACM%29_logo.svg/768px-Association_for_Computing_Machinery_%28ACM%29_logo.svg.png)
+![ACM code of ethics screenshot](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Association_for_Computing_Machinery_%28ACM%29_logo.svg/768px-Association_for_Computing_Machinery_%28ACM%29_logo.svg.png)
 :::
 - ACM is the primary professional organization for computer scientists
   - IEEE is the other
