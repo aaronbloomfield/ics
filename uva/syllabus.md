@@ -1,4 +1,4 @@
-CS 3710: Syllabus for Introduction to Cybersecurity (ICS), fall 2025
+CS 3710: ICS Syllabus, fall 2025
 =========================================================
 
 [Go up to the ICS UVa page](index.html) ([md](index.md))
