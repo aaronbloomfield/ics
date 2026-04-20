@@ -3,7 +3,7 @@ ICS: Programming Homework: RSA
 
 [Go up to the ICS HW page](index.html) ([md](index.md))
 
-### Overview 
+## Overview 
 
 This assignment will focus on the implementation of the RSA algorithm. Specifically, you will have to implement key generation, encryption and decryption, signing and signature checking, and cracking of RSA messages.
 
@@ -14,12 +14,12 @@ You will want to see the [homeworks policies page](../uva/hw-policies.html) ([md
 
 You should be familiar with how the RSA algorithm works from the [the encryption lecture](../slides/encryption.html#/rsa).  More details are available online (see the [Wikipedia article on RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem))). Keep in mind, however, that the Wikipedia page uses different variable names than what the lecture and slide set used. <!-- You will also want to reference the [Java SDK documentation](https://docs.oracle.com/javase/11/docs/api/), specifically the [java.math.BigInteger](https://docs.oracle.com/javase/11/docs/api/java/math/BigInteger.html) and [java.security.MessageDigest](https://docs.oracle.com/javase/11/docs/api/java/security/MessageDigest.html) classes.  --> The Python code does not use anything beyond the [standard Python library](https://docs.python.org/3/library/), specifically `hashlib` and `random`.
 
-### Changelog
+## Changelog
 
 Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here. So far there aren't any significant changes to report.
 
 
-### Links
+## Links
 
 These links are all described below, but are included here, all in one place.
 
@@ -37,9 +37,9 @@ These links are all described below, but are included here, all in one place.
 
 -->
 
-### Other files
+## Other files
 
-#### Shell script
+### Shell script
 
 Since different programming languages can be used, and you may name your file differently, we are going to have you submit a shell script called `rsa.sh` that we will use to test your code.  All it does is pass the command-line parameters on to your program.  If you are using Python, then your shell script would look like the following:
 
@@ -64,7 +64,7 @@ Change `RSA` to the name of your `public` Java class.
 
 Save the two lines above to a text file called `rsa.sh`; change the name of the file as appropriate to your code.  Then run `chmod 755 rsa.sh`.  You should then be able to run your program through the shell script.  Examples of how to call the shell script are given below, but it uses the same command line parameters described above.
 
-#### Makefile
+### Makefile
 
 Separately from the shell script, you will also need a Makefile.  This will allow your program to be compiled prior to execution (if your program needs compilation).  For languages that do not need compilation (such as Python), just put in a single `echo` statement so that `make` still runs properly.
 
@@ -90,19 +90,19 @@ Note that the indentation is a tab, not spaces!  Makefiles are very strict on th
 
 We realize that we are recommending Python, which does not require compilation, yet also requiring you to submit a Makefile.  The reason is for those who decide to do it in another language that does require compilation.
 
-### Code
+## Code
 
 To simplify the assignment, and to allow easy interoperability between your code and our test cases, we have provided a significant amount of skeleton code.
 
 It is **STRONGLY RECOMMENDED** that you use Python for this assignment.  The Java code to perform the necessary functions is much harder to code.  In the past, most students who tried to use Java gave up and switched to Python.  Even if you don't know Python, it will still be easier than in any other language.
 
-#### Python
+### Python
 
 The skeleton code is in the [rsa.py](rsa/rsa.py) file; you can see an HTML version of that code [here](rsa/rsa.py.html).  It handles reading in the command-line parameters, and then will set global variables and call the appropriate functions.  You still have to have your program perform the correct action based on the global variables and function calls.
 
 <!--
 
-#### Java
+### Java
 
 ~~The skeleton code is in the [RSA.java](rsa/RSA.java) file; you can see an HTML version of that code [here](rsa/RSA.java.html).  That code is split into three classes, the first two of which are just to hold data and have no methods of their own.  Each link in the list below will go to the Doxygen documentation for that class.~~
 
@@ -112,7 +112,7 @@ The skeleton code is in the [rsa.py](rsa/rsa.py) file; you can see an HTML versi
 
 -->
 
-### Details 
+## Details 
 
 For this assignment, you must implement six methods in the RSA algorithm. They are the ones that state "requires completion" in the comments.  This assignment is to be done in <!-- either Java (as you will need to use the BigInteger and MessageDigest classes) or --> Python (as you will need the functions in the standard Python library).  You can use another language if you would like, but you need to check with the course staff -- and at least 2 days are needed to ensure that the auto-grader works with that language.
 
@@ -138,7 +138,7 @@ The documentation contained in the comments in the skeleton code details what th
 
 -->
 
-### Parameters 
+## Parameters 
 
 The `main()` method should not need to be modified for the final submission (feel free to modify it any way you want to test your code).  It will call the appropriate methods as indicated by the command line parameters, which are described below. <!-- [here](rsa/html/cmdparam.html).  That page is from the Java code, but the command line parameters are the same with the Python code as well. --> In almost all cases, output (progress, status messages, etc.) should ONLY be printed to the standard output if the `-verbose` option is set, and should be enough that we can understand what is happening.  The *only* time output should be printed to the terminal is when (1) a signature does not match, and (2) an error condition is encountered (which, in theory, should not happen with our tests on properly implemented code).
 
@@ -150,7 +150,7 @@ You may assume (and, in fact, should) that you will only receive one of `-encryp
 
 Furthermore, you may assume that we will not give you invalid input, either in the files we provide, or for the command-line parameters.
 
-#### The `-showpandq` parameter
+### The `-showpandq` parameter
 
 When this is provided, it should print both $p$ and $q$ on separate lines (first $p$ and then $q$) as base-10 integers.  For example:
 
@@ -161,7 +161,7 @@ $ ./rsa.sh -showpandq -keygen 10
 $
 ```
 
-#### Full command line parameters
+### Full command line parameters
 
 This is the full description of the command line parameters.  These are already handled by the skeleton code provided.  It is meant as a reference if you need clarification while working on your code -- you can skip it for now.
  
@@ -178,7 +178,7 @@ This is the full description of the command line parameters.  These are already 
 - `-checksign`: this will check a signed message; given the message (specified by `-input`) and the public key (specified by `-key`), it will verify the RSA encrypted MD5 hash to the signature file. Similar to the `-sign` parameter, the key is assumed to be in the \<filename\>.sign file. This will print "signatures do not match" (or similar) ONLY if the signatures do not match; if they do match, then nothing is printed.
 
 
-### Testing
+## Testing
 
 A sample usage of the program, in which is Alice and Bob are sending messages is available.  This code can be found in a shell script named [test-rsa.sh](rsa/test-rsa.sh) ([HTML version](rsa/test-rsa.sh.html)). If you are on a UNIX environment, run `chmod 755 test-rsa.sh`, and then run it via `./test-rsa.sh`.  Note that this is not a complete test suite!  Just a quick check to see if the basics work.  But if your program does not work with this, then it's incomplete, and will receive a low grade.  If you are not on a UNIX system, then you may have to copy-and-paste those commands into a command terminal.
 
@@ -244,12 +244,12 @@ Signatures do not match!
 
 While we are not going to try to break your program with strange combinations of command line parameters (trying to decrypt but not specifying a key), we would encourage you to put some sanity error‐checking code in your methods for your own sanity while developing the program.
 
-#### Windows
+### Windows
 
 If you are using Microsoft Windows, and are *NOT* using the Linux subsystem, then you may want to try the [test-rsa.bat](rsa/test-rsa.bat) ([HTML version](rsa/test-rsa.bat.html)) file.  ***WARNING:*** this is a beta release of this batch file, and it's not yet clear that it works.  To use it, create a `rsa.bat` (not `rsa.sh`) file that calls your code, as above.  Note that you still have to submit a `rsa.sh` file when you submit the assignment.
 
 
-### Notes
+## Notes
 
 __Determining SHA-256 hashes:__ We are using the SHA-256 hash for this assignment.  If you want to see if a string has the same SHA-256 as a file, make sure they are EXACTLY the same.  If the file has a ending newline (`\n`) character, and the string does not, then the SHA-256 sums will not match!  You can find the SHA-256 hash of a file via the `sha256sum` command (`CertUtil -hashfile message1.txt SHA256` on Windows):
 
@@ -271,7 +271,7 @@ __Block size minimum:__ Each block will be a whole number of 8-bit characters, s
 __ASCII:__ All files (messages, keys, ciphertext, what‐not) will have only printable ASCII characters, so you need not worry about binary files.  But there may be whitespace as well: newlines, tabs, linefeeds, etc.  Make sure that your code does not have UTF-8 characters in it!  Given a file, you can tell what type of characters it has via the `file foo.txt` command in Linux and Mac OS X.  Under Windows, you can right-click on the file in Explorer, and it should tell you the file type.  In particular, if you use IntelliJ (or similar), make sure it writes the files as ASCII (or UTF-8) files, *not* Unicode files.
 
 
-### Hints
+## Hints
 
 - Make sure you understand what the provided source code does.  A lot of the trickier parts of the assignment, especially dealing with I/O, are handled for you.
 - The crack method is supposed to be an inefficient for loop that tries all numbers until it can factor $n$.  (You only need to check the odd numbers, but it's fine if you do it either way).
@@ -279,6 +279,6 @@ __ASCII:__ All files (messages, keys, ciphertext, what‐not) will have only pri
 - Python: once you get the hash (via the functions from the `hashlib` module), you can call both `digest()` and `hexdigest()` (see the hashlib documentation for details).  The former will provide a binary hash, which is less useful to us.  The latter will provide an ASCII hash, which is much easier for us to use.
 
 
-### Submission
+## Submission
 
 You should submit three files: your source code, `Makefile`, and `rsa.sh`.

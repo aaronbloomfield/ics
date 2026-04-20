@@ -4,18 +4,18 @@ ICS: Programming Homework: SQL, CSRF, and XSS
 [Go up to the ICS HW page](index.html) ([md](index.md))
 
 
-### Introduction
+## Introduction
 
 There are three parts to this assignment.  As part of this assignment, you will have to create a document, called `mst3k-websecurity.pdf` (where mst3k is your userid), and submit that file.  We aren't looking for any fancy write-up - just an explanation of what you did, and the results you got.  That being said, it should be legible.  So make sure you indicate what answers are for what questions, etc.
 
 Your final report should be a PDF file.  It need not be long, but it must answer the questions posed below.  However, it must be EXACTLY three pages, which each of the three parts on its own page (SQL on page 1, XSS on page 2, and CSRF on page 3).
 
-### Changelog
+## Changelog
 
 Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.   So far there aren't any significant changes to report.
 
 
-### Part 1: SQL Injection Attack
+## Part 1: SQL Injection Attack
 
 First, you should be familiar with SQL and SQL injection attacks.  For review, look at the first half of the [SQL, XSS, and CSRF slide set](../slides/sql-xss-csrf.html#/).
 
@@ -40,7 +40,7 @@ Honor pledge details: you are given permission to execute an SQL injection attac
 
 Lastly, please note that all entries are logged (and are not logged in the DB!).  Thus, if the DB is later erased, we can verify that you did (or did not!) properly execute the SQL injection attack.
 
-### Part 2: Cross-site Scripting Attack
+## Part 2: Cross-site Scripting Attack
 
 **NOTE:** Some modern browsers have anti-XSS capability built in that prevents this type of attack.  So if things are working, try a different browser.  Chrome, in particular, does not work well with this type of attack, but Firefox is fine.
 
@@ -75,7 +75,7 @@ A few notes:
 
 Honor pledge details: you are given permission to execute XSS attacks against this particular URL for this assignment.
 
-### Part 3 Cross-site Request Forgery Attack
+## Part 3 Cross-site Request Forgery Attack
 
 View CSRF attack web page, the URL of which is shown on the Canvas landing page - again, you will have to log in via Netbadge to view that page.  From this page, you will need to execute multiple CSRF attacks, described below.
 
@@ -90,7 +90,7 @@ In your write-up, show the two URLs used (for the two GET attacks), and the two 
 
 Honor pledge details: you are given permission to execute CSRF attacks against this particular URL for this assignment.
 
-### Submission
+## Submission
 
 Your assignment PDF must be EXACTLY three pages, which each of the three parts on its own page (SQL on page 1, XSS on page 2, and CSRF on page 3).
 

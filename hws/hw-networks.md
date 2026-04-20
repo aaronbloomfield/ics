@@ -3,7 +3,7 @@ ICS: Programming Homework: Networks
 
 [Go up to the ICS HW page](index.html) ([md](index.md))
 
-### Purpose
+## Purpose
 
 This homework will have you explore a few topics related to security vulnerabilities and networking.
 
@@ -12,12 +12,12 @@ There are three parts to this assignment.  As part of this assignment, you will 
 You will also have to submit one source code file, `keylogger.py`.
 
 
-### Changelog
+## Changelog
 
 Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here. So far there aren't any significant changes to report.
 
 
-### Part 1: Explore Tor
+## Part 1: Explore Tor
 
 Before you start, you should determine your IP address and the route to a given machine.  Visit [https://whatismyipaddress.com/](https://whatismyipaddress.com/) to get your IP address (for reasons we'll see in a bit, this is preferred over Googling for 'what is my ip').
 
@@ -36,11 +36,11 @@ In the report, you should include:
 - What ***LEGAL*** hidden service(s) that you visited
 
 
-### Part 2: Packet Sniffing
+## Part 2: Packet Sniffing
 
 For this part, we are going to 'listen' to network traffic, and see what interesting information we can find.  We will use a UNIX utility called tcpdump.  This utility will print out all the network traffic on a given interface.  tcpdump must be run as root; thus, you probably cannot run it on any UVa server.  You can download the tcpdump.zip file from Canvas' Files -- that file is NOT in this repo due to its size.  This file contains a dump of a tcpdump session.  We will be analyzing this file.
 
-#### Opening the file
+### Opening the file
 
 This file contains my password, so I wanted to ensure that it was properly protected, and I used a 6-character ZIP file password on it.  It's your job to crack that password.  While you can use any ZIP file password cracker that is out there (and there are lots!), we recommend fcrackzip.
 
@@ -52,7 +52,7 @@ In all cases, you will need to understand what it does - just running it with ve
 
 Update: as fcrackzip has issues with Windows, we are revealing the password: `abcdez`.
 
-#### tcpdump
+### tcpdump
 
 A packet sniffing utility would run tcpdump, and parse the contents in real-time.  We can write such programs using Python or, for more speed, C or C++.  For this assignment, you won't need to write a program, but can instead just search for the data using any text-search mechanism (including opening it up in your favorite editor and searching the data).  The data was collected using the following command:
 
@@ -68,7 +68,7 @@ The command line switches do the following:
 
 Many of the pages returned by tcpdump are compressed to save network bandwidth.  This is particularly relevant for popular sites that send a lot of data, such as Facebook or CNN.  You can see this in the packet by the 'Content-Encoding: gzip' header.  One can easily write the data to file, reverse the base-64 encoding, and the un-gzip it (and there are programs that do just that).  For this assignment, we'll be looking just at the non-compressed data.
 
-#### The tcpdump.txt file
+### The tcpdump.txt file
 
 You will need to analyze the tcpdump.txt file.  Download the tcpdump.zip file from Canvas' Files -- that file is NOT in this repo due to its size.  In your report, you need to answer the following questions:
 
@@ -79,7 +79,7 @@ You will need to analyze the tcpdump.txt file.  Download the tcpdump.zip file fr
 5. Can you determine my ebay password?  Why or why not?
 6. What other network-level and transport-level protocols were used, other than TCP?  TCP is used quite frequently (so much so that TCP packets are not labeled as TCP).  You can find a listing of the protocols on [Wikipedia](https://en.wikipedia.org/wiki/Internet_protocol_suite) -- specifically in the gray box on the right hand side of that page entitled "Internet protocol suite".
 
-#### Packet representation in the file
+### Packet representation in the file
 
 A given packet could look like the following.
 
@@ -116,11 +116,11 @@ Lastly, note that 'sextans' is the name of one of my routers (all my machines ar
 Honor pledge details: you are given permission to search the tcpdump.txt file to answer the above questions for this assignment.  After that, you will need to delete the file.
 
 
-### Part 3: Keyboard logger
+## Part 3: Keyboard logger
 
 You are going to see how easy it is to build a keyboard logger.  We will use the the [pynput](https://pypi.org/project/pynput/) Python package to do so.  Your code will be in a `keylogger.py` file.
 
-#### Compatibility
+### Compatibility
 
 This works on the three major platforms:
 
@@ -134,7 +134,7 @@ It does not work on a few less common platforms:
 
 (Others will be added here as we find more that do not work)
 
-#### Getting started
+### Getting started
 
 First, start with the code sample code provided on the [pynput](https://pypi.org/project/pynput/) Python package page; look at the "Monitoring the keyboard" section.  Enter that code (fixing the three line breaks that Python will complain about).
 
@@ -181,7 +181,7 @@ hello world
 
 Then the pynput package is NOT working on your system -- review the Comparability sub-section, above.
 
-#### The Task
+### The Task
 
 The task is create a keylogger that will monitor the keyboard and, if the userid `mst3k` is entered, it will print the next 10 characters.
 
@@ -199,12 +199,12 @@ The output might look like the following:
 {1234567890}
 ```
 
-#### Testing
+### Testing
 
 The best way to test this is to launch it in one terminal or window, and start typing text in another one.
 
 
-### Submission
+## Submission
 
 You should submit two files to Gradescope:
 

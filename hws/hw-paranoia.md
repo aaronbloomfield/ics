@@ -3,17 +3,17 @@ ICS: Written Homework: Rational Paranoia
 
 [Go up to the ICS HW page](index.html) ([md](index.md))
 
-### Overview 
+## Overview 
 
 This assignment will focus on analyzing security in three different scenarios; two of which you choose from the list below, and one of which you create yourself.  The deliverable is a typed PDF document.  You will need to be familiar with the [Security Mindset slide set](../slides/security-mindset.html#/).
 
 You will want to see the [homeworks policies page](../uva/hw-policies.html) ([md](../uva/hw-policies.md)) for formatting and other details.  The due dates are listed on the Canvas landing page.
 
-### Changelog
+## Changelog
 
 Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
 
-### Assignment
+## Assignment
 
 For each of the three total scenarios (two from our list, one of your own, as explained below), imagine that you are in charge of security. Apply the security mindset, discussed in the [security mindset slide set](../slides/security-mindset.html#/), to answer these questions:
 
@@ -128,7 +128,7 @@ Pick one of the following scenarios.
 
 In addition, come up with another scenario from everyday life that we have not discussed in class.  Your choice can be directly related to computer security, but it does not have to be.
 
-### Submission Template
+## Submission Template
 
 Obviously reformat this in your word processor of choice.  The file to be submitted **MUST BE A PDF DOCUMENT**.  Please name it `paranoia.pdf`.  The page must be exactly three pages long, and **each case must be on a separate page**.  The case that you come up with must be on page three.  This is all to facilitate grading -- the document is going to be split by pages, and each page will be graded separately.
 
@@ -172,7 +172,7 @@ Countermeasures:
 ...
 ```
 
-### File to submit
+## File to submit
 
 Submit the above as a PDF document, named `paranoia.pdf`.  Make sure you follow the formatting guidelines mentioned above!  In particular, **each case should be on its own page**, and the document should be exactly three pages long.
 

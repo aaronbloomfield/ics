@@ -4,7 +4,7 @@ ICS: Programming Homework: Tricky Jump
 [Go up to the ICS HW page](index.html) ([md](index.md))
 
 
-### Overview
+## Overview
 
 In this assignment, you are going to read in a binary file, add in a tricky jump, and write the modified binary file.  This is similar to what viruses do; however, you are going to do this in Python, whereas viruses do this in assembly.  However, you have to read in the *binary* file, and cannot use any external tools (such as objdump) to help you.
 
@@ -13,12 +13,12 @@ The goal of this is to write out the string "Not a virus" (with the trailing new
 This assignment is organized into steps, each one more complicated than the previous.  However, each one also builds upon the previous.  You can get partial credit if you do the first few, but are not able to complete the last ones.
 
 
-### Changelog
+## Changelog
 
 Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.   So far there aren't any significant changes to report.
 
 
-### Platform
+## Platform
 
 This assignment will be reading in ELF binaries used in Linux operating systems.  You can develop this on any platform that you want; however, the binary file will only be Linux ELF, and will only run on a Linux system.  It should run on WSL (Windows Subsystem for Linux) as well, since that system can run ELF files.  If you do not have access to a Linux machine, you can use the [Virginia Cyber Range](https://www.virginiacyberrange.org/) to test your modified ELF files to ensure that they work.  See the [Rootkits assignment](hw-rootkits-tabbed.html) for how to sign into the Virginia Cyber Range, if you have not already done so in previous assignments.  You should use the same Linux environment from the last assignment.  For tips on getting data in and out of the Cyber Range, see [here](https://kb.virginiacyberrange.org/features/copy-paste-upload-download.html).
 
@@ -29,11 +29,11 @@ You can use any Ubuntu 22.04 system -- both the Rootkits homework and the Buffer
 The Cyber Range is a great resource, but it is a *finite* resource.  If you decide to wait to the last minute to start the assignment, and the rest of your class-mates do so as well, it's going to be slooooooow.  You cannot get an extension because you waited until the last minute along with everybody else, and the system was slow as a result.
 
 
-#### `setarch`
+### `setarch`
 
 All the commands herein should be done after running `setarch $(uname -m) -L -R /bin/bash`.  Nothing will work right without running that command!  You have to enter that command each time you log in.
 
-#### Compiled targets
+### Compiled targets
 
 We provide a number of executable files for you try to modify.  If you compile them yourself, then the executable files may be different due to differences in compiler versions, etc.  So please use the ones we provide!
 
@@ -48,7 +48,7 @@ All of the programs just print "hello world".
 
 <!-- ============================================================= -->
 
-### Step 1: Payload
+## Step 1: Payload
 
 For this assignment, we are just going to insert a small assembly routine that prints out "Not a virus", with a newline at the end.  You should create an assembly file, called `print.s`, that does this.  
 
@@ -90,13 +90,13 @@ Remember that the indentation is tabs, not spaces!  The executable here is just 
 Not a virus
 ```
 
-#### What to submit
+### What to submit
 
 The files to submit from this part are your `print.s`, `part1.c`, and `Makefile`.
 
 <!-- ============================================================= -->
 
-### Part 2: Hard-coded
+## Part 2: Hard-coded
 
 We are going to make a modification to the [test1](tricky-jump/test1) executable file.  This step has you making modifications to specific hard-coded addresses -- which means it will only work with that one executable file.
 
@@ -104,21 +104,21 @@ This executable was compiled from [test1.c](tricky-jump/test1.c.html) ([src](tri
 
 This part should be in a file called `part2.py`.
 
-#### Your inserted code
+### Your inserted code
 
 You need to run `objdump -d` on your `part1` executable that you created above (this has to be done on a Linux or WSL system, such as the Virginia Cyber Range).  Look for the `print()` subroutine.  This will have three parts: the `jmp`, the string itself, and the body of the subroutine (which ends with a `ret` (0xc3)).  Yours will likely be around 40 bytes -- it's fine if it's more or less, as long as it prints the desired output.  These hex bytes are what you are going to write to the executable.
 
-#### Inserted code target
+### Inserted code target
 
 If you look at the [objdump of test1](tricky-jump/test1.objdump.txt), you will see an entire subroutine of `nop` instructions; that subroutine is called `nops()`.  While this is quite convenient for us, it's not realistic -- but a good start for our first binary executable modification.  Pick any spot at the beginning of that set of `nop` instructions.  Remember the address you chose, and remember that the addresses in the `objdump` file are in hex.
 
 
-#### `push`
+### `push`
 
 We are going to write a `push` command into the executable file, right before the `ret`.  The format we are going to use is 5 bytes: 0x68 followed by the four bytes of the value we are pushing (in little-Endian!).  The value you are writing is the absolute address of the jump target -- what you chose above -- in the file.
 
 
-#### Modifying `main()`
+### Modifying `main()`
 
 If you look at the objdump, you can see the two assembly instructions right before the `ret` in `main()`:
 
@@ -139,7 +139,7 @@ These nine bytes are going to be replaced with the five byte `push` instruction,
 Save those nine bytes that you are about to overwrite!  Then overwrite them with four `nop` instructions and the `push` instruction.  Remember that the address for the `push` instruction is in little-Endian, so you have to reverse the bytes.
 
 
-#### Reading the binary file
+### Reading the binary file
 
 As this is in Python, you can read the `test1` file into an array of bytes via:
 
@@ -151,7 +151,7 @@ with open("test1","rb") as f:
 This opens the file in binary mode, reads in the entire file in one go as a `bytes` type, and then converts that to a list of bytes (which will be printed as base-10 integers if you print it out).
 
 
-#### Writing your code
+### Writing your code
 
 You need to make two modifications to the binary file.
 
@@ -160,7 +160,7 @@ You need to make two modifications to the binary file.
 - Write the 40 (or so) bytes of your `print()` code to the address you chose above.  HOWEVER, you have to put in the saved instructions from `main()` -- those 9 bytes -- before the `ret`.  So you are going to write all of `print()` *except* the ret, then the 9 bytes of saved instructions, then the ret (0xc3).
 
 
-#### Outputting the file
+### Outputting the file
 
 Your output file should be called `test1mod` -- do NOT overwrite `test1`!
 
@@ -174,7 +174,7 @@ with open("test1mod","wb") as f:
 	f.write(binout)
 ```
 
-#### Hard-coded values
+### Hard-coded values
 
 To make your life easier when you get to the next part, you should have the various hard-coded values in variables.  You are welcome to do this before or after you get this part working.  Those values are:
 
@@ -183,7 +183,7 @@ To make your life easier when you get to the next part, you should have the vari
 - `write_loc`: The address where you are writing the code to (determined above)
 
 
-#### Ensuring it works
+### Ensuring it works
 
 Run your program!  It should look like this:
 
@@ -204,13 +204,13 @@ If it didn't work, here are a few things to try:
 	- You can break at a given hex address via: `break *0x401234`.  Pick the address based on what's in the objdump.
 
 
-#### What to submit
+### What to submit
 
 The file to submit from this part is `part2.py`.
 
 <!-- ============================================================= -->
 
-### Step 3: Variable target
+## Step 3: Variable target
 
 The previous section had you hard-code addresses -- both where in `main()` to replace the instructions, and also where in the file to put your payload.  This part will have you determine those values.  Once they are determined, the program will be much the same as the previous part.
 
@@ -231,7 +231,7 @@ We will look at teach of these in turn.   As you are working on determining thos
 Your code for this part must be in a file called `part3.py`.
 
 
-#### Command-line parameter
+### Command-line parameter
 
 The binary file to modify will be passed in as a command line parameter -- in `sys.argv[1]`.  Your output should just append `mod` (not `.mod`!) to the file name.  So an input of `test2` should result in `test2mod`.  An example run:
 
@@ -246,7 +246,7 @@ $
 ```
 
 
-#### Where `.text` starts
+### Where `.text` starts
 
 This starts at 0x1040 in `test1`.
 
@@ -260,13 +260,13 @@ The entry point address is, for the programs in this assignment, the same as the
 
 That's little-Endian for 0x00401040.  We remove the leading '0x0040', so we really only want bytes 0x18 and 0x19: `0x1040`.  That's the start of `.text`.
 
-#### Where in `main()` the `ret` is
+### Where in `main()` the `ret` is
 
 This is at 0x1146 in `test1`.  The entry point is 0x1040, which is what we just determined above.  Note that there are a number of 0xc3 (`ret`) bytes before you get to `main()` itself -- these will not work due to the next part (identifying the previous instructions) -- you can start analyzing at byte 0x1120 in `test1` until you get that part working -- the first 0xc3 from that byte is the correct `ret` statement to work with.
 
 For our purposes, we will just look for a `ret` opcode in binary (0xc3).  It's possible that a 0xc3 byte is present due to being part of another instruction, such as a data value.  If we can identify the instructions *before* the `ret` (that's next), then we can safely assume that we have found a `ret` and not a data value.
 
-#### Identify previous instructions
+### Identify previous instructions
 
 For `test1`, these are the nine bytes of instructions that you dealt with in the previous part (bytes 0x113d to 0x1145).
 
@@ -276,14 +276,14 @@ You can see how these instructions translate into machine code in the next secti
 
 If your code does not find the correct instructions before a `ret`, then it should continue looking forward in the file for the next `ret`, and then analyze the bytes before that one.  This could happen because you did not find an actual `ret` (a 0xc3 byte was a data value, for example), or if the instructions before the `ret` were not of the form that you need to identify.  If you hit the end of the file, then output "Unable to find a suitable ret".  
 
-#### Where to put the payload
+### Where to put the payload
 
 You identified this location for `test1` in the previous part -- it was somewhere in the `nops()` subroutine.
 
 The programs we are using have a large set of consecutive `nop` statements for you to put your payload in.  However big your payload is (likely around 40 or so bytes), you should look for a sequence of `nop` bytes (0x90) that is of that length.  That is where you should put your payload.  You can assume that our executables will provide a `nop` section of at least 100 bytes.
 
 
-#### Putting it all together
+### Putting it all together
 
 When you can determine the four previous data items, you can use your binary modification code from part 2.  You can test this on the three executable files provided with this assignment:
 
@@ -300,14 +300,14 @@ When you can determine the four previous data items, you can use your binary mod
 
 You are welcome to create your own, but check (with `objdump -d`) that the assembly instructions before the `ret` are what you expect them to be.
 
-#### What to submit
+### What to submit
 
 The file to submit from this part is `part3.py`.
 
 <!-- ============================================================= -->
 
 
-### Machine code
+## Machine code
 
 When a compiler compiles a function, there are three parts: the prologue, the function body, and the epilogue.  The *prologue* sets up the function -- allocation of local variables, and saving registers that it is going to overwrite.  The *function body* is the compiled code from the C code.  The *epilogue* will deallocate local variables, restore registers, and then calls `ret`.
 
@@ -315,21 +315,21 @@ If the epilogue is of a standard format (a safe assumption for this assignment),
 
 Thus, we only have to scan for those four types of instructions before the `ret`.
 
-#### The `add` instruction
+### The `add` instruction
 
 Any `add` instruction in the epilogue is adding a value to `rsp`, and that is the only type of add we have to consider for this assignment.  These instructions can be in one of two forms:
 
 - `0x48 0x83 0xc4 0xXX` will add 0xXX to %rsp, where 0xXX is the value in hex.  This assumes 0xXX is less than or equal to 0xff (255).
 - `0x48 0x81 0xc4 0xXX 0xXX 0xXX 0xXX` will add the 4-byte value (0xXX 0xXX 0xXX 0xXX) to %rsp.  Note that the second digit is 0x81 here, and not 0x83 as above.  Also note that the value is in ***little Endian***.  So the hex instruction `0x48 0x81 0xc4 0x12 0x34 0x56 0x78` will add 0x12345678 (little-Endian) to %rsp, which is 0x78563412 in big-Endian format.
 
-#### The `mov` instruction
+### The `mov` instruction
 
 There are many encodings of the `mov` instruction, but we will only study a few such forms:
 
 - `0xb8 0xXX 0xXX 0xXX 0xXX` will move the value `0xXX 0xXX 0xXX 0xXX` (in little-Endian) into the %eax register; this is setting up the return value
 
 
-#### The `pop` instruction
+### The `pop` instruction
 
 The `pop` instruction can take a few forms:
 
@@ -355,14 +355,14 @@ Nobody should pop into %rsp, so it is not listed above.
 
 Thus, the `pop` instructions we have to look at are hex 0x58 to 0x5e, and hex 0x41 0x58 to 0x41 0x5f.
 
-#### The `nop` instruction
+### The `nop` instruction
 
 This will occasionally appear.  It's a single byte of value 0x90.
 
 <!-- ============================================================= -->
 
 
-### Submission
+## Submission
 
 You should submit to Gradescope the five files that you developed:
 

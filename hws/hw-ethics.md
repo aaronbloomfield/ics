@@ -3,7 +3,7 @@ ICS: Written Homework: Cybersecurity Ethics
 
 [Go up to the ICS HW page](index.html) ([md](index.md))
 
-### Overview
+## Overview
 
 For this assignment, you are to present an AI-generated argument about one of the cybersecurity challenges listed in part 2 of the [An Introduction to Cybersecurity Ethics PDF](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf), and then a discussion about that argument.  A challenge is one single paragraph, typically 4-5 lines, with the first sentence bolded; they are all listed in part 2 of the document (pages 15-21).  However, it must be one for which there are arguments on both sides (or all sides, if there are more than 2 sides) as to which path is the correct one ethically.
 
@@ -13,26 +13,26 @@ The challenge you write about is left for you to decide, although you cannot cho
 
 You will want to see the [homeworks policies page](../uva/hw-policies.html) ([md](../uva/hw-policies.md)) for formatting and other details.  The due dates are listed on the [UVa course page](../uva/index.html) ([md](../uva/index.md)).
 
-### Changelog
+## Changelog
 
 Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
 
 
-### Part 1: Create a ChatGPT account
+## Part 1: Create a ChatGPT account
 
 We are going to use the ChatGPT generative AI tool for this assignment.  You can create an account at [https://chat.openai.com/](https://chat.openai.com/).
 
 Play around a bit with ChatGPT to get the hang of how it works.  Give it a prompt, or use one of the prompts they provide.  In particular, once it generates a response, you can then modify that response ("make the answer longer" or "phrase that answer in the style of Dr. Seuss", "phrase that answer in iambic pentameter", etc.).
 
 
-### Part 2: Choose challenge
+## Part 2: Choose challenge
 
 Pick one of the challenges in the [An Introduction to Cybersecurity Ethics PDF](https://www.scu.edu/media/ethics-center/technology-ethics/IntroToCybersecurityEthics.pdf) document.  For the example herein, we will select the "How will we respond to ransomware attacks affecting our network or users" challenge.  **YOU MAY NOT USE THAT ONE!**  Pick any other one.
 
 You will need to clearly state the challenge in your document (see the formatting section, below).
 
 
-### Part 3: Use ChatGPT 
+## Part 3: Use ChatGPT 
 
 You will need to use ChatGPT to generate a response to the challenge you picked above.  You have to make a good faith effort to generate a good response -- one that might, say, get a good grade if that were the only part of this assignment.  This will mean taking some time to carefully craft the prompt, and will likely require prompt revisions.
 
@@ -54,14 +54,14 @@ Keep in mind that you can re-generate a previous response, or make modifications
 The entire ChatGPT response is to be included in the final document (see formatting, below).
 
 
-### Part 4: Why is ChatGPT wrong?
+## Part 4: Why is ChatGPT wrong?
 
 Explain how the ChatGPT answer is wrong.  Where did it mess up the argument?  Where did it not take into account some other factors?  Where did it not take into account some issues on one (or both) of the sides?  What nuances of the argument did it miss?  The list of things it could get wrong is endless; these are only some examples.
 
 Your analysis must be 500 words or less.
 
 
-### Formatting
+## Formatting
 
 To make this sane for us to grade, your submission must be exactly three pages in length:
 
@@ -71,6 +71,6 @@ To make this sane for us to grade, your submission must be exactly three pages i
 
 Did you read the section about fluff in the [homeworks policies page](../uva/hw-policies.html) ([md](../uva/hw-policies.md))?  When one is grading dozens of these assignments, one becomes a great fluff detector, and will mark your assignment down -- or give you a zero -- for it.  It's a waste of your time and also a waste of our time.
 
-### Submission
+## Submission
 
 Submit the completed file as a PDF.

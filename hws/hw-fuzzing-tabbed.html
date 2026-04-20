@@ -58,19 +58,19 @@
 <button class='tablinks' onclick="openTab(event,'ttesting')">Testing</button>
 <button class='tablinks' onclick="openTab(event,'tsubmission')">Submission</button>
 </div>
-<div id='toverview' class='tabcontent'><h3 id='overview'>Overview</h3>
+<div id='toverview' class='tabcontent'><h2 id='overview'>Overview</h2>
 <p>In this assignment, you will be creating a <em>network fuzzer</em>, which is a program that will try out many different URL variants to see if any exist on a web server. Given a base URL, such as <code>http://server.com/FUZZ</code>, and a word list containing many items, it will replace the string <code>FUZZ</code> with each of the words in the word list, and see if that URL exists.</p>
 <p>Credit: this homework is based heavily on <a href='https://github.com/kernelmethod/xfuzz/'>Will Shand’s xfuzz assignment</a>.</p>
-<h4 id='background'>Background</h4>
+<h3 id='background'>Background</h3>
 <ul>
 <li>You can read about what fuzzing is on the <a href='https://en.wikipedia.org/wiki/Fuzzing'>Fuzzing Wikipedia page</a>. You should know what fuzzing is before you proceed.</li>
 <li>You should be familiar with the <a href='../slides/networks.html'>networking slide set</a>.</li>
 <li>You should be familiar with the <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/Status'>HTTP status codes</a> – whenever a web page is requested, one of these codes is provided. For example, if the page is valid, it provides code 200 (OK) along with the page data. If the page is not found, then it returns 404 (not found).</li>
 <li>You should have a recent version of Python, and you will need to be able to install packages, via pip</li>
 </ul>
-</div><div id='tchangelog' class='tabcontent'><h3 id='changelog'>Changelog</h3>
+</div><div id='tchangelog' class='tabcontent'><h2 id='changelog'>Changelog</h2>
 <p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
-</div><div id='tsetup' class='tabcontent'><h3 id='setup'>Setup</h3>
+</div><div id='tsetup' class='tabcontent'><h2 id='setup'>Setup</h2>
 <p>This assignment must be done in a recent version of Python. The only additional package you will need is <code>uvicorn</code> – to install it, enter <code>pip install uvicorn</code> (or <code>pip3 install uvicorn</code>).</p>
 <p>You will need a number of files from this repository to work on this assignment:</p>
 <ul>
@@ -80,16 +80,16 @@
 <li><a href='fuzzing/common-reduced.txt'>common-reduced.txt</a>: a smaller word list, described in detail below (in the ‘Testing’ section)</li>
 <li><a href='fuzzing/server.py.html'>server.py</a> (<a href='fuzzing/server.py'>src</a>) code to run a mini web server on your machine for testing.</li>
 </ul>
-<h4 id='calling-the-code'>Calling the code</h4>
+<h3 id='calling-the-code'>Calling the code</h3>
 <p>The provided code in args.py already handles the command line argument parsing. Run <code>python3 fuzzer.py -h</code> to see the various options. You are going to write the <code>fuzz()</code> function in fuzzer.py – the parameter passed into that function contains the parse command line arguments – you can print it to the screen during development to see how they are stored (but be sure to remove that print statement – and any others beyond what is required – before submission).</p>
-<h4 id='writing-the-code'>Writing the code</h4>
+<h3 id='writing-the-code'>Writing the code</h3>
 <p>You have to write the <code>fuzz()</code> function in <a href='fuzzing/fuzzer.py.html'>fuzzer.py</a> (<a href='fuzzing/fuzzer.py'>src</a>) – remove the <code>pass</code> line that is there once you insert your own code. The intent is for you to use the <code>urllib.request</code> library; documentation on that can be found <a href='https://docs.python.org/3/library/urllib.request.html'>here</a>.</p>
 <p>For the basic fuzzing, you will likely need the <code>urllib.request.urlopen()</code> function and the <code>status</code> field of the object it returns.</p>
 <p>For advanced fuzzing, you will want to create a <code>urllib.request.Request</code> object so that you can set more parameters.</p>
-</div><div id='ttask-1-basic-fuzzing' class='tabcontent'><h3 id='task-1-basic-fuzzing'>Task 1: Basic fuzzing</h3>
+</div><div id='ttask-1-basic-fuzzing' class='tabcontent'><h2 id='task-1-basic-fuzzing'>Task 1: Basic fuzzing</h2>
 <p>The first task is to perform basic testing. Given a URL, such as <code>http://server.com/FUZZ</code>, you will replace <code>FUZZ</code> with each word in the word list file, and then try that URL to see if you get a response other than 404 (not found). You will do this by modifying the <code>fuzz()</code> function in the <a href='fuzzing/fuzzer.py.html'>fuzzer.py</a> (<a href='fuzzing/fuzzer.py'>src</a>) skeleton code. Try printing out the parameter to the function to see how the command-line arguments are passed into the function. You can see in the skeleton code how one might load a URL from a string.</p>
 <p>When you are ready to test this, read the ‘Testing’ section, below, for easy ways to test it locally on your computer.</p>
-<h4 id='output'>Output</h4>
+<h3 id='output'>Output</h3>
 <p>The output for this assignment is very specific. Once you have completed the above task, any URL that does <em>NOT</em> return a 404 should display the output in the following EXACT format. (Note that you will modify what URLs to print later).</p>
 <p>For example, if you were to call the fuzzer as: <code>python3 fuzzer.py -u http://ffuf.me/cd/basic/FUZZ -w common.txt</code>, then the output would be exactly:</p>
 <pre><code>200 http://ffuf.me/cd/basic/class
@@ -97,7 +97,7 @@
 <p>Note that the output is the status number, a single space, and the URL. The order you print it out the lines does not matter, only the content on each line.</p>
 <p>We are going to use this particular call the visible test when you submit your assignment (although we will use a smaller word list to save time, but it will contain both <code>class</code> and <code>development.log</code>). Other hidden tests will be used to grade your assignment.</p>
 <p><strong>DO NOT HAVE ANY OTHER OUTPUT!</strong> We are going to test it by doing a file comparison, so if you have any other output it will report as not the same, and you will fail that test. Again, the order of the lines in your output does not matter.</p>
-</div><div id='ttask-2-advanced-fuzzing' class='tabcontent'><h3 id='task-2-advanced-fuzzing'>Task 2: Advanced fuzzing</h3>
+</div><div id='ttask-2-advanced-fuzzing' class='tabcontent'><h2 id='task-2-advanced-fuzzing'>Task 2: Advanced fuzzing</h2>
 <p>There are a number of command-line parameters that the fuzzer.py file will accept. You have to implement usage of the others. You can find them all via <code>python3 fuzzer.py -h</code>. The remaining ones to implement are as follows. Note that these are already parsed for you; you just have to handle when those values are in the <code>args</code> parameter to the <code>fuzz()</code> function.</p>
 <ul>
 <li><code>-e EXTENSIONS</code> or <code>--extension EXTENSIONS</code>: One or more extensions to append (e.g. php, html, etc.). Multiple extensions may be provided. So if <code>-e php -e html</code> is provided, and the wordlist contains <code>hello</code> and <code>world</code>, then you should be replacing <code>FUZZ</code> with six different values: <code>hello</code>, <code>hello.php</code>, <code>hello.html</code>, <code>world</code>, <code>world.php</code>, and <code>world.html</code>.
@@ -129,9 +129,9 @@
 </ul></li>
 </ul>
 <p>When we test your code, we will never give it invalid parameters, and there will always be a <code>-u</code> parameter and a <code>-w</code> parameter. So you do not have to error-check the parameters.</p>
-</div><div id='ttesting' class='tabcontent'><h3 id='testing'>Testing</h3>
+</div><div id='ttesting' class='tabcontent'><h2 id='testing'>Testing</h2>
 <p>First test it locally, then test it remotely. Both are described below.</p>
-<h4 id='local-testing'>Local testing</h4>
+<h3 id='local-testing'>Local testing</h3>
 <p>Initially, as you are developing your code, you will want to test it out locally. One of the Python packages you installed is uvicorn, which is a small Python-based web server. To run it, you first need to save the <a href='fuzzing/server.py.html'>server.py</a> (<a href='fuzzing/server.py'>src</a>) file. This file has a <code>urls</code> list that is the set of URLs that it will respond with a 200 (OK) to; everything else it responds with a 404 (not found).</p>
 <p>You are welcome to, and will eventually have to, change the elements in that list during testing – just note that each USLS part has to start with a forward slash. If you are running uvicorn, and you edit the server.py file, it should detect this and reload the contents so that you don’t have to restart it.</p>
 <p>You will run your uvicorn server as follows:</p>
@@ -145,19 +145,19 @@
 <pre><code>200 http://localhost:5000/.gitignore
 200 http://localhost:5000/employers
 200 http://localhost:5000/~admin</code></pre>
-<h4 id='uvicorn-server.py-edits'>Uvicorn server.py edits</h4>
+<h3 id='uvicorn-server.py-edits'>Uvicorn server.py edits</h3>
 <p>The <a href='fuzzing/server.py.html'>server.py</a> (<a href='fuzzing/server.py'>src</a>) file, which is what configures the uvicorn server, will need to be modified for you to test the additional command line flags. For example, you will may to try reporting 200 (OK) on <code>alert.html</code>, to test that your <code>-e html</code> works. Likewise, you will want to test out different server status values other than 200 to ensure that your <code>-mc</code> flag works.</p>
-<h4 id='remote-testing'>Remote testing</h4>
+<h3 id='remote-testing'>Remote testing</h3>
 <p>As a remote test, you can try it with the URL of http://ffuf.me/cd/basic:</p>
 <pre><code>python3 fuzzer.py -u http://ffuf.me/cd/basic/FUZZ -mc 200 -w common.txt </code></pre>
 <p>The output would be:</p>
 <pre><code>200 http://ffuf.me/cd/basic/class
 200 http://ffuf.me/cd/basic/development.log</code></pre>
 <p>Please do <strong><em>NOT</em></strong> try it out against any other machines, as ITS will get very cranky at you for doing so.</p>
-<h4 id='word-lists'>Word lists</h4>
+<h3 id='word-lists'>Word lists</h3>
 <p>As mentioned above, the word list we are using is the <a href='fuzzing/common.txt'>common.txt</a> file that we provide. You can also use word lists in the <a href='https://github.com/danielmiessler/SecLists/'>SecLists repository</a> repository; you will probably want to use a word list in the Discovery/Web-Content/ directory. You do not need any word lists beyond the <a href='fuzzing/common.txt'>common.txt</a> file for this assignment – the additional ones are just if you are interested.</p>
 <p>There is also a <a href='fuzzing/common-reduced.txt'>common-reduced.txt</a> file that contains only 100 words. It contains the five URLs that are expected to be found in the tests herein (<code>.gitignore</code>, <code>employers</code>, and <code>~admin</code> for the uvicorn testing, and <code>class</code> and <code>development.log</code> for the fuff.me testing), as well as 95 other randomly chosen words from common.txt. This file is useful for testing, as it will take much less time to print the results.</p>
-</div><div id='tsubmission' class='tabcontent'><h3 id='submission'>Submission</h3>
+</div><div id='tsubmission' class='tabcontent'><h2 id='submission'>Submission</h2>
 <p>You should only submit your <code>fuzzer.py</code> file to Gradescope. The only visible test will be the <code>python3 fuzzer.py -u http://ffuf.me/cd/basic/FUZZ -w common-reduced.txt</code>.</p>
 </main>
 </div><script>document.getElementById('defaultOpen').click();</script></body>

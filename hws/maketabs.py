@@ -35,7 +35,7 @@ class MyHTMLParser(HTMLParser):
 	
 	def handle_starttag(self, tag, attrs):
 		global body, header, tabs
-		if tag == 'h3':
+		if tag == 'h2':
 			assert len(attrs) == 1
 			assert attrs[0][0] == 'id'
 			assert len(attrs[0]) == 2

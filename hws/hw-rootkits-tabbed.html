@@ -60,15 +60,15 @@
 <button class='tablinks' onclick="openTab(event,'thints')">Hints</button>
 <button class='tablinks' onclick="openTab(event,'tsubmission')">Submission</button>
 </div>
-<div id='toverview' class='tabcontent'><h3 id='overview'>Overview</h3>
+<div id='toverview' class='tabcontent'><h2 id='overview'>Overview</h2>
 <p>In this assignment, you will investigate both types of rootkits: application and kernel. There are four tasks to be completed for submission. You will want to review the <a href='../slides/rootkits.html#/'>rootkit slides</a>.</p>
 <p>In this assignment, you will create both types of rootkits: a kernel-level one and an application-level one.</p>
 <p><strong><em>YOU MUST RUN THIS ON THE VIRGINIA CYBER RANGE!!!</em></strong>, described below. You are going to <em>negatively affect the machine you develop this on</em>. Do not think that you can or should do this on your computer and still have your computer work.</p>
 <p>We are not responsible if you render your computer inoperable because you did not follow this warning! This is why we provided the Cyber Defense Range account!</p>
-</div><div id='tchangelog' class='tabcontent'><h3 id='changelog'>Changelog</h3>
+</div><div id='tchangelog' class='tabcontent'><h2 id='changelog'>Changelog</h2>
 <p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
 
-</div><div id='tplatform' class='tabcontent'><h3 id='platform'>Platform</h3>
+</div><div id='tplatform' class='tabcontent'><h2 id='platform'>Platform</h2>
 <p>We will be using the Virginia Cyber Range at <a href='https://www.virginiacyberrange.org/'>https://www.virginiacyberrange.org/</a>. This site basically allows you to run a remote virtual environment; we are using Ubunmtu 22.04.</p>
 <p>Go to <a href='https://www.virginiacyberrange.org/'>https://www.virginiacyberrange.org/</a>. Click on “sign up”, then “join as a student”. Use the invitation code on the canvas landing page, then sign in (presumably with your Google UVA account). You will need to accept the agreement to continue.</p>
 <p>If you already have an account, there is (presumably) a way to add this course via the invitation code…</p>
@@ -80,9 +80,9 @@ sudo apt install -y make g++ emacs</code></pre>
 <p>When you are done, you should close that window, and you can stop the virtual machine (the stop button, which is next to the play button that started this whole party).</p>
 <p><strong>WARNING:</strong> This site is free to use for <em>class purposes</em> for all students in the course. Using it for non-class purposes is an honor violation, and will be dealt with as such. Anything outside the reasonable bounds of an assignment in this course is considered a non-class purpose.</p>
 <p>This is a great resource, but it is a <em>finite</em> resource. If you decide to wait to the last minute to start the assignment, and the rest of your class-mates do so as well, it’s going to be slooooooow. You cannot get an extension because you waited until the last minute along with everybody else, and the system was slow as a result.</p>
-<h4 id='working-as-root'>Working as root</h4>
+<h3 id='working-as-root'>Working as root</h3>
 <p>Some of these commands will require to to execute them as the root user. You can do this by prepending <code>sudo</code> in front of the command. For example, to insert a module called <code>root.ko</code>, you would call <code>sudo insmod root.ko</code> – this executes the <code>insmod root.ko</code> command as root.</p>
-</div><div id='ttask-1-kernel-level-rootkit' class='tabcontent'><h3 id='task-1-kernel-level-rootkit'>Task 1: Kernel-level rootkit</h3>
+</div><div id='ttask-1-kernel-level-rootkit' class='tabcontent'><h2 id='task-1-kernel-level-rootkit'>Task 1: Kernel-level rootkit</h2>
 <p><strong>Kernel level rootkit:</strong> Recall that a Linux kernel level rootkit installs a loadable kernel module (LKM) that gives the attacker more privileges on the compromised machine. We are going to build such a module here. There are two tasks to be done for the kernel level rootkit aspect of this assignment.</p>
 <p>Follow <a href='https://0x00sec.org/t/kernel-rootkits-getting-your-hands-dirty/1485'>this tutorial at 0x00SEC</a> (use the <a href='https://web.archive.org/web/20250130102443/https://0x00sec.org/t/kernel-rootkits-getting-your-hands-dirty/1485'>archive.org link</a>). It is not necessary to read the two sub-tutorials (<a href='http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/'>1</a> (use the <a href='https://web.archive.org/web/20250123183501/http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/'>archive.org link</a>) and <a href='http://derekmolloy.ie/writing-a-linux-kernel-module-part-2-a-character-device/'>2</a> (use the <a href='https://web.archive.org/web/20250112200039/http://derekmolloy.ie/writing-a-linux-kernel-module-part-2-a-character-device/'>archive.org link</a>)), if you do not want to. This rootkit will allow you to gain root access on the machine from a non-root user. Note: the sub-tutorials (if you want to read them) should be used to understand what is happening on <a href='https://0x00sec.org/t/kernel-rootkits-getting-your-hands-dirty/1485'>the main tutorial at 0x00SEC page</a> (use the <a href='https://web.archive.org/web/20250130102443/https://0x00sec.org/t/kernel-rootkits-getting-your-hands-dirty/1485'>archive.org link</a>); they do not all compile at this point.</p>
 <p>A few notes from those tutorials:</p>
@@ -94,7 +94,7 @@ sudo apt install -y make g++ emacs</code></pre>
 <p>The first task for this assignment is to create this rootkit as specified in the tutorial.</p>
 <p>Note that to complete this part, you can just copy the code that is listed there – that’s the code that you have to submit, after all. However, you have to explain to us how the code works. We are looking for a half-page, and it needs to be specific enough that we see that you really understand what is going on in that code. This should go into a <code>kernel-rootkits.pdf</code> file (more content will go into that file for the next task).</p>
 <p>For submission of your code, you should put your code in a <code>root.c</code> file (the same name as in the tutorial), and put the appropriate compilation lines in the Makefile. The module name MUST be <code>root.ko</code>, otherwise we won’t be able to load it ourselves.</p>
-</div><div id='ttask-2-what-else' class='tabcontent'><h3 id='task-2-what-else'>Task 2: What else?</h3>
+</div><div id='ttask-2-what-else' class='tabcontent'><h2 id='task-2-what-else'>Task 2: What else?</h2>
 <p>What else can rootkits do?</p>
 <p>This was a fairly simple rootkit, as far as complexity goes, although it’s a lot to learn all at once. All this does is allow one to gain root access – useful, to be sure, but there is much more that rootkits can do.</p>
 <p>The second task for this assignment is to investigate other things that rootkits can perform. We are looking for specific things that can be done, not high-level mumbo-jumbo. For each thing, a sentence describing it would be sufficient. For example, the access that the rootkit that you just implemented might be phrased such as:</p>
@@ -103,7 +103,7 @@ sudo apt install -y make g++ emacs</code></pre>
 </ul>
 <p>How many to find? That’s up to you. If you have a bunch, and you are not finding anymore, then you are done. You can use Google searches, look at rootkit code online – take a look <a href='https://github.com/f0rb1dd3n/Reptile'>here</a> (use the <a href='https://web.archive.org/web/20250223051159/https://github.com/f0rb1dd3n/Reptile'>archive.org link</a>) to start. That source code lists 12 different functionalities (one of which being giving root access to non-root users). Thus, we would expect a list of 20 or more.</p>
 <p>This part should be put into a PDF called <code>kernel-rootkits.pdf</code>; note that there will also be content in that file from the first task.</p>
-</div><div id='ttask-3-wrapper-files' class='tabcontent'><h3 id='task-3-wrapper-files'>Task 3: Wrapper files</h3>
+</div><div id='ttask-3-wrapper-files' class='tabcontent'><h2 id='task-3-wrapper-files'>Task 3: Wrapper files</h2>
 <p><strong>Application level rootkit:</strong> Recall that an application level rootkit will replace specific utilities with compromised versions. There are two tasks to be done for the application level rootkit aspect of this assignment.</p>
 <p>You are going to create a “wrapper” program that will perform the “malicious” task, and then call the original program. For this one, we will attack the <code>sha224sum</code> program, which is located at <code>/usr/bin/sha224sum</code>. We chose this file because it’s not all that critical, and if it gets messed up, you can still use the operating system.</p>
 <p>The <code>sha224sum</code> program has a number of command-line parameters that it accepts. See <a href='https://www.systutorials.com/docs/linux/man/1-sha224sum/'>here</a> for a list of these. Note that different versions of sha224sum, as well as different OSes, will have different options. In particular, you cannot assume any particular set of options.</p>
@@ -140,7 +140,7 @@ $ </code></pre>
 <p>For this assignment, you should name your source code file <code>sha224sum-fake.?</code> where the “?” is the appropriate filename extension (use ‘sh’ for a shell script).</p>
 <p>Your Makefile MUST create a <code>sha224sum</code> <em>executable</em> file. If your code requires compilation, then compile it to the <code>sha224sum</code> file name. If you are using a scripting language (Python or bash), then copy the file over <em>WITHOUT</em> a .py or .sh extension. If you are using C, C++, or Go, then compile it to that file name. We are going to run <code>make</code>, then assume that the <code>sha224sum</code> file is present.</p>
 <p><strong>NOTE:</strong> In your Makefile, you should <em>NOT</em> copy the resulting <code>sha224sum</code> file to /usr/bin – our grading scripts will do that for you. You will need to do that manually when testing it, but let our grading scripts handle that upon submission.</p>
-</div><div id='ttask-4-modify-source-code' class='tabcontent'><h3 id='task-4-modify-source-code'>Task 4: Modify source code</h3>
+</div><div id='ttask-4-modify-source-code' class='tabcontent'><h2 id='task-4-modify-source-code'>Task 4: Modify source code</h2>
 <p>For this task, we will attack the <code>sha384sum</code> binary, for similar reasons as the previous task – it’s not likely to be critical to your OS booting.</p>
 <p>First, <em>BACK UP THE PROGRAM</em>. For example: <code>sudo cp /usr/bin/sha384sum /usr/bin/sha384sum.bak</code>. This way if you mess up, you can easily restore it.</p>
 <p>For this task we are going to modify the source code to insert our compromise into the program itself. Linux is open source, and all of the core utilities are GNU, so their source code is freely available. You can download the latest (highest-numbered) version from <a href='https://ftp.gnu.org/gnu/coreutils/'>https://ftp.gnu.org/gnu/coreutils/</a> – although there are likely later versions, <strong>we are going to version 8.31</strong>. The specific file to download is <a href='https://ftp.gnu.org/gnu/coreutils/coreutils-8.31.tar.xz'>here</a>. The coreutils are the basic utilities used by all Linux systems – ls, cp, mv, etc. Once you’ve downloaded it, uncompress it (<code>tar xfa coreutils-8.31.tar.xz</code>). Once in that directory, run <code>./configure</code> then <code>make</code>. This will work on the Virginia Cyber Range – you are on your own if you are using your own computer’s OS.</p>
@@ -170,7 +170,7 @@ Codename:       bionic</code></pre>
 <p>To see what information has been sent, go directly to the rootkit data viewer URL, which is on the Canvas landing page. Once you log in with Netbadge, you will be able to see all the data sent in under that userid.</p>
 <p>Note that the logs that are displayed only keep the information sent in the last few hours – we will look at the entire log history when we grade the assignment, but the information that you see will be only the most recent. So don’t worry if the entries that you saw on a previous day are no longer present. As long as they were there at <em>some</em> point, we’ll see them when we grade the assignment.</p>
 <p>The only file you should submit from this is the modified <code>md5sum.c</code> file. We will unpack and configure the entire coreutils archive, put the md5sum.c file in there, and then recompile the <code>sha384sum</code> program. Thus, you do NOT need anything in your Makefile for this task.</p>
-</div><div id='thints' class='tabcontent'><h3 id='hints'>Hints</h3>
+</div><div id='thints' class='tabcontent'><h2 id='hints'>Hints</h2>
 <p>We’ve collected a few of these here…</p>
 <ul>
 <li>The <code>which</code> command in linux tells you where the specified system binary is in the filesystem; for example, if you enter ‘which ls’, the path to the ls binary (/bin/ls) should be printed out</li>
@@ -179,14 +179,14 @@ Codename:       bionic</code></pre>
 <li><code>exec()</code> refers to a family of functions that can execute other processes; we recommend using <code>excel()</code> for this assignment (though you are free to do otherwise!)</li>
 <li>If <code>make</code> does not work, you can try running <code>sudo apt install --fix-missing</code> and then run <code>make</code> again to see if that fixes the problem</li>
 </ul>
-</div><div id='tsubmission' class='tabcontent'><h3 id='submission'>Submission</h3>
-<h4 id='sanity-checks'>Sanity checks</h4>
+</div><div id='tsubmission' class='tabcontent'><h2 id='submission'>Submission</h2>
+<h3 id='sanity-checks'>Sanity checks</h3>
 <p>A few things to check before you submit…</p>
 <ul>
 <li>Task 3: in your Makefile, you should <em>NOT</em> move any files to /usr/bin – our grading scripts will do that for you</li>
 <li>Task 4: your sha384sum does <em>not</em> display the wget output</li>
 </ul>
-<h4 id='submission-1'>Submission</h4>
+<h3 id='submission-1'>Submission</h3>
 <p>The following files will need to be submitted:</p>
 <ul>
 <li><code>root.c</code> from task 1</li>

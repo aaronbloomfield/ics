@@ -57,12 +57,12 @@
 <button class='tablinks' onclick="openTab(event,'tpart-3-cross-site-request-forgery-attack')">Cross Site Request Forgery Attack</button>
 <button class='tablinks' onclick="openTab(event,'tsubmission')">Submission</button>
 </div>
-<div id='tintroduction' class='tabcontent'><h3 id='introduction'>Introduction</h3>
+<div id='tintroduction' class='tabcontent'><h2 id='introduction'>Introduction</h2>
 <p>There are three parts to this assignment. As part of this assignment, you will have to create a document, called <code>mst3k-websecurity.pdf</code> (where mst3k is your userid), and submit that file. We aren’t looking for any fancy write-up - just an explanation of what you did, and the results you got. That being said, it should be legible. So make sure you indicate what answers are for what questions, etc.</p>
 <p>Your final report should be a PDF file. It need not be long, but it must answer the questions posed below. However, it must be EXACTLY three pages, which each of the three parts on its own page (SQL on page 1, XSS on page 2, and CSRF on page 3).</p>
-</div><div id='tchangelog' class='tabcontent'><h3 id='changelog'>Changelog</h3>
+</div><div id='tchangelog' class='tabcontent'><h2 id='changelog'>Changelog</h2>
 <p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
-</div><div id='tpart-1-sql-injection-attack' class='tabcontent'><h3 id='part-1-sql-injection-attack'>Part 1: SQL Injection Attack</h3>
+</div><div id='tpart-1-sql-injection-attack' class='tabcontent'><h2 id='part-1-sql-injection-attack'>Part 1: SQL Injection Attack</h2>
 <p>First, you should be familiar with SQL and SQL injection attacks. For review, look at the first half of the <a href='../slides/sql-xss-csrf.html#/'>SQL, XSS, and CSRF slide set</a>.</p>
 <p>I’ve already determined your grades for this part! And you all got an F. So sorry! Those grades have been stored in a database. Whatever grade is in that database at the end of this assignment is your grade for this part.</p>
 <p>View SQL injection attack web page, the URL of which is shown on the Canvas landing page - note that you will have to log in via Netbadge to view this page. From this page, you will need to execute an SQL injection attack. Note that the only confidential data in that database is the names and userids of the participants, and all of that information is considered “public” knowledge to the participants of the course.</p>
@@ -78,7 +78,7 @@
 <p><strong>YOU MAY NOT EXECUTE A DROP TABLE OR TRUNCATE TABLE OR DELETE COMMAND</strong>. Doing so is an honor violation. Or any other command that interferes with other students completing their assignment. This includes updating anybody else’s grade. I don’t want to have to go and repair the database because somebody executed this command.</p>
 <p>Honor pledge details: you are given permission to execute an SQL injection attack against particular URL for this assignment, as long as the attack does NOT contain a ‘drop table’, ‘truncate’, or ‘delete’ command, or a command that intentionally interferes with other students completing their assignment, or a command that updates another student’s grade.</p>
 <p>Lastly, please note that all entries are logged (and are not logged in the DB!). Thus, if the DB is later erased, we can verify that you did (or did not!) properly execute the SQL injection attack.</p>
-</div><div id='tpart-2-cross-site-scripting-attack' class='tabcontent'><h3 id='part-2-cross-site-scripting-attack'>Part 2: Cross-site Scripting Attack</h3>
+</div><div id='tpart-2-cross-site-scripting-attack' class='tabcontent'><h2 id='part-2-cross-site-scripting-attack'>Part 2: Cross-site Scripting Attack</h2>
 <p><strong>NOTE:</strong> Some modern browsers have anti-XSS capability built in that prevents this type of attack. So if things are working, try a different browser. Chrome, in particular, does not work well with this type of attack, but Firefox is fine.</p>
 <p>First, you should be familiar with Javascript and cross-site scripting attacks. For review, look at the the <a href='../slides/sql-xss-csrf.html#/'>SQL, XSS, and CSRF slide set</a> slide set.</p>
 <p>View XSS attack web page, the URL of which is shown on the Canvas landing page - again, you will have to log in via Netbadge to view that page. From this page, you will need to execute multiple XSS attacks, described below. Also note that the the account number (which you will need to obtain) is a randomly set number - it is set the first time you access the page, stored in a cookie, and not changed again. But if you try it from a different computer, you will see a separate account number.</p>
@@ -110,7 +110,7 @@
 <li>Do not use the plus sign inside your script! This includes in the document.write() call. The server sees them as separating GET variables, when you want it to all be one variable.</li>
 </ul>
 <p>Honor pledge details: you are given permission to execute XSS attacks against this particular URL for this assignment.</p>
-</div><div id='tpart-3-cross-site-request-forgery-attack' class='tabcontent'><h3 id='part-3-cross-site-request-forgery-attack'>Part 3 Cross-site Request Forgery Attack</h3>
+</div><div id='tpart-3-cross-site-request-forgery-attack' class='tabcontent'><h2 id='part-3-cross-site-request-forgery-attack'>Part 3 Cross-site Request Forgery Attack</h2>
 <p>View CSRF attack web page, the URL of which is shown on the Canvas landing page - again, you will have to log in via Netbadge to view that page. From this page, you will need to execute multiple CSRF attacks, described below.</p>
 <p>Your goal is to transfer $200 to ‘mallory’ via that URL. This must be done two ways:</p>
 <ul>
@@ -120,7 +120,7 @@
 <p>Now try visiting the site but add <code>?token</code> to the end of the URL. This adds a CSRF token to the form. Unfortunately for this bank’s security, the token that was added is always the same. Perform the two CSRF attacks (via GET and via POST) against this variant URL. For the GET, your URL would be something like <code>.../csrf.php?token&foo=bar&...</code>, and for the post, the <code>action</code> field of the <code>form</code> tag would have the <code>csrf.php</code> part be <code>csrf.php?token</code>.</p>
 <p>In your write-up, show the two URLs used (for the two GET attacks), and the two HTML forms used for the two POST attacks).</p>
 <p>Honor pledge details: you are given permission to execute CSRF attacks against this particular URL for this assignment.</p>
-</div><div id='tsubmission' class='tabcontent'><h3 id='submission'>Submission</h3>
+</div><div id='tsubmission' class='tabcontent'><h2 id='submission'>Submission</h2>
 <p>Your assignment PDF must be EXACTLY three pages, which each of the three parts on its own page (SQL on page 1, XSS on page 2, and CSRF on page 3).</p>
 <p>You should submit a single PDF file to Gradescope. Answers to all the above questions should be in that file.</p>
 </main>

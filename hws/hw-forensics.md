@@ -3,7 +3,7 @@ ICS: Programming Homework: Forensics
 
 [Go up to the ICS HW page](index.html) ([md](index.md))
 
-### Scenario
+## Scenario
 
 Professor Bloomfield has been acting strange lately.  Ever since sometime the start of the summer term he has been unfocused in his lectures, and seems to not know the material -- even though he's taught this course many times before.  He doesn't show up to office hours or his required departmental meetings.  And he often just misses class.  When asked about it, he seems to just brush it off, giving vague answers.  There have been many conspiracy theories about what happened, and alien abduction is the latest craze.
 
@@ -16,7 +16,7 @@ Take a look at the image and figure out what the situation is.
 Note: something you will find along the way is quite obviously satirical -- you will know it when you see it.  This was done partly for fun, and also so that nobody actually thought that anything illegal was going on.
 
 
-### Overview
+## Overview
 
 Find out what happened from the disk image.
 
@@ -27,13 +27,13 @@ The intent is for you to use Autopsy / SleuthKit for this assignment, as well as
 
 
 
-### Changelog
+## Changelog
 
 Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
 
 
 
-### Platform
+## Platform
 
 As the deliverable for this is a PDF report, you can use any system you want.  The system running autopsy, described below, can be accessed via any web browser.
 
@@ -42,7 +42,7 @@ You can get a copy of the hard drive image by going to the URL listed on the Can
 **WARNING:** It will Autopsy a while to analyze your disk image.  You need to start that part ahead of time!
 
 <!--
-#### Using your own machine
+### Using your own machine
 
 You are also welcome to do this homework on your computer, but you are on your own to install [Autopsy](https://www.sleuthkit.org/autopsy/).  You can see installation details at [Autopsy's website](https://www.sleuthkit.org/autopsy/download.php).  The version on the Virginia Cyber Range is version 4.16.0 with SleuthKit version 4.10.0.  You should have somewhat similar versions -- later is fine, as is slightly earlier (but no earlier than 4.0.0).
 
@@ -51,13 +51,13 @@ You are allowed to use any system tools that are equivalents on your operating s
 Lastly, you can run autopsy on your own machine, and use the Cyber Range to deal with a few things such as mounting the disk image and file undeletion.
 -->
 
-#### Using the Cyber Range
+### Using the Cyber Range
 
 There is an invitation code on the Canvas landing page to join the cyber range course, if you haven't done so already.  Once in the course, use the environment for the Forensics HW.  You will download the image onto that machine, using the `wget` command.  You then start autopsy via: `autopsy`.
 
 From a web browser, go to the URL on the Canvas landing page to download your disk image.  Once it's downloaded, you have to uncompress it: `gzip -d mst3k.img.gz`.
 
-#### Starting Autopsy
+### Starting Autopsy
 
 When you are adding the disk image to the autopsy case, you will be presented with a series of check boxes as to which modules you want to enable.  It will look something like this:
 
@@ -71,11 +71,11 @@ The Cyber Range has a few limitations that you need to be aware of:
 - The Cyber Range will disconnect after a certain amount of inactivity.  However, Autopsy needs to run for quite some time.  Thus, you should do this while you are already using the computer for something else so that you can keep it from disconnecting (move a window around or something).
 - If you want to use a tool that is not installed, the terminal will tell you what command to run to install the tool.  Just run that command and then use the tool.
 
-#### Using your own machine
+### Using your own machine
 
 We do not recommend using your own machine.  Autopsy is notoriously hard to install, and has caused a lot of frustration to students trying to do so.  And it does not work on M1 or M2 Macs.
 
-#### Autopsy limitations
+### Autopsy limitations
 
 Autopsy is great, but there are a few limitations that you need to be aware of.  These are limitations on either the Cyber Range or your machine.
 
@@ -84,7 +84,7 @@ Autopsy is great, but there are a few limitations that you need to be aware of. 
 	- You can run autopsy on your own machine, and use the Cyber Range to deal with a few things such as mounting the disk image and file undeletion.  photorec is good for that.
 
 
-#### Tools allowed
+### Tools allowed
 
 The intent of this assignment is for you to use [Autopsy](https://www.sleuthkit.org/autopsy/) / [SleuthKit](https://www.sleuthkit.org/sleuthkit/).  In addition to Autopsy and SleuthKit, you can use the standard tools that come with an operating system -- in particular, file explorers, searching contents of files for text, etc.  You can use any of the utilities discussed in the [digital forensics slide set](../slides/forensics.html#/).  You can use differently named equivalents in your computer's operating system.  You may also use your operating system's default file explorer.
 
@@ -92,7 +92,7 @@ The intent of this assignment is for you to use [Autopsy](https://www.sleuthkit.
 
 
 
-### Notes
+## Notes
 
 A few notes to help you through the process:
 
@@ -108,7 +108,7 @@ A few notes to help you through the process:
 - Autopsy sometimes crashes.  You should be able to restart it, and it will pick up where it left off.
 - If there is an AES encrypted message (some scenarios have it, some do not), you have to add the `-pbkdf2` flag to the [decryption line](../slides/forensics.html#/password-protected-files).
 
-#### Mounting the disk image
+### Mounting the disk image
 
 You can also mount the disk image directly from the CyberRange system.  To do so:
 
@@ -119,7 +119,7 @@ mount -o ro /path/to/mst3k.img /mnt
 
 You can then look in the `/mnt/` directory to find the files on the disk image.  This way of mounting the image -- with the `-o ro` flags -- makes it a read-only file system, so you can't modify anything therein.
 
-### Deliverable
+## Deliverable
 
 The deliverable is a PDF report, named forensics.pdf.
 
@@ -144,6 +144,6 @@ The third part is to comment on this assignment:
 - Was there anything that we screwed up on?  Specifically, was there a particular piece of evidence in which we did not properly hide something?  Or did we give something away?
 - Give one (or more!) suggestions for additional content to hide, or where to hide it, or improvements to the story.
 
-### Submission
+## Submission
 
 The PDF report, named `forensics.pdf`, is the only item to submit.

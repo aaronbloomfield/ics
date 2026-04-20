@@ -4,7 +4,7 @@ ICS: Programming Homework: Buffer Overflow
 [Go up to the ICS HW page](index.html) ([md](index.md))
 
 
-### Purpose 
+## Purpose 
 
 This assignment will have you implement a shellcode-based buffer overflow attack against a program executable.  You will need to be familiar with the content in the [buffer overflow slide set](../slides/buffer-overflows.html#/), specifically the [how to do it](../slides/buffer-overflows.html#/how2doit) column of slides.  That and the lecture recordings will guide you through many of the steps of this assignment.
 
@@ -12,21 +12,21 @@ This assignment has five parts (or tasks), and are meant to be done in order, as
 
 Please read the write-up section, as that describes the screen shots that you need to take.  It will be *FAR* easier to take them as you are developing the code, rather than having to go back afterward to get the screenshots.
 
-#### Getting stuck?
+### Getting stuck?
 
 There are many parts of this assignment where it is easy to get stuck. You can look at the troubleshooting section, and the end of this page, for some hints.  We provide a *lot* of details in each section -- try reading through those again.  We know it's a lot to read (and to read repeatedly), but one can easily miss something the first time (or two) through it.
 
 
-#### Reference platform
+### Reference platform
 
 This program must run on the Cyber Range account.  You are welcome to develop it on your own machine, but make sure it works there before you submit it.  And if it isn't working on your machine, try it on the Cyber Range to see if that allows it to work.  See the [Rootkits assignment](hw-rootkits-tabbed.html) for how to sign into the Virginia Cyber Range, if you have not already done so in previous assignments.  You should use the same Linux environment from the last assignment.  For tips on getting data in and out of the Cyber Range, see [here](https://kb.virginiacyberrange.org/features/copy-paste-upload-download.html).
 
-### Changelog
+## Changelog
 
 Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
 
 
-### Platform
+## Platform
 
 We will be using the Virginia Cyber Range at [https://www.virginiacyberrange.org/](https://www.virginiacyberrange.org/). This site allows you to run a remote virtual environment; we are using Ubunmtu 22.04.
 
@@ -49,15 +49,15 @@ When you are done, you should close that window, and you can stop the virtual ma
 
 This is a great resource, but it is a *finite* resource.  If you decide to wait to the last minute to start the assignment, and the rest of your class-mates do so as well, it's going to be slooooooow.  You cannot get an extension because you waited until the last minute along with everybody else, and the system was slow as a result.
 
-#### Working as root
+### Working as root
 
 Some of these commands will require to to execute them as the root user.  You can do this by prepending `sudo` in front of the command. For example, to insert a module called `root.ko`, you would call `sudo insmod root.ko` -- this executes the `insmod root.ko` command as root.
 
 
 
-### Executable
+## Executable
 
-#### grade.c
+### grade.c
 
 The executable we are attacking is called `grade`.  When run, you enter your name, and it will tell you your grade.  An example run of the program:
 
@@ -95,7 +95,7 @@ The contents of input.bin are output by a program that you will write in tasks 3
 
 <!-- The `--print-buffer-address` is described below. -->
 
-### ASLR
+## ASLR
 
 Address Space Layout Randomization (ASLR) is an operating system defense against buffer overflows.  Consider the following program, which is available as [stack_addr.c](buffer/stack_addr.c.html) ([src](buffer/stack_addr.c)):
 
@@ -140,7 +140,7 @@ We will use the `setarch` command when we run grade.  So your buffer overflow wi
 The `input.bin` part is explained below.
 
 
-### Buffer Address
+## Buffer Address
 
 As this is a first take at a stack buffer overflow, we are making the project more viable.  Specifically, we will provide the address of the buffer that your program can use when determining the buffer contents.
 
@@ -218,7 +218,7 @@ void main() {
 
 You may assume that the `address.txt` file is present, properly formed, and has the correct buffer address value.
 
-### Step 1: Makefile
+## Step 1: Makefile
 
 Not much to do here yet, but we are going to call `make` to compile your code.  All of your compilation lines must be in that Makefile, and all under one target.  Most of the following steps will have you add some lines to the Makefile.  A collection of all the compilation commands is at the end of this document (in the Submission section).
 
@@ -234,15 +234,15 @@ all:
 Note that the indentation must be a tab, not spaces!
 
 
-### Step 2: Shellcode
+## Step 2: Shellcode
 
 This step is to create shellcode that will print out the grade you want to receive, and then gracefully exit.  This should be in a file called `shellcode.s`.  Recall that you will have to remove all end-of-string characters from the machine code generated.  While this will mostly be 0x00 bytes, you will also have to check for newlines (0x0a) and carriage returns (0x0d).  The [buffer overflow slide set](../slides/buffer-overflows.html#/) goes over how to do this.
 
-#### Goal
+### Goal
 
 The goal of this part is to create a stand-alone assembly program that will print out, `Albert Einstein, your grade on this assignment is an A`.  You will code that in an assembly routine, and use a C program to call that routine.  **The intent is that you start with the shellcode provided in the course slides, specifically [here](../slides/buffer-overflows.html#/how2doit), and adapt that code.**
 
-#### C Code
+### C Code
 
 To test that your code works, you will need a `main()` function to call your shellcode; this will go into a `shellcode_test.c` file. Here is an example such file (you are welcome to use this as-is or modify it):
 
@@ -266,7 +266,7 @@ The `mprotect()` calls work the same as described in the grade.c program ([HTML]
 
 This file is provided in [shellcode_test.c](buffer/shellcode_test.c.html) ([src](buffer/shellcode_test.c)).
 
-#### Assembly code
+### Assembly code
 
 Your assembly code will go in a `shellcode.s` file; here is the start fo that file:
 
@@ -290,7 +290,7 @@ This file is provided in [shellcode_test.c](buffer/shellcode.s.html) ([src](buff
 Forget assembly?  Here are some references from CS 2150: [slides](https://uva-cs.github.io/pdr/slides/08-assembly-64bit.html#/), labs ([1](https://uva-cs.github.io/pdr/labs/lab08-64bit/index.html) & [2](https://uva-cs.github.io/pdr/labs/lab09-64bit/index.html)), book chapters ([1](https://uva-cs.github.io/pdr/book/x86-64bit-asm-chapter.pdf) & [2](https://uva-cs.github.io/pdr/book/x86-64bit-ccc-chapter.pdf)), and/or [recommended online document](https://www.cs.cmu.edu/~fp/courses/15213-s07/misc/asm64-handout.pdf).  If you took CSO1, that course will have some references as well.
 
 
-#### Makefile
+### Makefile
 
 Your Makefile will need to have three lines to compile this program: one to call nasm to compile shellcode.s, one to compile shellcode_test.c, and one to link them together.
 
@@ -315,7 +315,7 @@ Some VERY important notes for compilation:
 - Your final binary should be called `shellcode_test` -- we are going to execute it, so please name it correctly.
 
 
-#### Notes and hints
+### Notes and hints
 
 Some notes and hints for developing this shellcode:
 
@@ -336,11 +336,11 @@ Where to start?
 - Add more assembly code to gracefully exit (also via a `syscall`)
 - View the machine code (via `objdump -d`), and work on removing all the invalid characters (mostly 0x00 bytes).
 
-#### Removing invalid characters
+### Removing invalid characters
 
 As discussed in [the slides](../slides/buffer-overflows.html#/how2doit), we are going to have to remove all end-of-string characters.  There are a number of characters can cause problems: newlines (0x0a), carriage returns (0x0d), tabs (0x09), vertical tab (0x0b), and spaces (0x20).  The real issue, however, is removing null bytes (0x00).  The slides discuss how to do this.  You can check your assembly subroutine with `objdump -d` to verify that these bytes do not occur.  Once you make these modifications, recompile `shellcode_test` to make sure it still works as intended after those changes.
 
-#### Execution
+### Execution
 
 After compiling with `make`, we will execute your code via `./shellcode_test` as follows.
 
@@ -354,7 +354,7 @@ $
 Note that we expect it to say *your* name, not Albert Einstein.  Any reasonable form of your name is fine.
 
 
-### Task 3: Overflow
+## Task 3: Overflow
 
 This is what we are all here for: the buffer overflow itself. Presumably, from task 2, you have shell code that does not contain any 0x00 bytes (or any of the other token-ending characters), prints out the grade you want, and then exits.
 
@@ -374,12 +374,12 @@ The [buffer overflow slide set](../slides/buffer-overflows.html#/) will be a use
 - The shellcode
 - The return address
 
-#### Debugging
+### Debugging
 
 See the next section for a quick tutorial on how to use the debugger to get your program working.
 
 
-#### Notes and hints
+### Notes and hints
 
 Some other notes and tips:
 
@@ -390,7 +390,7 @@ Some other notes and tips:
 - You can look at your created file via `hexdump -C input.bin`.  With the `-C` parameter, hexdump will display it in big Endian (different parameters to hexdump will show it in different Endian-ness).
 - In your `attack_shellcode` program, you may be tempted to use [puts()](http://www.cplusplus.com/reference/cstdio/puts/) to write your data to standard output.  However, `puts()` will write a newline character ('\\n', hex value 0x0a) after the data it prints. You can use [fputs()](http://www.cplusplus.com/reference/cstdio/fputs/) instead (use `stdout` as the file descriptor) -- this will print to standard output without the trailing newline.
 
-#### Makefile
+### Makefile
 
 Your Makefile will need to compile your program into an executable named `attack_shellcode`.  A possible compilation line might look like the following -- this would also go into your Makefile.
 
@@ -398,7 +398,7 @@ Your Makefile will need to compile your program into an executable named `attack
 gcc -o attack_shellcode attack_shellcode.c
 ```
 
-#### Execution
+### Execution
 
 After compiling with `make`, we will execute your code via `./attack_shellcode` as follows.
 
@@ -415,7 +415,7 @@ Albert Einstein, your grade on this assignment is an A$
 
 The specific value of your buffer address may vary.  Notice that the end prompt is on the *same* line as the output -- this is fixed next.
 
-### Debugger
+## Debugger
 
 
 You are going to have become friendly with gdb -- the GNU Debugger.  There is no way around that.  Here are a bunch of commands that will be of help; you can also see the [CS 2150 GDB tutorial](https://uva-cs.github.io/pdr/tutorials/02-gdb/index.html) (although some of the commands below are not listed there).
@@ -424,7 +424,7 @@ To perform any of these commands, you need to add the `-g` flag to *all* of your
 
 To start the debugger, run `gbd` with the *compiled* program you want to debug, such as: `gdb shellcode_test`.
 
-#### Breakpoints and examining data
+### Breakpoints and examining data
 
 A breakpoint is a spot in the file where the program execution will pause so that you can examine the state of things.  To set a breakpoint, enter `break shellcode_test.c:11`.  This will set a breakpoint at line 11 of the shellcode_test.c file, which is the line that calls `shellcode();`.  A breakpoint will pause the program just *before* that line is executed.
 
@@ -481,7 +481,7 @@ Quit anyway? (y or n) y
 $ 
 ```
 
-#### Managing execution
+### Managing execution
 
 Debuggers can allow you to execute lines of code one at a time; this is called single-stepping.  Presumably we would want to examine the data after each single step, as above -- but for this part we are just going to look at how to control the execution of the program.  
 
@@ -533,7 +533,7 @@ Albert Einstein, your grade on this assignment is a F
 (gdb) exit
 ```
 
-#### Assembly in a debugger
+### Assembly in a debugger
 
 The commands seen so far work for C programs, but we want to also be able to examine assembly execution.  Here are a few new commands:
 
@@ -547,7 +547,7 @@ The commands seen so far work for C programs, but we want to also be able to exa
 There is no example for this because the only relevant example is the homework solution.
 
 
-### Task 4: Newline
+## Task 4: Newline
 
 ***BACK UP YOUR CODE FIRST!!!*** You are about to modify your program, and if things go poorly, then you want to be able to revert back to the code that successfully completes tasks 3 and 4.
 
@@ -565,7 +565,7 @@ For this task, you are to modify your shellcode (in shellcode.s), and your attac
 
 This is just a modification of the attack_shellcode.c file, so your modifications for this task can overwrite parts from the last two tasks.  For grading purposes, if you did this task, then you obviously did the previous two tasks.
 
-#### Execution
+### Execution
 
 After compiling with `make`, we will execute your code via `./attack_shellcode` as follows.
 
@@ -581,7 +581,7 @@ $
 
 Notice that the end prompt is on the next line *after* the output.
 
-### Task 5: Write-up
+## Task 5: Write-up
 
 There are two parts to this write-up.  The first is to complete [buffer.py](buffer/buffer.py.html) ([src](buffer/buffer.py)) file -- just fill in the blanks as indicated in that file.
 
@@ -600,7 +600,7 @@ We are not looking for any significant length here, just candid answers.
 
 The second is to create a `buffer.pdf` file, which should contain screenshots of your program working.  You do not need to write a long-winded text for this (we aren't going to read it).  But please caption the screenshots so we know what is what.  The reason for this is because it is often hard (or impossible) to recreate the exact environment that you code ran in, so the screenshots are another form of evidence that your code worked as expected.  These can be screen shots of the debugger state, the program after execution, etc.  No more than, say, half a dozen, please.
 
-### Troubleshooting
+## Troubleshooting
 
 You are likely to run into problems, which will probably be segmentation faults.  Here are some ideas about how to solve that.
 
@@ -610,7 +610,7 @@ One issue is to figure out whether you are setting the return address correctly 
 
 If you are sure the return address is set correctly, the next step is to trace the injected assembly.  Set a break point for the end of the `vulnerable()` function.  If you set it *before* the last function call (the `strncpy()` call), hit `n` to step over that function.  You will then start using `stepi` to single-step through the assembly instructions.  Running `layout asm` will help the trace.  You should step through your assembly code to make sure it works -- presumably there will be the nop sled, then your injected code.  Note that x86 instructions are of a different lengths, so if your jump is off, it may jump to the middle of an instruction, and you will get an illegal instruction error.  You can disassemble a region of memory with a command such as `disassemble 0x7fffffffdcb0,0x7fffffffdd30`.  Also note that when you are disassembling the contents of the stack, gdb will attempt to map the string (that you should receive, presumably, an A) to x86 instructions, many of which will be invalid.  But if you do a disassembly from the start of your shell code (which is the target of your initial jump), you should see the assembly that you wrote.
 
-### Submission
+## Submission
 
 You are going to submit six files:
 

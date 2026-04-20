@@ -50,20 +50,20 @@
 <main>
 <h1 id="ics-programming-homework-tricky-jump">ICS: Programming Homework: Tricky Jump</h1>
 <p><a href="index.html">Go up to the ICS HW page</a> (<a href="index.md">md</a>) | <a href="hw-tricky-jump-tabbed.html">view tabbed version</a></p>
-<h3 id="overview">Overview</h3>
+<h2 id="overview">Overview</h2>
 <p>In this assignment, you are going to read in a binary file, add in a tricky jump, and write the modified binary file. This is similar to what viruses do; however, you are going to do this in Python, whereas viruses do this in assembly. However, you have to read in the <em>binary</em> file, and cannot use any external tools (such as objdump) to help you.</p>
 <p>The goal of this is to write out the string “Not a virus” (with the trailing newline) to the screen, and then having the program continue on as normal. Be sure to write that exact string, as that is what the auto-grader will check for! If you write anything different, the auto-grader will deduct points.</p>
 <p>This assignment is organized into steps, each one more complicated than the previous. However, each one also builds upon the previous. You can get partial credit if you do the first few, but are not able to complete the last ones.</p>
-<h3 id="changelog">Changelog</h3>
+<h2 id="changelog">Changelog</h2>
 <p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
-<h3 id="platform">Platform</h3>
+<h2 id="platform">Platform</h2>
 <p>This assignment will be reading in ELF binaries used in Linux operating systems. You can develop this on any platform that you want; however, the binary file will only be Linux ELF, and will only run on a Linux system. It should run on WSL (Windows Subsystem for Linux) as well, since that system can run ELF files. If you do not have access to a Linux machine, you can use the <a href="https://www.virginiacyberrange.org/">Virginia Cyber Range</a> to test your modified ELF files to ensure that they work. See the <a href="hw-rootkits-tabbed.html">Rootkits assignment</a> for how to sign into the Virginia Cyber Range, if you have not already done so in previous assignments. You should use the same Linux environment from the last assignment. For tips on getting data in and out of the Cyber Range, see <a href="https://kb.virginiacyberrange.org/features/copy-paste-upload-download.html">here</a>.</p>
 <p>You can use any Ubuntu 22.04 system – both the Rootkits homework and the Buffer Overflow homework use that system. You can transfer the files back and forth by using a cloud file service, such as UVABox (which is free), Google Drive, etc.</p>
 <p><strong>WARNING:</strong> This site is free to use for <em>class purposes</em> for all students in the course. Using it for non-class purposes is an honor violation, and will be dealt with as such. Anything outside the reasonable bounds of an assignment in this course is considered a non-class purpose.</p>
 <p>The Cyber Range is a great resource, but it is a <em>finite</em> resource. If you decide to wait to the last minute to start the assignment, and the rest of your class-mates do so as well, it’s going to be slooooooow. You cannot get an extension because you waited until the last minute along with everybody else, and the system was slow as a result.</p>
-<h4 id="setarch"><code>setarch</code></h4>
+<h3 id="setarch"><code>setarch</code></h3>
 <p>All the commands herein should be done after running <code>setarch $(uname -m) -L -R /bin/bash</code>. Nothing will work right without running that command! You have to enter that command each time you log in.</p>
-<h4 id="compiled-targets">Compiled targets</h4>
+<h3 id="compiled-targets">Compiled targets</h3>
 <p>We provide a number of executable files for you try to modify. If you compile them yourself, then the executable files may be different due to differences in compiler versions, etc. So please use the ones we provide!</p>
 <ul>
 <li><a href="tricky-jump/test1.c.html">test1.c</a> (<a href="tricky-jump/test1.c">src</a>) and <a href="tricky-jump/nops.s.html">nops.s</a> (<a href="tricky-jump/nops.s">src</a>) compile to the <a href="tricky-jump/test1">test1</a> executable file. You can also see the <a href="tricky-jump/test1.objdump.txt">objdump -d</a>, the <a href="tricky-jump/test1.hexdump.txt">hexdump -C</a>, and the <a href="tricky-jump/test1.readelf.txt">results of readelf</a>.</li>
@@ -75,7 +75,7 @@
 </ul>
 <p>All of the programs just print “hello world”.</p>
 <!-- ============================================================= -->
-<h3 id="step-1-payload">Step 1: Payload</h3>
+<h2 id="step-1-payload">Step 1: Payload</h2>
 <p>For this assignment, we are just going to insert a small assembly routine that prints out “Not a virus”, with a newline at the end. You should create an assembly file, called <code>print.s</code>, that does this.</p>
 <p>This output should be done with the <code>syscall</code> opcode, as was done in the Buffer Overflow slide set and the sample code <a href="../slides/buffer-overflows.html#/removing-the-.data-section">in the buffer overflow slides</a>. Depending on when you start this assignment, we may not have gone over those slides yet in lecture, so here is a quick primer:</p>
 <ul>
@@ -103,20 +103,20 @@ int main() {
 <p>Note: on some platforms, the flags <code>-m64 -no-pie</code> had to be added to the two <code>gcc</code> lines. See if the above works for you first; if not, then try adding those two flags.</p>
 <p>Remember that the indentation is tabs, not spaces! The executable here is just <code>part1</code>. You are welcome to use the Makefile provided above, and add your lines to that. Just be sure to put <em>your</em> compilation lines <em>above</em> what is already in the Makefile. At this point, you should be able to type <code>make</code> it should compile, and it should print:</p>
 <pre><code>Not a virus</code></pre>
-<h4 id="what-to-submit">What to submit</h4>
+<h3 id="what-to-submit">What to submit</h3>
 <p>The files to submit from this part are your <code>print.s</code>, <code>part1.c</code>, and <code>Makefile</code>.</p>
 <!-- ============================================================= -->
-<h3 id="part-2-hard-coded">Part 2: Hard-coded</h3>
+<h2 id="part-2-hard-coded">Part 2: Hard-coded</h2>
 <p>We are going to make a modification to the <a href="tricky-jump/test1">test1</a> executable file. This step has you making modifications to specific hard-coded addresses – which means it will only work with that one executable file.</p>
 <p>This executable was compiled from <a href="tricky-jump/test1.c.html">test1.c</a> (<a href="tricky-jump/test1.c">src</a>), <a href="tricky-jump/nops.s.html">nops.s</a> (<a href="tricky-jump/nops.s">src</a>), and this <a href="tricky-jump/Makefile.html">Makefile</a> (<a href="tricky-jump/Makefile">src</a>). Note that if you compile it, you might get a slightly different binary version (due to compiler differences, etc.), so you should use the provided <a href="tricky-jump/test1">test1</a> executable file. You can also see the <a href="tricky-jump/test1.objdump.txt">objdump of test1</a>, the <a href="tricky-jump/test1.hexdump.txt">hexdump of test1</a>, and the <a href="tricky-jump/test1.readelf.txt">results of readelf</a>.</p>
 <p>This part should be in a file called <code>part2.py</code>.</p>
-<h4 id="your-inserted-code">Your inserted code</h4>
+<h3 id="your-inserted-code">Your inserted code</h3>
 <p>You need to run <code>objdump -d</code> on your <code>part1</code> executable that you created above (this has to be done on a Linux or WSL system, such as the Virginia Cyber Range). Look for the <code>print()</code> subroutine. This will have three parts: the <code>jmp</code>, the string itself, and the body of the subroutine (which ends with a <code>ret</code> (0xc3)). Yours will likely be around 40 bytes – it’s fine if it’s more or less, as long as it prints the desired output. These hex bytes are what you are going to write to the executable.</p>
-<h4 id="inserted-code-target">Inserted code target</h4>
+<h3 id="inserted-code-target">Inserted code target</h3>
 <p>If you look at the <a href="tricky-jump/test1.objdump.txt">objdump of test1</a>, you will see an entire subroutine of <code>nop</code> instructions; that subroutine is called <code>nops()</code>. While this is quite convenient for us, it’s not realistic – but a good start for our first binary executable modification. Pick any spot at the beginning of that set of <code>nop</code> instructions. Remember the address you chose, and remember that the addresses in the <code>objdump</code> file are in hex.</p>
-<h4 id="push"><code>push</code></h4>
+<h3 id="push"><code>push</code></h3>
 <p>We are going to write a <code>push</code> command into the executable file, right before the <code>ret</code>. The format we are going to use is 5 bytes: 0x68 followed by the four bytes of the value we are pushing (in little-Endian!). The value you are writing is the absolute address of the jump target – what you chose above – in the file.</p>
-<h4 id="modifying-main">Modifying <code>main()</code></h4>
+<h3 id="modifying-main">Modifying <code>main()</code></h3>
 <p>If you look at the objdump, you can see the two assembly instructions right before the <code>ret</code> in <code>main()</code>:</p>
 <pre><code>40113d: b8 00 00 00 00          mov    $0x0,%eax
 401142: 48 83 c4 08             add    $0x8,%rsp</code></pre>
@@ -125,19 +125,19 @@ int main() {
 00001140  00 00 48 83 c4 08 c3 66  0f 1f 84 00 00 00 00 00  |..H....f........|</code></pre>
 <p>These nine bytes are going to be replaced with the five byte <code>push</code> instruction, and four bytes of <code>nop</code> instructions (0x90). It doesn’t matter if you put the <code>nop</code> instructions before the <code>push</code> instruction or after.</p>
 <p>Save those nine bytes that you are about to overwrite! Then overwrite them with four <code>nop</code> instructions and the <code>push</code> instruction. Remember that the address for the <code>push</code> instruction is in little-Endian, so you have to reverse the bytes.</p>
-<h4 id="reading-the-binary-file">Reading the binary file</h4>
+<h3 id="reading-the-binary-file">Reading the binary file</h3>
 <p>As this is in Python, you can read the <code>test1</code> file into an array of bytes via:</p>
 <pre><code>with open(&quot;test1&quot;,&quot;rb&quot;) as f:
     bin = list(f.read())</code></pre>
 <p>This opens the file in binary mode, reads in the entire file in one go as a <code>bytes</code> type, and then converts that to a list of bytes (which will be printed as base-10 integers if you print it out).</p>
-<h4 id="writing-your-code">Writing your code</h4>
+<h3 id="writing-your-code">Writing your code</h3>
 <p>You need to make two modifications to the binary file.</p>
 <ul>
 <li>First, save the 9 bytes in <code>main()</code> that you are about to overwrite</li>
 <li>Write the four <code>nop</code> instructions and the <code>push</code> instruction to that location in <code>main()</code></li>
 <li>Write the 40 (or so) bytes of your <code>print()</code> code to the address you chose above. HOWEVER, you have to put in the saved instructions from <code>main()</code> – those 9 bytes – before the <code>ret</code>. So you are going to write all of <code>print()</code> <em>except</em> the ret, then the 9 bytes of saved instructions, then the ret (0xc3).</li>
 </ul>
-<h4 id="outputting-the-file">Outputting the file</h4>
+<h3 id="outputting-the-file">Outputting the file</h3>
 <p>Your output file should be called <code>test1mod</code> – do NOT overwrite <code>test1</code>!</p>
 <p>In Python, given a list of byte values, you can write the file as such:</p>
 <pre><code>binout = b&#39;&#39;
@@ -145,14 +145,14 @@ for i in bin:
     binout += bytes.fromhex(&quot;0x{:02x}&quot;.format(i).replace(&#39;0x&#39;,&#39;&#39;))
 with open(&quot;test1mod&quot;,&quot;wb&quot;) as f:
     f.write(binout)</code></pre>
-<h4 id="hard-coded-values">Hard-coded values</h4>
+<h3 id="hard-coded-values">Hard-coded values</h3>
 <p>To make your life easier when you get to the next part, you should have the various hard-coded values in variables. You are welcome to do this before or after you get this part working. Those values are:</p>
 <ul>
 <li><code>push_loc</code>: The location in <code>main()</code> where you are going to write the <code>nop</code> instructions and the <code>push</code> command (0x113d)</li>
 <li><code>inst_len</code>: The number of bytes you are overwriting at that address (9)</li>
 <li><code>write_loc</code>: The address where you are writing the code to (determined above)</li>
 </ul>
-<h4 id="ensuring-it-works">Ensuring it works</h4>
+<h3 id="ensuring-it-works">Ensuring it works</h3>
 <p>Run your program! It should look like this:</p>
 <pre><code>$ ./test1mod 
 hello world
@@ -169,10 +169,10 @@ $</code></pre>
 <li>You can break at a given hex address via: <code>break *0x401234</code>. Pick the address based on what’s in the objdump.</li>
 </ul></li>
 </ul>
-<h4 id="what-to-submit-1">What to submit</h4>
+<h3 id="what-to-submit-1">What to submit</h3>
 <p>The file to submit from this part is <code>part2.py</code>.</p>
 <!-- ============================================================= -->
-<h3 id="step-3-variable-target">Step 3: Variable target</h3>
+<h2 id="step-3-variable-target">Step 3: Variable target</h2>
 <p>The previous section had you hard-code addresses – both where in <code>main()</code> to replace the instructions, and also where in the file to put your payload. This part will have you determine those values. Once they are determined, the program will be much the same as the previous part.</p>
 <p>Specifically, you need to determine the values for <code>push_loc</code>, <code>inst_len</code>, and <code>write_loc</code>. Once they are determined, you can modify the file using your code from the previous part.</p>
 <p>There are a few different pieces of information that you will need to determine:</p>
@@ -193,7 +193,7 @@ $</code></pre>
 </ul>
 <p>We will look at teach of these in turn. As you are working on determining those three or four parts, you can hard-code the values for the <code>test</code> binary so that you can work on the other parts.</p>
 <p>Your code for this part must be in a file called <code>part3.py</code>.</p>
-<h4 id="command-line-parameter">Command-line parameter</h4>
+<h3 id="command-line-parameter">Command-line parameter</h3>
 <p>The binary file to modify will be passed in as a command line parameter – in <code>sys.argv[1]</code>. Your output should just append <code>mod</code> (not <code>.mod</code>!) to the file name. So an input of <code>test2</code> should result in <code>test2mod</code>. An example run:</p>
 <pre><code>$ ./test2
 hello world
@@ -202,24 +202,24 @@ $ ./test2mod
 hello world
 not a virus
 $</code></pre>
-<h4 id="where-.text-starts">Where <code>.text</code> starts</h4>
+<h3 id="where-.text-starts">Where <code>.text</code> starts</h3>
 <p>This starts at 0x1040 in <code>test1</code>.</p>
 <p>The best way to do this is to read through the section header table in an ELF file. But it turns out there is a shortcut for the programs we are dealing with in this assignment.</p>
 <p>The entry point address is, for the programs in this assignment, the same as the start of the <code>.text</code> section. And that address is at bytes 0x18 to 0x1b in the executable file. You can see that in the hexdump of <code>test1</code>:</p>
 <pre><code>00000010  02 00 3e 00 01 00 00 00  40 10 40 00 00 00 00 00  |..&gt;.....@.@.....|</code></pre>
 <p>That’s little-Endian for 0x00401040. We remove the leading ‘0x0040’, so we really only want bytes 0x18 and 0x19: <code>0x1040</code>. That’s the start of <code>.text</code>.</p>
-<h4 id="where-in-main-the-ret-is">Where in <code>main()</code> the <code>ret</code> is</h4>
+<h3 id="where-in-main-the-ret-is">Where in <code>main()</code> the <code>ret</code> is</h3>
 <p>This is at 0x1146 in <code>test1</code>. The entry point is 0x1040, which is what we just determined above. Note that there are a number of 0xc3 (<code>ret</code>) bytes before you get to <code>main()</code> itself – these will not work due to the next part (identifying the previous instructions) – you can start analyzing at byte 0x1120 in <code>test1</code> until you get that part working – the first 0xc3 from that byte is the correct <code>ret</code> statement to work with.</p>
 <p>For our purposes, we will just look for a <code>ret</code> opcode in binary (0xc3). It’s possible that a 0xc3 byte is present due to being part of another instruction, such as a data value. If we can identify the instructions <em>before</em> the <code>ret</code> (that’s next), then we can safely assume that we have found a <code>ret</code> and not a data value.</p>
-<h4 id="identify-previous-instructions">Identify previous instructions</h4>
+<h3 id="identify-previous-instructions">Identify previous instructions</h3>
 <p>For <code>test1</code>, these are the nine bytes of instructions that you dealt with in the previous part (bytes 0x113d to 0x1145).</p>
 <p>Your program needs to analyze the bytes before the <code>ret</code> to determine which instructions they are, and how many bytes each instruction is. For our purposes, we will assume that the instructions before the <code>ret</code> will always be one of: <code>add</code>, <code>mov</code>, <code>pop</code>, and <code>nop</code>. This is a reasonable assumption in general, as those are the types of instructions that a compiler will put at the end of a subroutine. All the test files provided here, and the ones that will be used for grading, will follow this assumption.</p>
 <p>You can see how these instructions translate into machine code in the next section. For each instruction, we are only using the 2 (or so) most common encodings. This means there are a total of 6 possible patterns to look for (as <code>nop</code> only has one encoding, and we are only considering one encoding for <code>mov</code>). Your program needs five bytes to write the <code>push</code> instruction, so you should continue to identify instructions until you get to five (or more) bytes. If you get to more than 5 bytes, you will use <code>nop</code> instructions, as you did in the previous part.</p>
 <p>If your code does not find the correct instructions before a <code>ret</code>, then it should continue looking forward in the file for the next <code>ret</code>, and then analyze the bytes before that one. This could happen because you did not find an actual <code>ret</code> (a 0xc3 byte was a data value, for example), or if the instructions before the <code>ret</code> were not of the form that you need to identify. If you hit the end of the file, then output “Unable to find a suitable ret”.</p>
-<h4 id="where-to-put-the-payload">Where to put the payload</h4>
+<h3 id="where-to-put-the-payload">Where to put the payload</h3>
 <p>You identified this location for <code>test1</code> in the previous part – it was somewhere in the <code>nops()</code> subroutine.</p>
 <p>The programs we are using have a large set of consecutive <code>nop</code> statements for you to put your payload in. However big your payload is (likely around 40 or so bytes), you should look for a sequence of <code>nop</code> bytes (0x90) that is of that length. That is where you should put your payload. You can assume that our executables will provide a <code>nop</code> section of at least 100 bytes.</p>
-<h4 id="putting-it-all-together">Putting it all together</h4>
+<h3 id="putting-it-all-together">Putting it all together</h3>
 <p>When you can determine the four previous data items, you can use your binary modification code from part 2. You can test this on the three executable files provided with this assignment:</p>
 <ul>
 <li><a href="tricky-jump/test1.c.html">test1.c</a> (<a href="tricky-jump/test1.c">src</a>) and <a href="tricky-jump/nops.s.html">nops.s</a> (<a href="tricky-jump/nops.s">src</a>) compile to the <a href="tricky-jump/test1">test1</a> executable file. You can also see the <a href="tricky-jump/test1.objdump.txt">objdump -d</a>, the <a href="tricky-jump/test1.hexdump.txt">hexdump -C</a>, and the <a href="tricky-jump/test1.readelf.txt">results of readelf</a>.
@@ -244,25 +244,25 @@ $</code></pre>
 </ul></li>
 </ul>
 <p>You are welcome to create your own, but check (with <code>objdump -d</code>) that the assembly instructions before the <code>ret</code> are what you expect them to be.</p>
-<h4 id="what-to-submit-2">What to submit</h4>
+<h3 id="what-to-submit-2">What to submit</h3>
 <p>The file to submit from this part is <code>part3.py</code>.</p>
 <!-- ============================================================= -->
-<h3 id="machine-code">Machine code</h3>
+<h2 id="machine-code">Machine code</h2>
 <p>When a compiler compiles a function, there are three parts: the prologue, the function body, and the epilogue. The <em>prologue</em> sets up the function – allocation of local variables, and saving registers that it is going to overwrite. The <em>function body</em> is the compiled code from the C code. The <em>epilogue</em> will deallocate local variables, restore registers, and then calls <code>ret</code>.</p>
 <p>If the epilogue is of a standard format (a safe assumption for this assignment), then there are only a few instructions that will appear immediately before the the <code>ret</code>: <code>mov</code>, <code>pop</code>, <code>add</code>, and <code>nop</code>. It is certainly possible to have other instructions before the <code>ret</code> – especially if it’s a simpler subroutine – but we are going to assume that it is only going to be one of those four. All the test files will follow this assumption.</p>
 <p>Thus, we only have to scan for those four types of instructions before the <code>ret</code>.</p>
-<h4 id="the-add-instruction">The <code>add</code> instruction</h4>
+<h3 id="the-add-instruction">The <code>add</code> instruction</h3>
 <p>Any <code>add</code> instruction in the epilogue is adding a value to <code>rsp</code>, and that is the only type of add we have to consider for this assignment. These instructions can be in one of two forms:</p>
 <ul>
 <li><code>0x48 0x83 0xc4 0xXX</code> will add 0xXX to %rsp, where 0xXX is the value in hex. This assumes 0xXX is less than or equal to 0xff (255).</li>
 <li><code>0x48 0x81 0xc4 0xXX 0xXX 0xXX 0xXX</code> will add the 4-byte value (0xXX 0xXX 0xXX 0xXX) to %rsp. Note that the second digit is 0x81 here, and not 0x83 as above. Also note that the value is in <strong><em>little Endian</em></strong>. So the hex instruction <code>0x48 0x81 0xc4 0x12 0x34 0x56 0x78</code> will add 0x12345678 (little-Endian) to %rsp, which is 0x78563412 in big-Endian format.</li>
 </ul>
-<h4 id="the-mov-instruction">The <code>mov</code> instruction</h4>
+<h3 id="the-mov-instruction">The <code>mov</code> instruction</h3>
 <p>There are many encodings of the <code>mov</code> instruction, but we will only study a few such forms:</p>
 <ul>
 <li><code>0xb8 0xXX 0xXX 0xXX 0xXX</code> will move the value <code>0xXX 0xXX 0xXX 0xXX</code> (in little-Endian) into the %eax register; this is setting up the return value</li>
 </ul>
-<h4 id="the-pop-instruction">The <code>pop</code> instruction</h4>
+<h3 id="the-pop-instruction">The <code>pop</code> instruction</h3>
 <p>The <code>pop</code> instruction can take a few forms:</p>
 <table>
 <thead>
@@ -336,10 +336,10 @@ $</code></pre>
 </table>
 <p>Nobody should pop into %rsp, so it is not listed above.</p>
 <p>Thus, the <code>pop</code> instructions we have to look at are hex 0x58 to 0x5e, and hex 0x41 0x58 to 0x41 0x5f.</p>
-<h4 id="the-nop-instruction">The <code>nop</code> instruction</h4>
+<h3 id="the-nop-instruction">The <code>nop</code> instruction</h3>
 <p>This will occasionally appear. It’s a single byte of value 0x90.</p>
 <!-- ============================================================= -->
-<h3 id="submission">Submission</h3>
+<h2 id="submission">Submission</h2>
 <p>You should submit to Gradescope the five files that you developed:</p>
 <ul>
 <li>From part 1: <code>print.s</code>, <code>part1.c</code>, and <code>Makefile</code></li>

@@ -9,12 +9,12 @@ You will want to see the
 due dates are listed on the [UVa course page](../uva/index.html)
 ([md](../uva/index.md)).
 
-### Assignment
+## Assignment
 
 You must watch a "hacker" movie, and write a (short) report about it.
 
 
-### Movie Selection
+## Movie Selection
 
 Here, a "hacker" movie, for the purposes of this assignment, is a
 movie that fulfills the following:
@@ -67,7 +67,7 @@ list above), so all such requests need to come in no later than 24
 hours before the assignment is due -- and preferably more time, so
 that you are not rushed to watch it.
 
-### Task 1: Watch the Movie
+## Task 1: Watch the Movie
 
 Yes, you actually have to watch it.  This can be any movie that meets
 the requirements, and it can be a movie that you have already seen.
@@ -77,7 +77,7 @@ did in fact watch the movie recently (more on that below).  You are
 welcome to watch it with other people in the class, on your own,
 whatever you would like.
 
-### Task 2: Write the Honor Pledge
+## Task 2: Write the Honor Pledge
 
 You must pledge, on your honor as a student, that you really watched
 the movie in it's entirety, within the *three weeks* prior to the
@@ -85,7 +85,7 @@ assignment being due.  This should be the first sentence / paragraph
 of the assignment.  *If this is not present, your assignment will
 receive a zero!*
 
-### Task 3: Write the Report
+## Task 3: Write the Report
 
 You need to identify the various computer security aspects of the
 movie that were unrealistic.  For those parts, you need to briefly
@@ -103,7 +103,7 @@ majority of the responses to be far less.  Have I mentioned how much I
 hate fluff in essays?  See [here](../uva/hw-policies.html)
 ([md](../uva/hw-policies.md)) for details.
 
-### Task 4: Submission Requirements
+## Task 4: Submission Requirements
 
 You have to submit a .pdf version of your assignment.
 

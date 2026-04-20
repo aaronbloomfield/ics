@@ -3,7 +3,7 @@ ICS: Programming HW: Hashing
 
 [Go up to the ICS HW page](index.html) ([md](index.md))
 
-### Overview 
+## Overview 
 
 In this assignment, you will be examining some of the issues surrounding hashes and their security applications.
 
@@ -12,18 +12,18 @@ There are two separate tasks for this assignment, as described below.
 You should be familiar with the [hashing section of the encryption slides](../slides/encryption.html#/hashing).
 
 
-### Changelog
+## Changelog
 
 Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
 
 
-### Task 1: CRC insecurity
+## Task 1: CRC insecurity
 
 Your job is to write a program that, when given an input file and a CRC checksum, will modify that message, and ensure that the modified version matches the provided CRC checksum.  We are using CRC-16 here for speed, but the concepts are the exact same as for CRC-32, which would be much slower.
 
 While you can use any language, we provide some sample code in Python.  You will have to install the [crc library](https://pypi.org/project/crc/) (documentation is [here](https://nicoretti.github.io/crc/)) -- you can do this via `pip install crc` or `pip3 install crc`.  If you are using PyCharm, you should do this through PyCharm's terminal shell: View -> Tool Windows -> Terminal, and then run the `pip` command from above.
 
-#### Getting the CRC-16 checksum
+### Getting the CRC-16 checksum
 
 Note: there are apparently [many versions of CRC16](https://reveng.sourceforge.io/crc-catalogue/all.htm); we are using the MODBUS version.  You can use a site such as [this one](https://crccalc.com) to compute a CRC hash, but be sure to look at the MODBUS version line when it presents the hash results.  If you do use that site, be sure to take into account a ending newline -- most text files will have it, and if so, you have to make sure that the online form has it as well.
 
@@ -51,7 +51,7 @@ $
 
 The first line (`echo "Things are going just great" > input.txt`) creates a text file that has the indicated string.  The second line calls the program above.
 
-#### Assignment
+### Assignment
 
 Your program can be named anything, and there will have to be a `crc16crack.sh` shell script, described below, to run your program.  Your program will be run with two command-line parameters:
 
@@ -102,7 +102,7 @@ Here is what is happening in the above execution run:
     - This runs the program provided above to verify that the hash of `output.txt` really is 0xabcd
 
 
-### Task 2: Dictionary Attacks
+## Task 2: Dictionary Attacks
 
 Modern computer systems do not store the password in plain text, but instead store a hash of that password.  When a user logs in, a hash is taken of the password the user enters, and that hash is compared to the saved one -- if they match, then the login is successful.  Since hashes are one-way functions, we cannot determine a password based solely on the hash.  Instead, we perform a [dictionary attack](https://en.wikipedia.org/wiki/Dictionary_attack): we take every word in the dictionary, hash each one, and then compare the hashes.  If we had more computing power, we could compute *all* passwords of 8 printable characters, and hash each one of those.
 
@@ -112,7 +112,7 @@ To prevent a leaked password hash from being easily looked up online, sites will
 
 For this part, we are only using SHA-256 hashes.  This part may be written in any programming language.
 
-#### Set-up
+### Set-up
 
 A password file will be provided in the following format:
 
@@ -130,7 +130,7 @@ The dictionary file we will use is located at /usr/share/dict/words on most Linu
 
 You are welcome to create your own versions of these files -- meaning you can create a file with only 100 (or so) words to use for testing.  If you want to find the SHA-256 password for a string, try running: `echo -n banana | sha256sum` in Linux or Mac OS X.  Note that the `-n` part is important in that echo statement -- it ensures that there is no return (`\n`) put at the end of the string that you are taking the SHA-256 hash of.  You can also use any online SHA-256 generator (the hash of `banana`, by the way, is b493d48364afe44d11c0165cf470a4164d1e2609911ef998be868d46ade3de4e).  
 
-#### Assignment
+### Assignment
 
 Your program should find any and all passwords matches in the password file by hashing each of the words in the dictionary file.  Your program will be provided with three command-line parameters: the dictionary file, the password file, and the salt, in that order.  For this assignment, the salt will always be an alphanumeric string, and underscores are also allowed.
 
@@ -155,7 +155,7 @@ If no passwords are found, then the program should produce no output.
 
 While we do not really care about efficiency, your program must run in a reasonable time.  Basically it -- along with the program in the previous task -- should not time out in Gradescope.
 
-### Task 3: Poor passwords
+## Task 3: Poor passwords
 
 Now that we can tell if their passwords are in a dictionary, from the previous section, we also need to also check if they made a very simple change from their previous password.  What we are trying to prevent is if their password is `password`, then they should not be able to change it to `passwordxx`.
 
@@ -195,9 +195,9 @@ Some notes:
 - Don't overthink this -- the solution code is under 10 lines in Python.
 
 
-### Other Files
+## Other Files
 
-#### Makefile
+### Makefile
 
 You will need to submit a `Makefile`.  It will compile your code, as needed; if you are using Python (or similar), the no compilation is necessary, but a valid Makefile must still be submitted.
 
@@ -222,7 +222,7 @@ main:
 
 Change the name of your source code file as appropriate.
 
-#### Shell scripts
+### Shell scripts
 
 Each of the three parts will have to have its own shell script.  All these shell scripts are exactly two lines.  The first line is exactly:
 
@@ -248,7 +248,7 @@ The name of the shell script and the second line will depend on which shell scri
 To run it yourself, be sure to run `chmod 755 crc16crack.sh dictionary.sh passwords.sh`
 
 
-### Submission
+## Submission
 
 
 There are seven files to submit:
@@ -260,7 +260,7 @@ There are seven files to submit:
 
 We will be compiling your submission with `make`.
 
-#### Submission hints
+### Submission hints
 
 The CRC-16 cracking code will take some time on Gradescope.  You can write a temporary version of that program that just writes anything to `output.txt` to start -- this will obviously fail the Gradescope tests, but it will allow you to ensure that everything else in your submission works (Makefile, the other file parts, the shell scripts, etc.).  Once you know everything else works, you can submit your real version of the CRC-16 cracking code.
 

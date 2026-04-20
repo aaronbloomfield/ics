@@ -5,7 +5,7 @@ ICS: Homeworks
 
 You will be bound by the requirements on the [Homeworks policies page](../uva/hw-policies.html) ([md](../uva/hw-policies.md)), so please read that!  The due dates are all listed on the [main UVa page](../uva/index.html) ([md](../uva/index.md)).
 
-### Programing homeworks
+## Programing homeworks
 
 - [Programming homework: Forensics](hw-forensics-tabbed.html) ([one-page version](hw-forensics.html), [md](hw-forensics.md))
 - [Programming homework: Buffer Overflow](hw-buffer-tabbed.html) ([one-page version](hw-buffer.html), [md](hw-buffer.md))
@@ -19,14 +19,14 @@ You will be bound by the requirements on the [Homeworks policies page](../uva/hw
 - [Programming homework: RSA](hw-rsa-tabbed.html) ([one-page version](hw-rsa.html), [md](hw-rsa.md))
 
 
-### Written homeworks
+## Written homeworks
 
 - [Written homework: Ethics](hw-ethics.html) ([md](hw-ethics.md))
 - [Written homework: Policy](hw-policy.html) ([md](hw-policy.md))
 - [Written homework: Rational Paranoia](hw-paranoia-tabbed.html) ([md](hw-paranoia.md))
 
 
-### Homeworks not being used in spring 2023
+## Homeworks not being used in spring 2023
 
 - [Written homework: Celebrity Visit](hw-celebrity-visit.html) ([md](hw-celebrity-visit.md))
 - [Written homework: Movie Night](hw-movie-night.html) ([md](hw-movie-night.md))

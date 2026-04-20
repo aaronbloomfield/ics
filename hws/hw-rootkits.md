@@ -4,7 +4,7 @@ ICS: Programming Homework: Rootkits
 [Go up to the ICS HW page](index.html) ([md](index.md))
 
 
-### Overview
+## Overview
 
 In this assignment, you will investigate both types of rootkits: application and kernel.  There are four tasks to be completed for submission.  You will want to review the [rootkit slides](../slides/rootkits.html#/).
 
@@ -16,13 +16,13 @@ In this assignment, you will create both types of rootkits: a kernel-level one a
 We are not responsible if you render your computer inoperable because you did not follow this warning!  This is why we provided the Cyber Defense Range account!
 
 
-### Changelog
+## Changelog
 
 Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
 
 
 <!--
-### Backups and Restoration
+## Backups and Restoration
 
 You may well render your VirtualBox image inoperable.  That's fine, as we can easily fix this.  First, before you start this assignment, back up any code that you have on the VirtualBox machine that you want to save.  As you are writing your program, you will want to back it up in some fashion before you attempt to run it EACH TIME you are running something that could negatively affect the system.  A few options exist for that:
 
@@ -45,7 +45,7 @@ Once you have backed up your code for this assignment, if you brick your image, 
 
 -->
 
-### Platform
+## Platform
 
 We will be using the Virginia Cyber Range at [https://www.virginiacyberrange.org/](https://www.virginiacyberrange.org/). This site basically allows you to run a remote virtual environment; we are using Ubunmtu 22.04.
 
@@ -70,13 +70,13 @@ When you are done, you should close that window, and you can stop the virtual ma
 
 This is a great resource, but it is a *finite* resource.  If you decide to wait to the last minute to start the assignment, and the rest of your class-mates do so as well, it's going to be slooooooow.  You cannot get an extension because you waited until the last minute along with everybody else, and the system was slow as a result.
 
-#### Working as root
+### Working as root
 
 Some of these commands will require to to execute them as the root user.  You can do this by prepending `sudo` in front of the command. For example, to insert a module called `root.ko`, you would call `sudo insmod root.ko` -- this executes the `insmod root.ko` command as root.
 
 
 
-### Task 1: Kernel-level rootkit
+## Task 1: Kernel-level rootkit
 
 **Kernel level rootkit:** Recall that a Linux kernel level rootkit installs a loadable kernel module (LKM) that gives the attacker more privileges on the compromised machine.  We are going to build such a module here. There are two tasks to be done for the kernel level rootkit aspect of this assignment.
 
@@ -95,7 +95,7 @@ Note that to complete this part, you can just copy the code that is listed there
 For submission of your code, you should put your code in a `root.c` file (the same name as in the tutorial), and put the appropriate compilation lines in the Makefile.  The module name MUST be `root.ko`, otherwise we won't be able to load it ourselves.
 
 
-### Task 2: What else?
+## Task 2: What else?
 
 What else can rootkits do?
 
@@ -109,7 +109,7 @@ How many to find?  That's up to you.  If you have a bunch, and you are not findi
 
 This part should be put into a PDF called `kernel-rootkits.pdf`; note that there will also be content in that file from the first task.
 
-### Task 3: Wrapper files
+## Task 3: Wrapper files
 
 **Application level rootkit:** Recall that an application level rootkit will replace specific utilities with compromised versions.  There are two tasks to be done for the application level rootkit aspect of this assignment.
 
@@ -158,7 +158,7 @@ Your Makefile MUST create a `sha224sum` *executable* file.  If your code require
 
 **NOTE:** In your Makefile, you should *NOT* copy the resulting `sha224sum` file to /usr/bin -- our grading scripts will do that for you.  You will need to do that manually when testing it, but let our grading scripts handle that upon submission.
 
-### Task 4: Modify source code
+## Task 4: Modify source code
 
 For this task, we will attack the `sha384sum` binary, for similar reasons as the previous task -- it's not likely to be critical to your OS booting.
 
@@ -208,7 +208,7 @@ Note that the logs that are displayed only keep the information sent in the last
 
 The only file you should submit from this is the modified `md5sum.c` file.  We will unpack and configure the entire coreutils archive, put the md5sum.c file in there, and then recompile the `sha384sum` program.  Thus, you do NOT need anything in your Makefile for this task.
 
-### Hints
+## Hints
 
 We've collected a few of these here...
 
@@ -219,16 +219,16 @@ We've collected a few of these here...
 - `exec()` refers to a family of functions that can execute other processes; we recommend using `excel()` for this assignment (though you are free to do otherwise!)
 - If `make` does not work, you can try running `sudo apt install --fix-missing`  and then run `make` again to see if that fixes the problem
 
-### Submission
+## Submission
 
-#### Sanity checks
+### Sanity checks
 
 A few things to check before you submit...
 
 - Task 3: in your Makefile, you should *NOT* move any files to /usr/bin -- our grading scripts will do that for you
 - Task 4: your sha384sum does *not* display the wget output
 
-#### Submission
+### Submission
 
 The following files will need to be submitted:
 

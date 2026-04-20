@@ -9,7 +9,7 @@ You will want to see the
 due dates are listed on the [UVa course page](../uva/index.html)
 ([md](../uva/index.md)).
 
-### Assignment
+## Assignment
 
 You will need to be familiar with the content of the
 [US Cybersecurity Policy slide set](../slides/policy.html#/).
@@ -56,7 +56,7 @@ assignments, one becomes a great fluff detector, and will mark your
 assignment down -- or give you a zero -- for it.  It's a waste of your
 time and also a waste of our time.
 
-### Submission
+## Submission
 
 Please ensure that you follow *all* four of these requirements:
 

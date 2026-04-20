@@ -3,7 +3,7 @@ ICS: Programming Homework: Cryptocurrency
 
 [Go up to the ICS HW page](index.html) ([md](index.md))
 
-### Overview
+## Overview
 
 You must design and implement your own cryptocurrency!  Your implementation must be secure enough that you could actually use it.
 
@@ -16,12 +16,12 @@ If you want to use a programming language not already provided in this assignmen
 This assignment is based on the material covered in the [Cryptocurrency](../slides/cryptocurrency.html#/) slide set; you will need to be familiar with that material to complete this assignment.
 
 
-### Changelog
+## Changelog
 
 Any changes to this page will be put here for easy reference.  Typo fixes and minor clarifications are not listed here.  So far there aren't any significant changes to report.
 
 
-### Languages
+## Languages
 
 You may use any programming language for this, but if you want to use a language other than Java or Python, please check with us first so that we can enable it on the submission server.  You have to let us know at least two days before the assignment is due so we have time to configure it.
 
@@ -36,7 +36,7 @@ Other languages are available; chat with the course instructor.  We do ***NOT***
 <!-- **C/C++:** Boost is installed, as well as the openssl library.  There are many great things about C and C++, but be careful if you pursue this langage -- we think this will give you a real headache if you try to implement it in C or C++.  The compiler is `gcc` or `g++`. -->
 
 
-### File format
+## File format
 
 **Blockchain**
 
@@ -107,7 +107,7 @@ Note that the result of a `fund` command, which comes from "bigfoot" (or whateve
 A wallet is a public / private key set.  When signing a transaction, or checking a signature, then the full wallet file name will have to be provided as a command line parameter.  A wallet *tag* is a shortened version of the hash of the public key from the wallet file.  For our purposes, we should take the SHA-256 hash of the public key, and use that.  However, that's a bit long, so we can use only the first 16 characters of that hash for brevity.
 
 
-### Requirements
+## Requirements
 
 Since this can be done in any programming language, you will have to write a shell script (described below) so that we can call your code. While the shell script is described below, the particular function -- called the mode -- to be implemented is `shown like this` in the requirements below.  That function will be the first command line parameter provided to the program, and any additional command line parameters are specified below.  For example, to generate a wallet, you might call `java CMoney generate wallet.txt` or `python3 cmoney.py generate wallet.txt`.  We are going to be using the same command-line parameters (here, `generate wallet.txt`) to both your source code and the shell script.
 
@@ -168,9 +168,9 @@ In terms of output, there are only four commands where the output is very specif
 
 All other commands can print any reasonable (one-line) line of output.  Note that this output is in separate from any files created.
 
-### Other files
+## Other files
 
-#### Shell script
+### Shell script
 
 Since different programming languages can be used, and you may name your file differently, we are going to have you submit a shell script called `cryptomoney.sh` that we will use to test your code.  All it does is pass the command-line parameters on to your program.  If you are using Python, then your shell script would look like the following:
 
@@ -192,7 +192,7 @@ Change `CMoney` to the name of your `public` Java class.
 
 Save the two lines above to a text file called `cryptomoney.sh`; change the name of the file as appropriate to your code.  Then run `chmod 755 cryptomoney.sh`.  You should then be able to run your program through the shell script.  Examples of how to call the shell script are given below, but it uses the same command line parameters described above.
 
-#### Makefile
+### Makefile
 
 Separately from the shell script, you will also need a Makefile.  This will allow your program to be compiled prior to execution (if your program needs compilation).  For languages that do not need compilation (such as Python), just put in a single `echo` statement so that `make` still runs properly.
 
@@ -215,7 +215,7 @@ main:
 Note that the indentation is a tab, not spaces!  Makefiles are very strict on that.  And change the Java file name as appropriate for your source code.
 
 
-### Sample execution
+## Sample execution
 
 This is just meant to show the syntax -- it is not meant to be a full fledged testing suite of your homework.  However, it does call each of the commands listed above, and makes the calls via the shell script. Note that the lines with the equals signs are setting shell variables to be used later on.  The commands used here are in the [basic-test.sh](cryptocurrency/basic-test.sh) ([html](cryptocurrency/basic-test.sh.html)) script.  Note that you will have to run `chmod 755 basic-test.sh` before you can run the shell script.  You would run it as: `./basic-test.sh`.  Also note that this shell script takes the SHA-256 sum of one of the block files via the `sha256sum` command -- if you don't have this command on your computer, you can remove that line.
 
@@ -271,7 +271,7 @@ $
 ```
 
 
-### Notes
+## Notes
 
 There are a number of assumptions you can make for your code:
 
@@ -281,7 +281,7 @@ There are a number of assumptions you can make for your code:
 - All numerical values provided for the cryptocurrency amounts -- this is for the `balance` and `fund` modes -- will only be integers; floating point numbers are not being used in this assignment.
 
 
-### Submission
+## Submission
 
 You will submit exactly three files for this assignment:
 
