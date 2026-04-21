@@ -40,10 +40,10 @@ http://www.gnu.org/software/src-highlite">
   <font color="#008A00">char</font> name<font color="#990000">[</font><font color="#993399">200</font><font color="#990000">];</font>
   <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> print_buffer_address <font color="#990000">)</font> <font color="#DF0000">{</font>
     <font color="#008A00">unsigned</font> <font color="#008A00">long</font> addr <font color="#990000">=</font> <font color="#990000">(</font><font color="#008A00">unsigned</font> <font color="#008A00">long</font><font color="#990000">)</font> name <font color="#990000">+</font> <font color="#993399">0x20</font><font color="#990000">;</font>
-    <b><font color="#000000">printf</font></b><font color="#990000">(</font><font color="#DF0000">"%lx</font><font color="#CC33CC">\n</font><font color="#DF0000">"</font><font color="#990000">,</font>addr<font color="#990000">);</font>
+    <b><font color="#000000">printf</font></b><font color="#990000">(</font><font color="#DF0000">"%lx</font><font color="#C431C4">\n</font><font color="#DF0000">"</font><font color="#990000">,</font>addr<font color="#990000">);</font>
     <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
   <font color="#DF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#DF0000">{</font>
-    <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#DF0000">"Please enter your name:</font><font color="#CC33CC">\n</font><font color="#DF0000">"</font><font color="#990000">);</font>
+    <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#DF0000">"Please enter your name:</font><font color="#C431C4">\n</font><font color="#DF0000">"</font><font color="#990000">);</font>
     <b><font color="#000000">fgets</font></b> <font color="#990000">(</font>name<font color="#990000">,</font> <font color="#993399">1000000</font><font color="#990000">,</font> stdin<font color="#990000">);</font>
     <b><font color="#000000">strncpy</font></b> <font color="#990000">(</font>global_name<font color="#990000">,</font> name<font color="#990000">,</font> <font color="#993399">199</font><font color="#990000">);</font> <i><font color="#9A1900">// look, ma, no buffer overflow possible here!</font></i>
   <font color="#DF0000">}</font>
@@ -74,7 +74,7 @@ http://www.gnu.org/software/src-highlite">
   global_name<font color="#990000">[</font><b><font color="#000000">strlen</font></b><font color="#990000">(</font>global_name<font color="#990000">)-</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
 
   <i><font color="#9A1900">// print the grade</font></i>
-  <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#DF0000">"</font><font color="#CC33CC">\n</font><font color="#DF0000">%s, your grade on this assignment is a F</font><font color="#CC33CC">\n</font><font color="#DF0000">"</font><font color="#990000">,</font> global_name<font color="#990000">);</font>
+  <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#DF0000">"</font><font color="#C431C4">\n</font><font color="#DF0000">%s, your grade on this assignment is a F</font><font color="#C431C4">\n</font><font color="#DF0000">"</font><font color="#990000">,</font> global_name<font color="#990000">);</font>
 <font color="#DF0000">}</font>
 </tt></pre></main>
 </body>

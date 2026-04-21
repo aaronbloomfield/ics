@@ -18,9 +18,9 @@ http://www.gnu.org/software/src-highlite">
   <font color="#008A00">int</font> on_stack<font color="#990000">;</font>
   <b><font color="#000000">mprotect</font></b><font color="#990000">((</font><font color="#008A00">char</font> <font color="#990000">*)((</font><font color="#008A00">long</font><font color="#990000">)&amp;</font>on_stack <font color="#990000">&amp;</font> <font color="#990000">-</font><font color="#993399">0x1000</font><font color="#990000">),</font> <font color="#993399">1</font><font color="#990000">,</font> PROT_READ <font color="#990000">|</font> PROT_WRITE <font color="#990000">|</font> PROT_EXEC<font color="#990000">);</font>
   <b><font color="#000000">mprotect</font></b><font color="#990000">((</font><font color="#008A00">char</font> <font color="#990000">*)((</font><font color="#008A00">long</font><font color="#990000">)&amp;</font>main <font color="#990000">&amp;</font> <font color="#990000">-</font><font color="#993399">0x1000</font><font color="#990000">),</font> <font color="#993399">1</font><font color="#990000">,</font> PROT_READ <font color="#990000">|</font> PROT_WRITE <font color="#990000">|</font> PROT_EXEC<font color="#990000">);</font>
-  <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#DF0000">"Before shell code is executed.</font><font color="#CC33CC">\n</font><font color="#DF0000">"</font><font color="#990000">);</font>
+  <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#DF0000">"Before shell code is executed.</font><font color="#C431C4">\n</font><font color="#DF0000">"</font><font color="#990000">);</font>
   <b><font color="#000000">shellcode</font></b><font color="#990000">();</font>
-  <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#DF0000">"After shell code is executed.</font><font color="#CC33CC">\n</font><font color="#DF0000">"</font><font color="#990000">);</font>
+  <b><font color="#000000">printf</font></b> <font color="#990000">(</font><font color="#DF0000">"After shell code is executed.</font><font color="#C431C4">\n</font><font color="#DF0000">"</font><font color="#990000">);</font>
 <font color="#DF0000">}</font>
 </tt></pre></main>
 </body>
