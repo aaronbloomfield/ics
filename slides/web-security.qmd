@@ -55,7 +55,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchan
 ----
 
 ::: {.right-float-img .img-padding}
-[![Image of mixing paint colors](images/web-security/Diffie-Hellman_Key_Exchange.svg)](https://commons.wikimedia.org/wiki/File:Diffie-Hellman_Key_Exchange.svg)
+[![](images/web-security/Diffie-Hellman_Key_Exchange.svg){fig-alt="Image of mixing paint colors"}](https://commons.wikimedia.org/wiki/File:Diffie-Hellman_Key_Exchange.svg)
 :::
 <h2>DH key<br>exchange<br>example<br>as colors</h2>
 
@@ -101,13 +101,13 @@ If that doesn't work, try the [direct Youtube link](http://youtu.be/YEBfamv-_do?
 
 
 ## Diagram of an X.509 cert
-![Diagram of an X.509 certificate for google.com](images/web-security/x.509-cert.svg)
+![](images/web-security/x.509-cert.svg){fig-alt="Diagram of an X.509 certificate for google.com"}
 
 
 
 ## Certificate usage
 ::: {.right-float-img .img-size-600}
-![Screenshot of a Firefox pop-up of wikipedia.com's certificate](images/web-security/ServerCertificate.png)
+![](images/web-security/ServerCertificate.png){fig-alt="Screenshot of a Firefox pop-up of wikipedia.com's certificate"}
 :::
 - All websites that support https provide such a certificate to any client
 - Browsers can display certificate info, such as shown here
@@ -244,7 +244,7 @@ An entity (such as virginia.edu) can hold an *intermediate* certificate, which a
 ----
 
 ::: {.stretch}
-[![TLS protocol diagram](images/web-security/SSL_handshake_with_two_way_authentication_with_certificates.svg)](https://upload.wikimedia.org/wikipedia/commons/a/ae/SSL_handshake_with_two_way_authentication_with_certificates.svg)
+[![](images/web-security/SSL_handshake_with_two_way_authentication_with_certificates.svg){fig-alt="TLS protocol diagram"}](https://upload.wikimedia.org/wikipedia/commons/a/ae/SSL_handshake_with_two_way_authentication_with_certificates.svg)
 :::
 
 
@@ -283,14 +283,14 @@ An entity (such as virginia.edu) can hold an *intermediate* certificate, which a
 
 ## [TLS key exchange protocols](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
 ::: {.stretch}
-![a list of TLS key exchange protocols](images/web-security/tls-protocols-1.webp)
+![](images/web-security/tls-protocols-1.webp){fig-alt="a list of TLS key exchange protocols"}
 :::
 Updated version [here](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
 
 
 ## [TLS session protocols](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
 ::: {.stretch}
-![a list of TLS session protocols](images/web-security/tls-protocols-2.png)
+![](images/web-security/tls-protocols-2.png){fig-alt="a list of TLS session protocols"}
 :::
 Updated version [here](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
 
@@ -299,7 +299,7 @@ Updated version [here](https://en.wikipedia.org/wiki/Transport_Layer_Security#Ke
 Each successive encrypted block depends on the previous one, so that two encrypted blocks that are the same plaintext will have different ciphertext
 
 ::: {style="zoom:200%"}
-![a diagram of the use of IVs (initialization vector) in encryption](images/web-security/IVs.svg)
+![](images/web-security/IVs.svg){fig-alt="a diagram of the use of IVs (initialization vector) in encryption"}
 :::
 
 
@@ -351,7 +351,7 @@ Each successive encrypted block depends on the previous one, so that two encrypt
 
 ## HMAC with SHA1
 ::: {.stretch .img-size-900}
-[![how an HMAC with SHA1 is encoded](images/web-security/SHAhmac.svg)](https://commons.wikimedia.org/wiki/File:SHAhmac.svg)
+[![](images/web-security/SHAhmac.svg){fig-alt="how an HMAC with SHA1 is encoded"}](https://commons.wikimedia.org/wiki/File:SHAhmac.svg)
 :::
 
 *i_pad* and *o_pad* have known and non-secret values
@@ -366,7 +366,7 @@ Each successive encrypted block depends on the previous one, so that two encrypt
 
 
 ## [TLS MAC protocols](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
-![TLS MAC protocols](images/web-security/tls-protocols-3.png)
+![](images/web-security/tls-protocols-3.png){fig-alt="TLS MAC protocols"}
 Note that even if the MAC doesn't support encryption (in the first 3 rows), the cipher (likely AES) still does
 
 Updated version [here](https://en.wikipedia.org/wiki/Transport_Layer_Security#Key_exchange_or_key_agreement)
@@ -386,7 +386,7 @@ Updated version [here](https://en.wikipedia.org/wiki/Transport_Layer_Security#Ke
 
 ## Heartbleed (2012)
 ::: {.right-float-img .img-size-600}
-![the heartbleed attack logo](images/web-security/Heartbleed.svg)
+![](images/web-security/Heartbleed.svg){fig-alt="the heartbleed attack logo"}
 :::
 - A problem in *one* implementation of the TLS protocol
   - Specifically the OpenSSL library implementation
@@ -405,13 +405,13 @@ Updated version [here](https://en.wikipedia.org/wiki/Transport_Layer_Security#Ke
 
 
 ## xkcd on Heartbleed ([# 1354](https://xkcd.com/1354/))
-![xkcd heartbleed comic, first third](images/web-security/heartbleed_explanation_2x-a.png)
+![](images/web-security/heartbleed_explanation_2x-a.png){fig-alt="xkcd heartbleed comic, first third"}
 
 ## xkcd on Heartbleed ([# 1354](https://xkcd.com/1354/))
-![xkcd heartbleed comic, second third](images/web-security/heartbleed_explanation_2x-b.png)
+![](images/web-security/heartbleed_explanation_2x-b.png){fig-alt="xkcd heartbleed comic, second third"}
 
 ## xkcd on Heartbleed ([# 1354](https://xkcd.com/1354/))
-![xkcd heartbleed comic, third third](images/web-security/heartbleed_explanation_2x-c.png)
+![](images/web-security/heartbleed_explanation_2x-c.png){fig-alt="xkcd heartbleed comic, third third"}
 
 
 ## Mining Your Ps and Qs (2012)
@@ -432,7 +432,7 @@ Updated version [here](https://en.wikipedia.org/wiki/Transport_Layer_Security#Ke
 
 
 ## Boot-up time versus PRG quality
-![a graph showing boot-up time versus PRG quality](images/web-security/weakkeys12.extended.svg)
+![](images/web-security/weakkeys12.extended.svg){fig-alt="a graph showing boot-up time versus PRG quality"}
 
 Source: [Mining Your Ps and Qs: Detection of Widespread Weak Keys in Network Devices](https://factorable.net/weakkeys12.extended.pdf)
 
@@ -504,13 +504,13 @@ gmail.com\0.mydomain.com
 
 
 ## Cookie exchange
-[![a diagram showing the communication involved in cookie exchange](images/web-security/800px-HTTP_cookie_exchange.svg.png)](https://commons.wikimedia.org/wiki/File:HTTP_cookie_exchange.svg)
+[![](images/web-security/800px-HTTP_cookie_exchange.svg.png){fig-alt="a diagram showing the communication involved in cookie exchange"}](https://commons.wikimedia.org/wiki/File:HTTP_cookie_exchange.svg)
 
 
 
 ## What a cookie stores
 ::: {.right-float-img style="zoom:200%"}
-[![a screenshot of HTTP headers which shows the cookie data](images/web-security/HTTP-Cookie-Google.svg)](https://commons.wikimedia.org/wiki/File:HTTP-Cookie-Google.svg)
+[![](images/web-security/HTTP-Cookie-Google.svg){fig-alt="a screenshot of HTTP headers which shows the cookie data"}](https://commons.wikimedia.org/wiki/File:HTTP-Cookie-Google.svg)
 :::
 - The URL the cookie<br>applies to (domain<br>and path)
 - An information string

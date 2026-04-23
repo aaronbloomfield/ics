@@ -16,7 +16,7 @@ title: "Encryption"
 
 ----
 
-![an image of a TCP dump](images/encryption/tcpdump.png)
+![](images/encryption/tcpdump.png){fig-alt="an image of a TCP dump"}
 
 
 ## Codes versus Ciphers
@@ -60,7 +60,7 @@ title: "Encryption"
 
 
 ## Cipher Taxonomy
-![cipher taxonomy](images/encryption/cipher-taxonomy.png)
+![](images/encryption/cipher-taxonomy.png){fig-alt="cipher taxonomy"}
 - [Reference](http://en.wikipedia.org/wiki/Ciphers)
 
 
@@ -79,7 +79,7 @@ title: "Encryption"
 
 
 ## Caesar Cipher
-![an image of a Caesar cipher](images/encryption/caesar-cipher.png)
+![](images/encryption/caesar-cipher.png){fig-alt="an image of a Caesar cipher"}
 
 
 ## Caesar Cipher analysis
@@ -121,7 +121,7 @@ title: "Encryption"
 
 
 ## Vigenere cipher table
-![an image of a Vigenere cipher table](images/encryption/vigenere-cipher.png)
+![](images/encryption/vigenere-cipher.png){fig-alt="an image of a Vigenere cipher table"}
 
 
 ## Vigenere cipher
@@ -134,7 +134,7 @@ title: "Encryption"
 
 
 ## Vigenere cipher
-![vigenere table](images/encryption/vigenere-cipher.png)
+![](images/encryption/vigenere-cipher.png){fig-alt="vigenere table"}
 Encrypt "attackatdawn" with "lemon"
 
 
@@ -256,7 +256,7 @@ W . . . E . . . C . . . R . . . L . . . T . . . E
 
 
 ## Rotor machines
-![an image of a rotor machine](images/encryption/rotor-machine.png)
+![](images/encryption/rotor-machine.png){fig-alt="an image of a rotor machine"}
 
 
 ## Enigma machine
@@ -270,7 +270,7 @@ W . . . E . . . C . . . R . . . L . . . T . . . E
 
 <!-- .slide: class="no-border" -->
 ## Enigma machine
-![a picture of the enigma machine](images/encryption/enigma-machine.png)
+![](images/encryption/enigma-machine.png){fig-alt="a picture of the enigma machine"}
 
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -330,7 +330,7 @@ W . . . E . . . C . . . R . . . L . . . T . . . E
 
 
 ## Key Round Schedule
-[![AES key round images](https://upload.wikimedia.org/wikipedia/commons/b/be/AES-Key_Schedule_128-bit_key.svg){style="width:500px;float:right;margin:10px;border:10px solid white"}](https://commons.wikimedia.org/wiki/File:AES-Key_Schedule_128-bit_key.svg)
+[![](https://upload.wikimedia.org/wikipedia/commons/b/be/AES-Key_Schedule_128-bit_key.svg){fig-alt="AES key round images"}{style="width:500px;float:right;margin:10px;border:10px solid white"}](https://commons.wikimedia.org/wiki/File:AES-Key_Schedule_128-bit_key.svg)
 
 - Let:
   - $N$: key length in 32-bit words (4, 6, or 8)
@@ -355,7 +355,7 @@ W . . . E . . . C . . . R . . . L . . . T . . . E
 
 
 ## AES: ShiftRows step
-[![AES key round images: shiftrows step](https://upload.wikimedia.org/wikipedia/commons/6/66/AES-ShiftRows.svg)](https://commons.wikimedia.org/wiki/File:AES-ShiftRows.svg)
+[![](https://upload.wikimedia.org/wikipedia/commons/6/66/AES-ShiftRows.svg){fig-alt="AES key round images: shiftrows step"}](https://commons.wikimedia.org/wiki/File:AES-ShiftRows.svg)
 
 - Rows are shifted cyclically to the left
 - This provides *diffusion*
@@ -364,7 +364,7 @@ W . . . E . . . C . . . R . . . L . . . T . . . E
 
 <!-- .slide: class="right-float-img-600" -->
 ## AES: MixColumns step
-[![AES key round images: mixcolumns step](https://upload.wikimedia.org/wikipedia/commons/7/76/AES-MixColumns.svg)](https://commons.wikimedia.org/wiki/File:AES-MixColumns.svg)
+[![](https://upload.wikimedia.org/wikipedia/commons/7/76/AES-MixColumns.svg){fig-alt="AES key round images: mixcolumns step"}](https://commons.wikimedia.org/wiki/File:AES-MixColumns.svg)
 
 - The values are transformed according to the following matrix operation
 - This also provides *diffusion*
@@ -383,7 +383,7 @@ $
 
 <!-- .slide: class="right-float-img-800" -->
 ## AES: AddRoundKey step
-[![AES key round images: addroundkey step](https://upload.wikimedia.org/wikipedia/commons/a/ad/AES-AddRoundKey.svg){style="width:600px;float:right;margin:10px;border:10px solid white"}](https://commons.wikimedia.org/wiki/File:AES-AddRoundKey.svg)
+[![](https://upload.wikimedia.org/wikipedia/commons/a/ad/AES-AddRoundKey.svg){fig-alt="AES key round images: addroundkey step"}{style="width:600px;float:right;margin:10px;border:10px solid white"}](https://commons.wikimedia.org/wiki/File:AES-AddRoundKey.svg)
 
 - Derive a subkey from the main key via the AES key schedule
 - Subkey is then XOR'ed with the state
@@ -481,7 +481,7 @@ return probably prime
 
 <!-- .slide: class="no-border" -->
 ## Google's recruitment campaign
-![Google recruitment billboard](https://statisticallyinsignificant.files.wordpress.com/2011/05/google.jpg)
+![](https://statisticallyinsignificant.files.wordpress.com/2011/05/google.jpg){fig-alt="Google recruitment billboard"}
 
 
 ## How to compute $a^e\text{ mod }n$ ?
@@ -769,7 +769,7 @@ pow(m,e,n)
 
 ## Encrypting RSA messages
 Formula is $c = m^e\text{ mod }n$
-![RSA license plate](images/encryption/license-plate.jpg)
+![](images/encryption/license-plate.jpg){fig-alt="RSA license plate"}
 
 
 ## Encrypting messages example
@@ -995,7 +995,7 @@ $
 
 ## Security
 ::: {.stretch}
-![xkcd Security comic](https://imgs.xkcd.com/comics/security.png){title="Actual actual reality: nobody cares about his secrets.  (Also, I would be hard-pressed to find that wrench for $5.)" style='border:10px solid white'}  
+![](https://imgs.xkcd.com/comics/security.png){fig-alt="xkcd Security comic"}{title="Actual actual reality: nobody cares about his secrets.  (Also, I would be hard-pressed to find that wrench for $5.)" style='border:10px solid white'}  
 :::
 ::: {.r-stack}
 [xkcd \# 538](https://xkcd.com/538)
@@ -1078,7 +1078,7 @@ $
 
 ## Elliptic curves
 - A curve of the form $y^2=x^3+a\cdot x+b$
-![an elliptic curve](images/encryption/secp256k1-a.svg)
+![](images/encryption/secp256k1-a.svg){fig-alt="an elliptic curve"}
 
 
 ## History
@@ -1130,7 +1130,7 @@ $
 
 ## Random Number
 ::: {.stretch}
-![xkcd on random numbers](https://imgs.xkcd.com/comics/random_number.png){title="RFC 1149.5 specifies 4 as the standard IEEE-vetted random number." style='border:10px solid white'}  
+![](https://imgs.xkcd.com/comics/random_number.png){fig-alt="xkcd on random numbers"}{title="RFC 1149.5 specifies 4 as the standard IEEE-vetted random number." style='border:10px solid white'}  
 :::
 ::: {.r-stack}
 [xkcd \# 221](https://xkcd.com/221)
@@ -1258,7 +1258,7 @@ $
 
 
 ## Cloudflare uses a wall of lava lamps ([source](https://it.slashdot.org/story/17/11/07/1927239/how-cloudflare-uses-lava-lamps-to-encrypt-the-internet))
-![lava lamps at cloudflare's HQ](http://blog.cloudflare.com/content/images/2017/11/lava-lamps.jpg)
+![](http://blog.cloudflare.com/content/images/2017/11/lava-lamps.jpg){fig-alt="lava lamps at cloudflare's HQ"}
 
 
 ## Determining randomness
@@ -1305,7 +1305,7 @@ $
 
 ## Security Holes
 ::: {.stretch}
-![xkcd on security holes](https://imgs.xkcd.com/comics/security_holes.png){title="True story: I had to try several times to upload this comic because my ssh key was blacklisted." style='border:10px solid white'  }
+![](https://imgs.xkcd.com/comics/security_holes.png){fig-alt="xkcd on security holes"}{title="True story: I had to try several times to upload this comic because my ssh key was blacklisted." style='border:10px solid white'  }
 :::
 ::: {.r-stack}
 [xkcd \# 424](https://xkcd.com/424)
@@ -1314,7 +1314,7 @@ $
 
 ## Dependency
 ::: {.stretch}
-![xkcd on dependencies](https://imgs.xkcd.com/comics/dependency.png){title="Someday ImageMagick will finally break for good and we&#39;ll have a long period of scrambling as we try to reassemble civilization from the rubble." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/dependency_2x.png 2x" }
+![](https://imgs.xkcd.com/comics/dependency.png){fig-alt="xkcd on dependencies"}{title="Someday ImageMagick will finally break for good and we&#39;ll have a long period of scrambling as we try to reassemble civilization from the rubble." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/dependency_2x.png 2x" }
 :::
 ::: {.r-stack}
 [xkcd \# 2347](https://xkcd.com/2347)
@@ -1722,7 +1722,7 @@ $
 
 ## 10. D'agapeyeff Cipher
 ::: {.right-float-img .img-size-600}
-![an image of the Dagapeyeff cipher](images/encryption/dagapeyeff-cipher.png)
+![](images/encryption/dagapeyeff-cipher.png){fig-alt="an image of the Dagapeyeff cipher"}
 :::
 - A "challenge cipher" at the end of a 1939 book on cryptography
 - The author forgot how he encrypted it (and what it meant)
@@ -1731,7 +1731,7 @@ $
 
 ## 9. Kryptos
 ::: {.right-float-img .img-size-600}
-![an image of Kryptos](https://listverse.com/wp-content/uploads/2007/10/kryptos-tm.jpg)
+![](https://listverse.com/wp-content/uploads/2007/10/kryptos-tm.jpg){fig-alt="an image of Kryptos"}
 :::
 - A monument in the CIA headquarters, erected in 1990
 - In 1999, the first person publically admitted to solving about 90% of it
@@ -1740,7 +1740,7 @@ $
 
 ## 8. Shugborough Hall Inscription
 ::: {.right-float-img .img-size-600}
-![an image of the Shugborough Hall Inscription](http://listverse.com/wp-content/uploads/2007/10/shug4big-tm.jpg)
+![](http://listverse.com/wp-content/uploads/2007/10/shug4big-tm.jpg){fig-alt="an image of the Shugborough Hall Inscription"}
 :::
 - Based (somewhat) on a painting, but with a few differences
 - Has the following inscription:
@@ -1750,7 +1750,7 @@ $
 
 ## 7. Chinese Gold Bar Cipher
 ::: {.right-float-img .img-size-600}
-![an image of the Chinese Gold Bar Cipher](http://listverse.com/wp-content/uploads/2007/10/10.1-tm.jpg)
+![](http://listverse.com/wp-content/uploads/2007/10/10.1-tm.jpg){fig-alt="an image of the Chinese Gold Bar Cipher"}
 :::
 - Gold bars issued to a General Wang in 1933
 - It supposedly is a deposit greater than $300 billion
@@ -1759,7 +1759,7 @@ $
 
 ## 6. Chaocipher
 ::: {.right-float-img .img-size-600}
-![an image of the Chaocipher](http://listverse.com/wp-content/uploads/2007/10/jfb-tm.jpg)
+![](http://listverse.com/wp-content/uploads/2007/10/jfb-tm.jpg){fig-alt="an image of the Chaocipher"}
 :::
 - An 'unbreakable' cipher from 1918
 - The gov't was rather uninterested in it
@@ -1767,7 +1767,7 @@ $
 
 ## 5. The Dorabella Cipher
 ::: {.right-float-img .img-size-600}
-![an image of the Dorabella Cipher](http://listverse.com/wp-content/uploads/2007/10/elgciph-tm.jpg)
+![](http://listverse.com/wp-content/uploads/2007/10/elgciph-tm.jpg){fig-alt="an image of the Dorabella Cipher"}
 :::
 - A letter from Edward Elgar to Dora Penny in 1897 - she never figured it out, either
 - 87 characters from 24 symbols
@@ -1776,7 +1776,7 @@ $
 
 ## 4. Beale Ciphers
 ::: {.right-float-img .img-size-600}
-![an image of the Beale Ciphers](http://listverse.com/wp-content/uploads/2007/10/700px-beale-1.svg-tm.jpg)
+![](http://listverse.com/wp-content/uploads/2007/10/700px-beale-1.svg-tm.jpg){fig-alt="an image of the Beale Ciphers"}
 :::
 - According to the story, a man in 1820 buried a load of treasure in VA
 - One of the ciphers has been decrypted, and it details the treasure itself
@@ -1785,7 +1785,7 @@ $
 
 ## 3. Linear A
 ::: {.right-float-img .img-size-600}
-![an image of Linear A](http://listverse.com/wp-content/uploads/2007/10/lina-tm.jpg)
+![](http://listverse.com/wp-content/uploads/2007/10/lina-tm.jpg){fig-alt="an image of Linear A"}
 :::
 - A script used in ancient Crete
   - This is from 1450 B.C.
@@ -1795,7 +1795,7 @@ $
 
 ## 2. [Voynich Manuscript](https://en.wikipedia.org/wiki/Voynich_manuscript)
 ::: {.right-float-img .img-size-600}
-![an image of the Voynich Manuscript](http://listverse.com/wp-content/uploads/2007/10/awr-6vm2-tm.jpg)
+![](http://listverse.com/wp-content/uploads/2007/10/awr-6vm2-tm.jpg){fig-alt="an image of the Voynich Manuscript"}
 :::
 - An entire book in a secret script that is at least 400 years old
   - 272 pages, although about 30 are missing
@@ -1807,7 +1807,7 @@ $
 
 ## 1. The Phaistos Disk
 ::: {.right-float-img .img-size-500}
-![an image of the Phaistos Disk](http://listverse.com/wp-content/uploads/2007/10/phaistos-tm.jpg)
+![](http://listverse.com/wp-content/uploads/2007/10/phaistos-tm.jpg){fig-alt="an image of the Phaistos Disk"}
 :::
 - Also from ancient Crete
   - And found along with Linear A

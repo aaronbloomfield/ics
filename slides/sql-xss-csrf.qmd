@@ -245,7 +245,7 @@ select * from course where
 ## [xkcd # 327](https://xkcd.com/327/">xkcd # 327) on SQL injection attacks
 <p style="text-align:center">Exploits of a Mom</p>
 ::: {.stretch}
-![xkcd comic 327 showing an SQL injection attack](https://imgs.xkcd.com/comics/exploits_of_a_mom.png){title="Her daughter is named Help I&#39;m trapped in a driver&#39;s license factory." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/exploits_of_a_mom_2x.png 2x" }
+![](https://imgs.xkcd.com/comics/exploits_of_a_mom.png){fig-alt="xkcd comic 327 showing an SQL injection attack"}{title="Her daughter is named Help I&#39;m trapped in a driver&#39;s license factory." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/exploits_of_a_mom_2x.png 2x" }
 :::
 ::: {.r-stack}
 [xkcd \# 327](https://xkcd.com/327)
@@ -389,7 +389,7 @@ We've all seen HTML forms:
 
 ## HTML Form Widgets
 Lots of different ones (image from [OpenTechSchool](http://opentechschool.github.io/python-flask/core/forms.html)):
-![a screenshot showing different HTML form input types](images/sql-xss-csrf/sample_web_form.png)
+![](images/sql-xss-csrf/sample_web_form.png){fig-alt="a screenshot showing different HTML form input types"}
 
 There are also *hidden* input fields:
 ``` html

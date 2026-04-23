@@ -17,13 +17,13 @@ title: "Networks"
 
 
 ## OSI Model
-[![the OSI model](images/networks/OSI_Model_v1.svg)](https://commons.wikimedia.org/wiki/File:OSI_Model_v1.svg)
+[![](images/networks/OSI_Model_v1.svg){fig-alt="the OSI model"}](https://commons.wikimedia.org/wiki/File:OSI_Model_v1.svg)
 
 
 
 ## Protocol stack: physical layer
 ::: {.right-float-img .img-size-800}
-[![Ethernet cable](images/networks/ethernet-cable.jpg)](https://commons.wikimedia.org/wiki/File:Ethernet_cable._SAM.jpg)
+[![](images/networks/ethernet-cable.jpg){fig-alt="Ethernet cable"}](https://commons.wikimedia.org/wiki/File:Ethernet_cable._SAM.jpg)
 :::
 - Is charged with getting data<br>from one end of the 'wire'<br>to the other end
 - Examples:
@@ -40,7 +40,7 @@ title: "Networks"
   - Other examples: ARP, ISDN, PPP, ATM, FDDI
 - Although you may use Ethernet, your data will travel over others to its destination, including fiber optic
   - Such as ATM and FDDI
-[![Ethernet packet](images/networks/ethernet-packet.svg)](https://commons.wikimedia.org/wiki/File:Ethernet_Type_II_Frame_format.svg)
+[![](images/networks/ethernet-packet.svg){fig-alt="Ethernet packet"}](https://commons.wikimedia.org/wiki/File:Ethernet_Type_II_Frame_format.svg)
 
 
 
@@ -56,7 +56,7 @@ title: "Networks"
 - This is the TCP/IP version of the OSI network layer
 - IPv4 has addresses that are 32 bits: four 8-bit numbers
 - IPv6 has addresses that are 128 bits
-[![IPv4 header](images/networks/ip-header.png)](https://commons.wikimedia.org/wiki/File:IPv4_header_%281%29.png)
+[![](images/networks/ip-header.png){fig-alt="IPv4 header"}](https://commons.wikimedia.org/wiki/File:IPv4_header_%281%29.png)
 
 
 
@@ -72,7 +72,7 @@ title: "Networks"
 - This is the TCP/IP version of the OSI transport layer
 - TCP will ensure any lost packet is re-sent: used for sending files
 - UDP doesn't bother: if a packet doesn't arrive, continue on: used for live streams
-[![TCP header](images/networks/tcp-header.png)](https://commons.wikimedia.org/wiki/File:TCP_header.png)
+[![](images/networks/tcp-header.png){fig-alt="TCP header"}](https://commons.wikimedia.org/wiki/File:TCP_header.png)
 
 
 
@@ -111,7 +111,7 @@ title: "Networks"
 
 ----
 
-![netowrk encapsulation](https://andromeda.cs.virginia.edu/ics/network-encapsulation.svg)
+![](https://andromeda.cs.virginia.edu/ics/network-encapsulation.svg){fig-alt="netowrk encapsulation"}
 
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -219,13 +219,13 @@ title: "Networks"
 
 
 ## Encryption without IVs
-[![ECB encryption image](images/networks/ECB_encryption.svg)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation)
+[![](images/networks/ECB_encryption.svg){fig-alt="ECB encryption image"}](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation)
 
 
 
 ## Encryption with IVs
 (at least what should happen)
-[![CBC encryption image](images/networks/CBC_encryption.svg)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation)
+[![](images/networks/CBC_encryption.svg){fig-alt="CBC encryption image"}](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation)
 
 
 

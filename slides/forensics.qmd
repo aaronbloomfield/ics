@@ -419,13 +419,13 @@ find . -type f -exec grep "example" '{}' \; -print
 
 
 ## Old Autopsy / Sleuth Kit
-![a screen shot of autopsy](images/forensics/autopsy.png)
+![](images/forensics/autopsy.png){fig-alt="a screen shot of autopsy"}
 
 
 
 ## Current Autopsy / Sleuth Kit
 These recent versions have a Java GUI
-[![autopsy screen shot](images/forensics/autopsy-v4.png)](https://github.com/sleuthkit/autopsy/issues/2855)
+[![](images/forensics/autopsy-v4.png){fig-alt="autopsy screen shot"}](https://github.com/sleuthkit/autopsy/issues/2855)
 
 
 

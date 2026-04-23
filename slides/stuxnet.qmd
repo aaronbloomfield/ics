@@ -47,7 +47,7 @@ title: Stuxnet
 
 ## Uranium enrichment
 ::: {.stretch}
-![a uranium gas centrifuge](images/stuxnet/960px-Gas_centrifuge_cascade.jpg)
+![](images/stuxnet/960px-Gas_centrifuge_cascade.jpg){fig-alt="a uranium gas centrifuge"}
 :::
 
 

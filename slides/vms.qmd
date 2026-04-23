@@ -77,7 +77,7 @@ title: Virtual Machines
 
 
 ## JVM diagram
-![java virtual machine image](https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/JvmSpec7.png/960px-JvmSpec7.png)
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/JvmSpec7.png/960px-JvmSpec7.png){fig-alt="java virtual machine image"}
 From [here](https://commons.wikimedia.org/wiki/File:JvmSpec7.png)
 
 
@@ -127,7 +127,7 @@ From [here](https://commons.wikimedia.org/wiki/File:JvmSpec7.png)
 
 ## OS VM examples
 ::: {.right-float-img .img-size-800}
-![docker's structure](https://upload.wikimedia.org/wikipedia/commons/0/09/Docker-linux-interfaces.svg){style="width:600px"}
+![](https://upload.wikimedia.org/wikipedia/commons/0/09/Docker-linux-interfaces.svg){fig-alt="docker's structure"}{style="width:600px"}
 :::
 - Docker is popular
   - Also LXC, LXD
@@ -153,7 +153,7 @@ Image from [here](https://medium.freecodecamp.org/a-beginner-friendly-introducti
   - IBM VM/370
 
 ::: {style="zoom:175%"}
-![VM/370 structure](http://flylib.com/books/3/275/1/html/2/images/01fig19.jpg)
+![](http://flylib.com/books/3/275/1/html/2/images/01fig19.jpg){fig-alt="VM/370 structure"}
 :::
 Image from [here](http://flylib.com/books/en/3.275.1.11/1/)
 
@@ -161,7 +161,7 @@ Image from [here](http://flylib.com/books/en/3.275.1.11/1/)
 
 ## System VM examples
 ::: {.right-float-img .img-size-700}
-![hosted vm](https://cdn-images-1.medium.com/max/1600/1*RKPXdVaqHRzmQ5RPBH_d-g.png)
+![](https://cdn-images-1.medium.com/max/1600/1*RKPXdVaqHRzmQ5RPBH_d-g.png){fig-alt="hosted vm"}
 :::
 - Hosted VM
   - VM runs on OS
@@ -204,7 +204,7 @@ Image from [here](https://medium.freecodecamp.org/a-beginner-friendly-introducti
 
 
 ## ABI vs API
-![abi vs api](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Linux_API_and_Linux_ABI.svg/800px-Linux_API_and_Linux_ABI.svg.png)
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Linux_API_and_Linux_ABI.svg/800px-Linux_API_and_Linux_ABI.svg.png){fig-alt="abi vs api"}
 From [wikipedia](https://en.wikipedia.org/wiki/Application_binary_interface)
 
 
@@ -255,7 +255,7 @@ From [wikipedia](https://en.wikipedia.org/wiki/Application_binary_interface)
 
 ## VMM diagram
 ::: {style="zoom:150%"}
-![a virtual machine monitor diagram](http://www.ni.com/cms/images/devzone/tut/HostedVirtualizationSmall_20090325191230.PNG)
+![](http://www.ni.com/cms/images/devzone/tut/HostedVirtualizationSmall_20090325191230.PNG){fig-alt="a virtual machine monitor diagram"}
 :::
 Image from [here](http://www.ni.com/white-paper/8709/en/)
 
@@ -333,7 +333,7 @@ Image from [here](http://www.ni.com/white-paper/8709/en/)
 	
 
 ## Hosted VM: VMWare
-![vmware hosting lots of vms](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/images/gallery/thumbnails/tn-workstation-pro-16.jpg)
+![](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/images/gallery/thumbnails/tn-workstation-pro-16.jpg){fig-alt="vmware hosting lots of vms"}
 
 	
 
@@ -394,7 +394,7 @@ Image from [here](http://www.ni.com/white-paper/8709/en/)
 	
 
 ## virt-what
-![a screenshot of virt-what](images/vms/virt-what.png)
+![](images/vms/virt-what.png){fig-alt="a screenshot of virt-what"}
 
 	
 
@@ -407,5 +407,5 @@ Image from [here](http://www.ni.com/white-paper/8709/en/)
 	
 
 ## VM Break-out
-![vm break out](images/vms/vm-breakout.png)
+![](images/vms/vm-breakout.png){fig-alt="vm break out"}
 Article is [here](https://arstechnica.com/information-technology/2017/03/hack-that-escapes-vm-by-exploiting-edge-browser-fetches-105000-at-pwn2own/)

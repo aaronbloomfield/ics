@@ -119,7 +119,7 @@ A series of (mostly unrelated) topics relating to computing security
 
 ## [USB Pineapple](https://hakshop.com/products/wifi-pineapple)
 ::: {.right-float-img .img-size-600 .noboxshadow}
-![an image of a USB pineapple](https://cdn.shopify.com/s/files/1/0068/2142/products/wp-mk7_81d03a53-bf1a-426f-9425-a34c8b3d9c85_800x.jpg)
+![](https://cdn.shopify.com/s/files/1/0068/2142/products/wp-mk7_81d03a53-bf1a-426f-9425-a34c8b3d9c85_800x.jpg){fig-alt="an image of a USB pineapple"}
 :::
 - A $100 WiFi device
 - Allows a MITM
@@ -159,7 +159,7 @@ A series of (mostly unrelated) topics relating to computing security
 
 ## CVE details
 ::: {.right-float-img .img-size-700}
-![an image of the CVE home page](images/reflection/cves-2023-12-02.webp)
+![](images/reflection/cves-2023-12-02.webp){fig-alt="an image of the CVE home page"}
 :::
 - As of 12/2/23, there were well over 200,000 vulnerabilities reported
   - 164,623 in the last 10 years
@@ -183,7 +183,7 @@ A series of (mostly unrelated) topics relating to computing security
 
 
 ## US-CERT email from Dec 3, '18
-![cert email](images/reflection/cert-email.png)
+![](images/reflection/cert-email.png){fig-alt="cert email"}
 [https://www.us-cert.gov/ncas/alerts/TA18-331A](https://www.us-cert.gov/ncas/alerts/TA18-331A)
 
 
@@ -336,4 +336,4 @@ other things that worked well in the past:
 - And please fill out the course surveys!
 
 ## Have a great break!
-![calvin & hobbes goodbye](https://www.cs.virginia.edu/~asb2t/laststrip.png)
+![](https://www.cs.virginia.edu/~asb2t/laststrip.png){fig-alt="calvin & hobbes goodbye"}
