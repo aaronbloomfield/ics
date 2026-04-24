@@ -6,7 +6,9 @@
   <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=yes'></meta>
   <title>ICS: Programming Homework: Forensics</title>
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
@@ -80,7 +82,7 @@
 <p>From a web browser, go to the URL on the Canvas landing page to download your disk image. Once it’s downloaded, you have to uncompress it: <code>gzip -d mst3k.img.gz</code>.</p>
 <h3 id='starting-autopsy'>Starting Autopsy</h3>
 <p>When you are adding the disk image to the autopsy case, you will be presented with a series of check boxes as to which modules you want to enable. It will look something like this:</p>
-<p><img src='forensics/autopsy-modules.webp'></img></p>
+<p><img src='forensics/autopsy-modules.webp' alt='image of the autopsy start-up dialog box'></img></p>
 <p><strong><em>IMPORTANT:</em></strong> You <strong><em>MUST</em></strong> de-select the ‘keyword search’ box. All of the other modules take 10 minutes to run, combined. The keyword search takes 5 hours. And the cyber range resets everything after 4 hours.</p>
 <p>The Cyber Range has a few limitations that you need to be aware of:</p>
 <ul>

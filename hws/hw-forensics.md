@@ -61,7 +61,7 @@ From a web browser, go to the URL on the Canvas landing page to download your di
 
 When you are adding the disk image to the autopsy case, you will be presented with a series of check boxes as to which modules you want to enable.  It will look something like this:
 
-![](forensics/autopsy-modules.webp)
+![](forensics/autopsy-modules.webp){alt="image of the autopsy start-up dialog box"}
 
 ***IMPORTANT:*** You ***MUST*** de-select the 'keyword search' box.  All of the other modules take 10 minutes to run, combined.  The keyword search takes 5 hours.  And the cyber range resets everything after 4 hours.
 

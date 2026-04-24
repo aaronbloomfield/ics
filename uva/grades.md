@@ -10,6 +10,6 @@ As per the [syllabus](syllabus.html) ([md](syllabus.md)), the grades were comput
 
 ## The Process of Grade Determination
 
-![](images/magic-8-ball.png)
+![](images/magic-8-ball.png){alt="image of a magic 8-ball"}
 
 Essays are graded via the [staircase grading method](http://www.cch.ca/newsletters/LawStudent/April2012/Article3.htm)
